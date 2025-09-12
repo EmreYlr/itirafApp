@@ -6,30 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB106D2E744115002DA295 /* AppDelegate.swift */; };
+		C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10742E744115002DA295 /* SceneDelegate.swift */; };
+		C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10752E744115002DA295 /* HomeViewController.swift */; };
+		C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3EB106E2E744115002DA295 /* Assets.xcassets */; };
+		C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3EB10712E744115002DA295 /* LaunchScreen.storyboard */; };
+		C3EB107D2E744115002DA295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3EB10732E744115002DA295 /* Main.storyboard */; };
+		C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10982E745D6D002DA295 /* LoginViewController.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		C3EB10552E7440CE002DA295 /* itirafApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itirafApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3EB106D2E744115002DA295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C3EB106E2E744115002DA295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C3EB106F2E744115002DA295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3EB10702E744115002DA295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C3EB10722E744115002DA295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C3EB10742E744115002DA295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C3EB10752E744115002DA295 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C3EB10982E745D6D002DA295 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C3EB10672E7440CF002DA295 /* Exceptions for "itirafApp" folder in "itirafApp" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = C3EB10542E7440CE002DA295 /* itirafApp */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		C3EB10572E7440CE002DA295 /* itirafApp */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				C3EB10672E7440CF002DA295 /* Exceptions for "itirafApp" folder in "itirafApp" target */,
-			);
-			path = itirafApp;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C3EB10522E7440CE002DA295 /* Frameworks */ = {
@@ -45,7 +42,7 @@
 		C3EB104C2E7440CE002DA295 = {
 			isa = PBXGroup;
 			children = (
-				C3EB10572E7440CE002DA295 /* itirafApp */,
+				C3EB10762E744115002DA295 /* itirafApp */,
 				C3EB10562E7440CE002DA295 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +53,173 @@
 				C3EB10552E7440CE002DA295 /* itirafApp.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C3EB10762E744115002DA295 /* itirafApp */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB107E2E74411A002DA295 /* App */,
+				C3EB10872E744A4A002DA295 /* Core */,
+				C3EB107F2E74412B002DA295 /* Feature */,
+			);
+			path = itirafApp;
+			sourceTree = "<group>";
+		};
+		C3EB107E2E74411A002DA295 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB106D2E744115002DA295 /* AppDelegate.swift */,
+				C3EB106E2E744115002DA295 /* Assets.xcassets */,
+				C3EB10712E744115002DA295 /* LaunchScreen.storyboard */,
+				C3EB10742E744115002DA295 /* SceneDelegate.swift */,
+				C3EB106F2E744115002DA295 /* Info.plist */,
+				C3EB10732E744115002DA295 /* Main.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C3EB107F2E74412B002DA295 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB108C2E744AF9002DA295 /* Home */,
+				C3EB10962E745D5C002DA295 /* Login */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		C3EB10812E744833002DA295 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB10752E744115002DA295 /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3EB10832E74485E002DA295 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C3EB10842E744863002DA295 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3EB10862E7448D0002DA295 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3EB10872E744A4A002DA295 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB10882E744A53002DA295 /* Network */,
+				C3EB10892E744A5D002DA295 /* Auth */,
+				C3EB108A2E744A63002DA295 /* Extension */,
+				C3EB108B2E744A75002DA295 /* Helpers */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C3EB10882E744A53002DA295 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C3EB10892E744A5D002DA295 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C3EB108A2E744A63002DA295 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C3EB108B2E744A75002DA295 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C3EB108C2E744AF9002DA295 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB108D2E745C9D002DA295 /* Storyboard */,
+				C3EB10832E74485E002DA295 /* Model */,
+				C3EB10812E744833002DA295 /* View */,
+				C3EB10842E744863002DA295 /* ViewModel */,
+				C3EB10862E7448D0002DA295 /* Service */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C3EB108D2E745C9D002DA295 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C3EB10902E745D5C002DA295 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C3EB10912E745D5C002DA295 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C3EB10932E745D5C002DA295 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB10982E745D6D002DA295 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3EB10942E745D5C002DA295 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3EB10952E745D5C002DA295 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3EB10962E745D5C002DA295 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB10902E745D5C002DA295 /* Storyboard */,
+				C3EB10912E745D5C002DA295 /* Model */,
+				C3EB10932E745D5C002DA295 /* View */,
+				C3EB10942E745D5C002DA295 /* ViewModel */,
+				C3EB10952E745D5C002DA295 /* Service */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,9 +236,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				C3EB10572E7440CE002DA295 /* itirafApp */,
 			);
 			name = itirafApp;
 			packageProductDependencies = (
@@ -122,6 +283,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */,
+				C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */,
+				C3EB107D2E744115002DA295 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +296,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */,
+				C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */,
+				C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */,
+				C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C3EB10712E744115002DA295 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3EB10702E744115002DA295 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C3EB10732E744115002DA295 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3EB10722E744115002DA295 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C3EB10692E7440CF002DA295 /* Debug */ = {
@@ -147,12 +334,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = US4P6S3B5V;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = itirafApp/Info.plist;
+				INFOPLIST_FILE = itirafApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -175,12 +363,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = US4P6S3B5V;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = itirafApp/Info.plist;
+				INFOPLIST_FILE = itirafApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -247,6 +436,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = itirafApp/App/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -305,6 +495,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = itirafApp/App/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
