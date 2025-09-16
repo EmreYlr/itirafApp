@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="itirafApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqB-et-pX5">
+                                <rect key="frame" x="27" y="689" width="339" height="45"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="fUN-3Y-OcI"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Giriş Yap">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pbV-xW-O1T"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Şifrenizi giriniz" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UAh-bD-Ttl">
+                                <rect key="frame" x="16" y="432" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6ZT-J2-Iax"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-posta ile giriş yap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WW-pm-Myg">
+                                <rect key="frame" x="16" y="162" width="204" height="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-posta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GH7-6a-KBh">
+                                <rect key="frame" x="15.999999999999996" y="280" width="62.666666666666657" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hesabınız yoksa bir hesap oluşturarak kullanmaya başlayabilirsiniz." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9j-cZ-1tN">
+                                <rect key="frame" x="16" y="200" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Fys-E9-ydP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q35-SR-btc">
+                                <rect key="frame" x="8" y="490" width="158" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="fwA-e5-ADA"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Hesabınız yok mu?">
+                                    <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0yE-Zh-oQ6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xD-kM-OzQ">
+                                <rect key="frame" x="242" y="490" width="143" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="9fb-yM-c70"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Şifremi unuttum!">
+                                    <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Şifre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGk-UH-BqA">
+                                <rect key="frame" x="16" y="391" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-posta hesabınızı giriniz" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yRJ-X9-dHZ">
+                                <rect key="frame" x="16" y="321" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4xd-pD-4HT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Q35-SR-btc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="0I2-kl-4Z8"/>
+                            <constraint firstItem="UAh-bD-Ttl" firstAttribute="top" secondItem="eGk-UH-BqA" secondAttribute="bottom" constant="20" id="1mc-cy-WSP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1xD-kM-OzQ" secondAttribute="trailing" constant="8" id="ANW-FO-9fl"/>
+                            <constraint firstItem="7WW-pm-Myg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Ers-Jj-qz3"/>
+                            <constraint firstItem="GqB-et-pX5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="27" id="Lao-74-lSX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yRJ-X9-dHZ" secondAttribute="trailing" constant="16" id="O2b-rc-ckD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="u9j-cZ-1tN" secondAttribute="trailing" constant="16" id="RYH-Ks-sBe"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="GqB-et-pX5" secondAttribute="bottom" constant="50" id="S6a-kf-NtK"/>
+                            <constraint firstItem="1xD-kM-OzQ" firstAttribute="top" secondItem="UAh-bD-Ttl" secondAttribute="bottom" constant="8" symbolic="YES" id="SEc-f8-fgu"/>
+                            <constraint firstItem="eGk-UH-BqA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Xoe-Jn-aFh"/>
+                            <constraint firstItem="eGk-UH-BqA" firstAttribute="top" secondItem="yRJ-X9-dHZ" secondAttribute="bottom" constant="20" id="abI-Wi-nVs"/>
+                            <constraint firstItem="u9j-cZ-1tN" firstAttribute="top" secondItem="7WW-pm-Myg" secondAttribute="bottom" constant="10" id="bIF-in-JZt"/>
+                            <constraint firstItem="UAh-bD-Ttl" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="mhQ-P4-5iI"/>
+                            <constraint firstItem="yRJ-X9-dHZ" firstAttribute="top" secondItem="GH7-6a-KBh" secondAttribute="bottom" constant="20" id="nO1-dX-RiG"/>
+                            <constraint firstItem="u9j-cZ-1tN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="nSK-b5-zQ9"/>
+                            <constraint firstItem="7WW-pm-Myg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="qfH-I7-08c"/>
+                            <constraint firstItem="yRJ-X9-dHZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="rOa-IX-UVk"/>
+                            <constraint firstItem="GH7-6a-KBh" firstAttribute="top" secondItem="u9j-cZ-1tN" secondAttribute="bottom" constant="30" id="sE7-8u-ohD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GqB-et-pX5" secondAttribute="trailing" constant="27" id="sW5-Sk-VtE"/>
+                            <constraint firstItem="Q35-SR-btc" firstAttribute="top" secondItem="UAh-bD-Ttl" secondAttribute="bottom" constant="8" id="tWL-SN-pu2"/>
+                            <constraint firstItem="GH7-6a-KBh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="vid-tS-qXM"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UAh-bD-Ttl" secondAttribute="trailing" constant="16" id="xVc-nH-oFH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NZq-EE-eKi"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="yRJ-X9-dHZ" id="bXF-Xh-b4T"/>
+                        <outlet property="passwordTextField" destination="UAh-bD-Ttl" id="hZ7-lT-lW4"/>
+                        <segue destination="zCC-LB-Wmj" kind="show" id="ZWT-4M-3Hu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1049.6183206106871" y="-2.1126760563380285"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="ZM9-ML-mF4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="zCC-LB-Wmj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="dGu-9E-jb5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Le-x3-wLS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1761" y="-2"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JBJ-cO-hkx">
+            <objects>
+                <navigationController storyboardIdentifier="LoginNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="LTw-JG-LBY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iry-Pp-rhX">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="uym-zY-7TC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JCM-Xo-elh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122.90076335877862" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
