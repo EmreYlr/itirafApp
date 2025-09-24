@@ -11,6 +11,17 @@
 		C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5BB82E7983030068F334 /* Storyboard.swift */; };
 		C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5C762E7990D20068F334 /* LoginViewModel.swift */; };
 		C37D5C792E7990F70068F334 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5C782E7990F50068F334 /* HomeViewModel.swift */; };
+		C37D5DE32E8414630068F334 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5DE22E8414630068F334 /* NetworkConstants.swift */; };
+		C37D5DE52E8414760068F334 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5DE42E8414760068F334 /* Endpoint.swift */; };
+		C37D5DE72E8415080068F334 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5DE62E8415080068F334 /* NetworkManager.swift */; };
+		C37D5DEA2E8415260068F334 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C37D5DE92E8415260068F334 /* Alamofire */; };
+		C37D5DEC2E8417110068F334 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5DEB2E8417110068F334 /* AuthService.swift */; };
+		C37D5DEE2E8417230068F334 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5DED2E8417230068F334 /* AuthManager.swift */; };
+		C37D5DF02E841DD50068F334 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5DEF2E841DCB0068F334 /* KeychainHelper.swift */; };
+		C37D5DF22E84256A0068F334 /* NSNotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5DF12E84255F0068F334 /* NSNotification+Extension.swift */; };
+		C37D5DF42E842A2F0068F334 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5DF32E842A2F0068F334 /* NetworkService.swift */; };
+		C37D5DF62E842A5B0068F334 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5DF52E842A5A0068F334 /* MockNetworkManager.swift */; };
+		C37D5DFC2E842AE30068F334 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5DFB2E842AE10068F334 /* LoginService.swift */; };
 		C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB106D2E744115002DA295 /* AppDelegate.swift */; };
 		C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10742E744115002DA295 /* SceneDelegate.swift */; };
 		C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10752E744115002DA295 /* HomeViewController.swift */; };
@@ -20,11 +31,32 @@
 		C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10982E745D6D002DA295 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C37D5E052E842CB80068F334 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3EB104D2E7440CE002DA295 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3EB10542E7440CE002DA295;
+			remoteInfo = itirafApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		C37D5B022E7840D20068F334 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C37D5BB82E7983030068F334 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		C37D5C762E7990D20068F334 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C37D5C782E7990F50068F334 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C37D5DE22E8414630068F334 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		C37D5DE42E8414760068F334 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		C37D5DE62E8415080068F334 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C37D5DEB2E8417110068F334 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		C37D5DED2E8417230068F334 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		C37D5DEF2E841DCB0068F334 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		C37D5DF12E84255F0068F334 /* NSNotification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+Extension.swift"; sourceTree = "<group>"; };
+		C37D5DF32E842A2F0068F334 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C37D5DF52E842A5A0068F334 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		C37D5DFB2E842AE10068F334 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		C37D5E012E842CB80068F334 /* itirafAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = itirafAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EB10552E7440CE002DA295 /* itirafApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itirafApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EB106D2E744115002DA295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3EB106E2E744115002DA295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,11 +68,27 @@
 		C3EB10982E745D6D002DA295 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C37D5E022E842CB80068F334 /* itirafAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = itirafAppTests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		C37D5DFE2E842CB80068F334 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3EB10522E7440CE002DA295 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37D5DEA2E8415260068F334 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +98,7 @@
 		C37D5B012E7840670068F334 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				C37D5DF52E842A5A0068F334 /* MockNetworkManager.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -66,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				C3EB10762E744115002DA295 /* itirafApp */,
+				C37D5E022E842CB80068F334 /* itirafAppTests */,
 				C3EB10562E7440CE002DA295 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				C3EB10552E7440CE002DA295 /* itirafApp.app */,
+				C37D5E012E842CB80068F334 /* itirafAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +207,10 @@
 		C3EB10882E744A53002DA295 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C37D5DF32E842A2F0068F334 /* NetworkService.swift */,
+				C37D5DE62E8415080068F334 /* NetworkManager.swift */,
+				C37D5DE42E8414760068F334 /* Endpoint.swift */,
+				C37D5DE22E8414630068F334 /* NetworkConstants.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -163,6 +218,8 @@
 		C3EB10892E744A5D002DA295 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				C37D5DED2E8417230068F334 /* AuthManager.swift */,
+				C37D5DEB2E8417110068F334 /* AuthService.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -170,6 +227,7 @@
 		C3EB108A2E744A63002DA295 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C37D5DF12E84255F0068F334 /* NSNotification+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -177,6 +235,7 @@
 		C3EB108B2E744A75002DA295 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C37D5DEF2E841DCB0068F334 /* KeychainHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -234,6 +293,7 @@
 		C3EB10952E745D5C002DA295 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				C37D5DFB2E842AE10068F334 /* LoginService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -253,6 +313,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C37D5E002E842CB80068F334 /* itirafAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C37D5E072E842CB80068F334 /* Build configuration list for PBXNativeTarget "itirafAppTests" */;
+			buildPhases = (
+				C37D5DFD2E842CB80068F334 /* Sources */,
+				C37D5DFE2E842CB80068F334 /* Frameworks */,
+				C37D5DFF2E842CB80068F334 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C37D5E062E842CB80068F334 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C37D5E022E842CB80068F334 /* itirafAppTests */,
+			);
+			name = itirafAppTests;
+			packageProductDependencies = (
+			);
+			productName = itirafAppTests;
+			productReference = C37D5E012E842CB80068F334 /* itirafAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C3EB10542E7440CE002DA295 /* itirafApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3EB10682E7440CF002DA295 /* Build configuration list for PBXNativeTarget "itirafApp" */;
@@ -267,6 +350,7 @@
 			);
 			name = itirafApp;
 			packageProductDependencies = (
+				C37D5DE92E8415260068F334 /* Alamofire */,
 			);
 			productName = itirafApp;
 			productReference = C3EB10552E7440CE002DA295 /* itirafApp.app */;
@@ -282,6 +366,10 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					C37D5E002E842CB80068F334 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = C3EB10542E7440CE002DA295;
+					};
 					C3EB10542E7440CE002DA295 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -296,17 +384,28 @@
 			);
 			mainGroup = C3EB104C2E7440CE002DA295;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C37D5DE82E8415260068F334 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C3EB10562E7440CE002DA295 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				C3EB10542E7440CE002DA295 /* itirafApp */,
+				C37D5E002E842CB80068F334 /* itirafAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C37D5DFF2E842CB80068F334 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3EB10532E7440CE002DA295 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -321,13 +420,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C37D5DFD2E842CB80068F334 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3EB10512E7440CE002DA295 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37D5DFC2E842AE30068F334 /* LoginService.swift in Sources */,
+				C37D5DE32E8414630068F334 /* NetworkConstants.swift in Sources */,
+				C37D5DEE2E8417230068F334 /* AuthManager.swift in Sources */,
+				C37D5DF62E842A5B0068F334 /* MockNetworkManager.swift in Sources */,
+				C37D5DE52E8414760068F334 /* Endpoint.swift in Sources */,
+				C37D5DE72E8415080068F334 /* NetworkManager.swift in Sources */,
 				C37D5C792E7990F70068F334 /* HomeViewModel.swift in Sources */,
 				C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */,
+				C37D5DEC2E8417110068F334 /* AuthService.swift in Sources */,
+				C37D5DF22E84256A0068F334 /* NSNotification+Extension.swift in Sources */,
 				C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */,
+				C37D5DF02E841DD50068F334 /* KeychainHelper.swift in Sources */,
+				C37D5DF42E842A2F0068F334 /* NetworkService.swift in Sources */,
 				C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */,
 				C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */,
 				C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */,
@@ -336,6 +452,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C37D5E062E842CB80068F334 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3EB10542E7440CE002DA295 /* itirafApp */;
+			targetProxy = C37D5E052E842CB80068F334 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C3EB10712E744115002DA295 /* LaunchScreen.storyboard */ = {
@@ -357,6 +481,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C37D5E082E842CB80068F334 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = US4P6S3B5V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.emre.itirafAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/itirafApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/itirafApp";
+			};
+			name = Debug;
+		};
+		C37D5E092E842CB80068F334 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = US4P6S3B5V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.emre.itirafAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/itirafApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/itirafApp";
+			};
+			name = Release;
+		};
 		C3EB10692E7440CF002DA295 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -541,6 +703,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C37D5E072E842CB80068F334 /* Build configuration list for PBXNativeTarget "itirafAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C37D5E082E842CB80068F334 /* Debug */,
+				C37D5E092E842CB80068F334 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C3EB10502E7440CE002DA295 /* Build configuration list for PBXProject "itirafApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -560,6 +731,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C37D5DE82E8415260068F334 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C37D5DE92E8415260068F334 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C37D5DE82E8415260068F334 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C3EB104D2E7440CE002DA295 /* Project object */;
 }

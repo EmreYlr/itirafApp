@@ -10,7 +10,34 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+//    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+//        
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleLogout), name: .userDidLogout, object: nil)
+//        
+//        // window setup
+//        if AuthManager.shared.isLoggedIn {
+//            window?.rootViewController = createHomeController()
+//        } else {
+//            window?.rootViewController = createLoginController()
+//        }
+//        window?.makeKeyAndVisible()
+//    }
+//    
+//    @objc func handleLogout() {
+//        DispatchQueue.main.async {
+//            // Login ekranına dön
+//            self.window?.rootViewController = createLoginController()
+//        }
+//    }
+//    
+//    // MARK: - Helper
+//    func createLoginController() -> UIViewController {
+//        return LoginViewController() // kendi VC’n
+//    }
+//    
+//    func createHomeController() -> UIViewController {
+//        return HomeTabBarController() // kendi VC’n
+//    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let rootVC: UIViewController
