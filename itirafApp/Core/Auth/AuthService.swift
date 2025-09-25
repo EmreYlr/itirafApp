@@ -22,7 +22,7 @@ final class AuthService {
 
         let params: Parameters = ["refresh_token": refresh]
 
-        NetworkManager.shared.request( path: Endpoint.Auth.refreshToken, method: .post, parameters: params, encoding: JSONEncoding.default) { (result: Result<RefreshTokenResponse, Error>) in
+        NetworkManager.shared.request(endpoint: Endpoint.Auth.refreshToken, method: .post, parameters: params, encoding: JSONEncoding.default) { (result: Result<RefreshTokenResponse, Error>) in
             switch result {
             case .success(let response):
                 AuthManager.shared.saveTokens(

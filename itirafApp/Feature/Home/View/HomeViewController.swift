@@ -9,14 +9,14 @@ import UIKit
 
 final class HomeViewController: UIViewController {
     //MARK: - Properties
-    var viewModel: HomeViewModel!
+    var viewModel: HomeViewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("HomeViewController")
         
-
+        
     }
-
+    
 }
 

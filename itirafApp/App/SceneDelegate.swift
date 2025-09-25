@@ -7,50 +7,52 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-//    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//        
-//        NotificationCenter.default.addObserver(self, selector: #selector(handleLogout), name: .userDidLogout, object: nil)
-//        
-//        // window setup
-//        if AuthManager.shared.isLoggedIn {
-//            window?.rootViewController = createHomeController()
-//        } else {
-//            window?.rootViewController = createLoginController()
-//        }
-//        window?.makeKeyAndVisible()
-//    }
-//    
-//    @objc func handleLogout() {
-//        DispatchQueue.main.async {
-//            // Login ekranına dön
-//            self.window?.rootViewController = createLoginController()
-//        }
-//    }
-//    
-//    // MARK: - Helper
-//    func createLoginController() -> UIViewController {
-//        return LoginViewController() // kendi VC’n
-//    }
-//    
-//    func createHomeController() -> UIViewController {
-//        return HomeTabBarController() // kendi VC’n
-//    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let rootVC: UIViewController
-        
-        guard let windowScence = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let window = UIWindow(windowScene: windowScence)
-        window.makeKeyAndVisible()
-        rootVC = Storyboard.login.instantiateNav(.loginNav)
-        window.rootViewController = rootVC
-        
+        let window = UIWindow(windowScene: windowScene)
         self.window = window
+
+        // Logout notification
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLogout), name: .userDidLogout, object: nil)
+        
+        // LoginRequired notification
+        NotificationCenter.default.addObserver(self, selector: #selector(showLoginRequired), name: .loginRequired, object: nil)
+        
+        window.rootViewController = createHomeController()
+        
+        
+        window.makeKeyAndVisible()
     }
+
+
+    @objc private func handleLogout() {
+        DispatchQueue.main.async {
+            self.window?.rootViewController = self.createLoginController()
+        }
+    }
+
+    @objc private func showLoginRequired() {
+        guard let rootVC = window?.rootViewController else { return }
+        LoginAlertPresenter.showLoginAlert(from: rootVC)
+    }
+
+
+    private func createLoginController() -> UIViewController {
+        let loginNav = Storyboard.login.instantiateNav(.loginNav)
+        return loginNav
+    }
+
+
+    private func createHomeController() -> UIViewController {
+        let tabNav = Storyboard.main.instantiateTabBar(.mainTabBar)
+        return tabNav
+    }
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

@@ -3,13 +3,15 @@
 //  itirafApp
 //
 //  Created by Emre on 24.09.2025.
-//b
+//
+
 import Alamofire
 
 protocol LoginServiceProtocol {
     func loginUser(email: String, password: String, completion: @escaping (Result<RefreshTokenResponse, Error>) -> Void)
     
 }
+
 final class LoginService {
     private let networkService: NetworkService
 
@@ -22,7 +24,7 @@ final class LoginService {
             "email": email,
             "password": password
         ]
-        networkService.request(path: Endpoint.Auth.login, method: .post, parameters: params, encoding: JSONEncoding.default) { (result: Result<RefreshTokenResponse, Error>) in
+        networkService.request(endpoint: Endpoint.Auth.login, method: .post, parameters: params, encoding: JSONEncoding.default) { (result: Result<RefreshTokenResponse, Error>) in
             switch result {
             case .success(let response):
                 AuthManager.shared.saveTokens(

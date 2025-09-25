@@ -9,4 +9,5 @@ import Foundation
 
 extension NSNotification.Name {
     static let userDidLogout = NSNotification.Name("userDidLogout")
+    static let loginRequired = NSNotification.Name("loginRequired")
 }

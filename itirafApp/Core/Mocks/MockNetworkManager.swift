@@ -13,7 +13,7 @@ final class MockNetworkManager {
     var dataToReturn: Decodable?
     var errorToReturn: Error?
 
-    func request<T: Decodable>(path: String, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, completion: @escaping (Result<T, Error>) -> Void) {
+    func request<T: Decodable>(endpoint: EndpointType, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, completion: @escaping (Result<T, Error>) -> Void) {
         if shouldSucceed, let data = dataToReturn as? T {
             completion(.success(data))
         } else {
