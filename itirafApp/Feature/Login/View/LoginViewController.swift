@@ -30,7 +30,10 @@ final class LoginViewController: UIViewController {
         loginViewModel.delegate = self
     }
     
-    @IBAction func registerButtonPressed(_ sender: UIButton) { }
+    @IBAction func registerButtonPressed(_ sender: UIButton) {
+        let registerViewController = Storyboard.register.instantiate(.register)
+        navigationController?.pushViewController(registerViewController, animated: true)
+    }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         let tabBarController: UITabBarController = Storyboard.main.instantiateTabBar(.mainTabBar)

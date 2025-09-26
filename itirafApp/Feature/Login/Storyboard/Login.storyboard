@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="itirafApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -142,7 +142,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UAh-bD-Ttl" secondAttribute="trailing" constant="16" id="xVc-nH-oFH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="NZq-EE-eKi"/>
+                    <navigationItem key="navigationItem" title="Login" id="NZq-EE-eKi"/>
                     <connections>
                         <outlet property="emailTextField" destination="yRJ-X9-dHZ" id="bXF-Xh-b4T"/>
                         <outlet property="passwordTextField" destination="UAh-bD-Ttl" id="hZ7-lT-lW4"/>
