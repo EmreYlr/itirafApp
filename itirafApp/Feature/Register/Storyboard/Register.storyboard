@@ -85,6 +85,9 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerButtonPressed:" destination="G5A-5R-HZI" eventType="touchUpInside" id="YrT-NH-Ufz"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soyisim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mm3-Bo-JyD">
                                 <rect key="frame" x="227.00000000000003" y="236" width="62.333333333333343" height="21"/>
@@ -165,6 +168,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Kayıt Ol" id="Gt4-F0-zpW"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="jeM-v3-VyP" id="EYX-31-XDf"/>
+                        <outlet property="nameTextField" destination="jdD-eK-k2r" id="fdH-vF-Oyg"/>
+                        <outlet property="passwordTextField" destination="vYa-dE-kKB" id="2Di-22-D7a"/>
+                        <outlet property="phoneNumTextField" destination="Ej1-Ol-rW0" id="Hxi-sT-mdc"/>
+                        <outlet property="registerButton" destination="tMF-it-rId" id="1KO-LS-CR3"/>
+                        <outlet property="surnameTextField" destination="h2E-D2-FPS" id="gHo-NC-yeN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2g-Nt-GbA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

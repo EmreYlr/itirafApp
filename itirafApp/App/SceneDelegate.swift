@@ -23,8 +23,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // LoginRequired notification
         NotificationCenter.default.addObserver(self, selector: #selector(showLoginRequired), name: .loginRequired, object: nil)
         
-//        window.rootViewController = createHomeController()
-        window.rootViewController = createLoginController()
+        window.rootViewController = createHomeController()
+//        window.rootViewController = createLoginController()
         
         
         window.makeKeyAndVisible()

@@ -36,10 +36,6 @@ final class itirafAppTests: XCTestCase {
             }
         }
 
-        waitForExpectations(timeout: 1.0)
-        
-        
-        
-    }
+        waitForExpectations(timeout: 1.0)    }
     
 }
