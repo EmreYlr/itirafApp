@@ -42,6 +42,7 @@ enum ViewControllerID: String {
     // Main.storyboard
     case home = "HomeViewController"
     case detail = "DetailViewController"
+    case person = "PersonViewController"
 
     // Login.storyboard
     case login = "LoginViewController"

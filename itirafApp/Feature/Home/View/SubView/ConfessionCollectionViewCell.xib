@@ -20,13 +20,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68O-sE-n82">
                         <rect key="frame" x="0.0" y="0.0" width="337" height="100"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut ." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="A5F-35-OHi">
-                                <rect key="frame" x="8" y="8" width="321" height="53"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15c-ov-zeY">
                                 <rect key="frame" x="8" y="68" width="35" height="20"/>
                                 <constraints>
@@ -58,21 +51,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Oxf-FI-M5q">
+                                <rect key="frame" x="8" y="8" width="321" height="53"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.7729190051" green="0.91854623950000003" blue="0.95700001720000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.80247635375979909" green="0.92904242768124956" blue="0.99332025078585862" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="5jb-dG-Av4" firstAttribute="centerY" secondItem="23Q-0O-7GW" secondAttribute="centerY" id="2Iz-GZ-MNR"/>
-                            <constraint firstItem="A5F-35-OHi" firstAttribute="top" secondItem="68O-sE-n82" secondAttribute="top" constant="8" id="2om-8f-jFA"/>
+                            <constraint firstItem="Oxf-FI-M5q" firstAttribute="leading" secondItem="68O-sE-n82" secondAttribute="leading" constant="8" id="NXG-hT-xAV"/>
                             <constraint firstItem="d2j-4l-Pod" firstAttribute="centerY" secondItem="15c-ov-zeY" secondAttribute="centerY" id="OAE-6p-UfY"/>
                             <constraint firstAttribute="bottom" secondItem="15c-ov-zeY" secondAttribute="bottom" constant="12" id="XoF-PR-6q4"/>
                             <constraint firstItem="23Q-0O-7GW" firstAttribute="leading" secondItem="d2j-4l-Pod" secondAttribute="trailing" constant="15" id="Yji-C5-fZH"/>
                             <constraint firstItem="23Q-0O-7GW" firstAttribute="centerY" secondItem="15c-ov-zeY" secondAttribute="centerY" id="YyH-Mj-04S"/>
+                            <constraint firstItem="Oxf-FI-M5q" firstAttribute="top" secondItem="68O-sE-n82" secondAttribute="top" constant="8" id="ZbD-2b-f9E"/>
                             <constraint firstItem="d2j-4l-Pod" firstAttribute="leading" secondItem="15c-ov-zeY" secondAttribute="trailing" id="aHe-mT-enQ"/>
-                            <constraint firstItem="23Q-0O-7GW" firstAttribute="top" secondItem="A5F-35-OHi" secondAttribute="bottom" id="dH3-bz-pAy"/>
                             <constraint firstItem="15c-ov-zeY" firstAttribute="leading" secondItem="68O-sE-n82" secondAttribute="leading" constant="8" id="fKU-GY-qvb"/>
+                            <constraint firstAttribute="trailing" secondItem="Oxf-FI-M5q" secondAttribute="trailing" constant="8" id="nlK-GQ-JEi"/>
+                            <constraint firstItem="23Q-0O-7GW" firstAttribute="top" secondItem="Oxf-FI-M5q" secondAttribute="bottom" id="otI-Bc-9Ls"/>
                             <constraint firstItem="5jb-dG-Av4" firstAttribute="leading" secondItem="23Q-0O-7GW" secondAttribute="trailing" id="pc5-b4-tI4"/>
-                            <constraint firstItem="A5F-35-OHi" firstAttribute="leading" secondItem="68O-sE-n82" secondAttribute="leading" constant="8" id="vMX-Zt-ztB"/>
-                            <constraint firstAttribute="trailing" secondItem="A5F-35-OHi" secondAttribute="trailing" constant="8" id="z7R-rs-CyE"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -89,11 +90,11 @@
                 <outlet property="bgView" destination="68O-sE-n82" id="TME-D2-rF6"/>
                 <outlet property="commentButton" destination="23Q-0O-7GW" id="h6Y-4z-1bb"/>
                 <outlet property="commentCountLabel" destination="5jb-dG-Av4" id="qho-HS-rCb"/>
-                <outlet property="confessionTextView" destination="A5F-35-OHi" id="5Su-fK-iYe"/>
+                <outlet property="confessionTextView" destination="Oxf-FI-M5q" id="XfJ-XY-FA7"/>
                 <outlet property="likeButton" destination="15c-ov-zeY" id="9qm-mv-r0e"/>
                 <outlet property="likeCountLabel" destination="d2j-4l-Pod" id="OJL-v3-Obo"/>
             </connections>
-            <point key="canvasLocation" x="231.29770992366412" y="36.971830985915496"/>
+            <point key="canvasLocation" x="231.29770992366412" y="36.619718309859159"/>
         </collectionViewCell>
     </objects>
     <resources>
