@@ -34,7 +34,9 @@ final class HomeViewController: UIViewController {
     private func initView() {
         homeViewModel.delegate = self
         homeViewModel.fetchConfessions()
-        
+        homeViewModel.onConfessionsChanged = { [weak self] _ in
+            self?.collectionView.reloadData()
+        }
     }
     
 }

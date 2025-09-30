@@ -14,7 +14,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "confessionCell", for: indexPath) as! ConfessionCollectionViewCell
-        cell.configure(with: homeViewModel.confessions[indexPath.row])
+        let confession = homeViewModel.confessions[indexPath.row]
+        cell.configure(with: confession)
+        
+        cell.onLikeButtonTapped = { [weak self] in
+            self?.homeViewModel.toggleLike(at: indexPath.row)
+        }
+        
+        cell.onCommentButtonTapped = { [weak self] in
+            self?.homeViewModel.addComment(to: indexPath.row)
+        }
+        
         return cell
     }
     

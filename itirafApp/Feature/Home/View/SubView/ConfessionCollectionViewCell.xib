@@ -29,6 +29,9 @@
                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                <connections>
+                                    <action selector="likeButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="n9Z-33-XiR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23Q-0O-7GW">
                                 <rect key="frame" x="73.333333333333329" y="61" width="35" height="34.333333333333343"/>
@@ -38,6 +41,9 @@
                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="bubble.right" catalog="system"/>
+                                <connections>
+                                    <action selector="commentButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="c94-te-0O5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jb-dG-Av4">
                                 <rect key="frame" x="108.33333333333333" y="71" width="13.333333333333329" height="14.333333333333329"/>

@@ -5,9 +5,10 @@
 //  Created by Emre on 29.09.2025.
 //
 
-struct Confession {
-    let id: String
-    let text: String
-    let likes: Int
-    let comments: Int
+struct Confession: Codable, Identifiable {
+    var id: String
+    var text: String
+    var likes: Int
+    var comments: Int
+    var isLiked: Bool = false
 }

@@ -16,6 +16,9 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var commentCountLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
     
+    var onLikeButtonTapped: (() -> Void)?
+    var onCommentButtonTapped: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         bgView.layer.cornerRadius = 10
@@ -28,6 +31,19 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         confessionTextView.text = confession.text
         likeCountLabel.text = "\(confession.likes)"
         commentCountLabel.text = "\(confession.comments)"
+        updateLikeButton(isLiked: confession.isLiked)
     }
-
+    
+    
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        onLikeButtonTapped?()
+    }
+    
+    @IBAction func commentButtonPressed(_ sender: UIButton) { onCommentButtonTapped?()
+    }
+    
+    func updateLikeButton(isLiked: Bool) {
+        let imageName = isLiked ? "heart.fill" : "heart"
+        likeButton.setImage(UIImage(systemName: imageName), for: .normal)
+    }
 }
