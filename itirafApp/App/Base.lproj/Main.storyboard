@@ -49,11 +49,62 @@
                     <navigationItem key="navigationItem" title="Home" id="0VH-UT-nhd"/>
                     <connections>
                         <outlet property="collectionView" destination="qpR-bp-mn3" id="52w-uc-JQ3"/>
+                        <segue destination="605-oo-PZE" kind="show" id="nHo-T2-r0s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1949" y="-701"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="lvD-p0-fVa">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="605-oo-PZE" customClass="DetailViewController" customModule="itirafApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l7D-VH-G8T">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İtiraf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTa-kZ-TL4">
+                                <rect key="frame" x="16" y="177" width="42" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvP-3S-7Ob">
+                                <rect key="frame" x="16" y="210" width="361" height="36.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comment" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiQ-pm-nW2">
+                                        <rect key="frame" x="8" y="7.9999999999999982" width="72" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.78486997889999999" green="0.91675646840000002" blue="0.96372744779999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="fiQ-pm-nW2" firstAttribute="leading" secondItem="mvP-3S-7Ob" secondAttribute="leading" constant="8" id="KQ5-5Q-iFk"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fiQ-pm-nW2" secondAttribute="trailing" constant="8" id="PMN-x8-Zgg"/>
+                                    <constraint firstItem="fiQ-pm-nW2" firstAttribute="top" secondItem="mvP-3S-7Ob" secondAttribute="top" constant="8" id="oIf-ig-uVS"/>
+                                    <constraint firstAttribute="bottom" secondItem="fiQ-pm-nW2" secondAttribute="bottom" constant="8" id="v8u-Pr-DKJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lww-dB-Beg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Lww-dB-Beg" firstAttribute="trailing" secondItem="mvP-3S-7Ob" secondAttribute="trailing" constant="16" id="0FG-ju-sxa"/>
+                            <constraint firstItem="mvP-3S-7Ob" firstAttribute="leading" secondItem="Lww-dB-Beg" secondAttribute="leading" constant="16" id="4zD-8i-jAx"/>
+                            <constraint firstItem="mvP-3S-7Ob" firstAttribute="top" secondItem="XTa-kZ-TL4" secondAttribute="bottom" constant="10" id="D0z-ei-H5l"/>
+                            <constraint firstItem="Lww-dB-Beg" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XTa-kZ-TL4" secondAttribute="trailing" constant="18" id="FbA-r7-PKc"/>
+                            <constraint firstItem="XTa-kZ-TL4" firstAttribute="leading" secondItem="Lww-dB-Beg" secondAttribute="leading" constant="16" id="nFb-dg-bVU"/>
+                            <constraint firstItem="XTa-kZ-TL4" firstAttribute="top" secondItem="Lww-dB-Beg" secondAttribute="top" constant="15" id="p5P-mY-N6d"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="c1d-Si-E1F"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mou-f3-vif" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2774.8091603053435" y="-701.4084507042254"/>
         </scene>
         <!--Ana Sayfa-->
         <scene sceneID="LWh-hd-oyt">

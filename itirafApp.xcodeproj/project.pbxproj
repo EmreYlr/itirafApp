@@ -33,6 +33,7 @@
 		C3C08BAF2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BAC2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.swift */; };
 		C3C08BB12E8ACE9A00EDC6A2 /* Confession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BB02E8ACE9600EDC6A2 /* Confession.swift */; };
 		C3C08BB82E8AF54900EDC6A2 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BB72E8AF54900EDC6A2 /* PersonViewController.swift */; };
+		C3C08BC02E8C37D400EDC6A2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BBF2E8C37D400EDC6A2 /* DetailViewController.swift */; };
 		C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB106D2E744115002DA295 /* AppDelegate.swift */; };
 		C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10742E744115002DA295 /* SceneDelegate.swift */; };
 		C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10752E744115002DA295 /* HomeViewController.swift */; };
@@ -79,6 +80,7 @@
 		C3C08BAD2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfessionCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3C08BB02E8ACE9600EDC6A2 /* Confession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confession.swift; sourceTree = "<group>"; };
 		C3C08BB72E8AF54900EDC6A2 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
+		C3C08BBF2E8C37D400EDC6A2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C3EB10552E7440CE002DA295 /* itirafApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itirafApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EB106D2E744115002DA295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3EB106E2E744115002DA295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -241,6 +243,55 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		C3C08BB92E8C367400EDC6A2 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB10962E745D5C002DA295 /* Login */,
+				C37D5E0D2E86DB5B0068F334 /* Register */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C3C08BBA2E8C36DD00EDC6A2 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				C3C08BBB2E8C37A500EDC6A2 /* Model */,
+				C3C08BBC2E8C37A900EDC6A2 /* View */,
+				C3C08BBD2E8C37AE00EDC6A2 /* ViewModel */,
+				C3C08BBE2E8C37B100EDC6A2 /* Service */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		C3C08BBB2E8C37A500EDC6A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C3C08BBC2E8C37A900EDC6A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3C08BBF2E8C37D400EDC6A2 /* DetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3C08BBD2E8C37AE00EDC6A2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3C08BBE2E8C37B100EDC6A2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		C3EB104C2E7440CE002DA295 = {
 			isa = PBXGroup;
 			children = (
@@ -287,8 +338,7 @@
 			children = (
 				C3EB108C2E744AF9002DA295 /* Home */,
 				C3C08BB22E8AF4FF00EDC6A2 /* Person */,
-				C3EB10962E745D5C002DA295 /* Login */,
-				C37D5E0D2E86DB5B0068F334 /* Register */,
+				C3C08BB92E8C367400EDC6A2 /* Auth */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -380,20 +430,13 @@
 		C3EB108C2E744AF9002DA295 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C3EB108D2E745C9D002DA295 /* Storyboard */,
 				C3EB10832E74485E002DA295 /* Model */,
 				C3EB10812E744833002DA295 /* View */,
 				C3EB10842E744863002DA295 /* ViewModel */,
 				C3EB10862E7448D0002DA295 /* Service */,
+				C3C08BBA2E8C36DD00EDC6A2 /* Detail */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		C3EB108D2E745C9D002DA295 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		C3EB10902E745D5C002DA295 /* Storyboard */ = {
@@ -579,6 +622,7 @@
 				C37D5DE52E8414760068F334 /* Endpoint.swift in Sources */,
 				C37D5DE72E8415080068F334 /* NetworkManager.swift in Sources */,
 				C3C08BAF2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.swift in Sources */,
+				C3C08BC02E8C37D400EDC6A2 /* DetailViewController.swift in Sources */,
 				C37D5C792E7990F70068F334 /* HomeViewModel.swift in Sources */,
 				C3C08BAA2E8AAE8100EDC6A2 /* HomeViewController+CollectionView.swift in Sources */,
 				C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */,

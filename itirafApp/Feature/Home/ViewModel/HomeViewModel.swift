@@ -47,16 +47,18 @@ final class HomeViewModel {
     
     
     func toggleLike(at index: Int) {
-        homeService.likeConfessions(confession: confessions[index]) { result in
-            switch result {
-            case .success(let updatedConfessions):
-                self.confessions[index].isLiked.toggle()
-                self.confessions[index].likes += self.confessions[index].isLiked ? 1 : -1
-                self.confessions = updatedConfessions
-            case .failure(let error):
-                print("Error liking confession: \(error)")
-            }
-        }
+        self.confessions[index].isLiked.toggle()
+        self.confessions[index].likes += self.confessions[index].isLiked ? 1 : -1
+//        homeService.likeConfessions(confession: confessions[index]) { result in
+//            switch result {
+//            case .success(let updatedConfessions):
+//                self.confessions[index].isLiked.toggle()
+//                self.confessions[index].likes += self.confessions[index].isLiked ? 1 : -1
+//                self.confessions = updatedConfessions
+//            case .failure(let error):
+//                print("Error liking confession: \(error)")
+//            }
+//        }
     }
     
     func addComment(to index: Int) {
@@ -64,15 +66,16 @@ final class HomeViewModel {
     }
     
     func fetchConfessions() {
-        homeService.fetchConfessions { result in
-            switch result {
-            case .success(let confessions):
-                self.confessions = confessions
-                self.delegate?.didUpdateConfessions()
-            case .failure(let error):
-                print("Error fetching confessions: \(error)")
-            }
-        } 
+        self.delegate?.didUpdateConfessions()
+//        homeService.fetchConfessions { result in
+//            switch result {
+//            case .success(let confessions):
+//                self.confessions = confessions
+//                self.delegate?.didUpdateConfessions()
+//            case .failure(let error):
+//                print("Error fetching confessions: \(error)")
+//            }
+//        }
         
     }
 }
