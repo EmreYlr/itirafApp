@@ -41,8 +41,9 @@ final class HomeViewModel {
         
     ] { didSet {
         onConfessionsChanged?(confessions)
+        }
     }
-    }
+    
     
     
     

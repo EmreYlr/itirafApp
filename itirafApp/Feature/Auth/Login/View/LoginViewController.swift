@@ -28,6 +28,8 @@ final class LoginViewController: UIViewController {
     
     private func initData() {
         loginViewModel.delegate = self
+        emailTextField.text = "ali@gmail.com"
+        passwordTextField.text = "1245678"
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
@@ -36,19 +38,22 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        let tabBarController: UITabBarController = Storyboard.main.instantiateTabBar(.mainTabBar)
-        
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let sceneDelegate = windowScene.delegate as? SceneDelegate {
-            sceneDelegate.window?.rootViewController = tabBarController
-            sceneDelegate.window?.makeKeyAndVisible()
-        }
+        loginViewModel.loginUser(email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+//        let tabBarController: UITabBarController = Storyboard.main.instantiateTabBar(.mainTabBar)
+//        
+//        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+//           let sceneDelegate = windowScene.delegate as? SceneDelegate {
+//            sceneDelegate.window?.rootViewController = tabBarController
+//            sceneDelegate.window?.makeKeyAndVisible()
+//        }
 
     }
 }
 
 extension LoginViewController: LoginViewModelOutputProtocol {
     func didLoginSuccessfully() {
+        print(AuthManager.shared.getAccessToken() ?? "")
+        print(AuthManager.shared.getRefreshToken() ?? "")
         print("Login Başarılı")
     }
     
