@@ -25,14 +25,24 @@ final class NetworkManager {
         
         let url = NetworkConstants.baseURL + endpoint.rawValue
         
-        var headers: HTTPHeaders = ["Content-Type": "application/json"]
+        var headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "x-client-key": Constants.clientKey
+        ]
+        
         if let token = AuthManager.shared.getAccessToken() {
             headers.add(name: "Authorization", value: "Bearer \(token)")
         }
         
         AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
-            .validate()
             .responseDecodable(of: T.self) { response in
+                let statusCode = response.response?.statusCode ?? -1
+                print("STATUS CODE:", statusCode)
+                if T.self == EmptyResponse.self, (200...299).contains(statusCode) {
+                    completion(.success(EmptyResponse() as! T))
+                    return
+                }
+                
                 switch response.result {
                 case .success(let decoded):
                     completion(.success(decoded))

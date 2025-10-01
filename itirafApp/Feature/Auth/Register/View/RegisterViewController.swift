@@ -26,9 +26,23 @@ final class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("RegisterViewController")
+        registerViewModel.delegate = self
 
     }
     
-    @IBAction func registerButtonPressed(_ sender: UIButton) { }
+    @IBAction func registerButtonPressed(_ sender: UIButton) {
+        registerViewModel.registerUser(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", username: nameTextField.text ?? "")
+    }
+    
+}
+
+extension RegisterViewController: RegisterViewModelOutputProtocol {
+    func didRegisterSuccessfully() {
+        print("Registration Successful")
+    }
+    
+    func didFailToRegister(with error: Error) {
+        print("Registration Failed: \(error.localizedDescription)")
+    }
     
 }

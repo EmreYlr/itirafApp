@@ -8,7 +8,7 @@
 import Alamofire
 
 protocol RegisterServiceProtocol {
-    func registerUser(email: String, password: String, username: String, completion: @escaping (Result<RefreshTokenResponse, Error>) -> Void)
+    func registerUser(email: String, password: String, username: String, completion: @escaping (Result<Void, Error>) -> Void)
     
 }
 
@@ -19,20 +19,17 @@ final class RegisterService {
         self.networkService = networkService
     }
 
-    func registerUser(email: String, password: String, username: String, completion: @escaping (Result<RefreshTokenResponse, Error>) -> Void) {
+    func registerUser(email: String, password: String, username: String, completion: @escaping (Result<Void, Error>) -> Void) {
         let params: Parameters = [
             "email": email,
-            "password": password,
-            "username": username
+            "username": username,
+            "password": password
         ]
-        networkService.request(endpoint: Endpoint.Auth.register, method: .post, parameters: params, encoding: JSONEncoding.default) { (result: Result<RefreshTokenResponse, Error>) in
+        
+        networkService.request(endpoint: Endpoint.Auth.register, method: .post, parameters: params, encoding: JSONEncoding.default) { (result: Result<EmptyResponse, Error>) in
             switch result {
-            case .success(let response):
-                AuthManager.shared.saveTokens(
-                    accessToken: response.accessToken,
-                    refreshToken: response.refreshToken
-                )
-                completion(.success(response))
+            case .success:
+                completion(.success(()))
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -41,3 +38,7 @@ final class RegisterService {
 }
 
 extension RegisterService: RegisterServiceProtocol { }
+
+
+
+
