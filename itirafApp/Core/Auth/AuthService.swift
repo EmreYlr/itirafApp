@@ -14,82 +14,71 @@ struct RefreshTokenResponse: Decodable {
 }
 
 final class AuthService {
-    private static func registerAnonymousUser(completion: @escaping (Result<AnonymousUser, Error>) -> Void) {
-        NetworkManager.shared.request(endpoint: Endpoint.Auth.registerAnonymous, method: .post,parameters: nil, encoding: JSONEncoding.default) { (result: Result<AnonymousUser, Error>) in
-            switch result {
-            case .success(let response):
-                print("Anonymous registration successful. User ID: \(response.email)")
-                completion(.success(response))
-            case .failure(let error):
-                print("Anonymous registration failed: \(error.localizedDescription)")
-                completion(.failure(error))
-            }
-        }
-        
+    static func registerAnonymousUser() async throws -> User {
+        var user: User = try await NetworkManager.shared.request(
+            endpoint: Endpoint.Auth.registerAnonymous,
+            method: .post
+        )
+        user.isAnonymous = true
+        print("Anonymous registration successful. User ID: \(user.email)")
+        return user
     }
-    //TODO: -Register and login istediği attığımda ve kullanıcı yoksa thread hatası var ona bak.
-    private static func loginAnonymousUser(email: String, completion: @escaping (Result<RefreshTokenResponse, Error>) -> Void) {
-        let params: Parameters = [
-            "email": email
-        ]
+    
+    static func loginAnonymousUser(user: User) async throws -> RefreshTokenResponse {
+        let params: Parameters = ["email": user.email]
         
-        NetworkManager.shared.request(endpoint: Endpoint.Auth.loginAnonymous, method: .post, parameters: params, encoding: JSONEncoding.default) { (result: Result<RefreshTokenResponse, Error>) in
-            switch result {
-            case .success(let response):
-                AuthManager.shared.saveTokens(
-                    accessToken: response.accessToken,
-                    refreshToken: response.refreshToken
-                )
-                completion(.success(response))
-            case .failure(let error):
-                completion(.failure(error))
+        let response: RefreshTokenResponse = try await NetworkManager.shared.request(
+            endpoint: Endpoint.Auth.loginAnonymous,
+            method: .post,
+            parameters: params
+        )
+        
+        AuthManager.shared.saveTokens(
+            accessToken: response.accessToken,
+            refreshToken: response.refreshToken
+        )
+        UserManager.shared.setUser(user)
+        return response
+    }
+    
+    static func registerAndLoginAnonymousUser() async -> Bool {
+        do {
+            if let user = UserManager.shared.getUser() {
+                do {
+                    _ = try await loginAnonymousUser(user: user)
+                    return true
+                } catch {
+                    return try await performRegisterAndLogin()
+                }
+            } else {
+                return try await performRegisterAndLogin()
             }
+        } catch {
+            return false
         }
     }
     
-    static func registerAndLoginAnonymousUser(completion: @escaping (Bool) -> Void) {
-        if let savedEmail = UserDefaults.standard.string(forKey: .anonymousLogin) {
-            loginAnonymousUser(email: savedEmail) { loginResult in
-                switch loginResult {
-                case .success:
-                    completion(true)
-                case .failure:
-                    self.performRegisterAndLogin(completion: completion)
-                }
-            }
-        } else {
-            performRegisterAndLogin(completion: completion)
+    static func performRegisterAndLogin() async throws -> Bool {
+        let anonymousUser = try await registerAnonymousUser()
+        
+        Task.detached(priority: .background) {
+            UserDefaults.standard.set(anonymousUser.email, forKey: .anonymousLogin)
         }
+        
+        _ = try await loginAnonymousUser(user: anonymousUser)
+        return true
     }
-
-    private static func performRegisterAndLogin(completion: @escaping (Bool) -> Void) {
-        registerAnonymousUser { registerResult in
-            switch registerResult {
-            case .success(let anonymousUser):
-                UserDefaults.standard.set(anonymousUser.email, forKey: .anonymousLogin)
-                loginAnonymousUser(email: anonymousUser.email) { loginResult in
-                    switch loginResult {
-                    case .success:
-                        completion(true)
-                    case .failure:
-                        completion(false)
-                    }
-                }
-            case .failure:
-                completion(false)
-            }
-        }
-    }
-
+    
+    
     
     static func refreshToken(completion: @escaping (Bool) -> Void) {
         guard let refresh = AuthManager.shared.getRefreshToken() else {
             completion(false)
             return
         }
-
+        
         let params: Parameters = ["refresh_token": refresh]
-
+        
         NetworkManager.shared.request(endpoint: Endpoint.Auth.refreshToken, method: .post, parameters: params, encoding: JSONEncoding.default) { (result: Result<RefreshTokenResponse, Error>) in
             switch result {
             case .success(let response):

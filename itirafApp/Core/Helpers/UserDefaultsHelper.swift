@@ -23,4 +23,16 @@ extension UserDefaults {
     func set(_ value: Bool, forKey key: Keys) {
         set(value, forKey: key.rawValue)
     }
+    
+    func set(_ value: Data?, forKey key: Keys) {
+        set(value, forKey: key.rawValue)
+    }
+    
+    func data(forKey key: Keys) -> Data? {
+        return data(forKey: key.rawValue)
+    }
+    
+    func removeObject(forKey key: Keys) {
+        removeObject(forKey: key.rawValue)
+    }
 }

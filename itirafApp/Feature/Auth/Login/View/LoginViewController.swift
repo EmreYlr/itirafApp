@@ -29,7 +29,7 @@ final class LoginViewController: UIViewController {
     private func initData() {
         loginViewModel.delegate = self
         emailTextField.text = "ali@gmail.com"
-        passwordTextField.text = "1245678"
+        passwordTextField.text = "12345678"
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {

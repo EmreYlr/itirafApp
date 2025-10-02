@@ -20,23 +20,26 @@ final class NetworkManager {
         }
         let url = NetworkConstants.baseURL + endpoint.rawValue
         
-        var headers: HTTPHeaders = [ "Content-Type": "application/json", "x-client-key": Constants.clientKey ]
+        var headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "x-client-key": Constants.clientKey
+        ]
         
         if let token = AuthManager.shared.getAccessToken() { headers.add(name: "Authorization", value: "Bearer \(token)")
         }
         
         AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseDecodable(of: T.self) { response in
-            
             let statusCode = response.response?.statusCode ?? -1
             print("STATUS CODE:", statusCode)
             
             if T.self == EmptyResponse.self, (200...299).contains(statusCode) {
-                completion(.success(EmptyResponse() as! T)); return
+                completion(.success(EmptyResponse() as! T))
+                return
             }
-            
             switch response.result {
             case .success(let decoded):
                 completion(.success(decoded))
+                
             case .failure(let error):
                 if response.response?.statusCode == 401 { self.handleTokenExpiration(endpoint: endpoint, method: method, parameters: parameters, encoding: encoding, completion: completion)
                 }
@@ -54,6 +57,24 @@ final class NetworkManager {
             else {
                 AuthManager.shared.clearTokens()
                 DispatchQueue.main.async { NotificationCenter.default.post(name: .userDidLogout, object: nil)
+                }
+            }
+        }
+    }
+    
+    func request<T: Decodable>(
+        endpoint: EndpointType,
+        method: HTTPMethod,
+        parameters: Parameters? = nil,
+        encoding: ParameterEncoding = JSONEncoding.default
+    ) async throws -> T {
+        try await withCheckedThrowingContinuation { continuation in
+            self.request(endpoint: endpoint, method: method, parameters: parameters, encoding: encoding) { (result: Result<T, Error>) in
+                switch result {
+                case .success(let decoded):
+                    continuation.resume(returning: decoded)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
                 }
             }
         }
