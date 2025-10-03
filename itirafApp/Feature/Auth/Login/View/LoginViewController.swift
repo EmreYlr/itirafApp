@@ -39,22 +39,21 @@ final class LoginViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         loginViewModel.loginUser(email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
-//        let tabBarController: UITabBarController = Storyboard.main.instantiateTabBar(.mainTabBar)
-//        
-//        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//           let sceneDelegate = windowScene.delegate as? SceneDelegate {
-//            sceneDelegate.window?.rootViewController = tabBarController
-//            sceneDelegate.window?.makeKeyAndVisible()
-//        }
+
 
     }
 }
 
 extension LoginViewController: LoginViewModelOutputProtocol {
     func didLoginSuccessfully() {
-        print(AuthManager.shared.getAccessToken() ?? "")
-        print(AuthManager.shared.getRefreshToken() ?? "")
         print("Login Başarılı")
+        let tabBarController: UITabBarController = Storyboard.main.instantiateTabBar(.mainTabBar)
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = windowScene.delegate as? SceneDelegate {
+            sceneDelegate.window?.rootViewController = tabBarController
+            sceneDelegate.window?.makeKeyAndVisible()
+        }
     }
     
     func didFailToLogin(with error: Error) {

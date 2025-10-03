@@ -25,6 +25,10 @@ final class UserManager {
         return currentUser?.email
     }
     
+    func getUserIsAnonymous() -> Bool {
+        return currentUser?.anonymous ?? false
+    }
+    
     func setUser(_ user: User) {
         self.currentUser = user
         saveToDefaults(user)

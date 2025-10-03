@@ -22,7 +22,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // LoginRequired notification
         NotificationCenter.default.addObserver(self, selector: #selector(showLoginRequired), name: .loginRequired, object: nil)
-        
+//        
         Task.detached(priority: .utility) {
             let success = await AuthService.registerAndLoginAnonymousUser()
             if success {
@@ -36,6 +36,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         
 //        window.rootViewController = createLoginController()
+//        window.rootViewController = createHomeController()
         
         
         window.makeKeyAndVisible()
@@ -50,6 +51,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     @objc private func showLoginRequired() {
         guard let rootVC = window?.rootViewController else { return }
+        
         LoginAlertPresenter.showLoginAlert(from: rootVC)
     }
 

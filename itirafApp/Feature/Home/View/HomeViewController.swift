@@ -22,6 +22,7 @@ final class HomeViewController: UIViewController {
         print("HomeViewController")
         initView()
         loadCollectionView()
+        print(UserManager.shared.getUser())
     }
     
     private func loadCollectionView() {
@@ -37,8 +38,6 @@ final class HomeViewController: UIViewController {
         homeViewModel.onConfessionsChanged = { [weak self] _ in
             self?.collectionView.reloadData()
         }
-        print(AuthManager.shared.getAccessToken() ?? "")
-        print(AuthManager.shared.getRefreshToken() ?? "")
     }
     
 }

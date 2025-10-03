@@ -3,6 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -157,40 +159,200 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Vko-W0-nIe" kind="relationship" relationship="rootViewController" id="L7f-DU-N0Q"/>
+                        <segue destination="eUP-H7-03D" kind="relationship" relationship="rootViewController" id="UYJ-il-E49"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tez-DI-nGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1088" y="-35"/>
         </scene>
-        <!--Person View Controller-->
-        <scene sceneID="y0U-2e-Kro">
+        <!--Hesap-->
+        <scene sceneID="hsn-Mk-ryt">
             <objects>
-                <viewController storyboardIdentifier="PersonViewController" id="Vko-W0-nIe" customClass="PersonViewController" customModule="itirafApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mGQ-d0-Xii">
+                <viewController storyboardIdentifier="PersonViewController" id="eUP-H7-03D" customClass="PersonViewController" customModule="itirafApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cl4-s1-m4t">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="4gi-Az-I5C"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hesap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugz-fl-97O">
+                                <rect key="frame" x="16" y="172" width="59" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83o-kJ-sRe">
+                                <rect key="frame" x="16" y="216" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="d2q-bG-ZCB"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Profil" imagePadding="6">
+                                    <imageReference key="image" image="person" catalog="system" renderingMode="hierarchical" variableValue="1">
+                                        <hierarchicalColors>
+                                            <color systemColor="systemMintColor"/>
+                                            <color name="GeneralColor"/>
+                                            <color name="GeneralColor"/>
+                                        </hierarchicalColors>
+                                    </imageReference>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                </buttonConfiguration>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8jK-gh-n45">
+                                <rect key="frame" x="357" y="233" width="20" height="16.333333333333343"/>
+                                <color key="tintColor" name="borderColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="kRx-1i-U1X"/>
+                                    <constraint firstAttribute="height" constant="20" id="taf-5j-GAM"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lS9-tA-nHy">
+                                <rect key="frame" x="16" y="274" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ltl-E6-wQ7"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Şifre Değiştir" imagePadding="6">
+                                    <imageReference key="image" image="person.badge.key" catalog="system" renderingMode="hierarchical" variableValue="1">
+                                        <hierarchicalColors>
+                                            <color systemColor="systemMintColor"/>
+                                            <color systemColor="systemMintColor"/>
+                                            <color name="GeneralColor"/>
+                                        </hierarchicalColors>
+                                    </imageReference>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                </buttonConfiguration>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uvd-Le-R54">
+                                <rect key="frame" x="357" y="291" width="20" height="16.333333333333314"/>
+                                <color key="tintColor" name="borderColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="eBj-ax-apq"/>
+                                    <constraint firstAttribute="height" constant="20" id="lUf-lw-NUE"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMA-a0-6lr">
+                                <rect key="frame" x="16" y="332" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hms-wS-vkv"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Dil" imagePadding="6">
+                                    <imageReference key="image" image="globe" catalog="system" renderingMode="hierarchical" variableValue="1">
+                                        <hierarchicalColors>
+                                            <color systemColor="systemMintColor"/>
+                                            <color name="GeneralColor"/>
+                                            <color name="GeneralColor"/>
+                                        </hierarchicalColors>
+                                    </imageReference>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                </buttonConfiguration>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="23R-fm-xbf">
+                                <rect key="frame" x="357" y="349" width="20" height="16.333333333333314"/>
+                                <color key="tintColor" name="borderColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="0IG-wy-VKG"/>
+                                    <constraint firstAttribute="height" constant="20" id="luX-zg-5aP"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqc-Mk-24R">
+                                <rect key="frame" x="16" y="390" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6eD-Hq-rvM"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Çıkış Yap" imagePadding="6">
+                                    <imageReference key="image" image="rectangle.portrait.and.arrow.forward" catalog="system" renderingMode="hierarchical" variableValue="1">
+                                        <hierarchicalColors>
+                                            <color systemColor="systemMintColor"/>
+                                            <color systemColor="systemMintColor"/>
+                                            <color name="GeneralColor"/>
+                                        </hierarchicalColors>
+                                    </imageReference>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="eUP-H7-03D" eventType="touchUpInside" id="pBD-sN-n4I"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6nJ-b0-AdJ">
+                                <rect key="frame" x="357" y="407" width="20" height="16.333333333333314"/>
+                                <color key="tintColor" name="borderColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="QDO-Tt-nrH"/>
+                                    <constraint firstAttribute="width" constant="20" id="yzt-vg-OlV"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyt-k6-IEz">
+                                <rect key="frame" x="145" y="460" width="103" height="31"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Hesabını Sil">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8Tw-Wg-ybG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="23R-fm-xbf" firstAttribute="trailing" secondItem="NMA-a0-6lr" secondAttribute="trailing" id="1s3-YA-0Uh"/>
+                            <constraint firstItem="ugz-fl-97O" firstAttribute="top" secondItem="8Tw-Wg-ybG" secondAttribute="top" constant="10" id="2FG-8j-MAT"/>
+                            <constraint firstItem="ugz-fl-97O" firstAttribute="leading" secondItem="8Tw-Wg-ybG" secondAttribute="leading" constant="16" id="3FO-lt-xql"/>
+                            <constraint firstItem="8jK-gh-n45" firstAttribute="centerY" secondItem="83o-kJ-sRe" secondAttribute="centerY" id="49g-lV-KzA"/>
+                            <constraint firstItem="83o-kJ-sRe" firstAttribute="leading" secondItem="8Tw-Wg-ybG" secondAttribute="leading" constant="16" id="80w-2s-Nd8"/>
+                            <constraint firstItem="uvd-Le-R54" firstAttribute="centerY" secondItem="lS9-tA-nHy" secondAttribute="centerY" id="I4D-kg-yu3"/>
+                            <constraint firstItem="uvd-Le-R54" firstAttribute="trailing" secondItem="lS9-tA-nHy" secondAttribute="trailing" id="Lww-eH-bOL"/>
+                            <constraint firstItem="NMA-a0-6lr" firstAttribute="leading" secondItem="8Tw-Wg-ybG" secondAttribute="leading" constant="16" id="O5t-cr-Bgz"/>
+                            <constraint firstItem="6nJ-b0-AdJ" firstAttribute="trailing" secondItem="hqc-Mk-24R" secondAttribute="trailing" id="OZO-F9-F5g"/>
+                            <constraint firstItem="8jK-gh-n45" firstAttribute="trailing" secondItem="83o-kJ-sRe" secondAttribute="trailing" id="TTF-ic-YKy"/>
+                            <constraint firstItem="6nJ-b0-AdJ" firstAttribute="centerY" secondItem="hqc-Mk-24R" secondAttribute="centerY" id="Wwg-UC-1f2"/>
+                            <constraint firstItem="8Tw-Wg-ybG" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ugz-fl-97O" secondAttribute="trailing" constant="100" id="Yqb-PS-YSE"/>
+                            <constraint firstItem="hqc-Mk-24R" firstAttribute="leading" secondItem="8Tw-Wg-ybG" secondAttribute="leading" constant="16" id="ZdX-ha-sas"/>
+                            <constraint firstItem="lS9-tA-nHy" firstAttribute="leading" secondItem="8Tw-Wg-ybG" secondAttribute="leading" constant="16" id="bBY-jv-PkF"/>
+                            <constraint firstItem="jyt-k6-IEz" firstAttribute="top" secondItem="hqc-Mk-24R" secondAttribute="bottom" constant="20" id="chP-xT-Het"/>
+                            <constraint firstItem="8Tw-Wg-ybG" firstAttribute="trailing" secondItem="hqc-Mk-24R" secondAttribute="trailing" constant="16" id="dhG-90-1mf"/>
+                            <constraint firstItem="NMA-a0-6lr" firstAttribute="top" secondItem="lS9-tA-nHy" secondAttribute="bottom" constant="8" symbolic="YES" id="g2E-ul-3pH"/>
+                            <constraint firstItem="83o-kJ-sRe" firstAttribute="top" secondItem="ugz-fl-97O" secondAttribute="bottom" constant="20" id="iVK-aN-dT7"/>
+                            <constraint firstItem="8Tw-Wg-ybG" firstAttribute="trailing" secondItem="NMA-a0-6lr" secondAttribute="trailing" constant="16" id="jFu-AR-ajb"/>
+                            <constraint firstItem="8Tw-Wg-ybG" firstAttribute="trailing" secondItem="lS9-tA-nHy" secondAttribute="trailing" constant="16" id="nsh-CV-fC1"/>
+                            <constraint firstItem="hqc-Mk-24R" firstAttribute="top" secondItem="NMA-a0-6lr" secondAttribute="bottom" constant="8" symbolic="YES" id="p42-cH-Mco"/>
+                            <constraint firstItem="23R-fm-xbf" firstAttribute="centerY" secondItem="NMA-a0-6lr" secondAttribute="centerY" id="pov-6Z-C8I"/>
+                            <constraint firstItem="lS9-tA-nHy" firstAttribute="top" secondItem="83o-kJ-sRe" secondAttribute="bottom" constant="8" symbolic="YES" id="r1T-SA-sao"/>
+                            <constraint firstItem="jyt-k6-IEz" firstAttribute="centerX" secondItem="8Tw-Wg-ybG" secondAttribute="centerX" id="yQK-v7-05U"/>
+                            <constraint firstItem="8Tw-Wg-ybG" firstAttribute="trailing" secondItem="83o-kJ-sRe" secondAttribute="trailing" constant="16" id="zHD-h8-7uY"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="kda-Uk-988"/>
+                    <navigationItem key="navigationItem" title="Hesap" id="fBC-vY-R1u"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aKm-kc-DCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8u1-tk-eSq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1949" y="-35"/>
+            <point key="canvasLocation" x="1973" y="-35"/>
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="globe" catalog="system" width="128" height="123"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="person.badge.key" catalog="system" width="128" height="128"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
+        <namedColor name="GeneralColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="borderColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemMintColor">
-            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

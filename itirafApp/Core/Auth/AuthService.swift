@@ -14,17 +14,16 @@ struct RefreshTokenResponse: Decodable {
 }
 
 final class AuthService {
-    static func registerAnonymousUser() async throws -> User {
-        var user: User = try await NetworkManager.shared.request(
+    private static func registerAnonymousUser() async throws -> User {
+        let user: User = try await NetworkManager.shared.request(
             endpoint: Endpoint.Auth.registerAnonymous,
             method: .post
         )
-        user.isAnonymous = true
-        print("Anonymous registration successful. User ID: \(user.email)")
+        print("User ID: \(user.email)")
         return user
     }
     
-    static func loginAnonymousUser(user: User) async throws -> RefreshTokenResponse {
+    private static func loginAnonymousUser(user: User) async throws -> RefreshTokenResponse {
         let params: Parameters = ["email": user.email]
         
         let response: RefreshTokenResponse = try await NetworkManager.shared.request(
@@ -58,13 +57,10 @@ final class AuthService {
         }
     }
     
-    static func performRegisterAndLogin() async throws -> Bool {
+    private static func performRegisterAndLogin() async throws -> Bool {
         let anonymousUser = try await registerAnonymousUser()
         
-        Task.detached(priority: .background) {
-            UserDefaults.standard.set(anonymousUser.email, forKey: .anonymousLogin)
-        }
-        
+
         _ = try await loginAnonymousUser(user: anonymousUser)
         return true
     }
@@ -77,7 +73,7 @@ final class AuthService {
             return
         }
         
-        let params: Parameters = ["refresh_token": refresh]
+        let params: Parameters = ["refreshToken": refresh]
         
         NetworkManager.shared.request(endpoint: Endpoint.Auth.refreshToken, method: .post, parameters: params, encoding: JSONEncoding.default) { (result: Result<RefreshTokenResponse, Error>) in
             switch result {

@@ -8,18 +8,21 @@
 import Alamofire
 
 protocol LoginServiceProtocol {
-    func loginUser(email: String, password: String, completion: @escaping (Result<RefreshTokenResponse, Error>) -> Void)
+    func loginUser(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void)
     
 }
 
 final class LoginService {
     private let networkService: NetworkService
-
-    init(networkService: NetworkService = NetworkManager.shared) {
+    private let userService: UserService
+    
+    init(networkService: NetworkService = NetworkManager.shared,
+         userService: UserService = UserService()) {
         self.networkService = networkService
+        self.userService = userService
     }
 
-    func loginUser(email: String, password: String, completion: @escaping (Result<RefreshTokenResponse, Error>) -> Void) {
+    func loginUser(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         let params: Parameters = [
             "email": email,
             "password": password
@@ -31,12 +34,22 @@ final class LoginService {
                     accessToken: response.accessToken,
                     refreshToken: response.refreshToken
                 )
-                completion(.success(response))
+                
+                self.userService.fetchCurrentUser { userResult in
+                    switch userResult {
+                    case .success(let user):
+                        completion(.success(user))
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
+    
+    
 }
 
 extension LoginService: LoginServiceProtocol { }

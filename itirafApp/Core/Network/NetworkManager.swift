@@ -13,11 +13,13 @@ final class NetworkManager {
     private init() {}
     
     func request<T: Decodable>(endpoint: EndpointType, method: HTTPMethod, parameters: Parameters? = nil, encoding: ParameterEncoding = JSONEncoding.default, completion: @escaping (Result<T, Error>) -> Void) {
-        if endpoint.requiresAuth, AuthManager.shared.getAccessToken() == nil {
-            DispatchQueue.main.async { NotificationCenter.default.post(name: .loginRequired, object: nil)
+        if endpoint.requiresAuth, UserManager.shared.getUserIsAnonymous() {
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: .loginRequired, object: nil)
             }
             return
         }
+        
         let url = NetworkConstants.baseURL + endpoint.rawValue
         
         var headers: HTTPHeaders = [
