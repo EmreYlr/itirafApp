@@ -19,12 +19,15 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         bgView.backgroundColor = .brown.withAlphaComponent(0.1)
+        messageLabel.numberOfLines = 0
     }
-    
 
+    
     func configure(with confession: ChannelMessageReply) {
         messageLabel.text = confession.message
         dateLabel.text = confession.createdAt.formatted(date: .abbreviated, time: .shortened)
         usernameLabel.text = "Anonymous"
+        let labelHorizontalMargin: CGFloat = 8 + 35 + 10 + 8
+        messageLabel.preferredMaxLayoutWidth = self.bounds.width - labelHorizontalMargin
     }
 }

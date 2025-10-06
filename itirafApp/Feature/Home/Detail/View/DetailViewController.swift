@@ -21,6 +21,10 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     var detailViewModel: DetailViewModelProtocol
+    lazy var prototypeCell: DetailConfessionCollectionViewCell = {
+        let cell = Bundle.main.loadNibNamed("DetailConfessionCollectionViewCell", owner: nil, options: nil)?.first as! DetailConfessionCollectionViewCell
+        return cell
+    }()
     
     required init(coder: NSCoder) {
         self.detailViewModel = DetailViewModel()
@@ -33,6 +37,7 @@ final class DetailViewController: UIViewController {
         initData()
         initUI()
         loadCollectionView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +49,8 @@ final class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
     }
+
+
     
     private func initUI() {
         contentView.layer.cornerRadius = 10
@@ -64,7 +71,6 @@ final class DetailViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "DetailConfessionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "detailConfessionCell")
-        
     }
     
     private func updateLikeUI() {
