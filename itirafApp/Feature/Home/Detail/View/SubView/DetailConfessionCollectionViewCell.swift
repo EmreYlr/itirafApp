@@ -1,0 +1,30 @@
+//
+//  DetailConfessionCollectionViewCell.swift
+//  itirafApp
+//
+//  Created by Emre on 6.10.2025.
+//
+
+import UIKit
+
+final class DetailConfessionCollectionViewCell: UICollectionViewCell {
+    //MARK: -Properties
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var personImageView: UIImageView!
+    @IBOutlet weak var bgView: UIView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        bgView.backgroundColor = .brown.withAlphaComponent(0.1)
+    }
+    
+
+    func configure(with confession: ChannelMessageReply) {
+        messageLabel.text = confession.message
+        dateLabel.text = confession.createdAt.formatted(date: .abbreviated, time: .shortened)
+        usernameLabel.text = "Anonymous"
+    }
+}

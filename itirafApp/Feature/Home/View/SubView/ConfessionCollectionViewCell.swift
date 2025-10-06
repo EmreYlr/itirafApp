@@ -28,9 +28,9 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with confession: Confession) {
-        confessionTextView.text = confession.text
-        likeCountLabel.text = "\(confession.likes)"
-        commentCountLabel.text = "\(confession.comments)"
+        confessionTextView.text = confession.title
+        likeCountLabel.text = "\(confession.likeCount)"
+        commentCountLabel.text = "10"
         updateLikeButton(isLiked: confession.isLiked)
     }
     

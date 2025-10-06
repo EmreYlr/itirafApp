@@ -29,15 +29,16 @@ final class HomeViewModel {
     }
     
     var confessions: [Confession] = [
-        Confession(id: "1", text: "This is the first confession. This is the first confession. This is the first confession.", likes: 10, comments: 2),
-        Confession(id: "2", text: "This is the second confession.", likes: 5, comments: 1),
-        Confession(id: "3", text: "This is the third confession.", likes: 8, comments: 3),
-        Confession(id: "4", text: "This is the third confession.", likes: 8, comments: 3),
-        Confession(id: "5", text: "This is the third confession.", likes: 8, comments: 3),
-        Confession(id: "6", text: "This is the third confession.", likes: 8, comments: 3),
-        Confession(id: "7", text: "This is the third confession.", likes: 8, comments: 3),
-        Confession(id: "8", text: "This is the third confession.", likes: 8, comments: 3),
-        Confession(id: "9", text: "This is the third confession.", likes: 8, comments: 3),
+        Confession(id: "1", title: "First Confession", message: "This is the first confession. This is the first confession. This is the first confession. This is the first confession.", likeCount: 10, channelId: 1, ownerId: "user1", isLiked: false),
+        Confession(id: "2", title: "Second Confession", message: "This is the second confession.", likeCount: 5, channelId: 2, ownerId: "user2", isLiked: true),
+        Confession(id: "3", title: "Third Confession", message: "This is the third confession.", likeCount: 8, channelId: 1, ownerId: "user3", isLiked: false),
+        Confession(id: "1", title: "First Confession", message: "This is the first confession.", likeCount: 10, channelId: 1, ownerId: "user1", isLiked: false),
+        Confession(id: "2", title: "Second Confession", message: "This is the second confession.", likeCount: 5, channelId: 2, ownerId: "user2", isLiked: true),
+        Confession(id: "3", title: "Third Confession", message: "This is the third confession.", likeCount: 8, channelId: 1, ownerId: "user3", isLiked: false),
+        Confession(id: "1", title: "First Confession", message: "This is the first confession.", likeCount: 10, channelId: 1, ownerId: "user1", isLiked: false),
+        Confession(id: "2", title: "Second Confession", message: "This is the second confession.", likeCount: 5, channelId: 2, ownerId: "user2", isLiked: true),
+        Confession(id: "3", title: "Third Confession", message: "This is the third confession.", likeCount: 8, channelId: 1, ownerId: "user3", isLiked: false),
+        
         
     ] { didSet {
         onConfessionsChanged?(confessions)
@@ -49,7 +50,7 @@ final class HomeViewModel {
     
     func toggleLike(at index: Int) {
         self.confessions[index].isLiked.toggle()
-        self.confessions[index].likes += self.confessions[index].isLiked ? 1 : -1
+        self.confessions[index].likeCount += self.confessions[index].isLiked ? 1 : -1
 //        homeService.likeConfessions(confession: confessions[index]) { result in
 //            switch result {
 //            case .success(let updatedConfessions):
@@ -63,7 +64,7 @@ final class HomeViewModel {
     }
     
     func addComment(to index: Int) {
-        confessions[index].comments += 1
+        //confessions[index].comments += 1
     }
     
     func fetchConfessions() {

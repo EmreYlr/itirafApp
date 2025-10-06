@@ -29,7 +29,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detail = Storyboard.main.instantiate(.detail)
+        let detail = Storyboard.main.instantiate(.detail) as! DetailViewController
+        let confession = homeViewModel.confessions[indexPath.row]
+        detail.detailViewModel = DetailViewModel(confession: confession)
         navigationController?.pushViewController(detail, animated: true)
     }
     

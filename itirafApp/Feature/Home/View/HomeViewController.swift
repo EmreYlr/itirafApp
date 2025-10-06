@@ -22,7 +22,7 @@ final class HomeViewController: UIViewController {
         print("HomeViewController")
         initView()
         loadCollectionView()
-        print(UserManager.shared.getUser())
+        print(UserManager.shared.getUser() ?? "")
     }
     
     private func loadCollectionView() {

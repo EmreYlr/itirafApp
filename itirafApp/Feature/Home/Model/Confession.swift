@@ -7,8 +7,10 @@
 
 struct Confession: Codable, Identifiable {
     var id: String
-    var text: String
-    var likes: Int
-    var comments: Int
+    var title: String
+    var message: String
+    var likeCount: Int
+    var channelId: Int
+    var ownerId: String
     var isLiked: Bool = false
 }
