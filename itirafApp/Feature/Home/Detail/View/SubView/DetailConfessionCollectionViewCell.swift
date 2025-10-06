@@ -20,6 +20,8 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
         // Initialization code
         bgView.backgroundColor = .brown.withAlphaComponent(0.1)
         messageLabel.numberOfLines = 0
+//        let totalHorizontalPadding: CGFloat = 61
+//        messageLabel.preferredMaxLayoutWidth = contentView.bounds.width - totalHorizontalPadding
     }
 
     
@@ -27,7 +29,7 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
         messageLabel.text = confession.message
         dateLabel.text = confession.createdAt.formatted(date: .abbreviated, time: .shortened)
         usernameLabel.text = "Anonymous"
-        let labelHorizontalMargin: CGFloat = 8 + 35 + 10 + 8
+        let labelHorizontalMargin: CGFloat = 61
         messageLabel.preferredMaxLayoutWidth = self.bounds.width - labelHorizontalMargin
     }
 }
