@@ -25,7 +25,12 @@ final class DetailViewModel {
     var confession: Confession?
     var confessionReplies: [ChannelMessageReply] = [
         ChannelMessageReply(id: "1", message: "This is a reply to the confession. This is a reply to the confession. This is a reply to the confession. This is a reply to the confession.", targetMessageId: "1", ownerId: "user2", createdAt: Date()),
-        ChannelMessageReply(id: "2", message: "Another reply to the confession.", targetMessageId: "1", ownerId: "user3", createdAt: Date())
+        ChannelMessageReply(id: "2", message: "Another reply to the confession.", targetMessageId: "1", ownerId: "user3", createdAt: Date()),
+        ChannelMessageReply(id: "3", message: "Yet another reply to the confession.", targetMessageId: "1", ownerId: "user4", createdAt: Date()),
+        ChannelMessageReply(id: "1", message: "This is a reply to the confession. This is a reply to the confession. This is a reply to the confession. This is a reply to the confession.", targetMessageId: "1", ownerId: "user2", createdAt: Date()),
+        ChannelMessageReply(id: "3", message: "Yet another reply to the confession.", targetMessageId: "1", ownerId: "user4", createdAt: Date()),
+        ChannelMessageReply(id: "3", message: "Yet another reply to the confession.", targetMessageId: "1", ownerId: "user4", createdAt: Date()),
+        ChannelMessageReply(id: "1", message: "This is a reply to the confession. This is a reply to the confession. This is a reply to the confession. This is a reply to the confession.", targetMessageId: "1", ownerId: "user2", createdAt: Date()),
     ]
     private let detailService: DetailServiceProtocol
     

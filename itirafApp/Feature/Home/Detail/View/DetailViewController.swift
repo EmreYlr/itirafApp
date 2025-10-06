@@ -21,10 +21,6 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     var detailViewModel: DetailViewModelProtocol
-    lazy var prototypeCell: DetailConfessionCollectionViewCell = {
-        let cell = Bundle.main.loadNibNamed("DetailConfessionCollectionViewCell", owner: nil, options: nil)?.first as! DetailConfessionCollectionViewCell
-        return cell
-    }()
     
     required init(coder: NSCoder) {
         self.detailViewModel = DetailViewModel()

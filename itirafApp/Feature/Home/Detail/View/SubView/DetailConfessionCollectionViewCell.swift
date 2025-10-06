@@ -17,11 +17,8 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        bgView.backgroundColor = .brown.withAlphaComponent(0.1)
-        messageLabel.numberOfLines = 0
-//        let totalHorizontalPadding: CGFloat = 61
-//        messageLabel.preferredMaxLayoutWidth = contentView.bounds.width - totalHorizontalPadding
+        bgView.backgroundColor = .lightGray.withAlphaComponent(0.1)
+        bgView.layer.cornerRadius = 6
     }
 
     
