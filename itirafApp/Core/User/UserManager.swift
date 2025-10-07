@@ -9,14 +9,14 @@ import Foundation
 
 final class UserManager {
     static let shared = UserManager()
-    private init() {}
+    
+    private init() {
+        self.currentUser = loadFromDefaults()
+    }
     
     private(set) var currentUser: User?
     
     func getUser() -> User? {
-        if currentUser == nil {
-            currentUser = loadFromDefaults()
-        }
         return currentUser
     }
 
@@ -26,12 +26,14 @@ final class UserManager {
     }
     
     func getUserIsAnonymous() -> Bool {
-        return currentUser?.anonymous ?? false
+        return currentUser?.anonymous ?? true
     }
     
     func setUser(_ user: User) {
         self.currentUser = user
         saveToDefaults(user)
+        // OPTIONEL: user değiştiğinde Home ekranına bildirim göndermek için
+        // NotificationCenter.default.post(name: .userDidChange, object: nil)
     }
     
     private func loadUser() {

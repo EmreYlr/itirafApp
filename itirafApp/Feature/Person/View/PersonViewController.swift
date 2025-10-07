@@ -29,7 +29,8 @@ final class PersonViewController: UIViewController {
     
     @IBAction func changeChannelButtonClicked(_ sender: UIButton) {
         let channelVC = Storyboard.channel.instantiate(.channel)
-        navigationController?.pushViewController(channelVC, animated: true)
+        channelVC.modalPresentationStyle = .pageSheet
+        self.present(channelVC, animated: true)
     }
     
     @IBAction func logoutButtonPressed(_ sender: UIButton) {

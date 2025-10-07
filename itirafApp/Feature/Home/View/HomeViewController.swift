@@ -25,6 +25,11 @@ final class HomeViewController: UIViewController {
         print(UserManager.shared.getUser() ?? "")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        print(ChannelManager.shared.getChannel() ?? "Error")
+    }
+    
     private func loadCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self

@@ -48,3 +48,4 @@ extension ChannelViewController: ChannelViewModelOutputProtocol {
         print(error.localizedDescription)
     }
 }
+

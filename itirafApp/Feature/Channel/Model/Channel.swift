@@ -10,11 +10,11 @@ import Foundation
 // MARK: - Channel
 struct Channel: Codable {
     let page, limit, totalRows, totalPages: Int
-    let data: [Datum]
+    let data: [ChannelData]
 }
 
 // MARK: - Datum
-struct Datum: Codable {
+struct ChannelData: Codable {
     let id: Int
     let name, title, description: String
     let imageURL: String

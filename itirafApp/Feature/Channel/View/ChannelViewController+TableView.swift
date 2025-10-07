@@ -18,11 +18,12 @@ extension ChannelViewController: UITableViewDataSource, UITableViewDelegate {
         let channel = channelViewModel.channel?.data[indexPath.row]
         cell.textLabel?.text = channel?.name
         cell.selectionStyle = .none
-        cell.accessoryType = .disclosureIndicator 
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        channelViewModel.selectChannel(at: indexPath.row)
+        self.dismiss(animated: true, completion: nil)
     }
 }

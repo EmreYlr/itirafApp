@@ -11,6 +11,7 @@ protocol ChannelViewModelProtocol {
     var delegate: ChannelViewModelOutputProtocol? { get set }
     var channel: Channel? { get }
     func fetchChannel()
+    func selectChannel(at index: Int)
 }
 
 protocol ChannelViewModelOutputProtocol: AnyObject {
@@ -43,6 +44,14 @@ final class ChannelViewModel {
                 print("Error fetching channels: \(error)")
             }
         }
+    }
+    
+    func selectChannel(at index: Int){
+        guard let channel = channel, index < channel.data.count else {
+            return
+        }
+        let selectedChannel = channel.data[index]
+        ChannelManager.shared.setChannel(selectedChannel)
     }
 }
 
