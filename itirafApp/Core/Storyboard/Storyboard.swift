@@ -11,6 +11,7 @@ enum Storyboard: String {
     case main = "Main"
     case login = "Login"
     case register = "Register"
+    case channel = "Channel"
 
     var instance: UIStoryboard {
         UIStoryboard(name: self.rawValue, bundle: nil)
@@ -46,7 +47,13 @@ enum ViewControllerID: String {
 
     // Login.storyboard
     case login = "LoginViewController"
+    
+    // Register.storyboard
     case register = "RegisterViewController"
+    
+    //Channel.storyboard
+    case channel = "ChannelViewController"
+    
 }
 
 enum NavigationControllerID: String {

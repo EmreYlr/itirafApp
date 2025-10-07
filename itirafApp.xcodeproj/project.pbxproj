@@ -46,6 +46,12 @@
 		C3D764C22E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764C02E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift */; };
 		C3D764C32E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3D764C12E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib */; };
 		C3D764C52E93ED3300104C3B /* ChannelMessageReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764C42E93ED2600104C3B /* ChannelMessageReply.swift */; };
+		C3D764C92E95382800104C3B /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764C82E95382800104C3B /* Channel.swift */; };
+		C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764CF2E95389100104C3B /* ChannelViewController.swift */; };
+		C3D764D22E9538AD00104C3B /* ChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D12E9538AA00104C3B /* ChannelViewModel.swift */; };
+		C3D764D42E95391200104C3B /* ChannelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D32E95390E00104C3B /* ChannelService.swift */; };
+		C3D764D72E9539DB00104C3B /* Channel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D764D62E9539DB00104C3B /* Channel.storyboard */; };
+		C3D764D92E953BDE00104C3B /* ChannelViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D82E953BD800104C3B /* ChannelViewController+TableView.swift */; };
 		C3D8E2022E900544006C7E8F /* PersonServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E2012E900544006C7E8F /* PersonServiceProtocol.swift */; };
 		C3D8E2042E9005F5006C7E8F /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E2032E9005F2006C7E8F /* PersonViewModel.swift */; };
 		C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB106D2E744115002DA295 /* AppDelegate.swift */; };
@@ -107,6 +113,12 @@
 		C3D764C02E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConfessionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3D764C12E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailConfessionCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3D764C42E93ED2600104C3B /* ChannelMessageReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelMessageReply.swift; sourceTree = "<group>"; };
+		C3D764C82E95382800104C3B /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		C3D764CF2E95389100104C3B /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		C3D764D12E9538AA00104C3B /* ChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewModel.swift; sourceTree = "<group>"; };
+		C3D764D32E95390E00104C3B /* ChannelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelService.swift; sourceTree = "<group>"; };
+		C3D764D62E9539DB00104C3B /* Channel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channel.storyboard; sourceTree = "<group>"; };
+		C3D764D82E953BD800104C3B /* ChannelViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+TableView.swift"; sourceTree = "<group>"; };
 		C3D8E2012E900544006C7E8F /* PersonServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonServiceProtocol.swift; sourceTree = "<group>"; };
 		C3D8E2032E9005F2006C7E8F /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		C3EB10552E7440CE002DA295 /* itirafApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itirafApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -354,6 +366,59 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
+		C3D764C62E95380200104C3B /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				C3D764D52E9539C600104C3B /* Storyboard */,
+				C3D764C72E95381C00104C3B /* Model */,
+				C3D764CC2E95386A00104C3B /* View */,
+				C3D764CD2E95386F00104C3B /* ViewModel */,
+				C3D764CE2E95387300104C3B /* Service */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
+		C3D764C72E95381C00104C3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3D764C82E95382800104C3B /* Channel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C3D764CC2E95386A00104C3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3D764D82E953BD800104C3B /* ChannelViewController+TableView.swift */,
+				C3D764CF2E95389100104C3B /* ChannelViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3D764CD2E95386F00104C3B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3D764D12E9538AA00104C3B /* ChannelViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3D764CE2E95387300104C3B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3D764D32E95390E00104C3B /* ChannelService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3D764D52E9539C600104C3B /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C3D764D62E9539DB00104C3B /* Channel.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		C3EB104C2E7440CE002DA295 = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +465,7 @@
 			children = (
 				C3EB108C2E744AF9002DA295 /* Home */,
 				C3C08BB22E8AF4FF00EDC6A2 /* Person */,
+				C3D764C62E95380200104C3B /* Channel */,
 				C3C08BB92E8C367400EDC6A2 /* Auth */,
 			);
 			path = Feature;
@@ -658,6 +724,7 @@
 			files = (
 				C3D764C32E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib in Resources */,
 				C3C08BAE2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.xib in Resources */,
+				C3D764D72E9539DB00104C3B /* Channel.storyboard in Resources */,
 				C37D5B032E7840D20068F334 /* Login.storyboard in Resources */,
 				C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */,
 				C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */,
@@ -693,7 +760,9 @@
 				C37D5ECB2E86DE9A0068F334 /* RegisterViewController.swift in Sources */,
 				C37D5DE52E8414760068F334 /* Endpoint.swift in Sources */,
 				C37D5DE72E8415080068F334 /* NetworkManager.swift in Sources */,
+				C3D764C92E95382800104C3B /* Channel.swift in Sources */,
 				C3C08BAF2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.swift in Sources */,
+				C3D764D92E953BDE00104C3B /* ChannelViewController+TableView.swift in Sources */,
 				C3C08BC02E8C37D400EDC6A2 /* DetailViewController.swift in Sources */,
 				C37D5C792E7990F70068F334 /* HomeViewModel.swift in Sources */,
 				C3C08BC22E8D3B3500EDC6A2 /* Constants.swift in Sources */,
@@ -702,11 +771,13 @@
 				C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */,
 				C326DD4F2E8FFA02001B7837 /* UserService.swift in Sources */,
 				C37D5E0C2E856C3F0068F334 /* LoginAlertPresenter.swift in Sources */,
+				C3D764D22E9538AD00104C3B /* ChannelViewModel.swift in Sources */,
 				C3C08BB12E8ACE9A00EDC6A2 /* Confession.swift in Sources */,
 				C3D764C52E93ED3300104C3B /* ChannelMessageReply.swift in Sources */,
 				C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */,
 				C3D8E2022E900544006C7E8F /* PersonServiceProtocol.swift in Sources */,
 				C326DD482E8D8232001B7837 /* UserDefaults+Keys.swift in Sources */,
+				C3D764D42E95391200104C3B /* ChannelService.swift in Sources */,
 				C37D5DEC2E8417110068F334 /* AuthService.swift in Sources */,
 				C37D5DF22E84256A0068F334 /* NSNotification+Extension.swift in Sources */,
 				C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */,
@@ -719,6 +790,7 @@
 				C3D764C22E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift in Sources */,
 				C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */,
 				C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */,
+				C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */,
 				C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Channel View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ChannelViewController" id="Y6W-OH-hqX" customClass="ChannelViewController" customModule="itirafApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Üniversite Ara..." translatesAutoresizingMaskIntoConstraints="NO" id="V7k-UT-sjV">
+                                <rect key="frame" x="0.0" y="118" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="Jut-8Q-Pbf"/>
+                                </connections>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tüm Üniversiteler" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cv6-ct-AXq">
+                                <rect key="frame" x="16" y="184" width="147.33333333333334" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="textColor" systemColor="systemMintColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2oA-Rb-3U4">
+                                <rect key="frame" x="0.0" y="211" width="393" height="573"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cv6-ct-AXq" secondAttribute="trailing" constant="16" id="0Jk-TD-QIu"/>
+                            <constraint firstItem="2oA-Rb-3U4" firstAttribute="top" secondItem="cv6-ct-AXq" secondAttribute="bottom" constant="5" id="1wa-uo-daO"/>
+                            <constraint firstItem="V7k-UT-sjV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="3od-Jf-NFj"/>
+                            <constraint firstItem="V7k-UT-sjV" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="P7w-Yp-LmH"/>
+                            <constraint firstItem="2oA-Rb-3U4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bFg-xw-2do"/>
+                            <constraint firstItem="cv6-ct-AXq" firstAttribute="top" secondItem="V7k-UT-sjV" secondAttribute="bottom" constant="10" id="i8S-8x-Qqr"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2oA-Rb-3U4" secondAttribute="trailing" id="kR0-wd-tmD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2oA-Rb-3U4" secondAttribute="bottom" id="lKN-tt-bII"/>
+                            <constraint firstItem="cv6-ct-AXq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="qPM-Lz-P7O"/>
+                            <constraint firstItem="V7k-UT-sjV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="xck-CL-AIJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="V7k-UT-sjV" id="UOf-tP-5kn"/>
+                        <outlet property="tableView" destination="2oA-Rb-3U4" id="Kmq-wS-ShG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

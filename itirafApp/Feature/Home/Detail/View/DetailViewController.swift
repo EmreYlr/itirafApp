@@ -46,8 +46,6 @@ final class DetailViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
     }
 
-
-    
     private func initUI() {
         contentView.layer.cornerRadius = 10
         contentView.layer.borderWidth = 1
@@ -82,17 +80,14 @@ final class DetailViewController: UIViewController {
     
 
     
-    @IBAction func shareButtonClicked(_ sender: UIButton) {
-    }
-    @IBAction func commentButtonClicked(_ sender: UIButton) {
-    }
+    @IBAction func shareButtonClicked(_ sender: UIButton) { }
+    @IBAction func commentButtonClicked(_ sender: UIButton) { }
     
     @IBAction func likeButtonClicked(_ sender: UIButton) {
         detailViewModel.toggleLike()
     }
     
-    @IBAction func sendButtonClicked(_ sender: UIButton) {
-    }
+    @IBAction func sendButtonClicked(_ sender: UIButton) { }
 }
 
 extension DetailViewController: DetailViewModelOutputProtocol {

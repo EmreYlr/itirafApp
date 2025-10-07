@@ -27,6 +27,11 @@ final class PersonViewController: UIViewController {
         personViewModel.delegate = self
     }
     
+    @IBAction func changeChannelButtonClicked(_ sender: UIButton) {
+        let channelVC = Storyboard.channel.instantiate(.channel)
+        navigationController?.pushViewController(channelVC, animated: true)
+    }
+    
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
         personViewModel.logout()
     }

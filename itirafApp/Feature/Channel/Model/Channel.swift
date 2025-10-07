@@ -1,0 +1,26 @@
+//
+//  Channel.swift
+//  itirafApp
+//
+//  Created by Emre on 7.10.2025.
+//
+
+import Foundation
+
+// MARK: - Channel
+struct Channel: Codable {
+    let page, limit, totalRows, totalPages: Int
+    let data: [Datum]
+}
+
+// MARK: - Datum
+struct Datum: Codable {
+    let id: Int
+    let name, title, description: String
+    let imageURL: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, name, title, description
+        case imageURL = "imageUrl"
+    }
+}

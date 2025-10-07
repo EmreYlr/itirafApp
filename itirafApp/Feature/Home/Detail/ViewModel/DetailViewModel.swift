@@ -11,6 +11,7 @@ protocol DetailViewModelProtocol {
     var confession: Confession? { get }
     var confessionReplies: [ChannelMessageReply] { get set }
     func toggleLike()
+    func addComment(message: String)
 //    func fetchDetail(id: String)
 }
 
@@ -32,6 +33,7 @@ final class DetailViewModel {
         ChannelMessageReply(id: "3", message: "Yet another reply to the confession.", targetMessageId: "1", ownerId: "user4", createdAt: Date()),
         ChannelMessageReply(id: "1", message: "This is a reply to the confession. This is a reply to the confession. This is a reply to the confession. This is a reply to the confession.", targetMessageId: "1", ownerId: "user2", createdAt: Date()),
     ]
+    
     private let detailService: DetailServiceProtocol
     
     init(detailService: DetailServiceProtocol = DetailService(), confession: Confession) {
@@ -49,6 +51,10 @@ final class DetailViewModel {
         confession.likeCount += confession.isLiked ? 1 : -1
         self.confession = confession
         delegate?.didUpdateLikeStatus(isLiked: confession.isLiked, likeCount: confession.likeCount)
+    }
+    
+    func addComment(message: String) {
+        //TODO: -Servis isteği atılacak
     }
 }
 
