@@ -8,7 +8,7 @@ import Foundation
 
 protocol DetailViewModelProtocol {
     var delegate: DetailViewModelOutputProtocol? { get set }
-    var confession: Confession? { get }
+    var confession: ConfessionData? { get }
     var confessionReplies: [ChannelMessageReply] { get set }
     func toggleLike()
     func addComment(message: String)
@@ -23,7 +23,7 @@ protocol DetailViewModelOutputProtocol: AnyObject {
 
 final class DetailViewModel {
     weak var delegate: DetailViewModelOutputProtocol?
-    var confession: Confession?
+    var confession: ConfessionData?
     var confessionReplies: [ChannelMessageReply] = [
         ChannelMessageReply(id: "1", message: "This is a reply to the confession. This is a reply to the confession. This is a reply to the confession. This is a reply to the confession.", targetMessageId: "1", ownerId: "user2", createdAt: Date()),
         ChannelMessageReply(id: "2", message: "Another reply to the confession.", targetMessageId: "1", ownerId: "user3", createdAt: Date()),
@@ -36,7 +36,7 @@ final class DetailViewModel {
     
     private let detailService: DetailServiceProtocol
     
-    init(detailService: DetailServiceProtocol = DetailService(), confession: Confession) {
+    init(detailService: DetailServiceProtocol = DetailService(), confession: ConfessionData) {
         self.detailService = detailService
         self.confession = confession
     }
@@ -46,11 +46,11 @@ final class DetailViewModel {
     }
     
     func toggleLike() {
-        guard var confession = confession else { return }
-        confession.isLiked.toggle()
-        confession.likeCount += confession.isLiked ? 1 : -1
-        self.confession = confession
-        delegate?.didUpdateLikeStatus(isLiked: confession.isLiked, likeCount: confession.likeCount)
+//        guard var confession = confession else { return }
+//        confession.isLiked.toggle()
+//        confession.likeCount += confession.isLiked ? 1 : -1
+//        self.confession = confession
+//        delegate?.didUpdateLikeStatus(isLiked: confession.isLiked, likeCount: confession.likeCount)
     }
     
     func addComment(message: String) {

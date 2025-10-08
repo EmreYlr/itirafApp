@@ -9,30 +9,41 @@ import UIKit
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeViewModel.confessions.count
+        return homeViewModel.confessions?.data.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "confessionCell", for: indexPath) as! ConfessionCollectionViewCell
-        let confession = homeViewModel.confessions[indexPath.row]
-        cell.configure(with: confession)
         
-        cell.onLikeButtonTapped = { [weak self] in
-            self?.homeViewModel.toggleLike(at: indexPath.row)
+        if let confession = homeViewModel.confessions?.data[indexPath.row] {
+            cell.configure(with: confession)
         }
-        
-        cell.onCommentButtonTapped = { [weak self] in
-            self?.homeViewModel.addComment(to: indexPath.row)
-        }
+
+//        cell.onLikeButtonTapped = { [weak self] in
+//            self?.homeViewModel.toggleLike(at: indexPath.row)
+//        }
+//        
+//        cell.onCommentButtonTapped = { [weak self] in
+//            self?.homeViewModel.addComment(to: indexPath.row)
+//        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detail = Storyboard.main.instantiate(.detail) as! DetailViewController
-        let confession = homeViewModel.confessions[indexPath.row]
-        detail.detailViewModel = DetailViewModel(confession: confession)
+        if let confession = homeViewModel.confessions?.data[indexPath.row] {
+            detail.detailViewModel = DetailViewModel(confession: confession)
+        }
         navigationController?.pushViewController(detail, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let totalCount = homeViewModel.confessions?.data.count else { return }
+        
+        if indexPath.row == totalCount - 1 {
+            homeViewModel.fetchConfessions(reset: false)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

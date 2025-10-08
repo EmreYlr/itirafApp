@@ -55,6 +55,7 @@
 		C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7658E2E95507600104C3B /* ChannelManager.swift */; };
 		C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */; };
 		C3D765942E96A90B00104C3B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D765932E96A90B00104C3B /* APIError.swift */; };
+		C3D765962E96BF1D00104C3B /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D765952E96BF1B00104C3B /* UIViewController+Alert.swift */; };
 		C3D8E2022E900544006C7E8F /* PersonServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E2012E900544006C7E8F /* PersonServiceProtocol.swift */; };
 		C3D8E2042E9005F5006C7E8F /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E2032E9005F2006C7E8F /* PersonViewModel.swift */; };
 		C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB106D2E744115002DA295 /* AppDelegate.swift */; };
@@ -125,6 +126,7 @@
 		C3D7658E2E95507600104C3B /* ChannelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelManager.swift; sourceTree = "<group>"; };
 		C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		C3D765932E96A90B00104C3B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		C3D765952E96BF1B00104C3B /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		C3D8E2012E900544006C7E8F /* PersonServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonServiceProtocol.swift; sourceTree = "<group>"; };
 		C3D8E2032E9005F2006C7E8F /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		C3EB10552E7440CE002DA295 /* itirafApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itirafApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -568,6 +570,7 @@
 		C3EB108A2E744A63002DA295 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C3D765952E96BF1B00104C3B /* UIViewController+Alert.swift */,
 				C326DD472E8D8232001B7837 /* UserDefaults+Keys.swift */,
 				C37D5DF12E84255F0068F334 /* NSNotification+Extension.swift */,
 			);
@@ -799,6 +802,7 @@
 				C3D764D22E9538AD00104C3B /* ChannelViewModel.swift in Sources */,
 				C3C08BB12E8ACE9A00EDC6A2 /* Confession.swift in Sources */,
 				C3D764C52E93ED3300104C3B /* ChannelMessageReply.swift in Sources */,
+				C3D765962E96BF1D00104C3B /* UIViewController+Alert.swift in Sources */,
 				C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */,
 				C3D8E2022E900544006C7E8F /* PersonServiceProtocol.swift in Sources */,
 				C3D765942E96A90B00104C3B /* APIError.swift in Sources */,

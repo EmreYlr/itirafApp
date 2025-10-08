@@ -9,8 +9,7 @@
 import Alamofire
 
 protocol DetailServiceProtocol {
-    
-    
+//    func fetchDetail(messageId: String, completion: @escaping (Result<Confession, Error>) -> Void)
 }
 
 final class DetailService {

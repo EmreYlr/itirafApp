@@ -35,15 +35,21 @@ final class HomeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ConfessionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "confessionCell")
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshConfession), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
     }
     
     private func initView() {
         homeViewModel.delegate = self
-        homeViewModel.fetchConfessions()
-        homeViewModel.onConfessionsChanged = { [weak self] _ in
-            self?.collectionView.reloadData()
-        }
-        
+        homeViewModel.fetchConfessions(reset: false)
+//        homeViewModel.onConfessionsChanged = { [weak self] _ in
+//            self?.collectionView.reloadData()
+//        }   
+    }
+    
+    @objc private func refreshConfession() {
+        homeViewModel.fetchConfessions(reset: true)
     }
     
 }
@@ -52,5 +58,9 @@ extension HomeViewController: HomeViewModelOutputProtocol {
     func didUpdateConfessions() {
         print("Confessions Updated")
         collectionView.reloadData()
+    }
+    
+    func didFailWithError(_ error: Error) {
+        print("Error: \(error)")
     }
 }

@@ -27,11 +27,11 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         confessionTextView.backgroundColor = bgView.backgroundColor
     }
     
-    func configure(with confession: Confession) {
+    func configure(with confession: ConfessionData) {
         confessionTextView.text = confession.title
         likeCountLabel.text = "\(confession.likeCount)"
-        commentCountLabel.text = "10"
-        updateLikeButton(isLiked: confession.isLiked)
+        commentCountLabel.text = "0"
+//        updateLikeButton(isLiked: confession.isLiked)
     }
     
     

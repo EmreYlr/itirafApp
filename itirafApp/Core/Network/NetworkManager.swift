@@ -45,7 +45,7 @@ final class NetworkManager {
             case .failure(let afError):
                 if let data = response.data,
                    let apiError = try? JSONDecoder().decode(APIError.self, from: data),
-                   statusCode == 401 && apiError.code == 3011 {
+                   statusCode == 401 && apiError.code == 3007 {
                     
                     self.handleTokenExpiration(endpoint: endpoint, method: method, parameters: parameters, encoding: encoding, completion: completion)
                     return
@@ -62,7 +62,8 @@ final class NetworkManager {
 
     private func handleTokenExpiration<T: Decodable>(endpoint: EndpointType, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, completion: @escaping (Result<T, Error>) -> Void) {
         AuthService.refreshToken { success in
-            if success { self.request(endpoint: endpoint, method: method, parameters: parameters, encoding: encoding, completion: completion)
+            if success {
+                self.request(endpoint: endpoint, method: method, parameters: parameters, encoding: encoding, completion: completion)
             }
             else {
                 AuthManager.shared.clearTokens()

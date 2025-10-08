@@ -54,9 +54,9 @@ final class DetailViewController: UIViewController {
     
     private func initData() {
         detailViewModel.delegate = self
-        guard let confession = detailViewModel.confession else { return }
-        titleLabel.text = confession.title
-        contentLabel.text = confession.message
+//        guard let confession = detailViewModel.confession else { return }
+//        titleLabel.text = confession.title
+//        contentLabel.text = confession.message
         commentCountLabel.text = "10"
         self.updateLikeUI()
     }
@@ -72,10 +72,10 @@ final class DetailViewController: UIViewController {
     }
     
     private func updateLikeUI() {
-        guard let confession = detailViewModel.confession else { return }
-        let imageName = confession.isLiked ? "heart.fill" : "heart"
-        likeButton.setImage(UIImage(systemName: imageName), for: .normal)
-        likeCountLabel.text = "\(confession.likeCount)"
+//        guard let confession = detailViewModel.confession else { return }
+//        let imageName = confession.isLiked ? "heart.fill" : "heart"
+//        likeButton.setImage(UIImage(systemName: imageName), for: .normal)
+//        likeCountLabel.text = "\(confession.likeCount)"
     }
     
 
