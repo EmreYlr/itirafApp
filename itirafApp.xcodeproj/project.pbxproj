@@ -53,6 +53,8 @@
 		C3D764D72E9539DB00104C3B /* Channel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D764D62E9539DB00104C3B /* Channel.storyboard */; };
 		C3D764D92E953BDE00104C3B /* ChannelViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D82E953BD800104C3B /* ChannelViewController+TableView.swift */; };
 		C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7658E2E95507600104C3B /* ChannelManager.swift */; };
+		C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */; };
+		C3D765942E96A90B00104C3B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D765932E96A90B00104C3B /* APIError.swift */; };
 		C3D8E2022E900544006C7E8F /* PersonServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E2012E900544006C7E8F /* PersonServiceProtocol.swift */; };
 		C3D8E2042E9005F5006C7E8F /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E2032E9005F2006C7E8F /* PersonViewModel.swift */; };
 		C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB106D2E744115002DA295 /* AppDelegate.swift */; };
@@ -121,6 +123,8 @@
 		C3D764D62E9539DB00104C3B /* Channel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channel.storyboard; sourceTree = "<group>"; };
 		C3D764D82E953BD800104C3B /* ChannelViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+TableView.swift"; sourceTree = "<group>"; };
 		C3D7658E2E95507600104C3B /* ChannelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelManager.swift; sourceTree = "<group>"; };
+		C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+SearchBar.swift"; sourceTree = "<group>"; };
+		C3D765932E96A90B00104C3B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		C3D8E2012E900544006C7E8F /* PersonServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonServiceProtocol.swift; sourceTree = "<group>"; };
 		C3D8E2032E9005F2006C7E8F /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		C3EB10552E7440CE002DA295 /* itirafApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itirafApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -391,6 +395,7 @@
 		C3D764CC2E95386A00104C3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */,
 				C3D764D82E953BD800104C3B /* ChannelViewController+TableView.swift */,
 				C3D764CF2E95389100104C3B /* ChannelViewController.swift */,
 			);
@@ -427,6 +432,14 @@
 				C3D7658E2E95507600104C3B /* ChannelManager.swift */,
 			);
 			path = Channel;
+			sourceTree = "<group>";
+		};
+		C3D765922E96A90600104C3B /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C3D765932E96A90B00104C3B /* APIError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		C3EB104C2E7440CE002DA295 = {
@@ -534,6 +547,7 @@
 		C3EB10882E744A53002DA295 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C3D765922E96A90600104C3B /* Error */,
 				C37D5DF32E842A2F0068F334 /* NetworkService.swift */,
 				C37D5DE62E8415080068F334 /* NetworkManager.swift */,
 				C37D5DE42E8414760068F334 /* Endpoint.swift */,
@@ -787,6 +801,7 @@
 				C3D764C52E93ED3300104C3B /* ChannelMessageReply.swift in Sources */,
 				C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */,
 				C3D8E2022E900544006C7E8F /* PersonServiceProtocol.swift in Sources */,
+				C3D765942E96A90B00104C3B /* APIError.swift in Sources */,
 				C326DD482E8D8232001B7837 /* UserDefaults+Keys.swift in Sources */,
 				C3D764D42E95391200104C3B /* ChannelService.swift in Sources */,
 				C37D5DEC2E8417110068F334 /* AuthService.swift in Sources */,
@@ -797,6 +812,7 @@
 				C326DD4A2E8D824E001B7837 /* UserDefaultsHelper.swift in Sources */,
 				C37D5DF02E841DD50068F334 /* KeychainHelper.swift in Sources */,
 				C37D5DF42E842A2F0068F334 /* NetworkService.swift in Sources */,
+				C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */,
 				C3D764BA2E93DDDE00104C3B /* DetailViewModel.swift in Sources */,
 				C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */,
 				C3D764C22E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift in Sources */,

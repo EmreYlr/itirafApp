@@ -4,6 +4,7 @@
 //
 //  Created by Emre on 16.09.2025.
 //
+import Foundation
 
 protocol LoginViewModelProtocol {
     var delegate: LoginViewModelOutputProtocol? { get set }
@@ -25,11 +26,13 @@ final class LoginViewModel {
     
     func loginUser(email: String, password: String) {
         loginService.loginUser(email: email, password: password) {[weak self] result in
-            switch result {
-            case .success:
-                self?.delegate?.didLoginSuccessfully()
-            case .failure(let error):
-                self?.delegate?.didFailToLogin(with: error)
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self?.delegate?.didLoginSuccessfully()
+                case .failure(let error):
+                    self?.delegate?.didFailToLogin(with: error)
+                }
             }
         }
     }

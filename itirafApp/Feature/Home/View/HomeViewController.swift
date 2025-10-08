@@ -27,7 +27,7 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        print(ChannelManager.shared.getChannel() ?? "Error")
+        print(ChannelManager.shared.getChannel() ?? "Error")
     }
     
     private func loadCollectionView() {
@@ -43,6 +43,7 @@ final class HomeViewController: UIViewController {
         homeViewModel.onConfessionsChanged = { [weak self] _ in
             self?.collectionView.reloadData()
         }
+        
     }
     
 }

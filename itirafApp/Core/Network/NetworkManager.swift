@@ -20,7 +20,7 @@ final class NetworkManager {
             return
         }
         
-        let url = NetworkConstants.baseURL + endpoint.rawValue
+        let url = NetworkConstants.baseURL + endpoint.path
         
         var headers: HTTPHeaders = [
             "Content-Type": "application/json",
@@ -42,11 +42,19 @@ final class NetworkManager {
             case .success(let decoded):
                 completion(.success(decoded))
                 
-            case .failure(let error):
-                if response.response?.statusCode == 401 { self.handleTokenExpiration(endpoint: endpoint, method: method, parameters: parameters, encoding: encoding, completion: completion)
+            case .failure(let afError):
+                if let data = response.data,
+                   let apiError = try? JSONDecoder().decode(APIError.self, from: data),
+                   statusCode == 401 && apiError.code == 3011 {
+                    
+                    self.handleTokenExpiration(endpoint: endpoint, method: method, parameters: parameters, encoding: encoding, completion: completion)
+                    return
                 }
-                else {
-                    completion(.failure(error))
+
+                if let data = response.data, let apiError = try? JSONDecoder().decode(APIError.self, from: data) {
+                    completion(.failure(apiError))
+                } else {
+                    completion(.failure(afError))
                 }
             }
         }

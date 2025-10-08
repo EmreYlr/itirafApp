@@ -9,8 +9,8 @@ import Foundation
 
 // MARK: - Channel
 struct Channel: Codable {
-    let page, limit, totalRows, totalPages: Int
-    let data: [ChannelData]
+    var page, limit, totalRows, totalPages: Int
+    var data: [ChannelData]
 }
 
 // MARK: - Datum

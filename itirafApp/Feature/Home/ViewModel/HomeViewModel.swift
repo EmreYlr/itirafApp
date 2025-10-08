@@ -46,8 +46,6 @@ final class HomeViewModel {
     }
     
     
-    //TODO: -Getuser isteği atıp user bilgilerini al. Ona göre isAnonymous kontrolü yap.
-    
     func toggleLike(at index: Int) {
         self.confessions[index].isLiked.toggle()
         self.confessions[index].likeCount += self.confessions[index].isLiked ? 1 : -1

@@ -23,20 +23,20 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // LoginRequired notification
         NotificationCenter.default.addObserver(self, selector: #selector(showLoginRequired), name: .loginRequired, object: nil)
         
-//        Task.detached(priority: .utility) {
-//            let success = await AuthService.registerAndLoginAnonymousUser()
-//            if success {
-//                await MainActor.run {
-//                    self.window?.rootViewController = self.createHomeController()
-//                }
-//            } else {
-//                // TODO: hata göster
-//            }
-//        }
+        Task.detached(priority: .utility) {
+            let success = await AuthService.registerAndLoginAnonymousUser()
+            if success {
+                await MainActor.run {
+                    self.window?.rootViewController = self.createHomeController()
+                }
+            } else {
+                // TODO: hata göster
+            }
+        }
 
         
 //        window.rootViewController = createLoginController()
-        window.rootViewController = createHomeController()
+//        window.rootViewController = createHomeController()
         
         
         window.makeKeyAndVisible()
