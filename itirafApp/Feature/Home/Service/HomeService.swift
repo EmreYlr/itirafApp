@@ -9,8 +9,9 @@ import Alamofire
 import Foundation
 
 protocol HomeServiceProtocol {
-//    func likeConfessions(confession: Confession, completion: @escaping (Result<[Confession], Error>) -> Void)
     func fetchConfessions(page: Int, limit: Int, completion: @escaping (Result<Confession, Error>) -> Void)
+    func likeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, Error>) -> Void)
+    func unlikeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, any Error>) -> Void)
 }
 
 final class HomeService: HomeServiceProtocol {
@@ -19,21 +20,6 @@ final class HomeService: HomeServiceProtocol {
     init(networkService: NetworkService = NetworkManager.shared) {
         self.networkService = networkService
     }
-    
-    // MARK: - Methods
-//    func likeConfessions(confession: Confession, completion: @escaping (Result<[Confession], Error>) -> Void) {
-//        let params: Parameters = [
-//            "confessionId": confession.id
-//        ]
-//        networkService.request(endpoint: Endpoint.Confession.likePost, method: .post, parameters: params, encoding: URLEncoding.default) { (result: Result<[Confession], Error>) in
-//            switch result {
-//            case .success(let confessions):
-//                completion(.success(confessions))
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
-//    }
     
     func fetchConfessions(page: Int, limit: Int, completion: @escaping (Result<Confession, Error>) -> Void) {
         guard let channelId = ChannelManager.shared.getChannelId() else {
@@ -55,4 +41,28 @@ final class HomeService: HomeServiceProtocol {
             }
         }
     }
+    
+    func likeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, any Error>) -> Void) {
+        networkService.request(endpoint: Endpoint.Channel.likeMessage(messageId: messageId), method: .post, parameters: nil, encoding: URLEncoding.default) { (result: Result<EmptyResponse, Error>) in
+            switch result {
+            case .success(let response):
+                completion(.success(response))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func unlikeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, any Error>) -> Void) {
+        networkService.request(endpoint: Endpoint.Channel.unlikeMessage(messageId: messageId), method: .delete, parameters: nil, encoding: URLEncoding.default) { (result: Result<EmptyResponse, Error>) in
+            switch result {
+            case .success(let response):
+                completion(.success(response))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    
 }

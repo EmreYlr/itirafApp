@@ -12,6 +12,8 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var homeViewModel: HomeViewModelProtocol
     
+    var dataSource: UICollectionViewDiffableDataSource<Section, ConfessionData>!
+
     required init?(coder: NSCoder) {
         self.homeViewModel = HomeViewModel()
         super.init(coder: coder)
@@ -22,6 +24,7 @@ final class HomeViewController: UIViewController {
         print("HomeViewController")
         initView()
         loadCollectionView()
+        configureDataSource()
         print(UserManager.shared.getUser() ?? "")
     }
     
@@ -32,7 +35,6 @@ final class HomeViewController: UIViewController {
     
     private func loadCollectionView() {
         collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ConfessionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "confessionCell")
         
         let refreshControl = UIRefreshControl()
@@ -43,24 +45,52 @@ final class HomeViewController: UIViewController {
     private func initView() {
         homeViewModel.delegate = self
         homeViewModel.fetchConfessions(reset: false)
-//        homeViewModel.onConfessionsChanged = { [weak self] _ in
-//            self?.collectionView.reloadData()
-//        }   
+    }
+    
+    private func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, ConfessionData>(collectionView: collectionView) { (collectionView, indexPath, confession) -> UICollectionViewCell? in
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "confessionCell", for: indexPath) as? ConfessionCollectionViewCell else {
+                fatalError("Cannot create new cell")
+            }
+            cell.configure(with: confession)
+            
+            cell.onLikeButtonTapped = { [weak self] in
+                if confession.liked {
+                    self?.homeViewModel.unlikeMessage(for: confession.id)
+                } else {
+                    self?.homeViewModel.likeMessage(for: confession.id)
+                }
+            }
+            
+            return cell
+        }
+    }
+    
+    private func updateSnapshot(with confessions: [ConfessionData]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, ConfessionData>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(confessions, toSection: .main)
+        
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
     
     @objc private func refreshConfession() {
         homeViewModel.fetchConfessions(reset: true)
     }
-    
 }
 
+// MARK: - ViewModel Output
 extension HomeViewController: HomeViewModelOutputProtocol {
-    func didUpdateConfessions() {
-        print("Confessions Updated")
+    func didUpdateConfessions(with data: [ConfessionData]) {
         DispatchQueue.main.async {
-            self.collectionView.reloadData()
+            self.updateSnapshot(with: data)
             self.collectionView.refreshControl?.endRefreshing()
         }
+    }
+    
+    func didFailToLikeMessage(with error: Error) {
+        print("Failed to like message: \(error)")
     }
     
     func didFailWithError(_ error: Error) {

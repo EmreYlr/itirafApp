@@ -5,6 +5,8 @@
 //  Created by Emre on 29.09.2025.
 //
 
+import Foundation
+
 // MARK: - Confession
 struct Confession: Codable {
     var page, limit, totalRows, totalPages: Int
@@ -12,7 +14,7 @@ struct Confession: Codable {
 }
 
 // MARK: - Datum
-struct ConfessionData: Codable {
+struct ConfessionData: Codable, Hashable {
     let id: Int
     let title, message: String
     var liked: Bool
@@ -24,6 +26,16 @@ struct ConfessionData: Codable {
         case id, title, message, likeCount, replyCount, liked
         case createdAt = "created_at"
         case owner
+    }
+    
+    static func == (lhs: ConfessionData, rhs: ConfessionData) -> Bool {
+        return lhs.id == rhs.id &&
+        lhs.liked == rhs.liked &&
+        lhs.likeCount == rhs.likeCount
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
 

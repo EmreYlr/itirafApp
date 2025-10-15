@@ -4,18 +4,21 @@
 //
 //  Created by Emre on 16.09.2025.
 //
+import Foundation
 
 protocol HomeViewModelProtocol {
     var delegate: HomeViewModelOutputProtocol? { get set }
     var confessions: Confession? { get set }
-//    var onConfessionsChanged: ((Confession) -> Void)? { get set }
+    var isLoading: Bool { get }
+    var hasMoreData: Bool { get }
     func fetchConfessions(reset: Bool)
-    func toggleLike(at index: Int)
-    func addComment(to index: Int)
+    func likeMessage(for: Int)
+    func unlikeMessage(for: Int)
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject {
-    func didUpdateConfessions()
+    func didUpdateConfessions(with data: [ConfessionData])
+    func didFailToLikeMessage(with error: Error)
     func didFailWithError(_ error: Error)
 }
 
@@ -26,8 +29,8 @@ final class HomeViewModel {
     var confessions: Confession?
     
     private var currentPage = 1
-    private var isLoading = false
-    private var hasMoreData = true
+    private(set) var isLoading = false
+    private(set) var hasMoreData = true
     
     init(homeService: HomeServiceProtocol = HomeService()) {
         self.homeService = homeService
@@ -66,7 +69,7 @@ final class HomeViewModel {
                     self.currentPage += 1
                 }
                 
-                self.delegate?.didUpdateConfessions()
+                self.delegate?.didUpdateConfessions(with: confessions?.data ?? [])
 
             case .failure(let error):
                 self.delegate?.didFailWithError(error)
@@ -74,31 +77,53 @@ final class HomeViewModel {
             }
         }
     }
-    
-    
-//    var confessions: Confession? { didSet {
-//        onConfessionsChanged?(confessions)
-//        }
-//    }
-    
-    
-    func toggleLike(at index: Int) {
-//        self.confessions[index].isLiked.toggle()
-//        self.confessions[index].likeCount += self.confessions[index].isLiked ? 1 : -1
-//        homeService.likeConfessions(confession: confessions[index]) { result in
-//            switch result {
-//            case .success(let updatedConfessions):
-//                self.confessions[index].isLiked.toggle()
-//                self.confessions[index].likes += self.confessions[index].isLiked ? 1 : -1
-//                self.confessions = updatedConfessions
-//            case .failure(let error):
-//                print("Error liking confession: \(error)")
-//            }
-//        }
+    func likeMessage(for confessionId: Int) {
+        toggleLike(for: confessionId)
+        DispatchQueue.main.async {
+            self.homeService.likeConfessions(messageId: confessionId) { [weak self] result in
+                switch result {
+                case .success:
+                    break
+                case .failure(let error):
+                    self?.toggleLike(for: confessionId)
+                    self?.delegate?.didFailToLikeMessage(with: error)
+                    print("Error liking message: \(error)")
+                }
+            }
+        }
     }
     
-    func addComment(to index: Int) {
-        //confessions[index].comments += 1
+    func unlikeMessage(for confessionId: Int) {
+        toggleLike(for: confessionId)
+        DispatchQueue.main.async {
+            self.homeService.unlikeConfessions(messageId: confessionId) { [weak self] result in
+                switch result {
+                case .success:
+                    break
+                case .failure(let error):
+                    self?.toggleLike(for: confessionId)
+                    self?.delegate?.didFailToLikeMessage(with: error)
+                    print("Error unliking message: \(error)")
+                }
+            }
+        }
+    }
+    
+    private func toggleLike(for confessionId: Int) {
+        guard let index = self.confessions?.data.firstIndex(where: { $0.id == confessionId }) else {
+            return
+        }
+        self.confessions?.data[index].liked.toggle()
+        
+        if self.confessions?.data[index].liked == true {
+            self.confessions?.data[index].likeCount += 1
+        } else {
+            self.confessions?.data[index].likeCount -= 1
+        }
+        
+        if let updatedData = self.confessions?.data {
+            delegate?.didUpdateConfessions(with: updatedData)
+        }
     }
     
 }

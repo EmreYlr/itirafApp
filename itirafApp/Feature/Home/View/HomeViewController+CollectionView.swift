@@ -7,45 +7,21 @@
 
 import UIKit
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeViewModel.confessions?.data.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "confessionCell", for: indexPath) as! ConfessionCollectionViewCell
-        
-        if let confession = homeViewModel.confessions?.data[indexPath.row] {
-            cell.configure(with: confession)
-        }
-
-//        cell.onLikeButtonTapped = { [weak self] in
-//            self?.homeViewModel.toggleLike(at: indexPath.row)
-//        }
-//        
-//        cell.onCommentButtonTapped = { [weak self] in
-//            self?.homeViewModel.addComment(to: indexPath.row)
-//        }
-        
-        return cell
-    }
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let confessionId = homeViewModel.confessions?.data[indexPath.row].id else {
+        guard let confession = dataSource.itemIdentifier(for: indexPath) else {
             return
         }
         
         let detailVC = Storyboard.main.instantiate(.detail) as! DetailViewController
-        
-        detailVC.detailViewModel = DetailViewModel(messageId: confessionId)
-        
+        detailVC.detailViewModel = DetailViewModel(messageId: confession.id)
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let totalCount = homeViewModel.confessions?.data.count else { return }
-        
-        if indexPath.row == totalCount - 1 {
+        let totalItems = dataSource.snapshot().numberOfItems
+        if indexPath.row == totalItems - 1 && homeViewModel.hasMoreData && !homeViewModel.isLoading {
             homeViewModel.fetchConfessions(reset: false)
         }
     }
@@ -61,6 +37,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     }
-    
-    
+}
+
+enum Section {
+    case main
 }
