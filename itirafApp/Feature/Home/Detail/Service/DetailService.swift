@@ -13,6 +13,7 @@ protocol DetailServiceProtocol {
     func fetchDetail(messageId: Int, completion: @escaping (Result<ChannelMessageData, Error>) -> Void)
     func likeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, Error>) -> Void)
     func unlikeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, Error>) -> Void)
+//    func repliesMessage(messageId: Int, completion: @escaping (Result<EmptyResponse, Error>) -> Void)
 
 }
 

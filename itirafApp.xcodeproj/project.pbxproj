@@ -65,6 +65,10 @@
 		C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3EB10712E744115002DA295 /* LaunchScreen.storyboard */; };
 		C3EB107D2E744115002DA295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3EB10732E744115002DA295 /* Main.storyboard */; };
 		C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10982E745D6D002DA295 /* LoginViewController.swift */; };
+		C3F39E122EA0267300197509 /* PostConfessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39E112EA0267300197509 /* PostConfessionViewController.swift */; };
+		C3F39E142EA0268B00197509 /* PostConfessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39E132EA0268700197509 /* PostConfessionViewModel.swift */; };
+		C3F39E162EA0269200197509 /* PostConfessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39E152EA0269000197509 /* PostConfessionService.swift */; };
+		C3F39F802EA02B6000197509 /* PostConfession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39F7F2EA02B3B00197509 /* PostConfession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +142,10 @@
 		C3EB10742E744115002DA295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C3EB10752E744115002DA295 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C3EB10982E745D6D002DA295 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C3F39E112EA0267300197509 /* PostConfessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfessionViewController.swift; sourceTree = "<group>"; };
+		C3F39E132EA0268700197509 /* PostConfessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfessionViewModel.swift; sourceTree = "<group>"; };
+		C3F39E152EA0269000197509 /* PostConfessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfessionService.swift; sourceTree = "<group>"; };
+		C3F39F7F2EA02B3B00197509 /* PostConfession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -489,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				C3EB108C2E744AF9002DA295 /* Home */,
+				C3F39E0C2EA0264700197509 /* PostConfession */,
 				C3C08BB22E8AF4FF00EDC6A2 /* Person */,
 				C3D764C62E95380200104C3B /* Channel */,
 				C3C08BB92E8C367400EDC6A2 /* Auth */,
@@ -650,6 +659,49 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		C3F39E0C2EA0264700197509 /* PostConfession */ = {
+			isa = PBXGroup;
+			children = (
+				C3F39E102EA0266200197509 /* Model */,
+				C3F39E0F2EA0265F00197509 /* View */,
+				C3F39E0E2EA0265B00197509 /* ViewModel */,
+				C3F39E0D2EA0265600197509 /* Service */,
+			);
+			path = PostConfession;
+			sourceTree = "<group>";
+		};
+		C3F39E0D2EA0265600197509 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3F39E152EA0269000197509 /* PostConfessionService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3F39E0E2EA0265B00197509 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3F39E132EA0268700197509 /* PostConfessionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3F39E0F2EA0265F00197509 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3F39E112EA0267300197509 /* PostConfessionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3F39E102EA0266200197509 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3F39F7F2EA02B3B00197509 /* PostConfession.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -775,6 +827,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3F39E162EA0269200197509 /* PostConfessionService.swift in Sources */,
 				C37D5DFC2E842AE30068F334 /* LoginService.swift in Sources */,
 				C3C08BB82E8AF54900EDC6A2 /* PersonViewController.swift in Sources */,
 				C37D5DE32E8414630068F334 /* NetworkConstants.swift in Sources */,
@@ -797,6 +850,7 @@
 				C3C08BAA2E8AAE8100EDC6A2 /* HomeViewController+CollectionView.swift in Sources */,
 				C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */,
 				C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */,
+				C3F39F802EA02B6000197509 /* PostConfession.swift in Sources */,
 				C326DD4F2E8FFA02001B7837 /* UserService.swift in Sources */,
 				C37D5E0C2E856C3F0068F334 /* LoginAlertPresenter.swift in Sources */,
 				C3D764D22E9538AD00104C3B /* ChannelViewModel.swift in Sources */,
@@ -812,6 +866,7 @@
 				C37D5DF22E84256A0068F334 /* NSNotification+Extension.swift in Sources */,
 				C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */,
 				C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */,
+				C3F39E122EA0267300197509 /* PostConfessionViewController.swift in Sources */,
 				C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */,
 				C326DD4A2E8D824E001B7837 /* UserDefaultsHelper.swift in Sources */,
 				C37D5DF02E841DD50068F334 /* KeychainHelper.swift in Sources */,
@@ -824,6 +879,7 @@
 				C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */,
 				C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */,
 				C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */,
+				C3F39E142EA0268B00197509 /* PostConfessionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
