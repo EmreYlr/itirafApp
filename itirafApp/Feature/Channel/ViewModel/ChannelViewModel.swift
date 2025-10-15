@@ -46,7 +46,7 @@ final class ChannelViewModel {
             currentPage = 1
             hasMoreData = true
             channel = nil
-            filterChannels = []
+            filterChannels.removeAll()
         }
         fetchChannel(page: currentPage, pageSize: 10)
     }

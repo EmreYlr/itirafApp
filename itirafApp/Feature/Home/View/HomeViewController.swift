@@ -57,10 +57,16 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: HomeViewModelOutputProtocol {
     func didUpdateConfessions() {
         print("Confessions Updated")
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+            self.collectionView.refreshControl?.endRefreshing()
+        }
     }
     
     func didFailWithError(_ error: Error) {
         print("Error: \(error)")
+        DispatchQueue.main.async {
+            self.collectionView.refreshControl?.endRefreshing()
+        }
     }
 }

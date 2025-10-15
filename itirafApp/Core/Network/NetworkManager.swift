@@ -45,7 +45,7 @@ final class NetworkManager {
             case .failure(let afError):
                 if let data = response.data,
                    let apiError = try? JSONDecoder().decode(APIError.self, from: data),
-                   statusCode == 401 && apiError.code == 3007 {
+                   statusCode == 401 && apiError.code == 3011 {
                     
                     self.handleTokenExpiration(endpoint: endpoint, method: method, parameters: parameters, encoding: encoding, completion: completion)
                     return

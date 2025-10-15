@@ -15,12 +15,13 @@ struct Confession: Codable {
 struct ConfessionData: Codable {
     let id: Int
     let title, message: String
+    let liked: Bool
     let likeCount, replyCount: Int
     let createdAt: String
     let owner: Owner
 
     enum CodingKeys: String, CodingKey {
-        case id, title, message, likeCount, replyCount
+        case id, title, message, likeCount, replyCount, liked
         case createdAt = "created_at"
         case owner
     }
@@ -29,4 +30,5 @@ struct ConfessionData: Codable {
 // MARK: - Owner
 struct Owner: Codable {
     let id: String
+    let username: String
 }

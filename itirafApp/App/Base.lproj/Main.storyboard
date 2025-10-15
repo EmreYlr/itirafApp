@@ -51,7 +51,7 @@
                     <navigationItem key="navigationItem" title="Home" id="0VH-UT-nhd"/>
                     <connections>
                         <outlet property="collectionView" destination="qpR-bp-mn3" id="52w-uc-JQ3"/>
-                        <segue destination="605-oo-PZE" kind="show" id="nHo-T2-r0s"/>
+                        <segue destination="605-oo-PZE" kind="show" identifier="detailSeque" id="nHo-T2-r0s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

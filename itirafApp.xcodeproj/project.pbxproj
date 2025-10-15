@@ -45,7 +45,7 @@
 		C3D764BE2E93E96200104C3B /* DetailViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764BD2E93E95B00104C3B /* DetailViewController+CollectionView.swift */; };
 		C3D764C22E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764C02E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift */; };
 		C3D764C32E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3D764C12E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib */; };
-		C3D764C52E93ED3300104C3B /* ChannelMessageReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764C42E93ED2600104C3B /* ChannelMessageReply.swift */; };
+		C3D764C52E93ED3300104C3B /* ChannelMessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764C42E93ED2600104C3B /* ChannelMessageData.swift */; };
 		C3D764C92E95382800104C3B /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764C82E95382800104C3B /* Channel.swift */; };
 		C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764CF2E95389100104C3B /* ChannelViewController.swift */; };
 		C3D764D22E9538AD00104C3B /* ChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D12E9538AA00104C3B /* ChannelViewModel.swift */; };
@@ -116,7 +116,7 @@
 		C3D764BD2E93E95B00104C3B /* DetailViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		C3D764C02E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConfessionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3D764C12E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailConfessionCollectionViewCell.xib; sourceTree = "<group>"; };
-		C3D764C42E93ED2600104C3B /* ChannelMessageReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelMessageReply.swift; sourceTree = "<group>"; };
+		C3D764C42E93ED2600104C3B /* ChannelMessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelMessageData.swift; sourceTree = "<group>"; };
 		C3D764C82E95382800104C3B /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		C3D764CF2E95389100104C3B /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		C3D764D12E9538AA00104C3B /* ChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewModel.swift; sourceTree = "<group>"; };
@@ -334,7 +334,7 @@
 		C3C08BBB2E8C37A500EDC6A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C3D764C42E93ED2600104C3B /* ChannelMessageReply.swift */,
+				C3D764C42E93ED2600104C3B /* ChannelMessageData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -801,7 +801,7 @@
 				C37D5E0C2E856C3F0068F334 /* LoginAlertPresenter.swift in Sources */,
 				C3D764D22E9538AD00104C3B /* ChannelViewModel.swift in Sources */,
 				C3C08BB12E8ACE9A00EDC6A2 /* Confession.swift in Sources */,
-				C3D764C52E93ED3300104C3B /* ChannelMessageReply.swift in Sources */,
+				C3D764C52E93ED3300104C3B /* ChannelMessageData.swift in Sources */,
 				C3D765962E96BF1D00104C3B /* UIViewController+Alert.swift in Sources */,
 				C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */,
 				C3D8E2022E900544006C7E8F /* PersonServiceProtocol.swift in Sources */,

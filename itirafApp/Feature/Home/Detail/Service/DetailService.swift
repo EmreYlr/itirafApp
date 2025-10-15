@@ -7,9 +7,10 @@
 
 
 import Alamofire
+import Foundation
 
 protocol DetailServiceProtocol {
-//    func fetchDetail(messageId: String, completion: @escaping (Result<Confession, Error>) -> Void)
+    func fetchDetail(messageId: Int, completion: @escaping (Result<ChannelMessageData, Error>) -> Void)
 }
 
 final class DetailService {
@@ -18,7 +19,23 @@ final class DetailService {
     init(networkService: NetworkService = NetworkManager.shared) {
         self.networkService = networkService
     }
-
+    
+    func fetchDetail(messageId: Int, completion: @escaping (Result<ChannelMessageData, Error>) -> Void) {
+        guard let channelId = ChannelManager.shared.getChannelId() else {
+            print("Channel ID not found")
+            completion(.failure(NSError(domain: "AppError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Channel ID not found"])))
+            return
+        }
+        
+        networkService.request(endpoint: Endpoint.Channel.getChannelSpecificMessages(channelId: channelId, messageId: messageId), method: .get, parameters: nil, encoding: URLEncoding.default) { (result: Result<ChannelMessageData, Error>) in
+            switch result {
+            case .success(let messageDetail):
+                completion(.success(messageDetail))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     
     
 }

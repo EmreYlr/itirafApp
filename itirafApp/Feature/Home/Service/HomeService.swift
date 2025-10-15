@@ -6,6 +6,7 @@
 //
 
 import Alamofire
+import Foundation
 
 protocol HomeServiceProtocol {
 //    func likeConfessions(confession: Confession, completion: @escaping (Result<[Confession], Error>) -> Void)
@@ -37,6 +38,7 @@ final class HomeService: HomeServiceProtocol {
     func fetchConfessions(page: Int, limit: Int, completion: @escaping (Result<Confession, Error>) -> Void) {
         guard let channelId = ChannelManager.shared.getChannelId() else {
             print("Channel ID not found")
+            completion(.failure(NSError(domain: "AppError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Channel ID not found"])))
             return
         }
         let parameters: [String: Any] = [

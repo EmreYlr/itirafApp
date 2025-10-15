@@ -9,10 +9,10 @@ import Foundation
 protocol DetailViewModelProtocol {
     var delegate: DetailViewModelOutputProtocol? { get set }
     var confession: ConfessionData? { get }
-    var confessionReplies: [ChannelMessageReply] { get set }
+    var confessionReplies: [Reply] { get set }
     func toggleLike()
     func addComment(message: String)
-//    func fetchDetail(id: String)
+    func fetchMessageData()
 }
 
 protocol DetailViewModelOutputProtocol: AnyObject {
@@ -24,15 +24,7 @@ protocol DetailViewModelOutputProtocol: AnyObject {
 final class DetailViewModel {
     weak var delegate: DetailViewModelOutputProtocol?
     var confession: ConfessionData?
-    var confessionReplies: [ChannelMessageReply] = [
-        ChannelMessageReply(id: "1", message: "This is a reply to the confession. This is a reply to the confession. This is a reply to the confession. This is a reply to the confession.", targetMessageId: "1", ownerId: "user2", createdAt: Date()),
-        ChannelMessageReply(id: "2", message: "Another reply to the confession.", targetMessageId: "1", ownerId: "user3", createdAt: Date()),
-        ChannelMessageReply(id: "3", message: "Yet another reply to the confession.", targetMessageId: "1", ownerId: "user4", createdAt: Date()),
-        ChannelMessageReply(id: "1", message: "This is a reply to the confession. This is a reply to the confession. This is a reply to the confession. This is a reply to the confession.", targetMessageId: "1", ownerId: "user2", createdAt: Date()),
-        ChannelMessageReply(id: "3", message: "Yet another reply to the confession.", targetMessageId: "1", ownerId: "user4", createdAt: Date()),
-        ChannelMessageReply(id: "3", message: "Yet another reply to the confession.", targetMessageId: "1", ownerId: "user4", createdAt: Date()),
-        ChannelMessageReply(id: "1", message: "This is a reply to the confession. This is a reply to the confession. This is a reply to the confession. This is a reply to the confession.", targetMessageId: "1", ownerId: "user2", createdAt: Date()),
-    ]
+    var confessionReplies: [Reply] = []
     
     private let detailService: DetailServiceProtocol
     
@@ -43,6 +35,23 @@ final class DetailViewModel {
     
     init(detailService: DetailServiceProtocol = DetailService()) {
         self.detailService = detailService
+    }
+    
+    func fetchMessageData() {
+        guard let messageId = confession?.id else {
+            return
+        }
+        detailService.fetchDetail(messageId: messageId) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let messageData):
+                    self?.confessionReplies = messageData.replies
+                    self?.delegate?.didFetchDetail()
+                case .failure(let error):
+                    self?.delegate?.didFailToFetchDetail(with: error)
+                }
+            }
+        }
     }
     
     func toggleLike() {

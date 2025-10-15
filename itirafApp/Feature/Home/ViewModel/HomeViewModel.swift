@@ -39,7 +39,7 @@ final class HomeViewModel {
             hasMoreData = true
             confessions = nil
         }
-        fetchConfessions(page: 1, limit: 10)
+        fetchConfessions(page: currentPage, limit: 10)
     }
     
     func fetchConfessions(page: Int, limit: Int) {
@@ -47,7 +47,7 @@ final class HomeViewModel {
         isLoading = true
 //        delegate?.didStartLoading()
         
-        homeService.fetchConfessions(page: 1, limit: 10) { [weak self] result in
+        homeService.fetchConfessions(page: page, limit: limit) { [weak self] result in
             guard let self = self else { return }
             self.isLoading = false
 //            self.delegate?.didFinishLoading()

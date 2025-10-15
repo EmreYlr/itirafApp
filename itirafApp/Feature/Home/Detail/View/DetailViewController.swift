@@ -54,11 +54,14 @@ final class DetailViewController: UIViewController {
     
     private func initData() {
         detailViewModel.delegate = self
-//        guard let confession = detailViewModel.confession else { return }
-//        titleLabel.text = confession.title
-//        contentLabel.text = confession.message
-        commentCountLabel.text = "10"
+        guard let confession = detailViewModel.confession else { return }
+        titleLabel.text = confession.title
+        contentLabel.text = confession.message
+        likeCountLabel.text = confession.likeCount.description
+        commentCountLabel.text = confession.replyCount.description
         self.updateLikeUI()
+        
+        detailViewModel.fetchMessageData()
     }
     
     private func loadCollectionView() {
@@ -72,10 +75,10 @@ final class DetailViewController: UIViewController {
     }
     
     private func updateLikeUI() {
-//        guard let confession = detailViewModel.confession else { return }
-//        let imageName = confession.isLiked ? "heart.fill" : "heart"
-//        likeButton.setImage(UIImage(systemName: imageName), for: .normal)
-//        likeCountLabel.text = "\(confession.likeCount)"
+        guard let confession = detailViewModel.confession else { return }
+        let imageName = confession.liked ? "heart.fill" : "heart"
+        likeButton.setImage(UIImage(systemName: imageName), for: .normal)
+        likeCountLabel.text = "\(confession.likeCount)"
     }
     
 
@@ -96,7 +99,7 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     }
     
     func didFetchDetail() {
-        print("Detail fetched successfully")
+        collectionView.reloadData()
     }
     
     func didFailToFetchDetail(with error: Error) {

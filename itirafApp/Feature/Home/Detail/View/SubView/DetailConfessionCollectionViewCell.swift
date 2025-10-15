@@ -22,10 +22,11 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
     }
 
     
-    func configure(with confession: ChannelMessageReply) {
+    func configure(with confession: Reply) {
         messageLabel.text = confession.message
-        dateLabel.text = confession.createdAt.formatted(date: .abbreviated, time: .shortened)
-        usernameLabel.text = "Anonymous"
+//        dateLabel.text = confession.createdAt.formatted(date: .abbreviated, time: .shortened)
+        dateLabel.text = "2h ago"
+        usernameLabel.text = confession.owner.username
         let labelHorizontalMargin: CGFloat = 61
         messageLabel.preferredMaxLayoutWidth = self.bounds.width - labelHorizontalMargin
     }
