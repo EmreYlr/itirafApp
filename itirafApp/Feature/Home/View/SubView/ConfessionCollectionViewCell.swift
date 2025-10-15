@@ -31,7 +31,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         confessionTextView.text = confession.title
         likeCountLabel.text = "\(confession.likeCount)"
         commentCountLabel.text = "0"
-//        updateLikeButton(isLiked: confession.isLiked)
+        updateLikeButton(isLiked: confession.liked)
     }
     
     

@@ -20,12 +20,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var replyTextField: UITextField!
     @IBOutlet weak var contentView: UIView!
     
-    var detailViewModel: DetailViewModelProtocol
-    
-    required init(coder: NSCoder) {
-        self.detailViewModel = DetailViewModel()
-        super.init(coder: coder)!
-    }
+    var detailViewModel: DetailViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +28,6 @@ final class DetailViewController: UIViewController {
         initData()
         initUI()
         loadCollectionView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,13 +48,6 @@ final class DetailViewController: UIViewController {
     
     private func initData() {
         detailViewModel.delegate = self
-        guard let confession = detailViewModel.confession else { return }
-        titleLabel.text = confession.title
-        contentLabel.text = confession.message
-        likeCountLabel.text = confession.likeCount.description
-        commentCountLabel.text = confession.replyCount.description
-        self.updateLikeUI()
-        
         detailViewModel.fetchMessageData()
     }
     
@@ -74,20 +61,30 @@ final class DetailViewController: UIViewController {
         }
     }
     
-    private func updateLikeUI() {
-        guard let confession = detailViewModel.confession else { return }
-        let imageName = confession.liked ? "heart.fill" : "heart"
+    private func updateLikeUI(isLike: Bool, likeCount: Int) {
+        let imageName = isLike ? "heart.fill" : "heart"
         likeButton.setImage(UIImage(systemName: imageName), for: .normal)
-        likeCountLabel.text = "\(confession.likeCount)"
+        likeCountLabel.text = "\(likeCount)"
     }
     
+    private func updateScreen() {
+        guard let confession = detailViewModel.confession else { return }
+        titleLabel.text = confession.title
+        contentLabel.text = confession.message
+        likeCountLabel.text = confession.likeCount.description
+        commentCountLabel.text = confession.replyCount.description
+        self.updateLikeUI(isLike: confession.liked, likeCount: confession.likeCount)
+    }
 
-    
     @IBAction func shareButtonClicked(_ sender: UIButton) { }
     @IBAction func commentButtonClicked(_ sender: UIButton) { }
     
     @IBAction func likeButtonClicked(_ sender: UIButton) {
-        detailViewModel.toggleLike()
+        guard let isliked = detailViewModel.confession?.liked else  {
+            return
+        }
+        isliked ? detailViewModel.unlikeMessage() : detailViewModel.likeMessage()
+        
     }
     
     @IBAction func sendButtonClicked(_ sender: UIButton) { }
@@ -95,11 +92,18 @@ final class DetailViewController: UIViewController {
 
 extension DetailViewController: DetailViewModelOutputProtocol {
     func didUpdateLikeStatus(isLiked: Bool, likeCount: Int) {
-        updateLikeUI()
+        print("Liked!")
+        updateLikeUI(isLike: isLiked, likeCount: likeCount)
     }
     
     func didFetchDetail() {
+        print("Detail Fetched")
+        updateScreen()
         collectionView.reloadData()
+    }
+    
+    func didFailToLikeMessage(with error: Error) {
+        print("Failed to like message: \(error)")
     }
     
     func didFailToFetchDetail(with error: Error) {

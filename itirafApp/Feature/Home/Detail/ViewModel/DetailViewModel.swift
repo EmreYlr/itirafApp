@@ -8,44 +8,39 @@ import Foundation
 
 protocol DetailViewModelProtocol {
     var delegate: DetailViewModelOutputProtocol? { get set }
-    var confession: ConfessionData? { get }
-    var confessionReplies: [Reply] { get set }
+    var confession: ChannelMessageData? { get }
     func toggleLike()
     func addComment(message: String)
     func fetchMessageData()
+    func likeMessage()
+    func unlikeMessage()
 }
 
 protocol DetailViewModelOutputProtocol: AnyObject {
     func didFetchDetail()
     func didUpdateLikeStatus(isLiked: Bool, likeCount: Int)
+    func didFailToLikeMessage(with error: Error)
     func didFailToFetchDetail(with error: Error)
 }
 
 final class DetailViewModel {
     weak var delegate: DetailViewModelOutputProtocol?
-    var confession: ConfessionData?
-    var confessionReplies: [Reply] = []
+    var confession: ChannelMessageData?
     
     private let detailService: DetailServiceProtocol
+    private let messageId: Int
     
-    init(detailService: DetailServiceProtocol = DetailService(), confession: ConfessionData) {
+    init(messageId: Int, detailService: DetailServiceProtocol = DetailService()) {
         self.detailService = detailService
-        self.confession = confession
+        self.messageId =  messageId
     }
-    
-    init(detailService: DetailServiceProtocol = DetailService()) {
-        self.detailService = detailService
-    }
-    
+
     func fetchMessageData() {
-        guard let messageId = confession?.id else {
-            return
-        }
-        detailService.fetchDetail(messageId: messageId) { [weak self] result in
+        detailService.fetchDetail(messageId: self.messageId) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let messageData):
-                    self?.confessionReplies = messageData.replies
+                    self?.confession = messageData
                     self?.delegate?.didFetchDetail()
                 case .failure(let error):
                     self?.delegate?.didFailToFetchDetail(with: error)
@@ -54,12 +49,40 @@ final class DetailViewModel {
         }
     }
     
+    func likeMessage() {
+        DispatchQueue.main.async {
+            self.detailService.likeConfessions(messageId: self.messageId) { [weak self] result in
+                switch result {
+                case .success:
+                    self?.toggleLike()
+                case .failure(let error):
+                    self?.delegate?.didFailToLikeMessage(with: error)
+                    print("Error liking message: \(error)")
+                }
+            }
+        }
+    }
+    
+    func unlikeMessage() {
+        DispatchQueue.main.async {
+            self.detailService.unlikeConfessions(messageId: self.messageId) { [weak self] result in
+                switch result {
+                case .success:
+                    self?.toggleLike()
+                case .failure(let error):
+                    self?.delegate?.didFailToLikeMessage(with: error)
+                    print("Error unliking message: \(error)")
+                }
+            }
+        }
+    }
+    
     func toggleLike() {
-//        guard var confession = confession else { return }
-//        confession.isLiked.toggle()
-//        confession.likeCount += confession.isLiked ? 1 : -1
-//        self.confession = confession
-//        delegate?.didUpdateLikeStatus(isLiked: confession.isLiked, likeCount: confession.likeCount)
+        guard var confession = confession else { return }
+        confession.liked.toggle()
+        confession.likeCount += confession.liked ? 1 : -1
+        self.confession = confession
+        delegate?.didUpdateLikeStatus(isLiked: confession.liked, likeCount: confession.likeCount)
     }
     
     func addComment(message: String) {

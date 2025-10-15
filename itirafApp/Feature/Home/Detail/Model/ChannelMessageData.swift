@@ -9,8 +9,8 @@ import Foundation
 struct ChannelMessageData: Codable {
     let id: Int
     let title, message: String
-    let liked: Bool
-    let likeCount, replyCount: Int
+    var liked: Bool
+    var likeCount, replyCount: Int
     let createdAt: String
     let owner: Owner
     let replies: [Reply]

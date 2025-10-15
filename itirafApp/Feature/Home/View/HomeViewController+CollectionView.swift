@@ -31,11 +31,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detail = Storyboard.main.instantiate(.detail) as! DetailViewController
-        if let confession = homeViewModel.confessions?.data[indexPath.row] {
-            detail.detailViewModel = DetailViewModel(confession: confession)
+        guard let confessionId = homeViewModel.confessions?.data[indexPath.row].id else {
+            return
         }
-        navigationController?.pushViewController(detail, animated: true)
+        
+        let detailVC = Storyboard.main.instantiate(.detail) as! DetailViewController
+        
+        detailVC.detailViewModel = DetailViewModel(messageId: confessionId)
+        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

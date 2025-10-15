@@ -9,13 +9,15 @@ import UIKit
 
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = detailViewModel.confessionReplies.count
+        let count = detailViewModel.confession?.replies.count ?? 0
         return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailConfessionCell", for: indexPath) as! DetailConfessionCollectionViewCell
-        let reply = detailViewModel.confessionReplies[indexPath.row]
+        guard let reply = detailViewModel.confession?.replies[indexPath.row] else {
+            return cell
+        }
         cell.configure(with: reply)
         return cell
     }
