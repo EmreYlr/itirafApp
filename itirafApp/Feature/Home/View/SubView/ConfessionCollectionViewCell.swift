@@ -30,7 +30,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     func configure(with confession: ConfessionData) {
         confessionTextView.text = confession.title
         likeCountLabel.text = "\(confession.likeCount)"
-        commentCountLabel.text = "0"
+        commentCountLabel.text = "\(confession.replyCount)"
         updateLikeButton(isLiked: confession.liked)
     }
     

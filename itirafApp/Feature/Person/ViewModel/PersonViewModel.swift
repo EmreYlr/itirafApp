@@ -9,6 +9,7 @@
 protocol PersonViewModelProtocol {
     var delegate: PersonViewModelOutputProtocol? { get set }
     func logout()
+    func checkUserAnonymous() -> Bool
 }
 
 protocol PersonViewModelOutputProtocol: AnyObject {
@@ -33,6 +34,10 @@ final class PersonViewModel {
                 self?.delegate?.didFailToLogout(with: error)
             }
         }
+    }
+    
+    func checkUserAnonymous() -> Bool {
+        return UserManager.shared.getUserIsAnonymous()
     }
     
 }

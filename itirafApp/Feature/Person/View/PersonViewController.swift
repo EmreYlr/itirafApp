@@ -9,7 +9,6 @@ import UIKit
 
 final class PersonViewController: UIViewController {
     //MARK: - Properties
-    
     var personViewModel: PersonViewModelProtocol
     
     required init?(coder: NSCoder) {
@@ -34,9 +33,14 @@ final class PersonViewController: UIViewController {
     }
     
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
-        showTwoButtonAlert(title: "Çıkış Yap", message: "Çıkış Yapmak İstediğiniden Emin Misiniz?", firstButtonTitle: "Çıkış Yap", firstButtonHandler: { _ in
+        if personViewModel.checkUserAnonymous() {
             self.personViewModel.logout()
-        }, secondButtonTitle: "İptal", secondButtonHandler: nil)
+        } else {
+            showTwoButtonAlert(title: "Çıkış Yap", message: "Çıkış Yapmak İstediğiniden Emin Misiniz?", firstButtonTitle: "Çıkış Yap", firstButtonHandler: { _ in
+                self.personViewModel.logout()
+            }, secondButtonTitle: "İptal", secondButtonHandler: nil)
+        }
+        
     }
 }
 
