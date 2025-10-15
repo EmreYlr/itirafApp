@@ -56,11 +56,7 @@ final class HomeViewController: UIViewController {
             cell.configure(with: confession)
             
             cell.onLikeButtonTapped = { [weak self] in
-                if confession.liked {
-                    self?.homeViewModel.unlikeMessage(for: confession.id)
-                } else {
-                    self?.homeViewModel.likeMessage(for: confession.id)
-                }
+                self?.homeViewModel.toggleLikeStatus(for: confession.id)
             }
             
             return cell

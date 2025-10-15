@@ -12,8 +12,7 @@ protocol HomeViewModelProtocol {
     var isLoading: Bool { get }
     var hasMoreData: Bool { get }
     func fetchConfessions(reset: Bool)
-    func likeMessage(for: Int)
-    func unlikeMessage(for: Int)
+    func toggleLikeStatus(for: Int)
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject {
@@ -77,7 +76,8 @@ final class HomeViewModel {
             }
         }
     }
-    func likeMessage(for confessionId: Int) {
+    
+    private func likeMessage(for confessionId: Int) {
         toggleLike(for: confessionId)
         DispatchQueue.main.async {
             self.homeService.likeConfessions(messageId: confessionId) { [weak self] result in
@@ -93,7 +93,19 @@ final class HomeViewModel {
         }
     }
     
-    func unlikeMessage(for confessionId: Int) {
+    func toggleLikeStatus(for confessionId: Int) {
+        guard let index = self.confessions?.data.firstIndex(where: { $0.id == confessionId }) else {
+            return
+        }
+        
+        if self.confessions?.data[index].liked == true {
+            unlikeMessage(for: confessionId)
+        } else {
+            likeMessage(for: confessionId)
+        }
+    }
+    
+    private func unlikeMessage(for confessionId: Int) {
         toggleLike(for: confessionId)
         DispatchQueue.main.async {
             self.homeService.unlikeConfessions(messageId: confessionId) { [weak self] result in
