@@ -23,6 +23,12 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // LoginRequired notification
         NotificationCenter.default.addObserver(self, selector: #selector(showLoginRequired), name: .loginRequired, object: nil)
         
+        if !UserManager.shared.getUserIsAnonymous() {
+            window.rootViewController = createHomeController()
+            window.makeKeyAndVisible()
+            return
+        }
+        
         Task.detached(priority: .utility) {
             let success = await AuthService.registerAndLoginAnonymousUser()
             if success {
