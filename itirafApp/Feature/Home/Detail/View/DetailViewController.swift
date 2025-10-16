@@ -87,10 +87,20 @@ final class DetailViewController: UIViewController {
         
     }
     
-    @IBAction func sendButtonClicked(_ sender: UIButton) { }
+    @IBAction func sendButtonClicked(_ sender: UIButton) {
+        detailViewModel.addComment(message: replyTextField.text ?? "")
+    }
 }
 
 extension DetailViewController: DetailViewModelOutputProtocol {
+    func didUpdateReplies() {
+        collectionView.reloadData()
+    }
+    
+    func didFailToAddComment(with error: any Error) {
+        print("Failed to add comment: \(error)")
+    }
+    
     func didUpdateLikeStatus(isLiked: Bool, likeCount: Int) {
         print("Liked!")
         updateLikeUI(isLike: isLiked, likeCount: likeCount)

@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "53F5F973-072E-4C81-9A5D-2060613806D9"
+            uuid = "8434805F-3E86-4386-920C-81933931AF47"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "itirafApp/Core/Network/NetworkManager.swift"
+            filePath = "itirafApp/Core/Auth/AuthService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "request(endpoint:method:parameters:encoding:completion:)"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "refreshToken(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

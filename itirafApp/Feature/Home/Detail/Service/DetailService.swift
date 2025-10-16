@@ -13,7 +13,7 @@ protocol DetailServiceProtocol {
     func fetchDetail(messageId: Int, completion: @escaping (Result<ChannelMessageData, Error>) -> Void)
     func likeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, Error>) -> Void)
     func unlikeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, Error>) -> Void)
-//    func repliesMessage(messageId: Int, completion: @escaping (Result<EmptyResponse, Error>) -> Void)
+    func repliesMessage(message: String, messageId: Int, completion: @escaping (Result<EmptyResponse, Error>) -> Void)
 
 }
 
@@ -63,6 +63,21 @@ final class DetailService {
         }
     }
     
+    func repliesMessage(message: String, messageId: Int, completion: @escaping (Result<EmptyResponse, Error>) -> Void) {
+        
+        let parameters: [String: Any] = [
+            "message": message
+        ]
+        
+        networkService.request(endpoint: Endpoint.Channel.repliesMessage(messageId: messageId), method: .post, parameters: parameters, encoding: JSONEncoding.default) { (result: Result<EmptyResponse, Error>) in
+            switch result {
+            case .success(let response):
+                completion(.success(response))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     
 }
 

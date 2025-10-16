@@ -68,7 +68,15 @@ final class HomeViewModel {
                     self.currentPage += 1
                 }
                 
-                self.delegate?.didUpdateConfessions(with: confessions?.data ?? [])
+                if let confessionsData = confessions?.data {
+                    self.delegate?.didUpdateConfessions(with: confessionsData)
+                }
+                else {
+                    self.hasMoreData = false
+                    self.delegate?.didUpdateConfessions(with: [])
+                }
+                
+
 
             case .failure(let error):
                 self.delegate?.didFailWithError(error)

@@ -9,6 +9,8 @@ import UIKit
 
 final class PersonViewController: UIViewController {
     //MARK: - Properties
+    @IBOutlet weak var versionView: UIView!
+    
     var personViewModel: PersonViewModelProtocol
     
     required init?(coder: NSCoder) {
@@ -24,6 +26,7 @@ final class PersonViewController: UIViewController {
     
     func initData() {
         personViewModel.delegate = self
+        versionView.layer.cornerRadius = 6
     }
     
     @IBAction func changeChannelButtonClicked(_ sender: UIButton) {
@@ -40,6 +43,8 @@ final class PersonViewController: UIViewController {
                 self.personViewModel.logout()
             }, secondButtonTitle: "İptal", secondButtonHandler: nil)
         }
+    }
+    @IBAction func infoButtonPressed(_ sender: UIButton) {
         
     }
 }

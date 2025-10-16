@@ -21,6 +21,8 @@ protocol DetailViewModelOutputProtocol: AnyObject {
     func didUpdateLikeStatus(isLiked: Bool, likeCount: Int)
     func didFailToLikeMessage(with error: Error)
     func didFailToFetchDetail(with error: Error)
+    func didUpdateReplies()
+    func didFailToAddComment(with error: Error)
 }
 
 final class DetailViewModel {
@@ -86,7 +88,16 @@ final class DetailViewModel {
     }
     
     func addComment(message: String) {
-        //TODO: -Servis isteği atılacak
+        detailService.repliesMessage(message: message, messageId: messageId) { result in
+            switch result {
+            case .success:
+                self.delegate?.didUpdateReplies()
+                print("Comment added successfully")
+            case .failure(let error):
+                self.delegate?.didFailToAddComment(with: error)
+                print("Failed to add comment: \(error)")
+            }
+        }
     }
 }
 
