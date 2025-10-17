@@ -59,7 +59,7 @@ final class NetworkManager {
             }
         }
     }
-
+    //TODO: -Access Token expire olduğunda aynı zamanda Refresh Token de expire olmuşsa bir hata oluşuyor.(Sonsuz döngü) Eğer refresh token revoke olmuşsa bu sefer de Thread Performance Checker uyarısı alınıyor. Bunu çöz.
     private func handleTokenExpiration<T: Decodable>(endpoint: EndpointType, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, completion: @escaping (Result<T, Error>) -> Void) {
         AuthService.refreshToken { success in
             if success {
@@ -67,8 +67,11 @@ final class NetworkManager {
             }
             else {
                 AuthManager.shared.clearTokens()
-                DispatchQueue.main.async { NotificationCenter.default.post(name: .userDidLogout, object: nil)
-                }
+                UserManager.shared.clear()
+                completion(.failure(APIError(code: 3011, type: "Authentication", message: "Authentication required.")))
+                //TODO: -Login istemeyecek logout yapıp anonim kullanıcı oluşturacak
+//                DispatchQueue.main.async { NotificationCenter.default.post(name: .userDidLogout, object: nil)
+//                }
             }
         }
     }

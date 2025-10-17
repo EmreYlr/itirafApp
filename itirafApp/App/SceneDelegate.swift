@@ -50,6 +50,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     @objc private func handleLogout() {
+        AuthManager.shared.clearTokens()
+        UserManager.shared.clear()
         DispatchQueue.main.async {
             self.window?.rootViewController = self.createLoginController()
         }

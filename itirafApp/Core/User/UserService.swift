@@ -6,6 +6,7 @@
 //
 
 import Alamofire
+import Foundation
 
 // MARK: - UserService
 final class UserService {
@@ -20,8 +21,7 @@ final class UserService {
             (result: Result<User, Error>) in
             switch result {
             case .success(let user):
-                UserManager.shared.clear()
-                UserManager.shared.setUser(user)
+                    UserManager.shared.setUser(user)
                 completion(.success(user))
             case .failure(let error):
                 completion(.failure(error))

@@ -60,33 +60,40 @@ final class AuthService {
     private static func performRegisterAndLogin() async throws -> Bool {
         let anonymousUser = try await registerAnonymousUser()
         
-
+        
         _ = try await loginAnonymousUser(user: anonymousUser)
         return true
     }
-    
-    
     
     static func refreshToken(completion: @escaping (Bool) -> Void) {
         guard let refresh = AuthManager.shared.getRefreshToken() else {
             completion(false)
             return
         }
-        
+
         let params: Parameters = ["refreshToken": refresh]
         
-        print("Refreshing token with refresh token")
+        let url = NetworkConstants.baseURL + Endpoint.Auth.refreshToken.path
         
-        NetworkManager.shared.request(endpoint: Endpoint.Auth.refreshToken, method: .post, parameters: params, encoding: JSONEncoding.default) { (result: Result<RefreshTokenResponse, Error>) in
-            switch result {
-            case .success(let response):
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "x-client-key": Constants.clientKey
+        ]
+        
+        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+        .validate()
+        .responseDecodable(of: RefreshTokenResponse.self) { response in
+            switch response.result {
+            case .success(let tokenResponse):
                 print("Refreshed token successfully")
                 AuthManager.shared.saveTokens(
-                    accessToken: response.accessToken,
-                    refreshToken: response.refreshToken
+                    accessToken: tokenResponse.accessToken,
+                    refreshToken: tokenResponse.refreshToken
                 )
                 completion(true)
-            case .failure:
+                
+            case .failure(let error):
+                print("Failed to refresh token: \(error.localizedDescription)")
                 completion(false)
             }
         }
