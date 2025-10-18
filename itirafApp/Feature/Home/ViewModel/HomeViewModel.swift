@@ -80,7 +80,6 @@ final class HomeViewModel {
 
             case .failure(let error):
                 self.delegate?.didFailWithError(error)
-                print("Error fetching confessions: \(error)")
             }
         }
     }

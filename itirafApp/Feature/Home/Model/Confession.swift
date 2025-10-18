@@ -23,8 +23,7 @@ struct ConfessionData: Codable, Hashable {
     let owner: Owner
 
     enum CodingKeys: String, CodingKey {
-        case id, title, message, likeCount, replyCount, liked
-        case createdAt = "created_at"
+        case id, title, message, likeCount, replyCount, liked, createdAt
         case owner
     }
     

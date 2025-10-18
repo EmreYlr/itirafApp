@@ -16,8 +16,7 @@ struct ChannelMessageData: Codable {
     var replies: [Reply]
 
     enum CodingKeys: String, CodingKey {
-        case id, title, message, likeCount, replyCount, liked, owner, replies
-        case createdAt = "created_at"
+        case id, title, message, likeCount, replyCount, liked, owner, replies, createdAt
     }
 }
 
@@ -25,5 +24,6 @@ struct Reply: Codable {
     let id: Int
     let message: String
     let owner: Owner
+    let createdAt: String
 }
 

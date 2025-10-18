@@ -12,6 +12,8 @@ final class NetworkManager {
     static let shared = NetworkManager()
     private init() {}
     
+    //TODO: -interceptor ekle
+    
     func request<T: Decodable>(endpoint: EndpointType, method: HTTPMethod, parameters: Parameters? = nil, encoding: ParameterEncoding = JSONEncoding.default, completion: @escaping (Result<T, Error>) -> Void) {
         if endpoint.requiresAuth, UserManager.shared.getUserIsAnonymous() {
             DispatchQueue.main.async {
@@ -69,9 +71,6 @@ final class NetworkManager {
                 AuthManager.shared.clearTokens()
                 UserManager.shared.clear()
                 completion(.failure(APIError(code: 3011, type: "Authentication", message: "Authentication required.")))
-                //TODO: -Login istemeyecek logout yapıp anonim kullanıcı oluşturacak
-//                DispatchQueue.main.async { NotificationCenter.default.post(name: .userDidLogout, object: nil)
-//                }
             }
         }
     }
