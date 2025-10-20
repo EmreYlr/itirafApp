@@ -1,11 +1,11 @@
 import Foundation
-import UIKit
 import OpenTelemetryApi
 import OpenTelemetrySdk
 import ResourceExtension
 import OpenTelemetryProtocolExporterHttp
 import URLSessionInstrumentation
 import NetworkStatus
+
 
 final class OpenTelemetryManager {
     static let shared = OpenTelemetryManager()
@@ -14,10 +14,10 @@ final class OpenTelemetryManager {
     
     // Collector configuration
     private let collectorHost = "otel.oguzhanduymaz.com"
-    private let collectorPort = 4318 // OTLP HTTP port
+    private let collectorPort = 4318 // OTLP HTTPS port
     private let serviceName = "itirafApp"
     private let serviceVersion = "1.0.0"
-    private let useTLS = false // true olursa HTTPS kullan
+    private let useTLS = true // HTTPS enabled
     
     private init() {}
     
@@ -26,11 +26,11 @@ final class OpenTelemetryManager {
         setupInstrumentations()
         
         print("✅ OpenTelemetry initialized successfully")
-        print("📡 HTTP Collector: \(collectorHost):\(collectorPort)")
+        print("📡 HTTPS Collector: \(collectorHost):\(collectorPort)")
     }
     
     private func setupTracing() {
-        let scheme = useTLS ? "https" : "https"
+        let scheme = useTLS ? "https" : "http"
         let endpoint = "\(scheme)://\(collectorHost)/v1/traces"
         
         guard let endpointURL = URL(string: endpoint) else {
@@ -38,7 +38,7 @@ final class OpenTelemetryManager {
             return
         }
         
-        // OTLP HTTP exporter
+        // OTLP HTTPS exporter
         let spanExporter = OtlpHttpTraceExporter(endpoint: endpointURL)
         let loggingExporter = LoggingSpanExporter(wrapping: spanExporter)
         
@@ -50,24 +50,20 @@ final class OpenTelemetryManager {
             maxExportBatchSize: 512
         )
         
-        // Resource attributes
-        let resourceAttributes: [String: AttributeValue] = [
+        // Resource configuration per Swift 2.2.0 documentation
+        // Using SDKResourceExtension's DefaultResources for automatic device/OS detection
+        let customAttributes: [String: AttributeValue] = [
             "service.name": .string(serviceName),
             "service.version": .string(serviceVersion),
-            "deployment.environment": .string(getEnvironment()),
-            "device.model": .string(getDeviceModel()),
-            "os.type": .string("iOS"),
-            "os.version": .string(UIDevice.current.systemVersion),
-            "telemetry.sdk.name": .string("opentelemetry"),
-            "telemetry.sdk.language": .string("swift"),
-            "telemetry.sdk.version": .string("2.2.0")
+            "deployment.environment": .string(getEnvironment())
         ]
         
-        let resource = Resource(attributes: resourceAttributes)
+        let resource = DefaultResources()
+            .get()
+            .merging(other: Resource(attributes: customAttributes))
         
-        let builder = TracerProviderBuilder()
-        
-        tracerProvider = builder
+        // Build TracerProvider per documentation pattern
+        tracerProvider = TracerProviderBuilder()
             .add(spanProcessor: batchProcessor)
             .with(resource: resource)
             .build()
@@ -79,13 +75,16 @@ final class OpenTelemetryManager {
             baggagePropagator: W3CBaggagePropagator()
         )
         
-        print("✅ Tracing configured with OTLP HTTP exporter")
-        sendTestSpan()
+        print("✅ Tracing configured with OTLP HTTPS exporter")
     }
     
     private func setupInstrumentations() {
         setupURLSessionInstrumentation()
-        print("✅ URLSession instrumentation enabled")
+        
+        print("✅ Instrumentations enabled:")
+        print("   - URLSession")
+        print("   - NetworkStatus")
+        print("   - SignPost")
     }
     
     private func setupURLSessionInstrumentation() {
@@ -133,24 +132,6 @@ final class OpenTelemetryManager {
         _ = URLSessionInstrumentation(configuration: configuration)
     }
     
-    private func sendTestSpan() {
-        print("🧪 Sending test span…")
-        
-        let tracer = getTracer(instrumentationName: "test", version: "1.0.0")
-        let span = tracer.spanBuilder(spanName: "test.connection").startSpan()
-        
-        span.setAttribute(key: "test.type", value: "connection_verification")
-        span.setAttribute(key: "collector.host", value: collectorHost)
-        span.setAttribute(key: "collector.port", value: collectorPort)
-        span.addEvent(name: "Connection test started")
-        Thread.sleep(forTimeInterval: 0.1)
-        span.addEvent(name: "Connection test completed")
-        span.status = .ok
-        span.end()
-        
-        print("✅ Test span created and ended")
-        forceFlush()
-    }
     
     private func getEnvironment() -> String {
         #if DEBUG
@@ -160,17 +141,11 @@ final class OpenTelemetryManager {
         #endif
     }
     
-    private func getDeviceModel() -> String {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        let modelCode = withUnsafePointer(to: &systemInfo.machine) {
-            $0.withMemoryRebound(to: CChar.self, capacity: 1) {
-                ptr in String(validatingUTF8: ptr)
-            }
-        }
-        return modelCode ?? "unknown"
-    }
-    
+    /// Get a tracer instance per Swift 2.2.0 documentation
+    /// - Parameters:
+    ///   - instrumentationName: Name of the instrumentation library
+    ///   - version: Version of the instrumentation library
+    /// - Returns: Tracer instance
     func getTracer(instrumentationName: String = "itirafApp", version: String = "1.0.0") -> Tracer {
         return OpenTelemetry.instance.tracerProvider.get(
             instrumentationName: instrumentationName,
@@ -178,12 +153,10 @@ final class OpenTelemetryManager {
         )
     }
     
+    /// Get the current active span per Swift 2.2.0 documentation
+    /// - Returns: Current active span or nil
     func getCurrentSpan() -> Span? {
         return OpenTelemetry.instance.contextProvider.activeSpan
-    }
-    
-    func sendManualTestSpan() {
-        sendTestSpan()
     }
     
     func forceFlush() {
@@ -200,9 +173,9 @@ final class OpenTelemetryManager {
         print("Collector: \(scheme)://\(collectorHost):\(collectorPort)")
         print("Service: \(serviceName) v\(serviceVersion)")
         print("Environment: \(getEnvironment())")
-        print("Device: \(getDeviceModel())")
-        print("Protocol: OTLP HTTP")
+        print("Protocol: OTLP HTTPS")
         print("Tracer Provider: \(tracerProvider != nil ? "✅" : "❌")")
+        print("Instrumentations: URLSession, NetworkStatus, SignPost")
         print("================================\n")
     }
     

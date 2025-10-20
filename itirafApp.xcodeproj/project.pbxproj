@@ -32,6 +32,7 @@
 		C37D5ECB2E86DE9A0068F334 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5ECA2E86DE9A0068F334 /* RegisterViewController.swift */; };
 		C3A7A4062EA6B00700250B06 /* OpenTelemetryProtocolExporterHTTP in Frameworks */ = {isa = PBXBuildFile; productRef = C3A7A4052EA6B00700250B06 /* OpenTelemetryProtocolExporterHTTP */; };
 		C3A7A4082EA6B00700250B06 /* URLSessionInstrumentation in Frameworks */ = {isa = PBXBuildFile; productRef = C3A7A4072EA6B00700250B06 /* URLSessionInstrumentation */; };
+		C3A7A40B2EA6B66600250B06 /* NetworkStatus in Frameworks */ = {isa = PBXBuildFile; productRef = C3A7A40A2EA6B66600250B06 /* NetworkStatus */; };
 		C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */; };
 		C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */; };
 		C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */; };
@@ -175,6 +176,7 @@
 				C37D5DEA2E8415260068F334 /* Alamofire in Frameworks */,
 				C3A7A4062EA6B00700250B06 /* OpenTelemetryProtocolExporterHTTP in Frameworks */,
 				C3A7A4082EA6B00700250B06 /* URLSessionInstrumentation in Frameworks */,
+				C3A7A40B2EA6B66600250B06 /* NetworkStatus in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +274,13 @@
 				C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		C3A7A4092EA6B66600250B06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C3C08BAB2E8AAF0200EDC6A2 /* SubView */ = {
@@ -463,6 +472,7 @@
 			children = (
 				C3EB10762E744115002DA295 /* itirafApp */,
 				C37D5E022E842CB80068F334 /* itirafAppTests */,
+				C3A7A4092EA6B66600250B06 /* Frameworks */,
 				C3EB10562E7440CE002DA295 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -752,6 +762,7 @@
 				C37D5DE92E8415260068F334 /* Alamofire */,
 				C3A7A4052EA6B00700250B06 /* OpenTelemetryProtocolExporterHTTP */,
 				C3A7A4072EA6B00700250B06 /* URLSessionInstrumentation */,
+				C3A7A40A2EA6B66600250B06 /* NetworkStatus */,
 			);
 			productName = itirafApp;
 			productReference = C3EB10552E7440CE002DA295 /* itirafApp.app */;
@@ -1209,6 +1220,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C3A7A4042EA6B00700250B06 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
 			productName = URLSessionInstrumentation;
+		};
+		C3A7A40A2EA6B66600250B06 /* NetworkStatus */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3A7A4042EA6B00700250B06 /* XCRemoteSwiftPackageReference "opentelemetry-swift" */;
+			productName = NetworkStatus;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
