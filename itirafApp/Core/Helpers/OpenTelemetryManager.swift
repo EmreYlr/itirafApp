@@ -1,57 +1,56 @@
-//
-//  OpenTelemetryManager.swift
-//  itirafApp
-//
-//  Created by Emre on 20.10.2025.
-//
-
 import Foundation
 import UIKit
 import OpenTelemetryApi
 import OpenTelemetrySdk
 import ResourceExtension
-import OTLPHTTPExporter
+import OpenTelemetryProtocolExporterHttp
+import URLSessionInstrumentation
+import NetworkStatus
 
 final class OpenTelemetryManager {
     static let shared = OpenTelemetryManager()
     
     private var tracerProvider: TracerProviderSdk?
     
-    
     // Collector configuration
-    private let collectorEndpoint = "https://otel.oguzhanduymaz.com"
+    private let collectorHost = "otel.oguzhanduymaz.com"
+    private let collectorPort = 4318 // OTLP HTTP port
     private let serviceName = "itirafApp"
     private let serviceVersion = "1.0.0"
+    private let useTLS = false // true olursa HTTPS kullan
     
     private init() {}
     
-    // MARK: - Initialization
-    
     func initialize() {
         setupTracing()
+        setupInstrumentations()
+        
         print("✅ OpenTelemetry initialized successfully")
-        print("📡 Target endpoint: \(collectorEndpoint)")
+        print("📡 HTTP Collector: \(collectorHost):\(collectorPort)")
     }
     
-    // MARK: - Tracing Setup
-    
     private func setupTracing() {
-        // Create OTLP HTTP exporter
-        guard let tracesURL = URL(string: "\(collectorEndpoint)/v1/traces") else {
-            print("❌ Invalid traces endpoint URL")
+        let scheme = useTLS ? "https" : "https"
+        let endpoint = "\(scheme)://\(collectorHost)/v1/traces"
+        
+        guard let endpointURL = URL(string: endpoint) else {
+            print("❌ Invalid collector endpoint URL")
             return
         }
         
-        // Try different possible class names for OTLP HTTP exporter
-        let spanExporter: SpanExporter
+        // OTLP HTTP exporter
+        let spanExporter = OtlpHttpTraceExporter(endpoint: endpointURL)
+        let loggingExporter = LoggingSpanExporter(wrapping: spanExporter)
         
-        // Use NoopSpanExporter as fallback and also log spans
-        spanExporter = ConsoleSpanExporter(collectorURL: tracesURL)
+        let batchProcessor = BatchSpanProcessor(
+            spanExporter: loggingExporter,
+            scheduleDelay: 2.0,
+            exportTimeout: 30.0,
+            maxQueueSize: 2048,
+            maxExportBatchSize: 512
+        )
         
-        // Create span processor
-        let spanProcessor = SimpleSpanProcessor(spanExporter: spanExporter)
-        
-        // Create resource with service information
+        // Resource attributes
         let resourceAttributes: [String: AttributeValue] = [
             "service.name": .string(serviceName),
             "service.version": .string(serviceVersion),
@@ -66,20 +65,92 @@ final class OpenTelemetryManager {
         
         let resource = Resource(attributes: resourceAttributes)
         
-        // Build tracer provider
-        tracerProvider = TracerProviderBuilder()
-            .add(spanProcessor: spanProcessor)
+        let builder = TracerProviderBuilder()
+        
+        tracerProvider = builder
+            .add(spanProcessor: batchProcessor)
             .with(resource: resource)
             .build()
         
         OpenTelemetry.registerTracerProvider(tracerProvider: tracerProvider!)
         
-        print("✅ Tracing configured")
-        print("📡 Collector URL: \(tracesURL)")
-        print("💡 Spans will be logged to console and sent to collector")
+        OpenTelemetry.registerPropagators(
+            textPropagators: [W3CTraceContextPropagator()],
+            baggagePropagator: W3CBaggagePropagator()
+        )
+        
+        print("✅ Tracing configured with OTLP HTTP exporter")
+        sendTestSpan()
     }
     
-    // MARK: - Helper Methods
+    private func setupInstrumentations() {
+        setupURLSessionInstrumentation()
+        print("✅ URLSession instrumentation enabled")
+    }
+    
+    private func setupURLSessionInstrumentation() {
+        let configuration = URLSessionInstrumentationConfiguration(
+            shouldRecordPayload: { _ in false },
+            shouldInstrument: { request in
+                guard let url = request.url?.absoluteString else { return true }
+                return !url.contains(self.collectorHost)
+            },
+            nameSpan: { request in
+                if let url = request.url {
+                    let path = url.path.isEmpty ? "/" : url.path
+                    return "\(request.httpMethod ?? "GET") \(path)"
+                }
+                return "HTTP Request"
+            },
+            shouldInjectTracingHeaders: { _ in true },
+            createdRequest: { request, span in
+                if let url = request.url {
+                    span.setAttribute(key: "http.url", value: url.absoluteString)
+                    span.setAttribute(key: "http.host", value: url.host ?? "unknown")
+                    span.setAttribute(key: "http.scheme", value: url.scheme ?? "https")
+                }
+            },
+            receivedResponse: { response, dataOrFile, span in
+                if let httpResponse = response as? HTTPURLResponse {
+                    span.setAttribute(key: "http.status_code", value: httpResponse.statusCode)
+                    span.status = httpResponse.statusCode >= 400
+                        ? .error(description: "HTTP \(httpResponse.statusCode)")
+                        : .ok
+                    if let data = dataOrFile as? Data {
+                        span.setAttribute(key: "http.response_content_length", value: data.count)
+                    }
+                }
+            },
+            receivedError: { error, _, statusCode, span in
+                span.status = .error(description: error.localizedDescription)
+                span.setAttribute(key: "error", value: true)
+                span.setAttribute(key: "error.type", value: String(describing: type(of: error)))
+                span.setAttribute(key: "error.message", value: error.localizedDescription)
+                span.setAttribute(key: "http.status_code", value: statusCode)
+            }
+        )
+        
+        _ = URLSessionInstrumentation(configuration: configuration)
+    }
+    
+    private func sendTestSpan() {
+        print("🧪 Sending test span…")
+        
+        let tracer = getTracer(instrumentationName: "test", version: "1.0.0")
+        let span = tracer.spanBuilder(spanName: "test.connection").startSpan()
+        
+        span.setAttribute(key: "test.type", value: "connection_verification")
+        span.setAttribute(key: "collector.host", value: collectorHost)
+        span.setAttribute(key: "collector.port", value: collectorPort)
+        span.addEvent(name: "Connection test started")
+        Thread.sleep(forTimeInterval: 0.1)
+        span.addEvent(name: "Connection test completed")
+        span.status = .ok
+        span.end()
+        
+        print("✅ Test span created and ended")
+        forceFlush()
+    }
     
     private func getEnvironment() -> String {
         #if DEBUG
@@ -100,8 +171,6 @@ final class OpenTelemetryManager {
         return modelCode ?? "unknown"
     }
     
-    // MARK: - Public API
-    
     func getTracer(instrumentationName: String = "itirafApp", version: String = "1.0.0") -> Tracer {
         return OpenTelemetry.instance.tracerProvider.get(
             instrumentationName: instrumentationName,
@@ -109,75 +178,70 @@ final class OpenTelemetryManager {
         )
     }
     
-    // MARK: - Shutdown
+    func getCurrentSpan() -> Span? {
+        return OpenTelemetry.instance.contextProvider.activeSpan
+    }
+    
+    func sendManualTestSpan() {
+        sendTestSpan()
+    }
+    
+    func forceFlush() {
+        print("🔄 Force flushing spans…")
+        if let provider = tracerProvider {
+            _ = provider.forceFlush(timeout: 5.0)
+            print("✅ Flush completed")
+        }
+    }
+    
+    func printDebugInfo() {
+        print("\n=== OpenTelemetry Debug Info ===")
+        let scheme = useTLS ? "https" : "http"
+        print("Collector: \(scheme)://\(collectorHost):\(collectorPort)")
+        print("Service: \(serviceName) v\(serviceVersion)")
+        print("Environment: \(getEnvironment())")
+        print("Device: \(getDeviceModel())")
+        print("Protocol: OTLP HTTP")
+        print("Tracer Provider: \(tracerProvider != nil ? "✅" : "❌")")
+        print("================================\n")
+    }
     
     func shutdown() {
+        print("🔄 Shutting down OpenTelemetry…")
         _ = tracerProvider?.shutdown()
-        
         print("✅ OpenTelemetry shutdown complete")
     }
 }
 
-// MARK: - Console Span Exporter (logs and sends to collector)
-class ConsoleSpanExporter: SpanExporter {
-    private let collectorURL: URL
-    private let session: URLSession
+private class LoggingSpanExporter: SpanExporter {
+    private let wrappedExporter: SpanExporter
     
-    init(collectorURL: URL) {
-        self.collectorURL = collectorURL
-        self.session = URLSession.shared
+    init(wrapping exporter: SpanExporter) {
+        self.wrappedExporter = exporter
     }
     
     func export(spans: [SpanData], explicitTimeout: TimeInterval?) -> SpanExporterResultCode {
-        // Log spans to console for debugging
-        print("📊 Exporting \(spans.count) span(s) to \(collectorURL):")
-        for span in spans {
-            print("  └─ [\(span.name)] status: \(span.status)")
-            
-            // Send to collector via HTTP POST
-            sendSpanToCollector(span)
+        print("📤 Exporting \(spans.count) span(s)…")
+        for (index, span) in spans.enumerated() {
+            print("   [\(index + 1)] \(span.name) - TraceID: \(span.traceId.hexString)")
         }
-        return .success
-    }
-    
-    private func sendSpanToCollector(_ span: SpanData) {
-        var request = URLRequest(url: collectorURL)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // Create a simple JSON representation
-        let spanJSON: [String: Any] = [
-            "name": span.name,
-            "traceId": span.traceId.hexString,
-            "spanId": span.spanId.hexString,
-            "startTime": span.startTime.timeIntervalSince1970,
-            "endTime": span.endTime.timeIntervalSince1970,
-            "status": "\(span.status)"
-        ]
-        
-        if let jsonData = try? JSONSerialization.data(withJSONObject: spanJSON) {
-            request.httpBody = jsonData
-            
-            let task = session.dataTask(with: request) { data, response, error in
-                if let error = error {
-                    print("  ⚠️  Failed to send span: \(error.localizedDescription)")
-                } else if let httpResponse = response as? HTTPURLResponse {
-                    if httpResponse.statusCode == 200 {
-                        print("  ✅ Span sent successfully")
-                    } else {
-                        print("  ⚠️  Collector returned status: \(httpResponse.statusCode)")
-                    }
-                }
-            }
-            task.resume()
+        let result = wrappedExporter.export(spans: spans, explicitTimeout: explicitTimeout)
+        if result == .success {
+            print("✅ Export SUCCESS")
+        } else {
+            print("❌ Export FAILED")
         }
+        return result
     }
     
     func flush(explicitTimeout: TimeInterval?) -> SpanExporterResultCode {
-        return .success
+        let result = wrappedExporter.flush(explicitTimeout: explicitTimeout)
+        print(result == .success ? "✅ Flush SUCCESS" : "❌ Flush FAILED")
+        return result
     }
     
     func shutdown(explicitTimeout: TimeInterval?) {
-        print("🔄 ConsoleSpanExporter shutdown")
+        wrappedExporter.shutdown(explicitTimeout: explicitTimeout)
     }
 }
+
