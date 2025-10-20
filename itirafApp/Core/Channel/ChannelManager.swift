@@ -23,7 +23,7 @@ final class ChannelManager {
 
     
     func getChannelName() -> String? {
-        return currentChannel?.name
+        return currentChannel?.title
     }
     
     func getChannelId() -> Int? {

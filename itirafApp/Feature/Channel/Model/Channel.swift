@@ -13,14 +13,14 @@ struct Channel: Codable {
     var data: [ChannelData]
 }
 
-// MARK: - Datum
+// MARK: - ChannelData
 struct ChannelData: Codable {
     let id: Int
-    let name, title, description: String
+    let title, description: String
     let imageURL: String
 
     enum CodingKeys: String, CodingKey {
-        case id, name, title, description
+        case id, title, description
         case imageURL = "imageUrl"
     }
 }
