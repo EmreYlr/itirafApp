@@ -3,3 +3,5 @@ itirafApp/Core/Network/NetworkConstants.swift
 itirafApp/Core/Auth/AuthManager.swift
 itirafApp/Core/Helpers/Constants.swift
 itirafApp/Core/Extension/UserDefaults+Keys.swift
+itirafApp/Core/Network/Constant/Endpoint.swift
+itirafApp/Core/Network/Constant/NetworkConstants.swift

@@ -30,6 +30,8 @@
 		C37D5E0C2E856C3F0068F334 /* LoginAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5E0B2E856C3F0068F334 /* LoginAlertPresenter.swift */; };
 		C37D5E142E86DDBD0068F334 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C37D5E132E86DDBD0068F334 /* Register.storyboard */; };
 		C37D5ECB2E86DE9A0068F334 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5ECA2E86DE9A0068F334 /* RegisterViewController.swift */; };
+		C3A7A40F2EA7A9B600250B06 /* AppRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A40E2EA7A9B600250B06 /* AppRequestInterceptor.swift */; };
+		C3A7A4142EA7AADD00250B06 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4132EA7AADD00250B06 /* AppError.swift */; };
 		C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */; };
 		C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */; };
 		C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */; };
@@ -105,6 +107,8 @@
 		C37D5E0B2E856C3F0068F334 /* LoginAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAlertPresenter.swift; sourceTree = "<group>"; };
 		C37D5E132E86DDBD0068F334 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		C37D5ECA2E86DE9A0068F334 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C3A7A40E2EA7A9B600250B06 /* AppRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRequestInterceptor.swift; sourceTree = "<group>"; };
+		C3A7A4132EA7AADD00250B06 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
@@ -266,6 +270,32 @@
 				C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		C3A7A4102EA7AA7C00250B06 /* Interceptor */ = {
+			isa = PBXGroup;
+			children = (
+				C3A7A40E2EA7A9B600250B06 /* AppRequestInterceptor.swift */,
+			);
+			path = Interceptor;
+			sourceTree = "<group>";
+		};
+		C3A7A4112EA7AA8F00250B06 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				C37D5DE42E8414760068F334 /* Endpoint.swift */,
+				C37D5DE22E8414630068F334 /* NetworkConstants.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		C3A7A4122EA7AA9800250B06 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C37D5DF32E842A2F0068F334 /* NetworkService.swift */,
+				C37D5DE62E8415080068F334 /* NetworkManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		C3C08BAB2E8AAF0200EDC6A2 /* SubView */ = {
@@ -447,6 +477,7 @@
 		C3D765922E96A90600104C3B /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				C3A7A4132EA7AADD00250B06 /* AppError.swift */,
 				C3D765932E96A90B00104C3B /* APIError.swift */,
 			);
 			path = Error;
@@ -558,11 +589,10 @@
 		C3EB10882E744A53002DA295 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C3A7A4112EA7AA8F00250B06 /* Constant */,
 				C3D765922E96A90600104C3B /* Error */,
-				C37D5DF32E842A2F0068F334 /* NetworkService.swift */,
-				C37D5DE62E8415080068F334 /* NetworkManager.swift */,
-				C37D5DE42E8414760068F334 /* Endpoint.swift */,
-				C37D5DE22E8414630068F334 /* NetworkConstants.swift */,
+				C3A7A4102EA7AA7C00250B06 /* Interceptor */,
+				C3A7A4122EA7AA9800250B06 /* Manager */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -870,6 +900,7 @@
 				C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */,
 				C326DD4A2E8D824E001B7837 /* UserDefaultsHelper.swift in Sources */,
 				C37D5DF02E841DD50068F334 /* KeychainHelper.swift in Sources */,
+				C3A7A40F2EA7A9B600250B06 /* AppRequestInterceptor.swift in Sources */,
 				C37D5DF42E842A2F0068F334 /* NetworkService.swift in Sources */,
 				C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */,
 				C3D764BA2E93DDDE00104C3B /* DetailViewModel.swift in Sources */,
@@ -878,6 +909,7 @@
 				C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */,
 				C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */,
 				C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */,
+				C3A7A4142EA7AADD00250B06 /* AppError.swift in Sources */,
 				C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */,
 				C3F39E142EA0268B00197509 /* PostConfessionViewModel.swift in Sources */,
 			);

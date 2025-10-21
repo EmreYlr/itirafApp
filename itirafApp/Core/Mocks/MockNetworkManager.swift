@@ -22,4 +22,4 @@ final class MockNetworkManager {
     }
 }
 
-extension MockNetworkManager: NetworkService { }
+//extension MockNetworkManager: NetworkService { }

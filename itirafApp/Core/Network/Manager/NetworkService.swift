@@ -9,4 +9,10 @@ import Alamofire
 
 protocol NetworkService {
     func request<T: Decodable>(endpoint: EndpointType, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, completion: @escaping (Result<T, Error>) -> Void)
+    func request<T: Decodable>(
+        endpoint: EndpointType,
+        method: HTTPMethod,
+        parameters: Parameters?,
+        encoding: ParameterEncoding
+    ) async throws -> T
 }

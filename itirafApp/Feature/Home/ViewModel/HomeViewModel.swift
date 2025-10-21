@@ -20,16 +20,16 @@ protocol HomeViewModelOutputProtocol: AnyObject {
     func didFailToLikeMessage(with error: Error)
     func didFailWithError(_ error: Error)
 }
-
+@MainActor
 final class HomeViewModel {
     weak var delegate: HomeViewModelOutputProtocol?
-    var onConfessionsChanged: ((Confession) -> Void)?
     let homeService: HomeServiceProtocol
+    
     var confessions: Confession?
     
-    private var currentPage = 1
     private(set) var isLoading = false
     private(set) var hasMoreData = true
+    private var currentPage = 1
     
     init(homeService: HomeServiceProtocol = HomeService()) {
         self.homeService = homeService
@@ -41,110 +41,74 @@ final class HomeViewModel {
             hasMoreData = true
             confessions = nil
         }
-        fetchConfessions(page: currentPage, limit: 10)
-    }
-    
-    func fetchConfessions(page: Int, limit: Int) {
-        guard !isLoading, hasMoreData else { return }
-        isLoading = true
-//        delegate?.didStartLoading()
         
-        homeService.fetchConfessions(page: page, limit: limit) { [weak self] result in
-            guard let self = self else { return }
-            self.isLoading = false
-//            self.delegate?.didFinishLoading()
+        guard !isLoading, hasMoreData else { return }
+        
+        Task {
+            isLoading = true
+            defer { isLoading = false }
             
-            switch result {
-            case .success(let newConfessions):
+            do {
+                let newConfessions = try await homeService.fetchConfessions(page: currentPage, limit: 10)
+                
                 if self.confessions == nil {
                     self.confessions = newConfessions
                 } else {
                     self.confessions?.data.append(contentsOf: newConfessions.data)
                 }
                 
-                if page >= newConfessions.totalPages {
+                if currentPage >= newConfessions.totalPages {
                     self.hasMoreData = false
                 } else {
                     self.currentPage += 1
                 }
                 
-                if let confessionsData = confessions?.data {
-                    self.delegate?.didUpdateConfessions(with: confessionsData)
-                }
-                else {
-                    self.hasMoreData = false
-                    self.delegate?.didUpdateConfessions(with: [])
-                }
+                delegate?.didUpdateConfessions(with: confessions?.data ?? [])
                 
-
-
-            case .failure(let error):
-                self.delegate?.didFailWithError(error)
+            } catch {
+                delegate?.didFailWithError(error)
             }
         }
     }
     
-    private func likeMessage(for confessionId: Int) {
-        toggleLike(for: confessionId)
-        DispatchQueue.main.async {
-            self.homeService.likeConfessions(messageId: confessionId) { [weak self] result in
-                switch result {
-                case .success:
-                    break
-                case .failure(let error):
-                    self?.toggleLike(for: confessionId)
-                    self?.delegate?.didFailToLikeMessage(with: error)
-                    print("Error liking message: \(error)")
-                }
-            }
-        }
-    }
     
     func toggleLikeStatus(for confessionId: Int) {
-        guard let index = self.confessions?.data.firstIndex(where: { $0.id == confessionId }) else {
-            return
-        }
+        guard let index = confessions?.data.firstIndex(where: { $0.id == confessionId }) else { return }
         
-        if self.confessions?.data[index].liked == true {
-            unlikeMessage(for: confessionId)
-        } else {
-            likeMessage(for: confessionId)
-        }
-    }
-    
-    private func unlikeMessage(for confessionId: Int) {
-        toggleLike(for: confessionId)
-        DispatchQueue.main.async {
-            self.homeService.unlikeConfessions(messageId: confessionId) { [weak self] result in
-                switch result {
-                case .success:
-                    break
-                case .failure(let error):
-                    self?.toggleLike(for: confessionId)
-                    self?.delegate?.didFailToLikeMessage(with: error)
-                    print("Error unliking message: \(error)")
+        let isLiked = confessions?.data[index].liked == true
+        
+        toggleLocalLike(for: confessionId)
+        
+        Task {
+            do {
+                if isLiked {
+                    _ = try await homeService.unlikeConfessions(messageId: confessionId)
+                } else {
+                    _ = try await homeService.likeConfessions(messageId: confessionId)
                 }
+            } catch {
+                print("Error toggling like status: \(error)")
+                toggleLocalLike(for: confessionId)
+                delegate?.didFailToLikeMessage(with: error)
             }
         }
     }
     
-    private func toggleLike(for confessionId: Int) {
-        guard let index = self.confessions?.data.firstIndex(where: { $0.id == confessionId }) else {
-            return
-        }
-        self.confessions?.data[index].liked.toggle()
+    private func toggleLocalLike(for confessionId: Int) {
+        guard let index = confessions?.data.firstIndex(where: { $0.id == confessionId }) else { return }
         
-        if self.confessions?.data[index].liked == true {
-            self.confessions?.data[index].likeCount += 1
+        confessions?.data[index].liked.toggle()
+        
+        if confessions?.data[index].liked == true {
+            confessions?.data[index].likeCount += 1
         } else {
-            self.confessions?.data[index].likeCount -= 1
+            confessions?.data[index].likeCount -= 1
         }
         
-        if let updatedData = self.confessions?.data {
+        if let updatedData = confessions?.data {
             delegate?.didUpdateConfessions(with: updatedData)
         }
     }
-    
 }
 
-extension HomeViewModel: HomeViewModelProtocol { }
+extension HomeViewModel: @preconcurrency HomeViewModelProtocol { }

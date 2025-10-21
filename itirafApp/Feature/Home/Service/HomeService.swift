@@ -9,9 +9,9 @@ import Alamofire
 import Foundation
 
 protocol HomeServiceProtocol {
-    func fetchConfessions(page: Int, limit: Int, completion: @escaping (Result<Confession, Error>) -> Void)
-    func likeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, Error>) -> Void)
-    func unlikeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, any Error>) -> Void)
+    func fetchConfessions(page: Int, limit: Int) async throws -> Confession
+    func likeConfessions(messageId: Int) async throws -> EmptyResponse
+    func unlikeConfessions(messageId: Int) async throws -> EmptyResponse
 }
 
 final class HomeService: HomeServiceProtocol {
@@ -21,48 +21,40 @@ final class HomeService: HomeServiceProtocol {
         self.networkService = networkService
     }
     
-    func fetchConfessions(page: Int, limit: Int, completion: @escaping (Result<Confession, Error>) -> Void) {
+    func fetchConfessions(page: Int, limit: Int) async throws -> Confession {
         guard let channelId = ChannelManager.shared.getChannelId() else {
             print("Channel ID not found")
-            completion(.failure(NSError(domain: "AppError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Channel ID not found"])))
-            return
+            throw AppError.channelIdNotFound
         }
+        
         let parameters: [String: Any] = [
             "page": page,
             "limit": limit
         ]
         
-        networkService.request(endpoint: Endpoint.Channel.getChannelMessages(channelId: channelId), method: .get, parameters: parameters, encoding: URLEncoding.default) { (result: Result<Confession, Error>) in
-            switch result {
-            case .success(let confessions):
-                completion(.success(confessions))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+        return try await networkService.request(
+            endpoint: Endpoint.Channel.getChannelMessages(channelId: channelId),
+            method: .get,
+            parameters: parameters,
+            encoding: URLEncoding.default
+        )
     }
     
-    func likeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, any Error>) -> Void) {
-        networkService.request(endpoint: Endpoint.Channel.likeMessage(messageId: messageId), method: .post, parameters: nil, encoding: URLEncoding.default) { (result: Result<EmptyResponse, Error>) in
-            switch result {
-            case .success(let response):
-                completion(.success(response))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func likeConfessions(messageId: Int) async throws -> EmptyResponse {
+        return try await networkService.request(
+            endpoint: Endpoint.Channel.likeMessage(messageId: messageId),
+            method: .post,
+            parameters: nil,
+            encoding: URLEncoding.default
+        )
     }
     
-    func unlikeConfessions(messageId: Int, completion: @escaping (Result<EmptyResponse, any Error>) -> Void) {
-        networkService.request(endpoint: Endpoint.Channel.unlikeMessage(messageId: messageId), method: .delete, parameters: nil, encoding: URLEncoding.default) { (result: Result<EmptyResponse, Error>) in
-            switch result {
-            case .success(let response):
-                completion(.success(response))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func unlikeConfessions(messageId: Int) async throws -> EmptyResponse {
+        return try await networkService.request(
+            endpoint: Endpoint.Channel.unlikeMessage(messageId: messageId),
+            method: .delete,
+            parameters: nil,
+            encoding: URLEncoding.default
+        )
     }
-    
-    
 }
