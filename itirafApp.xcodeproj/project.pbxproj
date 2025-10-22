@@ -325,6 +325,7 @@
 				C3A7A41A2EA9441F00250B06 /* View */,
 				C3A7A4192EA9441A00250B06 /* ViewModel */,
 				C3A7A4182EA9441100250B06 /* Serivce */,
+				C3A7A42E2EA957AD00250B06 /* Chat */,
 			);
 			path = DirectMessage;
 			sourceTree = "<group>";
@@ -378,6 +379,23 @@
 				C3A7A4272EA9484000250B06 /* DirectMessageCollectionViewCell.xib */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		C3A7A42E2EA957AD00250B06 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		C3A7A42F2EA9586400250B06 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB10892E744A5D002DA295 /* Auth */,
+				C3D7658D2E95506600104C3B /* Channel */,
+				C326DD4B2E8EE29C001B7837 /* User */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		C3C08BAB2E8AAF0200EDC6A2 /* SubView */ = {
@@ -588,6 +606,7 @@
 			children = (
 				C3EB107E2E74411A002DA295 /* App */,
 				C3EB10872E744A4A002DA295 /* Core */,
+				C3A7A42F2EA9586400250B06 /* Services */,
 				C3EB107F2E74412B002DA295 /* Feature */,
 			);
 			path = itirafApp;
@@ -657,9 +676,6 @@
 			isa = PBXGroup;
 			children = (
 				C3EB10882E744A53002DA295 /* Network */,
-				C3EB10892E744A5D002DA295 /* Auth */,
-				C3D7658D2E95506600104C3B /* Channel */,
-				C326DD4B2E8EE29C001B7837 /* User */,
 				C3EB108A2E744A63002DA295 /* Extension */,
 				C3EB108B2E744A75002DA295 /* Helpers */,
 				C37D5BB72E7982F90068F334 /* Storyboard */,
