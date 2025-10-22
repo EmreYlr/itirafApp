@@ -7,30 +7,27 @@
 //
 
 import Alamofire
+import Foundation
 
 protocol PersonServiceProtocol {
-    func logout(completion: @escaping (Result<Bool, Error>) -> Void)
+    func logout() async throws
 }
 
-final class PersonService {
+final class PersonService: PersonServiceProtocol {
     private let networkService: NetworkService
     
     init(networkService: NetworkService = NetworkManager.shared) {
         self.networkService = networkService
     }
     
-    func logout(completion: @escaping (Result<Bool, any Error>) -> Void) {
-        networkService.request(endpoint: Endpoint.Auth.logout, method: .delete, parameters: nil, encoding: URLEncoding.default) { (result: Result<EmptyResponse, Error>) in
-            switch result {
-            case .success:
-                AuthManager.shared.clearTokens()
-                UserManager.shared.clear()
-                completion(.success(true))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func logout() async throws {
+        let _: Empty = try await networkService.request(
+            endpoint: Endpoint.Auth.logout,
+            method: .delete,
+            parameters: nil,
+            encoding: URLEncoding.default
+        )
+        AuthManager.shared.clearTokens()
+        UserManager.shared.clear()
     }
 }
-
-extension PersonService: PersonServiceProtocol { }

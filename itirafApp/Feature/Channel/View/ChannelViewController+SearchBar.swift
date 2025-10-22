@@ -21,8 +21,16 @@ extension ChannelViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let keyword = searchBar.text, !keyword.isEmpty else { return }
+        
         searchBar.resignFirstResponder()
-        channelViewModel.searchChannels(keyword: keyword)
+        searchBar.isUserInteractionEnabled = false
+        
+        Task {
+            defer {
+                searchBar.isUserInteractionEnabled = true
+            }
+            await channelViewModel.searchChannels(keyword: keyword)
+        }
     }
     
 }

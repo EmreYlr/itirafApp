@@ -8,8 +8,8 @@
 import Alamofire
 
 protocol ChannelServiceProtocol {
-    func fetchChannels(page: Int, pageSize: Int, completion: @escaping (Result<Channel, Error>) -> Void)
-    func searchChannels(query: String, completion: @escaping (Result<[ChannelData], Error>) -> Void)
+    func fetchChannels(page: Int, pageSize: Int) async throws -> Channel
+    func searchChannels(query: String) async throws -> [ChannelData]
 }
 
 final class ChannelService {
@@ -19,36 +19,30 @@ final class ChannelService {
         self.networkService = networkService
     }
 
-    func fetchChannels(page: Int, pageSize: Int, completion: @escaping (Result<Channel, any Error>) -> Void) {
+    func fetchChannels(page: Int, pageSize: Int) async throws -> Channel {
         let parameters: [String: Any] = [
             "page": page,
             "limit": pageSize
         ]
-        networkService.request(endpoint: Endpoint.Channel.listAllChannels, method: .get, parameters: parameters, encoding: URLEncoding.default) { (result: Result<Channel, Error>) in
-            switch result {
-            case .success(let channels):
-                completion(.success(channels))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-    
-    func searchChannels(query: String, completion: @escaping (Result<[ChannelData], any Error>) -> Void) {
-        let parameters: [String: Any] = [
-            "query": query
-        ]
-        networkService.request(endpoint: Endpoint.Channel.searchChannels, method: .get, parameters: parameters, encoding: URLEncoding.default) { (result: Result<[ChannelData], Error>) in
-            switch result {
-            case .success(let channel):
-                completion(.success(channel))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
         
+        return try await networkService.request(
+            endpoint: Endpoint.Channel.listAllChannels,
+            method: .get,
+            parameters: parameters,
+            encoding: URLEncoding.default
+        )
     }
     
+    func searchChannels(query: String) async throws -> [ChannelData] {
+        let parameters: [String: Any] = ["query": query]
+        
+        return try await networkService.request(
+            endpoint: Endpoint.Channel.searchChannels,
+            method: .get,
+            parameters: parameters,
+            encoding: URLEncoding.default
+        )
+    }
 }
 
 extension ChannelService: ChannelServiceProtocol { }

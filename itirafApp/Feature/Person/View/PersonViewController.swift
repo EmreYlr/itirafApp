@@ -36,12 +36,29 @@ final class PersonViewController: UIViewController {
     }
     
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
+        let performLogoutAction = {
+            sender.isEnabled = false
+            Task {
+                defer {
+                    sender.isEnabled = true
+                }
+                await self.personViewModel.logout()
+            }
+        }
+        
         if personViewModel.checkUserAnonymous() {
-            self.personViewModel.logout()
+            performLogoutAction()
         } else {
-            showTwoButtonAlert(title: "Çıkış Yap", message: "Çıkış Yapmak İstediğiniden Emin Misiniz?", firstButtonTitle: "Çıkış Yap", firstButtonHandler: { _ in
-                self.personViewModel.logout()
-            }, secondButtonTitle: "İptal", secondButtonHandler: nil)
+            showTwoButtonAlert(
+                title: "Çıkış Yap",
+                message: "Çıkış yapmak istediğinizden emin misiniz?",
+                firstButtonTitle: "Çıkış Yap",
+                firstButtonHandler: { _ in
+                    performLogoutAction()
+                },
+                secondButtonTitle: "İptal",
+                secondButtonHandler: nil
+            )
         }
     }
     @IBAction func infoButtonPressed(_ sender: UIButton) {

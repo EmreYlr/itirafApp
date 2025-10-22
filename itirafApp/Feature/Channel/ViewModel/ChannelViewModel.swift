@@ -12,9 +12,9 @@ protocol ChannelViewModelProtocol {
     var channel: Channel? { get }
     var filterChannels: [ChannelData] { set get }
     var isSearching: Bool { get set }
-    func fetchChannel(reset: Bool)
+    func fetchChannel(reset: Bool) async
+    func searchChannels(keyword: String) async
     func selectChannel(at index: Int)
-    func searchChannels(keyword: String)
     func cancelSearch()
 }
 
@@ -25,15 +25,16 @@ protocol ChannelViewModelOutputProtocol: AnyObject {
     func didFinishLoading()
 }
 
+@MainActor
 final class ChannelViewModel {
     weak var delegate: ChannelViewModelOutputProtocol?
-    var channel: Channel?
-    var filterChannels : [ChannelData] = []
+    private(set) var channel: Channel?
+    var filterChannels: [ChannelData] = []
+    var isSearching = false
     
     private var currentPage = 1
     private var isLoading = false
     private var hasMoreData = true
-    var isSearching = false
     
     private let channelService: ChannelServiceProtocol
     
@@ -41,65 +42,58 @@ final class ChannelViewModel {
         self.channelService = channelService
     }
     
-    func fetchChannel(reset: Bool = false) {
+    func fetchChannel(reset: Bool = false) async {
         if reset {
             currentPage = 1
             hasMoreData = true
             channel = nil
             filterChannels.removeAll()
         }
-        fetchChannel(page: currentPage, pageSize: 10)
-    }
-    
-    private func fetchChannel(page: Int, pageSize: Int) {
+        
         guard !isLoading, hasMoreData else { return }
+        
         isLoading = true
         delegate?.didStartLoading()
+        defer {
+            isLoading = false
+            delegate?.didFinishLoading()
+        }
         
-        channelService.fetchChannels(page: page, pageSize: pageSize) { [weak self] result in
-            guard let self = self else { return }
-            self.isLoading = false
-            self.delegate?.didFinishLoading()
+        do {
+            let newChannel = try await channelService.fetchChannels(page: currentPage, pageSize: 10)
             
-            switch result {
-            case .success(let newChannel):
-                if self.channel == nil {
-                    self.channel = newChannel
-                    self.filterChannels = newChannel.data
-                } else {
-                    self.channel?.data.append(contentsOf: newChannel.data)
-                    self.filterChannels.append(contentsOf: newChannel.data)
-                }
-                
-                if page >= newChannel.totalPages {
-                    self.hasMoreData = false
-                } else {
-                    self.currentPage += 1
-                }
-                
-                self.delegate?.didUpdateChannel()
-                
-            case .failure(let error):
-                self.delegate?.didFailWithError(error)
+            if self.channel == nil {
+                self.channel = newChannel
+            } else {
+                self.channel?.data.append(contentsOf: newChannel.data)
             }
+            if !isSearching {
+                self.filterChannels = self.channel?.data ?? []
+            }
+            
+            hasMoreData = currentPage < newChannel.totalPages
+            if hasMoreData { currentPage += 1 }
+            
+            delegate?.didUpdateChannel()
+            
+        } catch {
+            delegate?.didFailWithError(error)
         }
     }
     
-    func searchChannels(keyword: String) {
+    func searchChannels(keyword: String) async {
         isSearching = true
         delegate?.didStartLoading()
+        defer {
+            delegate?.didFinishLoading()
+        }
         
-        channelService.searchChannels(query: keyword) { [weak self] result in
-            guard let self = self else { return }
-            self.delegate?.didFinishLoading()
-            
-            switch result {
-            case .success(let channels):
-                self.filterChannels = channels
-                self.delegate?.didUpdateChannel()
-            case .failure(let error):
-                self.delegate?.didFailWithError(error)
-            }
+        do {
+            let searchResults = try await channelService.searchChannels(query: keyword)
+            self.filterChannels = searchResults
+            delegate?.didUpdateChannel()
+        } catch {
+            delegate?.didFailWithError(error)
         }
     }
     
@@ -109,12 +103,10 @@ final class ChannelViewModel {
         delegate?.didUpdateChannel()
     }
     
-    func selectChannel(at index: Int){
-        let channel = filterChannels
-        let selectedChannel = channel[index]
+    func selectChannel(at index: Int) {
+        let selectedChannel = filterChannels[index]
         ChannelManager.shared.setChannel(selectedChannel)
     }
 }
-
-extension ChannelViewModel: ChannelViewModelProtocol { }
+extension ChannelViewModel: @preconcurrency ChannelViewModelProtocol { }
 

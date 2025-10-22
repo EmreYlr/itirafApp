@@ -5,10 +5,9 @@
 //  Created by Emre on 3.10.2025.
 //
 
-
 protocol PersonViewModelProtocol {
     var delegate: PersonViewModelOutputProtocol? { get set }
-    func logout()
+    func logout() async
     func checkUserAnonymous() -> Bool
 }
 
@@ -17,6 +16,7 @@ protocol PersonViewModelOutputProtocol: AnyObject {
     func didFailToLogout(with error: Error)
 }
 
+@MainActor
 final class PersonViewModel {
     weak var delegate: PersonViewModelOutputProtocol?
     private let personService: PersonServiceProtocol
@@ -24,22 +24,18 @@ final class PersonViewModel {
     init(personService: PersonServiceProtocol = PersonService()) {
         self.personService = personService
     }
-    
-    func logout() {
-        personService.logout { [weak self] result in
-            switch result {
-            case .success:
-                self?.delegate?.didLogoutSuccessfully()
-            case .failure(let error):
-                self?.delegate?.didFailToLogout(with: error)
-            }
+    func logout() async {
+        do {
+            try await personService.logout()
+            delegate?.didLogoutSuccessfully()
+        } catch {
+            delegate?.didFailToLogout(with: error)
         }
     }
     
     func checkUserAnonymous() -> Bool {
         return UserManager.shared.getUserIsAnonymous()
     }
-    
 }
 
-extension PersonViewModel: PersonViewModelProtocol { }
+extension PersonViewModel: @preconcurrency PersonViewModelProtocol { }

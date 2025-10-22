@@ -31,7 +31,9 @@ final class ChannelViewController: UIViewController {
     
     private func initData() {
         channelViewModel.delegate = self
-        channelViewModel.fetchChannel(reset: true)
+        Task {
+            await channelViewModel.fetchChannel(reset: true)
+        }
     }
     
     private func initTableView() {
@@ -54,7 +56,9 @@ final class ChannelViewController: UIViewController {
     }
     
     @objc private func refreshChannels() {
-        channelViewModel.fetchChannel(reset: true)
+        Task {
+            await channelViewModel.fetchChannel(reset: true)
+        }
     }
 
 }

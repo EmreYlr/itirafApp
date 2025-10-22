@@ -30,10 +30,11 @@ extension ChannelViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard !channelViewModel.isSearching else { return }
-        guard let totalCount = channelViewModel.channel?.data.count else { return }
-        
-        if indexPath.row == totalCount - 1 {
-            channelViewModel.fetchChannel(reset: false)
+
+        if indexPath.row == (channelViewModel.channel?.data.count ?? 0) - 1 {
+            Task {
+                await channelViewModel.fetchChannel(reset: false)
+            }
         }
     }
 }
