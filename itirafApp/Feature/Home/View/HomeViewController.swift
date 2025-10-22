@@ -23,6 +23,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         print("HomeViewController")
         initView()
+        configureNavigationBar()
         loadCollectionView()
         configureDataSource()
     }
@@ -46,6 +47,18 @@ final class HomeViewController: UIViewController {
         Task {
             await homeViewModel.fetchConfessions(reset: true)
         }
+    }
+    
+    private func configureNavigationBar() {
+        let messageButton = UIBarButtonItem(
+            image: UIImage(systemName: "message"),
+            style: .plain,
+            target: self,
+            action: #selector(messageButtonTapped)
+        )
+        messageButton.tintColor = .systemMint
+        
+        navigationItem.rightBarButtonItem = messageButton
     }
     
     private func configureDataSource() {
@@ -83,6 +96,11 @@ final class HomeViewController: UIViewController {
 //            }
             await homeViewModel.fetchConfessions(reset: true)
         }
+    }
+    
+    @objc private func messageButtonTapped() {
+        let directMessagesVC: DirectMessageViewController = Storyboard.directMessage.instantiate(.directMessage)
+        navigationController?.pushViewController(directMessagesVC, animated: true)
     }
 }
 

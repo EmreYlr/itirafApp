@@ -12,6 +12,7 @@ enum Storyboard: String {
     case login = "Login"
     case register = "Register"
     case channel = "Channel"
+    case directMessage = "DirectMessage"
 
     var instance: UIStoryboard {
         UIStoryboard(name: self.rawValue, bundle: nil)
@@ -55,6 +56,8 @@ enum ViewControllerID: String {
     //Channel.storyboard
     case channel = "ChannelViewController"
     
+    // DirectMessage.storyboard
+    case directMessage = "DirectMessageViewController"
 }
 
 enum NavigationControllerID: String {
