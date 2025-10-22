@@ -65,37 +65,17 @@ final class AuthService {
         return true
     }
     
-    static func refreshToken(completion: @escaping (Bool) -> Void) {
-        guard let refresh = AuthManager.shared.getRefreshToken() else {
-            completion(false)
-            return
-        }
-
-        let params: Parameters = ["refreshToken": refresh]
-        
-        let url = NetworkConstants.baseURL + Endpoint.Auth.refreshToken.path
-        
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "x-client-key": Constants.clientKey
-        ]
-        
-        AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
-        .validate()
-        .responseDecodable(of: RefreshTokenResponse.self) { response in
-            switch response.result {
-            case .success(let tokenResponse):
-                print("Refreshed token successfully")
-                AuthManager.shared.saveTokens(
-                    accessToken: tokenResponse.accessToken,
-                    refreshToken: tokenResponse.refreshToken
-                )
-                completion(true)
-                
-            case .failure(let error):
-                print("Failed to refresh token: \(error.localizedDescription)")
-                completion(false)
-            }
+    static func refreshToken() async -> Bool {
+        do {
+            let tokenResponse = try await NetworkManager.shared.requestRefreshToken()
+            AuthManager.shared.saveTokens(
+                accessToken: tokenResponse.accessToken,
+                refreshToken: tokenResponse.refreshToken
+            )
+            return true
+        } catch {
+            print("Failed to refresh token: \(error.localizedDescription)")
+            return false
         }
     }
 }

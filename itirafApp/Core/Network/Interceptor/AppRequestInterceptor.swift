@@ -31,7 +31,9 @@ final class AppRequestInterceptor: RequestInterceptor {
         
         print("Token süresi doldu. Yenileme işlemi başlatılıyor...")
 
-        AuthService.refreshToken { success in
+        Task {
+            let success = await AuthService.refreshToken()
+            
             if success {
                 print("Token başarıyla yenilendi. Asıl istek yeniden denenecek.")
                 completion(.retry)
@@ -39,7 +41,9 @@ final class AppRequestInterceptor: RequestInterceptor {
                 print("Token yenilenemedi. Kullanıcı oturumu sonlandırılacak.")
                 AuthManager.shared.clearTokens()
                 UserManager.shared.clear()
-                NotificationCenter.default.post(name: .loginRequired, object: nil)
+                await MainActor.run {
+                    NotificationCenter.default.post(name: .loginRequired, object: nil)
+                }
                 completion(.doNotRetry)
             }
         }
