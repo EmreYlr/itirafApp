@@ -7,7 +7,7 @@
 
 protocol RegisterViewModelProtocol {
     var delegate: RegisterViewModelOutputProtocol? { get set }
-    func registerUser(email: String, password: String, username: String)
+    func registerUser(email: String, password: String, username: String) async
 }
 
 protocol RegisterViewModelOutputProtocol: AnyObject {
@@ -15,6 +15,7 @@ protocol RegisterViewModelOutputProtocol: AnyObject {
     func didFailToRegister(with error: Error)
 }
 
+@MainActor
 final class RegisterViewModel {
     weak var delegate: RegisterViewModelOutputProtocol?
     private let registerService: RegisterServiceProtocol
@@ -23,17 +24,14 @@ final class RegisterViewModel {
         self.registerService = registerService
     }
     
-    func registerUser(email: String, password: String, username: String) {
-        registerService.registerUser(email: email, password: password, username: username) { [weak self] result in
-            switch result {
-            case .success:
-                self?.delegate?.didRegisterSuccessfully()
-            case .failure(let error):
-                self?.delegate?.didFailToRegister(with: error)
-            }
+    func registerUser(email: String, password: String, username: String) async {
+        do {
+            try await registerService.registerUser(email: email, password: password, username: username)
+            delegate?.didRegisterSuccessfully()
+        } catch {
+            delegate?.didFailToRegister(with: error)
         }
     }
-    
 }
 
-extension RegisterViewModel: RegisterViewModelProtocol { }
+extension RegisterViewModel: @preconcurrency RegisterViewModelProtocol { }

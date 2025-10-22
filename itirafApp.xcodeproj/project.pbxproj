@@ -225,9 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				C37D5E0E2E86DB700068F334 /* Storyboard */,
+				C37D5E0F2E86DB760068F334 /* Model */,
 				C37D5E102E86DB830068F334 /* View */,
 				C37D5E112E86DB860068F334 /* ViewModel */,
-				C37D5E0F2E86DB760068F334 /* Model */,
 				C37D5E122E86DB8F0068F334 /* Service */,
 			);
 			path = Register;

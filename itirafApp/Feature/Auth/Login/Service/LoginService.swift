@@ -6,52 +6,41 @@
 //
 
 import Alamofire
+import Foundation
 
 protocol LoginServiceProtocol {
-    func loginUser(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void)
-    
+    func loginUser(email: String, password: String) async throws
 }
 
 final class LoginService {
     private let networkService: NetworkService
-    private let userService: UserService
+    private let userService: UserServiceProtocol
     
     init(networkService: NetworkService = NetworkManager.shared,
-         userService: UserService = UserService()) {
+         userService: UserServiceProtocol = UserService()) {
         self.networkService = networkService
         self.userService = userService
     }
 
-    func loginUser(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    func loginUser(email: String, password: String) async throws {
         let params: Parameters = [
             "email": email,
             "password": password
         ]
-        networkService.request(endpoint: Endpoint.Auth.login, method: .post, parameters: params, encoding: JSONEncoding.default) { [weak self] (result: Result<RefreshTokenResponse, Error>) in
-            switch result {
-            case .success(let response):
-                //TODO: -Thread Performance Checker uyarısına bak
-                AuthManager.shared.saveTokens(
-                    accessToken: response.accessToken,
-                    refreshToken: response.refreshToken
-                )
-
-                self?.userService.fetchCurrentUser { userResult in
-                    switch userResult {
-                    case .success:
-                        completion(.success(()))
-                    case .failure(let error):
-                        completion(.failure(error))
-                    }
-                }
-                
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+        
+        let response: RefreshTokenResponse = try await networkService.request(
+            endpoint: Endpoint.Auth.login,
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default
+        )
+        
+        AuthManager.shared.saveTokens(
+            accessToken: response.accessToken,
+            refreshToken: response.refreshToken
+        )
+        
+        _ = try await userService.fetchCurrentUser()
     }
-    
-    
 }
-
 extension LoginService: LoginServiceProtocol { }

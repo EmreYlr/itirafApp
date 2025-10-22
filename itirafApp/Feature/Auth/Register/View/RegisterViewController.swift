@@ -31,7 +31,32 @@ final class RegisterViewController: UIViewController {
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        registerViewModel.registerUser(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", username: nameTextField.text ?? "")
+        let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let username = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+
+        guard !email.isEmpty, !password.isEmpty, !username.isEmpty else {
+            showOneButtonAlert(
+                title: "Eksik Bilgi",
+                message: "Lütfen tüm alanları doldurun.",
+                buttonTitle: "Tamam"
+            )
+            return
+        }
+
+        sender.isEnabled = false
+
+        Task {
+            defer {
+                sender.isEnabled = true
+            }
+
+            await registerViewModel.registerUser(
+                email: email,
+                password: password,
+                username: username
+            )
+        }
     }
     
 }

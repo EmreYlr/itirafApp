@@ -5,27 +5,31 @@
 //  Created by Emre on 3.10.2025.
 //
 
-import Alamofire
 import Foundation
+import Alamofire
 
 // MARK: - UserService
-final class UserService {
+
+protocol UserServiceProtocol {
+    func fetchCurrentUser() async throws -> User
+}
+
+final class UserService: UserServiceProtocol {
     private let networkService: NetworkService
     
     init(networkService: NetworkService = NetworkManager.shared) {
         self.networkService = networkService
     }
     
-    func fetchCurrentUser(completion: @escaping (Result<User, Error>) -> Void) {
-        networkService.request(endpoint: Endpoint.User.me, method: .get, parameters: nil, encoding: URLEncoding.default) {
-            (result: Result<User, Error>) in
-            switch result {
-            case .success(let user):
-                UserManager.shared.setUser(user)
-                completion(.success(user))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func fetchCurrentUser() async throws -> User {
+        let user: User = try await networkService.request(
+            endpoint: Endpoint.User.me,
+            method: .get,
+            parameters: nil,
+            encoding: URLEncoding.default
+        )
+        // İstek başarılı olursa kullanıcıyı kaydet ve dön.
+        UserManager.shared.setUser(user)
+        return user
     }
 }

@@ -38,9 +38,29 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        loginViewModel.loginUser(email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+        let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 
+        guard !email.isEmpty, !password.isEmpty else {
+            showOneButtonAlert(
+                title: "Hata",
+                message: "Lütfen e-posta ve şifre alanlarını doldurun.",
+                buttonTitle: "Tamam"
+            )
+            return
+        }
 
+        sender.isEnabled = false
+
+        Task {
+            defer {
+                sender.isEnabled = true
+            }
+            await loginViewModel.loginUser(
+                email: email,
+                password: password
+            )
+        }
     }
 }
 

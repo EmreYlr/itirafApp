@@ -8,7 +8,7 @@ import Foundation
 
 protocol LoginViewModelProtocol {
     var delegate: LoginViewModelOutputProtocol? { get set }
-    func loginUser(email: String, password: String)
+    func loginUser(email: String, password: String) async
 }
 
 protocol LoginViewModelOutputProtocol: AnyObject {
@@ -16,6 +16,7 @@ protocol LoginViewModelOutputProtocol: AnyObject {
     func didFailToLogin(with error: Error)
 }
 
+@MainActor
 final class LoginViewModel {
     weak var delegate: LoginViewModelOutputProtocol?
     private let loginService: LoginServiceProtocol
@@ -23,20 +24,14 @@ final class LoginViewModel {
     init(loginService: LoginServiceProtocol = LoginService()) {
         self.loginService = loginService
     }
-    
-    func loginUser(email: String, password: String) {
-        loginService.loginUser(email: email, password: password) {[weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    self?.delegate?.didLoginSuccessfully()
-                case .failure(let error):
-                    self?.delegate?.didFailToLogin(with: error)
-                }
-            }
+
+    func loginUser(email: String, password: String) async {
+        do {
+            try await loginService.loginUser(email: email, password: password)
+            delegate?.didLoginSuccessfully()
+        } catch {
+            delegate?.didFailToLogin(with: error)
         }
     }
-    
 }
-
-extension LoginViewModel: LoginViewModelProtocol { }
+extension LoginViewModel: @preconcurrency LoginViewModelProtocol { }
