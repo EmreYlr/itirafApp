@@ -32,6 +32,7 @@
 		C37D5ECB2E86DE9A0068F334 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5ECA2E86DE9A0068F334 /* RegisterViewController.swift */; };
 		C3A7A40F2EA7A9B600250B06 /* AppRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A40E2EA7A9B600250B06 /* AppRequestInterceptor.swift */; };
 		C3A7A4142EA7AADD00250B06 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4132EA7AADD00250B06 /* AppError.swift */; };
+		C3A7A4162EA91D8B00250B06 /* MockUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4152EA91D8B00250B06 /* MockUserService.swift */; };
 		C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */; };
 		C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */; };
 		C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */; };
@@ -109,6 +110,7 @@
 		C37D5ECA2E86DE9A0068F334 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C3A7A40E2EA7A9B600250B06 /* AppRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRequestInterceptor.swift; sourceTree = "<group>"; };
 		C3A7A4132EA7AADD00250B06 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		C3A7A4152EA91D8B00250B06 /* MockUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserService.swift; sourceTree = "<group>"; };
 		C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		C37D5B012E7840670068F334 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				C3A7A4152EA91D8B00250B06 /* MockUserService.swift */,
 				C37D5DF52E842A5A0068F334 /* MockNetworkManager.swift */,
 			);
 			path = Mocks;
@@ -875,6 +878,7 @@
 				C3C08BAF2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.swift in Sources */,
 				C3D764D92E953BDE00104C3B /* ChannelViewController+TableView.swift in Sources */,
 				C3C08BC02E8C37D400EDC6A2 /* DetailViewController.swift in Sources */,
+				C3A7A4162EA91D8B00250B06 /* MockUserService.swift in Sources */,
 				C37D5C792E7990F70068F334 /* HomeViewModel.swift in Sources */,
 				C3C08BC22E8D3B3500EDC6A2 /* Constants.swift in Sources */,
 				C3C08BAA2E8AAE8100EDC6A2 /* HomeViewController+CollectionView.swift in Sources */,

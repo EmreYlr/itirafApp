@@ -67,8 +67,16 @@ final class DetailViewModel {
     }
     
     func addComment(message: String) async {
+        let newReply = Reply(
+            id: -1,
+            message: message,
+            owner: Owner(id: "-1", username: "You"),
+            createdAt: ISO8601DateFormatter().string(from: Date())
+        )
+ 
         do {
             try await detailService.repliesMessage(message: message, messageId: messageId)
+            confession?.replies.append(newReply)
             delegate?.didUpdateReplies()
         } catch {
             delegate?.didFailToAddComment(with: error)
@@ -84,4 +92,3 @@ final class DetailViewModel {
 }
 
 extension DetailViewModel: @preconcurrency DetailViewModelProtocol { }
-

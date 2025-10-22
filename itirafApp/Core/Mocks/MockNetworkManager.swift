@@ -8,18 +8,21 @@
 import Foundation
 import Alamofire
 
-final class MockNetworkManager {
+final class MockNetworkManager: NetworkService {
     var shouldSucceed = true
     var dataToReturn: Decodable?
     var errorToReturn: Error?
 
-    func request<T: Decodable>(endpoint: EndpointType, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, completion: @escaping (Result<T, Error>) -> Void) {
+    func request<T: Decodable>(
+        endpoint: EndpointType,
+        method: HTTPMethod,
+        parameters: Parameters?,
+        encoding: ParameterEncoding
+    ) async throws -> T {
         if shouldSucceed, let data = dataToReturn as? T {
-            completion(.success(data))
+            return data
         } else {
-            completion(.failure(errorToReturn ?? URLError(.badServerResponse)))
+            throw errorToReturn ?? URLError(.badServerResponse)
         }
     }
 }
-
-//extension MockNetworkManager: NetworkService { }

@@ -28,7 +28,7 @@ final class UserService: UserServiceProtocol {
             parameters: nil,
             encoding: URLEncoding.default
         )
-        // İstek başarılı olursa kullanıcıyı kaydet ve dön.
+        
         UserManager.shared.setUser(user)
         return user
     }

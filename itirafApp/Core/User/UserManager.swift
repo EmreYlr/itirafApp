@@ -19,7 +19,6 @@ final class UserManager {
     func getUser() -> User? {
         return currentUser
     }
-
     
     func getUserEmail() -> String? {
         return currentUser?.email
