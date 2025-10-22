@@ -58,7 +58,19 @@ final class PostConfessionViewController: UIViewController {
         }
         
         let content = PostConfession(title: titleText, message: contentText)
-        postConfessionViewModel.postConfession(content: content)
+        
+//        sender.isEnabled = false
+//        activityIndicator.startAnimating()
+        
+        Task {
+//            defer {
+//                // Animasyonu durdur ve butonu tekrar aktif et
+//                activityIndicator.stopAnimating()
+//                sender.isEnabled = true
+//            }
+            await postConfessionViewModel.postConfession(content: content)
+        }
+        
     }
     
     private func updateTextFields() {

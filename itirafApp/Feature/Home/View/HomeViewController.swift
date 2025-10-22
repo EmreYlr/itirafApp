@@ -45,7 +45,9 @@ final class HomeViewController: UIViewController {
     
     private func initView() {
         homeViewModel.delegate = self
-        homeViewModel.fetchConfessions(reset: false)
+        Task {
+            await homeViewModel.fetchConfessions(reset: true)
+        }
     }
     
     private func configureDataSource() {
@@ -57,7 +59,11 @@ final class HomeViewController: UIViewController {
             cell.configure(with: confession)
             
             cell.onLikeButtonTapped = { [weak self] in
-                self?.homeViewModel.toggleLikeStatus(for: confession.id)
+                guard let self = self else { return }
+                
+                Task {
+                    await self.homeViewModel.toggleLikeStatus(for: confession.id)
+                }
             }
             
             return cell
@@ -73,7 +79,12 @@ final class HomeViewController: UIViewController {
     }
     
     @objc private func refreshConfession() {
-        homeViewModel.fetchConfessions(reset: true)
+        Task {
+//            defer {
+//                refreshControl.endRefreshing()
+//            }
+            await homeViewModel.fetchConfessions(reset: true)
+        }
     }
 }
 

@@ -9,11 +9,10 @@ import Foundation
 protocol DetailViewModelProtocol {
     var delegate: DetailViewModelOutputProtocol? { get set }
     var confession: ChannelMessageData? { get }
-    func toggleLike()
-    func addComment(message: String)
-    func fetchMessageData()
-    func likeMessage()
-    func unlikeMessage()
+    func fetchMessageData() async
+    func likeMessage() async
+    func unlikeMessage() async
+    func addComment(message: String) async
 }
 
 protocol DetailViewModelOutputProtocol: AnyObject {
@@ -26,6 +25,7 @@ protocol DetailViewModelOutputProtocol: AnyObject {
 }
 
 
+@MainActor
 final class DetailViewModel {
     weak var delegate: DetailViewModelOutputProtocol?
     var confession: ChannelMessageData?
@@ -38,77 +38,43 @@ final class DetailViewModel {
         self.messageId = messageId
     }
     
-    func fetchMessageData() {
-        Task.detached { [weak self] in
-            guard let self = self else { return }
-            do {
-                let messageData = try await self.detailService.fetchDetail(messageId: self.messageId)
-                await MainActor.run {
-                    self.confession = messageData
-                    self.delegate?.didFetchDetail()
-                }
-            } catch {
-                await MainActor.run {
-                    self.delegate?.didFailToFetchDetail(with: error)
-                }
-            }
+    func fetchMessageData() async {
+        do {
+            let messageData = try await detailService.fetchDetail(messageId: messageId)
+            confession = messageData
+            delegate?.didFetchDetail()
+        } catch {
+            delegate?.didFailToFetchDetail(with: error)
         }
     }
     
-    func likeMessage() {
-        Task.detached { [weak self] in
-            guard let self = self else { return }
-            do {
-                _ = try await self.detailService.likeConfessions(messageId: self.messageId)
-                await MainActor.run {
-                    self.toggleLike()
-                }
-            } catch {
-                await MainActor.run {
-                    self.delegate?.didFailToLikeMessage(with: error)
-                }
-                print("Error liking message: \(error)")
-            }
+    func likeMessage() async {
+        do {
+            try await detailService.likeConfessions(messageId: messageId)
+            toggleLikeState()
+        } catch {
+            delegate?.didFailToLikeMessage(with: error)
         }
     }
     
-    func unlikeMessage() {
-        Task.detached { [weak self] in
-            guard let self = self else { return }
-            do {
-                _ = try await self.detailService.unlikeConfessions(messageId: self.messageId)
-                await MainActor.run {
-                    self.toggleLike()
-                }
-            } catch {
-                await MainActor.run {
-                    self.delegate?.didFailToLikeMessage(with: error)
-                }
-                print("Error unliking message: \(error)")
-            }
+    func unlikeMessage() async {
+        do {
+            try await detailService.unlikeConfessions(messageId: messageId)
+            toggleLikeState()
+        } catch {
+            delegate?.didFailToLikeMessage(with: error)
         }
     }
     
-    func addComment(message: String) {
-        Task.detached { [weak self] in
-            guard let self = self else { return }
-            do {
-                _ = try await self.detailService.repliesMessage(message: message, messageId: self.messageId)
-                await MainActor.run {
-                    self.delegate?.didUpdateReplies()
-                }
-                print("Comment added successfully")
-            } catch {
-                await MainActor.run {
-                    self.delegate?.didFailToAddComment(with: error)
-                }
-                print("Failed to add comment: \(error)")
-            }
+    func addComment(message: String) async {
+        do {
+            try await detailService.repliesMessage(message: message, messageId: messageId)
+            delegate?.didUpdateReplies()
+        } catch {
+            delegate?.didFailToAddComment(with: error)
         }
     }
-    
-    @MainActor
-    func toggleLike() {
+    private func toggleLikeState() {
         guard var confession = confession else { return }
         confession.liked.toggle()
         confession.likeCount += confession.liked ? 1 : -1

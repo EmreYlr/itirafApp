@@ -8,11 +8,11 @@ import Foundation
 
 protocol HomeViewModelProtocol {
     var delegate: HomeViewModelOutputProtocol? { get set }
-    var confessions: Confession? { get set }
+    var confessions: Confession? { get }
     var isLoading: Bool { get }
     var hasMoreData: Bool { get }
-    func fetchConfessions(reset: Bool)
-    func toggleLikeStatus(for: Int)
+    func fetchConfessions(reset: Bool) async
+    func toggleLikeStatus(for: Int) async
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject {
@@ -20,13 +20,13 @@ protocol HomeViewModelOutputProtocol: AnyObject {
     func didFailToLikeMessage(with error: Error)
     func didFailWithError(_ error: Error)
 }
+
 @MainActor
 final class HomeViewModel {
     weak var delegate: HomeViewModelOutputProtocol?
     let homeService: HomeServiceProtocol
     
-    var confessions: Confession?
-    
+    private(set) var confessions: Confession?
     private(set) var isLoading = false
     private(set) var hasMoreData = true
     private var currentPage = 1
@@ -35,7 +35,7 @@ final class HomeViewModel {
         self.homeService = homeService
     }
     
-    func fetchConfessions(reset: Bool = false) {
+    func fetchConfessions(reset: Bool = false) async {
         if reset {
             currentPage = 1
             hasMoreData = true
@@ -44,53 +44,44 @@ final class HomeViewModel {
         
         guard !isLoading, hasMoreData else { return }
         
-        Task {
-            isLoading = true
-            defer { isLoading = false }
+        isLoading = true
+        defer { isLoading = false }
+        
+        do {
+            let newConfessions = try await homeService.fetchConfessions(page: currentPage, limit: 10)
             
-            do {
-                let newConfessions = try await homeService.fetchConfessions(page: currentPage, limit: 10)
-                
-                if self.confessions == nil {
-                    self.confessions = newConfessions
-                } else {
-                    self.confessions?.data.append(contentsOf: newConfessions.data)
-                }
-                
-                if currentPage >= newConfessions.totalPages {
-                    self.hasMoreData = false
-                } else {
-                    self.currentPage += 1
-                }
-                
-                delegate?.didUpdateConfessions(with: confessions?.data ?? [])
-                
-            } catch {
-                delegate?.didFailWithError(error)
+            if self.confessions == nil {
+                self.confessions = newConfessions
+            } else {
+                self.confessions?.data.append(contentsOf: newConfessions.data)
             }
+            
+            hasMoreData = currentPage < newConfessions.totalPages
+            if hasMoreData { currentPage += 1 }
+            
+            delegate?.didUpdateConfessions(with: confessions?.data ?? [])
+            
+        } catch {
+            delegate?.didFailWithError(error)
         }
     }
     
-    
-    func toggleLikeStatus(for confessionId: Int) {
+    func toggleLikeStatus(for confessionId: Int) async {
         guard let index = confessions?.data.firstIndex(where: { $0.id == confessionId }) else { return }
         
         let isLiked = confessions?.data[index].liked == true
-        
         toggleLocalLike(for: confessionId)
         
-        Task {
-            do {
-                if isLiked {
-                    _ = try await homeService.unlikeConfessions(messageId: confessionId)
-                } else {
-                    _ = try await homeService.likeConfessions(messageId: confessionId)
-                }
-            } catch {
-                print("Error toggling like status: \(error)")
-                toggleLocalLike(for: confessionId)
-                delegate?.didFailToLikeMessage(with: error)
+        do {
+            if isLiked {
+                try await homeService.unlikeConfessions(messageId: confessionId)
+            } else {
+                try await homeService.likeConfessions(messageId: confessionId)
             }
+        } catch {
+            print("Error toggling like status: \(error)")
+            toggleLocalLike(for: confessionId)
+            delegate?.didFailToLikeMessage(with: error)
         }
     }
     
@@ -98,8 +89,9 @@ final class HomeViewModel {
         guard let index = confessions?.data.firstIndex(where: { $0.id == confessionId }) else { return }
         
         confessions?.data[index].liked.toggle()
-        
-        if confessions?.data[index].liked == true {
+        let isNowLiked = confessions?.data[index].liked == true
+
+        if isNowLiked {
             confessions?.data[index].likeCount += 1
         } else {
             confessions?.data[index].likeCount -= 1
@@ -111,4 +103,4 @@ final class HomeViewModel {
     }
 }
 
-extension HomeViewModel: @preconcurrency HomeViewModelProtocol { }
+extension HomeViewModel: @preconcurrency HomeViewModelProtocol {}

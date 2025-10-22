@@ -10,8 +10,8 @@ import Foundation
 
 protocol HomeServiceProtocol {
     func fetchConfessions(page: Int, limit: Int) async throws -> Confession
-    func likeConfessions(messageId: Int) async throws -> Empty
-    func unlikeConfessions(messageId: Int) async throws -> Empty
+    func likeConfessions(messageId: Int) async throws
+    func unlikeConfessions(messageId: Int) async throws
 }
 
 final class HomeService: HomeServiceProtocol {
@@ -23,14 +23,10 @@ final class HomeService: HomeServiceProtocol {
     
     func fetchConfessions(page: Int, limit: Int) async throws -> Confession {
         guard let channelId = ChannelManager.shared.getChannelId() else {
-            print("Channel ID not found")
             throw AppError.channelIdNotFound
         }
         
-        let parameters: [String: Any] = [
-            "page": page,
-            "limit": limit
-        ]
+        let parameters: [String: Any] = ["page": page, "limit": limit]
         
         return try await networkService.request(
             endpoint: Endpoint.Channel.getChannelMessages(channelId: channelId),
@@ -40,8 +36,8 @@ final class HomeService: HomeServiceProtocol {
         )
     }
     
-    func likeConfessions(messageId: Int) async throws -> Empty {
-        return try await networkService.request(
+    func likeConfessions(messageId: Int) async throws {
+        let _: Empty = try await networkService.request(
             endpoint: Endpoint.Channel.likeMessage(messageId: messageId),
             method: .post,
             parameters: nil,
@@ -49,8 +45,8 @@ final class HomeService: HomeServiceProtocol {
         )
     }
     
-    func unlikeConfessions(messageId: Int) async throws -> Empty {
-        return try await networkService.request(
+    func unlikeConfessions(messageId: Int) async throws {
+        let _: Empty = try await networkService.request(
             endpoint: Endpoint.Channel.unlikeMessage(messageId: messageId),
             method: .delete,
             parameters: nil,

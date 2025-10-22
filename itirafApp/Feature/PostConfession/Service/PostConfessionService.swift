@@ -8,7 +8,7 @@ import Foundation
 import Alamofire
 
 protocol PostConfessionServiceProtocol {
-    func postConfession(content: PostConfession, completion: @escaping (Result<EmptyResponse, Error>) -> Void)
+    func postConfession(content: PostConfession) async throws
 }
 
 final class PostConfessionService {
@@ -18,28 +18,24 @@ final class PostConfessionService {
         self.networkService = networkService
     }
     
-    func postConfession(content: PostConfession, completion: @escaping (Result<EmptyResponse, any Error>) -> Void) {
+    func postConfession(content: PostConfession) async throws {
         guard let channelId = ChannelManager.shared.getChannelId() else {
             print("Channel ID not found")
-            completion(.failure(NSError(domain: "AppError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Channel ID not found"])))
-            return
+            throw AppError.channelIdNotFound
         }
         
         let parameters: [String: Any] = [
             "title": content.title,
             "message": content.message
         ]
-        
-        networkService.request(endpoint: Endpoint.Channel.postChannelMessages(channelId: channelId), method: .post, parameters: parameters, encoding: JSONEncoding.default) { (result: Result<EmptyResponse, Error>) in
-            switch result {
-            case .success(let response):
-                completion(.success(response))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
 
+        let _: Empty = try await networkService.request(
+            endpoint: Endpoint.Channel.postChannelMessages(channelId: channelId),
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default
+        )
+    }
 }
 
 extension PostConfessionService: PostConfessionServiceProtocol { }

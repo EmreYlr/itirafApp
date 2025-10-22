@@ -21,8 +21,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let totalItems = dataSource.snapshot().numberOfItems
+
         if indexPath.row == totalItems - 1 && homeViewModel.hasMoreData && !homeViewModel.isLoading {
-            homeViewModel.fetchConfessions(reset: false)
+            Task {
+                await homeViewModel.fetchConfessions(reset: false)
+            }
         }
     }
     

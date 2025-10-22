@@ -7,7 +7,7 @@
 
 protocol PostConfessionViewModelProtocol {
     var delegate: PostConfessionViewModelOutputProtocol? { get set }
-    func postConfession(content: PostConfession)
+    func postConfession(content: PostConfession) async
 }
 
 protocol PostConfessionViewModelOutputProtocol: AnyObject {
@@ -15,6 +15,7 @@ protocol PostConfessionViewModelOutputProtocol: AnyObject {
     func didFailToPostConfession(with error: Error)
 }
 
+@MainActor
 final class PostConfessionViewModel {
     weak var delegate: PostConfessionViewModelOutputProtocol?
     
@@ -24,17 +25,15 @@ final class PostConfessionViewModel {
         self.postConfessionService = postConfessionService
     }
     
-    func postConfession(content: PostConfession) {
-        postConfessionService.postConfession(content: content) { [weak self] result in
-            switch result {
-            case .success:
-                self?.delegate?.didPostConfessionSuccessfully()
-            case .failure(let error):
-                self?.delegate?.didFailToPostConfession(with: error)
-            }
+    func postConfession(content: PostConfession) async {
+        do {
+            try await postConfessionService.postConfession(content: content)
+            delegate?.didPostConfessionSuccessfully()
+        } catch {
+            delegate?.didFailToPostConfession(with: error)
         }
     }
     
 }
 
-extension PostConfessionViewModel: PostConfessionViewModelProtocol { }
+extension PostConfessionViewModel: @preconcurrency PostConfessionViewModelProtocol { }

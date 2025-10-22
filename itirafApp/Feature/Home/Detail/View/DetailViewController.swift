@@ -39,7 +39,7 @@ final class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
     }
-
+    
     private func initUI() {
         contentView.layer.cornerRadius = 10
         contentView.layer.borderWidth = 1
@@ -48,7 +48,14 @@ final class DetailViewController: UIViewController {
     
     private func initData() {
         detailViewModel.delegate = self
-        detailViewModel.fetchMessageData()
+        //        activityIndicator.startAnimating()
+        Task {
+            //            defer {
+            //                activityIndicator.stopAnimating()
+            //            }
+            
+            await detailViewModel.fetchMessageData()
+        }
     }
     
     private func loadCollectionView() {
@@ -75,20 +82,46 @@ final class DetailViewController: UIViewController {
         commentCountLabel.text = confession.replyCount.description
         self.updateLikeUI(isLike: confession.liked, likeCount: confession.likeCount)
     }
-
+    
     @IBAction func shareButtonClicked(_ sender: UIButton) { }
     @IBAction func commentButtonClicked(_ sender: UIButton) { }
     
     @IBAction func likeButtonClicked(_ sender: UIButton) {
-        guard let isliked = detailViewModel.confession?.liked else  {
-            return
+        guard let isLiked = detailViewModel.confession?.liked else { return }
+        sender.isEnabled = false
+        
+        Task {
+            defer {
+                sender.isEnabled = true
+            }
+            if isLiked {
+                await detailViewModel.unlikeMessage()
+            } else {
+                await detailViewModel.likeMessage()
+            }
         }
-        isliked ? detailViewModel.unlikeMessage() : detailViewModel.likeMessage()
         
     }
     
     @IBAction func sendButtonClicked(_ sender: UIButton) {
-        detailViewModel.addComment(message: replyTextField.text ?? "")
+        guard let commentText = replyTextField.text, !commentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return
+        }
+
+        sender.isEnabled = false
+        replyTextField.isEnabled = false
+        
+        Task {
+            defer {
+                sender.isEnabled = true
+                replyTextField.isEnabled = true
+            }
+            
+            await detailViewModel.addComment(message: commentText)
+            
+            replyTextField.text = ""
+            replyTextField.resignFirstResponder()
+        }
     }
 }
 
