@@ -25,13 +25,11 @@ final class HomeViewController: UIViewController {
         initView()
         loadCollectionView()
         configureDataSource()
-        print(UserManager.shared.getUser() ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        homeViewModel.fetchConfessions(reset: true)
-        print(ChannelManager.shared.getChannel() ?? "Error")
     }
     
     private func loadCollectionView() {

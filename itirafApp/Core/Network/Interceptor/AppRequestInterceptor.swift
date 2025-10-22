@@ -29,22 +29,28 @@ final class AppRequestInterceptor: RequestInterceptor {
             return completion(.doNotRetry)
         }
         
-        print("Token süresi doldu. Yenileme işlemi başlatılıyor...")
+        print("Token süresi doldu. Yenileme veya anonim oturum işlemi başlatılıyor...")
 
         Task {
-            let success = await AuthService.refreshToken()
-            
-            if success {
+            if await AuthService.refreshToken() {
                 print("Token başarıyla yenilendi. Asıl istek yeniden denenecek.")
                 completion(.retry)
             } else {
-                print("Token yenilenemedi. Kullanıcı oturumu sonlandırılacak.")
+                print("Token yenilenemedi.")
+
                 AuthManager.shared.clearTokens()
                 UserManager.shared.clear()
-                await MainActor.run {
-                    NotificationCenter.default.post(name: .loginRequired, object: nil)
+                
+                if await AuthService.registerAndLoginAnonymousUser() {
+                    print("Anonim kullanıcı başarıyla oluşturuldu ve giriş yapıldı. Asıl istek yeniden denenecek.")
+                    completion(.retry)
+                } else {
+                    print("Anonim kullanıcı oluşturulamadı. Oturum sonlandırılacak.")
+                    await MainActor.run {
+                        NotificationCenter.default.post(name: .loginRequired, object: nil)
+                    }
+                    completion(.doNotRetry)
                 }
-                completion(.doNotRetry)
             }
         }
     }

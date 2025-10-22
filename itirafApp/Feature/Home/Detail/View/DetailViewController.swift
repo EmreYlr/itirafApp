@@ -111,17 +111,18 @@ final class DetailViewController: UIViewController {
         sender.isEnabled = false
         replyTextField.isEnabled = false
         
-        Task {
+        Task(priority: .utility) {
             defer {
                 sender.isEnabled = true
                 replyTextField.isEnabled = true
             }
-            
+
             await detailViewModel.addComment(message: commentText)
-            
+
             replyTextField.text = ""
             replyTextField.resignFirstResponder()
         }
+
     }
 }
 
