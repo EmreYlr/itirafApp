@@ -25,6 +25,7 @@ protocol DetailViewModelOutputProtocol: AnyObject {
     func didFailToAddComment(with error: Error)
 }
 
+
 final class DetailViewModel {
     weak var delegate: DetailViewModelOutputProtocol?
     var confession: ChannelMessageData?
@@ -34,51 +35,79 @@ final class DetailViewModel {
     
     init(messageId: Int, detailService: DetailServiceProtocol = DetailService()) {
         self.detailService = detailService
-        self.messageId =  messageId
+        self.messageId = messageId
     }
-
+    
     func fetchMessageData() {
-        detailService.fetchDetail(messageId: self.messageId) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let messageData):
-                    self?.confession = messageData
-                    self?.delegate?.didFetchDetail()
-                case .failure(let error):
-                    self?.delegate?.didFailToFetchDetail(with: error)
+        Task.detached { [weak self] in
+            guard let self = self else { return }
+            do {
+                let messageData = try await self.detailService.fetchDetail(messageId: self.messageId)
+                await MainActor.run {
+                    self.confession = messageData
+                    self.delegate?.didFetchDetail()
+                }
+            } catch {
+                await MainActor.run {
+                    self.delegate?.didFailToFetchDetail(with: error)
                 }
             }
         }
     }
     
     func likeMessage() {
-        DispatchQueue.main.async {
-            self.detailService.likeConfessions(messageId: self.messageId) { [weak self] result in
-                switch result {
-                case .success:
-                    self?.toggleLike()
-                case .failure(let error):
-                    self?.delegate?.didFailToLikeMessage(with: error)
-                    print("Error liking message: \(error)")
+        Task.detached { [weak self] in
+            guard let self = self else { return }
+            do {
+                _ = try await self.detailService.likeConfessions(messageId: self.messageId)
+                await MainActor.run {
+                    self.toggleLike()
                 }
+            } catch {
+                await MainActor.run {
+                    self.delegate?.didFailToLikeMessage(with: error)
+                }
+                print("Error liking message: \(error)")
             }
         }
     }
     
     func unlikeMessage() {
-        DispatchQueue.main.async {
-            self.detailService.unlikeConfessions(messageId: self.messageId) { [weak self] result in
-                switch result {
-                case .success:
-                    self?.toggleLike()
-                case .failure(let error):
-                    self?.delegate?.didFailToLikeMessage(with: error)
-                    print("Error unliking message: \(error)")
+        Task.detached { [weak self] in
+            guard let self = self else { return }
+            do {
+                _ = try await self.detailService.unlikeConfessions(messageId: self.messageId)
+                await MainActor.run {
+                    self.toggleLike()
                 }
+            } catch {
+                await MainActor.run {
+                    self.delegate?.didFailToLikeMessage(with: error)
+                }
+                print("Error unliking message: \(error)")
             }
         }
     }
     
+    func addComment(message: String) {
+        Task.detached { [weak self] in
+            guard let self = self else { return }
+            do {
+                _ = try await self.detailService.repliesMessage(message: message, messageId: self.messageId)
+                await MainActor.run {
+                    self.delegate?.didUpdateReplies()
+                }
+                print("Comment added successfully")
+            } catch {
+                await MainActor.run {
+                    self.delegate?.didFailToAddComment(with: error)
+                }
+                print("Failed to add comment: \(error)")
+            }
+        }
+    }
+    
+    @MainActor
     func toggleLike() {
         guard var confession = confession else { return }
         confession.liked.toggle()
@@ -86,20 +115,7 @@ final class DetailViewModel {
         self.confession = confession
         delegate?.didUpdateLikeStatus(isLiked: confession.liked, likeCount: confession.likeCount)
     }
-    
-    func addComment(message: String) {
-        detailService.repliesMessage(message: message, messageId: messageId) { result in
-            switch result {
-            case .success:
-                self.delegate?.didUpdateReplies()
-                print("Comment added successfully")
-            case .failure(let error):
-                self.delegate?.didFailToAddComment(with: error)
-                print("Failed to add comment: \(error)")
-            }
-        }
-    }
 }
 
-extension DetailViewModel: DetailViewModelProtocol { }
+extension DetailViewModel: @preconcurrency DetailViewModelProtocol { }
 

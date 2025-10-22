@@ -10,8 +10,8 @@ import Foundation
 
 protocol HomeServiceProtocol {
     func fetchConfessions(page: Int, limit: Int) async throws -> Confession
-    func likeConfessions(messageId: Int) async throws -> EmptyResponse
-    func unlikeConfessions(messageId: Int) async throws -> EmptyResponse
+    func likeConfessions(messageId: Int) async throws -> Empty
+    func unlikeConfessions(messageId: Int) async throws -> Empty
 }
 
 final class HomeService: HomeServiceProtocol {
@@ -40,7 +40,7 @@ final class HomeService: HomeServiceProtocol {
         )
     }
     
-    func likeConfessions(messageId: Int) async throws -> EmptyResponse {
+    func likeConfessions(messageId: Int) async throws -> Empty {
         return try await networkService.request(
             endpoint: Endpoint.Channel.likeMessage(messageId: messageId),
             method: .post,
@@ -49,7 +49,7 @@ final class HomeService: HomeServiceProtocol {
         )
     }
     
-    func unlikeConfessions(messageId: Int) async throws -> EmptyResponse {
+    func unlikeConfessions(messageId: Int) async throws -> Empty {
         return try await networkService.request(
             endpoint: Endpoint.Channel.unlikeMessage(messageId: messageId),
             method: .delete,

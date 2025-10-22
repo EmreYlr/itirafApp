@@ -102,7 +102,6 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     }
     
     func didUpdateLikeStatus(isLiked: Bool, likeCount: Int) {
-        print("Liked!")
         updateLikeUI(isLike: isLiked, likeCount: likeCount)
     }
     
