@@ -12,6 +12,9 @@
 		C326DD4A2E8D824E001B7837 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326DD492E8D824B001B7837 /* UserDefaultsHelper.swift */; };
 		C326DD4D2E8EE2A8001B7837 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326DD4C2E8EE2A8001B7837 /* UserManager.swift */; };
 		C326DD4F2E8FFA02001B7837 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326DD4E2E8FF9FF001B7837 /* UserService.swift */; };
+		C35148892EAA302C00359585 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = C35148882EAA302C00359585 /* MessageKit */; };
+		C351488B2EAA37D000359585 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C351488A2EAA37D000359585 /* Message.swift */; };
+		C351488D2EAA38E400359585 /* ChatViewController+MessageKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C351488C2EAA38DF00359585 /* ChatViewController+MessageKit.swift */; };
 		C37D5B032E7840D20068F334 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C37D5B022E7840D20068F334 /* Login.storyboard */; };
 		C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5BB82E7983030068F334 /* Storyboard.swift */; };
 		C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5C762E7990D20068F334 /* LoginViewModel.swift */; };
@@ -101,6 +104,8 @@
 		C326DD492E8D824B001B7837 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		C326DD4C2E8EE2A8001B7837 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		C326DD4E2E8FF9FF001B7837 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		C351488A2EAA37D000359585 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C351488C2EAA38DF00359585 /* ChatViewController+MessageKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+MessageKit.swift"; sourceTree = "<group>"; };
 		C37D5B022E7840D20068F334 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C37D5BB82E7983030068F334 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		C37D5C762E7990D20068F334 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -197,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C37D5DEA2E8415260068F334 /* Alamofire in Frameworks */,
+				C35148892EAA302C00359585 /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +433,7 @@
 		C3A7A4322EAA284900250B06 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C351488C2EAA38DF00359585 /* ChatViewController+MessageKit.swift */,
 				C3A7A4342EAA286400250B06 /* ChatViewController.swift */,
 			);
 			path = View;
@@ -435,6 +442,7 @@
 		C3A7A4332EAA284D00250B06 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C351488A2EAA37D000359585 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -913,6 +921,7 @@
 			name = itirafApp;
 			packageProductDependencies = (
 				C37D5DE92E8415260068F334 /* Alamofire */,
+				C35148882EAA302C00359585 /* MessageKit */,
 			);
 			productName = itirafApp;
 			productReference = C3EB10552E7440CE002DA295 /* itirafApp.app */;
@@ -948,6 +957,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C37D5DE82E8415260068F334 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				C35148872EAA302C00359585 /* XCRemoteSwiftPackageReference "MessageKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C3EB10562E7440CE002DA295 /* Products */;
@@ -1018,8 +1028,10 @@
 				C3A7A4282EA9484000250B06 /* DirectMessageCollectionViewCell.swift in Sources */,
 				C3C08BAF2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.swift in Sources */,
 				C3D764D92E953BDE00104C3B /* ChannelViewController+TableView.swift in Sources */,
+				C351488D2EAA38E400359585 /* ChatViewController+MessageKit.swift in Sources */,
 				C3C08BC02E8C37D400EDC6A2 /* DetailViewController.swift in Sources */,
 				C3A7A4162EA91D8B00250B06 /* MockUserService.swift in Sources */,
+				C351488B2EAA37D000359585 /* Message.swift in Sources */,
 				C37D5C792E7990F70068F334 /* HomeViewModel.swift in Sources */,
 				C3C08BC22E8D3B3500EDC6A2 /* Constants.swift in Sources */,
 				C3C08BAA2E8AAE8100EDC6A2 /* HomeViewController+CollectionView.swift in Sources */,
@@ -1349,6 +1361,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C35148872EAA302C00359585 /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		C37D5DE82E8415260068F334 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -1360,6 +1380,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C35148882EAA302C00359585 /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C35148872EAA302C00359585 /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
+		};
 		C37D5DE92E8415260068F334 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C37D5DE82E8415260068F334 /* XCRemoteSwiftPackageReference "Alamofire" */;
