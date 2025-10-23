@@ -30,8 +30,10 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
 //        homeViewModel.fetchConfessions(reset: true)
     }
+    
     
     private func loadCollectionView() {
         collectionView.delegate = self

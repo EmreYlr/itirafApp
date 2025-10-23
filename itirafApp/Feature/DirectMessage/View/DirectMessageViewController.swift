@@ -31,11 +31,7 @@ final class DirectMessageViewController: UIViewController {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
-    }
+
     
     private func initData() {
         directMessageViewModel.delegate = self

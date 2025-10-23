@@ -9,12 +9,12 @@ import UIKit
 
 extension DirectMessageViewController:  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let _ = dataSource.itemIdentifier(for: indexPath) else {
+        guard let message = dataSource.itemIdentifier(for: indexPath) else {
             return
         }
-        
-//        let detailVC = Storyboard.main.instantiate(.detail) as! DetailViewController
-//        navigationController?.pushViewController(detailVC, animated: true)
+        let chatVC: ChatViewController = Storyboard.directMessage.instantiate(.chat)
+        chatVC.viewModel.directMessage = message
+        navigationController?.pushViewController(chatVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

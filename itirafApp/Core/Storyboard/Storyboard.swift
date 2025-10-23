@@ -58,6 +58,7 @@ enum ViewControllerID: String {
     
     // DirectMessage.storyboard
     case directMessage = "DirectMessageViewController"
+    case chat = "ChatViewController"
 }
 
 enum NavigationControllerID: String {
