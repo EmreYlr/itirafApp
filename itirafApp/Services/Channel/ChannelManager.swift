@@ -33,9 +33,7 @@ final class ChannelManager {
     func setChannel(_ channel: ChannelData) {
         self.currentChannel = channel
         saveToDefaults(channel)
-        
-        // OPTIONEL: Kanal değiştiğinde Home ekranına bildirim göndermek için
-        // NotificationCenter.default.post(name: .channelDidChange, object: nil)
+        NotificationCenter.default.post(name: .channelDidChange, object: nil)
     }
     
     private func loadChannel() {

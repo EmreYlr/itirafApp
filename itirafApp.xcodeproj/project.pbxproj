@@ -433,8 +433,8 @@
 		C3A7A4322EAA284900250B06 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C351488C2EAA38DF00359585 /* ChatViewController+MessageKit.swift */,
 				C3A7A4342EAA286400250B06 /* ChatViewController.swift */,
+				C351488C2EAA38DF00359585 /* ChatViewController+MessageKit.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

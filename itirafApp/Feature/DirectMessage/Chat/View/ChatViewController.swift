@@ -50,14 +50,12 @@ final class ChatViewController: MessagesViewController {
     private func initData() {
         viewModel.delegate = self
         
-        // Başlık olarak karşı tarafın adını göster
         if let directMessage = viewModel.directMessage {
             navigationItem.title = directMessage.senderUsername
         } else {
             navigationItem.title = "Chat"
         }
-        
-        // Mock mesajları yükle
+
         viewModel.loadMockMessages()
     }
 

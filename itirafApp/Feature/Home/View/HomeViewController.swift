@@ -46,6 +46,7 @@ final class HomeViewController: UIViewController {
     
     private func initView() {
         homeViewModel.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChannel), name: .channelDidChange, object: nil)
         Task {
             await homeViewModel.fetchConfessions(reset: true)
         }
@@ -89,6 +90,10 @@ final class HomeViewController: UIViewController {
         snapshot.appendItems(confessions, toSection: .main)
         
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    @objc private func updateChannel() {
+        refreshConfession()
     }
     
     @objc private func refreshConfession() {

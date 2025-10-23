@@ -21,8 +21,9 @@ final class DirectMessageCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         profileBGView.layer.cornerRadius = profileBGView.frame.width / 2
-        profileBGView.layer.borderWidth = 1
-        profileBGView.layer.borderColor = UIColor.lightGray.cgColor
+        profileBGView.backgroundColor = .systemGray
+        
+        profileImageView.tintColor = .white
         
         newMessageCountView.layer.cornerRadius = newMessageCountView.frame.width / 2
         newMessageCountView.backgroundColor = .systemMint

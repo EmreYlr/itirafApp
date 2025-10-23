@@ -100,11 +100,10 @@ final class ChatViewModel {
         // İleride WebSocket ile gönderilecek
         // chatService.sendMessage(text, to: receiverId)
         
-        // Mock cevap simülasyonu (opsiyonel)
+        // Mock cevap simülasyonu
         simulateMockResponse()
     }
     
-    // Mock cevap simülasyonu - ileride kaldırılacak
     private func simulateMockResponse() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
             guard let self = self else { return }
