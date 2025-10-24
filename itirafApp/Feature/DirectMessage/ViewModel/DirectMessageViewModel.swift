@@ -21,10 +21,10 @@ final class DirectMessageViewModel {
     private var directMessageService: DirectMessageServiceProtocol
     
     var directMessages: [DirectMessage] = [
-        DirectMessage(id: 1, senderUsername: "Anonymous", senderId: "1", receiverId: "1", message: "Bu bir test mesajıdır", createdAt: "14:30"),
-        DirectMessage(id: 2, senderUsername: "Anonymous", senderId: "1", receiverId: "1", message: "Bu bir test mesajıdır", createdAt: "14:30"),
-        DirectMessage(id: 3, senderUsername: "Anonymous", senderId: "1", receiverId: "1", message: "Bu bir test mesajıdır", createdAt: "14:30"),
-        DirectMessage(id: 4, senderUsername: "Anonymous", senderId: "1", receiverId: "1", message: "Bu bir test mesajıdır", createdAt: "14:30"),
+        DirectMessage(id: 1, senderUsername: "Anonymous", senderId: "1", receiverId: "1", message: "Bu bir test mesajıdır", roomId: "f2020d49-689a-4f83-ab63-7f81dd2ee801", createdAt: "14:30"),
+        DirectMessage(id: 2, senderUsername: "Anonymous", senderId: "1", receiverId: "1", message: "Bu bir test mesajıdır",  roomId: "f2020d49-689a-4f83-ab63-7f81dd2ee801", createdAt: "14:30"),
+        DirectMessage(id: 3, senderUsername: "Anonymous", senderId: "1", receiverId: "1", message: "Bu bir test mesajıdır",  roomId: "f2020d49-689a-4f83-ab63-7f81dd2ee801", createdAt: "14:30"),
+        DirectMessage(id: 4, senderUsername: "Anonymous", senderId: "1", receiverId: "1", message: "Bu bir test mesajıdır",  roomId: "f2020d49-689a-4f83-ab63-7f81dd2ee801", createdAt: "14:30"),
     ]
     
     init(directMessageService: DirectMessageServiceProtocol = DirectMessageService()) {

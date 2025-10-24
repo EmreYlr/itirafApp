@@ -15,6 +15,7 @@
 		C35148892EAA302C00359585 /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = C35148882EAA302C00359585 /* MessageKit */; };
 		C351488B2EAA37D000359585 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C351488A2EAA37D000359585 /* Message.swift */; };
 		C351488D2EAA38E400359585 /* ChatViewController+MessageKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C351488C2EAA38DF00359585 /* ChatViewController+MessageKit.swift */; };
+		C35148912EAB8C5B00359585 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35148902EAB8C5B00359585 /* WebSocketManager.swift */; };
 		C37D5B032E7840D20068F334 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C37D5B022E7840D20068F334 /* Login.storyboard */; };
 		C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5BB82E7983030068F334 /* Storyboard.swift */; };
 		C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5C762E7990D20068F334 /* LoginViewModel.swift */; };
@@ -106,6 +107,7 @@
 		C326DD4E2E8FF9FF001B7837 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C351488A2EAA37D000359585 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C351488C2EAA38DF00359585 /* ChatViewController+MessageKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+MessageKit.swift"; sourceTree = "<group>"; };
+		C35148902EAB8C5B00359585 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		C37D5B022E7840D20068F334 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C37D5BB82E7983030068F334 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		C37D5C762E7990D20068F334 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -227,6 +229,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C351488F2EAB8C5600359585 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				C35148902EAB8C5B00359585 /* WebSocketManager.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
 		C37D5B012E7840670068F334 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +333,7 @@
 		C3A7A4122EA7AA9800250B06 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				C351488F2EAB8C5600359585 /* WebSocket */,
 				C37D5DF32E842A2F0068F334 /* NetworkService.swift */,
 				C37D5DE62E8415080068F334 /* NetworkManager.swift */,
 			);
@@ -1035,6 +1046,7 @@
 				C37D5C792E7990F70068F334 /* HomeViewModel.swift in Sources */,
 				C3C08BC22E8D3B3500EDC6A2 /* Constants.swift in Sources */,
 				C3C08BAA2E8AAE8100EDC6A2 /* HomeViewController+CollectionView.swift in Sources */,
+				C35148912EAB8C5B00359585 /* WebSocketManager.swift in Sources */,
 				C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */,
 				C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */,
 				C3F39F802EA02B6000197509 /* PostConfession.swift in Sources */,

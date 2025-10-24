@@ -13,8 +13,8 @@ protocol ChatViewModelProtocol {
     var directMessage: DirectMessage? { get set }
     var messages: [Message] { get }
     var currentSender: Sender { get }
-    
-    func loadMockMessages()
+    func startListening()
+    func stopListening()
     func sendMessage(_ text: String)
 }
 
@@ -23,117 +23,78 @@ protocol ChatViewModelDelegate: AnyObject {
     func diderror(_ error: Error)
 }
 
-final class ChatViewModel {
+final class ChatViewModel: NSObject {
     weak var delegate: ChatViewModelDelegate?
-    var chatService: ChatServiceProtocol
     var directMessage: DirectMessage?
-
+    
     private(set) var messages: [Message] = []
     private(set) var currentSender: Sender
     
+    private var chatService: ChatServiceProtocol
+    private var isConnected = false
+    
     init(chatService: ChatServiceProtocol = ChatService()) {
         self.chatService = chatService
-        
-        self.currentSender = Sender(senderId: "current_user", displayName: "Ben")
-    }
-    func loadMockMessages() {
-        let otherSender = Sender(
-            senderId: directMessage?.senderId ?? "other_user",
-            displayName: directMessage?.senderUsername ?? "Diğer Kullanıcı"
-        )
-        
-        let mockMessages: [Message] = [
-            Message(
-                sender: otherSender,
-                messageId: UUID().uuidString,
-                sentDate: Date().addingTimeInterval(-3600),
-                kind: .text("Merhaba!")
-            ),
-            Message(
-                sender: currentSender,
-                messageId: UUID().uuidString,
-                sentDate: Date().addingTimeInterval(-3500),
-                kind: .text("Selam, nasılsın?")
-            ),
-            Message(
-                sender: otherSender,
-                messageId: UUID().uuidString,
-                sentDate: Date().addingTimeInterval(-3400),
-                kind: .text("İyiyim teşekkürler, sen?")
-            ),
-            Message(
-                sender: currentSender,
-                messageId: UUID().uuidString,
-                sentDate: Date().addingTimeInterval(-3300),
-                kind: .text("Ben de iyiyim 😊")
-            ),
-            Message(
-                sender: otherSender,
-                messageId: UUID().uuidString,
-                sentDate: Date().addingTimeInterval(-1800),
-                kind: .text("Bugün ne yapıyorsun?")
-            ),
-            Message(
-                sender: currentSender,
-                messageId: UUID().uuidString,
-                sentDate: Date().addingTimeInterval(-1700),
-                kind: .text("Proje üzerinde çalışıyorum. MessageKit entegre ediyorum.")
-            )
-        ]
-        
-        self.messages = mockMessages
-        delegate?.didUpdateMessages()
+        self.currentSender = Sender(senderId: UserManager.shared.getUser()?.id ?? "", displayName: "Ben")
+        super.init()
+        self.chatService.delegate = self
     }
     
-    // Mesaj gönder (mock)
+    func startListening() {
+        guard let roomId = directMessage?.roomId else {
+            let error = APIError(code: 0, type: "MissingInfo", message: "Room ID not found to start listening.")
+            delegate?.diderror(error)
+            return
+        }
+        chatService.startChatSession(roomId: roomId)
+    }
+    
+    func stopListening() {
+        chatService.endChatSession()
+    }
+    
     func sendMessage(_ text: String) {
-        let newMessage = Message(
-            sender: currentSender,
-            messageId: UUID().uuidString,
-            sentDate: Date(),
-            kind: .text(text)
-        )
-        
+        let newMessage = Message(sender: currentSender, messageId: UUID().uuidString, sentDate: Date(), kind: .text(text))
         messages.append(newMessage)
         delegate?.didUpdateMessages()
         
-        // İleride WebSocket ile gönderilecek
-        // chatService.sendMessage(text, to: receiverId)
-        
-        // Mock cevap simülasyonu
-        simulateMockResponse()
-    }
-    
-    private func simulateMockResponse() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
-            guard let self = self else { return }
-            
-            let otherSender = Sender(
-                senderId: self.directMessage?.senderId ?? "other_user",
-                displayName: self.directMessage?.senderUsername ?? "Diğer Kullanıcı"
-            )
-            
-            let responses = [
-                "Anladım 👍",
-                "Harika!",
-                "Güzel görünüyor",
-                "Evet, katılıyorum",
-                "İlginç..."
-            ]
-            
-            let randomResponse = responses.randomElement() ?? "Tamam"
-            
-            let responseMessage = Message(
-                sender: otherSender,
-                messageId: UUID().uuidString,
-                sentDate: Date(),
-                kind: .text(randomResponse)
-            )
-            
-            self.messages.append(responseMessage)
-            self.delegate?.didUpdateMessages()
+        if isConnected {
+            chatService.sendMessage(text)
+        } else {
+            print("⚠️ Mesaj gönderilemedi, bağlantı yok.")
         }
     }
+    
+    deinit {
+        stopListening()
+    }
+    
+    
 }
 
 extension ChatViewModel: ChatViewModelProtocol { }
+
+extension ChatViewModel: ChatServiceDelegate {
+    
+    func chatDidConnect() {
+        isConnected = true
+        print("🟢 ViewModel: Chat oturumu aktif.")
+    }
+    
+    func chatDidDisconnect() {
+        isConnected = false
+        print("🔴 ViewModel: Chat oturumu kapandı.")
+    }
+    
+    func chatDidReceive(message: String) {
+        let otherSender = Sender(senderId: directMessage?.senderId ?? "other_user", displayName: directMessage?.senderUsername ?? "Karşı Taraf")
+        let newMessage = Message(sender: otherSender, messageId: UUID().uuidString, sentDate: Date(), kind: .text(message))
+        messages.append(newMessage)
+        delegate?.didUpdateMessages()
+    }
+    
+    func chatSessionFailed(with error: Error) {
+        isConnected = false
+        print("❌ ViewModel: Chat oturumu başlatılamadı. Hata: \(error.localizedDescription)")
+    }
+}

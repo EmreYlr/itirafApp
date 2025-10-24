@@ -11,6 +11,7 @@ struct DirectMessage: Hashable {
     let senderId: String
     let receiverId: String
     let message: String
+    let roomId: String
     let createdAt: String
     
     static func == (lhs: DirectMessage, rhs: DirectMessage) -> Bool {

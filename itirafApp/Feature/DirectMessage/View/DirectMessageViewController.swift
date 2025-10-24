@@ -79,7 +79,6 @@ final class DirectMessageViewController: UIViewController {
 extension DirectMessageViewController: DirectMessageViewModelDelegate {
     func didUpdateDirectMessages() {
         updateSnapshot(with: directMessageViewModel.directMessages)
-        print("Direct messages updated")
     }
     
     func didError(_ error: any Error) {

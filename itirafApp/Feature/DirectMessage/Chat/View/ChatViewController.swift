@@ -22,12 +22,23 @@ final class ChatViewController: MessagesViewController {
         super.viewDidLoad()
         setupMessageKit()
         initData()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if isMovingFromParent {
+            viewModel.stopListening()
+        }
+    }
+    
+
     
     private func setupMessageKit() {
         messagesCollectionView.messagesDataSource = self
@@ -52,11 +63,11 @@ final class ChatViewController: MessagesViewController {
         
         if let directMessage = viewModel.directMessage {
             navigationItem.title = directMessage.senderUsername
+            viewModel.startListening()
         } else {
             navigationItem.title = "Chat"
         }
 
-        viewModel.loadMockMessages()
     }
 
 }
@@ -68,8 +79,8 @@ extension ChatViewController: ChatViewModelDelegate {
         messagesCollectionView.scrollToLastItem(animated: true)
     }
     
-    func diderror(_ error: any Error) {
-        print("Error occurred: \(error.localizedDescription)")
+    func diderror(_ error: Error) {
+        print("❌ Sohbet Hatası Oluştu: \(error.localizedDescription)")
     }
 }
 
