@@ -33,10 +33,10 @@ final class DirectMessageCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with directMessage: DirectMessage) {
-        usernameLabel.text = directMessage.senderUsername
-        messageLabel.text = directMessage.message
-        timeLabel.text = directMessage.createdAt
-        newMessageCountLabel.text = "1"
+        usernameLabel.text = directMessage.username
+        messageLabel.text = directMessage.lastMessage
+        timeLabel.text = directMessage.lastMessageDate.formattedTime()
+        newMessageCountLabel.text = "1" //TODO: - yeni mesaj sayısı eklenecek
     }
 
 }

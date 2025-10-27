@@ -41,7 +41,7 @@ final class ChatViewModel: NSObject {
     }
     
     func startListening() {
-        guard let roomId = directMessage?.roomId else {
+        guard let roomId = directMessage?.roomID else {
             let error = APIError(code: 0, type: "MissingInfo", message: "Room ID not found to start listening.")
             delegate?.diderror(error)
             return
@@ -87,7 +87,7 @@ extension ChatViewModel: ChatServiceDelegate {
     }
     
     func chatDidReceive(message: String) {
-        let otherSender = Sender(senderId: directMessage?.senderId ?? "other_user", displayName: directMessage?.senderUsername ?? "Karşı Taraf")
+        let otherSender = Sender(senderId: directMessage?.username ?? "other_user", displayName: directMessage?.username ?? "Karşı Taraf")
         let newMessage = Message(sender: otherSender, messageId: UUID().uuidString, sentDate: Date(), kind: .text(message))
         messages.append(newMessage)
         delegate?.didUpdateMessages()

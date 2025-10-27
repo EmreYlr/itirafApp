@@ -24,7 +24,7 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
     
     func configure(with confession: Reply) {
         messageLabel.text = confession.message
-        dateLabel.text = confession.createdAt //TODO: Tarih formatlanacak
+        dateLabel.text = confession.createdAt.formattedDateTime()
         usernameLabel.text = confession.owner.username
         let labelHorizontalMargin: CGFloat = 61
         messageLabel.preferredMaxLayoutWidth = self.bounds.width - labelHorizontalMargin

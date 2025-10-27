@@ -36,7 +36,10 @@ final class DirectMessageViewController: UIViewController {
     private func initData() {
         directMessageViewModel.delegate = self
         navigationItem.title = "Direct Messages"
-        directMessageViewModel.fetchDirectMessages()
+        Task {
+            await directMessageViewModel.fetchDirectMessages()
+        }
+        
     }
     
     private func loadCollectionView() {
@@ -70,7 +73,7 @@ final class DirectMessageViewController: UIViewController {
     
     @objc private func refreshConfession() {
         Task {
-            directMessageViewModel.fetchDirectMessages()
+            await directMessageViewModel.fetchDirectMessages()
             collectionView.refreshControl?.endRefreshing()
         }
     }

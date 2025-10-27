@@ -19,6 +19,7 @@ protocol ChatServiceProtocol {
     func startChatSession(roomId: String)
     func endChatSession()
     func sendMessage(_ text: String)
+//    func getRoomMessages() async throws -> []
 }
 
 final class ChatService: ChatServiceProtocol {

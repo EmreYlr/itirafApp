@@ -62,7 +62,7 @@ final class ChatViewController: MessagesViewController {
         viewModel.delegate = self
         
         if let directMessage = viewModel.directMessage {
-            navigationItem.title = directMessage.senderUsername
+            navigationItem.title = directMessage.username
             viewModel.startListening()
         } else {
             navigationItem.title = "Chat"
