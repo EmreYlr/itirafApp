@@ -27,7 +27,7 @@ extension ChatViewController: MessagesDataSource {
 // MARK: - MessagesLayoutDelegate
 extension ChatViewController: MessagesLayoutDelegate {
     func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return CGSize(width: 0, height: 8)
+        return CGSize(width: 0, height: 2)
     }
     
     func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
@@ -56,20 +56,20 @@ extension ChatViewController: MessagesDisplayDelegate {
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         if !isFromCurrentSender(message: message) {
-            let avatar = Avatar(initials: String(message.sender.displayName.prefix(2)))
+            let avatar = Avatar(initials: String(message.sender.displayName.prefix(2).uppercased()))
             avatarView.set(avatar: avatar)
         }
     }
     
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
         let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
-        return .bubbleTail(corner, .curved)
+        return .bubbleTail(corner, .pointedEdge)
     }
     
     func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         if indexPath.section == 0 {
             return NSAttributedString(
-                string: MessageKitDateFormatter.shared.string(from: message.sentDate),
+                string: message.sentDate.formattedTime(),
                 attributes: [.font: UIFont.systemFont(ofSize: 10), .foregroundColor: UIColor.systemGray]
             )
         }
@@ -77,13 +77,14 @@ extension ChatViewController: MessagesDisplayDelegate {
         let previousMessage = viewModel.messages[indexPath.section - 1]
         if message.sender.senderId != previousMessage.sender.senderId {
             return NSAttributedString(
-                string: MessageKitDateFormatter.shared.string(from: message.sentDate),
+                string: message.sentDate.formattedTime(),
                 attributes: [.font: UIFont.systemFont(ofSize: 10), .foregroundColor: UIColor.systemGray]
             )
         }
         
         return nil
     }
+
 }
 
 

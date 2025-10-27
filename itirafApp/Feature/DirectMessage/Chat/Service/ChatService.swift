@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol ChatServiceDelegate: AnyObject {
     func chatDidReceive(message: String)
@@ -19,16 +20,17 @@ protocol ChatServiceProtocol {
     func startChatSession(roomId: String)
     func endChatSession()
     func sendMessage(_ text: String)
-//    func getRoomMessages() async throws -> []
+    func getRoomMessages(page: Int, limit: Int, with roomId: String) async throws -> RoomMessages
 }
 
 final class ChatService: ChatServiceProtocol {
     
     weak var delegate: ChatServiceDelegate?
     private var webSocketManager: WebSocketManagerProtocol
-    
-    init(webSocketManager: WebSocketManagerProtocol = WebSocketManager.shared) {
+    private var networkService: NetworkService
+    init(webSocketManager: WebSocketManagerProtocol = WebSocketManager.shared, networkService: NetworkService = NetworkManager.shared) {
         self.webSocketManager = webSocketManager
+        self.networkService = networkService
         self.webSocketManager.delegate = self
     }
     
@@ -43,6 +45,20 @@ final class ChatService: ChatServiceProtocol {
     
     func sendMessage(_ text: String) {
         webSocketManager.send(message: text)
+    }
+    
+    func getRoomMessages(page: Int, limit: Int, with roomId: String) async throws -> RoomMessages {
+        let parameters: [String: Any] = [
+            "page": page,
+            "limit": limit
+        ]
+        
+        return try await networkService.request(
+            endpoint: Endpoint.Room.getRoomMessages(roomId: roomId),
+            method: .get,
+            parameters: parameters,
+            encoding: URLEncoding.default
+        )
     }
 }
 

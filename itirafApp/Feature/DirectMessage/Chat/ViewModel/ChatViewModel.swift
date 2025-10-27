@@ -11,25 +11,33 @@ import MessageKit
 protocol ChatViewModelProtocol {
     var delegate: ChatViewModelDelegate? { get set }
     var directMessage: DirectMessage? { get set }
+    var roomMessage: RoomMessages? { get }
     var messages: [Message] { get }
     var currentSender: Sender { get }
+    var isLoading: Bool { get }
+    var hasMoreData: Bool { get }
     func startListening()
     func stopListening()
     func sendMessage(_ text: String)
+    func fetchRoomMessages() async
 }
 
 protocol ChatViewModelDelegate: AnyObject {
-    func didUpdateMessages()
+    func didUpdateMessages(isPagination: Bool)
     func diderror(_ error: Error)
 }
 
 final class ChatViewModel: NSObject {
     weak var delegate: ChatViewModelDelegate?
     var directMessage: DirectMessage?
+    var roomMessage: RoomMessages?
+    
+    private(set) var isLoading = false
+    private(set) var hasMoreData = true
+    private var currentPage = 1
     
     private(set) var messages: [Message] = []
     private(set) var currentSender: Sender
-    
     private var chatService: ChatServiceProtocol
     private var isConnected = false
     
@@ -56,7 +64,7 @@ final class ChatViewModel: NSObject {
     func sendMessage(_ text: String) {
         let newMessage = Message(sender: currentSender, messageId: UUID().uuidString, sentDate: Date(), kind: .text(text))
         messages.append(newMessage)
-        delegate?.didUpdateMessages()
+        delegate?.didUpdateMessages(isPagination: false)
         
         if isConnected {
             chatService.sendMessage(text)
@@ -64,6 +72,59 @@ final class ChatViewModel: NSObject {
             print("⚠️ Mesaj gönderilemedi, bağlantı yok.")
         }
     }
+    
+    func fetchRoomMessages() async {
+        guard let roomID = directMessage?.roomID else {
+            delegate?.diderror(APIError(code: 0, type: "MissingInfo", message: "Room ID not found to fetch messages."))
+            return
+        }
+        
+        guard !isLoading, hasMoreData else { return }
+        
+        isLoading = true
+        defer { isLoading = false }
+        let isPaginationRequest = self.roomMessage != nil
+        do {
+            let newRoomMessages = try await chatService.getRoomMessages(page: currentPage, limit: 20, with: roomID)
+            
+            if self.roomMessage == nil {
+                self.roomMessage = newRoomMessages
+            } else {
+                self.roomMessage?.data.append(contentsOf: newRoomMessages.data)
+            }
+            
+            convertToMessageKitMessages(from: newRoomMessages.data)
+
+
+            hasMoreData = currentPage < newRoomMessages.totalPages
+            if hasMoreData { currentPage += 1 }
+            
+            delegate?.didUpdateMessages(isPagination: isPaginationRequest)
+            
+        } catch {
+            delegate?.diderror(error)
+            hasMoreData = false
+        }
+    }
+    
+    private func convertToMessageKitMessages(from roomMessages: [MessageData]) {
+        let convertedMessages: [Message] = roomMessages.map { msgData in
+            let sender: Sender
+            
+            if msgData.isMyMessage {
+                sender = currentSender
+            } else {
+                sender = Sender(senderId: directMessage?.username ?? "other_user", displayName: directMessage?.username ?? "Karşı Taraf")
+            }
+            
+            let date = Date(isoStringWithFractionalSeconds: msgData.createdAt) ?? Date(timeIntervalSince1970: 0)
+            
+            return Message(sender: sender, messageId: "\(msgData.id)", sentDate: date, kind: .text(msgData.content))
+        }
+
+        self.messages.insert(contentsOf: convertedMessages.reversed(), at: 0)
+    }
+
     
     deinit {
         stopListening()
@@ -90,7 +151,7 @@ extension ChatViewModel: ChatServiceDelegate {
         let otherSender = Sender(senderId: directMessage?.username ?? "other_user", displayName: directMessage?.username ?? "Karşı Taraf")
         let newMessage = Message(sender: otherSender, messageId: UUID().uuidString, sentDate: Date(), kind: .text(message))
         messages.append(newMessage)
-        delegate?.didUpdateMessages()
+        delegate?.didUpdateMessages(isPagination: false)
     }
     
     func chatSessionFailed(with error: Error) {

@@ -12,6 +12,7 @@ import InputBarAccessoryView
 final class ChatViewController: MessagesViewController {
     //MARK: - Properties
     var viewModel: ChatViewModelProtocol
+    private var isFirstLoad = true
     
     required init?(coder: NSCoder) {
         self.viewModel = ChatViewModel()
@@ -22,7 +23,7 @@ final class ChatViewController: MessagesViewController {
         super.viewDidLoad()
         setupMessageKit()
         initData()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,23 +38,20 @@ final class ChatViewController: MessagesViewController {
             viewModel.stopListening()
         }
     }
-    
-
-    
+     
     private func setupMessageKit() {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
         
-        // Mesaj baloncuğu görünümü
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
-            layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
-            layout.textMessageSizeCalculator.incomingAvatarSize = CGSize(width: 30, height: 30)
+            
+            layout.setMessageIncomingAvatarSize(CGSize(width: 30, height: 30))
+            layout.setMessageOutgoingAvatarSize(.zero)
         }
         
-        // Scroll to bottom butonu
-        scrollsToLastItemOnKeyboardBeginsEditing = true
+        scrollsToLastItemOnKeyboardBeginsEditing = false
         maintainPositionOnInputBarHeightChanged = true
         showMessageTimestampOnSwipeLeft = true
     }
@@ -63,24 +61,42 @@ final class ChatViewController: MessagesViewController {
         
         if let directMessage = viewModel.directMessage {
             navigationItem.title = directMessage.username
-            viewModel.startListening()
+            Task {
+                await viewModel.fetchRoomMessages()
+                viewModel.startListening()
+            }
         } else {
             navigationItem.title = "Chat"
         }
-
+        
     }
-
+    
 }
 
 // MARK: - ChatViewModelDelegate
 extension ChatViewController: ChatViewModelDelegate {
-    func didUpdateMessages() {
-        messagesCollectionView.reloadData()
-        messagesCollectionView.scrollToLastItem(animated: true)
+    func didUpdateMessages(isPagination: Bool) {
+        DispatchQueue.main.async {
+            if isPagination {
+                self.messagesCollectionView.reloadDataAndKeepOffset()
+                
+            } else {
+                self.messagesCollectionView.reloadData()
+                
+                if self.isFirstLoad {
+                    self.messagesCollectionView.layoutIfNeeded()
+                    self.messagesCollectionView.scrollToLastItem(animated: false)
+                    self.isFirstLoad = false
+                    
+                } else {
+                    self.messagesCollectionView.scrollToLastItem(animated: true)
+                }
+            }
+        }
     }
+    
     
     func diderror(_ error: Error) {
         print("❌ Sohbet Hatası Oluştu: \(error.localizedDescription)")
     }
 }
-

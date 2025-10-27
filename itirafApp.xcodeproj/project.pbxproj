@@ -77,6 +77,8 @@
 		C3D8E2022E900544006C7E8F /* PersonServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E2012E900544006C7E8F /* PersonServiceProtocol.swift */; };
 		C3D8E2042E9005F5006C7E8F /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E2032E9005F2006C7E8F /* PersonViewModel.swift */; };
 		C3E660122EAF853B0059048F /* String+DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660112EAF85320059048F /* String+DateFormatting.swift */; };
+		C3E660142EAFACD80059048F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660132EAFACC50059048F /* Date+Extension.swift */; };
+		C3E660162EAFB7F00059048F /* ChatViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660152EAFB7EA0059048F /* ChatViewController+ScrollView.swift */; };
 		C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB106D2E744115002DA295 /* AppDelegate.swift */; };
 		C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10742E744115002DA295 /* SceneDelegate.swift */; };
 		C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10752E744115002DA295 /* HomeViewController.swift */; };
@@ -170,6 +172,8 @@
 		C3D8E2012E900544006C7E8F /* PersonServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonServiceProtocol.swift; sourceTree = "<group>"; };
 		C3D8E2032E9005F2006C7E8F /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		C3E660112EAF85320059048F /* String+DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateFormatting.swift"; sourceTree = "<group>"; };
+		C3E660132EAFACC50059048F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		C3E660152EAFB7EA0059048F /* ChatViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		C3EB10552E7440CE002DA295 /* itirafApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itirafApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EB106D2E744115002DA295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3EB106E2E744115002DA295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 			children = (
 				C3A7A4342EAA286400250B06 /* ChatViewController.swift */,
 				C351488C2EAA38DF00359585 /* ChatViewController+MessageKit.swift */,
+				C3E660152EAFB7EA0059048F /* ChatViewController+ScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -770,6 +775,7 @@
 		C3EB108A2E744A63002DA295 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C3E660132EAFACC50059048F /* Date+Extension.swift */,
 				C3E660112EAF85320059048F /* String+DateFormatting.swift */,
 				C3D765952E96BF1B00104C3B /* UIViewController+Alert.swift */,
 				C326DD472E8D8232001B7837 /* UserDefaults+Keys.swift */,
@@ -1052,6 +1058,7 @@
 				C35148912EAB8C5B00359585 /* WebSocketManager.swift in Sources */,
 				C3E660122EAF853B0059048F /* String+DateFormatting.swift in Sources */,
 				C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */,
+				C3E660162EAFB7F00059048F /* ChatViewController+ScrollView.swift in Sources */,
 				C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */,
 				C3F39F802EA02B6000197509 /* PostConfession.swift in Sources */,
 				C326DD4F2E8FFA02001B7837 /* UserService.swift in Sources */,
@@ -1071,6 +1078,7 @@
 				C3A7A41D2EA9443B00250B06 /* DirectMessageViewController.swift in Sources */,
 				C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */,
 				C3A7A43A2EAA28F100250B06 /* ChatService.swift in Sources */,
+				C3E660142EAFACD80059048F /* Date+Extension.swift in Sources */,
 				C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */,
 				C3F39E122EA0267300197509 /* PostConfessionViewController.swift in Sources */,
 				C3A7A42B2EA94CB500250B06 /* DirectMessageViewController+CollectionView.swift in Sources */,

@@ -21,7 +21,7 @@ protocol HomeViewModelOutputProtocol: AnyObject {
     func didFailWithError(_ error: Error)
 }
 
-@MainActor
+
 final class HomeViewModel {
     weak var delegate: HomeViewModelOutputProtocol?
     let homeService: HomeServiceProtocol
@@ -103,4 +103,4 @@ final class HomeViewModel {
     }
 }
 
-extension HomeViewModel: @preconcurrency HomeViewModelProtocol {}
+extension HomeViewModel: HomeViewModelProtocol {}
