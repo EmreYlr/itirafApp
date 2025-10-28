@@ -16,7 +16,10 @@ struct DirectMessage: Hashable, Codable {
     }
     
     static func == (lhs: DirectMessage, rhs: DirectMessage) -> Bool {
-        return lhs.roomID == rhs.roomID
+        return lhs.roomID == rhs.roomID &&
+        lhs.lastMessageDate == rhs.lastMessageDate &&
+        lhs.lastMessage == rhs.lastMessage &&
+        lhs.isLastMessageMine == rhs.isLastMessageMine
     }
     
     func hash(into hasher: inout Hasher) {
