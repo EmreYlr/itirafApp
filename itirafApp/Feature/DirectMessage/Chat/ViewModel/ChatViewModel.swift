@@ -69,12 +69,8 @@ final class ChatViewModel: NSObject {
         let newMessage = Message(sender: currentSender, messageId: UUID().uuidString, sentDate: Date(), kind: .text(text))
         messages.append(newMessage)
         delegate?.didUpdateMessages(isPagination: false)
-        
-        if isConnected {
-            chatService.sendMessage(text)
-        } else {
-            print("⚠️ Mesaj gönderilemedi, bağlantı yok.")
-        }
+
+        chatService.sendMessage(text)
     }
     
     func fetchRoomMessages() async {
@@ -129,10 +125,6 @@ final class ChatViewModel: NSObject {
         self.messages.insert(contentsOf: convertedMessages.reversed(), at: 0)
     }
 
-    
-    deinit {
-        stopListening()
-    }
     
 }
 
