@@ -38,7 +38,7 @@ final class ChatViewModel: NSObject {
     
     private(set) var messages: [Message] = []
     private(set) var currentSender: Sender
-    private var chatService: ChatServiceProtocol
+    private var chatService: ChatServiceProtocol!
     private var isConnected = false
     
     init(chatService: ChatServiceProtocol = ChatService()) {
@@ -54,7 +54,11 @@ final class ChatViewModel: NSObject {
             delegate?.diderror(error)
             return
         }
-        chatService.startChatSession(roomId: roomId)
+        if !isConnected {
+            chatService.startChatSession(roomId: roomId)
+        } else {
+            print("⚠️ Mesaj gönderilemedi, bağlantı yok.")
+        }
     }
     
     func stopListening() {
@@ -129,7 +133,6 @@ final class ChatViewModel: NSObject {
     deinit {
         stopListening()
     }
-    
     
 }
 

@@ -79,6 +79,7 @@
 		C3E660122EAF853B0059048F /* String+DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660112EAF85320059048F /* String+DateFormatting.swift */; };
 		C3E660142EAFACD80059048F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660132EAFACC50059048F /* Date+Extension.swift */; };
 		C3E660162EAFB7F00059048F /* ChatViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660152EAFB7EA0059048F /* ChatViewController+ScrollView.swift */; };
+		C3E660182EB0EBDE0059048F /* WebSocketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660172EB0EBD30059048F /* WebSocketRequest.swift */; };
 		C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB106D2E744115002DA295 /* AppDelegate.swift */; };
 		C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10742E744115002DA295 /* SceneDelegate.swift */; };
 		C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10752E744115002DA295 /* HomeViewController.swift */; };
@@ -174,6 +175,7 @@
 		C3E660112EAF85320059048F /* String+DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateFormatting.swift"; sourceTree = "<group>"; };
 		C3E660132EAFACC50059048F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		C3E660152EAFB7EA0059048F /* ChatViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+ScrollView.swift"; sourceTree = "<group>"; };
+		C3E660172EB0EBD30059048F /* WebSocketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketRequest.swift; sourceTree = "<group>"; };
 		C3EB10552E7440CE002DA295 /* itirafApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itirafApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EB106D2E744115002DA295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3EB106E2E744115002DA295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		C351488F2EAB8C5600359585 /* WebSocket */ = {
 			isa = PBXGroup;
 			children = (
+				C3E660172EB0EBD30059048F /* WebSocketRequest.swift */,
 				C35148902EAB8C5B00359585 /* WebSocketManager.swift */,
 			);
 			path = WebSocket;
@@ -1038,6 +1041,7 @@
 				C3D764BC2E93DE1800104C3B /* DetailService.swift in Sources */,
 				C326DD462E8D7E95001B7837 /* User.swift in Sources */,
 				C3D764BE2E93E96200104C3B /* DetailViewController+CollectionView.swift in Sources */,
+				C3E660182EB0EBDE0059048F /* WebSocketRequest.swift in Sources */,
 				C37D5DF62E842A5B0068F334 /* MockNetworkManager.swift in Sources */,
 				C3D8E2042E9005F5006C7E8F /* PersonViewModel.swift in Sources */,
 				C326DD4D2E8EE2A8001B7837 /* UserManager.swift in Sources */,

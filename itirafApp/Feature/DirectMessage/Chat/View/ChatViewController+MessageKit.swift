@@ -26,21 +26,24 @@ extension ChatViewController: MessagesDataSource {
 
 // MARK: - MessagesLayoutDelegate
 extension ChatViewController: MessagesLayoutDelegate {
-    func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return CGSize(width: 0, height: 2)
-    }
-    
-    func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        if indexPath.section == 0 {
-            return 20
+    func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        
+        let labelHeight: CGFloat = 20
+        let defaultSpacing: CGFloat = 0
+        
+        let isLastMessage = indexPath.section == viewModel.messages.count - 1
+        
+        if isLastMessage {
+            return labelHeight
         }
         
-        let previousMessage = viewModel.messages[indexPath.section - 1]
-        if message.sender.senderId != previousMessage.sender.senderId {
-            return 20
+        let nextMessage = viewModel.messages[indexPath.section + 1]
+        
+        if message.sender.senderId != nextMessage.sender.senderId {
+            return labelHeight
         }
         
-        return 0
+        return defaultSpacing
     }
 }
 
@@ -66,16 +69,19 @@ extension ChatViewController: MessagesDisplayDelegate {
         return .bubbleTail(corner, .pointedEdge)
     }
     
-    func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        if indexPath.section == 0 {
-            return NSAttributedString(
-                string: message.sentDate.formattedTime(),
-                attributes: [.font: UIFont.systemFont(ofSize: 10), .foregroundColor: UIColor.systemGray]
-            )
+    func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        
+        let isLastMessage = indexPath.section == viewModel.messages.count - 1
+        var showDate = isLastMessage
+        
+        if !isLastMessage {
+            let nextMessage = viewModel.messages[indexPath.section + 1]
+            if message.sender.senderId != nextMessage.sender.senderId {
+                showDate = true
+            }
         }
         
-        let previousMessage = viewModel.messages[indexPath.section - 1]
-        if message.sender.senderId != previousMessage.sender.senderId {
+        if showDate {
             return NSAttributedString(
                 string: message.sentDate.formattedTime(),
                 attributes: [.font: UIFont.systemFont(ofSize: 10), .foregroundColor: UIColor.systemGray]
@@ -84,7 +90,6 @@ extension ChatViewController: MessagesDisplayDelegate {
         
         return nil
     }
-
 }
 
 

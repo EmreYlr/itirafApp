@@ -24,7 +24,6 @@ protocol WebSocketManagerProtocol {
 }
 
 final class WebSocketManager: NSObject, WebSocketManagerProtocol {
-    
     static let shared = WebSocketManager()
     
     weak var delegate: WebSocketManagerDelegate?
@@ -38,7 +37,6 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
         self.urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
     }
     
-    
     func connect(with endpoint: EndpointType) {
         do {
             try checkAuthenticationIfNeeded(for: endpoint)
@@ -46,7 +44,7 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
             delegate?.webSocketDidFail(with: error)
             return
         }
-
+        
         disconnect()
         
         guard let url = URL(string: NetworkConstants.webSocketURL + endpoint.path) else {
@@ -75,12 +73,8 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
         webSocketTask?.cancel(with: .goingAway, reason: nil)
         webSocketTask = nil
         
-        if Thread.isMainThread {
-            delegate?.webSocketDidDisconnect()
-        } else {
-            DispatchQueue.main.sync {
-                self.delegate?.webSocketDidDisconnect()
-            }
+        DispatchQueue.main.async { [weak self] in
+            self?.delegate?.webSocketDidDisconnect()
         }
     }
     
@@ -90,10 +84,48 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
             return
         }
         
-        let wsMessage = URLSessionWebSocketTask.Message.string(message)
+        let messageData = WebSocketMessageData(content: message)
+        let requestObject = WebSocketRequest(type: "message", data: messageData)
+        
+        let encoder = JSONEncoder()
+        guard let jsonData = try? encoder.encode(requestObject) else {
+            print("❌ WebSocket mesajı JSON'a çevirme hatası.")
+            return
+        }
+        
+        guard let jsonString = String(data: jsonData, encoding: .utf8) else {
+            print("❌ WebSocket JSON string'e çevirme hatası.")
+            return
+        }
+        
+        
+        let wsMessage = URLSessionWebSocketTask.Message.string(jsonString)
         webSocketTask?.send(wsMessage) { error in
             if let error = error {
                 print("❌ WebSocket mesaj gönderme hatası: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func sendSeenStatus() {
+        guard webSocketTask?.state == .running else {
+            print("❌ WebSocket bağlı değil. 'Seen' durumu gönderilemedi.")
+            return
+        }
+        
+        let requestObject = SeenRequest(type: "seen")
+        
+        let encoder = JSONEncoder()
+        guard let jsonData = try? encoder.encode(requestObject),
+              let jsonString = String(data: jsonData, encoding: .utf8) else {
+            print("❌ WebSocket 'seen' mesajı JSON'a çevirme hatası.")
+            return
+        }
+        
+        let wsMessage = URLSessionWebSocketTask.Message.string(jsonString)
+        webSocketTask?.send(wsMessage) { error in
+            if let error = error {
+                print("❌ WebSocket 'seen' gönderme hatası: \(error.localizedDescription)")
             }
         }
     }
@@ -163,6 +195,7 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
 extension WebSocketManager: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         startPinging()
+        self.sendSeenStatus()
         DispatchQueue.main.async {
             self.delegate?.webSocketDidConnect()
         }

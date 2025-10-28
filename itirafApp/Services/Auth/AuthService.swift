@@ -14,6 +14,20 @@ struct RefreshTokenResponse: Decodable {
 }
 
 final class AuthService {
+    static func refreshToken() async -> Bool {
+        do {
+            let tokenResponse = try await NetworkManager.shared.requestRefreshToken()
+            AuthManager.shared.saveTokens(
+                accessToken: tokenResponse.accessToken,
+                refreshToken: tokenResponse.refreshToken
+            )
+            return true
+        } catch {
+            print("Failed to refresh token: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
     private static func registerAnonymousUser() async throws -> User {
         let user: User = try await NetworkManager.shared.request(
             endpoint: Endpoint.Auth.registerAnonymous,
@@ -63,20 +77,6 @@ final class AuthService {
         
         _ = try await loginAnonymousUser(user: anonymousUser)
         return true
-    }
-    
-    static func refreshToken() async -> Bool {
-        do {
-            let tokenResponse = try await NetworkManager.shared.requestRefreshToken()
-            AuthManager.shared.saveTokens(
-                accessToken: tokenResponse.accessToken,
-                refreshToken: tokenResponse.refreshToken
-            )
-            return true
-        } catch {
-            print("Failed to refresh token: \(error.localizedDescription)")
-            return false
-        }
     }
 }
 

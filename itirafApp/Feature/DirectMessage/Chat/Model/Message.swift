@@ -18,7 +18,8 @@ struct RoomMessages: Codable {
 struct MessageData: Codable {
     var id: Int
     var content, createdAt: String
-    var isMyMessage, seen: Bool
+    var isMyMessage: Bool
+    var seenAt: String?
 }
 
 //MessagKit Models

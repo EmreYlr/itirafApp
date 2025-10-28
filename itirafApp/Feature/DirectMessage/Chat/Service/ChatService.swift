@@ -24,10 +24,10 @@ protocol ChatServiceProtocol {
 }
 
 final class ChatService: ChatServiceProtocol {
-    
     weak var delegate: ChatServiceDelegate?
     private var webSocketManager: WebSocketManagerProtocol
     private var networkService: NetworkService
+    
     init(webSocketManager: WebSocketManagerProtocol = WebSocketManager.shared, networkService: NetworkService = NetworkManager.shared) {
         self.webSocketManager = webSocketManager
         self.networkService = networkService
