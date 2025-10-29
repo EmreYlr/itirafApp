@@ -20,6 +20,7 @@ final class MyConfessionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     
     private let labelHorizontalMargin: CGFloat = 16
+    var onEditButtonTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,20 +50,24 @@ final class MyConfessionsCollectionViewCell: UICollectionViewCell {
             statusImageView.tintColor = .systemGreen
             statusLabel.textColor = .systemGreen
             statusLabel.text = "Aktif"
+            editButton.isHidden = true
         case .humanRejected, .aiRejected:
             statusView.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2)
             statusImageView.tintColor = .systemRed
             statusLabel.textColor = .systemRed
             statusLabel.text = "Reddedildi"
+            editButton.isHidden = false
         case .pending, .needsHumanReview:
             statusView.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.2)
             statusImageView.tintColor = .systemOrange
             statusLabel.textColor = .systemOrange
             statusLabel.text = "Onay Bekliyor"
+            editButton.isHidden = true
         }
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
+        onEditButtonTapped?()
     }
     
 }

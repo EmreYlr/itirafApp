@@ -17,7 +17,7 @@ struct Channel: Codable {
 struct ChannelData: Codable {
     let id: Int
     let title, description: String
-    let imageURL: String
+    let imageURL: String?
 
     enum CodingKeys: String, CodingKey {
         case id, title, description

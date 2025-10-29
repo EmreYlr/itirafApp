@@ -18,8 +18,9 @@ struct MyConfessionData: Codable, Hashable {
     let liked: Bool
     let replyCount: Int
     let createdAt: String
-    let owner: Owner
+    let channel: ChannelData
     let rejectionReason: String?
+    let violations: [Violation]?
     let moderationStatus: ModerationStatus
     
     static func == (lhs: MyConfessionData, rhs: MyConfessionData) -> Bool {
@@ -40,4 +41,18 @@ enum ModerationStatus: String, Codable {
     case aiRejected = "AI_REJECTED"
     case pending = "PENDING_REVIEW"
     case needsHumanReview = "NEEDS_HUMAN_REVIEW"
+}
+
+enum Violation: String, Codable {
+    case none = "NONE"
+    case profanity = "PROFANITY"
+    case harassment = "HARASSMENT"
+    case personalInfo = "PERSONAL_INFO"
+    case hateSpeech = "HATE_SPEECH"
+    case threat = "THREAT"
+    case sexualContent = "SEXUAL_CONTENT"
+    case violence = "VIOLENCE"
+    case discrimination = "DISCRIMINATION"
+    case spam = "SPAM"
+    case other = "OTHER"
 }

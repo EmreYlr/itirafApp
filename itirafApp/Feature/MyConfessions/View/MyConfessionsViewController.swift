@@ -53,6 +53,14 @@ final class MyConfessionsViewController: UIViewController {
                 fatalError("Cannot create new cell")
             }
             cell.configure(with: confession)
+            
+            cell.onEditButtonTapped = { [weak self] in
+                guard let self = self else { return }
+                let editVC: EditConfessionViewController = Storyboard.editConfession.instantiate(.editConfession)
+                editVC.viewModel = EditConfessionViewModel(myConfession: confession)
+                self.navigationController?.pushViewController(editVC, animated: true)
+            }
+            
             return cell
         }
     }
@@ -67,6 +75,9 @@ final class MyConfessionsViewController: UIViewController {
     
     @objc private func refreshConfession() {
         Task {
+            defer {
+                self.collectionView.refreshControl?.endRefreshing()
+            }
             await viewModel.fetchMyConfessions(reset: true)
         }
     }

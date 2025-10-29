@@ -69,6 +69,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lse-dq-OLs">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemMintColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="57I-VH-y4m" kind="relationship" relationship="rootViewController" id="r8n-va-PQM"/>
@@ -401,6 +402,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LvR-Vs-zXv">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemMintColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="eUP-H7-03D" kind="relationship" relationship="rootViewController" id="UYJ-il-E49"/>
@@ -418,6 +420,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MXL-eU-Nnb">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemMintColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="z8w-jK-MNB" kind="relationship" relationship="rootViewController" id="aFi-Mx-hnO"/>
