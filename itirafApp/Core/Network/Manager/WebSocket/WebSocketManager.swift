@@ -39,7 +39,6 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
     }
     
     func connect(with endpoint: EndpointType) {
-        print("🔗 connect çağrıldı: \(endpoint.path)")
         do {
             try checkAuthenticationIfNeeded(for: endpoint)
         } catch {
@@ -61,24 +60,20 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
         var request = URLRequest(url: url)
         if let token = AuthManager.shared.getAccessToken() {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-            print("🔑 connect: token header eklendi")
         }
         request.setValue(Constants.clientKey, forHTTPHeaderField: "x-client-key")
         
         webSocketTask = urlSession.webSocketTask(with: request)
         webSocketTask?.resume()
-        print("🔗 WebSocketTask başlatıldı")
         receiveMessage()
     }
     
     func disconnect() {
         guard let task = webSocketTask else {
-            print("⚠️ disconnect: zaten bağlantı yok")
             return
         }
         task.cancel(with: .goingAway, reason: nil)
         webSocketTask = nil
-        print("🔌 disconnect: bağlantı iptal edildi")
     }
     
     func send(message: String) {
@@ -113,7 +108,6 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
             switch result {
             case .success(let message):
                 if case .string(let text) = message {
-                    print("📩 receiveMessage: \(text)")
                     DispatchQueue.main.async {
                         self.delegate?.webSocketDidReceive(message: text)
                     }
@@ -121,7 +115,6 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
                 self.receiveMessage()
             case .failure(let error):
                 guard self.webSocketTask != nil else {
-                    print("ℹ️ receiveMessage: Bağlantı bilinçli olarak kapatıldı, receive durduruldu.")
                     return
                 }
                 print("❌ receiveMessage: hata \(error.localizedDescription)")
@@ -149,13 +142,11 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
                 self?.sendPing()
             }
         }
-        print("🏓 startPinging: ping timer başlatıldı")
     }
     
     private func stopPinging() {
         pingTimer?.invalidate()
         pingTimer = nil
-        print("🛑 stopPinging: ping timer durduruldu")
     }
     
     private func sendPing() {
@@ -199,10 +190,8 @@ extension WebSocketManager: URLSessionWebSocketDelegate {
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
         if closeCode.rawValue == 4402 {
-            print("⚠️ didCloseWith: token expired (4402)")
             Task { await self.handleExpiredToken() }
         } else {
-            print("🔌 didCloseWith: WebSocket kapandı. Kod: \(closeCode.rawValue)")
             self.pendingMessage = nil
             stopPinging()
             DispatchQueue.main.async {

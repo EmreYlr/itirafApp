@@ -46,6 +46,7 @@ enum ViewControllerID: String {
     case detail = "DetailViewController"
     case postConfession = "PostConfessionViewController"
     case person = "PersonViewController"
+    case myConfessions = "MyConfessionsViewController"
 
     // Login.storyboard
     case login = "LoginViewController"

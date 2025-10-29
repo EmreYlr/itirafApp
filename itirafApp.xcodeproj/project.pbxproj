@@ -80,6 +80,13 @@
 		C3E660142EAFACD80059048F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660132EAFACC50059048F /* Date+Extension.swift */; };
 		C3E660162EAFB7F00059048F /* ChatViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660152EAFB7EA0059048F /* ChatViewController+ScrollView.swift */; };
 		C3E660182EB0EBDE0059048F /* WebSocketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660172EB0EBD30059048F /* WebSocketRequest.swift */; };
+		C3E6601F2EB22FEC0059048F /* MyConfessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E6601E2EB22FEC0059048F /* MyConfessionsViewController.swift */; };
+		C3E660212EB24E670059048F /* MyConfessionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660202EB24E650059048F /* MyConfessionsViewModel.swift */; };
+		C3E660232EB24E700059048F /* MyConfessionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660222EB24E6D0059048F /* MyConfessionsService.swift */; };
+		C3E660252EB2515B0059048F /* MyConfession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660242EB2515B0059048F /* MyConfession.swift */; };
+		C3E660272EB256D30059048F /* MyConfessionViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660262EB256CA0059048F /* MyConfessionViewController+CollectionView.swift */; };
+		C3E6602B2EB257540059048F /* MyConfessionsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3E6602A2EB257540059048F /* MyConfessionsCollectionViewCell.xib */; };
+		C3E6602C2EB257540059048F /* MyConfessionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660292EB257540059048F /* MyConfessionsCollectionViewCell.swift */; };
 		C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB106D2E744115002DA295 /* AppDelegate.swift */; };
 		C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10742E744115002DA295 /* SceneDelegate.swift */; };
 		C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10752E744115002DA295 /* HomeViewController.swift */; };
@@ -176,6 +183,13 @@
 		C3E660132EAFACC50059048F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		C3E660152EAFB7EA0059048F /* ChatViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		C3E660172EB0EBD30059048F /* WebSocketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketRequest.swift; sourceTree = "<group>"; };
+		C3E6601E2EB22FEC0059048F /* MyConfessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConfessionsViewController.swift; sourceTree = "<group>"; };
+		C3E660202EB24E650059048F /* MyConfessionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConfessionsViewModel.swift; sourceTree = "<group>"; };
+		C3E660222EB24E6D0059048F /* MyConfessionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConfessionsService.swift; sourceTree = "<group>"; };
+		C3E660242EB2515B0059048F /* MyConfession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConfession.swift; sourceTree = "<group>"; };
+		C3E660262EB256CA0059048F /* MyConfessionViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyConfessionViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C3E660292EB257540059048F /* MyConfessionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConfessionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3E6602A2EB257540059048F /* MyConfessionsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyConfessionsCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3EB10552E7440CE002DA295 /* itirafApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itirafApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EB106D2E744115002DA295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3EB106E2E744115002DA295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -653,6 +667,60 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		C3E660192EB22FA10059048F /* MyConfessions */ = {
+			isa = PBXGroup;
+			children = (
+				C3E6601D2EB22FD30059048F /* Model */,
+				C3E6601C2EB22FCA0059048F /* View */,
+				C3E6601B2EB22FC40059048F /* ViewModel */,
+				C3E6601A2EB22FBC0059048F /* Service */,
+			);
+			path = MyConfessions;
+			sourceTree = "<group>";
+		};
+		C3E6601A2EB22FBC0059048F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3E660222EB24E6D0059048F /* MyConfessionsService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3E6601B2EB22FC40059048F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3E660202EB24E650059048F /* MyConfessionsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3E6601C2EB22FCA0059048F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3E660282EB257350059048F /* SubView */,
+				C3E6601E2EB22FEC0059048F /* MyConfessionsViewController.swift */,
+				C3E660262EB256CA0059048F /* MyConfessionViewController+CollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3E6601D2EB22FD30059048F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3E660242EB2515B0059048F /* MyConfession.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C3E660282EB257350059048F /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				C3E660292EB257540059048F /* MyConfessionsCollectionViewCell.swift */,
+				C3E6602A2EB257540059048F /* MyConfessionsCollectionViewCell.xib */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		C3EB104C2E7440CE002DA295 = {
 			isa = PBXGroup;
 			children = (
@@ -701,6 +769,7 @@
 				C3EB108C2E744AF9002DA295 /* Home */,
 				C3F39E0C2EA0264700197509 /* PostConfession */,
 				C3A7A4172EA943F200250B06 /* DirectMessage */,
+				C3E660192EB22FA10059048F /* MyConfessions */,
 				C3C08BB22E8AF4FF00EDC6A2 /* Person */,
 				C3D764C62E95380200104C3B /* Channel */,
 				C3C08BB92E8C367400EDC6A2 /* Auth */,
@@ -1014,6 +1083,7 @@
 				C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */,
 				C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */,
 				C3EB107D2E744115002DA295 /* Main.storyboard in Resources */,
+				C3E6602B2EB257540059048F /* MyConfessionsCollectionViewCell.xib in Resources */,
 				C37D5E142E86DDBD0068F334 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1033,12 +1103,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3F39E162EA0269200197509 /* PostConfessionService.swift in Sources */,
+				C3E6602C2EB257540059048F /* MyConfessionsCollectionViewCell.swift in Sources */,
 				C37D5DFC2E842AE30068F334 /* LoginService.swift in Sources */,
 				C3A7A42D2EA94D6400250B06 /* DirectMessage.swift in Sources */,
 				C3C08BB82E8AF54900EDC6A2 /* PersonViewController.swift in Sources */,
 				C37D5DE32E8414630068F334 /* NetworkConstants.swift in Sources */,
 				C37D5DEE2E8417230068F334 /* AuthManager.swift in Sources */,
 				C3D764BC2E93DE1800104C3B /* DetailService.swift in Sources */,
+				C3E6601F2EB22FEC0059048F /* MyConfessionsViewController.swift in Sources */,
 				C326DD462E8D7E95001B7837 /* User.swift in Sources */,
 				C3D764BE2E93E96200104C3B /* DetailViewController+CollectionView.swift in Sources */,
 				C3E660182EB0EBDE0059048F /* WebSocketRequest.swift in Sources */,
@@ -1068,7 +1140,9 @@
 				C326DD4F2E8FFA02001B7837 /* UserService.swift in Sources */,
 				C37D5E0C2E856C3F0068F334 /* LoginAlertPresenter.swift in Sources */,
 				C3A7A4222EA9449500250B06 /* DirectMessageViewModel.swift in Sources */,
+				C3E660212EB24E670059048F /* MyConfessionsViewModel.swift in Sources */,
 				C3D764D22E9538AD00104C3B /* ChannelViewModel.swift in Sources */,
+				C3E660272EB256D30059048F /* MyConfessionViewController+CollectionView.swift in Sources */,
 				C3C08BB12E8ACE9A00EDC6A2 /* Confession.swift in Sources */,
 				C3D764C52E93ED3300104C3B /* ChannelMessageData.swift in Sources */,
 				C3D765962E96BF1D00104C3B /* UIViewController+Alert.swift in Sources */,
@@ -1076,6 +1150,7 @@
 				C3D8E2022E900544006C7E8F /* PersonServiceProtocol.swift in Sources */,
 				C3D765942E96A90B00104C3B /* APIError.swift in Sources */,
 				C326DD482E8D8232001B7837 /* UserDefaults+Keys.swift in Sources */,
+				C3E660252EB2515B0059048F /* MyConfession.swift in Sources */,
 				C3D764D42E95391200104C3B /* ChannelService.swift in Sources */,
 				C37D5DEC2E8417110068F334 /* AuthService.swift in Sources */,
 				C37D5DF22E84256A0068F334 /* NSNotification+Extension.swift in Sources */,
@@ -1092,6 +1167,7 @@
 				C3A7A4242EA944F100250B06 /* DirectMessageService.swift in Sources */,
 				C3A7A40F2EA7A9B600250B06 /* AppRequestInterceptor.swift in Sources */,
 				C37D5DF42E842A2F0068F334 /* NetworkService.swift in Sources */,
+				C3E660232EB24E700059048F /* MyConfessionsService.swift in Sources */,
 				C3A7A4352EAA286400250B06 /* ChatViewController.swift in Sources */,
 				C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */,
 				C3D764BA2E93DDDE00104C3B /* DetailViewModel.swift in Sources */,

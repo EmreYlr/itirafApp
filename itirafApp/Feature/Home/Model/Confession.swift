@@ -13,7 +13,7 @@ struct Confession: Codable {
     var data: [ConfessionData]
 }
 
-// MARK: - Datum
+// MARK: - ConfessionData
 struct ConfessionData: Codable, Hashable {
     let id: Int
     let title, message: String
@@ -41,5 +41,5 @@ struct ConfessionData: Codable, Hashable {
 // MARK: - Owner
 struct Owner: Codable {
     let id: String
-    let username: String
+    let username: String?
 }

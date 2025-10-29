@@ -25,7 +25,6 @@ protocol DetailViewModelOutputProtocol: AnyObject {
 }
 
 
-@MainActor
 final class DetailViewModel {
     weak var delegate: DetailViewModelOutputProtocol?
     var confession: ChannelMessageData?
@@ -91,4 +90,4 @@ final class DetailViewModel {
     }
 }
 
-extension DetailViewModel: @preconcurrency DetailViewModelProtocol { }
+extension DetailViewModel: DetailViewModelProtocol { }
