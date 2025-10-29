@@ -31,7 +31,8 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
     private var urlSession: URLSession!
     private var pingTimer: Timer?
     private var lastConnectedEndpoint: EndpointType?
-
+    private var pendingMessage: String?
+    
     private override init() {
         super.init()
         self.urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
@@ -81,11 +82,13 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
     }
     
     func send(message: String) {
+        pendingMessage = message
+        
         guard let task = webSocketTask, task.state == .running else {
             print("⚠️ send: WebSocket bağlı değil, mesaj beklemeye alındı")
             return
         }
-
+        
         let messageData = WebSocketMessageData(content: message)
         let requestObject = WebSocketRequest(type: "message", data: messageData)
         
@@ -185,7 +188,10 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
 extension WebSocketManager: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         startPinging()
-        
+        if let pendingMessage = pendingMessage {
+            send(message: pendingMessage)
+            self.pendingMessage = nil
+        }
         DispatchQueue.main.async {
             self.delegate?.webSocketDidConnect()
         }
@@ -197,6 +203,7 @@ extension WebSocketManager: URLSessionWebSocketDelegate {
             Task { await self.handleExpiredToken() }
         } else {
             print("🔌 didCloseWith: WebSocket kapandı. Kod: \(closeCode.rawValue)")
+            self.pendingMessage = nil
             stopPinging()
             DispatchQueue.main.async {
                 self.delegate?.webSocketDidDisconnect()
