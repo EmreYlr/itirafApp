@@ -24,7 +24,7 @@ protocol DetailViewModelOutputProtocol: AnyObject {
     func didFailToAddComment(with error: Error)
 }
 
-
+@MainActor
 final class DetailViewModel {
     weak var delegate: DetailViewModelOutputProtocol?
     var confession: ChannelMessageData?
@@ -90,4 +90,4 @@ final class DetailViewModel {
     }
 }
 
-extension DetailViewModel: DetailViewModelProtocol { }
+extension DetailViewModel: @preconcurrency DetailViewModelProtocol { }

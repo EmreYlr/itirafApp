@@ -29,7 +29,7 @@ final class EditConfessionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isHidden = false
     }
 
 }
