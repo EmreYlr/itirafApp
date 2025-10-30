@@ -90,6 +90,7 @@
 		C3E660342EB2859E0059048F /* EditConfessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660332EB2859E0059048F /* EditConfessionViewController.swift */; };
 		C3E660362EB285FF0059048F /* EditConfession.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3E660352EB285FF0059048F /* EditConfession.storyboard */; };
 		C3E660382EB287410059048F /* EditConfessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660372EB2873C0059048F /* EditConfessionViewModel.swift */; };
+		C3E6603A2EB373710059048F /* EditConfessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660392EB373670059048F /* EditConfessionService.swift */; };
 		C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB106D2E744115002DA295 /* AppDelegate.swift */; };
 		C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10742E744115002DA295 /* SceneDelegate.swift */; };
 		C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10752E744115002DA295 /* HomeViewController.swift */; };
@@ -196,6 +197,7 @@
 		C3E660332EB2859E0059048F /* EditConfessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditConfessionViewController.swift; sourceTree = "<group>"; };
 		C3E660352EB285FF0059048F /* EditConfession.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditConfession.storyboard; sourceTree = "<group>"; };
 		C3E660372EB2873C0059048F /* EditConfessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditConfessionViewModel.swift; sourceTree = "<group>"; };
+		C3E660392EB373670059048F /* EditConfessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditConfessionService.swift; sourceTree = "<group>"; };
 		C3EB10552E7440CE002DA295 /* itirafApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itirafApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EB106D2E744115002DA295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3EB106E2E744115002DA295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -743,6 +745,7 @@
 		C3E6602E2EB285600059048F /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				C3E660392EB373670059048F /* EditConfessionService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1174,6 +1177,7 @@
 				C3E660182EB0EBDE0059048F /* WebSocketRequest.swift in Sources */,
 				C37D5DF62E842A5B0068F334 /* MockNetworkManager.swift in Sources */,
 				C3D8E2042E9005F5006C7E8F /* PersonViewModel.swift in Sources */,
+				C3E6603A2EB373710059048F /* EditConfessionService.swift in Sources */,
 				C326DD4D2E8EE2A8001B7837 /* UserManager.swift in Sources */,
 				C37D5ECB2E86DE9A0068F334 /* RegisterViewController.swift in Sources */,
 				C37D5DE52E8414760068F334 /* Endpoint.swift in Sources */,

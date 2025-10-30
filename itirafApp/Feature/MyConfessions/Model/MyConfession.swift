@@ -13,7 +13,7 @@ struct MyConfession: Codable {
 // MARK: - MyConfessionData
 struct MyConfessionData: Codable, Hashable {
     let id: Int
-    let title, message: String
+    var title, message: String
     let likeCount: Int
     let liked: Bool
     let replyCount: Int
@@ -55,4 +55,31 @@ enum Violation: String, Codable {
     case discrimination = "DISCRIMINATION"
     case spam = "SPAM"
     case other = "OTHER"
+    
+    var turkishDescription: String {
+        switch self {
+        case .none:
+            return "İhlal Yok"
+        case .profanity:
+            return "Küfür"
+        case .harassment:
+            return "Taciz"
+        case .personalInfo:
+            return "Kişisel Bilgi Paylaşımı"
+        case .hateSpeech:
+            return "Nefret Söylemi"
+        case .threat:
+            return "Tehdit"
+        case .sexualContent:
+            return "Cinsel İçerik"
+        case .violence:
+            return "Şiddet"
+        case .discrimination:
+            return "Ayrımcılık"
+        case .spam:
+            return "Spam"
+        case .other:
+            return "Diğer"
+        }
+    }
 }
