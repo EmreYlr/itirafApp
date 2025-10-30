@@ -9,9 +9,11 @@ protocol EditConfessionViewModelProtocol {
     var delegate: EditConfessionViewModelDelegate? { get set }
     var myConfession: MyConfessionData { get }
     func editConfession(title: String, message: String) async
+    func deleteConfession() async
 }
 protocol EditConfessionViewModelDelegate: AnyObject {
     func didUpdateConfession()
+    func didDeleteConfession()
     func didError(error: Error)
 }
 
@@ -34,6 +36,15 @@ final class EditConfessionViewModel {
         do {
             try await editConfessionService.editConfession(myConfession: tempMyConfession)
             delegate?.didUpdateConfession()
+        } catch {
+            delegate?.didError(error: error)
+        }
+    }
+    
+    func deleteConfession() async {
+        do {
+            try await editConfessionService.deleteConfession(myConfession: myConfession)
+            delegate?.didDeleteConfession()
         } catch {
             delegate?.didError(error: error)
         }

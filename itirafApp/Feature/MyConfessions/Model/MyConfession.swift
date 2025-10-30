@@ -19,6 +19,7 @@ struct MyConfessionData: Codable, Hashable {
     let replyCount: Int
     let createdAt: String
     let channel: ChannelData
+    var replies: [Reply]?
     let rejectionReason: String?
     let violations: [Violation]?
     let moderationStatus: ModerationStatus
@@ -26,7 +27,8 @@ struct MyConfessionData: Codable, Hashable {
     static func == (lhs: MyConfessionData, rhs: MyConfessionData) -> Bool {
         return lhs.id == rhs.id &&
         lhs.title == rhs.title &&
-        lhs.message == rhs.message
+        lhs.message == rhs.message &&
+        lhs.moderationStatus == rhs.moderationStatus
     }
     
     func hash(into hasher: inout Hasher) {
@@ -41,6 +43,13 @@ enum ModerationStatus: String, Codable {
     case aiRejected = "AI_REJECTED"
     case pending = "PENDING_REVIEW"
     case needsHumanReview = "NEEDS_HUMAN_REVIEW"
+}
+
+enum ConfessionDisplayStatus {
+    case approved
+    case rejected
+    case inReview
+    case unknown
 }
 
 enum Violation: String, Codable {

@@ -53,6 +53,10 @@ final class EditConfessionViewController: UIViewController {
         titleTextField.layer.borderWidth = 1
         titleTextField.layer.cornerRadius = 6
         titleTextField.layer.borderColor = UIColor.systemGray.cgColor
+        
+        let deleteImage = UIImage(systemName: "trash.fill")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: deleteImage , style: .done, target: self, action: #selector(deleteButtonTapped))
     }
     
     private func initData() {
@@ -75,7 +79,13 @@ final class EditConfessionViewController: UIViewController {
         detailTextView.text = myConfession.message
     }
     
-    
+    @objc private func deleteButtonTapped() {
+        showTwoButtonAlert(title: "Uyarı", message: "İtirafınızı silmek istediğinizden emin misiniz?", firstButtonTitle: "Evet", firstButtonHandler: { _ in
+            Task(priority: .utility) {
+                await self.viewModel.deleteConfession()
+            }
+        }, secondButtonTitle: "İptal", secondButtonHandler: nil)
+    }
 
     @IBAction func editButtonTapped(_ sender: UIButton) {
         let titleText = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
@@ -97,6 +107,14 @@ final class EditConfessionViewController: UIViewController {
 }
 
 extension EditConfessionViewController: EditConfessionViewModelDelegate {
+    func didDeleteConfession() {
+        DispatchQueue.main.async { [weak self] in
+            self?.showOneButtonAlert(title: "Başarılı", message: "İtirafınız başarılı bir şekilde silindi.", buttonTitle: "Tamam") { [weak self] _ in
+                self?.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
+    
     func didUpdateConfession() {
         DispatchQueue.main.async { [weak self] in
             self?.showOneButtonAlert(title: "Başarılı", message: "İtirafınız düzenlendi ve denetim için modarasyona gönderildi.", buttonTitle: "Tamam") { [weak self] _ in

@@ -22,8 +22,6 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         bgView.layer.cornerRadius = 10
-        bgView.layer.borderWidth = 1
-        bgView.layer.borderColor = UIColor.lightGray.cgColor
         confessionTextView.backgroundColor = bgView.backgroundColor
     }
     

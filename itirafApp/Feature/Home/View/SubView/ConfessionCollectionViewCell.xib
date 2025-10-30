@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="height" constant="20" id="Njf-zc-s8s"/>
                                     <constraint firstAttribute="width" constant="35" id="xJH-Cf-zQn"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemMintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                                 <connections>
@@ -38,7 +38,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="puv-iS-HbV"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemMintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="bubble.right" catalog="system"/>
                                 <connections>
@@ -66,7 +66,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.80247635375979909" green="0.92904242768124956" blue="0.99332025078585862" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="5jb-dG-Av4" firstAttribute="centerY" secondItem="23Q-0O-7GW" secondAttribute="centerY" id="2Iz-GZ-MNR"/>
                             <constraint firstItem="Oxf-FI-M5q" firstAttribute="leading" secondItem="68O-sE-n82" secondAttribute="leading" constant="8" id="NXG-hT-xAV"/>
@@ -111,6 +111,12 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

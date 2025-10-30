@@ -9,6 +9,7 @@ import Alamofire
 
 protocol EditConfessionServiceProtocol {
     func editConfession(myConfession: MyConfessionData) async throws
+    func deleteConfession(myConfession: MyConfessionData) async throws
 }
 
 final class EditConfessionService: EditConfessionServiceProtocol {
@@ -32,5 +33,17 @@ final class EditConfessionService: EditConfessionServiceProtocol {
             parameters: params,
             encoding: JSONEncoding.default
         )
+    }
+    
+    func deleteConfession(myConfession: MyConfessionData) async throws {
+        let messageId = myConfession.id
+        
+        let _: Empty = try await networkService.request(
+            endpoint: Endpoint.User.deleteUserMessage(messageId: messageId),
+            method: .delete,
+            parameters: nil,
+            encoding: JSONEncoding.default
+        )
+
     }
 }

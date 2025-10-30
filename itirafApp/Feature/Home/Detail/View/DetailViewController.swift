@@ -42,8 +42,6 @@ final class DetailViewController: UIViewController {
     
     private func initUI() {
         contentView.layer.cornerRadius = 10
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     private func initData() {
