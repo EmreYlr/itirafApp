@@ -11,6 +11,7 @@ import Foundation
 
 protocol PersonServiceProtocol {
     func logout() async throws
+    func getUserSocialLinks() async throws -> UserSocialLink
 }
 
 final class PersonService: PersonServiceProtocol {
@@ -18,6 +19,15 @@ final class PersonService: PersonServiceProtocol {
     
     init(networkService: NetworkService = NetworkManager.shared) {
         self.networkService = networkService
+    }
+    
+    func getUserSocialLinks() async throws -> UserSocialLink {
+        return try await networkService.request(
+            endpoint: Endpoint.SocialLink.getSocailLinks,
+            method: .get,
+            parameters: nil,
+            encoding: URLEncoding.default
+        )
     }
     
     func logout() async throws {

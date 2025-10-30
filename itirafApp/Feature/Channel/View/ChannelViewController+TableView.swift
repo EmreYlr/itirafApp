@@ -25,7 +25,9 @@ extension ChannelViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         channelViewModel.selectChannel(at: indexPath.row)
-        self.dismiss(animated: true, completion: nil)
+        searchBar.text = ""
+        channelViewModel.cancelSearch()
+        tabBarController?.selectedIndex = 0
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

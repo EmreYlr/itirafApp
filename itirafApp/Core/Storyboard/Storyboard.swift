@@ -11,7 +11,6 @@ enum Storyboard: String {
     case main = "Main"
     case login = "Login"
     case register = "Register"
-    case channel = "Channel"
     case directMessage = "DirectMessage"
     case editConfession = "EditConfession"
 
@@ -44,6 +43,7 @@ enum Storyboard: String {
 enum ViewControllerID: String {
     // Main.storyboard
     case home = "HomeViewController"
+    case channel = "ChannelViewController"
     case detail = "DetailViewController"
     case postConfession = "PostConfessionViewController"
     case person = "PersonViewController"
@@ -55,9 +55,6 @@ enum ViewControllerID: String {
     
     // Register.storyboard
     case register = "RegisterViewController"
-    
-    //Channel.storyboard
-    case channel = "ChannelViewController"
     
     // DirectMessage.storyboard
     case directMessage = "DirectMessageViewController"

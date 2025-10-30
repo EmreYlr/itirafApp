@@ -20,6 +20,14 @@ final class UserManager {
         return currentUser
     }
     
+    func getUsername() -> String? {
+        return currentUser?.username
+    }
+    
+    func getUserID() -> String? {
+        return currentUser?.id
+    }
+    
     func getUserEmail() -> String? {
         return currentUser?.email
     }
