@@ -14,6 +14,7 @@ final class SocialCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var platformNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
+    var onEditButtonTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,10 +27,11 @@ final class SocialCollectionViewCell: UICollectionViewCell {
     
     func configure(with link: Link) {
         usernameLabel.text = link.username
-        platformNameLabel.text = link.platform.rawValue
+        platformNameLabel.text = link.platform.displayName
         iconImageView.image = UIImage(named: link.platform.iconName)
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
+        onEditButtonTapped?()
     }
 }

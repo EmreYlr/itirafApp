@@ -15,8 +15,9 @@ final class PersonViewController: UIViewController {
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var personView: UIView!
     @IBOutlet weak var logoutButton: UIButton!
-    var personViewModel: PersonViewModelProtocol
+    @IBOutlet weak var addNewSocialButton: UIButton!
     
+    var personViewModel: PersonViewModelProtocol
     required init?(coder: NSCoder) {
         self.personViewModel = PersonViewModel()
         super.init(coder: coder)
@@ -29,19 +30,25 @@ final class PersonViewController: UIViewController {
         loadCollectionView()
     }
     
+    
     func initData() {
         personViewModel.delegate = self
         logoutButton.layer.cornerRadius = 8
+        addNewSocialButton.layer.cornerRadius = 8
         
         usernameLabel.text = UserManager.shared.getUsername()
         personView.layer.cornerRadius = personView.frame.width / 2
         personView.clipsToBounds = true
         personView.layer.borderWidth = 1
         personView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
-        personImageView.image = UIImage(systemName: "person.fill")?.withTintColor(.systemMint, renderingMode: .alwaysOriginal)
+        personImageView.image = UIImage(named: "avatar_icon")
         privacyView.layer.cornerRadius = 8
         privacyView.backgroundColor = UIColor.systemGray.withAlphaComponent(0.1)
         
+        let more = UIImage(systemName: "line.3.horizontal")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: more , style: .done, target: self, action: #selector(moreButtonTapped))
+
         Task {
             await personViewModel.getUserSocialLinks()
         }
@@ -78,6 +85,20 @@ final class PersonViewController: UIViewController {
                 secondButtonHandler: nil
             )
         }
+    }
+    
+    @IBAction func addNewSocialButtonTapped(_ sender: UIButton) {
+        let editSocialVC: EditSocialViewController = Storyboard.editSocial.instantiate(.editSocial)
+        editSocialVC.onSave = { [weak self] in
+            Task {
+                await self?.personViewModel.getUserSocialLinks()
+            }
+        }
+        navigationController?.pushViewController(editSocialVC, animated: true)
+    }
+    
+    @objc private func moreButtonTapped() {
+        
     }
 }
 

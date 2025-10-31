@@ -22,6 +22,13 @@ struct Link: Codable {
 enum SocialPlatform: String, CaseIterable, Codable {
     case twitter = "twitter"
     case instagram = "instagram"
+
+    var displayName: String {
+        switch self {
+        case .twitter: return "X (Twitter)"
+        case .instagram: return "Instagram"
+        }
+    }
     
     var iconName: String {
         switch self {
@@ -29,6 +36,13 @@ enum SocialPlatform: String, CaseIterable, Codable {
             return "icon_x"
         case .instagram:
             return "icon_instagram"
+        }
+    }
+    
+    var baseURL: String {
+        switch self {
+        case .twitter: return "https://twitter.com/"
+        case .instagram: return "https://www.instagram.com/"
         }
     }
 }
