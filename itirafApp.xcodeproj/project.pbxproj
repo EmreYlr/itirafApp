@@ -486,12 +486,13 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		C3A7508C2EB52FF90058163B /* PageView */ = {
+		C3A7508C2EB52FF90058163B /* MessagingContainer */ = {
 			isa = PBXGroup;
 			children = (
 				C3A7508D2EB532DA0058163B /* MessagingContainerViewController.swift */,
+				C3A7A4172EA943F200250B06 /* DirectMessage */,
 			);
-			path = PageView;
+			path = MessagingContainer;
 			sourceTree = "<group>";
 		};
 		C3A7A4102EA7AA7C00250B06 /* Interceptor */ = {
@@ -553,7 +554,6 @@
 		C3A7A41A2EA9441F00250B06 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C3A7508C2EB52FF90058163B /* PageView */,
 				C3A7A4252EA9481E00250B06 /* SubView */,
 				C3A7A41C2EA9443B00250B06 /* DirectMessageViewController.swift */,
 				C3A7A42A2EA94CAA00250B06 /* DirectMessageViewController+CollectionView.swift */,
@@ -1038,7 +1038,7 @@
 				C3EB108C2E744AF9002DA295 /* Home */,
 				C3D764C62E95380200104C3B /* Channel */,
 				C3F39E0C2EA0264700197509 /* PostConfession */,
-				C3A7A4172EA943F200250B06 /* DirectMessage */,
+				C3A7508C2EB52FF90058163B /* MessagingContainer */,
 				C3E660192EB22FA10059048F /* MyConfessions */,
 				C3C08BB22E8AF4FF00EDC6A2 /* Person */,
 				C3C08BB92E8C367400EDC6A2 /* Auth */,
