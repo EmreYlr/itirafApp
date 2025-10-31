@@ -10,7 +10,6 @@ import UIKit
 final class DirectMessageViewController: UIViewController {
     //MARK: -Properties
     @IBOutlet weak var collectionView: UICollectionView!
-    
     var directMessageViewModel: DirectMessageViewModelProtocol
     var dataSource: UICollectionViewDiffableDataSource<Section, DirectMessage>!
     
@@ -32,14 +31,13 @@ final class DirectMessageViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
     }
 
-    
     private func initData() {
         directMessageViewModel.delegate = self
-        navigationItem.title = "Direct Messages"
+        navigationItem.title = "Mesajlar"
+
         Task {
             await directMessageViewModel.fetchDirectMessages()
         }
-        
     }
     
     private func loadCollectionView() {
@@ -77,6 +75,7 @@ final class DirectMessageViewController: UIViewController {
             collectionView.refreshControl?.endRefreshing()
         }
     }
+  
 }
 
 extension DirectMessageViewController: DirectMessageViewModelDelegate {

@@ -106,8 +106,8 @@ final class HomeViewController: UIViewController {
     }
     
     @objc private func messageButtonTapped() {
-        let directMessagesVC: DirectMessageViewController = Storyboard.directMessage.instantiate(.directMessage)
-        navigationController?.pushViewController(directMessagesVC, animated: true)
+        let messagingContainerVC = MessagingContainerViewController()
+        navigationController?.pushViewController(messagingContainerVC, animated: true)
     }
 }
 
