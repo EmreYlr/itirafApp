@@ -40,6 +40,7 @@ extension PersonViewController: UICollectionViewDelegate, UICollectionViewDataSo
     private func openEditSocial(link: Link) {
         let editSocialVC: EditSocialViewController = Storyboard.editSocial.instantiate(.editSocial)
         editSocialVC.viewModel = EditSocialViewModel(socialLink: link)
+        editSocialVC.source = .editButton
         editSocialVC.onSave = { [weak self] in
             Task {
                 await self?.personViewModel.getUserSocialLinks()

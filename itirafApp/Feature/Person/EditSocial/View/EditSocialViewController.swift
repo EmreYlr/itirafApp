@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum EditSource {
+    case editButton
+    case addButton
+}
+
 final class EditSocialViewController: UIViewController {
     //MARK: -Properties
     @IBOutlet weak var platformSelectButton: UIButton!
@@ -16,6 +21,7 @@ final class EditSocialViewController: UIViewController {
     
     private var selectedPlatform: SocialPlatform?
     var onSave: (() -> Void)?
+    var source: EditSource?
     var viewModel: EditSocialViewModelProtocol
     
     required init?(coder: NSCoder) {
@@ -53,7 +59,7 @@ final class EditSocialViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sil" , style: .done, target: self, action: #selector(deleteButtonTapped))
         navigationItem.rightBarButtonItem?.tintColor = .systemRed
         
-        if let link = viewModel.getUserSocialLinks() {
+        if source == .editButton, let link = viewModel.getUserSocialLinks() {
             navigationItem.title = "Hesap Düzenle"
             navigationItem.rightBarButtonItem?.isHidden = false
             platformSelectButton.setTitle(link.platform.displayName, for: .normal)
@@ -61,21 +67,22 @@ final class EditSocialViewController: UIViewController {
             platformUserLinkTextField.text = link.url
             selectedPlatform = link.platform
             addOrEditButton.setTitle("Hesabı Düzenle", for: .normal)
-            addOrEditButton.tag = 1
         } else {
             navigationItem.title = "Hesap Ekle"
             navigationItem.rightBarButtonItem?.isHidden = true
             addOrEditButton.setTitle("Hesap Ekle", for: .normal)
-            addOrEditButton.tag = 0
         }
         
     }
     
     private func setupMenu() {
         let actions = viewModel.getAllSocialPlatforms().map { platform in
-            UIAction(
+            let isAlreadyAdded = viewModel.socialLinks?.contains(where: { $0.platform.rawValue == platform.rawValue }) ?? false
+            
+            return UIAction(
                 title: platform.displayName,
-                image: UIImage(named: platform.iconName)
+                image: UIImage(named: platform.iconName),
+                attributes: isAlreadyAdded ? [.disabled] : []
             ) { [weak self] _ in
                 self?.didSelectPlatform(platform)
             }
@@ -84,6 +91,7 @@ final class EditSocialViewController: UIViewController {
         platformSelectButton.menu = UIMenu(children: actions)
         platformSelectButton.showsMenuAsPrimaryAction = true
     }
+
 
     private func didSelectPlatform(_ platform: SocialPlatform) {
         selectedPlatform = platform
@@ -132,8 +140,7 @@ final class EditSocialViewController: UIViewController {
             return
         }
         
-        //Tag 0: Add , Tag 1: Edit
-        if sender.tag == 0 {
+        if source.self == .addButton {
             Task(priority: .utility) {
                 await viewModel.createSocialLink(username: newUsername, platform: selectedPlatform)
             }

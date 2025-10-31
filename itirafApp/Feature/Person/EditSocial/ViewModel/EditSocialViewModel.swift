@@ -7,6 +7,7 @@
 
 protocol EditSocialViewModelProtocol {
     var delegate: EditSocialViewModelDelegate? { get set }
+    var socialLinks: [Link]? { get }
     var socialLink: Link? { get }
     func getAllSocialPlatforms() -> [SocialPlatform]
     func getUserSocialLinks() -> Link?
@@ -24,6 +25,7 @@ protocol EditSocialViewModelDelegate: AnyObject {
 
 final class EditSocialViewModel {
     weak var delegate: EditSocialViewModelDelegate?
+    var socialLinks: [Link]? = []
     var socialLink: Link?
     private let editSocialService: EditSocialServiceProtocol
     
@@ -33,6 +35,10 @@ final class EditSocialViewModel {
     
     init(socialLink: Link, editSocialService: EditSocialServiceProtocol = EditSocialService()) {
         self.socialLink = socialLink
+        self.editSocialService = editSocialService
+    }
+    init(socialLinks: [Link], editSocialService: EditSocialServiceProtocol = EditSocialService()) {
+        self.socialLinks = socialLinks
         self.editSocialService = editSocialService
     }
     

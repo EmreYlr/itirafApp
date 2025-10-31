@@ -89,6 +89,8 @@ final class PersonViewController: UIViewController {
     
     @IBAction func addNewSocialButtonTapped(_ sender: UIButton) {
         let editSocialVC: EditSocialViewController = Storyboard.editSocial.instantiate(.editSocial)
+        editSocialVC.source = .addButton
+        editSocialVC.viewModel = EditSocialViewModel(socialLinks: personViewModel.socialLinks?.links ?? [])
         editSocialVC.onSave = { [weak self] in
             Task {
                 await self?.personViewModel.getUserSocialLinks()
