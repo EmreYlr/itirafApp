@@ -47,6 +47,7 @@ final class EditSocialViewController: UIViewController {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
     }
+    
     private func initUI() {
         addOrEditButton.layer.cornerRadius = 8
         platformSelectButton.layer.cornerRadius = 8

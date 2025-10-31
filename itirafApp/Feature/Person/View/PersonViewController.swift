@@ -14,7 +14,6 @@ final class PersonViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var personView: UIView!
-    @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var addNewSocialButton: UIButton!
     
     var personViewModel: PersonViewModelProtocol
@@ -29,11 +28,9 @@ final class PersonViewController: UIViewController {
         initData()
         loadCollectionView()
     }
-    
-    
+
     func initData() {
         personViewModel.delegate = self
-        logoutButton.layer.cornerRadius = 8
         addNewSocialButton.layer.cornerRadius = 8
         
         usernameLabel.text = UserManager.shared.getUsername()
@@ -60,32 +57,6 @@ final class PersonViewController: UIViewController {
         collectionView.register(UINib(nibName: "SocialCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "socialCell")
     }
 
-    @IBAction func logoutButtonPressed(_ sender: UIButton) {
-        let performLogoutAction = {
-            sender.isEnabled = false
-            Task {
-                defer {
-                    sender.isEnabled = true
-                }
-                await self.personViewModel.logout()
-            }
-        }
-        
-        if personViewModel.checkUserAnonymous() {
-            performLogoutAction()
-        } else {
-            showTwoButtonAlert(
-                title: "Çıkış Yap",
-                message: "Çıkış yapmak istediğinizden emin misiniz?",
-                firstButtonTitle: "Çıkış Yap",
-                firstButtonHandler: { _ in
-                    performLogoutAction()
-                },
-                secondButtonTitle: "İptal",
-                secondButtonHandler: nil
-            )
-        }
-    }
     
     @IBAction func addNewSocialButtonTapped(_ sender: UIButton) {
         let editSocialVC: EditSocialViewController = Storyboard.editSocial.instantiate(.editSocial)
@@ -100,7 +71,8 @@ final class PersonViewController: UIViewController {
     }
     
     @objc private func moreButtonTapped() {
-        
+        let settingsVC = Storyboard.settings.instantiate(.settings)
+        navigationController?.pushViewController(settingsVC, animated: true)
     }
 }
 
@@ -110,21 +82,6 @@ extension PersonViewController: PersonViewModelOutputProtocol {
     }
     
     func didFailSocialLinks(with error: any Error) {
-        print(error)
-    }
-    
-    func didLogoutSuccessfully() {
-        print("Logout Başarılı")
-        let loginNavigationController = Storyboard.login.instantiateNav(.loginNav)
-        
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let sceneDelegate = windowScene.delegate as? SceneDelegate {
-            sceneDelegate.window?.rootViewController = loginNavigationController
-            sceneDelegate.window?.makeKeyAndVisible()
-        }
-    }
-    
-    func didFailToLogout(with error: any Error) {
         print(error)
     }
 }

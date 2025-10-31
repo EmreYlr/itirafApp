@@ -9,15 +9,11 @@ protocol PersonViewModelProtocol {
     var delegate: PersonViewModelOutputProtocol? { get set }
     var socialLinks: UserSocialLink? { get }
     func getUserSocialLinks() async
-    func logout() async
-    func checkUserAnonymous() -> Bool
 }
 
 protocol PersonViewModelOutputProtocol: AnyObject {
-    func didLogoutSuccessfully()
     func didUpdateSocialLinks()
     func didFailSocialLinks(with error: Error)
-    func didFailToLogout(with error: Error)
 }
 
 @MainActor
@@ -37,19 +33,6 @@ final class PersonViewModel {
         } catch {
             delegate?.didFailSocialLinks(with: error)
         }
-    }
-    
-    func logout() async {
-        do {
-            try await personService.logout()
-            delegate?.didLogoutSuccessfully()
-        } catch {
-            delegate?.didFailToLogout(with: error)
-        }
-    }
-    
-    func checkUserAnonymous() -> Bool {
-        return UserManager.shared.getUserIsAnonymous()
     }
 }
 

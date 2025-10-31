@@ -38,6 +38,12 @@
 		C3A750732EB4C78A0058163B /* EditSocialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750722EB4C7860058163B /* EditSocialViewModel.swift */; };
 		C3A750752EB4C9510058163B /* EditSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750742EB4C94E0058163B /* EditSocialService.swift */; };
 		C3A750772EB4C9DD0058163B /* EditSocial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A750762EB4C9DD0058163B /* EditSocial.storyboard */; };
+		C3A750812EB509CB0058163B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750802EB509CB0058163B /* SettingsViewController.swift */; };
+		C3A750832EB509E90058163B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750822EB509E70058163B /* SettingsViewModel.swift */; };
+		C3A750852EB50A140058163B /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750842EB50A110058163B /* SettingsService.swift */; };
+		C3A750872EB50B6E0058163B /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A750862EB50B6E0058163B /* Settings.storyboard */; };
+		C3A750892EB511E00058163B /* SettingsViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750882EB511D70058163B /* SettingsViewController+CollectionView.swift */; };
+		C3A7508B2EB5130B0058163B /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7508A2EB512FB0058163B /* SettingsModel.swift */; };
 		C3A7A40F2EA7A9B600250B06 /* AppRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A40E2EA7A9B600250B06 /* AppRequestInterceptor.swift */; };
 		C3A7A4142EA7AADD00250B06 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4132EA7AADD00250B06 /* AppError.swift */; };
 		C3A7A4162EA91D8B00250B06 /* MockUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4152EA91D8B00250B06 /* MockUserService.swift */; };
@@ -157,6 +163,12 @@
 		C3A750722EB4C7860058163B /* EditSocialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialViewModel.swift; sourceTree = "<group>"; };
 		C3A750742EB4C94E0058163B /* EditSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialService.swift; sourceTree = "<group>"; };
 		C3A750762EB4C9DD0058163B /* EditSocial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditSocial.storyboard; sourceTree = "<group>"; };
+		C3A750802EB509CB0058163B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C3A750822EB509E70058163B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		C3A750842EB50A110058163B /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		C3A750862EB50B6E0058163B /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		C3A750882EB511D70058163B /* SettingsViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C3A7508A2EB512FB0058163B /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		C3A7A40E2EA7A9B600250B06 /* AppRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRequestInterceptor.swift; sourceTree = "<group>"; };
 		C3A7A4132EA7AADD00250B06 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		C3A7A4152EA91D8B00250B06 /* MockUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserService.swift; sourceTree = "<group>"; };
@@ -419,6 +431,59 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		C3A750782EB5070A0058163B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C3A7507F2EB507470058163B /* Storyboard */,
+				C3A7507E2EB5073B0058163B /* Model */,
+				C3A7507D2EB507360058163B /* View */,
+				C3A7507A2EB507220058163B /* ViewModel */,
+				C3A750792EB5071D0058163B /* Service */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C3A750792EB5071D0058163B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3A750842EB50A110058163B /* SettingsService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3A7507A2EB507220058163B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3A750822EB509E70058163B /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3A7507D2EB507360058163B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3A750882EB511D70058163B /* SettingsViewController+CollectionView.swift */,
+				C3A750802EB509CB0058163B /* SettingsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3A7507E2EB5073B0058163B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3A7508A2EB512FB0058163B /* SettingsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C3A7507F2EB507470058163B /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C3A750862EB50B6E0058163B /* Settings.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		C3A7A4102EA7AA7C00250B06 /* Interceptor */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,6 +647,7 @@
 				C3C08BB52E8AF51B00EDC6A2 /* ViewModel */,
 				C3C08BB62E8AF51E00EDC6A2 /* Service */,
 				C3A7506A2EB4C6BC0058163B /* EditSocial */,
+				C3A750782EB5070A0058163B /* Settings */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -1275,6 +1341,7 @@
 				C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */,
 				C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */,
 				C3EB107D2E744115002DA295 /* Main.storyboard in Resources */,
+				C3A750872EB50B6E0058163B /* Settings.storyboard in Resources */,
 				C3E660362EB285FF0059048F /* EditConfession.storyboard in Resources */,
 				C3E6602B2EB257540059048F /* MyConfessionsCollectionViewCell.xib in Resources */,
 				C3A750772EB4C9DD0058163B /* EditSocial.storyboard in Resources */,
@@ -1312,6 +1379,7 @@
 				C3D764BE2E93E96200104C3B /* DetailViewController+CollectionView.swift in Sources */,
 				C3E660182EB0EBDE0059048F /* WebSocketRequest.swift in Sources */,
 				C3E660482EB3BCCE0059048F /* MyConfessionDetail+CollectionView.swift in Sources */,
+				C3A750812EB509CB0058163B /* SettingsViewController.swift in Sources */,
 				C3E6604F2EB407480059048F /* SocialCollectionViewCell.swift in Sources */,
 				C37D5DF62E842A5B0068F334 /* MockNetworkManager.swift in Sources */,
 				C3E6604A2EB3CAE60059048F /* MyConfessionDetailService.swift in Sources */,
@@ -1328,6 +1396,7 @@
 				C3C08BAF2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.swift in Sources */,
 				C3D764D92E953BDE00104C3B /* ChannelViewController+TableView.swift in Sources */,
 				C351488D2EAA38E400359585 /* ChatViewController+MessageKit.swift in Sources */,
+				C3A750852EB50A140058163B /* SettingsService.swift in Sources */,
 				C3E660342EB2859E0059048F /* EditConfessionViewController.swift in Sources */,
 				C3C08BC02E8C37D400EDC6A2 /* DetailViewController.swift in Sources */,
 				C3A7A4162EA91D8B00250B06 /* MockUserService.swift in Sources */,
@@ -1343,6 +1412,7 @@
 				C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */,
 				C3F39F802EA02B6000197509 /* PostConfession.swift in Sources */,
 				C326DD4F2E8FFA02001B7837 /* UserService.swift in Sources */,
+				C3A7508B2EB5130B0058163B /* SettingsModel.swift in Sources */,
 				C37D5E0C2E856C3F0068F334 /* LoginAlertPresenter.swift in Sources */,
 				C3A7A4222EA9449500250B06 /* DirectMessageViewModel.swift in Sources */,
 				C3E660212EB24E670059048F /* MyConfessionsViewModel.swift in Sources */,
@@ -1369,6 +1439,7 @@
 				C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */,
 				C326DD4A2E8D824E001B7837 /* UserDefaultsHelper.swift in Sources */,
 				C3E660422EB399060059048F /* MyConfessionDetailViewController.swift in Sources */,
+				C3A750892EB511E00058163B /* SettingsViewController+CollectionView.swift in Sources */,
 				C37D5DF02E841DD50068F334 /* KeychainHelper.swift in Sources */,
 				C3A7A4242EA944F100250B06 /* DirectMessageService.swift in Sources */,
 				C3A750752EB4C9510058163B /* EditSocialService.swift in Sources */,
@@ -1376,6 +1447,7 @@
 				C37D5DF42E842A2F0068F334 /* NetworkService.swift in Sources */,
 				C3E660232EB24E700059048F /* MyConfessionsService.swift in Sources */,
 				C3A7A4352EAA286400250B06 /* ChatViewController.swift in Sources */,
+				C3A750832EB509E90058163B /* SettingsViewModel.swift in Sources */,
 				C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */,
 				C3D764BA2E93DDDE00104C3B /* DetailViewModel.swift in Sources */,
 				C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */,
@@ -1571,7 +1643,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = itirafApp/App/info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1630,7 +1702,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = itirafApp/App/info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

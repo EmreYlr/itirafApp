@@ -10,7 +10,6 @@ import Alamofire
 import Foundation
 
 protocol PersonServiceProtocol {
-    func logout() async throws
     func getUserSocialLinks() async throws -> UserSocialLink
 }
 
@@ -28,16 +27,5 @@ final class PersonService: PersonServiceProtocol {
             parameters: nil,
             encoding: URLEncoding.default
         )
-    }
-    
-    func logout() async throws {
-        let _: Empty = try await networkService.request(
-            endpoint: Endpoint.Auth.logout,
-            method: .delete,
-            parameters: nil,
-            encoding: URLEncoding.default
-        )
-        AuthManager.shared.clearTokens()
-        UserManager.shared.clear()
     }
 }
