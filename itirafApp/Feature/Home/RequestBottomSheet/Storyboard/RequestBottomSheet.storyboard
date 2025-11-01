@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Request Bottom Sheet View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RequestBottomSheetViewController" id="Y6W-OH-hqX" customClass="RequestBottomSheetViewController" customModule="itirafApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ÖZEL SOHBET İSTEĞİ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThF-SE-5aq">
+                                <rect key="frame" x="75.666666666666686" y="143" width="242" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sy-9u-MwS">
+                                <rect key="frame" x="18" y="182" width="357" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="5cA-b2-F3B"/>
+                                </constraints>
+                                <string key="text">İtiraf sahibine anonim olarak bir sohbet istegi gönder. İsteğin kabul edilirse kimliğinizi veya sosyal medya hesaplarinizi daha sonra paylasabilirsin.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesajınız" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D22-FY-lsk">
+                                <rect key="frame" x="18" y="312" width="357" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ots-UT-411">
+                                <rect key="frame" x="18" y="343" width="357" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="gb8-6S-nNC"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İtirafa cevap olarak mesaj ekleyin. Lütfen hakarat içeren ifadeler kullanmayınız." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQT-6b-axF">
+                                <rect key="frame" x="30" y="353" width="333" height="38.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uub-bS-fC5">
+                                <rect key="frame" x="18" y="513" width="357" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="aGM-td-mZG"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujW-7X-558">
+                                <rect key="frame" x="18" y="534" width="357" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="kIC-ZN-y0u"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemMintColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="İstek Gönder">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="sendButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jUj-bw-MWT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="ThF-SE-5aq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="3aR-cL-gBx"/>
+                            <constraint firstItem="7Sy-9u-MwS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="3vK-3w-l3R"/>
+                            <constraint firstItem="XQT-6b-axF" firstAttribute="top" secondItem="D22-FY-lsk" secondAttribute="bottom" constant="20" id="F5a-wP-Cya"/>
+                            <constraint firstItem="7Sy-9u-MwS" firstAttribute="top" secondItem="ThF-SE-5aq" secondAttribute="bottom" constant="10" id="IIc-x4-g4y"/>
+                            <constraint firstItem="ujW-7X-558" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="JRa-D2-Gb2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="D22-FY-lsk" secondAttribute="trailing" constant="18" id="Oea-kF-ueU"/>
+                            <constraint firstItem="Ots-UT-411" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="Pcs-zB-Zke"/>
+                            <constraint firstItem="XQT-6b-axF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="RIb-dK-IdW"/>
+                            <constraint firstItem="uub-bS-fC5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="SNw-3f-NRg"/>
+                            <constraint firstItem="uub-bS-fC5" firstAttribute="top" secondItem="Ots-UT-411" secondAttribute="bottom" constant="20" id="UgJ-RU-lhx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ots-UT-411" secondAttribute="trailing" constant="18" id="Uk5-9i-8bS"/>
+                            <constraint firstItem="D22-FY-lsk" firstAttribute="top" secondItem="7Sy-9u-MwS" secondAttribute="bottom" constant="30" id="VjF-to-alw"/>
+                            <constraint firstItem="ThF-SE-5aq" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="cdY-nu-AwD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7Sy-9u-MwS" secondAttribute="trailing" constant="18" id="clU-OK-dJ1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="uub-bS-fC5" secondAttribute="trailing" constant="18" id="fIm-qQ-WOl"/>
+                            <constraint firstItem="ujW-7X-558" firstAttribute="top" secondItem="uub-bS-fC5" secondAttribute="bottom" constant="20" id="hvh-il-I0N"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XQT-6b-axF" secondAttribute="trailing" constant="30" id="l8B-jX-4uk"/>
+                            <constraint firstItem="D22-FY-lsk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="lpx-GB-nzf"/>
+                            <constraint firstItem="Ots-UT-411" firstAttribute="top" secondItem="D22-FY-lsk" secondAttribute="bottom" constant="10" id="ojV-Og-Neg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ujW-7X-558" secondAttribute="trailing" constant="18" id="p2F-nh-xvn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageTextView" destination="Ots-UT-411" id="3Gg-Fv-uSd"/>
+                        <outlet property="placeholderLabel" destination="XQT-6b-axF" id="qgN-g8-pPO"/>
+                        <outlet property="sendButton" destination="ujW-7X-558" id="yKs-ba-6lO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

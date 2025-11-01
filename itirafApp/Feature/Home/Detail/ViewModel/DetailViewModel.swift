@@ -13,6 +13,7 @@ protocol DetailViewModelProtocol {
     func likeMessage() async
     func unlikeMessage() async
     func addComment(message: String) async
+    func getChannelMessageId() -> Int
 }
 
 protocol DetailViewModelOutputProtocol: AnyObject {
@@ -87,6 +88,10 @@ final class DetailViewModel {
         confession.likeCount += confession.liked ? 1 : -1
         self.confession = confession
         delegate?.didUpdateLikeStatus(isLiked: confession.liked, likeCount: confession.likeCount)
+    }
+    
+    func getChannelMessageId() -> Int {
+        return messageId
     }
 }
 

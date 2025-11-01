@@ -17,6 +17,7 @@ enum Storyboard: String {
     case editConfession = "EditConfession"
     case editSocial = "EditSocial"
     case settings = "Settings"
+    case requestBottomSheet = "RequestBottomSheet"
 
     var instance: UIStoryboard {
         UIStoryboard(name: self.rawValue, bundle: nil)
@@ -77,6 +78,9 @@ enum ViewControllerID: String {
     
     // Settings.storyboard
     case settings = "SettingsViewController"
+    
+    // RequestBottomSheet.storyboard
+    case requestBottomSheet = "RequestBottomSheetViewController"
 }
 
 enum NavigationControllerID: String {

@@ -44,7 +44,6 @@ extension ChatViewController {
         
         self.view.bringSubviewToFront(requestView)
         
-        //TODO: - Mesaj kısmı doldurulacak
         myMessageLabel.text = requestMessage.confessionMessage
         titleLabel.text = requestMessage.confessionTitle
         profileIconLabel.text = String(requestMessage.requesterUsername.prefix(2)).uppercased()

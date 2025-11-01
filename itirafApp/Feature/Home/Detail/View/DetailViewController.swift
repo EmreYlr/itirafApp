@@ -46,12 +46,7 @@ final class DetailViewController: UIViewController {
     
     private func initData() {
         detailViewModel.delegate = self
-        //        activityIndicator.startAnimating()
         Task {
-            //            defer {
-            //                activityIndicator.stopAnimating()
-            //            }
-            
             await detailViewModel.fetchMessageData()
         }
     }
@@ -81,9 +76,28 @@ final class DetailViewController: UIViewController {
         self.updateLikeUI(isLike: confession.liked, likeCount: confession.likeCount)
     }
     
-    @IBAction func shareButtonClicked(_ sender: UIButton) { }
+    @IBAction func shareButtonClicked(_ sender: UIButton) {
+        //TODO: -Farklı bir butona alınacak
+        let requestBottomSheetVC: RequestBottomSheetViewController = Storyboard.requestBottomSheet.instantiate(.requestBottomSheet)
+        
+        let viewModel = RequestBottomSheetViewModel(channelMessageId: detailViewModel.getChannelMessageId())
+        requestBottomSheetVC.viewModel = viewModel
+
+        if let sheet = requestBottomSheetVC.sheetPresentationController {
+            let customDetent = UISheetPresentationController.Detent.custom(identifier: .init("customDetent")) { context in
+                return context.maximumDetentValue * 0.65
+            }
+            sheet.detents = [customDetent, .large()]
+            
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 24
+        }
+        
+        self.present(requestBottomSheetVC, animated: true)
+    }
+    
     @IBAction func commentButtonClicked(_ sender: UIButton) { }
-    //TODO: -BottomSheet yap - create dm request atılacak
+    
     @IBAction func likeButtonClicked(_ sender: UIButton) {
         guard let isLiked = detailViewModel.confession?.liked else { return }
         sender.isEnabled = false
@@ -98,7 +112,6 @@ final class DetailViewController: UIViewController {
                 await detailViewModel.likeMessage()
             }
         }
-        
     }
     
     @IBAction func sendButtonClicked(_ sender: UIButton) {
@@ -120,7 +133,6 @@ final class DetailViewController: UIViewController {
             replyTextField.text = ""
             replyTextField.resignFirstResponder()
         }
-
     }
 }
 
