@@ -83,7 +83,7 @@ final class DetailViewController: UIViewController {
     
     @IBAction func shareButtonClicked(_ sender: UIButton) { }
     @IBAction func commentButtonClicked(_ sender: UIButton) { }
-    
+    //TODO: -BottomSheet yap - create dm request atılacak
     @IBAction func likeButtonClicked(_ sender: UIButton) {
         guard let isLiked = detailViewModel.confession?.liked else { return }
         sender.isEnabled = false

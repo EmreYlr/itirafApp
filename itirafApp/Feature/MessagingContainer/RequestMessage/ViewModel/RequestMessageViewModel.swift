@@ -23,7 +23,6 @@ protocol RequestMessageViewModelDelegate: AnyObject {
 final class RequestMessageViewModel {
     weak var delegate: RequestMessageViewModelDelegate?
     var requestMessageModel: [RequestMessageModel] = []
-    var requestMessageResponse: RequestMessageResponse?
     let requestMessageService: RequestMessageServiceProtocol
     
     init(requestMessageService: RequestMessageServiceProtocol = RequestMessageService()) {
@@ -42,8 +41,7 @@ final class RequestMessageViewModel {
     
     func approveRequest(requestID: String) async {
         do {
-            let requestMessageResponse = try await requestMessageService.approveRequest(requestID: requestID)
-            print(requestMessageResponse)
+            try await requestMessageService.approveRequest(requestID: requestID)
             delegate?.didApproveRequest(requestID: requestID)
         } catch {
             delegate?.didError(with: error)
@@ -52,8 +50,7 @@ final class RequestMessageViewModel {
     
     func rejectRequest(requestID: String) async {
         do {
-            let requestMessageResponse = try await requestMessageService.rejectRequest(requestID: requestID)
-            print(requestMessageResponse)
+            try await requestMessageService.rejectRequest(requestID: requestID)
             delegate?.didRejectRequest(requestID: requestID)
         } catch {
             delegate?.didError(with: error)

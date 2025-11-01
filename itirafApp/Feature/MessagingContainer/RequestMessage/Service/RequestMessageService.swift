@@ -9,8 +9,8 @@ import Alamofire
 
 protocol RequestMessageServiceProtocol {
     func fetchPendingMessages() async throws -> [RequestMessageModel]
-    func approveRequest(requestID: String) async throws -> RequestMessageResponse
-    func rejectRequest(requestID: String) async throws -> RequestMessageResponse
+    func approveRequest(requestID: String) async throws
+    func rejectRequest(requestID: String) async throws
 }
 
 final class RequestMessageService: RequestMessageServiceProtocol {
@@ -29,8 +29,8 @@ final class RequestMessageService: RequestMessageServiceProtocol {
         )
     }
     
-    func approveRequest(requestID: String) async throws -> RequestMessageResponse {
-        return try await networkService.request(
+    func approveRequest(requestID: String) async throws {
+        let _: Empty = try await networkService.request(
             endpoint: Endpoint.Room.approveRequest(requestId: requestID),
             method: .post,
             parameters: nil,
@@ -38,8 +38,8 @@ final class RequestMessageService: RequestMessageServiceProtocol {
         )
     }
     
-    func rejectRequest(requestID: String) async throws -> RequestMessageResponse {
-        return try await networkService.request(
+    func rejectRequest(requestID: String) async throws {
+        let _: Empty =  try await networkService.request(
             endpoint: Endpoint.Room.rejectRequest(requestId: requestID),
             method: .post,
             parameters: nil,

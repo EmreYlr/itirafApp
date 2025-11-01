@@ -141,8 +141,8 @@ final class ChatViewModel: NSObject {
         }
         
         do {
-            let response = try await requestMessageService.approveRequest(requestID: request.requestID)
-            let confirmedRoomID = response.roomId ?? request.roomID
+            try await requestMessageService.approveRequest(requestID: request.requestID)
+            let confirmedRoomID = request.roomID
             self.directMessage = DirectMessage(
                 roomID: confirmedRoomID,
                 username: request.requesterUsername,
@@ -150,7 +150,7 @@ final class ChatViewModel: NSObject {
                 lastMessageDate: request.createdAt,
                 isLastMessageMine: false,
                 status: "active"
-            )            
+            )
             delegate?.didApproveRequest()
             
         } catch {
@@ -163,8 +163,7 @@ final class ChatViewModel: NSObject {
             return
         }
         do {
-            let requestMessageResponse = try await requestMessageService.rejectRequest(requestID: requestID)
-            print(requestMessageResponse)
+            try await requestMessageService.rejectRequest(requestID: requestID)
             delegate?.didRejectRequest()
         } catch {
             delegate?.diderror(error)

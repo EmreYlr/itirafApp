@@ -9,7 +9,7 @@ import Foundation
 struct RequestMessageModel: Codable, Hashable {
     let requestID, roomID, requesterUsername, requesterUserID: String
     let requesterSocialLinks: [Link]?
-    let initialMessage, confessionTitle: String
+    let initialMessage, confessionTitle,confessionMessage: String
     let channelMessageID: Int
     let createdAt: String
 
@@ -18,7 +18,7 @@ struct RequestMessageModel: Codable, Hashable {
         case roomID = "roomId"
         case requesterUsername
         case requesterUserID = "requesterUserId"
-        case requesterSocialLinks, initialMessage, confessionTitle
+        case requesterSocialLinks, initialMessage, confessionTitle, confessionMessage
         case channelMessageID = "channelMessageId"
         case createdAt
     }
@@ -30,9 +30,4 @@ struct RequestMessageModel: Codable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(roomID)
     }
-}
-
-struct RequestMessageResponse: Codable {
-    let roomId: String?
-    let message: String
 }
