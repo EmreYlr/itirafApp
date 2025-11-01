@@ -82,6 +82,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="arrowImageView" destination="mNl-1M-HMu" id="hfS-lB-viI"/>
                 <outlet property="bgView" destination="cHx-EY-wUb" id="EDN-in-tz4"/>
                 <outlet property="platformIconImageView" destination="KJw-LT-iS3" id="zQI-Au-QPN"/>
                 <outlet property="platformIconView" destination="jAB-m8-bLb" id="8V4-OB-Sxq"/>

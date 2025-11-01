@@ -14,6 +14,7 @@ final class SocialLinkTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var platformIconImageView: UIImageView!
     @IBOutlet weak var platformIconView: UIView!
+    @IBOutlet weak var arrowImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +29,14 @@ final class SocialLinkTableViewCell: UITableViewCell {
         usernameLabel.text = link.username
         platformNameLabel.text = link.platform.displayName
         platformIconImageView.image = UIImage(named: link.platform.iconName)
+        arrowImageView.isHidden = false
+    }
+    
+    func configureForAnonymous() {
+        usernameLabel.text = "Anonimlik tercih edildi."
+        platformNameLabel.text = "Sosyal medya bilgileri gizli tuttuluyor."
+        platformIconImageView.image = UIImage(systemName: "person.fill.xmark")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
+        arrowImageView.isHidden = true
     }
 
 }

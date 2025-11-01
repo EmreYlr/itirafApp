@@ -9,7 +9,8 @@ import UIKit
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.requestMessage?.requesterSocialLinks?.count ?? 0
+        let count = viewModel.requestMessage?.requesterSocialLinks?.count ?? 0
+        return count == 0 ? 1 : count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -20,18 +21,33 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "socialCell", for: indexPath) as? SocialLinkTableViewCell else {
             return UITableViewCell()
         }
-        if let link = viewModel.requestMessage?.requesterSocialLinks?[indexPath.section] {
+        
+        let links = viewModel.requestMessage?.requesterSocialLinks
+        
+        if links?.isEmpty ?? true {
+            cell.configureForAnonymous()
+            cell.selectionStyle = .none
+        }
+        else if let link = links?[indexPath.section] {
             cell.configure(with: link)
+            cell.selectionStyle = .default
         }
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let links = viewModel.requestMessage?.requesterSocialLinks
+        
+        if links?.isEmpty ?? true {
+            return
+        }
+        
         if let selectedLink = viewModel.requestMessage?.requesterSocialLinks?[indexPath.section] {
             if let url = URL(string: selectedLink.url) {
-                 UIApplication.shared.open(url)
-             }
+                UIApplication.shared.open(url)
+            }
         }
     }
     
