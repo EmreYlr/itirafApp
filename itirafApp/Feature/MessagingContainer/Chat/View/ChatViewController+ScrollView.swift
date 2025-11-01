@@ -14,7 +14,7 @@ extension ChatViewController {
             guard !viewModel.isLoading, viewModel.hasMoreData else {
                 return
             }
-            if scrollView.contentOffset.y < 100.0 {
+            if scrollView.contentOffset.y < 100.0, !checkIsRequestMessage() {
                 Task {
                     await viewModel.fetchRoomMessages()
                 }

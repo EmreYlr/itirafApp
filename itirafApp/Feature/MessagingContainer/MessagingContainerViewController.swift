@@ -38,9 +38,8 @@ final class MessagingContainerViewController: UIViewController {
         return Storyboard.directMessage.instantiate(.directMessage)
     }()
     
-    private lazy var requestsVC: HomeViewController = {
-//        TODO: - İstekler sayfası eklenecek, şimdilik ana sayfa kullanıldı
-        return Storyboard.main.instantiate(.home)
+    private lazy var requestsVC: RequestMessageViewController = {
+        return Storyboard.requestMessage.instantiate(.requestMessage)
     }()
     
     private lazy var pages: [UIViewController] = [directMessagesVC, requestsVC]

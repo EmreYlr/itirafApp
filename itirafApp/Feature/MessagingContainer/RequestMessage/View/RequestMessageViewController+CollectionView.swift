@@ -1,20 +1,19 @@
 //
-//  DirectMessageViewController+CollectionView.swift
+//  RequestMessageViewController+CollectionView.swift
 //  itirafApp
 //
-//  Created by Emre on 22.10.2025.
+//  Created by Emre on 1.11.2025.
 //
-
 import UIKit
 
-extension DirectMessageViewController:  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension RequestMessageViewController:  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let message = dataSource.itemIdentifier(for: indexPath) else {
             return
         }
         let chatVC: ChatViewController = Storyboard.chat.instantiate(.chat)
-        chatVC.viewModel.directMessage = message
-        chatVC.mode = .directMessage
+        chatVC.mode = .messageRequest
+        chatVC.viewModel.requestMessage = message
         navigationController?.pushViewController(chatVC, animated: true)
     }
     

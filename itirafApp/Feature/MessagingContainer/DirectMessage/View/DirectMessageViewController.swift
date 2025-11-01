@@ -45,7 +45,7 @@ final class DirectMessageViewController: UIViewController {
         collectionView.register(UINib(nibName: "DirectMessageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "dmCell")
         
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshConfession), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshDM), for: .valueChanged)
         collectionView.refreshControl = refreshControl
     }
     
@@ -69,7 +69,7 @@ final class DirectMessageViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    @objc private func refreshConfession() {
+    @objc private func refreshDM() {
         Task {
             await directMessageViewModel.fetchDirectMessages()
             collectionView.refreshControl?.endRefreshing()

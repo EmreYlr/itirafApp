@@ -9,10 +9,29 @@ import UIKit
 import MessageKit
 import InputBarAccessoryView
 
+enum ChatScreenMode {
+    case directMessage
+    case messageRequest
+}
+
 final class ChatViewController: MessagesViewController {
     //MARK: - Properties
+    @IBOutlet weak var requestView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var myConfessionView: UIView!
+    @IBOutlet weak var profileIconView: UIView!
+    @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var buttonView: UIView!
+    @IBOutlet weak var myMessageLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var profileIconLabel: UILabel!
+    @IBOutlet weak var initialLabel: UILabel!
+    @IBOutlet weak var rejectButton: UIButton!
+    @IBOutlet weak var approveButton: UIButton!
+    
     var viewModel: ChatViewModelProtocol
     private var isFirstLoad = true
+    var mode: ChatScreenMode = .directMessage
     
     required init?(coder: NSCoder) {
         self.viewModel = ChatViewModel()
@@ -21,9 +40,7 @@ final class ChatViewController: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMessageKit()
-        initData()
-        
+        initLoadView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +53,16 @@ final class ChatViewController: MessagesViewController {
         
         if isMovingFromParent {
             viewModel.stopListening()
+        }
+    }
+    
+    private func initLoadView() {
+        if checkIsRequestMessage() {
+            configureRequestMessageView()
+            configureTableView()
+        } else {
+            setupMessageKit()
+            initData()
         }
     }
      
@@ -57,6 +84,7 @@ final class ChatViewController: MessagesViewController {
     }
     
     private func initData() {
+        requestView.isHidden = true
         viewModel.delegate = self
         
         if let directMessage = viewModel.directMessage {
@@ -71,6 +99,12 @@ final class ChatViewController: MessagesViewController {
         
     }
     
+    @IBAction func rejectButtonTapped(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func approveButtonTapped(_ sender: UIButton) {
+    }
 }
 
 // MARK: - ChatViewModelDelegate

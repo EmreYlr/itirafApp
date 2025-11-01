@@ -11,7 +11,9 @@ enum Storyboard: String {
     case main = "Main"
     case login = "Login"
     case register = "Register"
+    case chat = "Chat"
     case directMessage = "DirectMessage"
+    case requestMessage = "RequestMessage"
     case editConfession = "EditConfession"
     case editSocial = "EditSocial"
     case settings = "Settings"
@@ -60,7 +62,12 @@ enum ViewControllerID: String {
     
     // DirectMessage.storyboard
     case directMessage = "DirectMessageViewController"
+    
+    // Chat.storyboard
     case chat = "ChatViewController"
+    
+    // RequestMessage.storyboard
+    case requestMessage = "RequestMessageViewController"
     
     // EditConfession.storyboard
     case editConfession = "EditConfessionViewController"

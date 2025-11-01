@@ -22,13 +22,12 @@ final class DirectMessageCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         profileBGView.layer.cornerRadius = profileBGView.frame.width / 2
         profileBGView.backgroundColor = .systemGray
-        
         profileImageView.tintColor = .white
-        
+        profileBGView.clipsToBounds = true
         newMessageCountView.layer.cornerRadius = newMessageCountView.frame.width / 2
         newMessageCountView.backgroundColor = .systemMint
-        
         newMessageCountLabel.textColor = .white
+        
 
     }
     

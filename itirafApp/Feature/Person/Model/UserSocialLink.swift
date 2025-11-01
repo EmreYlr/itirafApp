@@ -16,6 +16,7 @@ struct Link: Codable {
     let platform: SocialPlatform
     let url: String
     let verified: Bool
+    let displayOrder: Int?
     let createdAt: String
 }
 

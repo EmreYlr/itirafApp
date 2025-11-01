@@ -11,6 +11,7 @@ import MessageKit
 protocol ChatViewModelProtocol {
     var delegate: ChatViewModelDelegate? { get set }
     var directMessage: DirectMessage? { get set }
+    var requestMessage: RequestMessageModel? { get set }
     var roomMessage: RoomMessages? { get }
     var messages: [Message] { get }
     var currentSender: Sender { get }
@@ -30,6 +31,7 @@ protocol ChatViewModelDelegate: AnyObject {
 final class ChatViewModel: NSObject {
     weak var delegate: ChatViewModelDelegate?
     var directMessage: DirectMessage?
+    var requestMessage: RequestMessageModel?
     var roomMessage: RoomMessages?
     
     private(set) var isLoading = false
