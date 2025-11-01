@@ -45,7 +45,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsF-AY-kOH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsF-AY-kOH">
                                 <rect key="frame" x="78" y="48" width="58" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -79,15 +79,16 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="zaj-sd-KDO" secondAttribute="trailing" constant="20" id="0fm-Nc-f1l"/>
                             <constraint firstItem="TAb-ab-3hw" firstAttribute="leading" secondItem="vyn-Lp-qIM" secondAttribute="leading" constant="8" id="5yC-qX-jqY"/>
+                            <constraint firstItem="DsF-AY-kOH" firstAttribute="leading" secondItem="TAb-ab-3hw" secondAttribute="trailing" constant="10" id="94d-lI-rTO"/>
                             <constraint firstItem="TAb-ab-3hw" firstAttribute="centerY" secondItem="vyn-Lp-qIM" secondAttribute="centerY" id="Ae5-4d-cLb"/>
                             <constraint firstItem="DsF-AY-kOH" firstAttribute="bottom" secondItem="TAb-ab-3hw" secondAttribute="bottom" constant="-10" id="CX8-tz-vt9"/>
                             <constraint firstItem="zaj-sd-KDO" firstAttribute="centerY" secondItem="g2R-cU-tKF" secondAttribute="centerY" id="EcI-tx-FL1"/>
-                            <constraint firstItem="kMu-9Y-OaA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DsF-AY-kOH" secondAttribute="trailing" constant="8" id="Ewc-zJ-kS8"/>
+                            <constraint firstAttribute="trailing" secondItem="kMu-9Y-OaA" secondAttribute="trailing" constant="20" symbolic="YES" id="FDm-TD-8Tb"/>
                             <constraint firstItem="g2R-cU-tKF" firstAttribute="leading" secondItem="TAb-ab-3hw" secondAttribute="trailing" constant="10" id="NVP-p3-5AX"/>
-                            <constraint firstItem="DsF-AY-kOH" firstAttribute="leading" secondItem="g2R-cU-tKF" secondAttribute="leading" id="Rru-bk-rsG"/>
-                            <constraint firstItem="kMu-9Y-OaA" firstAttribute="trailing" secondItem="zaj-sd-KDO" secondAttribute="trailing" id="hSt-pM-SVd"/>
-                            <constraint firstItem="kMu-9Y-OaA" firstAttribute="centerY" secondItem="DsF-AY-kOH" secondAttribute="centerY" id="mFK-5t-qtZ"/>
+                            <constraint firstItem="kMu-9Y-OaA" firstAttribute="top" secondItem="zaj-sd-KDO" secondAttribute="bottom" constant="7.6699999999999999" id="RLC-NV-i0r"/>
+                            <constraint firstItem="zaj-sd-KDO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="g2R-cU-tKF" secondAttribute="trailing" constant="8" id="mt2-qZ-KgO"/>
                             <constraint firstItem="g2R-cU-tKF" firstAttribute="top" secondItem="TAb-ab-3hw" secondAttribute="top" constant="5" id="n8j-Os-ISz"/>
+                            <constraint firstItem="kMu-9Y-OaA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DsF-AY-kOH" secondAttribute="trailing" constant="8" id="xW8-tw-WnX"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -28,7 +28,8 @@ final class DirectMessageCollectionViewCell: UICollectionViewCell {
         newMessageCountView.backgroundColor = .systemMint
         newMessageCountLabel.textColor = .white
         
-
+        messageLabel.numberOfLines = 1
+        messageLabel.lineBreakMode = .byTruncatingTail
     }
     
     func configure(with directMessage: DirectMessage) {

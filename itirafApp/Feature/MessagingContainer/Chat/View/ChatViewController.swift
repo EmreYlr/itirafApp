@@ -66,7 +66,7 @@ final class ChatViewController: MessagesViewController {
         }
     }
      
-    private func setupMessageKit() {
+    func setupMessageKit() {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -83,8 +83,13 @@ final class ChatViewController: MessagesViewController {
         showMessageTimestampOnSwipeLeft = true
     }
     
-    private func initData() {
+    func initData() {
         requestView.isHidden = true
+        messagesCollectionView.isHidden = false
+        messageInputBar.isHidden = false
+        self.view.bringSubviewToFront(messagesCollectionView)
+        self.view.bringSubviewToFront(inputContainerView)
+        
         viewModel.delegate = self
         
         if let directMessage = viewModel.directMessage {
@@ -96,19 +101,24 @@ final class ChatViewController: MessagesViewController {
         } else {
             navigationItem.title = "Chat"
         }
-        
     }
     
     @IBAction func rejectButtonTapped(_ sender: UIButton) {
+        Task(priority: .utility) {
+            await viewModel.rejectRequest()
+        }
     }
     
     
     @IBAction func approveButtonTapped(_ sender: UIButton) {
+        Task(priority: .utility) {
+            await viewModel.approveRequest()
+        }
     }
 }
 
 // MARK: - ChatViewModelDelegate
-extension ChatViewController: ChatViewModelDelegate {
+extension ChatViewController: ChatViewModelDelegate {    
     func didUpdateMessages(isPagination: Bool) {
         DispatchQueue.main.async {
             if isPagination {

@@ -42,6 +42,8 @@ extension ChatViewController {
         approveButton.backgroundColor = .systemMint.withAlphaComponent(0.2)
         approveButton.layer.cornerRadius = 8
         
+        self.view.bringSubviewToFront(requestView)
+        
         //TODO: - Mesaj kısmı doldurulacak
         myMessageLabel.text = "Bu kısıma itirafın mesajı gelecek. O yüzden bu mesajı biraz uzun yazıyorum. Şuan için test ediyorum."
 //        titleLabel.text = requestMessage.confessionTitle
@@ -59,5 +61,20 @@ extension ChatViewController {
         tableView.separatorStyle = .none
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNormalMagnitude))
         tableView.reloadData()
+    }
+}
+extension ChatViewController {
+    func didApproveRequest() {
+        DispatchQueue.main.async {
+            self.mode = .directMessage
+            self.setupMessageKit()
+            self.initData()
+        }
+    }
+    
+    func didRejectRequest() {
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }

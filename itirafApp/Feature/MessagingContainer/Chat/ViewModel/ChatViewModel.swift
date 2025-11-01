@@ -21,10 +21,14 @@ protocol ChatViewModelProtocol {
     func stopListening()
     func sendMessage(_ text: String)
     func fetchRoomMessages() async
+    func approveRequest() async
+    func rejectRequest() async
 }
 
 protocol ChatViewModelDelegate: AnyObject {
     func didUpdateMessages(isPagination: Bool)
+    func didApproveRequest()
+    func didRejectRequest()
     func diderror(_ error: Error)
 }
 
@@ -41,10 +45,12 @@ final class ChatViewModel: NSObject {
     private(set) var messages: [Message] = []
     private(set) var currentSender: Sender
     private var chatService: ChatServiceProtocol!
+    private var requestMessageService: RequestMessageServiceProtocol
     private var isConnected = false
     
-    init(chatService: ChatServiceProtocol = ChatService()) {
+    init(chatService: ChatServiceProtocol = ChatService(), requestMessageService: RequestMessageServiceProtocol = RequestMessageService()) {
         self.chatService = chatService
+        self.requestMessageService = requestMessageService
         self.currentSender = Sender(senderId: UserManager.shared.getUser()?.id ?? "", displayName: "Ben")
         super.init()
         self.chatService.delegate = self
@@ -71,7 +77,7 @@ final class ChatViewModel: NSObject {
         let newMessage = Message(sender: currentSender, messageId: UUID().uuidString, sentDate: Date(), kind: .text(text))
         messages.append(newMessage)
         delegate?.didUpdateMessages(isPagination: false)
-
+        
         chatService.sendMessage(text)
     }
     
@@ -96,8 +102,8 @@ final class ChatViewModel: NSObject {
             }
             
             convertToMessageKitMessages(from: newRoomMessages.data)
-
-
+            
+            
             hasMoreData = currentPage < newRoomMessages.totalPages
             if hasMoreData { currentPage += 1 }
             
@@ -123,10 +129,48 @@ final class ChatViewModel: NSObject {
             
             return Message(sender: sender, messageId: "\(msgData.id)", sentDate: date, kind: .text(msgData.content))
         }
-
+        
         self.messages.insert(contentsOf: convertedMessages.reversed(), at: 0)
     }
-
+    
+    func approveRequest() async {
+        guard let request = requestMessage else {
+            let error = APIError(code: 901, type: "ViewModelError", message: "Onaylanacak bir mesaj isteği bulunamadı.")
+            delegate?.diderror(error)
+            return
+        }
+        
+        do {
+            let response = try await requestMessageService.approveRequest(requestID: request.requestID)
+            let confirmedRoomID = response.roomId ?? request.roomID
+            self.directMessage = DirectMessage(
+                roomID: confirmedRoomID,
+                username: request.requesterUsername,
+                lastMessage: request.initialMessage,
+                lastMessageDate: request.createdAt,
+                isLastMessageMine: false,
+                status: "active"
+            )            
+            delegate?.didApproveRequest()
+            
+        } catch {
+            delegate?.diderror(error)
+        }
+    }
+    
+    func rejectRequest() async {
+        guard let requestID = requestMessage?.requestID else {
+            return
+        }
+        do {
+            let requestMessageResponse = try await requestMessageService.rejectRequest(requestID: requestID)
+            print(requestMessageResponse)
+            delegate?.didRejectRequest()
+        } catch {
+            delegate?.diderror(error)
+        }
+    }
+    
     
 }
 

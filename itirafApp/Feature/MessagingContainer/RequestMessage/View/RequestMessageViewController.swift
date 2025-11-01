@@ -21,7 +21,7 @@ final class RequestMessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("RequestMessage")
-        initData()
+        initUI()
         loadCollectionView()
         configureDataSource()
     }
@@ -29,14 +29,17 @@ final class RequestMessageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
+        initData()
     }
     
     private func initData() {
-        viewModel.delegate = self
-        
         Task {
             await viewModel.getPendingMessages()
         }
+    }
+    
+    private func initUI() {
+        viewModel.delegate = self
     }
     
     private func loadCollectionView() {
