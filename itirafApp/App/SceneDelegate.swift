@@ -58,10 +58,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     @objc private func showLoginRequired() {
-        guard let rootVC = window?.rootViewController else { return }
-        
-        LoginAlertPresenter.showLoginAlert(from: rootVC)
+        guard let topVC = UIApplication.topMostViewController() else { return }
+        LoginAlertPresenter.showLoginAlert(from: topVC)
     }
+
 
 
     private func createLoginController() -> UIViewController {

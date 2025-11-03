@@ -75,9 +75,9 @@ final class DetailViewController: UIViewController {
         commentCountLabel.text = confession.replyCount.description
         self.updateLikeUI(isLike: confession.liked, likeCount: confession.likeCount)
     }
-    
+    //TODO: -Farklı bir butona alınacak
+    //TODO: -/rooms/requests/sent kullanıcı karşıya attığı mesajları görecek
     @IBAction func shareButtonClicked(_ sender: UIButton) {
-        //TODO: -Farklı bir butona alınacak
         let requestBottomSheetVC: RequestBottomSheetViewController = Storyboard.requestBottomSheet.instantiate(.requestBottomSheet)
         
         let viewModel = RequestBottomSheetViewModel(channelMessageId: detailViewModel.getChannelMessageId())
