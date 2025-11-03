@@ -25,6 +25,8 @@
 		C3528F142EB8FAA200FF1C19 /* RequestSentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3528F132EB8FAA200FF1C19 /* RequestSentCollectionViewCell.xib */; };
 		C3528F152EB8FAA200FF1C19 /* RequestSentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3528F122EB8FAA200FF1C19 /* RequestSentCollectionViewCell.swift */; };
 		C3528F172EB8FE4300FF1C19 /* RequestSentViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3528F162EB8FE3700FF1C19 /* RequestSentViewController+CollectionView.swift */; };
+		C3528F1C2EB9092A00FF1C19 /* RequestSentDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3528F1B2EB9092400FF1C19 /* RequestSentDetailViewModel.swift */; };
+		C3528F1E2EB9098000FF1C19 /* RequestSentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3528F1D2EB9098000FF1C19 /* RequestSentDetailViewController.swift */; };
 		C37D5B032E7840D20068F334 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C37D5B022E7840D20068F334 /* Login.storyboard */; };
 		C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5BB82E7983030068F334 /* Storyboard.swift */; };
 		C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5C762E7990D20068F334 /* LoginViewModel.swift */; };
@@ -177,6 +179,8 @@
 		C3528F122EB8FAA200FF1C19 /* RequestSentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSentCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3528F132EB8FAA200FF1C19 /* RequestSentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestSentCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3528F162EB8FE3700FF1C19 /* RequestSentViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RequestSentViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C3528F1B2EB9092400FF1C19 /* RequestSentDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSentDetailViewModel.swift; sourceTree = "<group>"; };
+		C3528F1D2EB9098000FF1C19 /* RequestSentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSentDetailViewController.swift; sourceTree = "<group>"; };
 		C37D5B022E7840D20068F334 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C37D5BB82E7983030068F334 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		C37D5C762E7990D20068F334 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -366,6 +370,7 @@
 				C3528F022EB8EEF900FF1C19 /* View */,
 				C3528F012EB8EEF400FF1C19 /* ViewModel */,
 				C3528F002EB8EEEF00FF1C19 /* Service */,
+				C3528F182EB908F200FF1C19 /* RequestSentDetail */,
 			);
 			path = RequestSent;
 			sourceTree = "<group>";
@@ -419,6 +424,31 @@
 				C3528F132EB8FAA200FF1C19 /* RequestSentCollectionViewCell.xib */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		C3528F182EB908F200FF1C19 /* RequestSentDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C3528F1A2EB9090900FF1C19 /* View */,
+				C3528F192EB9090200FF1C19 /* ViewModel */,
+			);
+			path = RequestSentDetail;
+			sourceTree = "<group>";
+		};
+		C3528F192EB9090200FF1C19 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3528F1B2EB9092400FF1C19 /* RequestSentDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3528F1A2EB9090900FF1C19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3528F1D2EB9098000FF1C19 /* RequestSentDetailViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C37D5B012E7840670068F334 /* Mocks */ = {
@@ -1747,7 +1777,9 @@
 				C3A7A4382EAA288000250B06 /* ChatViewModel.swift in Sources */,
 				C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */,
 				C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */,
+				C3528F1C2EB9092A00FF1C19 /* RequestSentDetailViewModel.swift in Sources */,
 				C3A7A4142EA7AADD00250B06 /* AppError.swift in Sources */,
+				C3528F1E2EB9098000FF1C19 /* RequestSentDetailViewController.swift in Sources */,
 				C3A7508E2EB532DB0058163B /* MessagingContainerViewController.swift in Sources */,
 				C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */,
 				C3E660462EB399330059048F /* MyConfessionDetailViewModel.swift in Sources */,

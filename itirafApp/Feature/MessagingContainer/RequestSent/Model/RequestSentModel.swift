@@ -32,4 +32,13 @@ struct RequestSentModel: Codable, Hashable {
 enum RequestStatus: String, Codable {
     case pending = "PENDING"
     case rejected = "REJECTED"
+    
+    var description: String {
+        switch self {
+        case .pending:
+            return "Beklemede"
+        case .rejected:
+            return "Reddedildi"
+        }
+    }
 }

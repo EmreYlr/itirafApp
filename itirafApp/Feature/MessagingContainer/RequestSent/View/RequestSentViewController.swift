@@ -26,15 +26,19 @@ final class RequestSentViewController: UIViewController {
         configureDataSource()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task {
+            await viewModel.fetchSentRequests()
+        }
+    }
+    
     private func initUI() {
         navigationItem.title = "Gönderilen İstekler"
     }
     
     private func initData() {
         viewModel.delegate = self
-        Task {
-            await viewModel.fetchSentRequests()
-        }
     }
     
     private func loadCollectionView() {

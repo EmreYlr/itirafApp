@@ -8,13 +8,12 @@ import UIKit
 
 extension RequestSentViewController:  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let message = dataSource.itemIdentifier(for: indexPath) else {
-//            return
-//        }
-//        let chatVC: ChatViewController = Storyboard.chat.instantiate(.chat)
-//        chatVC.mode = .messageRequest
-//        chatVC.viewModel.requestMessage = message
-//        navigationController?.pushViewController(chatVC, animated: true)
+        guard let message = dataSource.itemIdentifier(for: indexPath) else {
+            return
+        }
+        let detailVC: RequestSentDetailViewController = Storyboard.requestSent.instantiate(.requestSentDetail)
+        detailVC.viewModel.sentRequests = message
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

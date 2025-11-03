@@ -85,6 +85,7 @@ enum ViewControllerID: String {
     
     //RequestSent.storyboard
     case requestSent = "RequestSentViewController"
+    case requestSentDetail = "RequestSentDetailViewController"
 }
 
 enum NavigationControllerID: String {
