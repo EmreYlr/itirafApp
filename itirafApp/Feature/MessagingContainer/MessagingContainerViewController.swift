@@ -59,6 +59,14 @@ final class MessagingContainerViewController: UIViewController {
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
         
+        let image = UIImage(systemName: "paperplane.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: image,
+            style: .plain,
+            target: self,
+            action: #selector(requestsSentButtonTapped)
+        )
+        
         NSLayoutConstraint.activate([
             segmentedControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             segmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -75,6 +83,13 @@ final class MessagingContainerViewController: UIViewController {
             pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
+    @objc private func requestsSentButtonTapped() {
+        let requestsSentVC: RequestSentViewController = Storyboard.requestSent.instantiate(.requestSent)
+        navigationController?.pushViewController(requestsSentVC, animated: true)
+        
+    }
+    
     private func setInitialViewController() {
         pageViewController.setViewControllers(
             [directMessagesVC],

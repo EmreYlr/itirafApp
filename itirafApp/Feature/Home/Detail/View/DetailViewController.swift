@@ -76,7 +76,6 @@ final class DetailViewController: UIViewController {
         self.updateLikeUI(isLike: confession.liked, likeCount: confession.likeCount)
     }
     //TODO: -Farklı bir butona alınacak
-    //TODO: -/rooms/requests/sent kullanıcı karşıya attığı mesajları görecek
     @IBAction func shareButtonClicked(_ sender: UIButton) {
         let requestBottomSheetVC: RequestBottomSheetViewController = Storyboard.requestBottomSheet.instantiate(.requestBottomSheet)
         
