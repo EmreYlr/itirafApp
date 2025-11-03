@@ -21,7 +21,8 @@ struct RequestSentModel: Codable, Hashable {
         case createdAt, status
     }
     static func == (lhs: RequestSentModel, rhs: RequestSentModel) -> Bool {
-        return lhs.requestID == rhs.requestID
+        return lhs.requestID == rhs.requestID &&
+        lhs.status == rhs.status
     }
     
     func hash(into hasher: inout Hasher) {

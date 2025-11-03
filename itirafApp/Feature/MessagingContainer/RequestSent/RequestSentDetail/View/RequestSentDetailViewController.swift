@@ -63,8 +63,9 @@ final class RequestSentDetailViewController: UIViewController {
         
         deleteButton.backgroundColor = .systemRed.withAlphaComponent(0.2)
         deleteButton.layer.cornerRadius = 8
+        deleteButton.isHidden = sentRequests.status != .pending
+        buttonView.isHidden = sentRequests.status != .pending
 
-        
         confessionMessageLabel.text = sentRequests.confessionMessage
         titleLabel.text = sentRequests.confessionTitle
         confessionDateLabel.text = sentRequests.createdAt.formattedDateTime()
@@ -81,9 +82,11 @@ final class RequestSentDetailViewController: UIViewController {
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
-        Task(priority: .utility) {
-            await viewModel.deleteSentRequest()
-        }
+        showTwoButtonAlert(title: "Uyarı", message: "Mesajını geri çekmek istediğinizden emin misiniz?", firstButtonTitle: "Evet", firstButtonHandler: {[ weak self] _ in
+            Task(priority: .utility) {
+                await self?.viewModel.deleteSentRequest()
+            }
+        }, secondButtonTitle: "İptal", secondButtonHandler: nil)
     }
 }
 

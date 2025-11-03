@@ -85,6 +85,4 @@ extension RequestSentViewController: RequestSentViewModelDelegate {
     func didError(error: any Error) {
         print("RequestSentViewController Error: \(error.localizedDescription)")
     }
-    
-    
 }

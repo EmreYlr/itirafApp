@@ -18,7 +18,7 @@ final class RequestSentCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         bgView.layer.cornerRadius = 10
-        bgView.backgroundColor = .systemGray6.withAlphaComponent(0.2)
+        bgView.backgroundColor = .systemGray5.withAlphaComponent(0.2)
         bgView.layer.borderWidth = 0.2
         bgView.layer.borderColor = UIColor.systemGray2.cgColor
     }
@@ -34,8 +34,8 @@ final class RequestSentCollectionViewCell: UICollectionViewCell {
         
         switch sentRequest.status {
         case .pending:
-            statusView.backgroundColor = UIColor.systemYellow.withAlphaComponent(0.2)
-            statusLabel.textColor = .systemYellow
+            statusView.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.2)
+            statusLabel.textColor = .systemOrange
             statusLabel.text = "Beklemede"
         case .rejected:
             statusView.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2)
@@ -43,5 +43,4 @@ final class RequestSentCollectionViewCell: UICollectionViewCell {
             statusLabel.text = "Reddedildi"
         }
     }
-
 }
