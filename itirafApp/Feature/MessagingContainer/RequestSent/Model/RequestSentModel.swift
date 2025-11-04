@@ -8,7 +8,7 @@
 import Foundation
 
 struct RequestSentModel: Codable, Hashable {
-    let requestID, requesterUsername, initialMessage, confessionTitle: String
+    let requestID, confessionAuthorUsername, initialMessage, confessionTitle: String
     let confessionMessage: String
     let channelMessageID: Int
     let createdAt: String
@@ -16,7 +16,7 @@ struct RequestSentModel: Codable, Hashable {
 
     enum CodingKeys: String, CodingKey {
         case requestID = "requestId"
-        case requesterUsername, initialMessage, confessionTitle, confessionMessage
+        case confessionAuthorUsername, initialMessage, confessionTitle, confessionMessage
         case channelMessageID = "channelMessageId"
         case createdAt, status
     }

@@ -29,7 +29,7 @@ final class RequestSentCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with sentRequest: RequestSentModel) {
-        usernameLabel.text = sentRequest.requesterUsername
+        usernameLabel.text = sentRequest.confessionAuthorUsername
         messageLabel.text = sentRequest.initialMessage
         
         switch sentRequest.status {

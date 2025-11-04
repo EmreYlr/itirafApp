@@ -19,11 +19,11 @@ final class MessagingContainerViewController: UIViewController {
     }()
     
     private lazy var separatorView: UIView = {
-            let view = UIView()
-            view.backgroundColor = .systemGray5
-            view.translatesAutoresizingMaskIntoConstraints = false
-            return view
-        }()
+        let view = UIView()
+        view.backgroundColor = .systemGray5
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     
     private lazy var pageViewController: UIPageViewController = {
@@ -76,7 +76,7 @@ final class MessagingContainerViewController: UIViewController {
             separatorView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             separatorView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             separatorView.heightAnchor.constraint(equalToConstant: 1),
-
+            
             pageViewController.view.topAnchor.constraint(equalTo: separatorView.bottomAnchor),
             pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),

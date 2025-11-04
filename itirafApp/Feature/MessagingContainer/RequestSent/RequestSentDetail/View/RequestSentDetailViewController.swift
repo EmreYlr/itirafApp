@@ -69,8 +69,8 @@ final class RequestSentDetailViewController: UIViewController {
         confessionMessageLabel.text = sentRequests.confessionMessage
         titleLabel.text = sentRequests.confessionTitle
         confessionDateLabel.text = sentRequests.createdAt.formattedDateTime()
-        confessionOwnerUsernameLabel.text = sentRequests.requesterUsername
-        profileIconLabel.text = String(sentRequests.requesterUsername.prefix(2)).uppercased()
+        confessionOwnerUsernameLabel.text = sentRequests.confessionAuthorUsername
+        profileIconLabel.text = String(sentRequests.confessionAuthorUsername.prefix(2)).uppercased()
         myMessageLabel.text = sentRequests.initialMessage
         statusLabel.text = sentRequests.status.description.capitalized
         statusImageView.image = sentRequests.status == .pending ? UIImage(systemName: "clock") : UIImage(systemName: "xmark.octagon")
