@@ -32,8 +32,16 @@ final class UserManager {
         return currentUser?.email
     }
     
+    func getUserRoles() -> [Role]? {
+        return currentUser?.roles
+    }
+    
     func getUserIsAnonymous() -> Bool {
         return currentUser?.anonymous ?? true
+    }
+    
+    func hasRole(_ role: RoleType) -> Bool {
+        currentUser?.roles.contains { $0.name == role } ?? false
     }
     
     func setUser(_ user: User) {

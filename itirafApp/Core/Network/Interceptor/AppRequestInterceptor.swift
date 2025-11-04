@@ -21,31 +21,46 @@ final class AppRequestInterceptor: RequestInterceptor {
     }
     
     func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
+        
         guard let response = request.response, response.statusCode == 401 else {
             return completion(.doNotRetry)
         }
-
+        
         if let url = request.request?.url?.absoluteString, url.contains(Endpoint.Auth.refreshToken.path) {
             return completion(.doNotRetry)
         }
         
-        print("Token süresi doldu. Yenileme veya anonim oturum işlemi başlatılıyor...")
-
+        guard let dataRequest = request as? DataRequest else {
+            return completion(.doNotRetry)
+        }
+        
+        guard let data = dataRequest.data else {
+            return completion(.doNotRetry)
+        }
+        
+        guard let apiError = try? JSONDecoder().decode(APIError.self, from: data) else {
+            return completion(.doNotRetry)
+        }
+        
+        guard apiError.code == 1402 else {
+            return completion(.doNotRetry)
+        }
+        
+        print("🟡 Token süresi doldu (Hata Kodu: 1402). Yenileme veya anonim oturum işlemi başlatılıyor...")
+        
         Task {
             if await AuthService.refreshToken() {
-                print("Token başarıyla yenilendi. Asıl istek yeniden denenecek.")
+                print("✅ Token başarıyla yenilendi. Asıl istek yeniden denenecek.")
                 completion(.retry)
             } else {
-                print("Token yenilenemedi.")
-
                 AuthManager.shared.clearTokens()
                 UserManager.shared.clear()
                 
                 if await AuthService.registerAndLoginAnonymousUser() {
-                    print("Anonim kullanıcı başarıyla oluşturuldu ve giriş yapıldı. Asıl istek yeniden denenecek.")
+                    print("✅ Anonim kullanıcı başarıyla oluşturuldu ve giriş yapıldı. Asıl istek yeniden denenecek.")
                     completion(.retry)
                 } else {
-                    print("Anonim kullanıcı oluşturulamadı. Oturum sonlandırılacak.")
+                    print("❌ Anonim kullanıcı oluşturulamadı. Oturum sonlandırılacak.")
                     await MainActor.run {
                         NotificationCenter.default.post(name: .loginRequired, object: nil)
                     }

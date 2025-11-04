@@ -77,7 +77,6 @@ final class NetworkManager {
         
         switch response.result {
         case .success(let value):
-            print("✅ Token successfully refreshed")
             return value
             
         case .failure(let error):

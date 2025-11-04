@@ -23,6 +23,12 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // LoginRequired notification
         NotificationCenter.default.addObserver(self, selector: #selector(showLoginRequired), name: .loginRequired, object: nil)
         
+        if UserManager.shared.hasRole(.admin) {
+            window.rootViewController = createHomeController()
+            window.makeKeyAndVisible()
+            return
+        }
+        
         if !UserManager.shared.getUserIsAnonymous() {
             window.rootViewController = createHomeController()
             window.makeKeyAndVisible()
@@ -39,12 +45,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 // TODO: hata göster
             }
         }
-
-        
-//        window.rootViewController = createLoginController()
-//        window.rootViewController = createHomeController()
-        
-        
         window.makeKeyAndVisible()
     }
 
@@ -61,9 +61,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let topVC = UIApplication.topMostViewController() else { return }
         LoginAlertPresenter.showLoginAlert(from: topVC)
     }
-
-
-
+    
     private func createLoginController() -> UIViewController {
         let loginNav = Storyboard.login.instantiateNav(.loginNav)
         return loginNav

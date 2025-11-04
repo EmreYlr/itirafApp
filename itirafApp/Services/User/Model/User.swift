@@ -35,5 +35,10 @@ struct User: Codable {
 }
 
 struct Role: Codable {
-    let name: String
+    let name: RoleType
+}
+
+enum RoleType: String, Codable {
+    case admin = "ADMIN"
+    case user = "USER"
 }
