@@ -5,7 +5,7 @@
 //  Created by Emre on 5.11.2025.
 //
 
-import Foundation // Foundation'ı ekledim
+import Foundation
 
 protocol ModerationViewModelProtocol {
     var delegate: ModerationViewModelDelegate? { get set }
@@ -74,6 +74,7 @@ final class ModerationViewModel {
             delegate?.didFailWithError(error)
         }
     }
+
 }
 
 extension ModerationViewModel: ModerationViewModelProtocol { }

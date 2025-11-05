@@ -31,8 +31,8 @@ final class ModerationCollectionViewCell: UICollectionViewCell {
         titleLabel.text = moderationItem.title
         messageLabel.text = moderationItem.message
         dateLabel.text = moderationItem.createdAt.formattedDateTime()
-        ownerLabel.text = "Sahip: \(moderationItem.ownerUsername)"
-        channelLabel.text = "Kanal: \(moderationItem.channelTitle)"
+        ownerLabel.text = "\(moderationItem.ownerUsername)"
+        channelLabel.text = "\(moderationItem.channelTitle)"
     }
 
     @IBAction func approveButtonTapped(_ sender: UIButton) {

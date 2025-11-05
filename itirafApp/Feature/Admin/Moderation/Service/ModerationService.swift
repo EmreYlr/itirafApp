@@ -8,6 +8,7 @@ import Alamofire
 
 protocol ModerationServiceProtocol {
     func getModerationData(page: Int, limit: Int) async throws -> ModerationModel
+    func postDecision(decisionRequest: ModerationDecisionRequest) async throws
 }
 
 final class ModerationService: ModerationServiceProtocol {
@@ -29,6 +30,33 @@ final class ModerationService: ModerationServiceProtocol {
             method: .get,
             parameters: parameters,
             encoding: URLEncoding.default
+        )
+    }
+    
+    func postDecision(decisionRequest: ModerationDecisionRequest) async throws {
+        let messageID = decisionRequest.messageID
+        let parameters: [String: Any]
+        
+        switch decisionRequest.decision {
+        case .approve:
+            parameters = [
+                "decision": decisionRequest.decision.rawValue,
+                "notes": decisionRequest.notes ?? ""
+            ]
+        case .reject:
+            parameters = [
+                "decision": decisionRequest.decision.rawValue,
+                "violations": decisionRequest.violations ?? [],
+                "rejectionReason": decisionRequest.rejectionReason ?? "",
+                "notes": decisionRequest.notes ?? ""
+            ]
+        }
+
+        let _: Empty = try await networkService.request(
+            endpoint: Endpoint.Admin.postModerationMessage(messageID: messageID),
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default
         )
     }
 }

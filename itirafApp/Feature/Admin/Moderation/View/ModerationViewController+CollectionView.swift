@@ -9,15 +9,15 @@ import UIKit
 
 extension ModerationViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let myConfession = dataSource.itemIdentifier(for: indexPath) else {
-//            return
-//        }
-//        let detailVC: MyConfessionDetailViewController = Storyboard.main.instantiate(.myConfessionDetail)
-//        detailVC.viewModel = MyConfessionDetailViewModel(myConfession: myConfession)
-//        navigationController?.pushViewController(detailVC, animated: true)
-//        
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let moderationData = dataSource.itemIdentifier(for: indexPath) else {
+            return
+        }
+        let detailVC: ModerationDetailViewController = Storyboard.moderation.instantiate(.moderationDetail)
+        let detailViewModel = ModerationDetailViewModel(moderationItem: moderationData)
+        detailVC.viewModel = detailViewModel
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let totalItems = dataSource.snapshot().numberOfItems

@@ -90,6 +90,7 @@ enum ViewControllerID: String {
     
     // Moderation.storyboard
     case moderation = "ModerationViewController"
+    case moderationDetail = "ModerationDetailViewController"
 }
 
 enum NavigationControllerID: String {

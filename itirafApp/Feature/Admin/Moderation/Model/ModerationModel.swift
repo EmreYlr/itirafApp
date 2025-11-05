@@ -17,7 +17,8 @@ struct ModerationData: Codable, Hashable{
     let channelID: Int
     let channelTitle, ownerID, ownerUsername: String
     let moderationStatus: ModerationStatus
-    let rejectionReason, createdAt: String
+    let rejectionReason: String?
+    let createdAt: String
 
     enum CodingKeys: String, CodingKey {
         case id, title, message
@@ -37,4 +38,17 @@ struct ModerationData: Codable, Hashable{
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+}
+
+struct ModerationDecisionRequest: Codable {
+    let messageID: Int
+    let decision: ModerationDecision
+    let violations: [Violation]?
+    let rejectionReason: String?
+    let notes: String?
+}
+
+enum ModerationDecision: String, Codable {
+    case approve = "APPROVE"
+    case reject = "REJECT"
 }

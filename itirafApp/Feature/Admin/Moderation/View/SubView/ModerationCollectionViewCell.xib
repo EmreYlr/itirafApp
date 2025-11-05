@@ -32,7 +32,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqr-Xm-mSD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="message" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqr-Xm-mSD">
                                 <rect key="frame" x="8" y="42" width="58" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,13 +64,13 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cv6-qb-0L4">
                                 <rect key="frame" x="0.0" y="128" width="368" height="1"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="4Vl-h1-yGg"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lax-fT-F8r">
-                                <rect key="frame" x="176" y="137" width="81" height="35"/>
+                                <rect key="frame" x="186" y="137" width="81" height="35"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="gAJ-XB-Muq"/>
@@ -107,7 +107,7 @@
                             <constraint firstItem="Cv6-qb-0L4" firstAttribute="leading" secondItem="qOW-Mx-zoX" secondAttribute="leading" id="DFN-L9-ZTS"/>
                             <constraint firstItem="fgr-jd-IPT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x5z-Xb-F0N" secondAttribute="trailing" constant="10" id="E5t-Ct-9mt"/>
                             <constraint firstItem="fgr-jd-IPT" firstAttribute="centerY" secondItem="x5z-Xb-F0N" secondAttribute="centerY" id="HU6-i7-clX"/>
-                            <constraint firstItem="i5c-jY-Qeo" firstAttribute="leading" secondItem="Lax-fT-F8r" secondAttribute="trailing" constant="25" id="LDq-eB-2nO"/>
+                            <constraint firstItem="i5c-jY-Qeo" firstAttribute="leading" secondItem="Lax-fT-F8r" secondAttribute="trailing" constant="15" id="LDq-eB-2nO"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kxx-9n-DdI" secondAttribute="trailing" constant="8" id="NS0-aE-R81"/>
                             <constraint firstItem="Cv6-qb-0L4" firstAttribute="top" secondItem="FYl-6C-Gf7" secondAttribute="bottom" constant="15" id="PP8-CS-Tns"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FYl-6C-Gf7" secondAttribute="trailing" constant="10" id="S1B-TW-cFY"/>
@@ -161,11 +161,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
