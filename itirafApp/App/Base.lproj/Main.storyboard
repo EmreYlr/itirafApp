@@ -409,7 +409,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSa-VM-GEK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-418" y="303"/>
+            <point key="canvasLocation" x="-65" y="303"/>
         </scene>
         <!--Profil-->
         <scene sceneID="rhd-Ki-uj8">

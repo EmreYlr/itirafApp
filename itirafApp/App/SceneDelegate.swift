@@ -23,12 +23,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // LoginRequired notification
         NotificationCenter.default.addObserver(self, selector: #selector(showLoginRequired), name: .loginRequired, object: nil)
         
-        if UserManager.shared.hasRole(.admin) {
-            window.rootViewController = createHomeController()
-            window.makeKeyAndVisible()
-            return
-        }
-        
         if !UserManager.shared.getUserIsAnonymous() {
             window.rootViewController = createHomeController()
             window.makeKeyAndVisible()

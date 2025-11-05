@@ -29,8 +29,23 @@ final class MyConfessionsViewController: UIViewController {
     
     private func initData() {
         viewModel.delegate = self
+        configureNavigationBar()
         Task {
             await viewModel.fetchMyConfessions(reset: true)
+        }
+    }
+    
+    private func configureNavigationBar() {
+        if viewModel.isUserAdmin() {
+            let image = UIImage(systemName: "shield.lefthalf.fill")?.withTintColor(UIColor.systemMint, renderingMode: .alwaysOriginal)
+            
+            let moderationButton = UIBarButtonItem(
+                image: image,
+                style: .plain,
+                target: self,
+                action: #selector(moderationButtonTapped)
+            )
+            navigationItem.rightBarButtonItem = moderationButton
         }
     }
     
@@ -80,6 +95,11 @@ final class MyConfessionsViewController: UIViewController {
             }
             await viewModel.fetchMyConfessions(reset: true)
         }
+    }
+    
+    @objc private func moderationButtonTapped() {
+        let moderationVC: ModerationViewController = Storyboard.moderation.instantiate(.moderation)
+        navigationController?.pushViewController(moderationVC, animated: true)
     }
 }
 

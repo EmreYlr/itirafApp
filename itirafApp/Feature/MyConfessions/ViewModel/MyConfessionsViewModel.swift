@@ -11,6 +11,7 @@ protocol MyConfessionsViewModelProtocol {
     var isLoading: Bool { get }
     var hasMoreData: Bool { get }
     func fetchMyConfessions(reset: Bool) async
+    func isUserAdmin() -> Bool
 }
 
 protocol MyConfessionsViewModelDelegate: AnyObject {
@@ -60,6 +61,10 @@ final class MyConfessionsViewModel {
         } catch {
             delegate?.didError(error)
         }
+    }
+    
+    func isUserAdmin() -> Bool {
+        return UserManager.shared.hasRole(.admin)
     }
     
 }
