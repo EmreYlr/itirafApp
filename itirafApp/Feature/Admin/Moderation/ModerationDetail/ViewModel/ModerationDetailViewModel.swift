@@ -8,6 +8,7 @@
 protocol ModerationDetailViewModelProtocol {
     var delegate: ModerationDetailViewModelDelegate? { get set }
     var moderationItem: ModerationData? { get }
+    var selectedViolations: [Violation] { get set }
     func postDecision(decision: ModerationDecision, reason: String?,violations: [Violation]? ,notes: String?) async
 }
 
@@ -19,6 +20,7 @@ protocol ModerationDetailViewModelDelegate: AnyObject {
 final class ModerationDetailViewModel {
     weak var delegate: ModerationDetailViewModelDelegate?
     var moderationItem: ModerationData?
+    var selectedViolations: [Violation] = []
     private let moderationService: ModerationServiceProtocol
     
     init(moderationItem: ModerationData, moderationService: ModerationServiceProtocol = ModerationService()) {

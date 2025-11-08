@@ -52,7 +52,7 @@ enum ConfessionDisplayStatus {
     case unknown
 }
 
-enum Violation: String, Codable {
+enum Violation: String, Codable, CaseIterable {
     case none = "NONE"
     case profanity = "PROFANITY"
     case harassment = "HARASSMENT"
@@ -90,5 +90,9 @@ enum Violation: String, Codable {
         case .other:
             return "Diğer"
         }
+    }
+    
+    static var selectableCases: [Violation] {
+        return Violation.allCases.filter { $0 != .none }
     }
 }

@@ -62,6 +62,13 @@ final class ModerationDetailViewController: UIViewController {
         ownerNameLabel.text = moderationItem.ownerUsername
         channelLabel.text = moderationItem.channelTitle
         rejectionReasonLabel.text = moderationItem.rejectionReason ?? "Belirtilmemiş"
+        
+        rejectTextView.isEditable = false
+        rejectTextView.backgroundColor = UIColor.systemGray6
+        rejectNoteLabel.isEnabled = false
+        rejectPlaceholderLabel.isEnabled = false
+        violationsButton.isEnabled = false
+        violationsLabel.isHidden = false
     }
     
     private func initUI() {
@@ -89,32 +96,48 @@ final class ModerationDetailViewController: UIViewController {
         noteTextView.layer.borderWidth = 0.5
         noteTextView.layer.borderColor = UIColor.systemGray4.cgColor
         noteTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        updateViolationsLabel()
+    }
+    
+    private func updateViolationsLabel() {
+        if viewModel.selectedViolations.isEmpty {
+            violationsLabel.isHidden = true
+        } else {
+            violationsLabel.isHidden = false
+            let descriptions = viewModel.selectedViolations.map { $0.turkishDescription }
+            violationsLabel.text = "(\(descriptions.joined(separator: ", ")))"
+            violationsLabel.textColor = .systemGray
+        }
     }
     
     @IBAction func decisionSegmentControlChanged(_ sender: UISegmentedControl) {
         sender.selectedSegmentTintColor = sender.selectedSegmentIndex == 0 ? UIColor.systemGreen.withAlphaComponent(0.4) : UIColor.systemRed.withAlphaComponent(0.4)
         
-        switch sender.selectedSegmentIndex {
-        case 0:
-            rejectTextView.isEditable = true
-            rejectPlaceholderLabel.isEnabled = true
-            rejectTextView.backgroundColor = UIColor.systemGray6
-            rejectNoteLabel.isEnabled = true
-            violationsButton.isEnabled = true
-        case 1:
-            rejectTextView.isEditable = false
-            rejectTextView.backgroundColor = UIColor.systemGray5
-            rejectNoteLabel.isEnabled = false
-            rejectPlaceholderLabel.isEnabled = false
-            violationsButton.isEnabled = false
-        default:
-            break
-        }
+        let isApproving = sender.selectedSegmentIndex == 0
+        
+        rejectTextView.isEditable = !isApproving
+        rejectTextView.backgroundColor = isApproving ? UIColor.systemGray5 : UIColor.systemGray6
+        rejectNoteLabel.isEnabled = !isApproving
+        rejectPlaceholderLabel.isEnabled = !isApproving
+        violationsButton.isEnabled = !isApproving
+        violationsLabel.isHidden = isApproving || viewModel.selectedViolations.isEmpty
     }
     
     @IBAction func violationsButtonTapped(_ sender: UIButton) {
+        let violationsVC: ViolationsViewController = Storyboard.moderation.instantiate(.violations)
+        violationsVC.delegate = self
+        violationsVC.selectedViolations = viewModel.selectedViolations
+        let navigationController = UINavigationController(rootViewController: violationsVC)
+
+        if let sheet = navigationController.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+        }
         
+        present(navigationController, animated: true)
     }
+    
     @IBAction func saveButtonTapped(_ sender: UIButton) { }
     
 }
@@ -156,5 +179,12 @@ extension ModerationDetailViewController: UITextViewDelegate {
         } else if textView == rejectTextView {
             rejectTextView.layer.borderColor = UIColor.lightGray.cgColor
         }
+    }
+}
+
+extension ModerationDetailViewController: ViolationsViewControllerDelegate {
+    func didSelectViolations(_ violations: [Violation]) {
+        viewModel.selectedViolations = violations
+        updateViolationsLabel()
     }
 }

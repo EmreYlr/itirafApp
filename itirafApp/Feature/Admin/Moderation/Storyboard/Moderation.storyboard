@@ -156,7 +156,7 @@
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="İhlal Seç">
+                                <buttonConfiguration key="configuration" style="plain" title="İhlaller">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="17"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -171,9 +171,9 @@
                                     <constraint firstAttribute="width" constant="15" id="ZNY-go-yNX"/>
                                 </constraints>
                             </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(violations)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysI-fg-zpI">
-                                <rect key="frame" x="100" y="449" width="247" height="14.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(violations)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysI-fg-zpI">
+                                <rect key="frame" x="90" y="450.33333333333331" width="257" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -259,11 +259,12 @@
                             <constraint firstItem="WgW-Pg-7sm" firstAttribute="top" secondItem="qh3-KO-0zw" secondAttribute="bottom" constant="10" id="87t-3Z-uJJ"/>
                             <constraint firstItem="VVR-B2-e50" firstAttribute="leading" secondItem="f2y-K8-qLe" secondAttribute="trailing" constant="8" symbolic="YES" id="8o1-PQ-g6j"/>
                             <constraint firstItem="eEl-eP-PDe" firstAttribute="top" secondItem="wRs-V9-oAs" secondAttribute="bottom" constant="15" id="8ti-l5-FGg"/>
+                            <constraint firstItem="ysI-fg-zpI" firstAttribute="centerY" secondItem="eb7-hX-dWq" secondAttribute="centerY" id="9ke-cM-mPG"/>
                             <constraint firstItem="PoM-pq-uvo" firstAttribute="leading" secondItem="be5-pv-g6f" secondAttribute="leading" constant="16" id="9qi-AB-Ozr"/>
                             <constraint firstItem="AAU-t3-azd" firstAttribute="leading" secondItem="be5-pv-g6f" secondAttribute="leading" constant="16" id="A5A-RN-vJu"/>
                             <constraint firstItem="eZH-Jg-A7U" firstAttribute="leading" secondItem="be5-pv-g6f" secondAttribute="leading" constant="16" id="BEq-9v-XBH"/>
                             <constraint firstItem="be5-pv-g6f" firstAttribute="trailing" secondItem="qh3-KO-0zw" secondAttribute="trailing" constant="16" id="DLt-cU-LZv"/>
-                            <constraint firstItem="ysI-fg-zpI" firstAttribute="leading" secondItem="be5-pv-g6f" secondAttribute="leading" constant="100" id="Epj-vA-Of3"/>
+                            <constraint firstItem="ysI-fg-zpI" firstAttribute="leading" secondItem="be5-pv-g6f" secondAttribute="leading" constant="90" id="Epj-vA-Of3"/>
                             <constraint firstItem="PHb-ve-fMV" firstAttribute="centerY" secondItem="eZH-Jg-A7U" secondAttribute="centerY" id="FgR-AU-1Xq"/>
                             <constraint firstItem="f2y-K8-qLe" firstAttribute="leading" secondItem="be5-pv-g6f" secondAttribute="leading" constant="16" id="FyL-eh-Q22"/>
                             <constraint firstItem="be5-pv-g6f" firstAttribute="trailing" secondItem="eb7-hX-dWq" secondAttribute="trailing" constant="16" id="HB2-G8-za1"/>
@@ -293,7 +294,6 @@
                             <constraint firstItem="oPc-gi-ccx" firstAttribute="leading" secondItem="be5-pv-g6f" secondAttribute="leading" constant="16" id="avc-kf-2Me"/>
                             <constraint firstItem="wRs-V9-oAs" firstAttribute="top" secondItem="PoM-pq-uvo" secondAttribute="bottom" constant="10" id="c3w-ry-nck"/>
                             <constraint firstItem="sY2-xo-BL0" firstAttribute="leading" secondItem="be5-pv-g6f" secondAttribute="leading" constant="16" id="chI-xR-FrN"/>
-                            <constraint firstItem="ysI-fg-zpI" firstAttribute="centerY" secondItem="779-pC-1fZ" secondAttribute="centerY" id="dlZ-gw-iFv"/>
                             <constraint firstItem="be5-pv-g6f" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sY2-xo-BL0" secondAttribute="trailing" constant="16" id="ehH-03-V7n"/>
                             <constraint firstItem="WgW-Pg-7sm" firstAttribute="leading" secondItem="be5-pv-g6f" secondAttribute="leading" constant="16" id="f1d-uv-yFR"/>
                             <constraint firstItem="qh3-KO-0zw" firstAttribute="top" secondItem="eb7-hX-dWq" secondAttribute="bottom" constant="15" id="fGZ-gS-SSG"/>
@@ -339,6 +339,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwi-Z0-IF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="922.90076335877859" y="3.5211267605633805"/>
+        </scene>
+        <!--Violations View Controller-->
+        <scene sceneID="Qct-OV-x2z">
+            <objects>
+                <viewController storyboardIdentifier="ViolationsViewController" id="UOq-hl-IhK" customClass="ViolationsViewController" customModule="itirafApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v40-0S-H8x">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="N61-EV-6nD">
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rSy-pL-Zpa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rSy-pL-Zpa" firstAttribute="bottom" secondItem="N61-EV-6nD" secondAttribute="bottom" id="50h-Ox-LrO"/>
+                            <constraint firstItem="rSy-pL-Zpa" firstAttribute="trailing" secondItem="N61-EV-6nD" secondAttribute="trailing" id="QSF-ki-9Ub"/>
+                            <constraint firstItem="N61-EV-6nD" firstAttribute="top" secondItem="rSy-pL-Zpa" secondAttribute="top" id="ZeZ-9R-7NQ"/>
+                            <constraint firstItem="N61-EV-6nD" firstAttribute="leading" secondItem="rSy-pL-Zpa" secondAttribute="leading" id="fni-RT-0n4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="N61-EV-6nD" id="Fjw-9O-hUb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XX3-lr-wO2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1731" y="4"/>
         </scene>
     </scenes>
     <resources>
