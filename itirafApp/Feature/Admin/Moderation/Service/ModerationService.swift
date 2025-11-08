@@ -46,7 +46,7 @@ final class ModerationService: ModerationServiceProtocol {
         case .reject:
             parameters = [
                 "decision": decisionRequest.decision.rawValue,
-                "violations": decisionRequest.violations ?? [],
+                "violations": (decisionRequest.violations ?? []).map { $0.rawValue },
                 "rejectionReason": decisionRequest.rejectionReason ?? "",
                 "notes": decisionRequest.notes ?? ""
             ]

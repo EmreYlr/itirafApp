@@ -55,7 +55,7 @@ final class ModerationDetailViewController: UIViewController {
         noteTextView.delegate = self
         
         guard let moderationItem = viewModel.moderationItem else { return }
-
+        
         titleLabel.text = moderationItem.title
         messageLabel.text = moderationItem.message
         dateLabel.text = moderationItem.createdAt.formattedDateTime()
@@ -129,7 +129,7 @@ final class ModerationDetailViewController: UIViewController {
         violationsVC.delegate = self
         violationsVC.selectedViolations = viewModel.selectedViolations
         let navigationController = UINavigationController(rootViewController: violationsVC)
-
+        
         if let sheet = navigationController.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
             sheet.prefersGrabberVisible = true
@@ -138,13 +138,35 @@ final class ModerationDetailViewController: UIViewController {
         present(navigationController, animated: true)
     }
     
-    @IBAction func saveButtonTapped(_ sender: UIButton) { }
-    
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        let decision: ModerationDecision = decisionSegmentControl.selectedSegmentIndex == 0 ? .approve : .reject
+        
+        var reason: String?
+        
+        if decision == .reject {
+            reason = rejectTextView.text.isEmpty ? nil : rejectTextView.text
+        }
+        
+        let notes = noteTextView.text.isEmpty ? nil : noteTextView.text
+        
+        let violations = viewModel.selectedViolations.isEmpty ? nil : viewModel.selectedViolations
+        
+        Task(priority: .utility) {
+            await viewModel.postDecision(
+                decision: decision,
+                reason: reason,
+                violations: violations,
+                notes: notes
+            )
+        }
+    }
 }
 
 extension ModerationDetailViewController: ModerationDetailViewModelDelegate {
     func didPostDecisionSuccessfully() {
-        
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
     
     func didFailPostingDecision(_ error: any Error) {
@@ -169,7 +191,7 @@ extension ModerationDetailViewController: UITextViewDelegate {
             rejectPlaceholderLabel.isHidden = true
             rejectTextView.layer.borderColor = UIColor.systemMint.cgColor
         }
-
+        
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

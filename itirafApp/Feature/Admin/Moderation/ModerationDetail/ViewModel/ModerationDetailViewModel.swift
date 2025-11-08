@@ -32,7 +32,7 @@ final class ModerationDetailViewModel {
         self.moderationService = moderationService
     }
     
-    func postDecision(decision: ModerationDecision, reason: String?,violations: [Violation]? ,notes: String?) async {
+    func postDecision(decision: ModerationDecision, reason: String?, violations: [Violation]?, notes: String?) async {
         guard let messageId = moderationItem?.id else { return }
         
         let decisionRequest = ModerationDecisionRequest(
