@@ -12,7 +12,6 @@ struct WebSocketRequest: Codable {
 
 struct WebSocketMessageData: Codable {
     let content: String
-    let recipientId: String
 }
 
 struct SeenRequest: Codable {

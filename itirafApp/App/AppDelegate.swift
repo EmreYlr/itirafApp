@@ -64,6 +64,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("❌ Token alınamadı: \(error.localizedDescription)")
     }
     
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound, .badge])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("🔔 Kullanıcı bildirime tıkladı: \(response.notification.request.content.userInfo)")
+        completionHandler()
+    }
+    
     // MARK: - UISceneSession Lifecycle
     func application(
         _ application: UIApplication,

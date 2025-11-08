@@ -89,7 +89,7 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
 //            return
 //        }
         
-        let messageData = WebSocketMessageData(content: message, recipientId: "006afa50-0cfa-400d-892b-ee5e5acffe11")
+        let messageData = WebSocketMessageData(content: message)
         let requestObject = WebSocketRequest(type: "message", data: messageData)
         
         guard let jsonData = try? JSONEncoder().encode(requestObject),
