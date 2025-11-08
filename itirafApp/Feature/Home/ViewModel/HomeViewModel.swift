@@ -21,7 +21,6 @@ protocol HomeViewModelOutputProtocol: AnyObject {
     func didFailWithError(_ error: Error)
 }
 
-
 final class HomeViewModel {
     weak var delegate: HomeViewModelOutputProtocol?
     let homeService: HomeServiceProtocol

@@ -84,7 +84,12 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
             return
         }
         
-        let messageData = WebSocketMessageData(content: message)
+//        guard let userId = UserManager.shared.getUserID() else {
+//            print("❌ send: kullanıcı ID alınamadı")
+//            return
+//        }
+        
+        let messageData = WebSocketMessageData(content: message, recipientId: "006afa50-0cfa-400d-892b-ee5e5acffe11")
         let requestObject = WebSocketRequest(type: "message", data: messageData)
         
         guard let jsonData = try? JSONEncoder().encode(requestObject),
