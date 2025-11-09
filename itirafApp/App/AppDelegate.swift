@@ -13,8 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private let deviceService: DeviceServiceProtocol
     
     override init() {
-        let networkService = NetworkManager.shared
-        self.deviceService = DeviceService(networkService: networkService)
+        self.deviceService = DeviceService()
         super.init()
     }
     
@@ -41,21 +40,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         _ application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
-        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        let token = deviceToken.map { String(format: "%02x", $0) }.joined()
+        print("📱 Device Token: \(token)")
         
-        let oldToken = UserDefaults.standard.string(forKey: "deviceToken")
-        print("Device Token: \(token)")
-        if oldToken != token {
-            UserDefaults.standard.set(token, forKey: "deviceToken")
-            Task {
-                do {
-                    try await self.deviceService.registerDeviceToken(token)
-                } catch {
-                    print("Device token kaydedilemedi: \(error.localizedDescription)")
-                }
-            }
+        let savedToken = UserDefaults.standard.string(forKey: .deviceToken)
+        guard savedToken != token else { return }
+        
+        UserDefaults.standard.set(token, forKey: .deviceToken)
+        
+        Task {
+            await registerOrUpdateDevice(with: token)
         }
     }
+    
+    private func registerOrUpdateDevice(with token: String) async {
+        do {
+            if UserManager.shared.getUserIsAnonymous() {
+                try await deviceService.registerDeviceToken(token)
+            } else {
+                try await deviceService.updateDeviceToken(token, notificationEnabled: true)
+            }
+        } catch {
+            print("❌ Device token kaydedilemedi: \(error.localizedDescription)")
+        }
+    }
+    
     
     func application(
         _ application: UIApplication,

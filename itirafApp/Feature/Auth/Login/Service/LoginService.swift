@@ -15,11 +15,14 @@ protocol LoginServiceProtocol {
 final class LoginService {
     private let networkService: NetworkService
     private let userService: UserServiceProtocol
+    private let deviceService: DeviceServiceProtocol
     
     init(networkService: NetworkService = NetworkManager.shared,
-         userService: UserServiceProtocol = UserService()) {
+         userService: UserServiceProtocol = UserService(),
+         deviceService: DeviceServiceProtocol = DeviceService()) {
         self.networkService = networkService
         self.userService = userService
+        self.deviceService = deviceService
     }
 
     func loginUser(email: String, password: String) async throws {
@@ -41,6 +44,15 @@ final class LoginService {
         )
         
         _ = try await userService.fetchCurrentUser()
+        
+        if let deviceToken = UserDefaults.standard.string(forKey: .deviceToken) {
+            
+            do {
+                try await deviceService.updateDeviceToken(deviceToken, notificationEnabled: true)
+            } catch {
+                print("⚠️ Cihaz token'ı güncellenirken hata oluştu (login başarılı): \(error.localizedDescription)")
+            }
+        }
     }
 }
 extension LoginService: LoginServiceProtocol { }

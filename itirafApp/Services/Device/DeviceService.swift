@@ -15,7 +15,7 @@ protocol DeviceServiceProtocol {
 final class DeviceService: DeviceServiceProtocol {
     private let networkService: NetworkService
     
-    init(networkService: NetworkService) {
+    init(networkService: NetworkService = NetworkManager.shared) {
         self.networkService = networkService
     }
     
