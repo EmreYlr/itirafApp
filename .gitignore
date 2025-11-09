@@ -5,3 +5,4 @@ itirafApp/Core/Helpers/Constants.swift
 itirafApp/Core/Extension/UserDefaults+Keys.swift
 itirafApp/Core/Network/Constant/Endpoint.swift
 itirafApp/Core/Network/Constant/NetworkConstants.swift
+itirafApp/GoogleService-Info.plist

@@ -42,7 +42,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
     }
 
-
     @objc private func handleLogout() {
         AuthManager.shared.clearTokens()
         UserManager.shared.clear()

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 final class DetailViewController: UIViewController {
     @IBOutlet weak var contentLabel: UILabel!
@@ -95,7 +96,10 @@ final class DetailViewController: UIViewController {
         self.present(requestBottomSheetVC, animated: true)
     }
     
-    @IBAction func commentButtonClicked(_ sender: UIButton) { }
+    @IBAction func commentButtonClicked(_ sender: UIButton) {
+        Crashlytics.crashlytics().log("Comment button clicked in DetailViewController")
+        fatalError("Comment feature is not implemented yet.")
+    }
     
     @IBAction func likeButtonClicked(_ sender: UIButton) {
         guard let isLiked = detailViewModel.confession?.liked else { return }

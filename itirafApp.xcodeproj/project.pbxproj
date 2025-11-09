@@ -60,6 +60,9 @@
 		C38EAAB02EBFB38100A1818C /* RegisterDeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */; };
 		C38EAAB12EBFB38100A1818C /* DeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */; };
 		C38EAAB22EBFB38100A1818C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAE2EBFB38100A1818C /* DeviceService.swift */; };
+		C38EAABE2EC0BDFA00A1818C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38EAABD2EC0BDFA00A1818C /* GoogleService-Info.plist */; };
+		C38EAAC22EC0C23000A1818C /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C38EAAC12EC0C23000A1818C /* FirebaseCrashlytics */; };
+		C38EAAC42EC0C66000A1818C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = C38EAAC32EC0C66000A1818C /* FirebaseCore */; };
 		C3A750712EB4C7720058163B /* EditSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750702EB4C7720058163B /* EditSocialViewController.swift */; };
 		C3A750732EB4C78A0058163B /* EditSocialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750722EB4C7860058163B /* EditSocialViewModel.swift */; };
 		C3A750752EB4C9510058163B /* EditSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750742EB4C94E0058163B /* EditSocialService.swift */; };
@@ -230,6 +233,7 @@
 		C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDeviceRequest.swift; sourceTree = "<group>"; };
 		C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetails.swift; sourceTree = "<group>"; };
 		C38EAAAE2EBFB38100A1818C /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
+		C38EAABD2EC0BDFA00A1818C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3A750702EB4C7720058163B /* EditSocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialViewController.swift; sourceTree = "<group>"; };
 		C3A750722EB4C7860058163B /* EditSocialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialViewModel.swift; sourceTree = "<group>"; };
 		C3A750742EB4C94E0058163B /* EditSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialService.swift; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C37D5DEA2E8415260068F334 /* Alamofire in Frameworks */,
+				C38EAAC42EC0C66000A1818C /* FirebaseCore in Frameworks */,
+				C38EAAC22EC0C23000A1818C /* FirebaseCrashlytics in Frameworks */,
 				C35148892EAA302C00359585 /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,6 +678,13 @@
 				C38EAAAE2EBFB38100A1818C /* DeviceService.swift */,
 			);
 			path = Device;
+			sourceTree = "<group>";
+		};
+		C38EAAC02EC0C23000A1818C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C3A7506A2EB4C6BC0058163B /* EditSocial */ = {
@@ -1425,6 +1438,7 @@
 			children = (
 				C3EB10762E744115002DA295 /* itirafApp */,
 				C37D5E022E842CB80068F334 /* itirafAppTests */,
+				C38EAAC02EC0C23000A1818C /* Frameworks */,
 				C3EB10562E7440CE002DA295 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1441,6 +1455,7 @@
 		C3EB10762E744115002DA295 /* itirafApp */ = {
 			isa = PBXGroup;
 			children = (
+				C38EAABD2EC0BDFA00A1818C /* GoogleService-Info.plist */,
 				C38EAAA92EBFB36100A1818C /* itirafApp.entitlements */,
 				C3EB107E2E74411A002DA295 /* App */,
 				C3EB10872E744A4A002DA295 /* Core */,
@@ -1709,6 +1724,7 @@
 				C3EB10512E7440CE002DA295 /* Sources */,
 				C3EB10522E7440CE002DA295 /* Frameworks */,
 				C3EB10532E7440CE002DA295 /* Resources */,
+				C38EAAC52EC0CEB300A1818C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1718,6 +1734,8 @@
 			packageProductDependencies = (
 				C37D5DE92E8415260068F334 /* Alamofire */,
 				C35148882EAA302C00359585 /* MessageKit */,
+				C38EAAC12EC0C23000A1818C /* FirebaseCrashlytics */,
+				C38EAAC32EC0C66000A1818C /* FirebaseCore */,
 			);
 			productName = itirafApp;
 			productReference = C3EB10552E7440CE002DA295 /* itirafApp.app */;
@@ -1754,6 +1772,7 @@
 			packageReferences = (
 				C37D5DE82E8415260068F334 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C35148872EAA302C00359585 /* XCRemoteSwiftPackageReference "MessageKit" */,
+				C38EAAB52EC0BBA000A1818C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C3EB10562E7440CE002DA295 /* Products */;
@@ -1780,6 +1799,7 @@
 			files = (
 				C3A750A82EB643070058163B /* Chat.storyboard in Resources */,
 				C3D764C32E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib in Resources */,
+				C38EAABE2EC0BDFA00A1818C /* GoogleService-Info.plist in Resources */,
 				C3A7A4202EA9446F00250B06 /* DirectMessage.storyboard in Resources */,
 				C3C08BAE2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.xib in Resources */,
 				C3A750A02EB623540058163B /* RequestMessageCollectionViewCell.xib in Resources */,
@@ -1806,6 +1826,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C38EAAC52EC0CEB300A1818C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C37D5DFD2E842CB80068F334 /* Sources */ = {
@@ -2029,6 +2074,7 @@
 				CODE_SIGN_ENTITLEMENTS = itirafApp/itirafApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = US4P6S3B5V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = itirafApp/App/Info.plist;
@@ -2043,6 +2089,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emre.itirafApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2059,6 +2106,7 @@
 				CODE_SIGN_ENTITLEMENTS = itirafApp/itirafApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = US4P6S3B5V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = itirafApp/App/Info.plist;
@@ -2073,6 +2121,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emre.itirafApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2115,7 +2164,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = US4P6S3B5V;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -2140,6 +2189,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2198,6 +2248,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
@@ -2253,6 +2304,14 @@
 				minimumVersion = 5.10.2;
 			};
 		};
+		C38EAAB52EC0BBA000A1818C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2265,6 +2324,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C37D5DE82E8415260068F334 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		C38EAAC12EC0C23000A1818C /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C38EAAB52EC0BBA000A1818C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		C38EAAC32EC0C66000A1818C /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C38EAAB52EC0BBA000A1818C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

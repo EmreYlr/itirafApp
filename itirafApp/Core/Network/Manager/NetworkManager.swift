@@ -7,6 +7,7 @@
 
 import Alamofire
 import Foundation
+import FirebaseCrashlytics
 
 final class NetworkManager {
     static let shared = NetworkManager()
@@ -43,6 +44,11 @@ final class NetworkManager {
         case .failure(let error):
             let statusCode = error.responseCode ?? -1
             print("❌ [\(method.rawValue)] \(endpoint.path) - Status: \(statusCode)")
+            //TODO: -Manager yaz
+            Crashlytics.crashlytics().record(error: error)
+            Crashlytics.crashlytics().setUserID("1234")
+            Crashlytics.crashlytics().log("Error4")
+            Crashlytics.crashlytics().sendUnsentReports()
             
             if let data = response.data,
                let apiError = try? JSONDecoder().decode(APIError.self, from: data) {
