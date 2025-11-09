@@ -62,7 +62,7 @@ final class PostConfessionViewController: UIViewController {
 //        sender.isEnabled = false
 //        activityIndicator.startAnimating()
         
-        Task {
+        Task(priority: .utility) {
 //            defer {
 //                // Animasyonu durdur ve butonu tekrar aktif et
 //                activityIndicator.stopAnimating()

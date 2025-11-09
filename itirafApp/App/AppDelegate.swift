@@ -55,11 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     private func registerOrUpdateDevice(with token: String) async {
         do {
-            if UserManager.shared.getUserIsAnonymous() {
-                try await deviceService.registerDeviceToken(token)
-            } else {
-                try await deviceService.updateDeviceToken(token, notificationEnabled: true)
-            }
+            try await deviceService.registerDeviceToken(token, notificationEnabled: true)
         } catch {
             print("❌ Device token kaydedilemedi: \(error.localizedDescription)")
         }

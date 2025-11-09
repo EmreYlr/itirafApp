@@ -46,9 +46,8 @@ final class LoginService {
         _ = try await userService.fetchCurrentUser()
         
         if let deviceToken = UserDefaults.standard.string(forKey: .deviceToken) {
-            
             do {
-                try await deviceService.updateDeviceToken(deviceToken, notificationEnabled: true)
+                try await deviceService.registerDeviceToken(deviceToken, notificationEnabled: true)
             } catch {
                 print("⚠️ Cihaz token'ı güncellenirken hata oluştu (login başarılı): \(error.localizedDescription)")
             }

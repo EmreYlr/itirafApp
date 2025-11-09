@@ -8,8 +8,7 @@
 import Alamofire
 
 protocol DeviceServiceProtocol {
-    func registerDeviceToken(_ token: String) async throws
-    func updateDeviceToken(_ token: String, notificationEnabled: Bool) async throws
+    func registerDeviceToken(_ token: String,  notificationEnabled: Bool) async throws
 }
 
 final class DeviceService: DeviceServiceProtocol {
@@ -19,36 +18,19 @@ final class DeviceService: DeviceServiceProtocol {
         self.networkService = networkService
     }
     
-    func registerDeviceToken(_ token: String) async throws {
-        let parameters: [String: Any] = [
-            "token": token,
-            "platform": DeviceDetails.platform,
-            "appVersion": DeviceDetails.appVersion,
-            "deviceModel": DeviceDetails.deviceModel,
-            "osVersion": DeviceDetails.osVersion
-        ]
-
-        let _: Empty = try await networkService.request(
-            endpoint: Endpoint.Device.registerDevices,
-            method: .post,
-            parameters: parameters,
-            encoding: JSONEncoding.default
-        )
-    }
-    
-    func updateDeviceToken(_ token: String, notificationEnabled: Bool) async throws {
+    func registerDeviceToken(_ token: String, notificationEnabled: Bool) async throws {
         let parameters: [String: Any] = [
             "token": token,
             "platform": DeviceDetails.platform,
             "appVersion": DeviceDetails.appVersion,
             "deviceModel": DeviceDetails.deviceModel,
             "osVersion": DeviceDetails.osVersion,
-            "enabled": notificationEnabled
+            "pushEnabled": notificationEnabled
         ]
-        
+
         let _: Empty = try await networkService.request(
-            endpoint: Endpoint.Device.updateDevices,
-            method: .put,
+            endpoint: Endpoint.Device.registerDevices,
+            method: .post,
             parameters: parameters,
             encoding: JSONEncoding.default
         )
