@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
         let token = deviceToken.map { String(format: "%02x", $0) }.joined()
-        print("📱 Device Token: \(token)")
+//        print("📱 Device Token: \(token)")
         
         let savedToken = UserDefaults.standard.string(forKey: .deviceToken)
         guard savedToken != token else { return }
