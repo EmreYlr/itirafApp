@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseCrashlytics
 
 final class DetailViewController: UIViewController {
     @IBOutlet weak var contentLabel: UILabel!
@@ -97,7 +96,7 @@ final class DetailViewController: UIViewController {
     }
     
     @IBAction func commentButtonClicked(_ sender: UIButton) {
-        Crashlytics.crashlytics().log("Comment button clicked in DetailViewController")
+        CrashlyticsManager.shared.logMessage("Comment button clicked - Feature not implemented yet.")
         fatalError("Comment feature is not implemented yet.")
     }
     

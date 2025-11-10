@@ -51,6 +51,10 @@ final class AuthService {
             refreshToken: response.refreshToken
         )
         UserManager.shared.setUser(user)
+        
+        CrashlyticsManager.shared.setUserID(user.id ?? "anonymous_user")
+        CrashlyticsManager.shared.isUserAnonymous(true)
+        
         return response
     }
     

@@ -9,9 +9,6 @@ import UIKit
 
 final class RegisterViewController: UIViewController {
     //MARK: - Properties
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var surnameTextField: UITextField!
-    @IBOutlet weak var phoneNumTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
@@ -27,15 +24,14 @@ final class RegisterViewController: UIViewController {
         super.viewDidLoad()
         print("RegisterViewController")
         registerViewModel.delegate = self
-
+        
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let username = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-
-        guard !email.isEmpty, !password.isEmpty, !username.isEmpty else {
+        
+        guard !email.isEmpty, !password.isEmpty else {
             showOneButtonAlert(
                 title: "Eksik Bilgi",
                 message: "Lütfen tüm alanları doldurun.",
@@ -43,18 +39,17 @@ final class RegisterViewController: UIViewController {
             )
             return
         }
-
+        
         sender.isEnabled = false
-
-        Task {
+        
+        Task(priority: .utility) {
             defer {
                 sender.isEnabled = true
             }
-
+            
             await registerViewModel.registerUser(
                 email: email,
-                password: password,
-                username: username
+                password: password
             )
         }
     }
@@ -64,6 +59,15 @@ final class RegisterViewController: UIViewController {
 extension RegisterViewController: RegisterViewModelOutputProtocol {
     func didRegisterSuccessfully() {
         print("Registration Successful")
+        DispatchQueue.main.async {
+            self.showOneButtonAlert(
+                title: "Kayıt Başarılı",
+                message: "Hesabınız başarıyla oluşturuldu. Giriş yapabilirsiniz.",
+                buttonTitle: "Tamam"
+            ) { _ in
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     func didFailToRegister(with error: Error) {

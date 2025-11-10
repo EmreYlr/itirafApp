@@ -24,6 +24,9 @@ final class SettingsService: SettingsServiceProtocol {
             parameters: nil,
             encoding: URLEncoding.default
         )
+        CrashlyticsManager.shared.setUserID("none")
+        CrashlyticsManager.shared.isUserAnonymous(true)
+        
         AuthManager.shared.clearTokens()
         UserManager.shared.clear()
     }

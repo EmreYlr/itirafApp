@@ -43,13 +43,17 @@ final class LoginService {
             refreshToken: response.refreshToken
         )
         
-        _ = try await userService.fetchCurrentUser()
+        let user = try await userService.fetchCurrentUser()
+
+        CrashlyticsManager.shared.setUserID(user.id ?? "NoN")
+        CrashlyticsManager.shared.isUserAnonymous(false)
         
         if let deviceToken = UserDefaults.standard.string(forKey: .deviceToken) {
             do {
                 try await deviceService.registerDeviceToken(deviceToken, notificationEnabled: true)
             } catch {
                 print("⚠️ Cihaz token'ı güncellenirken hata oluştu (login başarılı): \(error.localizedDescription)")
+                CrashlyticsManager.shared.sentNonFatal(error)
             }
         }
     }

@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 protocol RegisterServiceProtocol {
-    func registerUser(email: String, password: String, username: String) async throws
+    func registerUser(email: String, password: String) async throws
 }
 
 final class RegisterService {
@@ -19,10 +19,9 @@ final class RegisterService {
         self.networkService = networkService
     }
 
-    func registerUser(email: String, password: String, username: String) async throws {
+    func registerUser(email: String, password: String) async throws {
         let params: Parameters = [
             "email": email,
-            "username": username,
             "password": password
         ]
 

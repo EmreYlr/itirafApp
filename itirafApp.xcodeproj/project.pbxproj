@@ -63,6 +63,7 @@
 		C38EAABE2EC0BDFA00A1818C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38EAABD2EC0BDFA00A1818C /* GoogleService-Info.plist */; };
 		C38EAAC22EC0C23000A1818C /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C38EAAC12EC0C23000A1818C /* FirebaseCrashlytics */; };
 		C38EAAC42EC0C66000A1818C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = C38EAAC32EC0C66000A1818C /* FirebaseCore */; };
+		C38EAAC82EC1F3A400A1818C /* CrashlyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAC72EC1F39B00A1818C /* CrashlyticsManager.swift */; };
 		C3A750712EB4C7720058163B /* EditSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750702EB4C7720058163B /* EditSocialViewController.swift */; };
 		C3A750732EB4C78A0058163B /* EditSocialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750722EB4C7860058163B /* EditSocialViewModel.swift */; };
 		C3A750752EB4C9510058163B /* EditSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750742EB4C94E0058163B /* EditSocialService.swift */; };
@@ -234,6 +235,7 @@
 		C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetails.swift; sourceTree = "<group>"; };
 		C38EAAAE2EBFB38100A1818C /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
 		C38EAABD2EC0BDFA00A1818C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C38EAAC72EC1F39B00A1818C /* CrashlyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
 		C3A750702EB4C7720058163B /* EditSocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialViewController.swift; sourceTree = "<group>"; };
 		C3A750722EB4C7860058163B /* EditSocialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialViewModel.swift; sourceTree = "<group>"; };
 		C3A750742EB4C94E0058163B /* EditSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialService.swift; sourceTree = "<group>"; };
@@ -680,11 +682,12 @@
 			path = Device;
 			sourceTree = "<group>";
 		};
-		C38EAAC02EC0C23000A1818C /* Frameworks */ = {
+		C38EAAC62EC1F32600A1818C /* Crashlytics */ = {
 			isa = PBXGroup;
 			children = (
+				C38EAAC72EC1F39B00A1818C /* CrashlyticsManager.swift */,
 			);
-			name = Frameworks;
+			path = Crashlytics;
 			sourceTree = "<group>";
 		};
 		C3A7506A2EB4C6BC0058163B /* EditSocial */ = {
@@ -1041,6 +1044,7 @@
 		C3A7A42F2EA9586400250B06 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C38EAAC62EC1F32600A1818C /* Crashlytics */,
 				C38EAAAF2EBFB38100A1818C /* Device */,
 				C3EB10892E744A5D002DA295 /* Auth */,
 				C3D7658D2E95506600104C3B /* Channel */,
@@ -1438,7 +1442,6 @@
 			children = (
 				C3EB10762E744115002DA295 /* itirafApp */,
 				C37D5E022E842CB80068F334 /* itirafAppTests */,
-				C38EAAC02EC0C23000A1818C /* Frameworks */,
 				C3EB10562E7440CE002DA295 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1830,6 +1833,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		C38EAAC52EC0CEB300A1818C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1963,6 +1967,7 @@
 				C38EAA9D2EBF4FF400A1818C /* ViolationsViewController.swift in Sources */,
 				C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */,
 				C326DD4A2E8D824E001B7837 /* UserDefaultsHelper.swift in Sources */,
+				C38EAAC82EC1F3A400A1818C /* CrashlyticsManager.swift in Sources */,
 				C3E660422EB399060059048F /* MyConfessionDetailViewController.swift in Sources */,
 				C3A750892EB511E00058163B /* SettingsViewController+CollectionView.swift in Sources */,
 				C37D5DF02E841DD50068F334 /* KeychainHelper.swift in Sources */,
