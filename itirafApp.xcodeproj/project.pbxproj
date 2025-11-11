@@ -65,6 +65,9 @@
 		C38EAAC42EC0C66000A1818C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = C38EAAC32EC0C66000A1818C /* FirebaseCore */; };
 		C38EAAC82EC1F3A400A1818C /* CrashlyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAC72EC1F39B00A1818C /* CrashlyticsManager.swift */; };
 		C38EAACB2EC2241600A1818C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAACA2EC2241600A1818C /* AppCoordinator.swift */; };
+		C38EAACD2EC331FC00A1818C /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAACC2EC331FC00A1818C /* AppRoute.swift */; };
+		C38EAACF2EC3321200A1818C /* DeeplinkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAACE2EC3321200A1818C /* DeeplinkParser.swift */; };
+		C38EAAD12EC338E400A1818C /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAD02EC338E400A1818C /* AppRouter.swift */; };
 		C3A750712EB4C7720058163B /* EditSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750702EB4C7720058163B /* EditSocialViewController.swift */; };
 		C3A750732EB4C78A0058163B /* EditSocialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750722EB4C7860058163B /* EditSocialViewModel.swift */; };
 		C3A750752EB4C9510058163B /* EditSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750742EB4C94E0058163B /* EditSocialService.swift */; };
@@ -238,6 +241,9 @@
 		C38EAABD2EC0BDFA00A1818C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C38EAAC72EC1F39B00A1818C /* CrashlyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
 		C38EAACA2EC2241600A1818C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		C38EAACC2EC331FC00A1818C /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
+		C38EAACE2EC3321200A1818C /* DeeplinkParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkParser.swift; sourceTree = "<group>"; };
+		C38EAAD02EC338E400A1818C /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		C3A750702EB4C7720058163B /* EditSocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialViewController.swift; sourceTree = "<group>"; };
 		C3A750722EB4C7860058163B /* EditSocialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialViewModel.swift; sourceTree = "<group>"; };
 		C3A750742EB4C94E0058163B /* EditSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialService.swift; sourceTree = "<group>"; };
@@ -610,6 +616,7 @@
 		C37D5E0A2E856C1A0068F334 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C38EAACE2EC3321200A1818C /* DeeplinkParser.swift */,
 				C37D5E0B2E856C3F0068F334 /* LoginAlertPresenter.swift */,
 			);
 			path = Utils;
@@ -695,6 +702,8 @@
 		C38EAAC92EC223C600A1818C /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				C38EAACC2EC331FC00A1818C /* AppRoute.swift */,
+				C38EAAD02EC338E400A1818C /* AppRouter.swift */,
 				C38EAACA2EC2241600A1818C /* AppCoordinator.swift */,
 			);
 			path = Coordinators;
@@ -1880,6 +1889,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3528F3F2EBBB6DD00FF1C19 /* ModerationDetailViewModel.swift in Sources */,
+				C38EAACD2EC331FC00A1818C /* AppRoute.swift in Sources */,
 				C3F39E162EA0269200197509 /* PostConfessionService.swift in Sources */,
 				C3E6602C2EB257540059048F /* MyConfessionsCollectionViewCell.swift in Sources */,
 				C3A750982EB609900058163B /* RequestMessageViewModel.swift in Sources */,
@@ -1978,6 +1988,7 @@
 				C3A750A32EB623690058163B /* RequestMessageViewController+CollectionView.swift in Sources */,
 				C38EAA9D2EBF4FF400A1818C /* ViolationsViewController.swift in Sources */,
 				C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */,
+				C38EAAD12EC338E400A1818C /* AppRouter.swift in Sources */,
 				C326DD4A2E8D824E001B7837 /* UserDefaultsHelper.swift in Sources */,
 				C38EAAC82EC1F3A400A1818C /* CrashlyticsManager.swift in Sources */,
 				C3E660422EB399060059048F /* MyConfessionDetailViewController.swift in Sources */,
@@ -2000,6 +2011,7 @@
 				C3D764C22E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift in Sources */,
 				C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */,
 				C3A7A4382EAA288000250B06 /* ChatViewModel.swift in Sources */,
+				C38EAACF2EC3321200A1818C /* DeeplinkParser.swift in Sources */,
 				C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */,
 				C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */,
 				C3528F1C2EB9092A00FF1C19 /* RequestSentDetailViewModel.swift in Sources */,

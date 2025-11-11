@@ -10,9 +10,11 @@ import UIKit
 final class AppCoordinator {
     
     private let window: UIWindow
+    private let router: AppRouter
     
     init(window: UIWindow) {
         self.window = window
+        self.router = AppRouter(window: window)
     }
     
     func start() {
@@ -28,7 +30,6 @@ final class AppCoordinator {
                     if success {
                         self.showHomeController()
                     } else {
-                        // TODO: Hata göster. Şimdilik login'e yönlendirebiliriz.
                         self.showLoginController()
                     }
                 }
@@ -39,24 +40,13 @@ final class AppCoordinator {
     }
     
     private func setupNotificationObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleLogout), name: .userDidLogout, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showLoginRequired), name: .loginRequired, object: nil)
     }
     
-    
-    @objc private func handleLogout() {
-        DispatchQueue.main.async {
-            AuthManager.shared.clearTokens()
-            UserManager.shared.clear()
-            self.showLoginController()
-        }
-    }
-    
     @objc private func showLoginRequired() {
-        guard let topVC = UIApplication.topMostViewController() else { return }
-        LoginAlertPresenter.showLoginAlert(from: topVC)
+        router.showLoginRequiredAlert()
     }
-
+    
     private func showLoginController() {
         let loginNav = Storyboard.login.instantiateNav(.loginNav)
         window.rootViewController = loginNav
@@ -65,19 +55,31 @@ final class AppCoordinator {
     private func showHomeController() {
         let tabNav = Storyboard.main.instantiateTabBar(.mainTabBar)
         window.rootViewController = tabNav
+        
+        router.checkPendingRoute()
     }
-
+    
     func handleUserActivity(_ userActivity: NSUserActivity) {
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
               let incomingURL = userActivity.webpageURL else {
             return
         }
-
+        
         print("Universal Link yakaladı: \(incomingURL)")
+        handleDeeplink(url: incomingURL)
+    }
+    
+    func handleDeeplink(url: URL) {
+        guard let route = DeeplinkParser.parse(url: url) else {
+            print("Anlaşılamayan veya hatalı link: \(url)")
+            router.navigate(to: .home)
+            return
+        }
+        
+        router.navigate(to: route)
     }
     
     deinit {
-        print("AppCoordinator deinit edildi")
         NotificationCenter.default.removeObserver(self)
     }
 }

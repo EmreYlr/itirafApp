@@ -25,7 +25,6 @@ protocol DetailViewModelOutputProtocol: AnyObject {
     func didFailToAddComment(with error: Error)
 }
 
-@MainActor
 final class DetailViewModel {
     weak var delegate: DetailViewModelOutputProtocol?
     var confession: ChannelMessageData?
@@ -42,11 +41,16 @@ final class DetailViewModel {
         do {
             let messageData = try await detailService.fetchDetail(messageId: messageId)
             confession = messageData
-            delegate?.didFetchDetail()
+            await MainActor.run {
+                delegate?.didFetchDetail()
+            }
         } catch {
-            delegate?.didFailToFetchDetail(with: error)
+            await MainActor.run {
+                delegate?.didFailToFetchDetail(with: error)
+            }
         }
     }
+
     
     func likeMessage() async {
         do {
@@ -73,26 +77,35 @@ final class DetailViewModel {
             owner: Owner(id: "-1", username: "You"),
             createdAt: ISO8601DateFormatter().string(from: Date())
         )
- 
+
         do {
             try await detailService.repliesMessage(message: message, messageId: messageId)
             confession?.replies.append(newReply)
-            delegate?.didUpdateReplies()
+            await MainActor.run {
+                delegate?.didUpdateReplies()
+            }
         } catch {
-            delegate?.didFailToAddComment(with: error)
+            await MainActor.run {
+                delegate?.didFailToAddComment(with: error)
+            }
         }
     }
+
     private func toggleLikeState() {
         guard var confession = confession else { return }
         confession.liked.toggle()
         confession.likeCount += confession.liked ? 1 : -1
         self.confession = confession
-        delegate?.didUpdateLikeStatus(isLiked: confession.liked, likeCount: confession.likeCount)
+        
+        Task { @MainActor in
+            delegate?.didUpdateLikeStatus(isLiked: confession.liked, likeCount: confession.likeCount)
+        }
     }
+
     
     func getChannelMessageId() -> Int {
         return messageId
     }
 }
 
-extension DetailViewModel: @preconcurrency DetailViewModelProtocol { }
+extension DetailViewModel: DetailViewModelProtocol { }

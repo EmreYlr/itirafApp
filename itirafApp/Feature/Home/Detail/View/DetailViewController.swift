@@ -153,8 +153,10 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     
     func didFetchDetail() {
         print("Detail Fetched")
-        updateScreen()
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.updateScreen()
+            self.collectionView.reloadData()
+        }
     }
     
     func didFailToLikeMessage(with error: Error) {

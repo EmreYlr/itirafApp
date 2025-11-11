@@ -22,6 +22,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.appCoordinator = AppCoordinator(window: window)
         
         self.appCoordinator?.start()
+        
+        if let userActivity = connectionOptions.userActivities.first(where: { $0.activityType == NSUserActivityTypeBrowsingWeb }) {
+            appCoordinator?.handleUserActivity(userActivity)
+        }
     }
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {

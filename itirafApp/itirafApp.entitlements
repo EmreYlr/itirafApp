@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:backend.itirafapp.com</string>
+		<string>applinks:backend.itirafapp.com?mode=developer</string>
 	</array>
 </dict>
 </plist>
