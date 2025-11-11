@@ -41,10 +41,15 @@ final class AppCoordinator {
     
     private func setupNotificationObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(showLoginRequired), name: .loginRequired, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNotificationNavigation), name: .didTapPushNotification, object: nil)
     }
     
     @objc private func showLoginRequired() {
         router.showLoginRequiredAlert()
+    }
+    
+    @objc func handleNotificationNavigation(_ notification: Notification) {
+        router.handleNotificationNavigation(notification)
     }
     
     private func showLoginController() {

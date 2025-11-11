@@ -13,4 +13,7 @@ extension NSNotification.Name {
     
     //CHANNEL
     static let channelDidChange = NSNotification.Name("channelDidChange")
+    
+    //NOTIFICATION
+    static let didTapPushNotification = NSNotification.Name("didTapPushNotification")
 }

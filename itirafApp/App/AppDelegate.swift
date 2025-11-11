@@ -71,16 +71,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("❌ Token alınamadı: \(error.localizedDescription)")
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
         completionHandler([.banner, .sound, .badge])
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("🔔 Kullanıcı bildirime tıkladı: \(response.notification.request.content.userInfo)")
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let userInfo = response.notification.request.content.userInfo
+        print("🔔 Kullanıcı bildirime tıkladı: \(userInfo)")
+        
+        NotificationCenter.default.post(
+            name: .didTapPushNotification,
+            object: nil,
+            userInfo: userInfo
+        )
+        
         completionHandler()
     }
     

@@ -42,7 +42,29 @@ final class AppRouter {
             case .passwordReset(let token):
                 print("Şifre sıfırlama ekranına yönlendiriliyor: \(token)")
                 // TODO: Şifre sıfırlama VC'sini göster
+            case .directMessage(let roomId, let username):
+                tabBarController.selectedIndex = 0
+                
+                guard let nav = tabBarController.selectedViewController as? UINavigationController else {
+                    print("Hata: Ana tab (index 0) bir UINavigationController değil.")
+                    return
+                }
+                
+                let chatVC: ChatViewController = Storyboard.chat.instantiate(.chat)
+                chatVC.viewModel.directMessage = DirectMessage(roomID: roomId, username: username, lastMessage: "", lastMessageDate: "", isLastMessageMine: false, status: "APPROVED")
+                chatVC.mode = .directMessage
+                
+                nav.pushViewController(chatVC, animated: true)
+                
+            case .myConfessions:
+                let targetTabIndex = 3
+                tabBarController.selectedIndex = targetTabIndex
+
+                if let nav = tabBarController.viewControllers?[targetTabIndex] as? UINavigationController {
+                    nav.popToRootViewController(animated: true)
+                }
             }
+            
         }
     }
     
@@ -57,5 +79,17 @@ final class AppRouter {
     func showLoginRequiredAlert() {
         guard let topVC = UIApplication.topMostViewController() else { return }
         LoginAlertPresenter.showLoginAlert(from: topVC)
+    }
+    
+    func handleNotificationNavigation(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        guard let route = NotificationParser.parse(userInfo: userInfo) else {
+            print("Bilinmeyen bir bildirim türü, ana sayfaya yönlendiriliyor.")
+            self.navigate(to: .home)
+            return
+        }
+        
+        self.navigate(to: route)
     }
 }

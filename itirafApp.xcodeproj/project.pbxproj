@@ -68,6 +68,7 @@
 		C38EAACD2EC331FC00A1818C /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAACC2EC331FC00A1818C /* AppRoute.swift */; };
 		C38EAACF2EC3321200A1818C /* DeeplinkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAACE2EC3321200A1818C /* DeeplinkParser.swift */; };
 		C38EAAD12EC338E400A1818C /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAD02EC338E400A1818C /* AppRouter.swift */; };
+		C39700952EC35ADE0062E505 /* NotificationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39700942EC35AD90062E505 /* NotificationParser.swift */; };
 		C3A750712EB4C7720058163B /* EditSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750702EB4C7720058163B /* EditSocialViewController.swift */; };
 		C3A750732EB4C78A0058163B /* EditSocialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750722EB4C7860058163B /* EditSocialViewModel.swift */; };
 		C3A750752EB4C9510058163B /* EditSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750742EB4C94E0058163B /* EditSocialService.swift */; };
@@ -244,6 +245,7 @@
 		C38EAACC2EC331FC00A1818C /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		C38EAACE2EC3321200A1818C /* DeeplinkParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkParser.swift; sourceTree = "<group>"; };
 		C38EAAD02EC338E400A1818C /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		C39700942EC35AD90062E505 /* NotificationParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationParser.swift; sourceTree = "<group>"; };
 		C3A750702EB4C7720058163B /* EditSocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialViewController.swift; sourceTree = "<group>"; };
 		C3A750722EB4C7860058163B /* EditSocialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialViewModel.swift; sourceTree = "<group>"; };
 		C3A750742EB4C94E0058163B /* EditSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocialService.swift; sourceTree = "<group>"; };
@@ -616,6 +618,7 @@
 		C37D5E0A2E856C1A0068F334 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C39700942EC35AD90062E505 /* NotificationParser.swift */,
 				C38EAACE2EC3321200A1818C /* DeeplinkParser.swift */,
 				C37D5E0B2E856C3F0068F334 /* LoginAlertPresenter.swift */,
 			);
@@ -1894,6 +1897,7 @@
 				C3E6602C2EB257540059048F /* MyConfessionsCollectionViewCell.swift in Sources */,
 				C3A750982EB609900058163B /* RequestMessageViewModel.swift in Sources */,
 				C37D5DFC2E842AE30068F334 /* LoginService.swift in Sources */,
+				C39700952EC35ADE0062E505 /* NotificationParser.swift in Sources */,
 				C3A7A42D2EA94D6400250B06 /* DirectMessage.swift in Sources */,
 				C3C08BB82E8AF54900EDC6A2 /* PersonViewController.swift in Sources */,
 				C37D5DE32E8414630068F334 /* NetworkConstants.swift in Sources */,

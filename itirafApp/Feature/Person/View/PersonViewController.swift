@@ -45,7 +45,7 @@ final class PersonViewController: UIViewController {
         let more = UIImage(systemName: "line.3.horizontal")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: more , style: .done, target: self, action: #selector(moreButtonTapped))
-
+        //TODO: -Eğer kullanıcının sosyal linkleri localde varsa istek atma yoksa istek at
         Task {
             await personViewModel.getUserSocialLinks()
         }
