@@ -8,7 +8,7 @@
 import Foundation
 
 struct UserSocialLink: Codable {
-    let links: [Link]
+    var links: [Link]
 }
 
 struct Link: Codable {

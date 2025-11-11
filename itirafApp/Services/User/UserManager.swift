@@ -36,6 +36,10 @@ final class UserManager {
         return currentUser?.roles
     }
     
+    func getSocialLinks() -> [Link]? {
+        return currentUser?.socialLink
+    }
+    
     func getUserIsAnonymous() -> Bool {
         return currentUser?.anonymous ?? true
     }
@@ -49,6 +53,12 @@ final class UserManager {
         saveToDefaults(user)
         // OPTIONEL: user değiştiğinde Home ekranına bildirim göndermek için
         // NotificationCenter.default.post(name: .userDidChange, object: nil)
+    }
+    
+    func saveSocialLinks(_ links: [Link]) {
+        guard var user = currentUser else { return }
+        user.socialLink = links
+        setUser(user)
     }
     
     private func loadUser() {

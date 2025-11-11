@@ -10,10 +10,12 @@ struct User: Codable {
     var username: String?
     var email: String
     var anonymous: Bool
+    var socialLink: [Link]?
     let roles: [Role]
     
     enum CodingKeys: String, CodingKey {
         case id, username, email, anonymous, roles
+        case socialLink = "social_links"
     }
     
     init(from decoder: Decoder) throws {
@@ -23,14 +25,16 @@ struct User: Codable {
         email = try container.decode(String.self, forKey: .email)
         anonymous = try container.decodeIfPresent(Bool.self, forKey: .anonymous) ?? true
         roles = try container.decodeIfPresent([Role].self, forKey: .roles) ?? []
+        socialLink = try container.decodeIfPresent([Link].self, forKey: .socialLink) ?? []
     }
     
-    init(id: String? = nil, username: String? = nil, email: String, isAnonymous: Bool = true, roles: [Role] = []) {
+    init(id: String? = nil, username: String? = nil, email: String, isAnonymous: Bool = true, roles: [Role] = [], socialLink: [Link]? = nil) {
         self.id = id
         self.username = username
         self.email = email
         self.anonymous = isAnonymous
         self.roles = roles
+        self.socialLink = socialLink
     }
 }
 

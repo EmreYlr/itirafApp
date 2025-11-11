@@ -27,8 +27,16 @@ final class PersonViewModel {
     }
     
     func getUserSocialLinks() async {
+        if let socialLinks = UserManager.shared.getSocialLinks(), !socialLinks.isEmpty {
+            let socialLinks = UserSocialLink(links: socialLinks)
+            self.socialLinks = socialLinks
+            delegate?.didUpdateSocialLinks()
+            return
+        }
+        
         do {
             socialLinks = try await personService.getUserSocialLinks()
+            UserManager.shared.saveSocialLinks(socialLinks?.links ?? [])
             delegate?.didUpdateSocialLinks()
         } catch {
             delegate?.didFailSocialLinks(with: error)
