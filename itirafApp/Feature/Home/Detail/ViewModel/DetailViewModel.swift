@@ -14,6 +14,7 @@ protocol DetailViewModelProtocol {
     func unlikeMessage() async
     func addComment(message: String) async
     func getChannelMessageId() -> Int
+    func createShortlink() async
 }
 
 protocol DetailViewModelOutputProtocol: AnyObject {
@@ -23,6 +24,8 @@ protocol DetailViewModelOutputProtocol: AnyObject {
     func didFailToFetchDetail(with error: Error)
     func didUpdateReplies()
     func didFailToAddComment(with error: Error)
+    func didCreateShortlink(shortlink: ShortlinkResponse)
+    func didFailToCreateShortlink(with error: Error)
 }
 
 final class DetailViewModel {
@@ -88,6 +91,15 @@ final class DetailViewModel {
             await MainActor.run {
                 delegate?.didFailToAddComment(with: error)
             }
+        }
+    }
+    
+    func createShortlink() async {
+        do {
+            let shortlink = try await detailService.createShortlink(messageId: messageId)
+            delegate?.didCreateShortlink(shortlink: shortlink)
+        } catch {
+            delegate?.didFailToCreateShortlink(with: error)
         }
     }
 

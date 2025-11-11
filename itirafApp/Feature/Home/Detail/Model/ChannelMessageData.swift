@@ -27,3 +27,6 @@ struct Reply: Codable {
     let createdAt: String
 }
 
+struct ShortlinkResponse: Codable {
+    let url: String
+}

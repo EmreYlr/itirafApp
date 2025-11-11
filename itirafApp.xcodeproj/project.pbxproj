@@ -1480,8 +1480,8 @@
 				C38EAABD2EC0BDFA00A1818C /* GoogleService-Info.plist */,
 				C38EAAA92EBFB36100A1818C /* itirafApp.entitlements */,
 				C3EB107E2E74411A002DA295 /* App */,
-				C38EAAC92EC223C600A1818C /* Coordinators */,
 				C3EB10872E744A4A002DA295 /* Core */,
+				C38EAAC92EC223C600A1818C /* Coordinators */,
 				C3A7A42F2EA9586400250B06 /* Services */,
 				C3EB107F2E74412B002DA295 /* Feature */,
 			);

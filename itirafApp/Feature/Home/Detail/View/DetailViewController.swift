@@ -46,6 +46,10 @@ final class DetailViewController: UIViewController {
     
     private func initData() {
         detailViewModel.delegate = self
+        let dmImage = UIImage(systemName: "bubble.left.and.bubble.right")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: dmImage , style: .done, target: self, action: #selector(dmButtonTapped))
+        
         Task {
             await detailViewModel.fetchMessageData()
         }
@@ -75,13 +79,13 @@ final class DetailViewController: UIViewController {
         commentCountLabel.text = confession.replyCount.description
         self.updateLikeUI(isLike: confession.liked, likeCount: confession.likeCount)
     }
-    //TODO: -Farklı bir butona alınacak
-    @IBAction func shareButtonClicked(_ sender: UIButton) {
+    
+    @objc func dmButtonTapped() {
         let requestBottomSheetVC: RequestBottomSheetViewController = Storyboard.requestBottomSheet.instantiate(.requestBottomSheet)
         
         let viewModel = RequestBottomSheetViewModel(channelMessageId: detailViewModel.getChannelMessageId())
         requestBottomSheetVC.viewModel = viewModel
-
+        
         if let sheet = requestBottomSheetVC.sheetPresentationController {
             let customDetent = UISheetPresentationController.Detent.custom(identifier: .init("customDetent")) { context in
                 return context.maximumDetentValue * 0.65
@@ -93,6 +97,12 @@ final class DetailViewController: UIViewController {
         }
         
         self.present(requestBottomSheetVC, animated: true)
+    }
+    
+    @IBAction func shareButtonClicked(_ sender: UIButton) {
+        Task(priority: .utility) {
+            await detailViewModel.createShortlink()
+        }
     }
     
     @IBAction func commentButtonClicked(_ sender: UIButton) {
@@ -139,6 +149,18 @@ final class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailViewModelOutputProtocol {
+    func didCreateShortlink(shortlink: ShortlinkResponse) {
+        let textToShare = shortlink.url
+        let activityViewController = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+        DispatchQueue.main.async {
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func didFailToCreateShortlink(with error: any Error) {
+        print("Failed to create shortlink: \(error)")
+    }
+    
     func didUpdateReplies() {
         collectionView.reloadData()
     }
