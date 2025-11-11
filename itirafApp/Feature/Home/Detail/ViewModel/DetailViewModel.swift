@@ -24,7 +24,7 @@ protocol DetailViewModelOutputProtocol: AnyObject {
     func didFailToFetchDetail(with error: Error)
     func didUpdateReplies()
     func didFailToAddComment(with error: Error)
-    func didCreateShortlink(shortlink: ShortlinkResponse)
+    func didCreateShortlink(shortlink: String)
     func didFailToCreateShortlink(with error: Error)
 }
 
@@ -95,9 +95,15 @@ final class DetailViewModel {
     }
     
     func createShortlink() async {
+        if let shortlink = confession?.shortlink {
+            delegate?.didCreateShortlink(shortlink: shortlink)
+            return
+        }
+        
         do {
             let shortlink = try await detailService.createShortlink(messageId: messageId)
-            delegate?.didCreateShortlink(shortlink: shortlink)
+            confession?.shortlink = shortlink.url
+            delegate?.didCreateShortlink(shortlink: shortlink.url)
         } catch {
             delegate?.didFailToCreateShortlink(with: error)
         }

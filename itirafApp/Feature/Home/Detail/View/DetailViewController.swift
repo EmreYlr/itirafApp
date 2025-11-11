@@ -149,9 +149,8 @@ final class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailViewModelOutputProtocol {
-    func didCreateShortlink(shortlink: ShortlinkResponse) {
-        let textToShare = shortlink.url
-        let activityViewController = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+    func didCreateShortlink(shortlink: String) {
+        let activityViewController = UIActivityViewController(activityItems: [shortlink], applicationActivities: nil)
         DispatchQueue.main.async {
             self.present(activityViewController, animated: true, completion: nil)
         }
