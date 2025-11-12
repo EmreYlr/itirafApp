@@ -53,8 +53,8 @@ final class AppRouter {
                 let chatVC: ChatViewController = Storyboard.chat.instantiate(.chat)
                 chatVC.viewModel.directMessage = DirectMessage(roomID: roomId, username: username, lastMessage: "", lastMessageDate: "", isLastMessageMine: false, status: "APPROVED")
                 chatVC.mode = .directMessage
-                
-                nav.pushViewController(chatVC, animated: true)
+                let isAppActive = UIApplication.shared.applicationState == .active
+                nav.pushViewController(chatVC, animated: isAppActive)
                 
             case .myConfessions:
                 let targetTabIndex = 3

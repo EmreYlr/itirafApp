@@ -19,6 +19,7 @@ final class AppCoordinator {
     
     func start() {
         setupNotificationObservers()
+        setupNavigationBarAppearance()
         
         if !UserManager.shared.getUserIsAnonymous() {
             showHomeController()
@@ -62,6 +63,19 @@ final class AppCoordinator {
         window.rootViewController = tabNav
         
         router.checkPendingRoute()
+    }
+    
+    private func setupNavigationBarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemBackground
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.label]
+
+        UINavigationBar.appearance().tintColor = .label
+
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
     }
     
     func handleUserActivity(_ userActivity: NSUserActivity) {

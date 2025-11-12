@@ -39,7 +39,7 @@ final class MyConfessionsCollectionViewCell: UICollectionViewCell {
         messageLabel.text = confession.message
         likeCountLabel.text = "\(confession.likeCount)"
         replyCountLabel.text = "\(confession.replyCount)"
-        timeLabel.text = confession.createdAt.formattedDateTime()
+        timeLabel.text = confession.createdAt.relativeTimeString()
         
         messageLabel.preferredMaxLayoutWidth = self.bounds.width - labelHorizontalMargin
         titleLabel.preferredMaxLayoutWidth = self.bounds.width - labelHorizontalMargin

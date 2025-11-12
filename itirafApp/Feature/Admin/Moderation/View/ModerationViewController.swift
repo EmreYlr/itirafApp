@@ -74,15 +74,17 @@ final class ModerationViewController: UIViewController {
             
             cell.configure(with: moderationItem)
             
-            // TODO: - Onaylama ve Reddetme butonları için closure'ları buraya ekle
-            // Örnek:
-            // cell.onApproveButtonTapped = { [weak self] in
-            //     self?.viewModel.approveConfession(id: moderationItem.id)
-            // }
-            //
-            // cell.onRejectButtonTapped = { [weak self] in
-            //     self?.viewModel.rejectConfession(id: moderationItem.id, reason: "...")
-            // }
+            cell.onApproveButtonTapped = { [weak self] in
+                guard let self = self else { return }
+                self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                self.collectionView.delegate?.collectionView?(self.collectionView, didSelectItemAt: indexPath)
+            }
+            
+            cell.onRejectButtonTapped = { [weak self] in
+                guard let self = self else { return }
+                self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                self.collectionView.delegate?.collectionView?(self.collectionView, didSelectItemAt: indexPath)
+            }
             
             return cell
         }

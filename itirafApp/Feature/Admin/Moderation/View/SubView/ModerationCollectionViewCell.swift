@@ -9,7 +9,6 @@ import UIKit
 
 final class ModerationCollectionViewCell: UICollectionViewCell {
     //MARK: -Properties
-    
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var approveButton: UIButton!
@@ -18,6 +17,9 @@ final class ModerationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ownerLabel: UILabel!
     @IBOutlet weak var channelLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    
+    var onApproveButtonTapped: (() -> Void)?
+    var onRejectButtonTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +38,9 @@ final class ModerationCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func approveButtonTapped(_ sender: UIButton) {
+        onApproveButtonTapped?()
     }
     @IBAction func rejectButtonTapped(_ sender: UIButton) {
+        onRejectButtonTapped?()
     }
 }

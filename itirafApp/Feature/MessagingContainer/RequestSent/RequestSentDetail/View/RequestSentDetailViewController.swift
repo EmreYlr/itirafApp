@@ -68,7 +68,7 @@ final class RequestSentDetailViewController: UIViewController {
 
         confessionMessageLabel.text = sentRequests.confessionMessage
         titleLabel.text = sentRequests.confessionTitle
-        confessionDateLabel.text = sentRequests.createdAt.formattedDateTime()
+        confessionDateLabel.text = sentRequests.createdAt.relativeTimeString()
         confessionOwnerUsernameLabel.text = sentRequests.confessionAuthorUsername
         profileIconLabel.text = String(sentRequests.confessionAuthorUsername.prefix(2)).uppercased()
         myMessageLabel.text = sentRequests.initialMessage
