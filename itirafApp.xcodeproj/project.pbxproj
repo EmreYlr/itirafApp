@@ -127,6 +127,12 @@
 		C3C173C52EC5FEBE00D27383 /* FlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173C42EC5FEBB00D27383 /* FlowService.swift */; };
 		C3C173C72EC5FF2300D27383 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173C62EC5FF2100D27383 /* Flow.swift */; };
 		C3C173C92EC601C500D27383 /* FlowViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173C82EC601BF00D27383 /* FlowViewController+CollectionView.swift */; };
+		C3C173D12EC612E900D27383 /* ChannelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173D02EC612E900D27383 /* ChannelDetailViewController.swift */; };
+		C3C173D42EC613A900D27383 /* ChannelDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C173D32EC613A900D27383 /* ChannelDetail.storyboard */; };
+		C3C173D62EC6154E00D27383 /* ChannelDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173D52EC6154900D27383 /* ChannelDetailService.swift */; };
+		C3C173D82EC6157C00D27383 /* ChannelDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173D72EC6157700D27383 /* ChannelDetailViewModel.swift */; };
+		C3C173DB2EC61CF700D27383 /* ChannelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173DA2EC61CF500D27383 /* ChannelHeaderView.swift */; };
+		C3C173DD2EC61D9E00D27383 /* ChannelDetailViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173DC2EC61D9600D27383 /* ChannelDetailViewController+CollectionView.swift */; };
 		C3D764BA2E93DDDE00104C3B /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764B92E93DDDB00104C3B /* DetailViewModel.swift */; };
 		C3D764BC2E93DE1800104C3B /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764BB2E93DE1300104C3B /* DetailService.swift */; };
 		C3D764BE2E93E96200104C3B /* DetailViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764BD2E93E95B00104C3B /* DetailViewController+CollectionView.swift */; };
@@ -137,7 +143,6 @@
 		C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764CF2E95389100104C3B /* ChannelViewController.swift */; };
 		C3D764D22E9538AD00104C3B /* ChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D12E9538AA00104C3B /* ChannelViewModel.swift */; };
 		C3D764D42E95391200104C3B /* ChannelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D32E95390E00104C3B /* ChannelService.swift */; };
-		C3D764D72E9539DB00104C3B /* Channel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D764D62E9539DB00104C3B /* Channel.storyboard */; };
 		C3D764D92E953BDE00104C3B /* ChannelViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D82E953BD800104C3B /* ChannelViewController+TableView.swift */; };
 		C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7658E2E95507600104C3B /* ChannelManager.swift */; };
 		C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */; };
@@ -310,6 +315,12 @@
 		C3C173C42EC5FEBB00D27383 /* FlowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowService.swift; sourceTree = "<group>"; };
 		C3C173C62EC5FF2100D27383 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		C3C173C82EC601BF00D27383 /* FlowViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlowViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C3C173D02EC612E900D27383 /* ChannelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewController.swift; sourceTree = "<group>"; };
+		C3C173D32EC613A900D27383 /* ChannelDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChannelDetail.storyboard; sourceTree = "<group>"; };
+		C3C173D52EC6154900D27383 /* ChannelDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailService.swift; sourceTree = "<group>"; };
+		C3C173D72EC6157700D27383 /* ChannelDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewModel.swift; sourceTree = "<group>"; };
+		C3C173DA2EC61CF500D27383 /* ChannelHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelHeaderView.swift; sourceTree = "<group>"; };
+		C3C173DC2EC61D9600D27383 /* ChannelDetailViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetailViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		C3D764B92E93DDDB00104C3B /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		C3D764BB2E93DE1300104C3B /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
 		C3D764BD2E93E95B00104C3B /* DetailViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+CollectionView.swift"; sourceTree = "<group>"; };
@@ -320,7 +331,6 @@
 		C3D764CF2E95389100104C3B /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		C3D764D12E9538AA00104C3B /* ChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewModel.swift; sourceTree = "<group>"; };
 		C3D764D32E95390E00104C3B /* ChannelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelService.swift; sourceTree = "<group>"; };
-		C3D764D62E9539DB00104C3B /* Channel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Channel.storyboard; sourceTree = "<group>"; };
 		C3D764D82E953BD800104C3B /* ChannelViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+TableView.swift"; sourceTree = "<group>"; };
 		C3D7658E2E95507600104C3B /* ChannelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelManager.swift; sourceTree = "<group>"; };
 		C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+SearchBar.swift"; sourceTree = "<group>"; };
@@ -1288,6 +1298,67 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C3C173CB2EC6129700D27383 /* ChannelDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173D22EC6139E00D27383 /* Storyboard */,
+				C3C173CE2EC612AE00D27383 /* Model */,
+				C3C173CD2EC612A800D27383 /* View */,
+				C3C173CC2EC612A000D27383 /* ViewModel */,
+				C3C173CF2EC612B300D27383 /* Service */,
+			);
+			path = ChannelDetail;
+			sourceTree = "<group>";
+		};
+		C3C173CC2EC612A000D27383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173D72EC6157700D27383 /* ChannelDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3C173CD2EC612A800D27383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173D92EC61CF100D27383 /* SubView */,
+				C3C173D02EC612E900D27383 /* ChannelDetailViewController.swift */,
+				C3C173DC2EC61D9600D27383 /* ChannelDetailViewController+CollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3C173CE2EC612AE00D27383 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C3C173CF2EC612B300D27383 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173D52EC6154900D27383 /* ChannelDetailService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3C173D22EC6139E00D27383 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173D32EC613A900D27383 /* ChannelDetail.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C3C173D92EC61CF100D27383 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173DA2EC61CF500D27383 /* ChannelHeaderView.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		C3D764BF2E93E99A00104C3B /* SubView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1300,11 +1371,11 @@
 		C3D764C62E95380200104C3B /* Channel */ = {
 			isa = PBXGroup;
 			children = (
-				C3D764D52E9539C600104C3B /* Storyboard */,
 				C3D764C72E95381C00104C3B /* Model */,
 				C3D764CC2E95386A00104C3B /* View */,
 				C3D764CD2E95386F00104C3B /* ViewModel */,
 				C3D764CE2E95387300104C3B /* Service */,
+				C3C173CB2EC6129700D27383 /* ChannelDetail */,
 			);
 			path = Channel;
 			sourceTree = "<group>";
@@ -1341,14 +1412,6 @@
 				C3D764D32E95390E00104C3B /* ChannelService.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		C3D764D52E9539C600104C3B /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				C3D764D62E9539DB00104C3B /* Channel.storyboard */,
-			);
-			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		C3D7658D2E95506600104C3B /* Channel */ = {
@@ -1898,7 +1961,6 @@
 				C3A7A4292EA9484000250B06 /* DirectMessageCollectionViewCell.xib in Resources */,
 				C3528F142EB8FAA200FF1C19 /* RequestSentCollectionViewCell.xib in Resources */,
 				C3528F2F2EBB759200FF1C19 /* Moderation.storyboard in Resources */,
-				C3D764D72E9539DB00104C3B /* Channel.storyboard in Resources */,
 				C37D5B032E7840D20068F334 /* Login.storyboard in Resources */,
 				C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */,
 				C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */,
@@ -1913,6 +1975,7 @@
 				C3528F352EBB79B700FF1C19 /* ModerationCollectionViewCell.xib in Resources */,
 				C3A7509C2EB60A460058163B /* RequestMessage.storyboard in Resources */,
 				C3528F0C2EB8EFAE00FF1C19 /* RequestSent.storyboard in Resources */,
+				C3C173D42EC613A900D27383 /* ChannelDetail.storyboard in Resources */,
 				C3E6604E2EB407480059048F /* SocialCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1957,6 +2020,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3C173DD2EC61D9E00D27383 /* ChannelDetailViewController+CollectionView.swift in Sources */,
 				C3528F3F2EBBB6DD00FF1C19 /* ModerationDetailViewModel.swift in Sources */,
 				C38EAACD2EC331FC00A1818C /* AppRoute.swift in Sources */,
 				C3F39E162EA0269200197509 /* PostConfessionService.swift in Sources */,
@@ -2010,6 +2074,7 @@
 				C3A750852EB50A140058163B /* SettingsService.swift in Sources */,
 				C3528F292EBB724B00FF1C19 /* ModerationViewController.swift in Sources */,
 				C3A750BF2EB694120058163B /* RequestBottomSheetViewModel.swift in Sources */,
+				C3C173D12EC612E900D27383 /* ChannelDetailViewController.swift in Sources */,
 				C3E660342EB2859E0059048F /* EditConfessionViewController.swift in Sources */,
 				C3C173C92EC601C500D27383 /* FlowViewController+CollectionView.swift in Sources */,
 				C3C08BC02E8C37D400EDC6A2 /* DetailViewController.swift in Sources */,
@@ -2062,6 +2127,7 @@
 				C3A7A42B2EA94CB500250B06 /* DirectMessageViewController+CollectionView.swift in Sources */,
 				C3A750A32EB623690058163B /* RequestMessageViewController+CollectionView.swift in Sources */,
 				C38EAA9D2EBF4FF400A1818C /* ViolationsViewController.swift in Sources */,
+				C3C173DB2EC61CF700D27383 /* ChannelHeaderView.swift in Sources */,
 				C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */,
 				C38EAAD12EC338E400A1818C /* AppRouter.swift in Sources */,
 				C326DD4A2E8D824E001B7837 /* UserDefaultsHelper.swift in Sources */,
@@ -2079,11 +2145,13 @@
 				C3A750832EB509E90058163B /* SettingsViewModel.swift in Sources */,
 				C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */,
 				C3528F062EB8EF1600FF1C19 /* RequestSentViewController.swift in Sources */,
+				C3C173D82EC6157C00D27383 /* ChannelDetailViewModel.swift in Sources */,
 				C3D764BA2E93DDDE00104C3B /* DetailViewModel.swift in Sources */,
 				C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */,
 				C3528F2B2EBB728D00FF1C19 /* ModerationViewModel.swift in Sources */,
 				C3A7509F2EB623540058163B /* RequestMessageCollectionViewCell.swift in Sources */,
 				C3D764C22E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift in Sources */,
+				C3C173D62EC6154E00D27383 /* ChannelDetailService.swift in Sources */,
 				C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */,
 				C3A7A4382EAA288000250B06 /* ChatViewModel.swift in Sources */,
 				C38EAACF2EC3321200A1818C /* DeeplinkParser.swift in Sources */,

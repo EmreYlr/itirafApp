@@ -58,6 +58,13 @@ final class FlowViewController: UIViewController {
                 }
             }
             
+            cell.onChannelTapped = { [weak self] in
+                guard let self = self else { return }
+                let channelDetailVC: ChannelDetailViewController = Storyboard.channelDetail.instantiate(.channelDetail)
+                channelDetailVC.viewModel = ChannelDetailViewModel(channel: flow.channel)
+                navigationController?.pushViewController(channelDetailVC, animated: true)
+            }
+            
             return cell
         }
     }

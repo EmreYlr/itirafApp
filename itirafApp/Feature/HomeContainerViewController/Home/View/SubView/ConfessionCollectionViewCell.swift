@@ -16,17 +16,18 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var commentCountLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
-    
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var ownerNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    
     var onLikeButtonTapped: (() -> Void)?
     var onCommentButtonTapped: (() -> Void)?
+    var onChannelTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         bgView.layer.cornerRadius = 10
-        
+        setupChannelLabelTap()
     }
     
     func configure(with confession: ConfessionData) {
@@ -53,6 +54,10 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         channelNameLabel.text = flow.channel.title
     }
 
+    @objc private func channelLabelTapped() {
+        onChannelTapped?()
+    }
+
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         onLikeButtonTapped?()
     }
@@ -63,5 +68,11 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     func updateLikeButton(isLiked: Bool) {
         let imageName = isLiked ? "heart.fill" : "heart"
         likeButton.setImage(UIImage(systemName: imageName), for: .normal)
+    }
+    
+    private func setupChannelLabelTap() {
+        channelNameLabel.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(channelLabelTapped))
+        channelNameLabel.addGestureRecognizer(tapGesture)
     }
 }

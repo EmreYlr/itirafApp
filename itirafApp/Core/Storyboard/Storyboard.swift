@@ -20,6 +20,7 @@ enum Storyboard: String {
     case requestBottomSheet = "RequestBottomSheet"
     case requestSent = "RequestSent"
     case moderation = "Moderation"
+    case channelDetail = "ChannelDetail"
 
     var instance: UIStoryboard {
         UIStoryboard(name: self.rawValue, bundle: nil)
@@ -94,6 +95,9 @@ enum ViewControllerID: String {
     case moderation = "ModerationViewController"
     case moderationDetail = "ModerationDetailViewController"
     case violations = "ViolationsViewController"
+    
+    // ChannelDetail.storyboard
+    case channelDetail = "ChannelDetailViewController"
 }
 
 enum NavigationControllerID: String {
