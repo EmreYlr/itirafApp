@@ -14,7 +14,7 @@ struct Channel: Codable {
 }
 
 // MARK: - ChannelData
-struct ChannelData: Codable {
+struct ChannelData: Codable, Equatable {
     let id: Int
     let title, description: String
     let imageURL: String?

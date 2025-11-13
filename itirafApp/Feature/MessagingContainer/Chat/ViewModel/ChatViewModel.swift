@@ -149,7 +149,8 @@ final class ChatViewModel: NSObject {
                 lastMessage: request.initialMessage,
                 lastMessageDate: request.createdAt,
                 isLastMessageMine: false,
-                status: "active"
+                status: "active",
+                unreadMessageCount: 0
             )
             delegate?.didApproveRequest()
             

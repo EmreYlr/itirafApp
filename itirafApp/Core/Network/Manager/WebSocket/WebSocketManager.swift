@@ -65,6 +65,7 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
         
         webSocketTask = urlSession.webSocketTask(with: request)
         webSocketTask?.resume()
+        sendSeenRequest()
         receiveMessage()
     }
     
@@ -105,7 +106,19 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
         }
     }
 
-
+    private func sendSeenRequest() {
+        let seenRequest = SeenRequest()
+        
+        if let jsonData = try? JSONEncoder().encode(seenRequest),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            webSocketTask?.send(.string(jsonString)) { error in
+                if let error = error {
+                    print("❌ connect: Seen mesaj gönderme hatası \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
     private func receiveMessage() {
         webSocketTask?.receive { [weak self] result in
             guard let self = self else { return }

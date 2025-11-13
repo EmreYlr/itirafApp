@@ -16,6 +16,8 @@ protocol ChannelViewModelProtocol {
     func searchChannels(keyword: String) async
     func selectChannel(at index: Int)
     func cancelSearch()
+    func followChannel(at index: Int) async
+    func unfollowChannel(at index: Int) async
 }
 
 protocol ChannelViewModelOutputProtocol: AnyObject {
@@ -101,6 +103,24 @@ final class ChannelViewModel {
     func selectChannel(at index: Int) {
         let selectedChannel = filterChannels[index]
         ChannelManager.shared.setChannel(selectedChannel)
+    }
+    
+    func followChannel(at index: Int) async {
+        let channelId: [Int] = [filterChannels[index].id]
+        do {
+            try await channelService.followChannel(channelId: channelId)
+        } catch {
+            delegate?.didFailWithError(error)
+        }
+    }
+    
+    func unfollowChannel(at index: Int) async {
+        let channelId: Int = filterChannels[index].id
+        do {
+            try await channelService.unfollowChannel(channelId: channelId)
+        } catch {
+            delegate?.didFailWithError(error)
+        }
     }
 }
 extension ChannelViewModel: @preconcurrency ChannelViewModelProtocol { }

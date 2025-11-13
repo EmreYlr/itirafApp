@@ -38,8 +38,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         updateLikeButton(isLiked: confession.liked)
         dateLabel.text = confession.createdAt.relativeTimeString()
         ownerNameLabel.text = confession.owner.username
-        channelNameLabel.isHidden = true
-//        channelNameLabel.text = confession.channelName //TODO:- eklenecek
+        channelNameLabel.text = confession.channel?.title.capitalized
     }
     
     func configure(with flow: FlowData) {

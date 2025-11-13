@@ -51,7 +51,7 @@ final class AppRouter {
                 }
                 
                 let chatVC: ChatViewController = Storyboard.chat.instantiate(.chat)
-                chatVC.viewModel.directMessage = DirectMessage(roomID: roomId, username: username, lastMessage: "", lastMessageDate: "", isLastMessageMine: false, status: "APPROVED")
+                chatVC.viewModel.directMessage = DirectMessage(roomID: roomId, username: username, lastMessage: "", lastMessageDate: "", isLastMessageMine: false, status: "APPROVED", unreadMessageCount: 0)
                 chatVC.mode = .directMessage
                 let isAppActive = UIApplication.shared.applicationState == .active
                 nav.pushViewController(chatVC, animated: isAppActive)

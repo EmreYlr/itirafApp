@@ -15,5 +15,5 @@ struct WebSocketMessageData: Codable {
 }
 
 struct SeenRequest: Codable {
-    let type: String
+    var type: String = "seen"
 }

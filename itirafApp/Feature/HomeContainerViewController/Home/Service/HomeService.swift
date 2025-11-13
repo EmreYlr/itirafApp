@@ -22,14 +22,13 @@ final class HomeService: HomeServiceProtocol {
     }
     
     func fetchConfessions(page: Int, limit: Int) async throws -> Confession {
-        guard let channelId = ChannelManager.shared.getChannelId() else {
-            throw AppError.channelIdNotFound
-        }
-        
-        let parameters: [String: Any] = ["page": page, "limit": limit]
-        
+        let parameters: [String: Any] = [
+            "page": page,
+            "limit": limit
+        ]
+        //TODO: -getFollowedChannelsMessages eklendi onu bi kontrol et
         return try await networkService.request(
-            endpoint: Endpoint.Channel.getChannelMessages(channelId: channelId),
+            endpoint: Endpoint.User.getFollowedChannelsMessages,
             method: .get,
             parameters: parameters,
             encoding: URLEncoding.default

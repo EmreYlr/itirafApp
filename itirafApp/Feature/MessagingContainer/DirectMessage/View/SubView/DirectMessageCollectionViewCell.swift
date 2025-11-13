@@ -36,7 +36,12 @@ final class DirectMessageCollectionViewCell: UICollectionViewCell {
         usernameLabel.text = directMessage.username
         messageLabel.text = "\(directMessage.isLastMessageMine ? "Sen: " : "")\(directMessage.lastMessage)"
         timeLabel.text = directMessage.lastMessageDate.relativeTimeString()
-        newMessageCountLabel.text = "1" //TODO: - yeni mesaj sayısı eklenecek
+        if directMessage.unreadMessageCount == 0 {
+            newMessageCountView.isHidden = true
+        } else {
+            newMessageCountView.isHidden = false
+        }
+        newMessageCountLabel.text = "\(directMessage.unreadMessageCount)"
     }
 
 }

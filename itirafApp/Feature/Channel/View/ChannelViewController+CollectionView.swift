@@ -23,15 +23,24 @@ extension ChannelViewController: UICollectionViewDataSource, UICollectionViewDel
         let channel = channelViewModel.filterChannels[indexPath.item]
         
         cell.configure(with: channel)
-        cell.onSubButtonTapped = {
-            //
+        cell.onSubButtonTapped = { [weak self] isFollowed in
+            if isFollowed {
+                Task(priority: .utility) {
+                    await self?.channelViewModel.followChannel(at: indexPath.row)
+                }
+            } else {
+                Task(priority: .utility) {
+                    await self?.channelViewModel.unfollowChannel(at: indexPath.row)
+                }
+                return
+            }
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         channelViewModel.selectChannel(at: indexPath.item)
-
+        
         let channel = channelViewModel.filterChannels[indexPath.item]
         let channelDetailVC: ChannelDetailViewController = Storyboard.channelDetail.instantiate(.channelDetail)
         channelDetailVC.viewModel = ChannelDetailViewModel(channel: channel)

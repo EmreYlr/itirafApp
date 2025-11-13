@@ -21,16 +21,18 @@ struct ConfessionData: Codable, Hashable {
     var likeCount, replyCount: Int
     let createdAt: String
     let owner: Owner
+    let channel: ChannelData?
 
     enum CodingKeys: String, CodingKey {
-        case id, title, message, likeCount, replyCount, liked, createdAt
+        case id, title, message, likeCount, replyCount, liked, createdAt, channel
         case owner
     }
     
     static func == (lhs: ConfessionData, rhs: ConfessionData) -> Bool {
         return lhs.id == rhs.id &&
         lhs.liked == rhs.liked &&
-        lhs.likeCount == rhs.likeCount
+        lhs.likeCount == rhs.likeCount &&
+        lhs.channel == rhs.channel
     }
     
     func hash(into hasher: inout Hasher) {

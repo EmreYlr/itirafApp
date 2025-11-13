@@ -12,10 +12,11 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var subButton: UIButton!
     @IBOutlet weak var subCountLabel: UILabel!
     @IBOutlet weak var channelNameLabel: UILabel!
-    @IBOutlet weak var channelImageView: UIImageView!
+    
+    @IBOutlet weak var channelIconLabel: UILabel!
     @IBOutlet weak var imageBgView: UIView!
     
-    var onSubButtonTapped: (() -> Void)?
+    var onSubButtonTapped: ((_ isSubscribed: Bool) -> Void)?
     private var isSubscribed = false
     
     override func awakeFromNib() {
@@ -23,9 +24,7 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
         imageBgView.layer.cornerRadius = imageBgView.frame.width / 2
         imageBgView.layer.borderWidth = 1
         imageBgView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
-        
-        channelImageView.tintColor = .white
-        channelImageView.clipsToBounds = true
+        imageBgView.backgroundColor = .systemGray6
         
         configureButtonAppearance()
     }
@@ -38,6 +37,7 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
     func configure(with channel: ChannelData) {
         channelNameLabel.text = channel.title.capitalized
         subCountLabel.text = "14.4K abone" //TODO: -Gerçek veri gelecek
+        channelIconLabel.text = String(channel.title.prefix(2).uppercased())
     }
     
     @IBAction func subButtonTapped(_ sender: UIButton) {
@@ -47,7 +47,7 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
             self.configureButtonAppearance()
         }
         
-        onSubButtonTapped?()
+        onSubButtonTapped?(isSubscribed)
     }
     
     private func configureButtonAppearance() {

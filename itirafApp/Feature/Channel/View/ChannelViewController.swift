@@ -13,6 +13,7 @@ final class ChannelViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var channelViewModel: ChannelViewModelProtocol
+    let refreshControl = UIRefreshControl()
     
     required init(coder: NSCoder) {
         self.channelViewModel = ChannelViewModel()
@@ -39,8 +40,7 @@ final class ChannelViewController: UIViewController {
         collectionView.dataSource = self
         
         collectionView.register(UINib(nibName: "ChannelCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "channelCell")
-        
-        let refreshControl = UIRefreshControl()
+                
         refreshControl.addTarget(self, action: #selector(refreshChannels), for: .valueChanged)
         collectionView.refreshControl = refreshControl
     }
@@ -52,6 +52,11 @@ final class ChannelViewController: UIViewController {
     }
     
     @objc private func refreshChannels() {
+        guard !channelViewModel.isSearching else {
+            self.refreshControl.endRefreshing()
+            return
+        }
+        
         Task {
             await channelViewModel.fetchChannel(reset: true)
         }
