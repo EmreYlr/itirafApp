@@ -1,19 +1,19 @@
 //
-//  MessagingContainerViewController.swift
+//  HomeContainerViewController.swift
 //  itirafApp
 //
-//  Created by Emre on 31.10.2025.
+//  Created by Emre on 13.11.2025.
 //
 
 import UIKit
 
-final class MessagingContainerViewController: UIViewController {
-    //MARK: -Properties
+final class HomeContainerViewController: UIViewController {
+    //MARK: - Properties
     private lazy var segmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Mesajlar", "İstekler"])
+        let sc = UISegmentedControl(items: ["Akış", "Takip Edilenler"])
         sc.selectedSegmentIndex = 0
         sc.addTarget(self, action: #selector(didChangeSegment(_:)), for: .valueChanged)
-        
+
         sc.backgroundColor = .clear
         sc.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
         sc.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
@@ -51,27 +51,44 @@ final class MessagingContainerViewController: UIViewController {
         return pvc
     }()
     
-    private lazy var directMessagesVC: DirectMessageViewController = {
-        return Storyboard.directMessage.instantiate(.directMessage)
+    private lazy var flowVC: FlowViewController = {
+        return Storyboard.main.instantiate(.flow)
     }()
     
-    private lazy var requestsVC: RequestMessageViewController = {
-        return Storyboard.requestMessage.instantiate(.requestMessage)
+    private lazy var homeVC: HomeViewController = {
+        return Storyboard.main.instantiate(.home)
     }()
     
-    private lazy var pages: [UIViewController] = [directMessagesVC, requestsVC]
+    private lazy var pages: [UIViewController] = [flowVC, homeVC]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Mesajlaşma"
+        self.title = "Ana Sayfa"
         setupUI()
         setInitialViewController()
+        configureNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    private func configureNavigationBar() {
+        let messageButton = UIBarButtonItem(
+            image: UIImage(systemName: "message"),
+            style: .plain,
+            target: self,
+            action: #selector(messageButtonTapped)
+        )
+        messageButton.tintColor = .systemMint
+        
+        navigationItem.rightBarButtonItem = messageButton
     }
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
         view.addSubview(segmentedControl)
-        
         view.addSubview(bottomBorderView)
         view.addSubview(selectionIndicatorView)
         
@@ -79,23 +96,15 @@ final class MessagingContainerViewController: UIViewController {
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
         
-        let image = UIImage(systemName: "paperplane.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: image,
-            style: .plain,
-            target: self,
-            action: #selector(requestsSentButtonTapped)
-        )
-        
-        // Gösterge (indicator) için constraint'leri başlat
-        // Genişliği, segment sayısına bölerek ayarla (2 segment olduğu için 0.5)
         indicatorWidthConstraint = selectionIndicatorView.widthAnchor.constraint(equalTo: segmentedControl.widthAnchor, multiplier: 0.5)
         indicatorLeadingConstraint = selectionIndicatorView.leadingAnchor.constraint(equalTo: segmentedControl.leadingAnchor)
         
         NSLayoutConstraint.activate([
             segmentedControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            
             segmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             segmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+
             segmentedControl.heightAnchor.constraint(equalToConstant: 40),
             
             bottomBorderView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor),
@@ -114,27 +123,22 @@ final class MessagingContainerViewController: UIViewController {
             pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
     private func updateSelectionIndicator(to index: Int) {
         let segmentWidth = segmentedControl.frame.width / CGFloat(segmentedControl.numberOfSegments)
         
         let newLeadingConstant = segmentWidth * CGFloat(index)
         
         indicatorLeadingConstraint.constant = newLeadingConstant
-        
+
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.1, options: .curveEaseInOut) {
             self.view.layoutIfNeeded()
         }
     }
     
-    @objc private func requestsSentButtonTapped() {
-        let requestsSentVC: RequestSentViewController = Storyboard.requestSent.instantiate(.requestSent)
-        navigationController?.pushViewController(requestsSentVC, animated: true)
-        
-    }
-    
     private func setInitialViewController() {
         pageViewController.setViewControllers(
-            [directMessagesVC],
+            [flowVC],
             direction: .forward,
             animated: false,
             completion: nil
@@ -153,9 +157,14 @@ final class MessagingContainerViewController: UIViewController {
             pageViewController.setViewControllers([vc], direction: direction, animated: true)
         }
     }
+    
+    
+    @objc private func messageButtonTapped() {
+        let messagingContainerVC = MessagingContainerViewController()
+        navigationController?.pushViewController(messagingContainerVC, animated: true)
+    }
 }
-
-extension MessagingContainerViewController: UIPageViewControllerDataSource {
+extension HomeContainerViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = pages.firstIndex(of: viewController) else { return nil }
         
@@ -176,7 +185,8 @@ extension MessagingContainerViewController: UIPageViewControllerDataSource {
         return pages[index + 1]
     }
 }
-extension MessagingContainerViewController: UIPageViewControllerDelegate {
+
+extension HomeContainerViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
@@ -195,7 +205,6 @@ extension MessagingContainerViewController: UIPageViewControllerDelegate {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        
         guard let pendingVC = pendingViewControllers.first,
               let index = pages.firstIndex(of: pendingVC) else {
             return
@@ -203,6 +212,5 @@ extension MessagingContainerViewController: UIPageViewControllerDelegate {
         
         segmentedControl.selectedSegmentIndex = index
         updateSelectionIndicator(to: index)
-        
     }
 }

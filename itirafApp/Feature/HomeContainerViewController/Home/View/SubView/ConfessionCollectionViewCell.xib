@@ -89,10 +89,17 @@
                                     <constraint firstAttribute="height" constant="5" id="r4X-QA-lnt"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="channelName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRz-mE-9d5">
+                                <rect key="frame" x="252" y="9" width="77" height="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="5jb-dG-Av4" firstAttribute="centerY" secondItem="23Q-0O-7GW" secondAttribute="centerY" id="2Iz-GZ-MNR"/>
+                            <constraint firstItem="FRz-mE-9d5" firstAttribute="centerY" secondItem="ER0-GR-Wd8" secondAttribute="centerY" id="2iV-72-ubL"/>
                             <constraint firstItem="GZx-qu-nQ9" firstAttribute="leading" secondItem="68O-sE-n82" secondAttribute="leading" constant="8" id="36Y-Ve-hjn"/>
                             <constraint firstItem="guo-b7-OYX" firstAttribute="top" secondItem="68O-sE-n82" secondAttribute="top" constant="8" id="98v-dA-R8H"/>
                             <constraint firstItem="h6R-c9-lwy" firstAttribute="top" secondItem="GZx-qu-nQ9" secondAttribute="bottom" constant="8" id="B5Y-sZ-gKb"/>
@@ -111,6 +118,7 @@
                             <constraint firstItem="guo-b7-OYX" firstAttribute="leading" secondItem="68O-sE-n82" secondAttribute="leading" constant="8" id="n5O-0T-yLy"/>
                             <constraint firstItem="5jb-dG-Av4" firstAttribute="leading" secondItem="23Q-0O-7GW" secondAttribute="trailing" id="pc5-b4-tI4"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h6R-c9-lwy" secondAttribute="trailing" constant="8" id="rMR-lK-Hnh"/>
+                            <constraint firstAttribute="trailing" secondItem="FRz-mE-9d5" secondAttribute="trailing" constant="8" id="rnp-gD-nxd"/>
                             <constraint firstItem="ER0-GR-Wd8" firstAttribute="leading" secondItem="CEQ-3U-hZy" secondAttribute="trailing" constant="5" id="t75-Gl-aRw"/>
                             <constraint firstItem="h6R-c9-lwy" firstAttribute="leading" secondItem="68O-sE-n82" secondAttribute="leading" constant="8" id="vQo-DN-nMn"/>
                         </constraints>
@@ -127,6 +135,7 @@
             <size key="customSize" width="337" height="130"/>
             <connections>
                 <outlet property="bgView" destination="68O-sE-n82" id="TME-D2-rF6"/>
+                <outlet property="channelNameLabel" destination="FRz-mE-9d5" id="T0A-2a-Tt3"/>
                 <outlet property="commentButton" destination="23Q-0O-7GW" id="h6Y-4z-1bb"/>
                 <outlet property="commentCountLabel" destination="5jb-dG-Av4" id="qho-HS-rCb"/>
                 <outlet property="confessionMessageLabel" destination="h6R-c9-lwy" id="qCG-5C-uRx"/>

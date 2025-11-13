@@ -52,26 +52,19 @@ extension String {
     
     func relativeTimeString() -> String? {
         guard let date = toDateFromISO() else { return nil }
-        let calendar = Calendar.current
         let now = Date()
+        let calendar = Calendar.current
         
         let components = calendar.dateComponents([.minute, .hour, .day], from: date, to: now)
         
-        if calendar.isDateInToday(date) {
-            if let hours = components.hour, hours < 1 {
-                let minutes = components.minute ?? 0
-                if minutes < 1 {
-                    return "1d önce"
-                } else {
-                    return "\(minutes)d önce"
-                }
-            } else if let hours = components.hour {
-                return "\(hours)s önce"
-            }
-        } else if let days = components.day {
-            return "\(days)g önce"
+        if let day = components.day, day > 0 {
+            return "\(day)g önce"
+        } else if let hour = components.hour, hour > 0 {
+            return "\(hour)sa önce"
+        } else if let minute = components.minute, minute > 0 {
+            return "\(minute)dk önce"
+        } else {
+            return "az önce"
         }
-        
-        return nil
     }
 }

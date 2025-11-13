@@ -17,6 +17,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var commentCountLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
     
+    @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var ownerNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     var onLikeButtonTapped: (() -> Void)?
@@ -36,9 +37,22 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         updateLikeButton(isLiked: confession.liked)
         dateLabel.text = confession.createdAt.relativeTimeString()
         ownerNameLabel.text = confession.owner.username
+        channelNameLabel.isHidden = true
+//        channelNameLabel.text = confession.channelName //TODO:- eklenecek
     }
     
-    
+    func configure(with flow: FlowData) {
+        confessionTitleLabel.text = flow.title
+        confessionMessageLabel.text = flow.message
+        likeCountLabel.text = "\(flow.likeCount)"
+        commentCountLabel.text = "\(flow.replyCount)"
+        updateLikeButton(isLiked: flow.liked)
+        dateLabel.text = flow.createdAt.relativeTimeString()
+        ownerNameLabel.text = flow.owner.username
+        channelNameLabel.isHidden = false
+        channelNameLabel.text = flow.channel.title
+    }
+
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         onLikeButtonTapped?()
     }

@@ -49,7 +49,9 @@ enum Storyboard: String {
 
 enum ViewControllerID: String {
     // Main.storyboard
+    case homeContainer = "HomeContainerViewController"
     case home = "HomeViewController"
+    case flow = "FlowViewController"
     case channel = "ChannelViewController"
     case detail = "DetailViewController"
     case postConfession = "PostConfessionViewController"

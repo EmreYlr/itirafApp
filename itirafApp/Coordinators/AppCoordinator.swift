@@ -19,7 +19,7 @@ final class AppCoordinator {
     
     func start() {
         setupNotificationObservers()
-        setupNavigationBarAppearance()
+//        setupNavigationBarAppearance()
         
         if !UserManager.shared.getUserIsAnonymous() {
             showHomeController()

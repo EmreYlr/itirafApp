@@ -121,6 +121,12 @@
 		C3C08BB82E8AF54900EDC6A2 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BB72E8AF54900EDC6A2 /* PersonViewController.swift */; };
 		C3C08BC02E8C37D400EDC6A2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BBF2E8C37D400EDC6A2 /* DetailViewController.swift */; };
 		C3C08BC22E8D3B3500EDC6A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BC12E8D3B2E00EDC6A2 /* Constants.swift */; };
+		C3C173B92EC5EAA800D27383 /* HomeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173B82EC5EAA800D27383 /* HomeContainerViewController.swift */; };
+		C3C173C12EC5EF0C00D27383 /* FlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173C02EC5EF0C00D27383 /* FlowViewController.swift */; };
+		C3C173C32EC5FDC600D27383 /* FlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173C22EC5FDC200D27383 /* FlowViewModel.swift */; };
+		C3C173C52EC5FEBE00D27383 /* FlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173C42EC5FEBB00D27383 /* FlowService.swift */; };
+		C3C173C72EC5FF2300D27383 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173C62EC5FF2100D27383 /* Flow.swift */; };
+		C3C173C92EC601C500D27383 /* FlowViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173C82EC601BF00D27383 /* FlowViewController+CollectionView.swift */; };
 		C3D764BA2E93DDDE00104C3B /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764B92E93DDDB00104C3B /* DetailViewModel.swift */; };
 		C3D764BC2E93DE1800104C3B /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764BB2E93DE1300104C3B /* DetailService.swift */; };
 		C3D764BE2E93E96200104C3B /* DetailViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764BD2E93E95B00104C3B /* DetailViewController+CollectionView.swift */; };
@@ -298,6 +304,12 @@
 		C3C08BB72E8AF54900EDC6A2 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		C3C08BBF2E8C37D400EDC6A2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C3C08BC12E8D3B2E00EDC6A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C3C173B82EC5EAA800D27383 /* HomeContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContainerViewController.swift; sourceTree = "<group>"; };
+		C3C173C02EC5EF0C00D27383 /* FlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowViewController.swift; sourceTree = "<group>"; };
+		C3C173C22EC5FDC200D27383 /* FlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowViewModel.swift; sourceTree = "<group>"; };
+		C3C173C42EC5FEBB00D27383 /* FlowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowService.swift; sourceTree = "<group>"; };
+		C3C173C62EC5FF2100D27383 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		C3C173C82EC601BF00D27383 /* FlowViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlowViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		C3D764B92E93DDDB00104C3B /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		C3D764BB2E93DE1300104C3B /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
 		C3D764BD2E93E95B00104C3B /* DetailViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+CollectionView.swift"; sourceTree = "<group>"; };
@@ -1182,6 +1194,7 @@
 				C3C08BBC2E8C37A900EDC6A2 /* View */,
 				C3C08BBD2E8C37AE00EDC6A2 /* ViewModel */,
 				C3C08BBE2E8C37B100EDC6A2 /* Service */,
+				C3A750B72EB6929E0058163B /* RequestBottomSheet */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1218,6 +1231,61 @@
 				C3D764BB2E93DE1300104C3B /* DetailService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		C3C173B72EC5EA6200D27383 /* HomeContainerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173B82EC5EAA800D27383 /* HomeContainerViewController.swift */,
+				C3C173BB2EC5EEB000D27383 /* Flow */,
+				C3EB108C2E744AF9002DA295 /* Home */,
+				C3C08BBA2E8C36DD00EDC6A2 /* Detail */,
+			);
+			path = HomeContainerViewController;
+			sourceTree = "<group>";
+		};
+		C3C173BB2EC5EEB000D27383 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173BF2EC5EEE200D27383 /* Model */,
+				C3C173BE2EC5EEDF00D27383 /* View */,
+				C3C173BD2EC5EEDB00D27383 /* ViewModel */,
+				C3C173BC2EC5EECD00D27383 /* Service */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		C3C173BC2EC5EECD00D27383 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173C42EC5FEBB00D27383 /* FlowService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3C173BD2EC5EEDB00D27383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173C22EC5FDC200D27383 /* FlowViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3C173BE2EC5EEDF00D27383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173C02EC5EF0C00D27383 /* FlowViewController.swift */,
+				C3C173C82EC601BF00D27383 /* FlowViewController+CollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3C173BF2EC5EEE200D27383 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173C62EC5FF2100D27383 /* Flow.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C3D764BF2E93E99A00104C3B /* SubView */ = {
@@ -1507,7 +1575,7 @@
 		C3EB107F2E74412B002DA295 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				C3EB108C2E744AF9002DA295 /* Home */,
+				C3C173B72EC5EA6200D27383 /* HomeContainerViewController */,
 				C3D764C62E95380200104C3B /* Channel */,
 				C3F39E0C2EA0264700197509 /* PostConfession */,
 				C3A7508C2EB52FF90058163B /* MessagingContainer */,
@@ -1617,8 +1685,6 @@
 				C3EB10812E744833002DA295 /* View */,
 				C3EB10842E744863002DA295 /* ViewModel */,
 				C3EB10862E7448D0002DA295 /* Service */,
-				C3C08BBA2E8C36DD00EDC6A2 /* Detail */,
-				C3A750B72EB6929E0058163B /* RequestBottomSheet */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1903,6 +1969,7 @@
 				C37D5DE32E8414630068F334 /* NetworkConstants.swift in Sources */,
 				C37D5DEE2E8417230068F334 /* AuthManager.swift in Sources */,
 				C3528EFE2EB8C32E00FF1C19 /* UIApplication+Extension.swift in Sources */,
+				C3C173C52EC5FEBE00D27383 /* FlowService.swift in Sources */,
 				C3D764BC2E93DE1800104C3B /* DetailService.swift in Sources */,
 				C3A750712EB4C7720058163B /* EditSocialViewController.swift in Sources */,
 				C3A750AA2EB648660058163B /* ChatViewController+RequestMessage.swift in Sources */,
@@ -1914,6 +1981,7 @@
 				C3E660482EB3BCCE0059048F /* MyConfessionDetail+CollectionView.swift in Sources */,
 				C3A750812EB509CB0058163B /* SettingsViewController.swift in Sources */,
 				C3E6604F2EB407480059048F /* SocialCollectionViewCell.swift in Sources */,
+				C3C173B92EC5EAA800D27383 /* HomeContainerViewController.swift in Sources */,
 				C37D5DF62E842A5B0068F334 /* MockNetworkManager.swift in Sources */,
 				C3528F172EB8FE4300FF1C19 /* RequestSentViewController+CollectionView.swift in Sources */,
 				C3E6604A2EB3CAE60059048F /* MyConfessionDetailService.swift in Sources */,
@@ -1938,10 +2006,12 @@
 				C3528F082EB8EF4500FF1C19 /* RequestSentViewModel.swift in Sources */,
 				C351488D2EAA38E400359585 /* ChatViewController+MessageKit.swift in Sources */,
 				C3A750A52EB626CA0058163B /* RequestMessageModel.swift in Sources */,
+				C3C173C12EC5EF0C00D27383 /* FlowViewController.swift in Sources */,
 				C3A750852EB50A140058163B /* SettingsService.swift in Sources */,
 				C3528F292EBB724B00FF1C19 /* ModerationViewController.swift in Sources */,
 				C3A750BF2EB694120058163B /* RequestBottomSheetViewModel.swift in Sources */,
 				C3E660342EB2859E0059048F /* EditConfessionViewController.swift in Sources */,
+				C3C173C92EC601C500D27383 /* FlowViewController+CollectionView.swift in Sources */,
 				C3C08BC02E8C37D400EDC6A2 /* DetailViewController.swift in Sources */,
 				C3A7A4162EA91D8B00250B06 /* MockUserService.swift in Sources */,
 				C351488B2EAA37D000359585 /* Message.swift in Sources */,
@@ -1953,6 +2023,7 @@
 				C3A750732EB4C78A0058163B /* EditSocialViewModel.swift in Sources */,
 				C3E660122EAF853B0059048F /* String+DateFormatting.swift in Sources */,
 				C3528F0A2EB8EF7D00FF1C19 /* RequestSentService.swift in Sources */,
+				C3C173C72EC5FF2300D27383 /* Flow.swift in Sources */,
 				C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */,
 				C3E660162EAFB7F00059048F /* ChatViewController+ScrollView.swift in Sources */,
 				C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */,
@@ -2027,6 +2098,7 @@
 				C3A7508E2EB532DB0058163B /* MessagingContainerViewController.swift in Sources */,
 				C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */,
 				C3E660462EB399330059048F /* MyConfessionDetailViewModel.swift in Sources */,
+				C3C173C32EC5FDC600D27383 /* FlowViewModel.swift in Sources */,
 				C3F39E142EA0268B00197509 /* PostConfessionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
