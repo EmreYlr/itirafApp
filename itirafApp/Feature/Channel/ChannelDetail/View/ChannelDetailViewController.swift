@@ -33,7 +33,7 @@ final class ChannelDetailViewController: UIViewController {
     
     private func initData() {
         viewModel.delegate = self
-        navigationItem.title = viewModel.channel.title
+        navigationItem.title = viewModel.channel.title.capitalized
         Task {
             await viewModel.fetchConfessions(reset: true)
         }

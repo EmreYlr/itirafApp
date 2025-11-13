@@ -16,7 +16,7 @@ final class ChannelHeaderView: UICollectionReusableView {
     
     
     func configurationView(channel: ChannelData) {
-        channelNameLabel.text = channel.title
+        channelNameLabel.text = channel.title.capitalized
         subCountLabel.text = "14.4K abone" //TODO: -Gerçek veri gelecek
         
         //TODO: -Abone kontrolü yapılacak

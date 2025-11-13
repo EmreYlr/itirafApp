@@ -10,9 +10,8 @@ import UIKit
 final class ChannelViewController: UIViewController {
     //MARK: - Properties
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    private var loadingFooter: UIActivityIndicatorView!
     var channelViewModel: ChannelViewModelProtocol
     
     required init(coder: NSCoder) {
@@ -23,10 +22,9 @@ final class ChannelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ChannelViewController")
-        initTableView()
         initData()
+        initCollectionView()
         initSearchBar()
-        
     }
     
     private func initData() {
@@ -36,17 +34,15 @@ final class ChannelViewController: UIViewController {
         }
     }
     
-    private func initTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
+    private func initCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(UINib(nibName: "ChannelCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "channelCell")
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshChannels), for: .valueChanged)
-        tableView.refreshControl = refreshControl
-        
-        loadingFooter = UIActivityIndicatorView(style: .medium)
-        loadingFooter.hidesWhenStopped = true
-        loadingFooter.color = .gray
+        collectionView.refreshControl = refreshControl
     }
     
     private func initSearchBar() {
@@ -64,25 +60,10 @@ final class ChannelViewController: UIViewController {
 }
 
 extension ChannelViewController: ChannelViewModelOutputProtocol {
-    func didStartLoading() {
-        DispatchQueue.main.async {
-            self.loadingFooter.startAnimating()
-            self.loadingFooter.frame = CGRect(x: 0, y: 0, width: self.tableView.bounds.width, height: 44)
-            self.tableView.tableFooterView = self.loadingFooter
-        }
-    }
-    
-    func didFinishLoading() {
-        DispatchQueue.main.async {
-            self.loadingFooter.stopAnimating()
-            self.tableView.tableFooterView = UIView()
-        }
-    }
-
     func didUpdateChannel() {
         DispatchQueue.main.async {
-            self.tableView.refreshControl?.endRefreshing()
-            self.tableView.reloadData()
+            self.collectionView.refreshControl?.endRefreshing()
+            self.collectionView.reloadData()
         }
     }
     

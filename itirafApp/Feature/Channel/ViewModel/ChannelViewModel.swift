@@ -21,8 +21,6 @@ protocol ChannelViewModelProtocol {
 protocol ChannelViewModelOutputProtocol: AnyObject {
     func didUpdateChannel()
     func didFailWithError(_ error: Error)
-    func didStartLoading()
-    func didFinishLoading()
 }
 
 @MainActor
@@ -53,10 +51,8 @@ final class ChannelViewModel {
         guard !isLoading, hasMoreData else { return }
         
         isLoading = true
-        delegate?.didStartLoading()
         defer {
             isLoading = false
-            delegate?.didFinishLoading()
         }
         
         do {
@@ -83,9 +79,8 @@ final class ChannelViewModel {
     
     func searchChannels(keyword: String) async {
         isSearching = true
-        delegate?.didStartLoading()
         defer {
-            delegate?.didFinishLoading()
+//            delegate?.didFinishLoading()
         }
         
         do {

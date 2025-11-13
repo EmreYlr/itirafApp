@@ -95,6 +95,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yk9-GN-2JU">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemMintColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="MZX-Lc-tOT" kind="relationship" relationship="rootViewController" id="NlN-QB-hjW"/>
@@ -920,36 +921,34 @@
                                     <outlet property="delegate" destination="MZX-Lc-tOT" id="70F-cC-cos"/>
                                 </connections>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tüm Kanallar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzn-eV-rKi">
-                                <rect key="frame" x="16" y="228" width="109" height="22"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <color key="textColor" systemColor="systemMintColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pGB-XV-sUE">
-                                <rect key="frame" x="0.0" y="255" width="393" height="480"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q9g-Q9-Rk6">
+                                <rect key="frame" x="16" y="223" width="361" height="507"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ufc-76-Erv">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Qd-o2-qAN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1Qd-o2-qAN" firstAttribute="trailing" secondItem="pGB-XV-sUE" secondAttribute="trailing" id="441-OR-OV1"/>
+                            <constraint firstItem="1Qd-o2-qAN" firstAttribute="trailing" secondItem="Q9g-Q9-Rk6" secondAttribute="trailing" constant="16" id="0Hw-Ks-2Kr"/>
                             <constraint firstItem="l7n-ke-UkL" firstAttribute="top" secondItem="1Qd-o2-qAN" secondAttribute="top" id="DHY-Wd-Dwn"/>
-                            <constraint firstItem="1Qd-o2-qAN" firstAttribute="bottom" secondItem="pGB-XV-sUE" secondAttribute="bottom" id="Edk-2p-7Hc"/>
-                            <constraint firstItem="1Qd-o2-qAN" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uzn-eV-rKi" secondAttribute="trailing" constant="16" id="LE2-be-8kK"/>
-                            <constraint firstItem="pGB-XV-sUE" firstAttribute="leading" secondItem="1Qd-o2-qAN" secondAttribute="leading" id="PbL-6F-KpR"/>
+                            <constraint firstItem="Q9g-Q9-Rk6" firstAttribute="leading" secondItem="1Qd-o2-qAN" secondAttribute="leading" constant="16" id="M9o-UN-PKd"/>
                             <constraint firstItem="l7n-ke-UkL" firstAttribute="trailing" secondItem="1Qd-o2-qAN" secondAttribute="trailing" id="aEh-9Y-DEw"/>
-                            <constraint firstItem="uzn-eV-rKi" firstAttribute="top" secondItem="l7n-ke-UkL" secondAttribute="bottom" constant="10" id="cEk-0p-LvT"/>
+                            <constraint firstItem="Q9g-Q9-Rk6" firstAttribute="top" secondItem="l7n-ke-UkL" secondAttribute="bottom" constant="5" id="dBs-l1-muB"/>
                             <constraint firstItem="l7n-ke-UkL" firstAttribute="leading" secondItem="1Qd-o2-qAN" secondAttribute="leading" id="ePF-Ea-scp"/>
-                            <constraint firstItem="pGB-XV-sUE" firstAttribute="top" secondItem="uzn-eV-rKi" secondAttribute="bottom" constant="5" id="iUR-iT-m7B"/>
-                            <constraint firstItem="uzn-eV-rKi" firstAttribute="leading" secondItem="1Qd-o2-qAN" secondAttribute="leading" constant="16" id="uTS-mp-ga2"/>
+                            <constraint firstItem="1Qd-o2-qAN" firstAttribute="bottom" secondItem="Q9g-Q9-Rk6" secondAttribute="bottom" constant="5" id="nnC-NW-UOE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Kanallar" id="P7F-Od-Ndw"/>
                     <connections>
+                        <outlet property="collectionView" destination="Q9g-Q9-Rk6" id="sai-Oq-ge4"/>
                         <outlet property="searchBar" destination="l7n-ke-UkL" id="OCl-Yg-DxM"/>
-                        <outlet property="tableView" destination="pGB-XV-sUE" id="NAS-bS-6Cu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9TP-XJ-crO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

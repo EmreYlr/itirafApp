@@ -133,6 +133,9 @@
 		C3C173D82EC6157C00D27383 /* ChannelDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173D72EC6157700D27383 /* ChannelDetailViewModel.swift */; };
 		C3C173DB2EC61CF700D27383 /* ChannelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173DA2EC61CF500D27383 /* ChannelHeaderView.swift */; };
 		C3C173DD2EC61D9E00D27383 /* ChannelDetailViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173DC2EC61D9600D27383 /* ChannelDetailViewController+CollectionView.swift */; };
+		C3C173E12EC62B0200D27383 /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C173E02EC62B0200D27383 /* ChannelCollectionViewCell.xib */; };
+		C3C173E22EC62B0200D27383 /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173DF2EC62B0200D27383 /* ChannelCollectionViewCell.swift */; };
+		C3C173E42EC62C0900D27383 /* ChannelViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173E32EC62C0300D27383 /* ChannelViewController+CollectionView.swift */; };
 		C3D764BA2E93DDDE00104C3B /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764B92E93DDDB00104C3B /* DetailViewModel.swift */; };
 		C3D764BC2E93DE1800104C3B /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764BB2E93DE1300104C3B /* DetailService.swift */; };
 		C3D764BE2E93E96200104C3B /* DetailViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764BD2E93E95B00104C3B /* DetailViewController+CollectionView.swift */; };
@@ -143,7 +146,6 @@
 		C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764CF2E95389100104C3B /* ChannelViewController.swift */; };
 		C3D764D22E9538AD00104C3B /* ChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D12E9538AA00104C3B /* ChannelViewModel.swift */; };
 		C3D764D42E95391200104C3B /* ChannelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D32E95390E00104C3B /* ChannelService.swift */; };
-		C3D764D92E953BDE00104C3B /* ChannelViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D82E953BD800104C3B /* ChannelViewController+TableView.swift */; };
 		C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7658E2E95507600104C3B /* ChannelManager.swift */; };
 		C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */; };
 		C3D765942E96A90B00104C3B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D765932E96A90B00104C3B /* APIError.swift */; };
@@ -321,6 +323,9 @@
 		C3C173D72EC6157700D27383 /* ChannelDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailViewModel.swift; sourceTree = "<group>"; };
 		C3C173DA2EC61CF500D27383 /* ChannelHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelHeaderView.swift; sourceTree = "<group>"; };
 		C3C173DC2EC61D9600D27383 /* ChannelDetailViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelDetailViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C3C173DF2EC62B0200D27383 /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3C173E02EC62B0200D27383 /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
+		C3C173E32EC62C0300D27383 /* ChannelViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		C3D764B92E93DDDB00104C3B /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		C3D764BB2E93DE1300104C3B /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
 		C3D764BD2E93E95B00104C3B /* DetailViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+CollectionView.swift"; sourceTree = "<group>"; };
@@ -331,7 +336,6 @@
 		C3D764CF2E95389100104C3B /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		C3D764D12E9538AA00104C3B /* ChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewModel.swift; sourceTree = "<group>"; };
 		C3D764D32E95390E00104C3B /* ChannelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelService.swift; sourceTree = "<group>"; };
-		C3D764D82E953BD800104C3B /* ChannelViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+TableView.swift"; sourceTree = "<group>"; };
 		C3D7658E2E95507600104C3B /* ChannelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelManager.swift; sourceTree = "<group>"; };
 		C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		C3D765932E96A90B00104C3B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -1359,6 +1363,15 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
+		C3C173DE2EC6285F00D27383 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173DF2EC62B0200D27383 /* ChannelCollectionViewCell.swift */,
+				C3C173E02EC62B0200D27383 /* ChannelCollectionViewCell.xib */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		C3D764BF2E93E99A00104C3B /* SubView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1391,8 +1404,9 @@
 		C3D764CC2E95386A00104C3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C3C173DE2EC6285F00D27383 /* SubView */,
 				C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */,
-				C3D764D82E953BD800104C3B /* ChannelViewController+TableView.swift */,
+				C3C173E32EC62C0300D27383 /* ChannelViewController+CollectionView.swift */,
 				C3D764CF2E95389100104C3B /* ChannelViewController.swift */,
 			);
 			path = View;
@@ -1964,6 +1978,7 @@
 				C37D5B032E7840D20068F334 /* Login.storyboard in Resources */,
 				C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */,
 				C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */,
+				C3C173E12EC62B0200D27383 /* ChannelCollectionViewCell.xib in Resources */,
 				C3A750B42EB658770058163B /* SocialLinkTableViewCell.xib in Resources */,
 				C3EB107D2E744115002DA295 /* Main.storyboard in Resources */,
 				C3A750872EB50B6E0058163B /* Settings.storyboard in Resources */,
@@ -2066,7 +2081,6 @@
 				C3D764C92E95382800104C3B /* Channel.swift in Sources */,
 				C3A7A4282EA9484000250B06 /* DirectMessageCollectionViewCell.swift in Sources */,
 				C3C08BAF2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.swift in Sources */,
-				C3D764D92E953BDE00104C3B /* ChannelViewController+TableView.swift in Sources */,
 				C3528F082EB8EF4500FF1C19 /* RequestSentViewModel.swift in Sources */,
 				C351488D2EAA38E400359585 /* ChatViewController+MessageKit.swift in Sources */,
 				C3A750A52EB626CA0058163B /* RequestMessageModel.swift in Sources */,
@@ -2105,6 +2119,7 @@
 				C3528F3D2EBBB6A400FF1C19 /* ModerationDetailViewController.swift in Sources */,
 				C3E660272EB256D30059048F /* MyConfessionViewController+CollectionView.swift in Sources */,
 				C3C08BB12E8ACE9A00EDC6A2 /* Confession.swift in Sources */,
+				C3C173E22EC62B0200D27383 /* ChannelCollectionViewCell.swift in Sources */,
 				C3D764C52E93ED3300104C3B /* ChannelMessageData.swift in Sources */,
 				C3D765962E96BF1D00104C3B /* UIViewController+Alert.swift in Sources */,
 				C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */,
@@ -2124,6 +2139,7 @@
 				C3E660142EAFACD80059048F /* Date+Extension.swift in Sources */,
 				C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */,
 				C3F39E122EA0267300197509 /* PostConfessionViewController.swift in Sources */,
+				C3C173E42EC62C0900D27383 /* ChannelViewController+CollectionView.swift in Sources */,
 				C3A7A42B2EA94CB500250B06 /* DirectMessageViewController+CollectionView.swift in Sources */,
 				C3A750A32EB623690058163B /* RequestMessageViewController+CollectionView.swift in Sources */,
 				C38EAA9D2EBF4FF400A1818C /* ViolationsViewController.swift in Sources */,
