@@ -12,6 +12,7 @@ protocol ChannelServiceProtocol {
     func searchChannels(query: String) async throws -> [ChannelData]
     func followChannel(channelId: [Int]) async throws
     func unfollowChannel(channelId: Int) async throws
+    func getFollowedChannels() async throws -> [ChannelData]
 }
 
 final class ChannelService {
@@ -65,6 +66,15 @@ final class ChannelService {
             method: .delete,
             parameters: nil,
             encoding: JSONEncoding.default
+        )
+    }
+    
+    func getFollowedChannels() async throws -> [ChannelData] {
+        return try await networkService.request(
+            endpoint: Endpoint.User.getFollowedChannels,
+            method: .get,
+            parameters: nil,
+            encoding: URLEncoding.default
         )
     }
 }

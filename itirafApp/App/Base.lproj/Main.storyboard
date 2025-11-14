@@ -819,7 +819,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-q7-gXn">
-                                <rect key="frame" x="16" y="351" width="361" height="80"/>
+                                <rect key="frame" x="16" y="396" width="361" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gizli sosyal medya bağlantıları" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCi-Ca-oNp">
                                         <rect key="frame" x="8" y="8" width="345" height="17"/>
@@ -847,7 +847,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BB6-Oh-i2L">
-                                <rect key="frame" x="16" y="504" width="361" height="216"/>
+                                <rect key="frame" x="16" y="549" width="361" height="171"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BTV-Fw-Smu">
                                     <size key="itemSize" width="128" height="128"/>
@@ -858,7 +858,7 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFP-63-RSi">
-                                <rect key="frame" x="16" y="446" width="361" height="50"/>
+                                <rect key="frame" x="16" y="491" width="361" height="50"/>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Obj-O4-rIw"/>
@@ -872,6 +872,18 @@
                                     <action selector="addNewSocialButtonTapped:" destination="eUP-H7-03D" eventType="touchUpInside" id="v6p-os-wyP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbl-qL-rn5">
+                                <rect key="frame" x="144.33333333333334" y="341" width="104.66666666666666" height="35"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" Takip: 0" imagePadding="0.0">
+                                    <imageReference key="image" image="person.2" catalog="system" symbolScale="small" variableValue="0.0"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="followedButtonTapped:" destination="eUP-H7-03D" eventType="touchUpInside" id="Ar9-np-utR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Tw-Wg-ybG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -879,23 +891,26 @@
                             <constraint firstItem="BB6-Oh-i2L" firstAttribute="top" secondItem="VFP-63-RSi" secondAttribute="bottom" constant="8" id="0Nk-pQ-UKi"/>
                             <constraint firstItem="VFP-63-RSi" firstAttribute="leading" secondItem="8Tw-Wg-ybG" secondAttribute="leading" constant="16" id="8sX-NK-84f"/>
                             <constraint firstItem="8Tw-Wg-ybG" firstAttribute="trailing" secondItem="VFP-63-RSi" secondAttribute="trailing" constant="16" id="FKL-Qb-mCD"/>
+                            <constraint firstItem="VGZ-q7-gXn" firstAttribute="top" secondItem="fbl-qL-rn5" secondAttribute="bottom" constant="20" id="HXD-Dd-eBg"/>
                             <constraint firstItem="8Tw-Wg-ybG" firstAttribute="bottom" secondItem="BB6-Oh-i2L" secondAttribute="bottom" constant="15" id="IOK-Xd-bLV"/>
                             <constraint firstItem="bu1-Wh-svQ" firstAttribute="top" secondItem="8Tw-Wg-ybG" secondAttribute="top" constant="15" id="Iz4-8H-pDM"/>
                             <constraint firstItem="8Tw-Wg-ybG" firstAttribute="trailing" secondItem="VGZ-q7-gXn" secondAttribute="trailing" constant="16" id="O7b-qN-tzs"/>
+                            <constraint firstItem="fbl-qL-rn5" firstAttribute="top" secondItem="TGk-mH-sme" secondAttribute="bottom" constant="10" id="S1I-10-FtC"/>
                             <constraint firstItem="VFP-63-RSi" firstAttribute="top" secondItem="VGZ-q7-gXn" secondAttribute="bottom" constant="15" id="S4o-Yp-ncP"/>
                             <constraint firstItem="VGZ-q7-gXn" firstAttribute="leading" secondItem="8Tw-Wg-ybG" secondAttribute="leading" constant="16" id="Yrj-I7-PUA"/>
                             <constraint firstItem="TGk-mH-sme" firstAttribute="centerX" secondItem="hu6-nO-meL" secondAttribute="centerX" id="aHk-dO-g3b"/>
-                            <constraint firstItem="VGZ-q7-gXn" firstAttribute="top" secondItem="TGk-mH-sme" secondAttribute="bottom" constant="20" id="anc-sd-boa"/>
                             <constraint firstItem="BB6-Oh-i2L" firstAttribute="leading" secondItem="8Tw-Wg-ybG" secondAttribute="leading" constant="16" id="fGb-xE-7cg"/>
                             <constraint firstItem="8Tw-Wg-ybG" firstAttribute="trailing" secondItem="BB6-Oh-i2L" secondAttribute="trailing" constant="16" id="gqO-K3-QcG"/>
                             <constraint firstItem="bu1-Wh-svQ" firstAttribute="centerX" secondItem="8Tw-Wg-ybG" secondAttribute="centerX" id="r2e-kU-gG4"/>
                             <constraint firstItem="TGk-mH-sme" firstAttribute="top" secondItem="bu1-Wh-svQ" secondAttribute="bottom" constant="10" id="vfV-li-NtL"/>
+                            <constraint firstItem="fbl-qL-rn5" firstAttribute="centerX" secondItem="TGk-mH-sme" secondAttribute="centerX" id="waa-VV-Zdy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profil" id="fBC-vY-R1u"/>
                     <connections>
                         <outlet property="addNewSocialButton" destination="VFP-63-RSi" id="KPE-OJ-J3r"/>
                         <outlet property="collectionView" destination="BB6-Oh-i2L" id="71d-Fg-WWw"/>
+                        <outlet property="followedButton" destination="fbl-qL-rn5" id="8S2-eU-ZyZ"/>
                         <outlet property="personImageView" destination="hu6-nO-meL" id="EWk-1i-1H2"/>
                         <outlet property="personView" destination="bu1-Wh-svQ" id="LvG-Xp-rUx"/>
                         <outlet property="privacyView" destination="VGZ-q7-gXn" id="bpC-9b-JQw"/>
@@ -1005,6 +1020,7 @@
         <image name="paperplane" catalog="system" width="128" height="119"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="person.2" catalog="system" width="128" height="87"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="person.text.rectangle" catalog="system" width="128" height="93"/>
         <image name="person.text.rectangle.fill" catalog="system" width="128" height="93"/>

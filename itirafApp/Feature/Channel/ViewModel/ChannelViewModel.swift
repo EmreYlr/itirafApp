@@ -10,14 +10,16 @@ import Foundation
 protocol ChannelViewModelProtocol {
     var delegate: ChannelViewModelOutputProtocol? { get set }
     var channel: Channel? { get }
+    var followedChannels: [ChannelData] { get }
     var filterChannels: [ChannelData] { set get }
     var isSearching: Bool { get set }
     func fetchChannel(reset: Bool) async
     func searchChannels(keyword: String) async
-    func selectChannel(at index: Int)
     func cancelSearch()
     func followChannel(at index: Int) async
     func unfollowChannel(at index: Int) async
+    func getFollowedChannels() async
+    func isChannelFollowed(channelId: Int) -> Bool
 }
 
 protocol ChannelViewModelOutputProtocol: AnyObject {
@@ -29,6 +31,7 @@ protocol ChannelViewModelOutputProtocol: AnyObject {
 final class ChannelViewModel {
     weak var delegate: ChannelViewModelOutputProtocol?
     private(set) var channel: Channel?
+    private(set) var followedChannels: [ChannelData] = []
     var filterChannels: [ChannelData] = []
     var isSearching = false
     
@@ -100,15 +103,15 @@ final class ChannelViewModel {
         delegate?.didUpdateChannel()
     }
     
-    func selectChannel(at index: Int) {
-        let selectedChannel = filterChannels[index]
-        ChannelManager.shared.setChannel(selectedChannel)
-    }
-    
     func followChannel(at index: Int) async {
-        let channelId: [Int] = [filterChannels[index].id]
+        let channelToFollow = filterChannels[index]
+        let channelId: [Int] = [channelToFollow.id]
         do {
             try await channelService.followChannel(channelId: channelId)
+
+            if !isChannelFollowed(channelId: channelToFollow.id) {
+                followedChannels.append(channelToFollow)
+            }
         } catch {
             delegate?.didFailWithError(error)
         }
@@ -118,9 +121,24 @@ final class ChannelViewModel {
         let channelId: Int = filterChannels[index].id
         do {
             try await channelService.unfollowChannel(channelId: channelId)
+            
+            followedChannels.removeAll { $0.id == channelId }
         } catch {
             delegate?.didFailWithError(error)
         }
+    }
+    
+    func getFollowedChannels() async {
+        do {
+            let followedChannels = try await channelService.getFollowedChannels()
+            self.followedChannels = followedChannels
+        } catch {
+            delegate?.didFailWithError(error)
+        }
+    }
+    
+    func isChannelFollowed(channelId: Int) -> Bool {
+        return followedChannels.contains { $0.id == channelId }
     }
 }
 extension ChannelViewModel: @preconcurrency ChannelViewModelProtocol { }

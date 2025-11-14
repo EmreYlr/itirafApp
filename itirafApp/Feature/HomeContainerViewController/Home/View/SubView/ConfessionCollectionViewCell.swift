@@ -38,6 +38,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         updateLikeButton(isLiked: confession.liked)
         dateLabel.text = confession.createdAt.relativeTimeString()
         ownerNameLabel.text = confession.owner.username
+        channelNameLabel.isHidden = confession.channel == nil
         channelNameLabel.text = confession.channel?.title.capitalized
     }
     
@@ -50,7 +51,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         dateLabel.text = flow.createdAt.relativeTimeString()
         ownerNameLabel.text = flow.owner.username
         channelNameLabel.isHidden = false
-        channelNameLabel.text = flow.channel.title
+        channelNameLabel.text = flow.channel.title.capitalized
     }
 
     @objc private func channelLabelTapped() {

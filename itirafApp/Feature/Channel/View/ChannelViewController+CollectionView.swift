@@ -17,41 +17,37 @@ extension ChannelViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "channelCell", for: indexPath) as? ChannelCollectionViewCell else {
-             fatalError("Cannot dequeue cell with identifier channelCell")
+            fatalError("Cannot dequeue cell with identifier channelCell")
         }
         
         let channel = channelViewModel.filterChannels[indexPath.item]
+        let isFollowed = channelViewModel.isChannelFollowed(channelId: channel.id)
         
-        cell.configure(with: channel)
+        cell.configure(with: channel, isFollowed: isFollowed)
+        
         cell.onSubButtonTapped = { [weak self] isFollowed in
-            if isFollowed {
-                Task(priority: .utility) {
-                    await self?.channelViewModel.followChannel(at: indexPath.row)
+            Task(priority: .utility) {
+                guard let self = self else { return }
+                if isFollowed {
+                    await self.channelViewModel.followChannel(at: indexPath.row)
+                } else {
+                    await self.channelViewModel.unfollowChannel(at: indexPath.row)
                 }
-            } else {
-                Task(priority: .utility) {
-                    await self?.channelViewModel.unfollowChannel(at: indexPath.row)
-                }
-                return
             }
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        channelViewModel.selectChannel(at: indexPath.item)
-        
         let channel = channelViewModel.filterChannels[indexPath.item]
         let channelDetailVC: ChannelDetailViewController = Storyboard.channelDetail.instantiate(.channelDetail)
         channelDetailVC.viewModel = ChannelDetailViewModel(channel: channel)
         navigationController?.pushViewController(channelDetailVC, animated: true)
-        
-//        tabBarController?.selectedIndex = 0
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard !channelViewModel.isSearching else { return }
-
+        
         if indexPath.item == (channelViewModel.channel?.data.count ?? 0) - 1 {
             Task {
                 await channelViewModel.fetchChannel(reset: false)

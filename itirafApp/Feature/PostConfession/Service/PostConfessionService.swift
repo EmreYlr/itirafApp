@@ -19,6 +19,7 @@ final class PostConfessionService {
     }
     
     func postConfession(content: PostConfession) async throws {
+        //TODO: -Kanal seçtireceğiz
         guard let channelId = ChannelManager.shared.getChannelId() else {
             print("Channel ID not found")
             throw AppError.channelIdNotFound

@@ -15,6 +15,7 @@ final class PersonViewController: UIViewController {
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var personView: UIView!
     @IBOutlet weak var addNewSocialButton: UIButton!
+    @IBOutlet weak var followedButton: UIButton!
     
     var personViewModel: PersonViewModelProtocol
     required init?(coder: NSCoder) {
@@ -42,9 +43,13 @@ final class PersonViewController: UIViewController {
         privacyView.layer.cornerRadius = 8
         privacyView.backgroundColor = UIColor.systemGray.withAlphaComponent(0.1)
         
+        followedButton.layer.cornerRadius = followedButton.frame.height / 2
+        followedButton.backgroundColor = .systemGray6
+        
         let more = UIImage(systemName: "line.3.horizontal")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: more , style: .done, target: self, action: #selector(moreButtonTapped))
+        
         Task {
             await personViewModel.getUserSocialLinks()
         }
@@ -72,6 +77,9 @@ final class PersonViewController: UIViewController {
     @objc private func moreButtonTapped() {
         let settingsVC = Storyboard.settings.instantiate(.settings)
         navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
+    @IBAction func followedButtonTapped(_ sender: UIButton) {
     }
 }
 

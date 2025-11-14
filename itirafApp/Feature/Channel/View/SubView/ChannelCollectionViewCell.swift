@@ -34,10 +34,12 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
         subButton.layer.cornerRadius = subButton.frame.height / 2
     }
     
-    func configure(with channel: ChannelData) {
+    func configure(with channel: ChannelData, isFollowed: Bool) {
         channelNameLabel.text = channel.title.capitalized
         subCountLabel.text = "14.4K abone" //TODO: -Gerçek veri gelecek
         channelIconLabel.text = String(channel.title.prefix(2).uppercased())
+        self.isSubscribed = isFollowed
+        configureButtonAppearance()
     }
     
     @IBAction func subButtonTapped(_ sender: UIButton) {
@@ -46,7 +48,7 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
         UIView.animate(withDuration: 0.25) {
             self.configureButtonAppearance()
         }
-        
+
         onSubButtonTapped?(isSubscribed)
     }
     
