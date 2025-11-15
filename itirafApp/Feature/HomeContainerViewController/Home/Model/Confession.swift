@@ -32,7 +32,9 @@ struct ConfessionData: Codable, Hashable {
         return lhs.id == rhs.id &&
         lhs.liked == rhs.liked &&
         lhs.likeCount == rhs.likeCount &&
-        lhs.channel == rhs.channel
+        lhs.channel == rhs.channel &&
+        lhs.createdAt == rhs.createdAt &&
+        lhs.replyCount == rhs.replyCount
     }
     
     func hash(into hasher: inout Hasher) {

@@ -23,7 +23,10 @@ struct FlowData: Codable, Hashable{
     static func == (lhs: FlowData, rhs: FlowData) -> Bool {
         return lhs.id == rhs.id &&
         lhs.liked == rhs.liked &&
-        lhs.likeCount == rhs.likeCount
+        lhs.likeCount == rhs.likeCount &&
+        lhs.createdAt == rhs.createdAt &&
+        lhs.likeCount == rhs.likeCount &&
+        lhs.replyCount == rhs.replyCount
     }
     
     func hash(into hasher: inout Hasher) {

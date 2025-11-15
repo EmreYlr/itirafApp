@@ -28,7 +28,10 @@ struct MyConfessionData: Codable, Hashable {
         return lhs.id == rhs.id &&
         lhs.title == rhs.title &&
         lhs.message == rhs.message &&
-        lhs.moderationStatus == rhs.moderationStatus
+        lhs.moderationStatus == rhs.moderationStatus &&
+        lhs.createdAt == rhs.createdAt &&
+        lhs.likeCount == rhs.likeCount &&
+        lhs.replyCount == rhs.replyCount
     }
     
     func hash(into hasher: inout Hasher) {

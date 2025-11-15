@@ -13,7 +13,6 @@ final class FollowManager {
     
     private let networkService: NetworkService
     private let userDefaults: UserDefaults
-    
 
     private var followedChannelIds: Set<Int> {
         didSet {
@@ -21,8 +20,7 @@ final class FollowManager {
         }
     }
 
-    private init(networkService: NetworkService = NetworkManager.shared,
-                 userDefaults: UserDefaults = .standard) {
+    private init(networkService: NetworkService = NetworkManager.shared, userDefaults: UserDefaults = .standard) {
         self.networkService = networkService
         self.userDefaults = userDefaults
 
