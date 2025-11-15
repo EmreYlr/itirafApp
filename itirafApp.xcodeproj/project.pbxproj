@@ -56,6 +56,7 @@
 		C37D5E0C2E856C3F0068F334 /* LoginAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5E0B2E856C3F0068F334 /* LoginAlertPresenter.swift */; };
 		C37D5E142E86DDBD0068F334 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C37D5E132E86DDBD0068F334 /* Register.storyboard */; };
 		C37D5ECB2E86DE9A0068F334 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5ECA2E86DE9A0068F334 /* RegisterViewController.swift */; };
+		C37F9E2E2EC8E6A20042B56F /* FollowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37F9E2C2EC8E6A20042B56F /* FollowManager.swift */; };
 		C38EAA9D2EBF4FF400A1818C /* ViolationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAA9C2EBF4FF400A1818C /* ViolationsViewController.swift */; };
 		C38EAAB02EBFB38100A1818C /* RegisterDeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */; };
 		C38EAAB12EBFB38100A1818C /* DeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */; };
@@ -253,6 +254,7 @@
 		C37D5E0B2E856C3F0068F334 /* LoginAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAlertPresenter.swift; sourceTree = "<group>"; };
 		C37D5E132E86DDBD0068F334 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		C37D5ECA2E86DE9A0068F334 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C37F9E2C2EC8E6A20042B56F /* FollowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowManager.swift; sourceTree = "<group>"; };
 		C38EAA9C2EBF4FF400A1818C /* ViolationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolationsViewController.swift; sourceTree = "<group>"; };
 		C38EAAA92EBFB36100A1818C /* itirafApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = itirafApp.entitlements; sourceTree = "<group>"; };
 		C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDeviceRequest.swift; sourceTree = "<group>"; };
@@ -714,6 +716,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		C37F9E2D2EC8E6A20042B56F /* FollowManager */ = {
+			isa = PBXGroup;
+			children = (
+				C37F9E2C2EC8E6A20042B56F /* FollowManager.swift */,
+			);
+			path = FollowManager;
+			sourceTree = "<group>";
+		};
 		C38EAAAC2EBFB38100A1818C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1104,6 +1114,7 @@
 		C3A7A42F2EA9586400250B06 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C37F9E2D2EC8E6A20042B56F /* FollowManager */,
 				C38EAAC62EC1F32600A1818C /* Crashlytics */,
 				C38EAAAF2EBFB38100A1818C /* Device */,
 				C3EB10892E744A5D002DA295 /* Auth */,
@@ -2142,6 +2153,7 @@
 				C37D5ECB2E86DE9A0068F334 /* RegisterViewController.swift in Sources */,
 				C37D5DE52E8414760068F334 /* Endpoint.swift in Sources */,
 				C38EAACB2EC2241600A1818C /* AppCoordinator.swift in Sources */,
+				C37F9E2E2EC8E6A20042B56F /* FollowManager.swift in Sources */,
 				C3528F202EBA097800FF1C19 /* UserHelpers.swift in Sources */,
 				C3E660382EB287410059048F /* EditConfessionViewModel.swift in Sources */,
 				C37D5DE72E8415080068F334 /* NetworkManager.swift in Sources */,

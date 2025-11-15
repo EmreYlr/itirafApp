@@ -17,7 +17,7 @@ struct Link: Codable {
     let url: String
     let verified: Bool
     let displayOrder: Int?
-    let createdAt: String
+    let createdAt: String?
 }
 
 enum SocialPlatform: String, CaseIterable, Codable {

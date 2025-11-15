@@ -12,12 +12,10 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var subButton: UIButton!
     @IBOutlet weak var subCountLabel: UILabel!
     @IBOutlet weak var channelNameLabel: UILabel!
-    
     @IBOutlet weak var channelIconLabel: UILabel!
     @IBOutlet weak var imageBgView: UIView!
-    
-    var onSubButtonTapped: ((_ isSubscribed: Bool) -> Void)?
-    private var isSubscribed = false
+
+    var onSubButtonTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,8 +23,6 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
         imageBgView.layer.borderWidth = 1
         imageBgView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
         imageBgView.backgroundColor = .systemGray6
-        
-        configureButtonAppearance()
     }
     
     override func layoutSubviews() {
@@ -36,24 +32,18 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
     
     func configure(with channel: ChannelData, isFollowed: Bool) {
         channelNameLabel.text = channel.title.capitalized
-        subCountLabel.text = "14.4K abone"
+        subCountLabel.text = "14.4K abone" // Not: Bu değer dinamik gelmeli
         channelIconLabel.text = String(channel.title.prefix(2).uppercased())
-        self.isSubscribed = isFollowed
-        configureButtonAppearance()
+                
+        configureButtonAppearance(isFollowed: isFollowed)
     }
     
     @IBAction func subButtonTapped(_ sender: UIButton) {
-        isSubscribed.toggle()
-        
-        UIView.animate(withDuration: 0.25) {
-            self.configureButtonAppearance()
-        }
-
-        onSubButtonTapped?(isSubscribed)
+        onSubButtonTapped?()
     }
     
-    private func configureButtonAppearance() {
-        if isSubscribed {
+    private func configureButtonAppearance(isFollowed: Bool) {
+        if isFollowed {
             subButton.backgroundColor = .systemMint.withAlphaComponent(0.15)
             subButton.setTitleColor(.systemMint, for: .normal)
             subButton.setTitle("Abone olundu", for: .normal)

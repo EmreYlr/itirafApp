@@ -10,9 +10,6 @@ import Alamofire
 protocol ChannelServiceProtocol {
     func fetchChannels(page: Int, pageSize: Int) async throws -> Channel
     func searchChannels(query: String) async throws -> [ChannelData]
-    func followChannel(channelId: [Int]) async throws
-    func unfollowChannel(channelId: Int) async throws
-    func getFollowedChannels() async throws -> [ChannelData]
 }
 
 final class ChannelService {
@@ -46,37 +43,7 @@ final class ChannelService {
             encoding: URLEncoding.default
         )
     }
-    
-    func followChannel(channelId: [Int]) async throws {
-        let parameters: [String: Any] = [
-            "channelIds": channelId
-        ]
-        
-        let _: Empty = try await networkService.request(
-            endpoint: Endpoint.User.followChannel,
-            method: .post,
-            parameters: parameters,
-            encoding: JSONEncoding.default
-        )
-    }
-    
-    func unfollowChannel(channelId: Int) async throws {
-        let _: Empty = try await networkService.request(
-            endpoint: Endpoint.User.unfollowChannel(channelId: channelId),
-            method: .delete,
-            parameters: nil,
-            encoding: JSONEncoding.default
-        )
-    }
-    
-    func getFollowedChannels() async throws -> [ChannelData] {
-        return try await networkService.request(
-            endpoint: Endpoint.User.getFollowedChannels,
-            method: .get,
-            parameters: nil,
-            encoding: URLEncoding.default
-        )
-    }
+
 }
 
 extension ChannelService: ChannelServiceProtocol { }

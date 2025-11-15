@@ -17,14 +17,19 @@ final class LoginService {
     private let userService: UserServiceProtocol
     private let deviceService: DeviceServiceProtocol
     
+    private let followManager: FollowManager
+    
     init(networkService: NetworkService = NetworkManager.shared,
          userService: UserServiceProtocol = UserService(),
-         deviceService: DeviceServiceProtocol = DeviceService()) {
+         deviceService: DeviceServiceProtocol = DeviceService(),
+         followManager: FollowManager = FollowManager.shared) {
         self.networkService = networkService
         self.userService = userService
         self.deviceService = deviceService
+        self.followManager = followManager
     }
-
+    
+    
     func loginUser(email: String, password: String) async throws {
         let params: Parameters = [
             "email": email,
@@ -44,9 +49,17 @@ final class LoginService {
         )
         
         let user = try await userService.fetchCurrentUser()
-
+        
         CrashlyticsManager.shared.setUserID(user.id ?? "NoN")
         CrashlyticsManager.shared.isUserAnonymous(false)
+        
+        
+        do {
+            try await followManager.loadFollowedChannels()
+        } catch {
+            print("⚠️ Takip edilen kanallar çekilirken hata oluştu (login başarılı): \(error.localizedDescription)")
+            CrashlyticsManager.shared.sentNonFatal(error)
+        }
         
         if let deviceToken = UserDefaults.standard.string(forKey: .deviceToken) {
             do {

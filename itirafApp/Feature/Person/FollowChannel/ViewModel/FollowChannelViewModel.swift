@@ -25,19 +25,25 @@ final class FollowChannelViewModel {
     weak var delegate: FollowChannelViewModelDelegate?
     private(set) var followedChannels: [ChannelData] = []
     private(set) var filterFollowedChannels: [ChannelData] = []
-    
+
     private let service: FollowChannelServiceProtocol
+    private let followManager: FollowManager
     
-    init(service: FollowChannelServiceProtocol = FollowChannelService()) {
+    init(service: FollowChannelServiceProtocol = FollowChannelService(),
+         followManager: FollowManager = FollowManager.shared) {
         self.service = service
+        self.followManager = followManager
     }
     
     func getFollowedChannels() async {
         do {
             let channels = try await service.getFollowedChannels()
+            followManager.updateCache(with: channels)
+
             self.followedChannels = channels
             self.filterFollowedChannels = channels
             delegate?.didUpdateFollowedChannels()
+            
         } catch {
             delegate?.didFailWithError(error)
         }
@@ -47,7 +53,9 @@ final class FollowChannelViewModel {
         let channelToFollow = filterFollowedChannels[index]
         let channelId: [Int] = [channelToFollow.id]
         do {
-            try await service.followChannel(channelId: channelId)
+            try await followManager.followChannels(channelIds: channelId)
+            delegate?.didUpdateFollowedChannels()
+            
         } catch {
             delegate?.didFailWithError(error)
         }
@@ -56,7 +64,10 @@ final class FollowChannelViewModel {
     func unfollowChannel(at index: Int) async {
         let channelId: Int = filterFollowedChannels[index].id
         do {
-            try await service.unfollowChannel(channelId: channelId)
+            try await followManager.unfollowChannel(channelId: channelId)
+
+            delegate?.didUpdateFollowedChannels()
+            
         } catch {
             delegate?.didFailWithError(error)
         }
@@ -66,7 +77,6 @@ final class FollowChannelViewModel {
         let lowercasedKeyword = keyword.lowercased()
 
         self.filterFollowedChannels = self.followedChannels.filter {
-
             $0.title.lowercased().contains(lowercasedKeyword)
         }
         delegate?.didUpdateFollowedChannels()
@@ -78,7 +88,7 @@ final class FollowChannelViewModel {
     }
     
     func isChannelFollowed(channelId: Int) -> Bool {
-        return followedChannels.contains { $0.id == channelId }
+        return followManager.isChannelFollowed(channelId: channelId)
     }
 }
 

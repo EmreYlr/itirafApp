@@ -12,9 +12,11 @@ protocol SettingsServiceProtocol {
 
 final class SettingsService: SettingsServiceProtocol {
     private let networkService: NetworkService
+    private let followManager: FollowManager
     
-    init(networkService: NetworkService = NetworkManager.shared) {
+    init(networkService: NetworkService = NetworkManager.shared, followManager: FollowManager = FollowManager.shared) {
         self.networkService = networkService
+        self.followManager = followManager
     }
     
     func logout() async throws {
@@ -29,5 +31,7 @@ final class SettingsService: SettingsServiceProtocol {
         
         AuthManager.shared.clearTokens()
         UserManager.shared.clear()
+        
+        followManager.clearCache()        
     }
 }

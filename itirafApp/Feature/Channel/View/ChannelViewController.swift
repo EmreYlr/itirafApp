@@ -31,7 +31,6 @@ final class ChannelViewController: UIViewController {
     private func initData() {
         channelViewModel.delegate = self
         Task {
-            await channelViewModel.getFollowedChannels()
             await channelViewModel.fetchChannel(reset: true)
         }
     }
@@ -59,7 +58,6 @@ final class ChannelViewController: UIViewController {
         }
         
         Task {
-            await channelViewModel.getFollowedChannels()
             await channelViewModel.fetchChannel(reset: true)
         }
     }

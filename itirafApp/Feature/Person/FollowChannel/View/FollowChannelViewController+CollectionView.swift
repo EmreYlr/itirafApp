@@ -25,13 +25,13 @@ extension FollowChannelViewController: UICollectionViewDataSource, UICollectionV
         
         cell.configure(with: followedChannel, isFollowed: isFollowed)
         
-        cell.onSubButtonTapped = { [weak self] isFollowed in
+        cell.onSubButtonTapped = { [weak self] in
             Task(priority: .utility) {
                 guard let self = self else { return }
                 if isFollowed {
-                    await self.viewModel.followChannel(at: indexPath.row)
-                } else {
                     await self.viewModel.unfollowChannel(at: indexPath.row)
+                } else {
+                    await self.viewModel.followChannel(at: indexPath.row)
                 }
             }
         }

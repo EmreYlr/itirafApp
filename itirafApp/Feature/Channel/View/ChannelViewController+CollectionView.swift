@@ -21,17 +21,18 @@ extension ChannelViewController: UICollectionViewDataSource, UICollectionViewDel
         }
         
         let channel = channelViewModel.filterChannels[indexPath.item]
+        
         let isFollowed = channelViewModel.isChannelFollowed(channelId: channel.id)
         
         cell.configure(with: channel, isFollowed: isFollowed)
         
-        cell.onSubButtonTapped = { [weak self] isFollowed in
+        cell.onSubButtonTapped = { [weak self] in
             Task(priority: .utility) {
                 guard let self = self else { return }
                 if isFollowed {
-                    await self.channelViewModel.followChannel(at: indexPath.row)
-                } else {
                     await self.channelViewModel.unfollowChannel(at: indexPath.row)
+                } else {
+                    await self.channelViewModel.followChannel(at: indexPath.row)
                 }
             }
         }

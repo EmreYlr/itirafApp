@@ -10,7 +10,6 @@ import Foundation
 protocol ChannelViewModelProtocol {
     var delegate: ChannelViewModelOutputProtocol? { get set }
     var channel: Channel? { get }
-    var followedChannels: [ChannelData] { get }
     var filterChannels: [ChannelData] { set get }
     var isSearching: Bool { get set }
     func fetchChannel(reset: Bool) async
@@ -18,7 +17,6 @@ protocol ChannelViewModelProtocol {
     func cancelSearch()
     func followChannel(at index: Int) async
     func unfollowChannel(at index: Int) async
-    func getFollowedChannels() async
     func isChannelFollowed(channelId: Int) -> Bool
 }
 
@@ -31,7 +29,7 @@ protocol ChannelViewModelOutputProtocol: AnyObject {
 final class ChannelViewModel {
     weak var delegate: ChannelViewModelOutputProtocol?
     private(set) var channel: Channel?
-    private(set) var followedChannels: [ChannelData] = []
+    
     var filterChannels: [ChannelData] = []
     var isSearching = false
     
@@ -40,9 +38,11 @@ final class ChannelViewModel {
     private var hasMoreData = true
     
     private let channelService: ChannelServiceProtocol
+    private let followManager: FollowManager
     
-    init(channelService: ChannelServiceProtocol = ChannelService()) {
+    init(channelService: ChannelServiceProtocol = ChannelService(), followManager: FollowManager = FollowManager.shared) {
         self.channelService = channelService
+        self.followManager = followManager
     }
     
     func fetchChannel(reset: Bool = false) async {
@@ -72,7 +72,7 @@ final class ChannelViewModel {
                     self.filterChannels = self.channel?.data ?? []
                 }
             }
-
+            
             
             hasMoreData = currentPage < newChannel.totalPages
             if hasMoreData { currentPage += 1 }
@@ -87,7 +87,7 @@ final class ChannelViewModel {
     func searchChannels(keyword: String) async {
         isSearching = true
         defer {
-//            delegate?.didFinishLoading()
+            //            delegate?.didFinishLoading()
         }
         
         do {
@@ -109,11 +109,7 @@ final class ChannelViewModel {
         let channelToFollow = filterChannels[index]
         let channelId: [Int] = [channelToFollow.id]
         do {
-            try await channelService.followChannel(channelId: channelId)
-
-            if !isChannelFollowed(channelId: channelToFollow.id) {
-                followedChannels.append(channelToFollow)
-            }
+            try await followManager.followChannels(channelIds: channelId)
             delegate?.didUpdateChannel()
         } catch {
             delegate?.didFailWithError(error)
@@ -123,28 +119,17 @@ final class ChannelViewModel {
     func unfollowChannel(at index: Int) async {
         let channelId: Int = filterChannels[index].id
         do {
-            try await channelService.unfollowChannel(channelId: channelId)
-            
-            followedChannels.removeAll { $0.id == channelId }
+            try await followManager.unfollowChannel(channelId: channelId)
             delegate?.didUpdateChannel()
         } catch {
             delegate?.didFailWithError(error)
         }
     }
     
-    func getFollowedChannels() async {
-        do {
-            let followedChannels = try await channelService.getFollowedChannels()
-            self.followedChannels = followedChannels
-            
-        } catch {
-            delegate?.didFailWithError(error)
-        }
+    func isChannelFollowed(channelId: Int) -> Bool {
+        return followManager.isChannelFollowed(channelId: channelId)
     }
     
-    func isChannelFollowed(channelId: Int) -> Bool {
-        return followedChannels.contains { $0.id == channelId }
-    }
 }
 extension ChannelViewModel: @preconcurrency ChannelViewModelProtocol { }
 

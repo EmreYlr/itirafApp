@@ -9,8 +9,6 @@ import Alamofire
 
 protocol FollowChannelServiceProtocol {
     func getFollowedChannels() async throws -> [ChannelData]
-    func unfollowChannel(channelId: Int) async throws
-    func followChannel(channelId: [Int]) async throws
 }
 
 final class FollowChannelService: FollowChannelServiceProtocol {
@@ -26,28 +24,6 @@ final class FollowChannelService: FollowChannelServiceProtocol {
             method: .get,
             parameters: nil,
             encoding: URLEncoding.default
-        )
-    }
-    
-    func followChannel(channelId: [Int]) async throws {
-        let parameters: [String: Any] = [
-            "channelIds": channelId
-        ]
-        
-        let _: Empty = try await networkService.request(
-            endpoint: Endpoint.User.followChannel,
-            method: .post,
-            parameters: parameters,
-            encoding: JSONEncoding.default
-        )
-    }
-    
-    func unfollowChannel(channelId: Int) async throws {
-        let _: Empty = try await networkService.request(
-            endpoint: Endpoint.User.unfollowChannel(channelId: channelId),
-            method: .delete,
-            parameters: nil,
-            encoding: JSONEncoding.default
         )
     }
 }
