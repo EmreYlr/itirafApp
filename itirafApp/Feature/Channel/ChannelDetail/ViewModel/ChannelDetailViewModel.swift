@@ -13,10 +13,14 @@ protocol ChannelDetailViewModelProtocol {
     var hasMoreData: Bool { get }
     func fetchConfessions(reset: Bool) async
     func toggleLikeStatus(for: Int) async
+    func followCurrentChannel() async
+    func unfollowCurrentChannel() async
+    func isChannelFollowed(channelId: Int) -> Bool
 }
 
 protocol ChannelDetailViewModelDelegate: AnyObject {
     func didUpdateConfessions(with data: [ConfessionData])
+    func didUpdateFollowStatus()
     func didFailToLikeMessage(with error: Error)
     func didFailWithError(_ error: Error)
 }
@@ -25,15 +29,17 @@ final class ChannelDetailViewModel {
     weak var delegate: ChannelDetailViewModelDelegate?
     private let service: ChannelDetailServiceProtocol
     var channel: ChannelData
+    private let followManager: FollowManager
     
     private(set) var confessions: Confession?
     private(set) var isLoading = false
     private(set) var hasMoreData = true
     private var currentPage = 1
     
-    init(channel: ChannelData, service: ChannelDetailServiceProtocol = ChannelDetailService()) {
+    init(channel: ChannelData, service: ChannelDetailServiceProtocol = ChannelDetailService(), followManager: FollowManager = FollowManager.shared) {
         self.channel = channel
         self.service = service
+        self.followManager = followManager
     }
     
     func fetchConfessions(reset: Bool = false) async {
@@ -103,6 +109,27 @@ final class ChannelDetailViewModel {
         }
     }
     
+    func followCurrentChannel() async {
+        do {
+            try await followManager.followChannels(channelIds: [channel.id])
+            delegate?.didUpdateFollowStatus()
+        } catch {
+            delegate?.didFailWithError(error)
+        }
+    }
+    
+    func unfollowCurrentChannel() async {
+        do {
+            try await followManager.unfollowChannel(channelId: channel.id)
+            delegate?.didUpdateFollowStatus()
+        } catch {
+            delegate?.didFailWithError(error)
+        }
+    }
+    
+    func isChannelFollowed(channelId: Int) -> Bool {
+        return followManager.isChannelFollowed(channelId: channelId)
+    }
 }
 
 extension ChannelDetailViewModel: ChannelDetailViewModelProtocol {}

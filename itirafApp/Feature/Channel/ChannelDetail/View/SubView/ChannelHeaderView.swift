@@ -14,16 +14,13 @@ final class ChannelHeaderView: UICollectionReusableView {
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var subButton: UIButton!
     
+    var onSubButtonTapped: (() -> Void)?
     
-    func configurationView(channel: ChannelData) {
+    func configurationView(channel: ChannelData, isFollowed: Bool) {
         channelNameLabel.text = channel.title.capitalized
         subCountLabel.text = "14.4K abone" //TODO: -Gerçek veri gelecek
-        subCountLabel.isHidden = true
         
-        //TODO: -Abone kontrolü yapılacak
-//        let buttonTitle = isSubscribed ? "Abone Olundu" : "Abone Ol"
-//        subButton.setTitle(buttonTitle, for: .normal)
-//        subButton.backgroundColor = isSubscribed ? UIColor.gray : UIColor.systemBlue
+        configureButtonAppearance(isFollowed: isFollowed)
         
         subButton.layer.cornerRadius = 8
         headerView.layer.cornerRadius = headerView.frame.width / 2
@@ -33,6 +30,19 @@ final class ChannelHeaderView: UICollectionReusableView {
         headerImageView.image = UIImage(named: "building_icon")
     }
     
+    private func configureButtonAppearance(isFollowed: Bool) {
+        if isFollowed {
+            subButton.backgroundColor = .systemMint.withAlphaComponent(0.15)
+            subButton.setTitleColor(.systemMint, for: .normal)
+            subButton.setTitle("Abone olundu", for: .normal)
+        } else {
+            subButton.backgroundColor = .systemMint
+            subButton.setTitleColor(.white, for: .normal)
+            subButton.setTitle("Abone ol", for: .normal)
+        }
+    }
+    
     @IBAction func subButtonTapped(_ sender: UIButton) {
+        onSubButtonTapped?()
     }
 }

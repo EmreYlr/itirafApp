@@ -87,7 +87,7 @@ final class ChannelViewModel {
     func searchChannels(keyword: String) async {
         isSearching = true
         defer {
-            //            delegate?.didFinishLoading()
+            //delegate?.didFinishLoading()
         }
         
         do {

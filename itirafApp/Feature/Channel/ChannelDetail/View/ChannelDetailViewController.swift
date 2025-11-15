@@ -85,10 +85,21 @@ final class ChannelDetailViewController: UIViewController {
                 fatalError("Cannot create header view")
             }
             
-            if let channelInfo = self?.viewModel.channel {
-                header.configurationView(channel: channelInfo)
-            }
+            guard let channelInfo = self?.viewModel.channel else { return nil }
+            guard let isFollowed = self?.viewModel.isChannelFollowed(channelId: channelInfo.id) else { return nil }
             
+            header.configurationView(channel: channelInfo, isFollowed: isFollowed)
+            
+            header.onSubButtonTapped = { [weak self] in
+                guard let self = self else { return }
+                Task(priority: .utility) {
+                    if isFollowed {
+                        await self.viewModel.unfollowCurrentChannel()
+                    } else {
+                        await self.viewModel.followCurrentChannel()
+                    }
+                }
+            }
             return header
         }
     }
@@ -113,6 +124,14 @@ extension ChannelDetailViewController: ChannelDetailViewModelDelegate {
         DispatchQueue.main.async {
             self.updateSnapshot(with: data)
             self.collectionView.refreshControl?.endRefreshing()
+        }
+    }
+    
+    func didUpdateFollowStatus() {
+        DispatchQueue.main.async {
+            var currentSnapshot = self.dataSource.snapshot()
+            currentSnapshot.reloadSections(currentSnapshot.sectionIdentifiers)
+            self.dataSource.apply(currentSnapshot, animatingDifferences: false)
         }
     }
     
