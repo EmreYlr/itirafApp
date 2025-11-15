@@ -80,6 +80,8 @@ final class PersonViewController: UIViewController {
     }
     
     @IBAction func followedButtonTapped(_ sender: UIButton) {
+        let followedVC: FollowChannelViewController = Storyboard.followChannel.instantiate(.followChannel)
+        navigationController?.pushViewController(followedVC, animated: true)
     }
 }
 

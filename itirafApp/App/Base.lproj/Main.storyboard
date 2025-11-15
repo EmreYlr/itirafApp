@@ -873,10 +873,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbl-qL-rn5">
-                                <rect key="frame" x="144.33333333333334" y="341" width="104.66666666666666" height="35"/>
+                                <rect key="frame" x="99.666666666666686" y="341" width="194" height="35"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=" Takip: 0" imagePadding="0.0">
+                                <buttonConfiguration key="configuration" style="plain" title=" Takip Edilen Kanallar" imagePadding="0.0">
                                     <imageReference key="image" image="person.2" catalog="system" symbolScale="small" variableValue="0.0"/>
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
                                 </buttonConfiguration>

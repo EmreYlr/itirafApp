@@ -19,7 +19,7 @@ final class PersonService: PersonServiceProtocol {
     init(networkService: NetworkService = NetworkManager.shared) {
         self.networkService = networkService
     }
-    //TODO: -Takipçileri görme ekle
+    
     func getUserSocialLinks() async throws -> UserSocialLink {
         return try await networkService.request(
             endpoint: Endpoint.SocialLink.getSocailLinks,

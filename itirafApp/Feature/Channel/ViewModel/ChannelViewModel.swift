@@ -49,8 +49,6 @@ final class ChannelViewModel {
         if reset {
             currentPage = 1
             hasMoreData = true
-            channel = nil
-            filterChannels.removeAll()
         }
         
         guard !isLoading, hasMoreData else { return }
@@ -63,14 +61,18 @@ final class ChannelViewModel {
         do {
             let newChannel = try await channelService.fetchChannels(page: currentPage, pageSize: 10)
             
-            if self.channel == nil {
+            if reset {
                 self.channel = newChannel
+                if !isSearching {
+                    self.filterChannels = self.channel?.data ?? []
+                }
             } else {
                 self.channel?.data.append(contentsOf: newChannel.data)
+                if !isSearching {
+                    self.filterChannels = self.channel?.data ?? []
+                }
             }
-            if !isSearching {
-                self.filterChannels = self.channel?.data ?? []
-            }
+
             
             hasMoreData = currentPage < newChannel.totalPages
             if hasMoreData { currentPage += 1 }
@@ -112,6 +114,7 @@ final class ChannelViewModel {
             if !isChannelFollowed(channelId: channelToFollow.id) {
                 followedChannels.append(channelToFollow)
             }
+            delegate?.didUpdateChannel()
         } catch {
             delegate?.didFailWithError(error)
         }
@@ -123,6 +126,7 @@ final class ChannelViewModel {
             try await channelService.unfollowChannel(channelId: channelId)
             
             followedChannels.removeAll { $0.id == channelId }
+            delegate?.didUpdateChannel()
         } catch {
             delegate?.didFailWithError(error)
         }
@@ -132,6 +136,7 @@ final class ChannelViewModel {
         do {
             let followedChannels = try await channelService.getFollowedChannels()
             self.followedChannels = followedChannels
+            
         } catch {
             delegate?.didFailWithError(error)
         }

@@ -136,6 +136,12 @@
 		C3C173E12EC62B0200D27383 /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C173E02EC62B0200D27383 /* ChannelCollectionViewCell.xib */; };
 		C3C173E22EC62B0200D27383 /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173DF2EC62B0200D27383 /* ChannelCollectionViewCell.swift */; };
 		C3C173E42EC62C0900D27383 /* ChannelViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173E32EC62C0300D27383 /* ChannelViewController+CollectionView.swift */; };
+		C3C173EC2EC882FB00D27383 /* FollowChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173EB2EC882FB00D27383 /* FollowChannelViewController.swift */; };
+		C3C173EE2EC8831300D27383 /* FollowChannelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173ED2EC8830F00D27383 /* FollowChannelService.swift */; };
+		C3C173F02EC8833500D27383 /* FollowChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173EF2EC8833000D27383 /* FollowChannelViewModel.swift */; };
+		C3C173F22EC883B600D27383 /* FollowChannel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C173F12EC883B600D27383 /* FollowChannel.storyboard */; };
+		C3C173F42EC885EA00D27383 /* FollowChannelViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173F32EC885E100D27383 /* FollowChannelViewController+CollectionView.swift */; };
+		C3C173F62EC8964D00D27383 /* FollowChannelViewController+SerachBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C173F52EC8963A00D27383 /* FollowChannelViewController+SerachBar.swift */; };
 		C3D764BA2E93DDDE00104C3B /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764B92E93DDDB00104C3B /* DetailViewModel.swift */; };
 		C3D764BC2E93DE1800104C3B /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764BB2E93DE1300104C3B /* DetailService.swift */; };
 		C3D764BE2E93E96200104C3B /* DetailViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764BD2E93E95B00104C3B /* DetailViewController+CollectionView.swift */; };
@@ -326,6 +332,12 @@
 		C3C173DF2EC62B0200D27383 /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3C173E02EC62B0200D27383 /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3C173E32EC62C0300D27383 /* ChannelViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C3C173EB2EC882FB00D27383 /* FollowChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowChannelViewController.swift; sourceTree = "<group>"; };
+		C3C173ED2EC8830F00D27383 /* FollowChannelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowChannelService.swift; sourceTree = "<group>"; };
+		C3C173EF2EC8833000D27383 /* FollowChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowChannelViewModel.swift; sourceTree = "<group>"; };
+		C3C173F12EC883B600D27383 /* FollowChannel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FollowChannel.storyboard; sourceTree = "<group>"; };
+		C3C173F32EC885E100D27383 /* FollowChannelViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowChannelViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C3C173F52EC8963A00D27383 /* FollowChannelViewController+SerachBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowChannelViewController+SerachBar.swift"; sourceTree = "<group>"; };
 		C3D764B92E93DDDB00104C3B /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		C3D764BB2E93DE1300104C3B /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
 		C3D764BD2E93E95B00104C3B /* DetailViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+CollectionView.swift"; sourceTree = "<group>"; };
@@ -1152,6 +1164,7 @@
 				C3C08BB42E8AF51500EDC6A2 /* View */,
 				C3C08BB52E8AF51B00EDC6A2 /* ViewModel */,
 				C3C08BB62E8AF51E00EDC6A2 /* Service */,
+				C3C173E52EC8829F00D27383 /* FollowChannel */,
 				C3A7506A2EB4C6BC0058163B /* EditSocial */,
 				C3A750782EB5070A0058163B /* Settings */,
 			);
@@ -1370,6 +1383,59 @@
 				C3C173E02EC62B0200D27383 /* ChannelCollectionViewCell.xib */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		C3C173E52EC8829F00D27383 /* FollowChannel */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173EA2EC882E200D27383 /* Storyboard */,
+				C3C173E92EC882CC00D27383 /* Model */,
+				C3C173E82EC882C500D27383 /* View */,
+				C3C173E72EC882C100D27383 /* ViewModel */,
+				C3C173E62EC882B600D27383 /* Service */,
+			);
+			path = FollowChannel;
+			sourceTree = "<group>";
+		};
+		C3C173E62EC882B600D27383 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173ED2EC8830F00D27383 /* FollowChannelService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3C173E72EC882C100D27383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173EF2EC8833000D27383 /* FollowChannelViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3C173E82EC882C500D27383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173F52EC8963A00D27383 /* FollowChannelViewController+SerachBar.swift */,
+				C3C173F32EC885E100D27383 /* FollowChannelViewController+CollectionView.swift */,
+				C3C173EB2EC882FB00D27383 /* FollowChannelViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3C173E92EC882CC00D27383 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C3C173EA2EC882E200D27383 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C3C173F12EC883B600D27383 /* FollowChannel.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		C3D764BF2E93E99A00104C3B /* SubView */ = {
@@ -1981,6 +2047,7 @@
 				C3C173E12EC62B0200D27383 /* ChannelCollectionViewCell.xib in Resources */,
 				C3A750B42EB658770058163B /* SocialLinkTableViewCell.xib in Resources */,
 				C3EB107D2E744115002DA295 /* Main.storyboard in Resources */,
+				C3C173F22EC883B600D27383 /* FollowChannel.storyboard in Resources */,
 				C3A750872EB50B6E0058163B /* Settings.storyboard in Resources */,
 				C3E660362EB285FF0059048F /* EditConfession.storyboard in Resources */,
 				C3E6602B2EB257540059048F /* MyConfessionsCollectionViewCell.xib in Resources */,
@@ -2116,6 +2183,7 @@
 				C3E660212EB24E670059048F /* MyConfessionsViewModel.swift in Sources */,
 				C3A750962EB609490058163B /* RequestMessageViewController.swift in Sources */,
 				C3D764D22E9538AD00104C3B /* ChannelViewModel.swift in Sources */,
+				C3C173F42EC885EA00D27383 /* FollowChannelViewController+CollectionView.swift in Sources */,
 				C3528F3D2EBBB6A400FF1C19 /* ModerationDetailViewController.swift in Sources */,
 				C3E660272EB256D30059048F /* MyConfessionViewController+CollectionView.swift in Sources */,
 				C3C08BB12E8ACE9A00EDC6A2 /* Confession.swift in Sources */,
@@ -2133,6 +2201,7 @@
 				C3A7A41D2EA9443B00250B06 /* DirectMessageViewController.swift in Sources */,
 				C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */,
 				C3528F0E2EB8F04D00FF1C19 /* RequestSentModel.swift in Sources */,
+				C3C173EE2EC8831300D27383 /* FollowChannelService.swift in Sources */,
 				C3A750BD2EB693F90058163B /* RequestBottomSheetViewController.swift in Sources */,
 				C3A7A43A2EAA28F100250B06 /* ChatService.swift in Sources */,
 				C3A750B62EB6588A0058163B /* ChatViewController+TableView.swift in Sources */,
@@ -2150,6 +2219,7 @@
 				C38EAAC82EC1F3A400A1818C /* CrashlyticsManager.swift in Sources */,
 				C3E660422EB399060059048F /* MyConfessionDetailViewController.swift in Sources */,
 				C3A750892EB511E00058163B /* SettingsViewController+CollectionView.swift in Sources */,
+				C3C173EC2EC882FB00D27383 /* FollowChannelViewController.swift in Sources */,
 				C37D5DF02E841DD50068F334 /* KeychainHelper.swift in Sources */,
 				C3A7A4242EA944F100250B06 /* DirectMessageService.swift in Sources */,
 				C3A750752EB4C9510058163B /* EditSocialService.swift in Sources */,
@@ -2159,6 +2229,7 @@
 				C3E660232EB24E700059048F /* MyConfessionsService.swift in Sources */,
 				C3A7A4352EAA286400250B06 /* ChatViewController.swift in Sources */,
 				C3A750832EB509E90058163B /* SettingsViewModel.swift in Sources */,
+				C3C173F62EC8964D00D27383 /* FollowChannelViewController+SerachBar.swift in Sources */,
 				C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */,
 				C3528F062EB8EF1600FF1C19 /* RequestSentViewController.swift in Sources */,
 				C3C173D82EC6157C00D27383 /* ChannelDetailViewModel.swift in Sources */,
@@ -2184,6 +2255,7 @@
 				C3E660462EB399330059048F /* MyConfessionDetailViewModel.swift in Sources */,
 				C3C173C32EC5FDC600D27383 /* FlowViewModel.swift in Sources */,
 				C3F39E142EA0268B00197509 /* PostConfessionViewModel.swift in Sources */,
+				C3C173F02EC8833500D27383 /* FollowChannelViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
