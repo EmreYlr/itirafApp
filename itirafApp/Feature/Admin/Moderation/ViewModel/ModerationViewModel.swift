@@ -12,11 +12,13 @@ protocol ModerationViewModelProtocol {
     var moderationItems: [ModerationData] { get }
     var isLoading: Bool { get }
     var hasMoreData: Bool { get }
+    var filteredItems: [ModerationData] { get }
     func fetchModerationData(reset: Bool) async
+    func setFilter(_ filter: ModerationFilterType)
 }
 
 protocol ModerationViewModelDelegate: AnyObject {
-    func didUpdateModerationItems(with data: [ModerationData])
+    func didUpdateModerationItems()
     func didFailWithError(_ error: Error)
 }
 
@@ -29,12 +31,32 @@ final class ModerationViewModel {
     private(set) var hasMoreData = true
     private var currentPage = 1
     
+    private var currentFilter: ModerationFilterType = .all
+    
     var moderationItems: [ModerationData] {
         moderationModel?.data ?? []
     }
     
+    var filteredItems: [ModerationData] {
+        switch currentFilter {
+        case .all:
+            return moderationItems
+        case .pending:
+            return moderationItems.filter {
+                $0.moderationStatus == .pending || $0.moderationStatus == .needsHumanReview
+            }
+        case .rejected:
+            return moderationItems.filter { $0.moderationStatus == .aiRejected }
+        }
+    }
+    
     init(moderationService: ModerationServiceProtocol = ModerationService()) {
         self.moderationService = moderationService
+    }
+    
+    func setFilter(_ filter: ModerationFilterType) {
+        currentFilter = filter
+        delegate?.didUpdateModerationItems()
     }
     
     func fetchModerationData(reset: Bool = false) async {
@@ -68,13 +90,18 @@ final class ModerationViewModel {
             
             if hasMoreData { currentPage += 1 }
             
-            delegate?.didUpdateModerationItems(with: moderationItems)
+            delegate?.didUpdateModerationItems()
             
         } catch {
             delegate?.didFailWithError(error)
         }
     }
-
+    
 }
-
 extension ModerationViewModel: ModerationViewModelProtocol { }
+
+enum ModerationFilterType {
+    case all
+    case pending
+    case rejected
+}

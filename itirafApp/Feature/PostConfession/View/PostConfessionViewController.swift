@@ -27,9 +27,13 @@ final class PostConfessionViewController: UIViewController {
         initUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        titleTextField.becomeFirstResponder()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        titleTextField.becomeFirstResponder()
         
         if postConfessionViewModel.isChannelEmpty() {
             shareButton.isEnabled = false
@@ -95,6 +99,7 @@ final class PostConfessionViewController: UIViewController {
         self.titleTextField.text = ""
         self.contentTextView.text.removeAll()
         self.placeholderLabel.isHidden = false
+        channelSelectButton.setTitle("Kanal Seçin", for: .normal)
     }
     
     @IBAction func channelSelectButtonTapped(_ sender: UIButton) {

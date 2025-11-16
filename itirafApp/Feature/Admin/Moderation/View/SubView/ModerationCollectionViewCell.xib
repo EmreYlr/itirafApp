@@ -99,6 +99,32 @@
                                     <action selector="approveButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="PCw-Ja-v5h"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9o-7j-Zpu">
+                                <rect key="frame" x="8" y="139.66666666666666" width="62" height="30"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Khh-xu-2St">
+                                        <rect key="frame" x="8" y="10.666666666666666" width="10" height="8.6666666666666696"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="NQ1-Sq-fyH"/>
+                                            <constraint firstAttribute="width" constant="10" id="PrY-L2-wOR"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgW-qK-yMO">
+                                        <rect key="frame" x="23" y="7.6666666666666865" width="31" height="14.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="EgW-qK-yMO" firstAttribute="centerY" secondItem="x9o-7j-Zpu" secondAttribute="centerY" id="60T-5K-6dG"/>
+                                    <constraint firstAttribute="height" constant="30" id="C9a-Fa-2aW"/>
+                                    <constraint firstItem="EgW-qK-yMO" firstAttribute="leading" secondItem="Khh-xu-2St" secondAttribute="trailing" constant="5" id="Haz-7e-cgy"/>
+                                    <constraint firstAttribute="trailing" secondItem="EgW-qK-yMO" secondAttribute="trailing" constant="8" id="ISp-kL-k6s"/>
+                                    <constraint firstItem="Khh-xu-2St" firstAttribute="centerY" secondItem="x9o-7j-Zpu" secondAttribute="centerY" id="S6z-Th-yNS"/>
+                                    <constraint firstItem="Khh-xu-2St" firstAttribute="leading" secondItem="x9o-7j-Zpu" secondAttribute="leading" constant="8" id="sP7-VH-txF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -112,6 +138,8 @@
                             <constraint firstItem="Cv6-qb-0L4" firstAttribute="top" secondItem="FYl-6C-Gf7" secondAttribute="bottom" constant="15" id="PP8-CS-Tns"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FYl-6C-Gf7" secondAttribute="trailing" constant="10" id="S1B-TW-cFY"/>
                             <constraint firstAttribute="bottom" secondItem="Lax-fT-F8r" secondAttribute="bottom" constant="8" id="Tmu-8x-RSH"/>
+                            <constraint firstItem="x9o-7j-Zpu" firstAttribute="leading" secondItem="qOW-Mx-zoX" secondAttribute="leading" constant="8" id="XtJ-Vp-GL3"/>
+                            <constraint firstItem="x9o-7j-Zpu" firstAttribute="centerY" secondItem="Lax-fT-F8r" secondAttribute="centerY" id="Ylr-aM-b2p"/>
                             <constraint firstAttribute="bottom" secondItem="i5c-jY-Qeo" secondAttribute="bottom" constant="8" id="Z0v-RN-0Rw"/>
                             <constraint firstItem="kxx-9n-DdI" firstAttribute="leading" secondItem="ZMl-Al-HfH" secondAttribute="trailing" id="ZU0-FH-szK"/>
                             <constraint firstItem="i5c-jY-Qeo" firstAttribute="top" secondItem="Cv6-qb-0L4" secondAttribute="bottom" constant="8" id="bxH-Zb-3gN"/>
@@ -149,12 +177,16 @@
                 <outlet property="messageLabel" destination="Wqr-Xm-mSD" id="I6e-1b-sLk"/>
                 <outlet property="ownerLabel" destination="FYl-6C-Gf7" id="WSn-0H-7ee"/>
                 <outlet property="rejectButton" destination="Lax-fT-F8r" id="OA9-A7-oNI"/>
+                <outlet property="statusImageView" destination="Khh-xu-2St" id="Pvw-np-8Ha"/>
+                <outlet property="statusLabel" destination="EgW-qK-yMO" id="dyi-4n-U03"/>
+                <outlet property="statusView" destination="x9o-7j-Zpu" id="xhl-3l-oe2"/>
                 <outlet property="titleLabel" destination="x5z-Xb-F0N" id="S7W-Uo-Ovu"/>
             </connections>
             <point key="canvasLocation" x="99.236641221374043" y="30.281690140845072"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

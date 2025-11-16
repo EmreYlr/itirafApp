@@ -17,6 +17,9 @@ final class ModerationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ownerLabel: UILabel!
     @IBOutlet weak var channelLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var statusView: UIView!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var statusImageView: UIImageView!
     
     var onApproveButtonTapped: (() -> Void)?
     var onRejectButtonTapped: (() -> Void)?
@@ -29,12 +32,35 @@ final class ModerationCollectionViewCell: UICollectionViewCell {
         rejectButton.layer.cornerRadius = 6
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        statusView.layer.cornerRadius = statusView.frame.height / 2
+    }
+    
     func configure(with moderationItem: ModerationData) {
         titleLabel.text = moderationItem.title
         messageLabel.text = moderationItem.message
         dateLabel.text = moderationItem.createdAt.formattedDateTime()
         ownerLabel.text = "\(moderationItem.ownerUsername)"
         channelLabel.text = "\(moderationItem.channelTitle)"
+        
+        switch moderationItem.moderationStatus {
+        case .humanApproved, .aiApproved:
+            statusView.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.2)
+            statusImageView.tintColor = .systemGreen
+            statusLabel.textColor = .systemGreen
+            statusLabel.text = "Aktif"
+        case .humanRejected, .aiRejected:
+            statusView.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2)
+            statusImageView.tintColor = .systemRed
+            statusLabel.textColor = .systemRed
+            statusLabel.text = "Reddedildi"
+        case .pending, .needsHumanReview:
+            statusView.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.2)
+            statusImageView.tintColor = .systemOrange
+            statusLabel.textColor = .systemOrange
+            statusLabel.text = "Onay Bekliyor"
+        }
     }
 
     @IBAction func approveButtonTapped(_ sender: UIButton) {

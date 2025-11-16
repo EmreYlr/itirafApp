@@ -10,6 +10,7 @@ import UIKit
 final class ModerationViewController: UIViewController {
     //MARK: -Properties
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     
     var viewModel: ModerationViewModelProtocol
     var dataSource: UICollectionViewDiffableDataSource<Section, ModerationData>!
@@ -25,6 +26,7 @@ final class ModerationViewController: UIViewController {
         initData()
         loadCollectionView()
         configureDataSource()
+        configureSegmentControl()
     }
     
     private func initData() {
@@ -34,6 +36,12 @@ final class ModerationViewController: UIViewController {
         Task {
             await viewModel.fetchModerationData(reset: true)
         }
+    }
+    
+    private func configureSegmentControl() {
+        segmentControl.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
+        viewModel.setFilter(.all)
+        segmentControl.selectedSegmentTintColor = .systemMint.withAlphaComponent(0.7)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +57,7 @@ final class ModerationViewController: UIViewController {
     private func configureNavigationBar() {
         self.title = "Moderasyon"
     }
-    //TODO: -Reject olanları ayırmak için label koy
+    
     private func loadCollectionView() {
         collectionView.delegate = self
         
@@ -107,12 +115,30 @@ final class ModerationViewController: UIViewController {
         }
     }
     
+    @objc private func segmentChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            viewModel.setFilter(.all)
+            sender.selectedSegmentTintColor = .systemMint.withAlphaComponent(0.7)
+        case 1:
+            viewModel.setFilter(.pending)
+            sender.selectedSegmentTintColor = .systemYellow.withAlphaComponent(0.7)
+        case 2:
+            viewModel.setFilter(.rejected)
+            sender.selectedSegmentTintColor = .systemRed.withAlphaComponent(0.7)
+        default:
+            viewModel.setFilter(.all)
+            sender.selectedSegmentTintColor = .systemMint
+        }
+    }
+    
 }
 
 extension ModerationViewController: ModerationViewModelDelegate {
-    func didUpdateModerationItems(with data: [ModerationData]) {
+    func didUpdateModerationItems() {
         DispatchQueue.main.async {
-            self.updateSnapshot(with: data)
+            let items = self.viewModel.filteredItems
+            self.updateSnapshot(with: items)
             self.collectionView.refreshControl?.endRefreshing()
         }
     }

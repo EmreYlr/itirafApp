@@ -34,6 +34,7 @@ final class PostConfessionViewModel {
     func postConfession(content: PostConfession) async {
         do {
             try await postConfessionService.postConfession(content: content)
+            selectedChannel = nil
             delegate?.didPostConfessionSuccessfully()
         } catch {
             delegate?.didFailToPostConfession(with: error)

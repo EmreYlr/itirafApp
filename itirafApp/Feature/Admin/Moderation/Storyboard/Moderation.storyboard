@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4IA-T8-ViS">
-                                <rect key="frame" x="16" y="133" width="361" height="651"/>
+                                <rect key="frame" x="16" y="169" width="361" height="615"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5ML-Qn-M8e">
                                     <size key="itemSize" width="128" height="128"/>
@@ -27,18 +27,30 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="caL-g7-1vI">
+                                <rect key="frame" x="16" y="128" width="361" height="32"/>
+                                <segments>
+                                    <segment title="Hepsi"/>
+                                    <segment title="Beklenen"/>
+                                    <segment title="Reddedilen"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4IA-T8-ViS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="0Zd-ih-PRP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="4IA-T8-ViS" secondAttribute="bottom" id="3kh-1N-XFh"/>
+                            <constraint firstItem="caL-g7-1vI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="5QG-6c-pfr"/>
+                            <constraint firstItem="caL-g7-1vI" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="BB1-Zb-n9l"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4IA-T8-ViS" secondAttribute="trailing" constant="16" id="Ddf-gc-Z7J"/>
-                            <constraint firstItem="4IA-T8-ViS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="L8p-e7-nUE"/>
+                            <constraint firstItem="4IA-T8-ViS" firstAttribute="top" secondItem="caL-g7-1vI" secondAttribute="bottom" constant="10" id="EZQ-Mo-hS1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="caL-g7-1vI" secondAttribute="trailing" constant="16" id="ybc-7c-x87"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="4IA-T8-ViS" id="Bt6-4t-AHN"/>
+                        <outlet property="segmentControl" destination="caL-g7-1vI" id="KPC-vp-tsX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -380,13 +392,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -205,7 +205,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Kanal Seçin">
-                                    <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="15"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="channelSelectButtonTapped:" destination="57I-VH-y4m" eventType="touchUpInside" id="FLc-Yx-ZaU"/>
