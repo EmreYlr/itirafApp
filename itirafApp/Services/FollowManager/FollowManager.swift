@@ -14,24 +14,33 @@ final class FollowManager {
     private let networkService: NetworkService
     private let userDefaults: UserDefaults
 
-    private var followedChannelIds: Set<Int> {
+    private var followedChannels: Set<ChannelData> {
         didSet {
             saveToUserDefaults()
         }
     }
 
+
     private init(networkService: NetworkService = NetworkManager.shared, userDefaults: UserDefaults = .standard) {
         self.networkService = networkService
         self.userDefaults = userDefaults
 
-        let savedIDs = userDefaults.array(forKey: UserDefaults.Keys.followedChannelIds.rawValue) as? [Int] ?? []
-        
-        self.followedChannelIds = Set(savedIDs)
+        if let savedData = userDefaults.data(forKey: .followedChannels),
+           let channels = try? JSONDecoder().decode([ChannelData].self, from: savedData) {
+            self.followedChannels = Set(channels)
+        } else {
+            self.followedChannels = []
+        }
     }
-        
+
     private func saveToUserDefaults() {
-        let idsToSave = Array(self.followedChannelIds)
-        userDefaults.set(idsToSave, forKey: UserDefaults.Keys.followedChannelIds.rawValue)
+        let channelsToSave = Array(self.followedChannels)
+        
+        if let dataToSave = try? JSONEncoder().encode(channelsToSave) {
+            userDefaults.set(dataToSave, forKey: .followedChannels)
+        } else {
+            print("FollowManager Hata: Takip edilen kanallar UserDefaults'e kaydedilemedi.")
+        }
     }
 
     func loadFollowedChannels() async throws {
@@ -42,13 +51,12 @@ final class FollowManager {
             encoding: URLEncoding.default
         )
 
-        let ids = channels.map { $0.id }
-        self.followedChannelIds = Set(ids)
+        self.followedChannels = Set(channels)
     }
-    
-    func followChannels(channelIds: [Int]) async throws {
+
+    func followChannel(channel: ChannelData) async throws {
         let parameters: [String: Any] = [
-            "channelIds": channelIds
+            "channelIds": [channel.id]
         ]
         
         let _: Empty = try await networkService.request(
@@ -58,30 +66,36 @@ final class FollowManager {
             encoding: JSONEncoding.default
         )
         
-        self.followedChannelIds.formUnion(channelIds)
+        self.followedChannels.insert(channel)
     }
 
-    func unfollowChannel(channelId: Int) async throws {
+    func unfollowChannel(channel: ChannelData) async throws {
         let _: Empty = try await networkService.request(
-            endpoint: Endpoint.User.unfollowChannel(channelId: channelId),
+            endpoint: Endpoint.User.unfollowChannel(channelId: channel.id),
             method: .delete,
             parameters: nil,
             encoding: URLEncoding.default
         )
-        
-        self.followedChannelIds.remove(channelId)
+        self.followedChannels.remove(channel)
     }
     
+    func getCachedFollowedChannels() -> [ChannelData] {
+        return Array(self.followedChannels)
+    }
+
     func updateCache(with channels: [ChannelData]) {
-        let ids = channels.map { $0.id }
-        self.followedChannelIds = Set(ids)
+        self.followedChannels = Set(channels)
     }
 
     func isChannelFollowed(channelId: Int) -> Bool {
-        return followedChannelIds.contains(channelId)
+        return followedChannels.contains { $0.id == channelId }
+    }
+    
+    func isChannelEmpty() -> Bool {
+        return followedChannels.isEmpty
     }
 
     func clearCache() {
-        self.followedChannelIds.removeAll()
+        self.followedChannels.removeAll()
     }
 }

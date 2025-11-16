@@ -38,6 +38,7 @@ final class FollowChannelViewController: UIViewController {
     
     private func initData() {
         viewModel.delegate = self
+        navigationItem.title = "Takip Edilen Kanallar"
         Task {
             await viewModel.getFollowedChannels()
             

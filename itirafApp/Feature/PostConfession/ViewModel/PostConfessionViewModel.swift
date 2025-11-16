@@ -7,7 +7,9 @@
 
 protocol PostConfessionViewModelProtocol {
     var delegate: PostConfessionViewModelOutputProtocol? { get set }
+    var selectedChannel: ChannelData? { get set }
     func postConfession(content: PostConfession) async
+    func isChannelEmpty() -> Bool
 }
 
 protocol PostConfessionViewModelOutputProtocol: AnyObject {
@@ -15,10 +17,9 @@ protocol PostConfessionViewModelOutputProtocol: AnyObject {
     func didFailToPostConfession(with error: Error)
 }
 
-@MainActor
 final class PostConfessionViewModel {
     weak var delegate: PostConfessionViewModelOutputProtocol?
-    
+    var selectedChannel: ChannelData?
     private let postConfessionService: PostConfessionServiceProtocol
     
     init(postConfessionService: PostConfessionServiceProtocol = PostConfessionService()) {
@@ -34,6 +35,10 @@ final class PostConfessionViewModel {
         }
     }
     
+    func isChannelEmpty() -> Bool {
+        return FollowManager.shared.isChannelEmpty()
+    }
+    
 }
 
-extension PostConfessionViewModel: @preconcurrency PostConfessionViewModelProtocol { }
+extension PostConfessionViewModel: PostConfessionViewModelProtocol { }

@@ -51,9 +51,9 @@ final class FollowChannelViewModel {
     
     func followChannel(at index: Int) async {
         let channelToFollow = filterFollowedChannels[index]
-        let channelId: [Int] = [channelToFollow.id]
+        
         do {
-            try await followManager.followChannels(channelIds: channelId)
+            try await followManager.followChannel(channel: channelToFollow)
             delegate?.didUpdateFollowedChannels()
             
         } catch {
@@ -62,9 +62,9 @@ final class FollowChannelViewModel {
     }
     
     func unfollowChannel(at index: Int) async {
-        let channelId: Int = filterFollowedChannels[index].id
+        let channelToFollow = filterFollowedChannels[index]
         do {
-            try await followManager.unfollowChannel(channelId: channelId)
+            try await followManager.unfollowChannel(channel: channelToFollow)
 
             delegate?.didUpdateFollowedChannels()
             

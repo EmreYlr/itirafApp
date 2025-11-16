@@ -13,8 +13,7 @@ struct Channel: Codable {
     var data: [ChannelData]
 }
 
-// MARK: - ChannelData
-struct ChannelData: Codable, Equatable {
+struct ChannelData: Codable, Equatable, Hashable {
     let id: Int
     let title, description: String
     let imageURL: String?
@@ -22,5 +21,13 @@ struct ChannelData: Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case id, title, description
         case imageURL = "imageUrl"
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    static func == (lhs: ChannelData, rhs: ChannelData) -> Bool {
+        return lhs.id == rhs.id
     }
 }

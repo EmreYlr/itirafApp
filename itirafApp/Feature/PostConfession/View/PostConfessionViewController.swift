@@ -13,6 +13,7 @@ final class PostConfessionViewController: UIViewController {
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var placeholderLabel: UILabel!
+    @IBOutlet weak var channelSelectButton: UIButton!
     
     var postConfessionViewModel: PostConfessionViewModelProtocol
     
@@ -26,9 +27,15 @@ final class PostConfessionViewController: UIViewController {
         initUI()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         titleTextField.becomeFirstResponder()
+        
+        if postConfessionViewModel.isChannelEmpty() {
+            shareButton.isEnabled = false
+        } else{
+            shareButton.isEnabled = true
+        }
     }
     
     private func initUI() {
@@ -38,14 +45,19 @@ final class PostConfessionViewController: UIViewController {
         titleTextField.delegate = self
         
         contentTextView.layer.borderColor = UIColor.systemGray.cgColor
-        contentTextView.layer.borderWidth = 2
+        contentTextView.layer.borderWidth = 1
         contentTextView.layer.cornerRadius = 6
         contentTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
-        titleTextField.layer.borderWidth = 2
+        titleTextField.layer.borderWidth = 1
         titleTextField.layer.cornerRadius = 6
         titleTextField.layer.borderColor = UIColor.systemGray.cgColor
         shareButton.layer.cornerRadius = 8
+        
+        channelSelectButton.layer.cornerRadius = 8
+        channelSelectButton.layer.borderWidth = 0.5
+        channelSelectButton.layer.borderColor = UIColor.systemGray4.cgColor
+                
     }
 
     @IBAction func shareButtonPressed(_ sender: UIButton) {
@@ -57,17 +69,19 @@ final class PostConfessionViewController: UIViewController {
             return
         }
         
-        let content = PostConfession(title: titleText, message: contentText)
+        guard let selectedChannel = postConfessionViewModel.selectedChannel else {
+            showOneButtonAlert(title: "Uyarı", message: "Lütfen bir kanal seçin.", buttonTitle: "Tamam")
+            return
+        }
         
-//        sender.isEnabled = false
-//        activityIndicator.startAnimating()
+        let content = PostConfession(channelId: selectedChannel.id, title: titleText, message: contentText)
+        
+        sender.isEnabled = false
         
         Task(priority: .utility) {
-//            defer {
-//                // Animasyonu durdur ve butonu tekrar aktif et
-//                activityIndicator.stopAnimating()
-//                sender.isEnabled = true
-//            }
+            defer {
+                sender.isEnabled = true
+            }
             await postConfessionViewModel.postConfession(content: content)
         }
         
@@ -79,7 +93,29 @@ final class PostConfessionViewController: UIViewController {
         self.placeholderLabel.isHidden = false
     }
     
+    @IBAction func channelSelectButtonTapped(_ sender: UIButton) {
+        let followedChannels = FollowManager.shared.getCachedFollowedChannels()
+        
+        if followedChannels.isEmpty {
+            showOneButtonAlert(title: "Uyarı", message: "Henüz hiçbir kanalı takip etmiyorsunuz.", buttonTitle: "Tamam")
+            return
+        }
+
+        let selectionVC = ChannelSelectionViewController()
+        selectionVC.channels = followedChannels
+        selectionVC.delegate = self
+        
+        let navController = UINavigationController(rootViewController: selectionVC)
+        
+        if let sheet = navController.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+        }
+        
+        present(navController, animated: true)
+    }
 }
+    
 
 extension PostConfessionViewController: PostConfessionViewModelOutputProtocol {
     func didPostConfessionSuccessfully() {
@@ -120,4 +156,11 @@ extension PostConfessionViewController: UITextFieldDelegate {
         titleTextField.layer.borderColor = UIColor.lightGray.cgColor
     }
     
+}
+
+extension PostConfessionViewController: ChannelSelectionDelegate {
+    func didSelectChannel(_ channel: ChannelData) {
+        postConfessionViewModel.selectedChannel = channel
+        channelSelectButton.setTitle(channel.title.capitalized, for: .normal)
+    }
 }

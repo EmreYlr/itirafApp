@@ -10,6 +10,8 @@ import UIKit
 final class HomeViewController: UIViewController {
     //MARK: - Properties
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var newPostButton: UIButton!
+    
     var homeViewModel: HomeViewModelProtocol
     
     var dataSource: UICollectionViewDiffableDataSource<Section, ConfessionData>!
@@ -30,7 +32,6 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
-//        homeViewModel.fetchConfessions(reset: true)
     }
     
     private func loadCollectionView() {
@@ -44,6 +45,10 @@ final class HomeViewController: UIViewController {
     
     private func initView() {
         homeViewModel.delegate = self
+        newPostButton.layer.cornerRadius = newPostButton.frame.height / 2
+        newPostButton.backgroundColor = .systemMint
+        newPostButton.tintColor = .white
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updateChannel), name: .channelDidChange, object: nil)
         Task {
             await homeViewModel.fetchConfessions(reset: true)
@@ -65,6 +70,16 @@ final class HomeViewController: UIViewController {
                     await self.homeViewModel.toggleLikeStatus(for: confession.id)
                 }
             }
+            guard let channel = confession.channel else {
+                return cell
+            }
+            
+            cell.onChannelTapped = { [weak self] in
+                guard let self = self else { return }
+                let channelDetailVC: ChannelDetailViewController = Storyboard.channelDetail.instantiate(.channelDetail)
+                channelDetailVC.viewModel = ChannelDetailViewModel(channel: channel)
+                navigationController?.pushViewController(channelDetailVC, animated: true)
+            }
             
             return cell
         }
@@ -76,6 +91,17 @@ final class HomeViewController: UIViewController {
         snapshot.appendItems(confessions, toSection: .main)
         
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    @IBAction func newPostButtonTapped(_ sender: UIButton) {
+        guard let tabBarView = tabBarController?.view else {
+            tabBarController?.selectedIndex = 2
+            return
+        }
+        
+        UIView.transition(with: tabBarView, duration: 0.25, options: .transitionCrossDissolve, animations: {
+            self.tabBarController?.selectedIndex = 2
+        })
     }
     
     @objc private func updateChannel() {

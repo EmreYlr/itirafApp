@@ -49,7 +49,7 @@ final class ModerationViewController: UIViewController {
     private func configureNavigationBar() {
         self.title = "Moderasyon"
     }
-    
+    //TODO: -Reject olanları ayırmak için label koy
     private func loadCollectionView() {
         collectionView.delegate = self
         

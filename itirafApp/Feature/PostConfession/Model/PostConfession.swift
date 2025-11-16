@@ -6,5 +6,6 @@
 //
 
 struct PostConfession: Codable {
+    let channelId: Int
     let title, message: String
 }

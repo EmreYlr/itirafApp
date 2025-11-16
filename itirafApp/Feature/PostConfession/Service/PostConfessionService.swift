@@ -19,8 +19,7 @@ final class PostConfessionService {
     }
     
     func postConfession(content: PostConfession) async throws {
-        //TODO: -Kanal seçtireceğiz
-        let channelId = 1
+        let channelId = content.channelId
         
         let parameters: [String: Any] = [
             "title": content.title,

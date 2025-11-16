@@ -111,7 +111,7 @@ final class ChannelDetailViewModel {
     
     func followCurrentChannel() async {
         do {
-            try await followManager.followChannels(channelIds: [channel.id])
+            try await followManager.followChannel(channel: channel)
             delegate?.didUpdateFollowStatus()
         } catch {
             delegate?.didFailWithError(error)
@@ -120,7 +120,7 @@ final class ChannelDetailViewModel {
     
     func unfollowCurrentChannel() async {
         do {
-            try await followManager.unfollowChannel(channelId: channel.id)
+            try await followManager.unfollowChannel(channel: channel)
             delegate?.didUpdateFollowStatus()
         } catch {
             delegate?.didFailWithError(error)
