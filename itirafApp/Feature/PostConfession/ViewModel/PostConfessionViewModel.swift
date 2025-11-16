@@ -26,6 +26,11 @@ final class PostConfessionViewModel {
         self.postConfessionService = postConfessionService
     }
     
+    init(selectedChannel: ChannelData, postConfessionService: PostConfessionServiceProtocol = PostConfessionService()) {
+        self.postConfessionService = postConfessionService
+        self.selectedChannel = selectedChannel
+    }
+    
     func postConfession(content: PostConfession) async {
         do {
             try await postConfessionService.postConfession(content: content)

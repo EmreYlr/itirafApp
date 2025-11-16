@@ -57,7 +57,11 @@ final class PostConfessionViewController: UIViewController {
         channelSelectButton.layer.cornerRadius = 8
         channelSelectButton.layer.borderWidth = 0.5
         channelSelectButton.layer.borderColor = UIColor.systemGray4.cgColor
-                
+        
+        if postConfessionViewModel.selectedChannel != nil {
+            channelSelectButton.setTitle(postConfessionViewModel.selectedChannel?.title.capitalized, for: .normal)
+            channelSelectButton.isEnabled = false
+        }
     }
 
     @IBAction func shareButtonPressed(_ sender: UIButton) {
@@ -123,7 +127,12 @@ extension PostConfessionViewController: PostConfessionViewModelOutputProtocol {
             self.showOneButtonAlert(title: "Başarılı", message: "İtirafınız başarıyla paylaşıldı.", buttonTitle: "Tamam") { _ in
                 self.updateTextFields()
                 self.navigationController?.popToRootViewController(animated: false)
-                self.tabBarController?.selectedIndex = 0
+                if self.tabBarController != nil {
+                    self.navigationController?.popToRootViewController(animated: false)
+                    self.tabBarController?.selectedIndex = 0
+                } else {
+                    self.navigationController?.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }

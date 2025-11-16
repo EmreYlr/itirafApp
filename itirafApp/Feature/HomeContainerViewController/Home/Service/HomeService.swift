@@ -26,7 +26,7 @@ final class HomeService: HomeServiceProtocol {
             "page": page,
             "limit": limit
         ]
-        //TODO: -getFollowedChannelsMessages eklendi onu bi kontrol et
+
         return try await networkService.request(
             endpoint: Endpoint.User.getFollowedChannelsMessages,
             method: .get,

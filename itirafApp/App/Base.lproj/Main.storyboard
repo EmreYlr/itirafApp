@@ -30,10 +30,10 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3J-l8-AbF">
-                                <rect key="frame" x="337" y="719" width="40" height="40"/>
+                                <rect key="frame" x="318" y="709" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="RfQ-uf-eEC"/>
-                                    <constraint firstAttribute="width" constant="40" id="ZB4-gI-9Xq"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="RfQ-uf-eEC"/>
+                                    <constraint firstAttribute="width" constant="50" id="ZB4-gI-9Xq"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
@@ -46,7 +46,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a3J-l8-AbF" secondAttribute="bottom" constant="25" id="QYQ-d0-die"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a3J-l8-AbF" secondAttribute="trailing" constant="16" id="ULW-nA-d2W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a3J-l8-AbF" secondAttribute="trailing" constant="25" id="ULW-nA-d2W"/>
                             <constraint firstItem="qpR-bp-mn3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="a4O-ws-B9c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qpR-bp-mn3" secondAttribute="trailing" constant="16" id="cPd-Zs-crO"/>
                             <constraint firstItem="qpR-bp-mn3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gHd-Qj-EiR"/>

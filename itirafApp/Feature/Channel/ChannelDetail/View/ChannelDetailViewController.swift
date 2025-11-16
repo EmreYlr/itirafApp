@@ -34,6 +34,10 @@ final class ChannelDetailViewController: UIViewController {
     private func initData() {
         viewModel.delegate = self
         navigationItem.title = viewModel.channel.title.capitalized
+        let messageImage = UIImage(systemName: "plus.bubble")
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: messageImage, style: .plain, target: self, action: #selector(messageButtonTapped))
+        
         Task {
             await viewModel.fetchConfessions(reset: true)
         }
@@ -116,6 +120,20 @@ final class ChannelDetailViewController: UIViewController {
         Task {
             await viewModel.fetchConfessions(reset: true)
         }
+    }
+    
+    @objc private func messageButtonTapped() {
+        let selectionVC: PostConfessionViewController = Storyboard.main.instantiate(.postConfession)
+        selectionVC.postConfessionViewModel = PostConfessionViewModel(selectedChannel: viewModel.channel)
+        
+        let navController = UINavigationController(rootViewController: selectionVC)
+        
+        if let sheet = navController.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+        }
+        
+        present(navController, animated: true)
     }
 }
 
