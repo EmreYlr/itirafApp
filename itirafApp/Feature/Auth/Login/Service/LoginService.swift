@@ -16,7 +16,6 @@ final class LoginService {
     private let networkService: NetworkService
     private let userService: UserServiceProtocol
     private let deviceService: DeviceServiceProtocol
-    
     private let followManager: FollowManager
     
     init(networkService: NetworkService = NetworkManager.shared,

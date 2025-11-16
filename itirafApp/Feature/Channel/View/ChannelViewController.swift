@@ -47,7 +47,7 @@ final class ChannelViewController: UIViewController {
     
     private func initSearchBar() {
         searchBar.delegate = self
-        searchBar.placeholder = "Üniversite ara..."
+        searchBar.placeholder = "Kanal ara..."
         searchBar.showsCancelButton = true
     }
     

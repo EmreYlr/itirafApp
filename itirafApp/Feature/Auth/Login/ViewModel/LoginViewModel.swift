@@ -9,6 +9,7 @@ import Foundation
 protocol LoginViewModelProtocol {
     var delegate: LoginViewModelOutputProtocol? { get set }
     func loginUser(email: String, password: String) async
+    func loginAnonymously() async
 }
 
 protocol LoginViewModelOutputProtocol: AnyObject {
@@ -16,7 +17,6 @@ protocol LoginViewModelOutputProtocol: AnyObject {
     func didFailToLogin(with error: Error)
 }
 
-@MainActor
 final class LoginViewModel {
     weak var delegate: LoginViewModelOutputProtocol?
     private let loginService: LoginServiceProtocol
@@ -33,5 +33,15 @@ final class LoginViewModel {
             delegate?.didFailToLogin(with: error)
         }
     }
+    
+    func loginAnonymously() async {
+        let isSuccess = await AuthService.registerAndLoginAnonymousUser()
+        if isSuccess {
+            delegate?.didLoginSuccessfully()
+        } else {
+            let error = AppError.anonymousUserNotLoggedIn
+            delegate?.didFailToLogin(with: error)
+        }
+    }
 }
-extension LoginViewModel: @preconcurrency LoginViewModelProtocol { }
+extension LoginViewModel: LoginViewModelProtocol { }

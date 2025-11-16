@@ -38,6 +38,8 @@ final class ChannelDetailViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: messageImage, style: .plain, target: self, action: #selector(messageButtonTapped))
         
+        navigationItem.rightBarButtonItem?.isEnabled = viewModel.isChannelFollowed()
+        
         Task {
             await viewModel.fetchConfessions(reset: true)
         }
@@ -90,7 +92,7 @@ final class ChannelDetailViewController: UIViewController {
             }
             
             guard let channelInfo = self?.viewModel.channel else { return nil }
-            guard let isFollowed = self?.viewModel.isChannelFollowed(channelId: channelInfo.id) else { return nil }
+            guard let isFollowed = self?.viewModel.isChannelFollowed() else { return nil }
             
             header.configurationView(channel: channelInfo, isFollowed: isFollowed)
             
@@ -150,6 +152,7 @@ extension ChannelDetailViewController: ChannelDetailViewModelDelegate {
             var currentSnapshot = self.dataSource.snapshot()
             currentSnapshot.reloadSections(currentSnapshot.sectionIdentifiers)
             self.dataSource.apply(currentSnapshot, animatingDifferences: false)
+            self.navigationItem.rightBarButtonItem?.isEnabled = self.viewModel.isChannelFollowed()
         }
     }
     

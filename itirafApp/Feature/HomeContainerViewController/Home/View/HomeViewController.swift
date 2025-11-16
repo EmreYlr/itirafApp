@@ -13,7 +13,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var newPostButton: UIButton!
     
     var homeViewModel: HomeViewModelProtocol
-    
+    let refreshControl = UIRefreshControl()
     var dataSource: UICollectionViewDiffableDataSource<Section, ConfessionData>!
 
     required init?(coder: NSCoder) {
@@ -38,7 +38,6 @@ final class HomeViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "ConfessionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "confessionCell")
         
-        let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshConfession), for: .valueChanged)
         collectionView.refreshControl = refreshControl
     }
@@ -110,9 +109,9 @@ final class HomeViewController: UIViewController {
     
     @objc private func refreshConfession() {
         Task {
-//            defer {
-//                refreshControl.endRefreshing()
-//            }
+            defer {
+                self.refreshControl.endRefreshing()
+            }
             await homeViewModel.fetchConfessions(reset: true)
         }
     }

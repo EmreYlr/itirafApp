@@ -15,7 +15,7 @@ protocol ChannelDetailViewModelProtocol {
     func toggleLikeStatus(for: Int) async
     func followCurrentChannel() async
     func unfollowCurrentChannel() async
-    func isChannelFollowed(channelId: Int) -> Bool
+    func isChannelFollowed() -> Bool
 }
 
 protocol ChannelDetailViewModelDelegate: AnyObject {
@@ -127,7 +127,8 @@ final class ChannelDetailViewModel {
         }
     }
     
-    func isChannelFollowed(channelId: Int) -> Bool {
+    func isChannelFollowed() -> Bool {
+        let channelId = channel.id
         return followManager.isChannelFollowed(channelId: channelId)
     }
 }

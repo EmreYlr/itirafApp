@@ -18,8 +18,7 @@ final class LoginViewController: UIViewController {
         self.loginViewModel = LoginViewModel()
         super.init(coder: coder)
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Hello")
@@ -28,6 +27,9 @@ final class LoginViewController: UIViewController {
     
     private func initData() {
         loginViewModel.delegate = self
+        let anonymousImage = UIImage(systemName: "person.crop.circle.fill.badge.questionmark")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: anonymousImage , style: .done, target: self, action: #selector(anonymousButtonTapped))
+        
         emailTextField.text = "ali@example.com"
         passwordTextField.text = "password123"
     }
@@ -52,7 +54,7 @@ final class LoginViewController: UIViewController {
 
         sender.isEnabled = false
 
-        Task {
+        Task(priority: .utility) {
             defer {
                 sender.isEnabled = true
             }
@@ -62,18 +64,27 @@ final class LoginViewController: UIViewController {
             )
         }
     }
+    
+    @objc private func anonymousButtonTapped() {
+        Task(priority: .utility) {
+            await loginViewModel.loginAnonymously()
+        }
+    }
 }
 
 extension LoginViewController: LoginViewModelOutputProtocol {
     func didLoginSuccessfully() {
         print("Login Başarılı")
-        let tabBarController: UITabBarController = Storyboard.main.instantiateTabBar(.mainTabBar)
-        
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let sceneDelegate = windowScene.delegate as? SceneDelegate {
-            sceneDelegate.window?.rootViewController = tabBarController
-            sceneDelegate.window?.makeKeyAndVisible()
+        DispatchQueue.main.async {
+            let tabBarController: UITabBarController = Storyboard.main.instantiateTabBar(.mainTabBar)
+            
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                sceneDelegate.window?.rootViewController = tabBarController
+                sceneDelegate.window?.makeKeyAndVisible()
+            }
         }
+        
     }
     
     func didFailToLogin(with error: Error) {
