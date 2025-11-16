@@ -211,6 +211,14 @@
                                     <action selector="channelSelectButtonTapped:" destination="57I-VH-y4m" eventType="touchUpInside" id="FLc-Yx-ZaU"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="h4y-RD-JdP">
+                                <rect key="frame" x="352" y="615" width="20" height="16.333333333333371"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="O2R-yV-uYT"/>
+                                    <constraint firstAttribute="width" constant="20" id="UMz-3A-4Hh"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="q47-Ce-fDP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -218,6 +226,7 @@
                             <constraint firstItem="q47-Ce-fDP" firstAttribute="trailing" secondItem="HZV-F4-dGG" secondAttribute="trailing" constant="16" id="03g-0t-WXt"/>
                             <constraint firstItem="7wi-TQ-yWL" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="5f4-WG-5fF"/>
                             <constraint firstItem="jGo-Rz-FWB" firstAttribute="top" secondItem="HZV-F4-dGG" secondAttribute="bottom" constant="15" id="70U-gI-v64"/>
+                            <constraint firstItem="h4y-RD-JdP" firstAttribute="trailing" secondItem="xO0-cl-IF4" secondAttribute="trailing" constant="-5" id="EZq-VJ-9df"/>
                             <constraint firstItem="O8O-lk-X8S" firstAttribute="top" secondItem="xO0-cl-IF4" secondAttribute="bottom" constant="30" id="F6a-wt-GUG"/>
                             <constraint firstItem="WKX-EQ-C7J" firstAttribute="top" secondItem="J51-hC-FKo" secondAttribute="bottom" constant="15" id="FkL-US-r1d"/>
                             <constraint firstItem="xO0-cl-IF4" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="I6P-p9-Woo"/>
@@ -240,6 +249,7 @@
                             <constraint firstItem="HZV-F4-dGG" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="pBK-fq-AxX"/>
                             <constraint firstItem="WKX-EQ-C7J" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="pu3-MZ-7L2"/>
                             <constraint firstItem="YyZ-gS-KrY" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="30" id="sVn-BS-gHy"/>
+                            <constraint firstItem="h4y-RD-JdP" firstAttribute="centerY" secondItem="xO0-cl-IF4" secondAttribute="centerY" id="vIH-9a-Dfm"/>
                             <constraint firstItem="bV3-N4-xnA" firstAttribute="top" secondItem="WKX-EQ-C7J" secondAttribute="bottom" constant="10" id="xx9-gP-BgL"/>
                             <constraint firstItem="O8O-lk-X8S" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="zNw-Fd-1lf"/>
                         </constraints>
@@ -255,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3pv-ua-KID" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1949" y="303"/>
+            <point key="canvasLocation" x="1948.854961832061" y="302.81690140845075"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="lvD-p0-fVa">
@@ -1055,6 +1065,7 @@
     <resources>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="104"/>
         <image name="bubble.right" catalog="system" width="128" height="110"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="house" catalog="system" width="128" height="104"/>

@@ -122,7 +122,7 @@ final class ModerationViewController: UIViewController {
             sender.selectedSegmentTintColor = .systemMint.withAlphaComponent(0.7)
         case 1:
             viewModel.setFilter(.pending)
-            sender.selectedSegmentTintColor = .systemYellow.withAlphaComponent(0.7)
+            sender.selectedSegmentTintColor = .systemOrange.withAlphaComponent(0.7)
         case 2:
             viewModel.setFilter(.rejected)
             sender.selectedSegmentTintColor = .systemRed.withAlphaComponent(0.7)
