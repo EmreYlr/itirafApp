@@ -52,9 +52,8 @@ final class MyConfessionsViewController: UIViewController {
     private func loadCollectionView() {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "MyConfessionsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "myConfessionsCell")
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let width = collectionView.frame.width
-            flowLayout.estimatedItemSize = CGSize(width: width, height: 150)
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshConfession), for: .valueChanged)

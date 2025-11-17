@@ -62,10 +62,10 @@ final class ModerationViewController: UIViewController {
         collectionView.delegate = self
         
         collectionView.register(UINib(nibName: "ModerationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "moderationCell")
+    
         
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let width = collectionView.frame.width
-            flowLayout.estimatedItemSize = CGSize(width: width, height: 150)
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
         
         let refreshControl = UIRefreshControl()
