@@ -13,7 +13,7 @@ final class HomeContainerViewController: UIViewController {
         let sc = UISegmentedControl(items: ["Akış", "Takip Edilenler"])
         sc.selectedSegmentIndex = 0
         sc.addTarget(self, action: #selector(didChangeSegment(_:)), for: .valueChanged)
-
+        
         sc.backgroundColor = .clear
         sc.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
         sc.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
@@ -60,6 +60,7 @@ final class HomeContainerViewController: UIViewController {
     }()
     
     private lazy var pages: [UIViewController] = [flowVC, homeVC]
+    private var notificationButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,7 @@ final class HomeContainerViewController: UIViewController {
         setupUI()
         setInitialViewController()
         configureNavigationBar()
+        showNotificationBadge(show: true) //TODO: -Değişecek bildirime göre
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,7 +85,28 @@ final class HomeContainerViewController: UIViewController {
         )
         messageButton.tintColor = .systemMint
         
-        navigationItem.rightBarButtonItem = messageButton
+        notificationButton = UIBarButtonItem(
+            image: UIImage(systemName: "bell"),
+            style: .plain,
+            target: self,
+            action: #selector(notificationButtonTapped)
+        )
+        notificationButton.tintColor = .systemMint
+        
+        navigationItem.rightBarButtonItems = [messageButton, notificationButton]
+    }
+    
+    private func showNotificationBadge(show: Bool) {
+        DispatchQueue.main.async {
+            if show {
+                let config = UIImage.SymbolConfiguration(paletteColors: [.systemMint, .systemMint])
+                let badgeImage = UIImage(systemName: "bell.badge.fill", withConfiguration: config)
+                
+                self.notificationButton.image = badgeImage
+            } else {
+                self.notificationButton.image = UIImage(systemName: "bell")
+            }
+        }
     }
     
     private func setupUI() {
@@ -104,7 +127,7 @@ final class HomeContainerViewController: UIViewController {
             
             segmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             segmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-
+            
             segmentedControl.heightAnchor.constraint(equalToConstant: 40),
             
             bottomBorderView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor),
@@ -130,7 +153,7 @@ final class HomeContainerViewController: UIViewController {
         let newLeadingConstant = segmentWidth * CGFloat(index)
         
         indicatorLeadingConstraint.constant = newLeadingConstant
-
+        
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.1, options: .curveEaseInOut) {
             self.view.layoutIfNeeded()
         }
@@ -158,7 +181,11 @@ final class HomeContainerViewController: UIViewController {
         }
     }
     
-    
+    @objc private func notificationButtonTapped() {
+        //TODO: -Notification ekranına git 
+        showNotificationBadge(show: false)
+    }
+
     @objc private func messageButtonTapped() {
         let messagingContainerVC = MessagingContainerViewController()
         navigationController?.pushViewController(messagingContainerVC, animated: true)

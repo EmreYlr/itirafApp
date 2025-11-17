@@ -28,6 +28,8 @@ final class NotificationSettingsViewModel {
             }
         }
     }
+    
+    //TODO: -Kullanıcı app i ilk açtığında bildirimlere izin vermemişse device token gönderilmemiş olur. sonrasında bildirimleri açarsa device tokeni gönder
 
     func handleSwitchTap() {
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
