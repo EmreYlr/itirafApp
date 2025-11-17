@@ -84,14 +84,18 @@ final class ModerationViewController: UIViewController {
             
             cell.onApproveButtonTapped = { [weak self] in
                 guard let self = self else { return }
-                self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-                self.collectionView.delegate?.collectionView?(self.collectionView, didSelectItemAt: indexPath)
+                guard let currentIndexPath = self.dataSource.indexPath(for: moderationItem) else { return }
+                
+                self.collectionView.selectItem(at: currentIndexPath, animated: false, scrollPosition: [])
+                self.collectionView.delegate?.collectionView?(self.collectionView, didSelectItemAt: currentIndexPath)
             }
             
             cell.onRejectButtonTapped = { [weak self] in
                 guard let self = self else { return }
-                self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-                self.collectionView.delegate?.collectionView?(self.collectionView, didSelectItemAt: indexPath)
+                guard let currentIndexPath = self.dataSource.indexPath(for: moderationItem) else { return }
+                
+                self.collectionView.selectItem(at: currentIndexPath, animated: false, scrollPosition: [])
+                self.collectionView.delegate?.collectionView?(self.collectionView, didSelectItemAt: currentIndexPath)
             }
             
             return cell
