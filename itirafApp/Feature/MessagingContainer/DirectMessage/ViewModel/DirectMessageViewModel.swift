@@ -9,6 +9,7 @@ protocol DirectMessageViewModelProtocol {
     var delegate: DirectMessageViewModelDelegate? { get set }
     var directMessages: [DirectMessage] { get }
     func fetchDirectMessages() async
+    func deleteRoom(roomId: String, blockUser: Bool) async
 }
 
 protocol DirectMessageViewModelDelegate: AnyObject {
@@ -37,6 +38,17 @@ final class DirectMessageViewModel {
         
     }
     
+    func deleteRoom(roomId: String, blockUser: Bool) async {
+        do {
+            try await directMessageService.deleteRoom(roomId: roomId, blockUser: blockUser)
+            if let index = directMessages.firstIndex(where: { $0.roomID == roomId }) {
+                directMessages.remove(at: index)
+                delegate?.didUpdateDirectMessages()
+            }
+        } catch {
+            delegate?.didError(error)
+        }
+    }
 }
 
 extension DirectMessageViewModel: DirectMessageViewModelProtocol { }

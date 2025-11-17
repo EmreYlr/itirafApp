@@ -9,6 +9,7 @@ import Alamofire
 
 protocol DirectMessageServiceProtocol {
     func getAllRoom() async throws -> [DirectMessage]
+    func deleteRoom(roomId: String, blockUser: Bool) async throws
 }
 
 final class DirectMessageService: DirectMessageServiceProtocol {
@@ -24,5 +25,17 @@ final class DirectMessageService: DirectMessageServiceProtocol {
             method: .get,
             parameters: nil,
             encoding: JSONEncoding.default)
+    }
+    
+    func deleteRoom(roomId: String, blockUser: Bool) async throws {
+        let parameters: [String: Any] = [
+            "blockUser": blockUser
+        ]
+        let _ : Empty = try await networkService.request(
+            endpoint: Endpoint.Room.deleteRoom(roomId: roomId),
+            method: .delete,
+            parameters: parameters,
+            encoding: JSONEncoding.default
+        )
     }
 }
