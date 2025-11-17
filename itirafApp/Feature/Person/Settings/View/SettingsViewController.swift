@@ -127,7 +127,14 @@ final class SettingsViewController: UIViewController {
             print("Gizlilik Politikası'na tıklandı")
         case .aboutUs:
             print("Hakkımızda'ya tıklandı")
+        case .notifications:
+            showNotificationScreen()
         }
+    }
+    
+    private func showNotificationScreen() {
+        let notificationVC: NotificationSettingsViewController = Storyboard.notificationSettings.instantiate(.notificationSettings)
+        navigationController?.pushViewController(notificationVC, animated: true)
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {

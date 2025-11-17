@@ -33,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             } else {
                 print("Bildirim izni reddedildi.")
             }
+            NotificationCenter.default.post(
+                name: .didCompleteNotificationRequest,
+                object: nil
+            )
         }
         
         return true

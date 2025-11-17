@@ -27,6 +27,7 @@ struct SettingItem: Hashable {
         case changePassword
         case privacyPolicy
         case aboutUs
+        case notifications
     }
     
     let title: String
@@ -44,6 +45,7 @@ struct SettingItem: Hashable {
     
     static func getAccountItems() -> [SettingItem] {
         return [
+            .init(title: "Bildirimler", iconSystemName: "bell", type: .notifications),
             .init(title: "Gizlilik Politikası", iconSystemName: "shield", type: .privacyPolicy),
             .init(title: "Hakkımızda", iconSystemName: "info.circle", type: .aboutUs)
         ]

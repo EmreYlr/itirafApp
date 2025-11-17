@@ -22,6 +22,7 @@ enum Storyboard: String {
     case moderation = "Moderation"
     case channelDetail = "ChannelDetail"
     case followChannel = "FollowChannel"
+    case notificationSettings = "NotificationSettings"
 
     var instance: UIStoryboard {
         UIStoryboard(name: self.rawValue, bundle: nil)
@@ -102,6 +103,9 @@ enum ViewControllerID: String {
     
     //FollowChannel.storyboard
     case followChannel = "FollowChannelViewController"
+    
+    //NotificationSettings.storyboard
+    case notificationSettings = "NotificationSettingsViewController"
 }
 
 enum NavigationControllerID: String {
