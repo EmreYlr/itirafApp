@@ -61,14 +61,20 @@ final class HomeContainerViewController: UIViewController {
     
     private lazy var pages: [UIViewController] = [flowVC, homeVC]
     private var notificationButton: UIBarButtonItem!
+    var viewModel: HomeContainerViewModelProtocol
+    
+    required init?(coder: NSCoder) {
+        self.viewModel = HomeContainerViewModel()
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Ana Sayfa"
+        initData()
         setupUI()
         setInitialViewController()
         configureNavigationBar()
-        showNotificationBadge(show: true) //TODO: -Değişecek bildirime göre
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,6 +100,14 @@ final class HomeContainerViewController: UIViewController {
         notificationButton.tintColor = .systemMint
         
         navigationItem.rightBarButtonItems = [messageButton, notificationButton]
+    }
+    
+    private func initData() {
+        viewModel.delegate = self
+        
+        Task {
+            await viewModel.getNotificationStatus()
+        }
     }
     
     private func showNotificationBadge(show: Bool) {
@@ -182,7 +196,8 @@ final class HomeContainerViewController: UIViewController {
     }
     
     @objc private func notificationButtonTapped() {
-        //TODO: -Notification ekranına git 
+        let notificationVC: NotificationViewController = Storyboard.notification.instantiate(.notification)
+        navigationController?.pushViewController(notificationVC, animated: true)
         showNotificationBadge(show: false)
     }
 
@@ -191,6 +206,18 @@ final class HomeContainerViewController: UIViewController {
         navigationController?.pushViewController(messagingContainerVC, animated: true)
     }
 }
+extension HomeContainerViewController: HomeContainerViewModelDelegate {
+    func didUpdateNotificationStatus(_ status: NotificationStatus) {
+        showNotificationBadge(show: true)
+    }
+    
+    func didFailToUpdateNotificationStatus() {
+        showNotificationBadge(show: false)
+        print("Failed to update notification status")
+    }
+}
+
+
 extension HomeContainerViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = pages.firstIndex(of: viewController) else { return nil }

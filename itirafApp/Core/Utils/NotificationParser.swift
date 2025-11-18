@@ -7,10 +7,18 @@
 
 import Foundation
 
-enum NotificationType: String {
-    case dm
-    case reply
-    case moderation
+enum NotificationType: String, Codable {
+    case dmMessage = "DM_MESSAGE"
+    case dmRequest = "DM_REQUEST"
+    case dmResponse = "DM_REQUEST_RESPONSE"
+    case reply = "REPLY"
+    case moderation = "MODERATION"
+    case like = "LIKE"
+    case unknown
+
+    public init(from decoder: Decoder) throws {
+        self = try NotificationType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
 }
 
 struct NotificationParser {
@@ -22,7 +30,7 @@ struct NotificationParser {
         }
         
         switch type {
-        case .dm:
+        case .dmMessage:
             guard let roomId = userInfo["roomId"] as? String else {
                 print("❌ NotificationParser: DM tipi için 'roomId' bulunamadı.")
                 return nil
@@ -44,7 +52,19 @@ struct NotificationParser {
             
         case .moderation:
             return .myConfessions
-            
+            //TODO: -Buralar dolacak ekranlara gidecek
+        case .like:
+            print("Like")
+            return nil
+        case .dmRequest:
+            print("Dm request")
+            return nil
+        case .dmResponse:
+            print("Dm Response")
+            return nil
+        case .unknown:
+            print("❌ NotificationParser: Bilinmeyen bildirim tipi.")
+            return nil
         }
         
     }

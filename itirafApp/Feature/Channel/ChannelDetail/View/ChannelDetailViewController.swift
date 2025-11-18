@@ -49,10 +49,8 @@ final class ChannelDetailViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "ConfessionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "confessionCell")
         
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
-            
-            flowLayout.estimatedItemSize = CGSize(width: collectionView.frame.width, height: 100)
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
         
         let refreshControl = UIRefreshControl()
