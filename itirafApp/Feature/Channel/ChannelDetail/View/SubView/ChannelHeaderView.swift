@@ -34,11 +34,11 @@ final class ChannelHeaderView: UICollectionReusableView {
         if isFollowed {
             subButton.backgroundColor = .systemMint.withAlphaComponent(0.15)
             subButton.setTitleColor(.systemMint, for: .normal)
-            subButton.setTitle("Abone olundu", for: .normal)
+            subButton.setTitle("Takip Ediliyor", for: .normal)
         } else {
             subButton.backgroundColor = .systemMint
             subButton.setTitleColor(.white, for: .normal)
-            subButton.setTitle("Abone ol", for: .normal)
+            subButton.setTitle("Takip Et", for: .normal)
         }
     }
     

@@ -80,6 +80,9 @@ final class HomeContainerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
+        Task {
+            await viewModel.getNotificationStatus()
+        }
     }
     
     private func configureNavigationBar() {
@@ -104,10 +107,6 @@ final class HomeContainerViewController: UIViewController {
     
     private func initData() {
         viewModel.delegate = self
-        
-        Task {
-            await viewModel.getNotificationStatus()
-        }
     }
     
     private func showNotificationBadge(show: Bool) {
@@ -198,7 +197,6 @@ final class HomeContainerViewController: UIViewController {
     @objc private func notificationButtonTapped() {
         let notificationVC: NotificationViewController = Storyboard.notification.instantiate(.notification)
         navigationController?.pushViewController(notificationVC, animated: true)
-        showNotificationBadge(show: false)
     }
 
     @objc private func messageButtonTapped() {

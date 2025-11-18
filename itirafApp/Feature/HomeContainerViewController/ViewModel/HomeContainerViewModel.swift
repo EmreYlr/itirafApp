@@ -27,12 +27,14 @@ final class HomeContainerViewModel {
     }
     
     func getNotificationStatus() async {
-        do {
-            let status = try await service.fetchNotificationStatus()
-            self.notificationStatus = status
-            delegate?.didUpdateNotificationStatus(status)
-        } catch {
-            delegate?.didFailToUpdateNotificationStatus()
+        if !UserManager.shared.getUserIsAnonymous() {
+            do {
+                let status = try await service.fetchNotificationStatus()
+                self.notificationStatus = status
+                delegate?.didUpdateNotificationStatus(status)
+            } catch {
+                delegate?.didFailToUpdateNotificationStatus()
+            }
         }
     }
 }
