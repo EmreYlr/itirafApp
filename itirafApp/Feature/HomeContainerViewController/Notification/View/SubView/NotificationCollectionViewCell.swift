@@ -17,8 +17,20 @@ final class NotificationCollectionViewCell: UICollectionViewCell {
     
     private var item: NotificationItem?
     
-    override var isSelected: Bool { didSet { updateAppearance() } }
-    var isSelectionMode: Bool = false { didSet { updateAppearance() } }
+    override var isSelected: Bool {
+        didSet {
+            updateAppearance(animated: true, isSelected: isSelected)
+        }
+    }
+    var isSelectionMode: Bool = false
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.text = nil
+        badgeImageView.image = nil
+        bgView.layer.borderWidth = 0
+        bgView.backgroundColor = .clear
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,22 +38,28 @@ final class NotificationCollectionViewCell: UICollectionViewCell {
         badgeView.layer.cornerRadius = badgeView.frame.height / 2
     }
     
-    func configure(with notification: NotificationItem) {
+    func configure(with notification: NotificationItem, isSelectionMode: Bool, isSelected: Bool) {
         self.item = notification
+        self.isSelectionMode = isSelectionMode
         
         titleLabel.text = notification.title
         messageLabel.text = notification.body
         timeLabel.text = notification.createdAt.relativeTimeString()
         badgeImageView.image = notification.iconImage
         
-        updateAppearance()
+        updateAppearance(animated: false, isSelected: isSelected)
     }
     
-    private func updateAppearance() {
+    func setSelectionMode(_ active: Bool, animated: Bool) {
+        self.isSelectionMode = active
+        updateAppearance(animated: animated, isSelected: self.isSelected)
+    }
+    
+    private func updateAppearance(animated: Bool, isSelected: Bool) {
         guard let item = item else { return }
         
-        UIView.animate(withDuration: 0.2) {
-            if self.isSelectionMode && self.isSelected {
+        let changes = {
+            if self.isSelectionMode && isSelected {
                 self.setupStyle(bgColor: .systemRed.withAlphaComponent(0.1), borderColor: .systemRed, borderWidth: 2, badgeColor: item.badgeColor, titleWeight: .medium, timeColor: .secondaryLabel)
             }
             else if item.seen {
@@ -50,6 +68,12 @@ final class NotificationCollectionViewCell: UICollectionViewCell {
             else {
                 self.setupStyle(bgColor: .systemBlue.withAlphaComponent(0.1), borderColor: .systemBlue.withAlphaComponent(0.3), borderWidth: 1, badgeColor: item.badgeColor, titleWeight: .semibold, timeColor: .systemBlue, iconTint: .white)
             }
+        }
+        
+        if animated {
+            UIView.animate(withDuration: 0.2, animations: changes)
+        } else {
+            changes()
         }
     }
     

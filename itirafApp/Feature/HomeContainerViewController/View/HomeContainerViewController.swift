@@ -208,7 +208,8 @@ final class HomeContainerViewController: UIViewController {
 }
 extension HomeContainerViewController: HomeContainerViewModelDelegate {
     func didUpdateNotificationStatus(_ status: NotificationStatus) {
-        showNotificationBadge(show: true)
+        let show =  status.hasUnread
+        showNotificationBadge(show: show)
     }
     
     func didFailToUpdateNotificationStatus() {

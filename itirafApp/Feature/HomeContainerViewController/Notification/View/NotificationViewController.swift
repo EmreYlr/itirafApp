@@ -118,8 +118,8 @@ final class NotificationViewController: UIViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "notificationCell", for: indexPath) as? NotificationCollectionViewCell else {
                 fatalError("Cannot create new cell")
             }
-            cell.configure(with: notification)
-            cell.isSelectionMode = self.isSelectionMode
+            cell.configure(with: notification, isSelectionMode: self.isSelectionMode, isSelected: collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false)
+            
             return cell
         }
         
@@ -131,7 +131,7 @@ final class NotificationViewController: UIViewController {
                 return nil
             }
             
-            let section = NotificationSection(rawValue: indexPath.section)
+            let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
             
             switch section {
             case .new:
@@ -145,8 +145,6 @@ final class NotificationViewController: UIViewController {
             case .old:
                 header.headerTitleLabel.text = "DAHA ÖNCE"
                 header.markReadButton.isHidden = true
-            default:
-                break
             }
             
             return header
