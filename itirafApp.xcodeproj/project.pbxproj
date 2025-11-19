@@ -131,6 +131,7 @@
 		C3BE19552ECDE0F50053C9A9 /* NotificationSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19542ECDE0F10053C9A9 /* NotificationSettingsService.swift */; };
 		C3BE19572ECDE5CA0053C9A9 /* NotificationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19562ECDE5C20053C9A9 /* NotificationPreferences.swift */; };
 		C3BE195A2ECDF0570053C9A9 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19592ECDF0480053C9A9 /* Encodable+Extension.swift */; };
+		C3BE195C2ECE3BAC0053C9A9 /* AppleLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE195B2ECE3BAC0053C9A9 /* AppleLoginRequest.swift */; };
 		C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */; };
 		C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */; };
 		C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */; };
@@ -347,6 +348,7 @@
 		C3BE19542ECDE0F10053C9A9 /* NotificationSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsService.swift; sourceTree = "<group>"; };
 		C3BE19562ECDE5C20053C9A9 /* NotificationPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreferences.swift; sourceTree = "<group>"; };
 		C3BE19592ECDF0480053C9A9 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		C3BE195B2ECE3BAC0053C9A9 /* AppleLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequest.swift; sourceTree = "<group>"; };
 		C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
@@ -2046,6 +2048,7 @@
 		C3EB10912E745D5C002DA295 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C3BE195B2ECE3BAC0053C9A9 /* AppleLoginRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2431,6 +2434,7 @@
 				C3F39E122EA0267300197509 /* PostConfessionViewController.swift in Sources */,
 				C3C173E42EC62C0900D27383 /* ChannelViewController+CollectionView.swift in Sources */,
 				C3A7A42B2EA94CB500250B06 /* DirectMessageViewController+CollectionView.swift in Sources */,
+				C3BE195C2ECE3BAC0053C9A9 /* AppleLoginRequest.swift in Sources */,
 				C3A750A32EB623690058163B /* RequestMessageViewController+CollectionView.swift in Sources */,
 				C38EAA9D2EBF4FF400A1818C /* ViolationsViewController.swift in Sources */,
 				C3C173DB2EC61CF700D27383 /* ChannelHeaderView.swift in Sources */,

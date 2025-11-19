@@ -10,6 +10,7 @@ import Foundation
 
 protocol LoginServiceProtocol {
     func loginUser(email: String, password: String) async throws
+    func loginWithApple(request: AppleLoginRequest) async throws
 }
 
 final class LoginService {
@@ -28,7 +29,6 @@ final class LoginService {
         self.followManager = followManager
     }
     
-    
     func loginUser(email: String, password: String) async throws {
         let params: Parameters = [
             "email": email,
@@ -42,6 +42,23 @@ final class LoginService {
             encoding: JSONEncoding.default
         )
         
+        try await handleSuccessfulLogin(response: response)
+    }
+    
+    func loginWithApple(request: AppleLoginRequest) async throws {
+        dump(request)
+        
+        //        let response: RefreshTokenResponse = try await networkService.request(
+        //            endpoint: Endpoint.Auth.appleLogin,
+        //            method: .post,
+        //            parameters: request,
+        //            encoding: JSONParameterEncoder.default
+        //        )
+        
+        //        try await handleSuccessfulLogin(response: response)
+    }
+    
+    private func handleSuccessfulLogin(response: RefreshTokenResponse) async throws {
         AuthManager.shared.saveTokens(
             accessToken: response.accessToken,
             refreshToken: response.refreshToken
@@ -52,11 +69,10 @@ final class LoginService {
         CrashlyticsManager.shared.setUserID(user.id ?? "NoN")
         CrashlyticsManager.shared.isUserAnonymous(false)
         
-        
         do {
             try await followManager.loadFollowedChannels()
         } catch {
-            print("⚠️ Takip edilen kanallar çekilirken hata oluştu (login başarılı): \(error.localizedDescription)")
+            print("⚠️ Takip edilen kanallar çekilirken hata oluştu: \(error.localizedDescription)")
             CrashlyticsManager.shared.sentNonFatal(error)
         }
         
@@ -64,7 +80,7 @@ final class LoginService {
             do {
                 try await deviceService.registerDeviceToken(deviceToken, notificationEnabled: true)
             } catch {
-                print("⚠️ Cihaz token'ı güncellenirken hata oluştu (login başarılı): \(error.localizedDescription)")
+                print("⚠️ Cihaz token'ı güncellenirken hata oluştu: \(error.localizedDescription)")
                 CrashlyticsManager.shared.sentNonFatal(error)
             }
         }

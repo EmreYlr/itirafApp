@@ -10,6 +10,7 @@ protocol LoginViewModelProtocol {
     var delegate: LoginViewModelOutputProtocol? { get set }
     func loginUser(email: String, password: String) async
     func loginAnonymously() async
+    func loginWithApple(request: AppleLoginRequest) async
 }
 
 protocol LoginViewModelOutputProtocol: AnyObject {
@@ -29,6 +30,15 @@ final class LoginViewModel {
         do {
             try await loginService.loginUser(email: email, password: password)
             delegate?.didLoginSuccessfully()
+        } catch {
+            delegate?.didFailToLogin(with: error)
+        }
+    }
+    
+    func loginWithApple(request: AppleLoginRequest) async {
+        do {
+            try await loginService.loginWithApple(request: request)
+//            delegate?.didLoginSuccessfully()
         } catch {
             delegate?.didFailToLogin(with: error)
         }
