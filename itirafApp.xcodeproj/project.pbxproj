@@ -128,6 +128,9 @@
 		C3BE194F2ECC911D0053C9A9 /* NotificationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3BE194E2ECC911D0053C9A9 /* NotificationCollectionViewCell.xib */; };
 		C3BE19502ECC911D0053C9A9 /* NotificationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE194D2ECC911D0053C9A9 /* NotificationCollectionViewCell.swift */; };
 		C3BE19522ECC9FDA0053C9A9 /* NotificationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19512ECC9FD50053C9A9 /* NotificationHeaderView.swift */; };
+		C3BE19552ECDE0F50053C9A9 /* NotificationSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19542ECDE0F10053C9A9 /* NotificationSettingsService.swift */; };
+		C3BE19572ECDE5CA0053C9A9 /* NotificationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19562ECDE5C20053C9A9 /* NotificationPreferences.swift */; };
+		C3BE195A2ECDF0570053C9A9 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19592ECDF0480053C9A9 /* Encodable+Extension.swift */; };
 		C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */; };
 		C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */; };
 		C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */; };
@@ -341,6 +344,9 @@
 		C3BE194D2ECC911D0053C9A9 /* NotificationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3BE194E2ECC911D0053C9A9 /* NotificationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3BE19512ECC9FD50053C9A9 /* NotificationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHeaderView.swift; sourceTree = "<group>"; };
+		C3BE19542ECDE0F10053C9A9 /* NotificationSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsService.swift; sourceTree = "<group>"; };
+		C3BE19562ECDE5C20053C9A9 /* NotificationPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreferences.swift; sourceTree = "<group>"; };
+		C3BE19592ECDF0480053C9A9 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
@@ -1196,8 +1202,10 @@
 			isa = PBXGroup;
 			children = (
 				C3BE19272ECBACC90053C9A9 /* Storyboard */,
+				C3BE19582ECDE5CF0053C9A9 /* Model */,
 				C3BE19252ECBACBE0053C9A9 /* View */,
 				C3BE19242ECBACB70053C9A9 /* ViewModel */,
+				C3BE19532ECDE0E00053C9A9 /* Service */,
 			);
 			path = NotificationSettings;
 			sourceTree = "<group>";
@@ -1320,6 +1328,22 @@
 				C3BE194E2ECC911D0053C9A9 /* NotificationCollectionViewCell.xib */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		C3BE19532ECDE0E00053C9A9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3BE19542ECDE0F10053C9A9 /* NotificationSettingsService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3BE19582ECDE5CF0053C9A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3BE19562ECDE5C20053C9A9 /* NotificationPreferences.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C3C08BAB2E8AAF0200EDC6A2 /* SubView */ = {
@@ -1978,6 +2002,7 @@
 		C3EB108A2E744A63002DA295 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C3BE19592ECDF0480053C9A9 /* Encodable+Extension.swift */,
 				C3528EFD2EB8C32800FF1C19 /* UIApplication+Extension.swift */,
 				C3E660132EAFACC50059048F /* Date+Extension.swift */,
 				C3E660112EAF85320059048F /* String+DateFormatting.swift */,
@@ -2307,6 +2332,7 @@
 				C3BE19492ECC90280053C9A9 /* NotificationViewController+CollectionView.swift in Sources */,
 				C3E660512EB4097A0059048F /* PersonViewController+CollectionView.swift in Sources */,
 				C3D764BE2E93E96200104C3B /* DetailViewController+CollectionView.swift in Sources */,
+				C3BE195A2ECDF0570053C9A9 /* Encodable+Extension.swift in Sources */,
 				C3E660182EB0EBDE0059048F /* WebSocketRequest.swift in Sources */,
 				C3E660482EB3BCCE0059048F /* MyConfessionDetail+CollectionView.swift in Sources */,
 				C3A750812EB509CB0058163B /* SettingsViewController.swift in Sources */,
@@ -2345,6 +2371,7 @@
 				C3BE192F2ECC77960053C9A9 /* HomeContainerViewModel.swift in Sources */,
 				C3C173C12EC5EF0C00D27383 /* FlowViewController.swift in Sources */,
 				C3A750852EB50A140058163B /* SettingsService.swift in Sources */,
+				C3BE19552ECDE0F50053C9A9 /* NotificationSettingsService.swift in Sources */,
 				C3528F292EBB724B00FF1C19 /* ModerationViewController.swift in Sources */,
 				C3BE19502ECC911D0053C9A9 /* NotificationCollectionViewCell.swift in Sources */,
 				C3A750BF2EB694120058163B /* RequestBottomSheetViewModel.swift in Sources */,
@@ -2358,6 +2385,7 @@
 				C37D5C792E7990F70068F334 /* HomeViewModel.swift in Sources */,
 				C3C08BC22E8D3B3500EDC6A2 /* Constants.swift in Sources */,
 				C3C08BAA2E8AAE8100EDC6A2 /* HomeViewController+CollectionView.swift in Sources */,
+				C3BE19572ECDE5CA0053C9A9 /* NotificationPreferences.swift in Sources */,
 				C35148912EAB8C5B00359585 /* WebSocketManager.swift in Sources */,
 				C3A750732EB4C78A0058163B /* EditSocialViewModel.swift in Sources */,
 				C3E660122EAF853B0059048F /* String+DateFormatting.swift in Sources */,

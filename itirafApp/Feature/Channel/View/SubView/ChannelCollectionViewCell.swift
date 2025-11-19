@@ -32,7 +32,7 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
     
     func configure(with channel: ChannelData, isFollowed: Bool) {
         channelNameLabel.text = channel.title.capitalized
-        subCountLabel.text = "14.4K abone" // Not: Bu değer dinamik gelmeli
+        subCountLabel.text = "14.4K abone"
         channelIconLabel.text = String(channel.title.prefix(2).uppercased())
                 
         configureButtonAppearance(isFollowed: isFollowed)
