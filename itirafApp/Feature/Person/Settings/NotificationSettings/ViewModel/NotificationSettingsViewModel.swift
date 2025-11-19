@@ -81,7 +81,6 @@ final class NotificationSettingsViewModel {
         
         do {
             try await service.updateNotificationPreferences(request: request)
-            print("Güncelleme başarılı. Push Durumu: \(currentSystemPushState), Gönderilen Item\(itemsToSend != nil ? "ler" : ""): \(itemsToSend ?? [])")
         } catch {
             print("Güncelleme hatası: \(error)")
         }
@@ -106,11 +105,14 @@ final class NotificationSettingsViewModel {
                 let isAuthorized = (settings.authorizationStatus == .authorized)
                 self?.currentSystemPushState = isAuthorized
                 self?.delegate?.updateSwitchState(isOn: isAuthorized)
+                
+                // Token yoksa tekrar kayıt ol
+                if isAuthorized {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
             }
         }
     }
-    
-    //TODO: -Kullanıcı app i ilk açtığında bildirimlere izin vermemişse device token gönderilmemiş olur. sonrasında bildirimleri açarsa device tokeni gönder
     
     func handleSwitchTap() {
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {

@@ -25,18 +25,18 @@ struct NotificationPreferencesItem: Codable {
 }
 
 enum NotificationPreferencesType: String, Codable {
-    case email = "email"
-    case push = "push"
+    case email = "EMAIL"
+    case push = "PUSH"
 }
 
 enum NotificationPreferencesChannel: String, Codable {
-    case newMessage = "new_message"
-    case newReply = "new_reply"
-    case newLike = "new_like"
-    case newDM = "new_dm"
-    case dmRequest = "dm_request"
-    case dmRequestResponse = "dm_request_response"
-    case confessionModeration = "confession_moderation"
+    case newMessage = "NEW_MESSAGE"
+    case newReply = "NEW_REPLY"
+    case newLike = "NEW_LIKE"
+    case newDM = "NEW_DM"
+    case dmRequest = "DM_REQUEST"
+    case dmRequestResponse = "DM_REQUEST_RESPONSE"
+    case confessionModeration = "CONFESSION_MODERATION"
 }
 
 struct NotificationPreferencesUpdateRequest: Codable {

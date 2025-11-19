@@ -123,19 +123,19 @@ extension NotificationSettingsViewController: NotificationSettingsViewModelDeleg
             for item in pushItems {
                 switch item.channel {
                 case .newDM:
-                    self.messageSwitch.setOn(item.enabled, animated: true)
+                    self.messageSwitch.setOn(item.enabled, animated: false)
                 case .newReply:
-                    self.replySwitch.setOn(item.enabled, animated: true)
+                    self.replySwitch.setOn(item.enabled, animated: false)
                 case .newLike:
-                    self.likeSwitch.setOn(item.enabled, animated: true)
+                    self.likeSwitch.setOn(item.enabled, animated: false)
                 case .dmRequest:
-                    self.dmRequestSwitch.setOn(item.enabled, animated: true)
+                    self.dmRequestSwitch.setOn(item.enabled, animated: false)
                 case .dmRequestResponse:
-                    self.dmResponseSwitch.setOn(item.enabled, animated: true)
+                    self.dmResponseSwitch.setOn(item.enabled, animated: false)
                 case .confessionModeration:
-                    self.moderationSwitch.setOn(item.enabled, animated: true)
+                    self.moderationSwitch.setOn(item.enabled, animated: false)
                 case .newMessage:
-                    self.confessionSwitch.setOn(item.enabled, animated: true)
+                    self.confessionSwitch.setOn(item.enabled, animated: false)
                 }
             }
         }
