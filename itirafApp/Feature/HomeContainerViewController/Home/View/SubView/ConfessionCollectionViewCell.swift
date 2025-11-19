@@ -27,6 +27,10 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         bgView.layer.cornerRadius = 10
+        channelNameLabel.attributedText = NSAttributedString(
+            string: channelNameLabel.text ?? "",
+            attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue]
+        )
         setupChannelLabelTap()
     }
     

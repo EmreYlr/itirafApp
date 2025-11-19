@@ -18,6 +18,8 @@ final class AppCoordinator {
     }
     
     func start() {
+        configureCrashlyticsIdentity()
+        
         setupNotificationObservers()
 //        setupNavigationBarAppearance()
         
@@ -38,6 +40,15 @@ final class AppCoordinator {
         }
         
         window.makeKeyAndVisible()
+    }
+    
+    private func configureCrashlyticsIdentity() {
+        if let cachedUserID = UserManager.shared.getUserID() {
+            CrashlyticsManager.shared.setUserID(cachedUserID)
+            CrashlyticsManager.shared.isUserAnonymous(UserManager.shared.getUserIsAnonymous())
+        } else {
+            CrashlyticsManager.shared.isUserAnonymous(true)
+        }
     }
     
     private func setupNotificationObservers() {
