@@ -47,6 +47,11 @@ final class LoginViewController: UIViewController {
         navigationController?.pushViewController(registerViewController, animated: true)
     }
     
+    @IBAction func forgotPasswordButonTapped(_ sender: UIButton) {
+        let forgotPasswordVC = Storyboard.forgotPassword.instantiate(.forgotPassword)
+        navigationController?.pushViewController(forgotPasswordVC, animated: true)
+    }
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
@@ -130,8 +135,6 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             lastName: credential.fullName?.familyName,
             email: credential.email
         )
-
-        print("📦 Model Oluşturuldu: \(request)")
 
         Task(priority: .userInitiated) {
             await loginViewModel.loginWithApple(request: request)

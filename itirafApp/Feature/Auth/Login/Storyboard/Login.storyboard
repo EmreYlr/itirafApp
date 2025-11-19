@@ -100,6 +100,9 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="forgotPasswordButonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6yK-UM-wuW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Şifre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGk-UH-BqA">
                                 <rect key="frame" x="16" y="401" width="38" height="21"/>
@@ -239,6 +242,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iry-Pp-rhX">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemMintColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -132,6 +132,10 @@
 		C3BE19572ECDE5CA0053C9A9 /* NotificationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19562ECDE5C20053C9A9 /* NotificationPreferences.swift */; };
 		C3BE195A2ECDF0570053C9A9 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19592ECDF0480053C9A9 /* Encodable+Extension.swift */; };
 		C3BE195C2ECE3BAC0053C9A9 /* AppleLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE195B2ECE3BAC0053C9A9 /* AppleLoginRequest.swift */; };
+		C3BE19642ECE4FA20053C9A9 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19632ECE4FA20053C9A9 /* ForgotPasswordViewController.swift */; };
+		C3BE19662ECE4FBA0053C9A9 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19652ECE4FB70053C9A9 /* ForgotPasswordViewModel.swift */; };
+		C3BE19682ECE50120053C9A9 /* ForgotPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19672ECE50110053C9A9 /* ForgotPasswordService.swift */; };
+		C3BE196C2ECE50BD0053C9A9 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3BE196B2ECE50BD0053C9A9 /* ForgotPassword.storyboard */; };
 		C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */; };
 		C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */; };
 		C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */; };
@@ -349,6 +353,10 @@
 		C3BE19562ECDE5C20053C9A9 /* NotificationPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreferences.swift; sourceTree = "<group>"; };
 		C3BE19592ECDF0480053C9A9 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		C3BE195B2ECE3BAC0053C9A9 /* AppleLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequest.swift; sourceTree = "<group>"; };
+		C3BE19632ECE4FA20053C9A9 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		C3BE19652ECE4FB70053C9A9 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		C3BE19672ECE50110053C9A9 /* ForgotPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordService.swift; sourceTree = "<group>"; };
+		C3BE196B2ECE50BD0053C9A9 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
@@ -1348,6 +1356,49 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C3BE195D2ECE44390053C9A9 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				C3BE19622ECE44630053C9A9 /* Storyboard */,
+				C3BE19602ECE44550053C9A9 /* View */,
+				C3BE195F2ECE444D0053C9A9 /* ViewModel */,
+				C3BE195E2ECE44490053C9A9 /* Service */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		C3BE195E2ECE44490053C9A9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3BE19672ECE50110053C9A9 /* ForgotPasswordService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3BE195F2ECE444D0053C9A9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3BE19652ECE4FB70053C9A9 /* ForgotPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3BE19602ECE44550053C9A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3BE19632ECE4FA20053C9A9 /* ForgotPasswordViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3BE19622ECE44630053C9A9 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C3BE196B2ECE50BD0053C9A9 /* ForgotPassword.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		C3C08BAB2E8AAF0200EDC6A2 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1410,6 +1461,7 @@
 			children = (
 				C3EB10962E745D5C002DA295 /* Login */,
 				C37D5E0D2E86DB5B0068F334 /* Register */,
+				C3BE195D2ECE44390053C9A9 /* ForgotPassword */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -2243,6 +2295,7 @@
 				C3D764C32E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib in Resources */,
 				C3BE192D2ECBADC80053C9A9 /* NotificationSettings.storyboard in Resources */,
 				C38EAABE2EC0BDFA00A1818C /* GoogleService-Info.plist in Resources */,
+				C3BE196C2ECE50BD0053C9A9 /* ForgotPassword.storyboard in Resources */,
 				C3A7A4202EA9446F00250B06 /* DirectMessage.storyboard in Resources */,
 				C3C08BAE2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.xib in Resources */,
 				C3A750A02EB623540058163B /* RequestMessageCollectionViewCell.xib in Resources */,
@@ -2354,6 +2407,7 @@
 				C3528F312EBB798F00FF1C19 /* ModerationViewController+CollectionView.swift in Sources */,
 				C3E660532EB40A210059048F /* UserSocialLink.swift in Sources */,
 				C37D5ECB2E86DE9A0068F334 /* RegisterViewController.swift in Sources */,
+				C3BE19662ECE4FBA0053C9A9 /* ForgotPasswordViewModel.swift in Sources */,
 				C37D5DE52E8414760068F334 /* Endpoint.swift in Sources */,
 				C38EAACB2EC2241600A1818C /* AppCoordinator.swift in Sources */,
 				C3BE19472ECC8BD70053C9A9 /* NotificationModel.swift in Sources */,
@@ -2436,6 +2490,7 @@
 				C3A7A42B2EA94CB500250B06 /* DirectMessageViewController+CollectionView.swift in Sources */,
 				C3BE195C2ECE3BAC0053C9A9 /* AppleLoginRequest.swift in Sources */,
 				C3A750A32EB623690058163B /* RequestMessageViewController+CollectionView.swift in Sources */,
+				C3BE19682ECE50120053C9A9 /* ForgotPasswordService.swift in Sources */,
 				C38EAA9D2EBF4FF400A1818C /* ViolationsViewController.swift in Sources */,
 				C3C173DB2EC61CF700D27383 /* ChannelHeaderView.swift in Sources */,
 				C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */,
@@ -2458,6 +2513,7 @@
 				C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */,
 				C3528F062EB8EF1600FF1C19 /* RequestSentViewController.swift in Sources */,
 				C3C173D82EC6157C00D27383 /* ChannelDetailViewModel.swift in Sources */,
+				C3BE19642ECE4FA20053C9A9 /* ForgotPasswordViewController.swift in Sources */,
 				C3D764BA2E93DDDE00104C3B /* DetailViewModel.swift in Sources */,
 				C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */,
 				C3528F2B2EBB728D00FF1C19 /* ModerationViewModel.swift in Sources */,
