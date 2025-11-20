@@ -20,23 +20,13 @@ struct NotificationPreferences: Codable {
 // MARK: - Item
 struct NotificationPreferencesItem: Codable {
     let notificationType: NotificationPreferencesType
-    let channel: NotificationPreferencesChannel
+    let eventType: NotificationEventType
     let enabled: Bool
 }
 
 enum NotificationPreferencesType: String, Codable {
     case email = "EMAIL"
     case push = "PUSH"
-}
-
-enum NotificationPreferencesChannel: String, Codable {
-    case newMessage = "NEW_MESSAGE"
-    case newReply = "NEW_REPLY"
-    case newLike = "NEW_LIKE"
-    case newDM = "NEW_DM"
-    case dmRequest = "DM_REQUEST"
-    case dmRequestResponse = "DM_REQUEST_RESPONSE"
-    case confessionModeration = "CONFESSION_MODERATION"
 }
 
 struct NotificationPreferencesUpdateRequest: Codable {

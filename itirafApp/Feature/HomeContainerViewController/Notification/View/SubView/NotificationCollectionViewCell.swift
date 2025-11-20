@@ -95,24 +95,28 @@ final class NotificationCollectionViewCell: UICollectionViewCell {
 extension NotificationItem {
     var badgeColor: UIColor {
         switch type {
-        case .like: return .systemRed
-        case .dmMessage: return .systemBlue
-        case .dmRequest: return .systemPurple
-        case .dmResponse: return .systemTeal
-        case .reply: return .systemGreen
-        case .moderation: return .systemOrange
+        case .confessionLiked: return .systemRed
+        case .dmReceived: return .systemBlue
+        case .dmRequestReceived: return .systemPurple
+        case .dmRequestResponded: return .systemTeal
+        case .confessionReplied: return .systemGreen
+        case .confessionModerated: return .systemOrange
+        case .confessionPublished: return .systemIndigo
+        case .adminReviewRequired: return .systemYellow
         case .unknown: return .systemGray
         }
     }
     
     var iconImage: UIImage? {
         switch type {
-        case .like: return UIImage(systemName: "heart")
-        case .dmMessage: return UIImage(systemName: "bubble.left")
-        case .dmRequest: return UIImage(systemName: "person.badge.plus")
-        case .dmResponse: return UIImage(systemName: "person")
-        case .reply: return UIImage(systemName: "text.bubble")
-        case .moderation: return UIImage(systemName: "shield")
+        case .confessionLiked: return UIImage(systemName: "heart")
+        case .dmReceived: return UIImage(systemName: "bubble.left")
+        case .dmRequestReceived: return UIImage(systemName: "person.badge.plus")
+        case .dmRequestResponded: return UIImage(systemName: "person")
+        case .confessionReplied: return UIImage(systemName: "text.bubble")
+        case .confessionModerated: return UIImage(systemName: "shield")
+        case .confessionPublished: return UIImage(systemName: "checkmark.seal")
+        case .adminReviewRequired: return UIImage(systemName: "exclamationmark.triangle")
         case .unknown: return UIImage(systemName: "bell")
         }
     }

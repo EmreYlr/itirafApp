@@ -72,20 +72,20 @@ final class NotificationSettingsViewController: UIViewController {
     }
     
     private func setupSwitchActions() {
-        let switches: [(UISwitch, NotificationPreferencesChannel)] = [
-            (messageSwitch, .newDM),
-            (replySwitch, .newReply),
-            (likeSwitch, .newLike),
-            (dmRequestSwitch, .dmRequest),
-            (dmResponseSwitch, .dmRequestResponse),
-            (moderationSwitch, .confessionModeration),
-            (confessionSwitch, .newMessage)
+        let switches: [(UISwitch, NotificationEventType)] = [
+            (messageSwitch, .dmReceived),
+            (replySwitch, .confessionReplied),
+            (likeSwitch, .confessionLiked),
+            (dmRequestSwitch, .dmRequestReceived),
+            (dmResponseSwitch, .dmRequestResponded),
+            (moderationSwitch, .confessionModerated),
+            (confessionSwitch, .confessionPublished)
         ]
         
-        for (uiSwitch, channel) in switches {
+        for (uiSwitch, eventType) in switches {
             uiSwitch.addAction(UIAction { [weak self] action in
                 guard let sender = action.sender as? UISwitch else { return }
-                self?.viewModel.updateItemState(channel: channel, isOn: sender.isOn)
+                self?.viewModel.updateItemState(eventType: eventType, isOn: sender.isOn)
             }, for: .valueChanged)
         }
     }
@@ -121,21 +121,25 @@ extension NotificationSettingsViewController: NotificationSettingsViewModelDeleg
             let pushItems = items.filter { $0.notificationType == .push }
             
             for item in pushItems {
-                switch item.channel {
-                case .newDM:
+                switch item.eventType {
+                case .dmReceived:
                     self.messageSwitch.setOn(item.enabled, animated: false)
-                case .newReply:
+                case .confessionReplied:
                     self.replySwitch.setOn(item.enabled, animated: false)
-                case .newLike:
+                case .confessionLiked:
                     self.likeSwitch.setOn(item.enabled, animated: false)
-                case .dmRequest:
+                case .dmRequestReceived:
                     self.dmRequestSwitch.setOn(item.enabled, animated: false)
-                case .dmRequestResponse:
+                case .dmRequestResponded:
                     self.dmResponseSwitch.setOn(item.enabled, animated: false)
-                case .confessionModeration:
+                case .confessionModerated:
                     self.moderationSwitch.setOn(item.enabled, animated: false)
-                case .newMessage:
+                case .confessionPublished:
                     self.confessionSwitch.setOn(item.enabled, animated: false)
+                case .adminReviewRequired:
+                    continue
+                case .unknown:
+                    continue
                 }
             }
         }

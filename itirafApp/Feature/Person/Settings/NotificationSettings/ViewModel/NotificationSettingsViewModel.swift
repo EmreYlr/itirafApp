@@ -11,7 +11,7 @@ protocol NotificationSettingsViewModelProtocol {
     func checkCurrentNotificationState()
     func handleSwitchTap()
     func getNotificationPreferences() async
-    func updateItemState(channel: NotificationPreferencesChannel, isOn: Bool)
+    func updateItemState(eventType: NotificationEventType, isOn: Bool)
     func saveChangesIfAny() async
 }
 
@@ -50,7 +50,7 @@ final class NotificationSettingsViewModel {
     
     func saveChangesIfAny() async {
         let changedItems = currentItems.filter { current in
-            guard let original = originalItems.first(where: { $0.channel == current.channel }) else { return false }
+            guard let original = originalItems.first(where: { $0.eventType == current.eventType }) else { return false }
             return original.enabled != current.enabled
         }
         
@@ -58,7 +58,6 @@ final class NotificationSettingsViewModel {
         let isItemsChanged = !changedItems.isEmpty
         
         guard isPushStateChanged || isItemsChanged else {
-            print("Hiçbir değişiklik yok, istek atılmadı.")
             return
         }
         
@@ -68,7 +67,7 @@ final class NotificationSettingsViewModel {
             itemsToSend = changedItems.map {
                 NotificationPreferencesItem(
                     notificationType: $0.notificationType,
-                    channel: $0.channel,
+                    eventType: $0.eventType,
                     enabled: $0.enabled
                 )
             }
@@ -86,12 +85,12 @@ final class NotificationSettingsViewModel {
         }
     }
     
-    func updateItemState(channel: NotificationPreferencesChannel, isOn: Bool) {
-        if let index = currentItems.firstIndex(where: { $0.channel == channel }) {
+    func updateItemState(eventType: NotificationEventType, isOn: Bool) {
+        if let index = currentItems.firstIndex(where: { $0.eventType == eventType }) {
             let oldItem = currentItems[index]
             let newItem = NotificationPreferencesItem(
                 notificationType: oldItem.notificationType,
-                channel: oldItem.channel,
+                eventType: oldItem.eventType,
                 enabled: isOn
             )
             currentItems[index] = newItem

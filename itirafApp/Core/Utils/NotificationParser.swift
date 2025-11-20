@@ -7,82 +7,68 @@
 
 import Foundation
 
-enum NotificationType: String, Codable {
-    case dmMessage = "DM_MESSAGE"
-    case dmRequest = "DM_REQUEST"
-    case dmResponse = "DM_REQUEST_RESPONSE"
-    case reply = "REPLY"
-    case moderation = "MODERATION"
-    case like = "LIKE"
-    case unknown
-
-    public init(from decoder: Decoder) throws {
-        self = try NotificationType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
-    }
-}
-//TODO: -Notification payloadları değişecek
-struct NotificationPayload: Decodable {
-    let roomId: String?
-    let requestId: String?
-    let senderName: String?
-    let senderId: String?
-    let messageId: String?
-    let commentId: String?
-    let status: String?
-}
-
 struct NotificationParser {
+    
     static func parse(userInfo: [AnyHashable: Any]) -> AppRoute? {
-//        let userInfo = response.notification.request.content.userInfo
-//        
-//        guard let typeString = userInfo["type"] as? String,
-//              let type = NotificationType(rawValue: typeString) else { return }
-//
-//        let payload = parsePayload(from: userInfo["payload"])
         
-        guard let typeString = userInfo["type"] as? String,
-              let type = NotificationType(rawValue: typeString) else {
-            print("❌ NotificationParser: Tanımlanamayan bildirim tipi. userInfo: \(userInfo)")
+        guard let payloadDict = userInfo["payload"] as? [String: Any] else {
+            print("❌ NotificationParser: 'payload' bulunamadı.")
             return nil
         }
         
-        switch type {
-        case .dmMessage:
-            guard let roomId = userInfo["roomId"] as? String else {
-                print("❌ NotificationParser: DM tipi için 'roomId' bulunamadı.")
-                return nil
-            }
-            let username = userInfo["username"] as? String ?? "Chat"
-            return .directMessage(roomId: roomId, username: username)
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: payloadDict, options: []),
+              let payloadWrapper = try? JSONDecoder().decode(NotificationPayloadWrapper.self, from: jsonData) else {
+            print("❌ NotificationParser: Decode hatası.")
+            return nil
+        }
+        
+        let eventType = payloadWrapper.eventType
+        let data = payloadWrapper.data
+        //TODO: -Bu kısmı düzenle
+        switch eventType {
             
-        case .reply:
-            guard let messageIdString = userInfo["messageId"] as? String else {
-                print("❌ NotificationParser: Reply tipi için 'messageId' (String olarak) bulunamadı.")
-                return nil
-            }
-
-            guard let messageIdInt = Int(messageIdString) else {
-                return nil
-            }
+        case .dmReceived:
+            guard let roomId = data.roomId,
+                  let senderName = data.senderName else { return nil }
+            return .directMessage(roomId: roomId, username: senderName)
             
+        case .confessionReplied:
+            guard let messageId = data.messageId else { return nil }
+            // commentId eklenecek
+            guard let messageIdInt = Int(messageId) else {
+                return nil
+            }
             return .confessionDetail(id: messageIdInt)
             
-        case .moderation:
+        case .confessionLiked:
+            guard let messageId = data.messageId else { return nil }
+            guard let messageIdInt = Int(messageId) else {
+                return nil
+            }
+            return .confessionDetail(id: messageIdInt)
+            
+        case .dmRequestReceived:
+            return nil
+//            guard let requestId = data.requestId else { return nil }
+//            return .requestDetail(requestId: requestId)
+            
+        case .dmRequestResponded:
+            return nil
+//            if let status = data.status, status == "ACCEPTED",
+//               let roomId = data.roomId,
+//               let senderName = data.senderName {
+//                return .directMessage(roomId: roomId, username: senderName)
+//            }
+//            return nil
+            
+        case .confessionModerated:
             return .myConfessions
-            //TODO: -Buralar dolacak ekranlara gidecek
-        case .like:
-            print("Like")
-            return nil
-        case .dmRequest:
-            print("Dm request")
-            return nil
-        case .dmResponse:
-            print("Dm Response")
-            return nil
+            
+        case .adminReviewRequired, .confessionPublished:
+             return .home
+            
         case .unknown:
-            print("❌ NotificationParser: Bilinmeyen bildirim tipi.")
             return nil
         }
-        
     }
 }
