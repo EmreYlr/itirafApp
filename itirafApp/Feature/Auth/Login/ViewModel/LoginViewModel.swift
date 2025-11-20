@@ -11,6 +11,7 @@ protocol LoginViewModelProtocol {
     func loginUser(email: String, password: String) async
     func loginAnonymously() async
     func loginWithApple(request: AppleLoginRequest) async
+    func loginWithGoogle(request: GoogleLoginRequest) async
 }
 
 protocol LoginViewModelOutputProtocol: AnyObject {
@@ -38,6 +39,15 @@ final class LoginViewModel {
     func loginWithApple(request: AppleLoginRequest) async {
         do {
             try await loginService.loginWithApple(request: request)
+//            delegate?.didLoginSuccessfully()
+        } catch {
+            delegate?.didFailToLogin(with: error)
+        }
+    }
+    
+    func loginWithGoogle(request: GoogleLoginRequest) async {
+        do {
+            try await loginService.loginWithGoogle(request: request)
 //            delegate?.didLoginSuccessfully()
         } catch {
             delegate?.didFailToLogin(with: error)

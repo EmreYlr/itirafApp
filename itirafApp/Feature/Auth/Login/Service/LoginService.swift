@@ -11,6 +11,7 @@ import Foundation
 protocol LoginServiceProtocol {
     func loginUser(email: String, password: String) async throws
     func loginWithApple(request: AppleLoginRequest) async throws
+    func loginWithGoogle(request: GoogleLoginRequest) async throws
 }
 
 final class LoginService {
@@ -56,6 +57,18 @@ final class LoginService {
         //        )
         
         //        try await handleSuccessfulLogin(response: response)
+    }
+    
+    func loginWithGoogle(request: GoogleLoginRequest) async throws {
+        dump(request)
+//        let response: RefreshTokenResponse = try await networkService.request(
+//            endpoint: Endpoint.Auth.googleLogin,
+//            method: .post,
+//            parameters: request,
+//            encoding: JSONParameterEncoder.default
+//        )
+//        
+//        try await handleSuccessfulLogin(response: response)
     }
     
     private func handleSuccessfulLogin(response: RefreshTokenResponse) async throws {

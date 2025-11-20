@@ -7,6 +7,7 @@
 
 import UIKit
 import AuthenticationServices
+import GoogleSignIn
 
 final class LoginViewController: UIViewController {
     //MARK: - Properties
@@ -92,7 +93,36 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func googleLoginButtonTapped(_ sender: UIButton) {
-        
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] signInResult, error in
+            guard let self = self else { return }
+            
+            if let error = error {
+                print("Google Login İptal veya Hata: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let result = signInResult,
+                  let idToken = result.user.idToken?.tokenString else {
+                print("Google ID Token alınamadı.")
+                return
+            }
+            
+            let user = result.user
+            let email = user.profile?.email
+            let firstName = user.profile?.givenName
+            let lastName = user.profile?.familyName
+            
+            let request = GoogleLoginRequest(
+                idToken: idToken,
+                email: email,
+                firstName: firstName,
+                lastName: lastName
+            )
+
+            Task(priority: .userInitiated) {
+                await self.loginViewModel.loginWithGoogle(request: request)
+            }
+        }
     }
     
     @objc private func anonymousButtonTapped() {

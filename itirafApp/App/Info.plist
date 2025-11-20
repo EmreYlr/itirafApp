@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>GIDClientID</key>
+	<string>230027282601-gp12e394fvd630u5o0hp74a5ko0canec.apps.googleusercontent.com</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -12,6 +14,14 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>itirafapp</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.230027282601-gp12e394fvd630u5o0hp74a5ko0canec</string>
 			</array>
 		</dict>
 	</array>
