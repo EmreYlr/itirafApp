@@ -20,9 +20,26 @@ enum NotificationType: String, Codable {
         self = try NotificationType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
     }
 }
+//TODO: -Notification payloadları değişecek
+struct NotificationPayload: Decodable {
+    let roomId: String?
+    let requestId: String?
+    let senderName: String?
+    let senderId: String?
+    let messageId: String?
+    let commentId: String?
+    let status: String?
+}
 
 struct NotificationParser {
     static func parse(userInfo: [AnyHashable: Any]) -> AppRoute? {
+//        let userInfo = response.notification.request.content.userInfo
+//        
+//        guard let typeString = userInfo["type"] as? String,
+//              let type = NotificationType(rawValue: typeString) else { return }
+//
+//        let payload = parsePayload(from: userInfo["payload"])
+        
         guard let typeString = userInfo["type"] as? String,
               let type = NotificationType(rawValue: typeString) else {
             print("❌ NotificationParser: Tanımlanamayan bildirim tipi. userInfo: \(userInfo)")
