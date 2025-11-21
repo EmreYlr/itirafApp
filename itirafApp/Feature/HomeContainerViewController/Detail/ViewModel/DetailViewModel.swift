@@ -15,6 +15,7 @@ protocol DetailViewModelProtocol {
     func addComment(message: String) async
     func getChannelMessageId() -> Int
     func createShortlink() async
+    func getTargetCommentId() -> Int?
 }
 
 protocol DetailViewModelOutputProtocol: AnyObject {
@@ -125,6 +126,10 @@ final class DetailViewModel {
     
     func getChannelMessageId() -> Int {
         return messageId
+    }
+    
+    func getTargetCommentId() -> Int? {
+        return commentId
     }
 }
 

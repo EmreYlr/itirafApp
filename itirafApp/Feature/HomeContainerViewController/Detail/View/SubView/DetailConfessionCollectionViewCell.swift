@@ -35,7 +35,24 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
             usernameLabel.font = .systemFont(ofSize: usernameLabel.font.pointSize)
         }
         
-        let labelHorizontalMargin: CGFloat = 61
-        messageLabel.preferredMaxLayoutWidth = self.bounds.width - labelHorizontalMargin
+        bgView.backgroundColor = .lightGray.withAlphaComponent(0.1)
+        bgView.layer.borderWidth = 0
+        bgView.layer.borderColor = UIColor.clear.cgColor
+        
+    }
+    
+    func flashAnimation() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.bgView.backgroundColor = UIColor.systemMint.withAlphaComponent(0.1)
+            self.bgView.layer.borderColor = UIColor.systemMint.cgColor
+            self.bgView.layer.borderWidth = 2
+        }) { _ in
+
+            UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
+                self.bgView.backgroundColor = .lightGray.withAlphaComponent(0.1)
+                self.bgView.layer.borderColor = UIColor.clear.cgColor
+                self.bgView.layer.borderWidth = 0
+            }, completion: nil)
+        }
     }
 }

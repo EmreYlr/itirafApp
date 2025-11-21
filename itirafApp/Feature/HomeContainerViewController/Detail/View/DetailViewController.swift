@@ -177,6 +177,7 @@ extension DetailViewController: DetailViewModelOutputProtocol {
         DispatchQueue.main.async {
             self.updateScreen()
             self.collectionView.reloadData()
+            self.scrollToHighlightedComment()
         }
     }
     
@@ -186,5 +187,24 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     
     func didFailToFetchDetail(with error: Error) {
         print("Failed to fetch detail: \(error)")
+    }
+    
+    private func scrollToHighlightedComment() {
+        guard let highlightId = detailViewModel.getTargetCommentId(),
+              let replies = detailViewModel.confession?.replies else { return }
+        
+        if let index = replies.firstIndex(where: { $0.id == highlightId }) {
+            let indexPath = IndexPath(item: index, section: 0)
+            
+            self.collectionView.layoutIfNeeded()
+            
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                if let cell = self.collectionView.cellForItem(at: indexPath) as? DetailConfessionCollectionViewCell {
+                    cell.flashAnimation()
+                }
+            }
+        }
     }
 }
