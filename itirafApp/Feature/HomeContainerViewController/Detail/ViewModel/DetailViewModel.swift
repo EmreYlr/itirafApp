@@ -34,10 +34,12 @@ final class DetailViewModel {
     
     private let detailService: DetailServiceProtocol
     private let messageId: Int
+    private let commentId: Int?
     
-    init(messageId: Int, detailService: DetailServiceProtocol = DetailService()) {
+    init(messageId: Int, commentId: Int? = nil, detailService: DetailServiceProtocol = DetailService()) {
         self.detailService = detailService
         self.messageId = messageId
+        self.commentId = commentId
     }
     
     func fetchMessageData() async {

@@ -9,6 +9,8 @@ import UIKit
 
 final class MessagingContainerViewController: UIViewController {
     //MARK: -Properties
+    var initialIndex: Int = 0
+    
     private lazy var segmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Mesajlar", "İstekler"])
         sc.selectedSegmentIndex = 0
@@ -55,7 +57,7 @@ final class MessagingContainerViewController: UIViewController {
         return Storyboard.directMessage.instantiate(.directMessage)
     }()
     
-    private lazy var requestsVC: RequestMessageViewController = {
+    lazy var requestsVC: RequestMessageViewController = {
         return Storyboard.requestMessage.instantiate(.requestMessage)
     }()
     
@@ -65,7 +67,11 @@ final class MessagingContainerViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Mesajlaşma"
         setupUI()
+        segmentedControl.selectedSegmentIndex = initialIndex
         setInitialViewController()
+        DispatchQueue.main.async {
+            self.updateSelectionIndicator(to: self.initialIndex)
+        }
     }
     
     private func setupUI() {
@@ -133,8 +139,9 @@ final class MessagingContainerViewController: UIViewController {
     }
     
     private func setInitialViewController() {
+        let initialVC = pages[initialIndex]
         pageViewController.setViewControllers(
-            [directMessagesVC],
+            [initialVC],
             direction: .forward,
             animated: false,
             completion: nil

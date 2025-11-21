@@ -8,71 +8,35 @@
 import UIKit
 
 final class AppRouter {
+    // MARK: - Properties
     private weak var window: UIWindow?
     private var pendingRoute: AppRoute?
     
+    private var shouldAnimate: Bool {
+        UIApplication.shared.applicationState == .active
+    }
+
     init(window: UIWindow?) {
         self.window = window
     }
     
     func navigate(to route: AppRoute) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
             guard let tabBarController = self.window?.rootViewController as? UITabBarController else {
-                print("Arayüz hazır değil, rota beklemeye alınıyor: \(route)")
+                print("⚠️ Arayüz hazır değil, rota beklemeye alınıyor: \(route)")
                 self.pendingRoute = route
                 return
             }
+            
             self.pendingRoute = nil
-            
-            switch route {
-            case .home:
-                tabBarController.selectedIndex = 0
-                
-            case .confessionDetail(let id):
-                tabBarController.selectedIndex = 0
-                
-                guard let nav = tabBarController.selectedViewController as? UINavigationController else { return }
-                
-                let detailVC: DetailViewController = Storyboard.main.instantiate(.detail)
-                detailVC.detailViewModel = DetailViewModel(messageId: id)
-                
-                let isAppActive = UIApplication.shared.applicationState == .active
-                nav.pushViewController(detailVC, animated: isAppActive)
-                
-            case .passwordReset(let token):
-                print("Şifre sıfırlama ekranına yönlendiriliyor: \(token)")
-                // TODO: Şifre sıfırlama VC'sini göster
-            case .directMessage(let roomId, let username):
-                tabBarController.selectedIndex = 0
-                
-                guard let nav = tabBarController.selectedViewController as? UINavigationController else {
-                    print("Hata: Ana tab (index 0) bir UINavigationController değil.")
-                    return
-                }
-                
-                let chatVC: ChatViewController = Storyboard.chat.instantiate(.chat)
-                chatVC.viewModel.directMessage = DirectMessage(roomID: roomId, username: username, lastMessage: "", lastMessageDate: "", isLastMessageMine: false, status: "APPROVED", unreadMessageCount: 0)
-                chatVC.mode = .directMessage
-                let isAppActive = UIApplication.shared.applicationState == .active
-                nav.pushViewController(chatVC, animated: isAppActive)
-                
-            case .myConfessions:
-                let targetTabIndex = 3
-                tabBarController.selectedIndex = targetTabIndex
-
-                if let nav = tabBarController.viewControllers?[targetTabIndex] as? UINavigationController {
-                    nav.popToRootViewController(animated: true)
-                }
-            }
-            
+            self.handleRoute(route, on: tabBarController)
         }
     }
     
     func checkPendingRoute() {
-        guard let pendingRoute = self.pendingRoute else {
-            return
-        }
-        
+        guard let pendingRoute = self.pendingRoute else { return }
         navigate(to: pendingRoute)
     }
     
@@ -85,11 +49,114 @@ final class AppRouter {
         guard let userInfo = notification.userInfo else { return }
         
         guard let route = NotificationParser.parse(userInfo: userInfo) else {
-            print("Bilinmeyen bir bildirim türü, ana sayfaya yönlendiriliyor.")
+            print("⚠️ Bilinmeyen bildirim türü, ana sayfaya yönlendiriliyor.")
             self.navigate(to: .home)
             return
         }
         
         self.navigate(to: route)
+    }
+    
+    private func handleRoute(_ route: AppRoute, on tabBar: UITabBarController) {
+        switch route {
+        case .home:
+            navigateToHome(on: tabBar)
+            
+        case .confessionDetail(let id, let commentId):
+            navigateToConfessionDetail(id: id, commentId: commentId, on: tabBar)
+            
+        case .passwordReset(let token):
+            navigateToPasswordReset(token: token)
+            
+        case .directMessage(let roomId, let senderName, _):
+            navigateToDirectMessage(roomId: roomId, senderName: senderName, on: tabBar)
+            
+        case .myConfessions:
+            navigateToMyConfessions(on: tabBar)
+            
+        case .requestDetail(let requestId):
+            navigateToRequestDetail(requestId: requestId, on: tabBar)
+            
+        case .requestResponse(let requestId):
+            navigateToRequestResponse(requestId: requestId, on: tabBar)
+        case .moderation(let messageId):
+            navigateToModeration(id: messageId, on: tabBar)
+        }
+    }
+}
+
+private extension AppRouter {
+    func navigateToHome(on tabBar: UITabBarController) {
+        tabBar.selectedIndex = TabBarIndex.home.rawValue
+    }
+    
+    func navigateToConfessionDetail(id: Int, commentId: Int?, on tabBar: UITabBarController) {
+        tabBar.selectedIndex = TabBarIndex.home.rawValue
+        
+        let detailVC: DetailViewController = Storyboard.main.instantiate(.detail)
+        detailVC.detailViewModel = DetailViewModel(messageId: id, commentId: commentId)
+        
+        pushToSelectedNav(on: tabBar, viewController: detailVC)
+    }
+    
+    func navigateToPasswordReset(token: String) {
+        // TODO: Şifre sıfırlama VC'sini göster
+        print("🔐 Şifre sıfırlama ekranına yönlendiriliyor: \(token)")
+    }
+    
+    func navigateToDirectMessage(roomId: String, senderName: String, on tabBar: UITabBarController) {
+        tabBar.selectedIndex = TabBarIndex.home.rawValue
+        
+        let chatVC: ChatViewController = Storyboard.chat.instantiate(.chat)
+        chatVC.viewModel.directMessage = DirectMessage(
+            roomID: roomId,
+            username: senderName,
+            lastMessage: "",
+            lastMessageDate: "",
+            isLastMessageMine: false,
+            status: "APPROVED",
+            unreadMessageCount: 0
+        )
+        chatVC.mode = .directMessage
+        
+        pushToSelectedNav(on: tabBar, viewController: chatVC)
+    }
+    
+    func navigateToMyConfessions(on tabBar: UITabBarController) {
+        let targetIndex = TabBarIndex.myConfession.rawValue
+        tabBar.selectedIndex = targetIndex
+        
+        if let nav = tabBar.viewControllers?[targetIndex] as? UINavigationController {
+            nav.popToRootViewController(animated: true)
+        }
+    }
+    
+    func navigateToRequestDetail(requestId: String, on tabBar: UITabBarController) {
+        let containerVC = MessagingContainerViewController()
+        containerVC.initialIndex = 1
+        containerVC.requestsVC.viewModel = RequestMessageViewModel(requestId: requestId)
+        pushToSelectedNav(on: tabBar, viewController: containerVC)
+    }
+    
+    func navigateToRequestResponse(requestId: String, on tabBar: UITabBarController) {
+        let responseVC: RequestSentViewController = Storyboard.requestSent.instantiate(.requestSent)
+        responseVC.viewModel = RequestSentViewModel(requestId: requestId)
+        pushToSelectedNav(on: tabBar, viewController: responseVC)
+    }
+    
+    func navigateToModeration(id: Int, on tabBar: UITabBarController) {
+        tabBar.selectedIndex = TabBarIndex.myConfession.rawValue
+        
+        let moderationVC: ModerationViewController = Storyboard.moderation.instantiate(.moderation)
+        moderationVC.viewModel = ModerationViewModel(messageId: id)
+        pushToSelectedNav(on: tabBar, viewController: moderationVC)
+    }
+    
+    func pushToSelectedNav(on tabBar: UITabBarController, viewController: UIViewController) {
+        guard let nav = tabBar.selectedViewController as? UINavigationController else {
+            print("⚠️ Hata: Seçili tab bir UINavigationController değil.")
+            return
+        }
+        nav.pushViewController(viewController, animated: shouldAnimate)
     }
 }

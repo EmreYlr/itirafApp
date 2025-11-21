@@ -40,8 +40,8 @@
                                     <constraint firstAttribute="width" constant="35" id="c8e-Zy-oKe"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSD-6Y-FJz">
-                                <rect key="frame" x="54.999999999999993" y="61.333333333333336" width="24.666666666666664" height="13.333333333333336"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSD-6Y-FJz">
+                                <rect key="frame" x="54.999999999999993" y="61.333333333333336" width="24.666666666666664" height="14.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
@@ -61,6 +61,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ZSD-6Y-FJz" secondAttribute="bottom" constant="10" id="05E-0C-HNz"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="E3W-e6-GuS" secondAttribute="trailing" constant="10" id="3xM-Au-0FP"/>
                             <constraint firstItem="E3W-e6-GuS" firstAttribute="top" secondItem="CW6-hz-Tef" secondAttribute="bottom" constant="5" id="4jP-M7-fcJ"/>
                             <constraint firstItem="ZSD-6Y-FJz" firstAttribute="leading" secondItem="E3W-e6-GuS" secondAttribute="leading" id="ANg-Hv-chU"/>

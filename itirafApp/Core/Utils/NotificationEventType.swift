@@ -30,11 +30,21 @@ struct NotificationData: Decodable {
     let senderId: String?
     let messageId: String?
     let commentId: String?
-    let status: String?
+    let status: NotificationEventStatus?
     let notificationId: String?
 }
 
 struct NotificationPayloadWrapper: Decodable {
     let eventType: NotificationEventType
     let data: NotificationData
+}
+
+enum NotificationEventStatus: String, Codable {
+    case accepted = "ACCEPTED"
+    case rejected = "REJECTED"
+    case unknown
+    
+    public init(from decoder: Decoder) throws {
+        self = try NotificationEventStatus(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
 }

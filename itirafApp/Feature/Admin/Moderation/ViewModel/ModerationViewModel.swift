@@ -24,6 +24,7 @@ protocol ModerationViewModelDelegate: AnyObject {
 
 final class ModerationViewModel {
     weak var delegate: ModerationViewModelDelegate?
+    var messageId: Int?
     private let moderationService: ModerationServiceProtocol
     private(set) var moderationModel: ModerationModel?
     
@@ -50,8 +51,9 @@ final class ModerationViewModel {
         }
     }
     
-    init(moderationService: ModerationServiceProtocol = ModerationService()) {
+    init(messageId: Int? = nil, moderationService: ModerationServiceProtocol = ModerationService()) {
         self.moderationService = moderationService
+        self.messageId = messageId
     }
     
     func setFilter(_ filter: ModerationFilterType) {

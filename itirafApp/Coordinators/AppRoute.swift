@@ -7,9 +7,11 @@
 
 enum AppRoute {
     case home
-    case confessionDetail(id: Int)
+    case confessionDetail(id: Int, commentId: Int? = nil)
     case passwordReset(token: String)
-    
-    case directMessage(roomId: String, username: String)
+    case directMessage(roomId: String, senderName: String, senderId: String)
     case myConfessions
+    case requestDetail(requestId: String)
+    case requestResponse(requestId: String)
+    case moderation(messageId: Int)
 }

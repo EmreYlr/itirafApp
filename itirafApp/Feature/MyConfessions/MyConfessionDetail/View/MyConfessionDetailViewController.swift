@@ -169,12 +169,8 @@ extension MyConfessionDetailViewController: MyConfessionDetailViewModelDelegate 
     }
     
     func didDeleteConfession() {
-        func didDeleteConfession() {
-            DispatchQueue.main.async { [weak self] in
-                self?.showOneButtonAlert(title: "Başarılı", message: "İtirafınız başarılı bir şekilde silindi.", buttonTitle: "Tamam") { [weak self] _ in
-                    self?.navigationController?.popViewController(animated: true)
-                }
-            }
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
         }
     }
     

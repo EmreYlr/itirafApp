@@ -20,9 +20,11 @@ final class RequestSentViewModel {
     weak var delegate: RequestSentViewModelDelegate?
     var sentRequests: [RequestSentModel] = []
     let requestSentService: RequestSentServiceProtocol
+    let requestId: String?
     
-    init(requestSentService: RequestSentServiceProtocol = RequestSentService()) {
+    init(requestId: String? = nil, requestSentService: RequestSentServiceProtocol = RequestSentService()) {
         self.requestSentService = requestSentService
+        self.requestId = requestId
     }
     
     func fetchSentRequests() async {

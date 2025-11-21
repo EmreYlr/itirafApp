@@ -24,9 +24,11 @@ final class RequestMessageViewModel {
     weak var delegate: RequestMessageViewModelDelegate?
     var requestMessageModel: [RequestMessageModel] = []
     let requestMessageService: RequestMessageServiceProtocol
+    let requestId: String?
     
-    init(requestMessageService: RequestMessageServiceProtocol = RequestMessageService()) {
+    init(requestId: String? = nil, requestMessageService: RequestMessageServiceProtocol = RequestMessageService()) {
         self.requestMessageService = requestMessageService
+        self.requestId = requestId
     }
     
     func getPendingMessages() async {
