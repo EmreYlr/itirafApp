@@ -31,7 +31,7 @@ extension NotificationViewController: UICollectionViewDelegate, UICollectionView
             }
         }
     }
-    //TODO: -Tıklanan bildiirme git
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
         

@@ -11,7 +11,6 @@ struct ModerationModel: Codable {
 }
 
 struct ModerationData: Codable, Hashable{
-    //TODO: -Violation eklenecek
     let id: Int
     let title, message: String
     let channelID: Int

@@ -42,6 +42,22 @@ final class AppRequestInterceptor: RequestInterceptor {
             return completion(.doNotRetry)
         }
         
+        if apiError.code == 1400 {
+            guard AuthManager.shared.getAccessToken() != nil else {
+                return completion(.doNotRetry)
+            }
+            print("🔴 Geçersiz token (Hata Kodu: 1400). Oturum sonlandırılıyor...")
+            AuthManager.shared.clearTokens()
+            UserManager.shared.clear()
+            Task {
+                await MainActor.run {
+                    NotificationCenter.default.post(name: .loginRequired, object: nil)
+                }
+            }
+            
+            return completion(.doNotRetry)
+        }
+
         guard apiError.code == 1402 else {
             return completion(.doNotRetry)
         }
