@@ -26,7 +26,7 @@ struct NotificationParser {
         let data = payloadWrapper.data
         
         switch eventType {
-            
+            //TODO: -Gittiği Ekranlardaki verilere göre düzenleme yap(cell parlat vs)
         case .dmReceived:
             guard let roomId = data.roomId,
                   let senderName = data.senderName, let senderId = data.senderId else { return nil }

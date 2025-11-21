@@ -14,6 +14,7 @@ struct NotificationItem: Codable, Hashable {
     let id, title, body: String
     let eventType: NotificationEventType
     var seen: Bool
+    let data: NotificationData
     let createdAt: String
     
     static func == (lhs: NotificationItem, rhs: NotificationItem) -> Bool {

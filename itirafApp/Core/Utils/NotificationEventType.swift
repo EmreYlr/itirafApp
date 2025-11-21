@@ -23,7 +23,7 @@ enum NotificationEventType: String, Codable {
     }
 }
 
-struct NotificationData: Decodable {
+struct NotificationData: Codable {
     let roomId: String?
     let requestId: String?
     let senderName: String?
