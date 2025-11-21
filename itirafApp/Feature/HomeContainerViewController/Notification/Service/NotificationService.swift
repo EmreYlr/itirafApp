@@ -9,6 +9,7 @@ import Alamofire
 protocol NotificationServiceProtocol {
     func listAllNotifications(page: Int, limit: Int) async throws -> NotificationModel
     func seenAllNotifications() async throws
+    func seenNotification(notificationIDS: [String]) async throws
     func deleteNotification(notificationIDS: [String]) async throws
     func deleteAllNotifications() async throws
 }
@@ -38,6 +39,19 @@ final class NotificationService: NotificationServiceProtocol {
             endpoint: Endpoint.Notification.seenAllNotifications,
             method: .put,
             parameters: nil,
+            encoding: JSONEncoding.default,
+        )
+    }
+    
+    func seenNotification(notificationIDS: [String]) async throws {
+        let parameters: [String: Any] = [
+            "notificationIds": notificationIDS
+        ]
+        
+        let _ : Empty = try await networkService.request(
+            endpoint: Endpoint.Notification.seenNotifications,
+            method: .put,
+            parameters: parameters,
             encoding: JSONEncoding.default,
         )
     }

@@ -25,6 +25,7 @@ final class NotificationViewController: UIViewController {
         }
     }
     var selectedIDs = Set<String>()
+    var recentlySeenIDs = Set<String>()
     
     required init?(coder: NSCoder) {
         self.viewModel = NotificationViewModel()
@@ -211,6 +212,7 @@ final class NotificationViewController: UIViewController {
     }
     
     @objc private func refreshNotification() {
+        recentlySeenIDs.removeAll()
         fetchNotifications(reset: true)
     }
     

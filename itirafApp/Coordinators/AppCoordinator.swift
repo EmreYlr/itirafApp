@@ -54,6 +54,7 @@ final class AppCoordinator {
     private func setupNotificationObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(showLoginRequired), name: .loginRequired, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleNotificationNavigation), name: .didTapPushNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleInternalNavigation(_:)), name: .shouldNavigateToRoute, object: nil)
     }
     
     @objc private func showLoginRequired() {
@@ -62,6 +63,11 @@ final class AppCoordinator {
     
     @objc func handleNotificationNavigation(_ notification: Notification) {
         router.handleNotificationNavigation(notification)
+    }
+    
+    @objc private func handleInternalNavigation(_ notification: Notification) {
+        guard let route = notification.object as? AppRoute else { return }
+        router.navigate(to: route, preferCurrentTab: true)
     }
     
     private func showLoginController() {

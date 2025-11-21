@@ -11,6 +11,7 @@ protocol NotificationViewModelProtocol {
     var hasMoreData: Bool { get }
     func listAllNotifications(reset: Bool) async
     func setSeenAllNotifications() async
+    func setSeenNotifications(ids: [String], shouldUpdateUI: Bool) async
     func deleteNotification(ids: [String]) async
     func deleteAllNotifications() async
 }
@@ -53,7 +54,9 @@ final class NotificationViewModel {
             if self.notifications == nil {
                 self.notifications = newNotification
             } else {
-                self.notifications?.data.append(contentsOf: newNotification.data)
+                let existingIDs = Set(self.notifications?.data.map { $0.id } ?? [])
+                let uniqueNewData = newNotification.data.filter { !existingIDs.contains($0.id) }
+                self.notifications?.data.append(contentsOf: uniqueNewData)
             }
             
             hasMoreData = currentPage < newNotification.totalPages
@@ -79,6 +82,32 @@ final class NotificationViewModel {
 
             self.notifications?.data = updatedData
             delegate?.didUpdateNotifiaction(with: updatedData)
+            
+        } catch {
+            delegate?.didFailUpdateNotification(with: error)
+        }
+    }
+    
+    func setSeenNotifications(ids: [String], shouldUpdateUI: Bool = true) async {
+        do {
+            try await service.seenNotification(notificationIDS: ids)
+
+            guard let currentData = notifications?.data else { return }
+            
+            let updatedData = currentData.map { item -> NotificationItem in
+                if ids.contains(item.id) {
+                    var newItem = item
+                    newItem.seen = true
+                    return newItem
+                }
+                return item
+            }
+
+            self.notifications?.data = updatedData
+            
+            if shouldUpdateUI {
+                delegate?.didUpdateNotifiaction(with: updatedData)
+            }
             
         } catch {
             delegate?.didFailUpdateNotification(with: error)

@@ -55,6 +55,11 @@ final class NotificationCollectionViewCell: UICollectionViewCell {
         updateAppearance(animated: animated, isSelected: self.isSelected)
     }
     
+    func markAsSeen(animated: Bool) {
+        self.item?.seen = true
+        updateAppearance(animated: animated, isSelected: self.isSelected)
+    }
+    
     private func updateAppearance(animated: Bool, isSelected: Bool) {
         guard let item = item else { return }
         

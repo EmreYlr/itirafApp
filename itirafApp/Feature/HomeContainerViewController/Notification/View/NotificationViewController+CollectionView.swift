@@ -40,6 +40,21 @@ extension NotificationViewController: UICollectionViewDelegate, UICollectionView
             navigationItem.title = "\(selectedIDs.count) Seçildi"
         } else {
             collectionView.deselectItem(at: indexPath, animated: false)
+            
+            Task {
+                if !item.seen && !recentlySeenIDs.contains(item.id) {
+                    recentlySeenIDs.insert(item.id)
+                    await viewModel.setSeenNotifications(ids: [item.id], shouldUpdateUI: false)
+                }
+            }
+            
+            if let cell = collectionView.cellForItem(at: indexPath) as? NotificationCollectionViewCell {
+                cell.markAsSeen(animated: true)
+            }
+
+            if let route = NotificationParser.parse(item: item) {
+                NotificationCenter.default.post(name: .shouldNavigateToRoute, object: route)
+            }
         }
     }
     

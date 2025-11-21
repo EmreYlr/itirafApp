@@ -20,7 +20,7 @@ final class AppRouter {
         self.window = window
     }
     
-    func navigate(to route: AppRoute) {
+    func navigate(to route: AppRoute, preferCurrentTab: Bool = false) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
@@ -31,7 +31,7 @@ final class AppRouter {
             }
             
             self.pendingRoute = nil
-            self.handleRoute(route, on: tabBarController)
+            self.handleRoute(route, on: tabBarController, preferCurrentTab: preferCurrentTab)
         }
     }
     
@@ -57,22 +57,22 @@ final class AppRouter {
         self.navigate(to: route)
     }
     
-    private func handleRoute(_ route: AppRoute, on tabBar: UITabBarController) {
+    private func handleRoute(_ route: AppRoute, on tabBar: UITabBarController, preferCurrentTab: Bool) {
         switch route {
         case .home:
-            navigateToHome(on: tabBar)
+            navigateToHome(on: tabBar, preferCurrentTab: preferCurrentTab)
             
         case .confessionDetail(let id, let commentId):
-            navigateToConfessionDetail(id: id, commentId: commentId, on: tabBar)
+            navigateToConfessionDetail(id: id, commentId: commentId, on: tabBar, preferCurrentTab: preferCurrentTab)
             
         case .passwordReset(let token):
             navigateToPasswordReset(token: token)
             
         case .directMessage(let roomId, let senderName, _):
-            navigateToDirectMessage(roomId: roomId, senderName: senderName, on: tabBar)
+            navigateToDirectMessage(roomId: roomId, senderName: senderName, on: tabBar, preferCurrentTab: preferCurrentTab)
             
         case .myConfessions:
-            navigateToMyConfessions(on: tabBar)
+            navigateToMyConfessions(on: tabBar, preferCurrentTab: preferCurrentTab)
             
         case .requestDetail(let requestId):
             navigateToRequestDetail(requestId: requestId, on: tabBar)
@@ -80,18 +80,22 @@ final class AppRouter {
         case .requestResponse(let requestId):
             navigateToRequestResponse(requestId: requestId, on: tabBar)
         case .moderation(let messageId):
-            navigateToModeration(id: messageId, on: tabBar)
+            navigateToModeration(id: messageId, on: tabBar, preferCurrentTab: preferCurrentTab)
         }
     }
 }
 
 private extension AppRouter {
-    func navigateToHome(on tabBar: UITabBarController) {
-        tabBar.selectedIndex = TabBarIndex.home.rawValue
+    func navigateToHome(on tabBar: UITabBarController, preferCurrentTab: Bool) {
+        if !preferCurrentTab {
+            tabBar.selectedIndex = TabBarIndex.home.rawValue
+        }
     }
     
-    func navigateToConfessionDetail(id: Int, commentId: Int?, on tabBar: UITabBarController) {
-        tabBar.selectedIndex = TabBarIndex.home.rawValue
+    func navigateToConfessionDetail(id: Int, commentId: Int?, on tabBar: UITabBarController, preferCurrentTab: Bool) {
+        if !preferCurrentTab {
+            tabBar.selectedIndex = TabBarIndex.home.rawValue
+        }
         
         let detailVC: DetailViewController = Storyboard.main.instantiate(.detail)
         detailVC.detailViewModel = DetailViewModel(messageId: id, commentId: commentId)
@@ -104,8 +108,10 @@ private extension AppRouter {
         print("🔐 Şifre sıfırlama ekranına yönlendiriliyor: \(token)")
     }
     
-    func navigateToDirectMessage(roomId: String, senderName: String, on tabBar: UITabBarController) {
-        tabBar.selectedIndex = TabBarIndex.home.rawValue
+    func navigateToDirectMessage(roomId: String, senderName: String, on tabBar: UITabBarController, preferCurrentTab: Bool) {
+        if !preferCurrentTab {
+            tabBar.selectedIndex = TabBarIndex.home.rawValue
+        }
         
         let chatVC: ChatViewController = Storyboard.chat.instantiate(.chat)
         chatVC.viewModel.directMessage = DirectMessage(
@@ -122,9 +128,11 @@ private extension AppRouter {
         pushToSelectedNav(on: tabBar, viewController: chatVC)
     }
     
-    func navigateToMyConfessions(on tabBar: UITabBarController) {
+    func navigateToMyConfessions(on tabBar: UITabBarController, preferCurrentTab: Bool) {
         let targetIndex = TabBarIndex.myConfession.rawValue
-        tabBar.selectedIndex = targetIndex
+        if !preferCurrentTab {
+            tabBar.selectedIndex = targetIndex
+        }
         
         if let nav = tabBar.viewControllers?[targetIndex] as? UINavigationController {
             nav.popToRootViewController(animated: true)
@@ -144,8 +152,10 @@ private extension AppRouter {
         pushToSelectedNav(on: tabBar, viewController: responseVC)
     }
     
-    func navigateToModeration(id: Int, on tabBar: UITabBarController) {
-        tabBar.selectedIndex = TabBarIndex.myConfession.rawValue
+    func navigateToModeration(id: Int, on tabBar: UITabBarController, preferCurrentTab: Bool) {
+        if !preferCurrentTab {
+            tabBar.selectedIndex = TabBarIndex.myConfession.rawValue
+        }
         
         let moderationVC: ModerationViewController = Storyboard.moderation.instantiate(.moderation)
         moderationVC.viewModel = ModerationViewModel(messageId: id)

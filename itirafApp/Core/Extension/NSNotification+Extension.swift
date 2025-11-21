@@ -17,4 +17,5 @@ extension NSNotification.Name {
     //NOTIFICATION
     static let didTapPushNotification = NSNotification.Name("didTapPushNotification")
     static let didCompleteNotificationRequest = Notification.Name("didCompleteNotificationRequest")
+    static let shouldNavigateToRoute = Notification.Name("shouldNavigateToRoute")
 }
