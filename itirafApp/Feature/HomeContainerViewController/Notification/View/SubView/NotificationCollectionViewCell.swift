@@ -94,7 +94,7 @@ final class NotificationCollectionViewCell: UICollectionViewCell {
 
 extension NotificationItem {
     var badgeColor: UIColor {
-        switch type {
+        switch eventType {
         case .confessionLiked: return .systemRed
         case .dmReceived: return .systemBlue
         case .dmRequestReceived: return .systemPurple
@@ -108,7 +108,7 @@ extension NotificationItem {
     }
     
     var iconImage: UIImage? {
-        switch type {
+        switch eventType {
         case .confessionLiked: return UIImage(systemName: "heart")
         case .dmReceived: return UIImage(systemName: "bubble.left")
         case .dmRequestReceived: return UIImage(systemName: "person.badge.plus")

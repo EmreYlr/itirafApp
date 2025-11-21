@@ -106,17 +106,9 @@ final class LoginViewController: UIViewController {
                 print("Google ID Token alınamadı.")
                 return
             }
-            
-            let user = result.user
-            let email = user.profile?.email
-            let firstName = user.profile?.givenName
-            let lastName = user.profile?.familyName
-            
+
             let request = GoogleLoginRequest(
-                idToken: idToken,
-                email: email,
-                firstName: firstName,
-                lastName: lastName
+                idToken: idToken
             )
 
             Task(priority: .userInitiated) {
@@ -162,8 +154,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         let request = AppleLoginRequest(
             identityToken: tokenString,
             firstName: credential.fullName?.givenName,
-            lastName: credential.fullName?.familyName,
-            email: credential.email
+            lastName: credential.fullName?.familyName
         )
 
         Task(priority: .userInitiated) {

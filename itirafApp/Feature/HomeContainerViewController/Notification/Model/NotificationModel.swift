@@ -12,7 +12,7 @@ struct NotificationModel: Codable {
 
 struct NotificationItem: Codable, Hashable {
     let id, title, body: String
-    let type: NotificationEventType
+    let eventType: NotificationEventType
     var seen: Bool
     let createdAt: String
     

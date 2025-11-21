@@ -10,5 +10,4 @@ struct AppleLoginRequest: Encodable {
     let identityToken: String
     let firstName: String?
     let lastName: String?
-    let email: String?
 }

@@ -39,7 +39,7 @@ final class LoginViewModel {
     func loginWithApple(request: AppleLoginRequest) async {
         do {
             try await loginService.loginWithApple(request: request)
-//            delegate?.didLoginSuccessfully()
+            delegate?.didLoginSuccessfully()
         } catch {
             delegate?.didFailToLogin(with: error)
         }
@@ -48,7 +48,7 @@ final class LoginViewModel {
     func loginWithGoogle(request: GoogleLoginRequest) async {
         do {
             try await loginService.loginWithGoogle(request: request)
-//            delegate?.didLoginSuccessfully()
+            delegate?.didLoginSuccessfully()
         } catch {
             delegate?.didFailToLogin(with: error)
         }

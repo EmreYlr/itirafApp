@@ -47,28 +47,41 @@ final class LoginService {
     }
     
     func loginWithApple(request: AppleLoginRequest) async throws {
-        dump(request)
+        var params: Parameters = [
+            "idToken": request.identityToken
+        ]
         
-        //        let response: RefreshTokenResponse = try await networkService.request(
-        //            endpoint: Endpoint.Auth.appleLogin,
-        //            method: .post,
-        //            parameters: request,
-        //            encoding: JSONParameterEncoder.default
-        //        )
+        if let firstName = request.firstName, !firstName.isEmpty {
+            params["givenName"] = firstName
+        }
         
-        //        try await handleSuccessfulLogin(response: response)
+        if let lastName = request.lastName, !lastName.isEmpty {
+            params["familyName"] = lastName
+        }
+        
+        let response: RefreshTokenResponse = try await networkService.request(
+            endpoint: Endpoint.Auth.appleLogin,
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default
+        )
+        
+        try await handleSuccessfulLogin(response: response)
     }
     
     func loginWithGoogle(request: GoogleLoginRequest) async throws {
-        dump(request)
-//        let response: RefreshTokenResponse = try await networkService.request(
-//            endpoint: Endpoint.Auth.googleLogin,
-//            method: .post,
-//            parameters: request,
-//            encoding: JSONParameterEncoder.default
-//        )
-//        
-//        try await handleSuccessfulLogin(response: response)
+        let params: Parameters = [
+            "idToken": request.idToken
+        ]
+        
+        let response: RefreshTokenResponse = try await networkService.request(
+            endpoint: Endpoint.Auth.googleLogin,
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default
+        )
+        
+        try await handleSuccessfulLogin(response: response)
     }
     
     private func handleSuccessfulLogin(response: RefreshTokenResponse) async throws {

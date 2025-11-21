@@ -8,7 +8,4 @@ import Foundation
 
 struct GoogleLoginRequest: Encodable {
     let idToken: String
-    let email: String?
-    let firstName: String?
-    let lastName: String?
 }
