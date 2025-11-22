@@ -59,7 +59,7 @@ final class LoginViewModel {
         if isSuccess {
             delegate?.didLoginSuccessfully()
         } else {
-            let error = AppError.anonymousUserNotLoggedIn
+            let error = AuthError.anonymousUserNotLoggedIn
             delegate?.didFailToLogin(with: error)
         }
     }

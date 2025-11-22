@@ -99,7 +99,6 @@
 		C3A750C12EB695130058163B /* RequestBottomSheetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A750C02EB695080058163B /* RequestBottomSheetService.swift */; };
 		C3A750C32EB697F60058163B /* RequestBottomSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A750C22EB697F60058163B /* RequestBottomSheet.storyboard */; };
 		C3A7A40F2EA7A9B600250B06 /* AppRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A40E2EA7A9B600250B06 /* AppRequestInterceptor.swift */; };
-		C3A7A4142EA7AADD00250B06 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4132EA7AADD00250B06 /* AppError.swift */; };
 		C3A7A4162EA91D8B00250B06 /* MockUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4152EA91D8B00250B06 /* MockUserService.swift */; };
 		C3A7A41D2EA9443B00250B06 /* DirectMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A41C2EA9443B00250B06 /* DirectMessageViewController.swift */; };
 		C3A7A4202EA9446F00250B06 /* DirectMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A7A41F2EA9446F00250B06 /* DirectMessage.storyboard */; };
@@ -140,6 +139,13 @@
 		C3BE19712ECF343A0053C9A9 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = C3BE19702ECF343A0053C9A9 /* GoogleSignIn */; };
 		C3BE19762ECFB5CE0053C9A9 /* NotificationEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19752ECFB5CE0053C9A9 /* NotificationEventType.swift */; };
 		C3BE19782ED0A2BB0053C9A9 /* TabBarIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19772ED0A2B70053C9A9 /* TabBarIndex.swift */; };
+		C3BE197A2ED2088E0053C9A9 /* ErrorPresentable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19792ED208850053C9A9 /* ErrorPresentable+Extension.swift */; };
+		C3BE197E2ED2153F0053C9A9 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE197D2ED2153F0053C9A9 /* AuthError.swift */; };
+		C3BE19802ED215470053C9A9 /* BusinessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE197F2ED215470053C9A9 /* BusinessError.swift */; };
+		C3BE19822ED215610053C9A9 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19812ED215610053C9A9 /* ValidationError.swift */; };
+		C3BE19852ED215E30053C9A9 /* UserFriendlyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19842ED215E30053C9A9 /* UserFriendlyError.swift */; };
+		C3BE19872ED216090053C9A9 /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19862ED216090053C9A9 /* ErrorPresentable.swift */; };
+		C3BE19892ED217250053C9A9 /* APIError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19882ED2171E0053C9A9 /* APIError+Extension.swift */; };
 		C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */; };
 		C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */; };
 		C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */; };
@@ -324,7 +330,6 @@
 		C3A750C02EB695080058163B /* RequestBottomSheetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBottomSheetService.swift; sourceTree = "<group>"; };
 		C3A750C22EB697F60058163B /* RequestBottomSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RequestBottomSheet.storyboard; sourceTree = "<group>"; };
 		C3A7A40E2EA7A9B600250B06 /* AppRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRequestInterceptor.swift; sourceTree = "<group>"; };
-		C3A7A4132EA7AADD00250B06 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		C3A7A4152EA91D8B00250B06 /* MockUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserService.swift; sourceTree = "<group>"; };
 		C3A7A41C2EA9443B00250B06 /* DirectMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessageViewController.swift; sourceTree = "<group>"; };
 		C3A7A41F2EA9446F00250B06 /* DirectMessage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DirectMessage.storyboard; sourceTree = "<group>"; };
@@ -364,6 +369,13 @@
 		C3BE196D2ECF32510053C9A9 /* GoogleLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginRequest.swift; sourceTree = "<group>"; };
 		C3BE19752ECFB5CE0053C9A9 /* NotificationEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationEventType.swift; sourceTree = "<group>"; };
 		C3BE19772ED0A2B70053C9A9 /* TabBarIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarIndex.swift; sourceTree = "<group>"; };
+		C3BE19792ED208850053C9A9 /* ErrorPresentable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorPresentable+Extension.swift"; sourceTree = "<group>"; };
+		C3BE197D2ED2153F0053C9A9 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		C3BE197F2ED215470053C9A9 /* BusinessError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessError.swift; sourceTree = "<group>"; };
+		C3BE19812ED215610053C9A9 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		C3BE19842ED215E30053C9A9 /* UserFriendlyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFriendlyError.swift; sourceTree = "<group>"; };
+		C3BE19862ED216090053C9A9 /* ErrorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentable.swift; sourceTree = "<group>"; };
+		C3BE19882ED2171E0053C9A9 /* APIError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIError+Extension.swift"; sourceTree = "<group>"; };
 		C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
@@ -1408,6 +1420,33 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		C3BE197B2ED215190053C9A9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C3BE197C2ED215260053C9A9 /* Errors */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C3BE197C2ED215260053C9A9 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				C3BE19812ED215610053C9A9 /* ValidationError.swift */,
+				C3BE197F2ED215470053C9A9 /* BusinessError.swift */,
+				C3BE197D2ED2153F0053C9A9 /* AuthError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		C3BE19832ED215CE0053C9A9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C3BE19862ED216090053C9A9 /* ErrorPresentable.swift */,
+				C3BE19842ED215E30053C9A9 /* UserFriendlyError.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		C3C08BAB2E8AAF0200EDC6A2 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1770,7 +1809,6 @@
 		C3D765922E96A90600104C3B /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				C3A7A4132EA7AADD00250B06 /* AppError.swift */,
 				C3D765932E96A90B00104C3B /* APIError.swift */,
 			);
 			path = Error;
@@ -1961,6 +1999,7 @@
 				C3EB107E2E74411A002DA295 /* App */,
 				C3EB10872E744A4A002DA295 /* Core */,
 				C38EAAC92EC223C600A1818C /* Coordinators */,
+				C3BE197B2ED215190053C9A9 /* Models */,
 				C3A7A42F2EA9586400250B06 /* Services */,
 				C3EB107F2E74412B002DA295 /* Feature */,
 			);
@@ -2032,6 +2071,7 @@
 		C3EB10872E744A4A002DA295 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C3BE19832ED215CE0053C9A9 /* Protocols */,
 				C3EB10882E744A53002DA295 /* Network */,
 				C3EB108A2E744A63002DA295 /* Extension */,
 				C3EB108B2E744A75002DA295 /* Helpers */,
@@ -2065,6 +2105,8 @@
 		C3EB108A2E744A63002DA295 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C3BE19792ED208850053C9A9 /* ErrorPresentable+Extension.swift */,
+				C3BE19882ED2171E0053C9A9 /* APIError+Extension.swift */,
 				C3BE19592ECDF0480053C9A9 /* Encodable+Extension.swift */,
 				C3528EFD2EB8C32800FF1C19 /* UIApplication+Extension.swift */,
 				C3E660132EAFACC50059048F /* Date+Extension.swift */,
@@ -2383,6 +2425,7 @@
 				C38EAACD2EC331FC00A1818C /* AppRoute.swift in Sources */,
 				C3F39E162EA0269200197509 /* PostConfessionService.swift in Sources */,
 				C3E6602C2EB257540059048F /* MyConfessionsCollectionViewCell.swift in Sources */,
+				C3BE19802ED215470053C9A9 /* BusinessError.swift in Sources */,
 				C3A750982EB609900058163B /* RequestMessageViewModel.swift in Sources */,
 				C37D5DFC2E842AE30068F334 /* LoginService.swift in Sources */,
 				C39700952EC35ADE0062E505 /* NotificationParser.swift in Sources */,
@@ -2391,6 +2434,7 @@
 				C3C08BB82E8AF54900EDC6A2 /* PersonViewController.swift in Sources */,
 				C37D5DE32E8414630068F334 /* NetworkConstants.swift in Sources */,
 				C37D5DEE2E8417230068F334 /* AuthManager.swift in Sources */,
+				C3BE197A2ED2088E0053C9A9 /* ErrorPresentable+Extension.swift in Sources */,
 				C3528EFE2EB8C32E00FF1C19 /* UIApplication+Extension.swift in Sources */,
 				C3C173C52EC5FEBE00D27383 /* FlowService.swift in Sources */,
 				C3D764BC2E93DE1800104C3B /* DetailService.swift in Sources */,
@@ -2424,6 +2468,7 @@
 				C37D5DE52E8414760068F334 /* Endpoint.swift in Sources */,
 				C38EAACB2EC2241600A1818C /* AppCoordinator.swift in Sources */,
 				C3BE19472ECC8BD70053C9A9 /* NotificationModel.swift in Sources */,
+				C3BE19852ED215E30053C9A9 /* UserFriendlyError.swift in Sources */,
 				C37F9E2E2EC8E6A20042B56F /* FollowManager.swift in Sources */,
 				C3BE19372ECC78810053C9A9 /* NotificationStatus.swift in Sources */,
 				C3528F202EBA097800FF1C19 /* UserHelpers.swift in Sources */,
@@ -2439,6 +2484,7 @@
 				C3BE19352ECC77C20053C9A9 /* HomeContainerService.swift in Sources */,
 				C3A750A52EB626CA0058163B /* RequestMessageModel.swift in Sources */,
 				C3BE192F2ECC77960053C9A9 /* HomeContainerViewModel.swift in Sources */,
+				C3BE19872ED216090053C9A9 /* ErrorPresentable.swift in Sources */,
 				C3C173C12EC5EF0C00D27383 /* FlowViewController.swift in Sources */,
 				C3A750852EB50A140058163B /* SettingsService.swift in Sources */,
 				C3BE19552ECDE0F50053C9A9 /* NotificationSettingsService.swift in Sources */,
@@ -2483,7 +2529,9 @@
 				C3C173E22EC62B0200D27383 /* ChannelCollectionViewCell.swift in Sources */,
 				C3D764C52E93ED3300104C3B /* ChannelMessageData.swift in Sources */,
 				C3D765962E96BF1D00104C3B /* UIViewController+Alert.swift in Sources */,
+				C3BE19822ED215610053C9A9 /* ValidationError.swift in Sources */,
 				C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */,
+				C3BE19892ED217250053C9A9 /* APIError+Extension.swift in Sources */,
 				C3D8E2022E900544006C7E8F /* PersonServiceProtocol.swift in Sources */,
 				C3D765942E96A90B00104C3B /* APIError.swift in Sources */,
 				C326DD482E8D8232001B7837 /* UserDefaults+Keys.swift in Sources */,
@@ -2491,6 +2539,7 @@
 				C3D764D42E95391200104C3B /* ChannelService.swift in Sources */,
 				C37D5DEC2E8417110068F334 /* AuthService.swift in Sources */,
 				C37D5DF22E84256A0068F334 /* NSNotification+Extension.swift in Sources */,
+				C3BE197E2ED2153F0053C9A9 /* AuthError.swift in Sources */,
 				C3A7A41D2EA9443B00250B06 /* DirectMessageViewController.swift in Sources */,
 				C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */,
 				C3528F0E2EB8F04D00FF1C19 /* RequestSentModel.swift in Sources */,
@@ -2544,7 +2593,6 @@
 				C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */,
 				C3528F1C2EB9092A00FF1C19 /* RequestSentDetailViewModel.swift in Sources */,
 				C3BE19412ECC893E0053C9A9 /* NotificationService.swift in Sources */,
-				C3A7A4142EA7AADD00250B06 /* AppError.swift in Sources */,
 				C3528F1E2EB9098000FF1C19 /* RequestSentDetailViewController.swift in Sources */,
 				C3BE192B2ECBACF90053C9A9 /* NotificationSettingsViewModel.swift in Sources */,
 				C38EAAB02EBFB38100A1818C /* RegisterDeviceRequest.swift in Sources */,
