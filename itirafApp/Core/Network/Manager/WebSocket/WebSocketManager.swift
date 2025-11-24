@@ -51,7 +51,7 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
         lastConnectedEndpoint = endpoint
         
         guard let url = URL(string: NetworkConstants.webSocketURL + endpoint.path) else {
-            let err = APIError(code: 0, type: "URLError", message: "Invalid URL")
+            let err = APIError(code: 4300, type: "URLError")
             print("❌ connect: URL hatası")
             delegate?.webSocketDidFail(with: err)
             return
@@ -189,7 +189,7 @@ final class WebSocketManager: NSObject, WebSocketManagerProtocol {
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: .loginRequired, object: nil)
         }
-        throw APIError(code: 401, type: "AuthError", message: "Authentication required for WebSocket")
+        throw APIError(code: 1400, type: "AuthError")
     }
 }
 

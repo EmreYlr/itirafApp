@@ -58,7 +58,7 @@ final class NetworkManager {
     
     func requestRefreshToken() async throws -> RefreshTokenResponse {
         guard let refresh = AuthManager.shared.getRefreshToken() else {
-            throw APIError(code: 401, type: "AuthError", message: "Refresh token not found")
+            throw AuthError.tokenNotFound
         }
         
         let url = NetworkConstants.baseURL + Endpoint.Auth.refreshToken.path
@@ -93,7 +93,7 @@ final class NetworkManager {
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: .loginRequired, object: nil)
         }
-        throw APIError(code: 401 ,type: "AuthError", message: "Authentication required")
+        throw AuthError.sessionExpired
     }
     
 }

@@ -56,7 +56,7 @@ final class RegisterViewController: UIViewController {
     
 }
 
-extension RegisterViewController: RegisterViewModelOutputProtocol {
+extension RegisterViewController: RegisterViewModelOutputProtocol, ErrorPresentable {
     func didRegisterSuccessfully() {
         print("Registration Successful")
         DispatchQueue.main.async {
@@ -71,7 +71,9 @@ extension RegisterViewController: RegisterViewModelOutputProtocol {
     }
     
     func didFailToRegister(with error: Error) {
-        print("Registration Failed: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
     
 }

@@ -58,7 +58,7 @@ final class ChatViewModel: NSObject {
     
     func startListening() {
         guard let roomId = directMessage?.roomID else {
-            let error = APIError(code: 0, type: "MissingInfo", message: "Room ID not found to start listening.")
+            let error = APIError(code: 4300, type: "MissingInfo")
             delegate?.diderror(error)
             return
         }
@@ -83,7 +83,7 @@ final class ChatViewModel: NSObject {
     
     func fetchRoomMessages() async {
         guard let roomID = directMessage?.roomID else {
-            delegate?.diderror(APIError(code: 0, type: "MissingInfo", message: "Room ID not found to fetch messages."))
+            delegate?.diderror(APIError(code: 4300, type: "MissingInfo"))
             return
         }
         
@@ -135,7 +135,7 @@ final class ChatViewModel: NSObject {
     
     func approveRequest() async {
         guard let request = requestMessage else {
-            let error = APIError(code: 901, type: "ViewModelError", message: "Onaylanacak bir mesaj isteği bulunamadı.")
+            let error = APIError(code: 1300, type: "ViewModelError")
             delegate?.diderror(error)
             return
         }
