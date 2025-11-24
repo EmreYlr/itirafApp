@@ -1,0 +1,524 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "error.access_denied" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erişim Engellendi"
+          }
+        }
+      }
+    },
+    "error.account_not_verified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesap Doğrulanmadı"
+          }
+        }
+      }
+    },
+    "error.already_exists" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaten Mevcut"
+          }
+        }
+      }
+    },
+    "error.auth_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kimlik Doğrulama Hatası"
+          }
+        }
+      }
+    },
+    "error.bad_request" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hatalı İstek"
+          }
+        }
+      }
+    },
+    "error.conflict" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çakışma"
+          }
+        }
+      }
+    },
+    "error.connection_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bağlantı Hatası"
+          }
+        }
+      }
+    },
+    "error.login_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giriş Hatası"
+          }
+        }
+      }
+    },
+    "error.not_found" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bulunamadı"
+          }
+        }
+      }
+    },
+    "error.process_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İşlem Hatası"
+          }
+        }
+      }
+    },
+    "error.record_exists" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kayıt Mevcut"
+          }
+        }
+      }
+    },
+    "error.register_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registration Error"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kayıt Hatası"
+          }
+        }
+      }
+    },
+    "error.server" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunucu Hatası"
+          }
+        }
+      }
+    },
+    "error.session_expired" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oturum Süresi Doldu"
+          }
+        }
+      }
+    },
+    "error.session_invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oturum Geçersiz"
+          }
+        }
+      }
+    },
+    "error.timeout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaman Aşımı"
+          }
+        }
+      }
+    },
+    "error.too_many_requests" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çok Fazla İstek"
+          }
+        }
+      }
+    },
+    "error.unauthorized" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yetkisiz Giriş"
+          }
+        }
+      }
+    },
+    "error.unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hata"
+          }
+        }
+      }
+    },
+    "error.validation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doğrulama Hatası"
+          }
+        }
+      }
+    },
+    "message.access_denied" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu kaynağa erişim izniniz yok."
+          }
+        }
+      }
+    },
+    "message.account_not_verified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesabınız henüz doğrulanmamış. Lütfen e-postanızı kontrol edin."
+          }
+        }
+      }
+    },
+    "message.already_exists" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu içerik zaten mevcut."
+          }
+        }
+      }
+    },
+    "message.auth_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kimlik doğrulama işlemi başarısız oldu."
+          }
+        }
+      }
+    },
+    "message.bad_request" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İstek hatalı. Lütfen kontrol edip tekrar deneyin."
+          }
+        }
+      }
+    },
+    "message.check_input" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Girdiğiniz bilgileri kontrol edip tekrar deneyin."
+          }
+        }
+      }
+    },
+    "message.conflict" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İşlem sırasında bir çakışma oluştu."
+          }
+        }
+      }
+    },
+    "message.connection_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bağlantı ile ilgili bir sorun oluştu. Lütfen internet bağlantınızı kontrol edin."
+          }
+        }
+      }
+    },
+    "message.invalid_input" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geçersiz veri girişi yaptınız."
+          }
+        }
+      }
+    },
+    "message.invalid_provider" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geçersiz sosyal giriş sağlayıcısı."
+          }
+        }
+      }
+    },
+    "message.invalid_token" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sosyal giriş token'ı geçersiz."
+          }
+        }
+      }
+    },
+    "message.login_credentials_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-posta adresi veya şifre hatalı."
+          }
+        }
+      }
+    },
+    "message.missing_fields" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen tüm zorunlu alanları doldurun."
+          }
+        }
+      }
+    },
+    "message.not_found" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aradığınız içerik bulunamadı."
+          }
+        }
+      }
+    },
+    "message.process_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İşlem gerçekleştirilemedi. Lütfen tekrar deneyin."
+          }
+        }
+      }
+    },
+    "message.record_exists" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu kayıt zaten mevcut."
+          }
+        }
+      }
+    },
+    "message.register_conflict" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This email address already exists."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu e-posta adresi zaten var."
+          }
+        }
+      }
+    },
+    "message.server_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunucularımızda geçici bir sorun oluştu. Lütfen daha sonra tekrar deneyiniz."
+          }
+        }
+      }
+    },
+    "message.session_expired" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oturum süreniz doldu. Lütfen tekrar giriş yapın."
+          }
+        }
+      }
+    },
+    "message.session_invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oturumunuz geçersiz. Lütfen tekrar giriş yapın."
+          }
+        }
+      }
+    },
+    "message.social_email_unverified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sosyal hesap e-postası doğrulanmamış."
+          }
+        }
+      }
+    },
+    "message.timeout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İşlem zaman aşımına uğradı. Lütfen tekrar deneyin."
+          }
+        }
+      }
+    },
+    "message.too_many_requests" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çok fazla işlem yaptınız. Lütfen biraz bekleyin."
+          }
+        }
+      }
+    },
+    "message.unauthorized" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu işlemi yapmak için yetkiniz yok."
+          }
+        }
+      }
+    },
+    "message.unexpected_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beklenmedik bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+          }
+        }
+      }
+    },
+    "message.validation_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Girdiğiniz bilgilerde hata var. Lütfen kontrol edin."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}

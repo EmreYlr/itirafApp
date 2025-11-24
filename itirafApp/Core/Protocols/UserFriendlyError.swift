@@ -11,9 +11,3 @@ protocol UserFriendlyError: LocalizedError {
     var title: String { get }
     var message: String { get }
 }
-
-extension UserFriendlyError {
-    var errorDescription: String? {
-        return message
-    }
-}

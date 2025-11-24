@@ -1,0 +1,162 @@
+
+/* Class = "UILabel"; text = "Reddedildi"; ObjectID = "0EC-51-6kl"; */
+"0EC-51-6kl.text" = "Reddedildi";
+
+/* Class = "UINavigationItem"; title = "Ana Sayfa"; ObjectID = "0VH-UT-nhd"; */
+"0VH-UT-nhd.title" = "Ana Sayfa";
+
+/* Class = "UILabel"; text = "32"; ObjectID = "0mb-RF-QKd"; */
+"0mb-RF-QKd.text" = "32";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2l8-Ek-1GE"; */
+"2l8-Ek-1GE.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "44w-Au-Pi9"; */
+"44w-Au-Pi9.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Açıklama"; ObjectID = "7wi-TQ-yWL"; */
+"7wi-TQ-yWL.text" = "Açıklama";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8bq-0S-NGG"; */
+"8bq-0S-NGG.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Profil"; ObjectID = "95Q-Jd-YuH"; */
+"95Q-Jd-YuH.title" = "Profil";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ant-OE-dS3"; */
+"Ant-OE-dS3.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Gizli sosyal medya bağlantıları"; ObjectID = "GCi-Ca-oNp"; */
+"GCi-Ca-oNp.text" = "Gizli sosyal medya bağlantıları";
+
+/* Class = "UITabBarItem"; title = "Kanallar"; ObjectID = "GZ9-ll-ypA"; */
+"GZ9-ll-ypA.title" = "Kanallar";
+
+/* Class = "UILabel"; text = "İtiraf Yaz"; ObjectID = "J51-hC-FKo"; */
+"J51-hC-FKo.text" = "İtiraf Yaz";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "K8z-SM-VCW"; */
+"K8z-SM-VCW.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KtA-38-HfA"; */
+"KtA-38-HfA.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "content"; ObjectID = "L4A-yU-QCy"; */
+"L4A-yU-QCy.text" = "content";
+
+/* Class = "UILabel"; text = "Yorumlar"; ObjectID = "Mqx-JT-w9I"; */
+"Mqx-JT-w9I.text" = "Yorumlar";
+
+/* Class = "UIButton"; configuration.title = "Paylaş"; ObjectID = "O8O-lk-X8S"; */
+"O8O-lk-X8S.configuration.title" = "Paylaş";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "O8O-lk-X8S"; */
+"O8O-lk-X8S.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "Kanallar"; ObjectID = "P7F-Od-Ndw"; */
+"P7F-Od-Ndw.title" = "Kanallar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "QaA-uZ-Oul"; */
+"QaA-uZ-Oul.text" = "Label";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "RpT-44-exc"; */
+"RpT-44-exc.text" = "12";
+
+/* Class = "UILabel"; text = "username"; ObjectID = "TGk-mH-sme"; */
+"TGk-mH-sme.text" = "username";
+
+/* Class = "UINavigationItem"; title = "İtiraf Yaz"; ObjectID = "TnT-kv-lDv"; */
+"TnT-kv-lDv.title" = "İtiraf Yaz";
+
+/* Class = "UIButton"; configuration.title = "Yeni Hesap Ekle"; ObjectID = "VFP-63-RSi"; */
+"VFP-63-RSi.configuration.title" = "Yeni Hesap Ekle";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "VFP-63-RSi"; */
+"VFP-63-RSi.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Başlık"; ObjectID = "WKX-EQ-C7J"; */
+"WKX-EQ-C7J.text" = "Başlık";
+
+/* Class = "UILabel"; text = "title"; ObjectID = "X28-bg-fxT"; */
+"X28-bg-fxT.text" = "title";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "XTa-kZ-TL4"; */
+"XTa-kZ-TL4.text" = "Title";
+
+/* Class = "UILabel"; text = "İtirafa detaylar ekleyin. Lütfen hakarat içeren ifadeler kullanmayınız."; ObjectID = "YyZ-gS-KrY"; */
+"YyZ-gS-KrY.text" = "İtirafa detaylar ekleyin. Lütfen hakarat içeren ifadeler kullanmayınız.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "a3J-l8-AbF"; */
+"a3J-l8-AbF.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Yanıtını gönder"; ObjectID = "aeN-he-hgp"; */
+"aeN-he-hgp.placeholder" = "Yanıtını gönder";
+
+/* Class = "UILabel"; text = "Bu bağlantılar yalnızca özel sohbet başlattığın kişileri ile paylaşılır."; ObjectID = "am8-HW-SGT"; */
+"am8-HW-SGT.text" = "Bu bağlantılar yalnızca özel sohbet başlattığın kişileri ile paylaşılır.";
+
+/* Class = "UITextField"; placeholder = "İtiraf başlığı giriniz"; ObjectID = "bV3-N4-xnA"; */
+"bV3-N4-xnA.placeholder" = "İtiraf başlığı giriniz";
+
+/* Class = "UINavigationItem"; title = "Ana Sayfa"; ObjectID = "cxR-gW-Hgd"; */
+"cxR-gW-Hgd.title" = "Ana Sayfa";
+
+/* Class = "UITabBarItem"; title = "İtiraflarım"; ObjectID = "eNN-FT-f1v"; */
+"eNN-FT-f1v.title" = "İtiraflarım";
+
+/* Class = "UINavigationItem"; title = "Profil"; ObjectID = "fBC-vY-R1u"; */
+"fBC-vY-R1u.title" = "Profil";
+
+/* Class = "UIButton"; configuration.title = " Takip Edilen Kanallar"; ObjectID = "fbl-qL-rn5"; */
+"fbl-qL-rn5.configuration.title" = " Takip Edilen Kanallar";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "fbl-qL-rn5"; */
+"fbl-qL-rn5.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "content"; ObjectID = "fiQ-pm-nW2"; */
+"fiQ-pm-nW2.text" = "content";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "g1f-bb-c6f"; */
+"g1f-bb-c6f.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Kanal"; ObjectID = "jGo-Rz-FWB"; */
+"jGo-Rz-FWB.text" = "Kanal";
+
+/* Class = "UINavigationItem"; title = "İtiraflarım"; ObjectID = "kTg-UQ-9rn"; */
+"kTg-UQ-9rn.title" = "İtiraflarım";
+
+/* Class = "UISearchBar"; placeholder = "Kanal Ara..."; ObjectID = "l7n-ke-UkL"; */
+"l7n-ke-UkL.placeholder" = "Kanal Ara...";
+
+/* Class = "UILabel"; text = "Durum:"; ObjectID = "mAf-fm-0uU"; */
+"mAf-fm-0uU.text" = "Durum:";
+
+/* Class = "UITabBarItem"; title = "İtiraf Yaz"; ObjectID = "mbl-t2-Rh0"; */
+"mbl-t2-Rh0.title" = "İtiraf Yaz";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "oXA-aV-nTI"; */
+"oXA-aV-nTI.text" = "12";
+
+/* Class = "UILabel"; text = "32"; ObjectID = "qBB-GP-pQh"; */
+"qBB-GP-pQh.text" = "32";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "r4s-Se-hJu"; */
+"r4s-Se-hJu.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Yanıtını gönder"; ObjectID = "uza-AM-qxx"; */
+"uza-AM-qxx.placeholder" = "Yanıtını gönder";
+
+/* Class = "UILabel"; text = "İtiraflarım"; ObjectID = "wRe-MU-UCl"; */
+"wRe-MU-UCl.text" = "İtiraflarım";
+
+/* Class = "UIButton"; configuration.title = "Kanal Seçin"; ObjectID = "xO0-cl-IF4"; */
+"xO0-cl-IF4.configuration.title" = "Kanal Seçin";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xO0-cl-IF4"; */
+"xO0-cl-IF4.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "yCx-Vt-zwF"; */
+"yCx-Vt-zwF.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Ana Sayfa"; ObjectID = "yqS-wb-ldO"; */
+"yqS-wb-ldO.title" = "Ana Sayfa";

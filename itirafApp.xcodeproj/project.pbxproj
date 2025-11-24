@@ -145,6 +145,9 @@
 		C3BE19852ED215E30053C9A9 /* UserFriendlyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19842ED215E30053C9A9 /* UserFriendlyError.swift */; };
 		C3BE19872ED216090053C9A9 /* ErrorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19862ED216090053C9A9 /* ErrorPresentable.swift */; };
 		C3BE19892ED217250053C9A9 /* APIError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19882ED2171E0053C9A9 /* APIError+Extension.swift */; };
+		C3BE198B2ED476E30053C9A9 /* APIError+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE198A2ED476DE0053C9A9 /* APIError+Auth.swift */; };
+		C3BE19902ED48B5B0053C9A9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C3BE198F2ED48B5B0053C9A9 /* Localizable.xcstrings */; };
+		C3BE19922ED48C020053C9A9 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19912ED48BF70053C9A9 /* String+Localized.swift */; };
 		C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */; };
 		C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */; };
 		C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */; };
@@ -374,6 +377,11 @@
 		C3BE19842ED215E30053C9A9 /* UserFriendlyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFriendlyError.swift; sourceTree = "<group>"; };
 		C3BE19862ED216090053C9A9 /* ErrorPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentable.swift; sourceTree = "<group>"; };
 		C3BE19882ED2171E0053C9A9 /* APIError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIError+Extension.swift"; sourceTree = "<group>"; };
+		C3BE198A2ED476DE0053C9A9 /* APIError+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIError+Auth.swift"; sourceTree = "<group>"; };
+		C3BE198C2ED48AE40053C9A9 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C3BE198D2ED48AE40053C9A9 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		C3BE198F2ED48B5B0053C9A9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		C3BE19912ED48BF70053C9A9 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		C3C08BA32E8AABAE00EDC6A2 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C3C08BA52E8AABE500EDC6A2 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		C3C08BA72E8AAD7D00EDC6A2 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
@@ -1445,6 +1453,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		C3BE198E2ED48B430053C9A9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB106E2E744115002DA295 /* Assets.xcassets */,
+				C3BE198F2ED48B5B0053C9A9 /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C3C08BAB2E8AAF0200EDC6A2 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1992,6 +2009,7 @@
 		C3EB10762E744115002DA295 /* itirafApp */ = {
 			isa = PBXGroup;
 			children = (
+				C3BE198E2ED48B430053C9A9 /* Resources */,
 				C38EAABD2EC0BDFA00A1818C /* GoogleService-Info.plist */,
 				C38EAAA92EBFB36100A1818C /* itirafApp.entitlements */,
 				C3EB107E2E74411A002DA295 /* App */,
@@ -2008,7 +2026,6 @@
 			isa = PBXGroup;
 			children = (
 				C3EB106D2E744115002DA295 /* AppDelegate.swift */,
-				C3EB106E2E744115002DA295 /* Assets.xcassets */,
 				C3EB10712E744115002DA295 /* LaunchScreen.storyboard */,
 				C3EB10742E744115002DA295 /* SceneDelegate.swift */,
 				C3EB106F2E744115002DA295 /* Info.plist */,
@@ -2103,6 +2120,8 @@
 		C3EB108A2E744A63002DA295 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C3BE19912ED48BF70053C9A9 /* String+Localized.swift */,
+				C3BE198A2ED476DE0053C9A9 /* APIError+Auth.swift */,
 				C3BE19882ED2171E0053C9A9 /* APIError+Extension.swift */,
 				C3BE19592ECDF0480053C9A9 /* Encodable+Extension.swift */,
 				C3528EFD2EB8C32800FF1C19 /* UIApplication+Extension.swift */,
@@ -2306,11 +2325,12 @@
 				};
 			};
 			buildConfigurationList = C3EB10502E7440CE002DA295 /* Build configuration list for PBXProject "itirafApp" */;
-			developmentRegion = en;
+			developmentRegion = tr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = C3EB104C2E7440CE002DA295;
 			minimizedProjectReferenceProxies = 1;
@@ -2353,6 +2373,7 @@
 				C3A750A02EB623540058163B /* RequestMessageCollectionViewCell.xib in Resources */,
 				C3A7A4292EA9484000250B06 /* DirectMessageCollectionViewCell.xib in Resources */,
 				C3528F142EB8FAA200FF1C19 /* RequestSentCollectionViewCell.xib in Resources */,
+				C3BE19902ED48B5B0053C9A9 /* Localizable.xcstrings in Resources */,
 				C3528F2F2EBB759200FF1C19 /* Moderation.storyboard in Resources */,
 				C37D5B032E7840D20068F334 /* Login.storyboard in Resources */,
 				C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */,
@@ -2466,6 +2487,7 @@
 				C3BE19472ECC8BD70053C9A9 /* NotificationModel.swift in Sources */,
 				C3BE19852ED215E30053C9A9 /* UserFriendlyError.swift in Sources */,
 				C37F9E2E2EC8E6A20042B56F /* FollowManager.swift in Sources */,
+				C3BE19922ED48C020053C9A9 /* String+Localized.swift in Sources */,
 				C3BE19372ECC78810053C9A9 /* NotificationStatus.swift in Sources */,
 				C3528F202EBA097800FF1C19 /* UserHelpers.swift in Sources */,
 				C3E660382EB287410059048F /* EditConfessionViewModel.swift in Sources */,
@@ -2544,6 +2566,7 @@
 				C3A7A43A2EAA28F100250B06 /* ChatService.swift in Sources */,
 				C3A750B62EB6588A0058163B /* ChatViewController+TableView.swift in Sources */,
 				C3E660142EAFACD80059048F /* Date+Extension.swift in Sources */,
+				C3BE198B2ED476E30053C9A9 /* APIError+Auth.swift in Sources */,
 				C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */,
 				C3F39E122EA0267300197509 /* PostConfessionViewController.swift in Sources */,
 				C3C173E42EC62C0900D27383 /* ChannelViewController+CollectionView.swift in Sources */,
@@ -2618,6 +2641,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C3EB10702E744115002DA295 /* Base */,
+				C3BE198C2ED48AE40053C9A9 /* tr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2626,6 +2650,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C3EB10722E744115002DA295 /* Base */,
+				C3BE198D2ED48AE40053C9A9 /* tr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2740,6 +2765,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -2798,6 +2824,7 @@
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2807,6 +2834,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -2858,6 +2886,7 @@
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

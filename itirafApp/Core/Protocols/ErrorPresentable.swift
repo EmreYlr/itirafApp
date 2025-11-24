@@ -29,3 +29,5 @@ extension ErrorPresentable where Self: UIViewController {
         present(alert, animated: true)
     }
 }
+
+extension UIViewController: ErrorPresentable {}

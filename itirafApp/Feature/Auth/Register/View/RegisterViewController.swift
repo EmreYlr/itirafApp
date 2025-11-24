@@ -13,7 +13,7 @@ final class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     
-    var registerViewModel: RegisterViewModelProtocol
+    private var registerViewModel: RegisterViewModelProtocol
     
     required init?(coder: NSCoder) {
         self.registerViewModel = RegisterViewModel()
@@ -22,47 +22,57 @@ final class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("RegisterViewController")
+        initData()
+    }
+    
+    private func initData() {
         registerViewModel.delegate = self
-        
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        
-        guard !email.isEmpty, !password.isEmpty else {
-            showOneButtonAlert(
-                title: "Eksik Bilgi",
-                message: "Lütfen tüm alanları doldurun.",
-                buttonTitle: "Tamam"
-            )
-            return
-        }
-        
         sender.isEnabled = false
-        
-        Task(priority: .utility) {
-            defer {
-                sender.isEnabled = true
+        do {
+            guard let email = emailTextField.text, !email.isEmpty else {
+                throw ValidationError.emptyField(fieldName: "E-posta")
             }
             
-            await registerViewModel.registerUser(
-                email: email,
-                password: password
-            )
+            guard email.contains("@") else {
+                throw ValidationError.invalidEmail
+            }
+            
+            guard let password = passwordTextField.text, !password.isEmpty else {
+                throw ValidationError.emptyField(fieldName: "Şifre")
+            }
+            
+            guard password.count >= 6 else {
+                throw ValidationError.passwordTooShort(min: 6)
+            }
+            
+            Task(priority: .utility) {
+                defer {
+                    sender.isEnabled = true
+                }
+                
+                await registerViewModel.registerUser(
+                    email: email,
+                    password: password
+                )
+            }
+        }
+        catch {
+            sender.isEnabled = true
+            self.handleError(error)
         }
     }
     
 }
 
-extension RegisterViewController: RegisterViewModelOutputProtocol, ErrorPresentable {
+extension RegisterViewController: RegisterViewModelOutputProtocol {
     func didRegisterSuccessfully() {
-        print("Registration Successful")
         DispatchQueue.main.async {
             self.showOneButtonAlert(
                 title: "Kayıt Başarılı",
-                message: "Hesabınız başarıyla oluşturuldu. Giriş yapabilirsiniz.",
+                message: "Lütfen e-posta adresine gelen doğrulama bağlantısını kullanarak hesabını doğrula.",
                 buttonTitle: "Tamam"
             ) { _ in
                 self.navigationController?.popViewController(animated: true)
@@ -72,8 +82,12 @@ extension RegisterViewController: RegisterViewModelOutputProtocol, ErrorPresenta
     
     func didFailToRegister(with error: Error) {
         DispatchQueue.main.async {
-            self.handleError(error)
+            if let apiError = error as? APIError {
+                let refinedError = apiError.refinedForRegister()
+                self.handleError(refinedError)
+            } else {
+                self.handleError(error)
+            }
         }
     }
-    
 }
