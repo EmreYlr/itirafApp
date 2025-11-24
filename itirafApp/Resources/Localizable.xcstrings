@@ -1,6 +1,94 @@
 {
   "sourceLanguage" : "tr",
   "strings" : {
+    "auth.field.email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-Posta"
+          }
+        }
+      }
+    },
+    "auth.field.password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şifre"
+          }
+        }
+      }
+    },
+    "auth.forgot_password.success.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şifre sıfırlama bağlantısı e-posta adresinize gönderildi."
+          }
+        }
+      }
+    },
+    "auth.register.success.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen e-posta adresine gelen doğrulama bağlantısını kullanarak hesabınızı doğrulayınız."
+          }
+        }
+      }
+    },
+    "auth.register.success.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kayıt Başarılı"
+          }
+        }
+      }
+    },
+    "auth.title.forgot_password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şifremi Unuttum"
+          }
+        }
+      }
+    },
+    "auth.title.login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giriş Yap"
+          }
+        }
+      }
+    },
+    "auth.title.register" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kayıt Ol"
+          }
+        }
+      }
+    },
     "error.access_denied" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -51,7 +139,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hatalı İstek"
+            "value" : "İşlem Yapılamadı"
           }
         }
       }
@@ -227,6 +315,28 @@
         }
       }
     },
+    "general.button.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İptal"
+          }
+        }
+      }
+    },
+    "general.button.ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamam"
+          }
+        }
+      }
+    },
     "message.access_denied" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -277,7 +387,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "İstek hatalı. Lütfen kontrol edip tekrar deneyin."
+            "value" : "İsteğinizi şu anda gerçekleştiremiyoruz. Lütfen bilgilerinizi kontrol edip tekrar deneyin."
           }
         }
       }
@@ -515,6 +625,61 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Girdiğiniz bilgilerde hata var. Lütfen kontrol edin."
+          }
+        }
+      }
+    },
+    "success.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başarılı"
+          }
+        }
+      }
+    },
+    "validation.message.field_empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ alanı boş bırakılamaz."
+          }
+        }
+      }
+    },
+    "validation.message.invalid_email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen geçerli bir e-posta adresi giriniz."
+          }
+        }
+      }
+    },
+    "validation.message.password_short" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şifreniz en az %d karakter olmalıdır."
+          }
+        }
+      }
+    },
+    "validation.title.missing_info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eksik Bilgi"
           }
         }
       }

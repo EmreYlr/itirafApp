@@ -16,7 +16,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var appleLoginButton: UIButton!
     @IBOutlet weak var googleLoginButton: UIButton!
     
-    var loginViewModel: LoginViewModelProtocol
+    private var loginViewModel: LoginViewModelProtocol
     
     required init?(coder: NSCoder) {
         self.loginViewModel = LoginViewModel()
@@ -25,12 +25,13 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hello")
         initData()
     }
     
     private func initData() {
         loginViewModel.delegate = self
+        navigationItem.title = "auth.title.login".localized
+        
         let anonymousImage = UIImage(systemName: "person.crop.circle.fill.badge.questionmark")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: anonymousImage , style: .done, target: self, action: #selector(anonymousButtonTapped))
         
@@ -54,28 +55,32 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        
-        guard !email.isEmpty, !password.isEmpty else {
-            showOneButtonAlert(
-                title: "Hata",
-                message: "Lütfen e-posta ve şifre alanlarını doldurun.",
-                buttonTitle: "Tamam"
-            )
-            return
-        }
-        
         sender.isEnabled = false
-        
-        Task(priority: .utility) {
-            defer {
-                sender.isEnabled = true
+        do {
+            guard let email = emailTextField.text, !email.isEmpty else {
+                throw ValidationError.emptyField(fieldName: String(localized: "auth.field.email"))
             }
-            await loginViewModel.loginUser(
-                email: email,
-                password: password
-            )
+            
+            guard email.contains("@") else {
+                throw ValidationError.invalidEmail
+            }
+            
+            guard let password = passwordTextField.text, !password.isEmpty else {
+                throw ValidationError.emptyField(fieldName: String(localized: "auth.field.password"))
+            }
+            
+            Task(priority: .utility) {
+                defer {
+                    sender.isEnabled = true
+                }
+                await loginViewModel.loginUser(
+                    email: email,
+                    password: password
+                )
+            }
+        } catch {
+            sender.isEnabled = true
+            self.handleError(error)
         }
     }
     
@@ -95,12 +100,7 @@ final class LoginViewController: UIViewController {
     @IBAction func googleLoginButtonTapped(_ sender: UIButton) {
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] signInResult, error in
             guard let self = self else { return }
-            
-            if let error = error {
-                print("Google Login İptal veya Hata: \(error.localizedDescription)")
-                return
-            }
-            
+
             guard let result = signInResult,
                   let idToken = result.user.idToken?.tokenString else {
                 print("Google ID Token alınamadı.")
@@ -126,7 +126,6 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewModelOutputProtocol {
     func didLoginSuccessfully() {
-        print("Login Başarılı")
         DispatchQueue.main.async {
             let tabBarController: UITabBarController = Storyboard.main.instantiateTabBar(.mainTabBar)
             
@@ -135,12 +134,18 @@ extension LoginViewController: LoginViewModelOutputProtocol {
                 sceneDelegate.window?.rootViewController = tabBarController
                 sceneDelegate.window?.makeKeyAndVisible()
             }
-        }
-        
+        }    
     }
     
     func didFailToLogin(with error: Error) {
-        print("Login Başarısız: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            if let apiError = error as? APIError {
+                let refinedError = apiError.refinedForLogin()
+                self.handleError(refinedError)
+            } else {
+                self.handleError(error)
+            }
+        }
     }
 }
 

@@ -27,13 +27,14 @@ final class RegisterViewController: UIViewController {
     
     private func initData() {
         registerViewModel.delegate = self
+        navigationItem.title = "auth.title.register".localized
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         sender.isEnabled = false
         do {
             guard let email = emailTextField.text, !email.isEmpty else {
-                throw ValidationError.emptyField(fieldName: "E-posta")
+                throw ValidationError.emptyField(fieldName: String(localized: "auth.field.email"))
             }
             
             guard email.contains("@") else {
@@ -41,7 +42,7 @@ final class RegisterViewController: UIViewController {
             }
             
             guard let password = passwordTextField.text, !password.isEmpty else {
-                throw ValidationError.emptyField(fieldName: "Şifre")
+                throw ValidationError.emptyField(fieldName: String(localized: "auth.field.password"))
             }
             
             guard password.count >= 6 else {
@@ -71,9 +72,9 @@ extension RegisterViewController: RegisterViewModelOutputProtocol {
     func didRegisterSuccessfully() {
         DispatchQueue.main.async {
             self.showOneButtonAlert(
-                title: "Kayıt Başarılı",
-                message: "Lütfen e-posta adresine gelen doğrulama bağlantısını kullanarak hesabını doğrula.",
-                buttonTitle: "Tamam"
+                title: String(localized: "auth.register.success.title"),
+                message: String(localized: "auth.register.success.message"),
+                buttonTitle: String(localized: "general.button.ok")
             ) { _ in
                 self.navigationController?.popViewController(animated: true)
             }

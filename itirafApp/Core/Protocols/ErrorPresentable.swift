@@ -20,12 +20,12 @@ extension ErrorPresentable where Self: UIViewController {
             title = userFriendlyError.title
             message = userFriendlyError.message
         } else {
-            title = "Hata"
+            title = "error.unknown".localized
             message = error.localizedDescription
         }
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Tamam", style: .default))
+        alert.addAction(UIAlertAction(title: "general.button.ok".localized, style: .default))
         present(alert, animated: true)
     }
 }

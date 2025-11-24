@@ -11,17 +11,19 @@ enum ValidationError: UserFriendlyError {
     case emptyField(fieldName: String)
     
     var title: String {
-        return "Eksik Bilgi"
+        return "validation.title.missing_info".localized
     }
     
     var message: String {
         switch self {
         case .invalidEmail:
-            return "Lütfen geçerli bir e-posta adresi giriniz."
+            return String(localized: "validation.message.invalid_email")
+            
         case .passwordTooShort(let min):
-            return "Şifreniz en az \(min) karakter olmalıdır."
+            return "validation.message.password_short".localized(min)
+            
         case .emptyField(let fieldName):
-            return "\(fieldName) alanı boş bırakılamaz."
+            return "validation.message.field_empty".localized(fieldName)
         }
     }
 }

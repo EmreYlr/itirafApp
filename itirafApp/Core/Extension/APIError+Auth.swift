@@ -15,7 +15,8 @@ extension APIError {
         case 1302: 
             copy.customMessage = String(localized: "message.register_conflict")
             copy.customTitle = String(localized: "error.register_failed")
-        default: break
+        default:
+            break
         }
         return copy
     }
@@ -23,8 +24,11 @@ extension APIError {
     func refinedForLogin() -> APIError {
         var copy = self
         switch code {
-        case 1404: copy.customMessage = String(localized: "message.login_credentials_error")
-        default: break
+        case 1400:
+            copy.customMessage = String(localized: "message.login_credentials_error")
+            copy.customTitle = String(localized: "error.login_failed")
+        default:
+            break
         }
         return copy
     }

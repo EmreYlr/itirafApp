@@ -1,0 +1,114 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "1M0-0q-6uT.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Hesap oluşturarak itiraflarınızı paylaşmaya hemen başlayabilirsiniz.\"; ObjectID = \"1M0-0q-6uT\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hesap oluşturarak itiraflarınızı paylaşmaya hemen başlayabilirsiniz."
+          }
+        }
+      }
+    },
+    "2mz-qQ-tuB.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"E-posta ile kayıt ol\"; ObjectID = \"2mz-qQ-tuB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "E-posta ile kayıt ol"
+          }
+        }
+      }
+    },
+    "Gt4-F0-zpW.title" : {
+      "comment" : "Class = \"UINavigationItem\"; title = \"Kayıt Ol\"; ObjectID = \"Gt4-F0-zpW\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Kayıt Ol"
+          }
+        }
+      }
+    },
+    "jeM-v3-VyP.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"E-postanızı giriniz\"; ObjectID = \"jeM-v3-VyP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "E-postanızı giriniz"
+          }
+        }
+      }
+    },
+    "oBH-to-rpU.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Şifre\"; ObjectID = \"oBH-to-rpU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Şifre"
+          }
+        }
+      }
+    },
+    "tMF-it-rId.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Kayıt Ol\"; ObjectID = \"tMF-it-rId\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Kayıt Ol"
+          }
+        }
+      }
+    },
+    "tMF-it-rId.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"tMF-it-rId\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "veg-cV-Mhv.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"E-posta\"; ObjectID = \"veg-cV-Mhv\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "E-posta"
+          }
+        }
+      }
+    },
+    "vYa-dE-kKB.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"Şifrenizi giriniz\"; ObjectID = \"vYa-dE-kKB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Şifrenizi giriniz"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}
