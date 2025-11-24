@@ -68,30 +68,30 @@ enum Violation: String, Codable, CaseIterable {
     case spam = "SPAM"
     case other = "OTHER"
     
-    var turkishDescription: String {
+    var description: String {
         switch self {
         case .none:
-            return "İhlal Yok"
+            return "violation.none".localized
         case .profanity:
-            return "Küfür"
+            return "violation.profanity".localized
         case .harassment:
-            return "Taciz"
+            return "violation.harassment".localized
         case .personalInfo:
-            return "Kişisel Bilgi Paylaşımı"
+            return "violation.personal_info".localized
         case .hateSpeech:
-            return "Nefret Söylemi"
+            return "violation.hate_speech".localized
         case .threat:
-            return "Tehdit"
+            return "violation.threat".localized
         case .sexualContent:
-            return "Cinsel İçerik"
+            return "violation.sexual_content".localized
         case .violence:
-            return "Şiddet"
+            return "violation.violence".localized
         case .discrimination:
-            return "Ayrımcılık"
+            return "violation.discrimination".localized
         case .spam:
-            return "Spam"
+            return "violation.spam".localized
         case .other:
-            return "Diğer"
+            return "violation.other".localized
         }
     }
     

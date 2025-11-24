@@ -105,7 +105,7 @@ final class ModerationDetailViewController: UIViewController {
             violationsLabel.isHidden = true
         } else {
             violationsLabel.isHidden = false
-            let descriptions = viewModel.selectedViolations.map { $0.turkishDescription }
+            let descriptions = viewModel.selectedViolations.map { $0.description }
             violationsLabel.text = "(\(descriptions.joined(separator: ", ")))"
             violationsLabel.textColor = .systemGray
         }

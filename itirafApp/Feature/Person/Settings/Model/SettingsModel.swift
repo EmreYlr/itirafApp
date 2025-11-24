@@ -13,9 +13,9 @@ enum SettingsSection: Int, CaseIterable {
     var title: String {
         switch self {
         case .profile:
-            return "PROFİL"
+            return "settings.section.profile".localized
         case .account:
-            return "HESAP"
+            return "settings.section.account".localized
         }
     }
 }
@@ -38,16 +38,16 @@ struct SettingItem: Hashable {
     
     static func getProfileItems() -> [SettingItem] {
         return [
-            .init(title: "Profili Düzenle", iconSystemName: "person", type: .editProfile),
-            .init(title: "Şifreyi Değiştir", iconSystemName: "lock", type: .changePassword)
+            .init(title: "settings.item.edit_profile".localized, iconSystemName: "person", type: .editProfile),
+            .init(title: "settings.item.change_password".localized, iconSystemName: "lock", type: .changePassword)
         ]
     }
     
     static func getAccountItems() -> [SettingItem] {
         return [
-            .init(title: "Bildirimler", iconSystemName: "bell", type: .notifications),
-            .init(title: "Gizlilik Politikası", iconSystemName: "shield", type: .privacyPolicy),
-            .init(title: "Hakkımızda", iconSystemName: "info.circle", type: .aboutUs)
+            .init(title: "settings.item.notifications".localized, iconSystemName: "bell", type: .notifications),
+            .init(title: "settings.item.privacy_policy".localized, iconSystemName: "shield", type: .privacyPolicy),
+            .init(title: "settings.item.about_us".localized, iconSystemName: "info.circle", type: .aboutUs)
         ]
     }
 }

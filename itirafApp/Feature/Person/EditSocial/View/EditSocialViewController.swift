@@ -57,21 +57,21 @@ final class EditSocialViewController: UIViewController {
     }
     private func initData() {
         viewModel.delegate = self
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sil" , style: .done, target: self, action: #selector(deleteButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "general.button.delete".localized , style: .done, target: self, action: #selector(deleteButtonTapped))
         navigationItem.rightBarButtonItem?.tintColor = .systemRed
         
         if source == .editButton, let link = viewModel.getUserSocialLinks() {
-            navigationItem.title = "Hesap Düzenle"
+            navigationItem.title = "social.title.edit_account".localized
             navigationItem.rightBarButtonItem?.isHidden = false
             platformSelectButton.setTitle(link.platform.displayName, for: .normal)
             platformUsernameTextField.text = link.username
             platformUserLinkTextField.text = link.url
             selectedPlatform = link.platform
-            addOrEditButton.setTitle("Hesabı Düzenle", for: .normal)
+            addOrEditButton.setTitle("social.button.edit_account".localized, for: .normal)
         } else {
-            navigationItem.title = "Hesap Ekle"
+            navigationItem.title = "social.title.add_account".localized
             navigationItem.rightBarButtonItem?.isHidden = true
-            addOrEditButton.setTitle("Hesap Ekle", for: .normal)
+            addOrEditButton.setTitle("social.title.add_account".localized, for: .normal)
         }
         
     }
@@ -115,12 +115,12 @@ final class EditSocialViewController: UIViewController {
     
     private func validateInput() -> Bool {
         guard let username = platformUsernameTextField.text, !username.isEmpty else {
-            showOneButtonAlert(title: "Hata", message: "Lütfen kullanıcı adını girin.", buttonTitle: "Tamam")
+            showOneButtonAlert(title: "error.unknown".localized, message: "social.error.message.enter_username".localized, buttonTitle: "general.button.ok".localized)
             return false
         }
         
         if let platformUsername = viewModel.socialLink?.username,  platformUsername == platformUsernameTextField.text {
-            showOneButtonAlert(title: "Hata", message: "Lütfen farklı bir kullanıcı adı girin.", buttonTitle: "Tamam")
+            showOneButtonAlert(title: "error.unknown".localized, message: "social.error.message.enter_different_username".localized, buttonTitle: "general.button.ok".localized)
             return false
         }
         
@@ -137,7 +137,7 @@ final class EditSocialViewController: UIViewController {
         }
         
         guard let selectedPlatform = selectedPlatform else {
-            showOneButtonAlert(title: "Hata", message: "Lütfen bir platform seçin.", buttonTitle: "Tamam")
+            showOneButtonAlert(title: "error.unknown".localized, message: "social.error.message.select_platform".localized, buttonTitle: "general.button.ok".localized)
             return
         }
         
@@ -156,11 +156,11 @@ final class EditSocialViewController: UIViewController {
     }
     
     @objc private func deleteButtonTapped() {
-        showTwoButtonAlert(title: "Uyarı", message: "Sosyal medya hesabınızı silmek istediğinizden emin misiniz?", firstButtonTitle: "Evet", firstButtonHandler: { _ in
+        showTwoButtonAlert(title: "general.title.warning".localized, message: "social.message.delete_confirmation".localized, firstButtonTitle: "general.button.yes".localized, firstButtonHandler: { _ in
             Task(priority: .utility) {
                 await self.viewModel.deleteSocialLink()
             }
-        }, secondButtonTitle: "İptal", secondButtonHandler: nil)
+        }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)
     }
         
 }
@@ -168,7 +168,7 @@ final class EditSocialViewController: UIViewController {
 extension EditSocialViewController: EditSocialViewModelDelegate {
     func didCreateSocialLinks() {
         DispatchQueue.main.async { [weak self] in
-            self?.showOneButtonAlert(title: "Başarılı", message: "Sosyal medya hesap bilgileriniz başarılı bir şekilde eklendi.", buttonTitle: "Tamam") { [weak self] _ in
+            self?.showOneButtonAlert(title: "success.title".localized, message: "social.success.message.added".localized, buttonTitle: "general.button.ok".localized) { [weak self] _ in
                 self?.onSave?()
                 self?.navigationController?.popToRootViewController(animated: true)
             }
@@ -177,7 +177,7 @@ extension EditSocialViewController: EditSocialViewModelDelegate {
     
     func didUpdateSocialLinks() {
         DispatchQueue.main.async { [weak self] in
-            self?.showOneButtonAlert(title: "Başarılı", message: "Sosyal medya hesap bilgileriniz başarılı bir şekilde güncellendi.", buttonTitle: "Tamam") { [weak self] _ in
+            self?.showOneButtonAlert(title: "success.title".localized, message: "social.success.message.updated".localized, buttonTitle: "general.button.ok".localized) { [weak self] _ in
                 self?.onSave?()
                 self?.navigationController?.popToRootViewController(animated: true)
             }
@@ -192,6 +192,8 @@ extension EditSocialViewController: EditSocialViewModelDelegate {
     }
     
     func didFailSocialLinks(with error: any Error) {
-        print("Error updating social links: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
 }

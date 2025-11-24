@@ -37,7 +37,7 @@ final class EditConfessionViewController: UIViewController {
     }
     
     private func initView() {
-        navigationItem.title = "İtirafı Düzenle"
+        navigationItem.title = "confession.title.edit_confession".localized
         statusView.layer.cornerRadius = statusView.frame.height / 2
         statusView.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2)
         reportView.layer.cornerRadius = 10
@@ -67,9 +67,9 @@ final class EditConfessionViewController: UIViewController {
         
         var violationText = ""
         if let violations = myConfession.violations, !violations.isEmpty {
-            let turkishViolations = violations.map { $0.turkishDescription }
+            let description = violations.map { $0.description }
             
-            let joinedViolations = turkishViolations.joined(separator: ", ")
+            let joinedViolations = description.joined(separator: ", ")
             
             violationText = " (\(joinedViolations))"
         }
@@ -80,25 +80,38 @@ final class EditConfessionViewController: UIViewController {
     }
     
     @objc private func deleteButtonTapped() {
-        showTwoButtonAlert(title: "Uyarı", message: "İtirafınızı silmek istediğinizden emin misiniz?", firstButtonTitle: "Evet", firstButtonHandler: { _ in
+        showTwoButtonAlert(title: "general.title.warning".localized, message: "confession.message.delete_confirmation".localized, firstButtonTitle: "general.button.yes".localized, firstButtonHandler: { _ in
             Task(priority: .utility) {
                 await self.viewModel.deleteConfession()
             }
-        }, secondButtonTitle: "İptal", secondButtonHandler: nil)
+        }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)
     }
 
     @IBAction func editButtonTapped(_ sender: UIButton) {
-        let titleText = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let detailText = detailTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        
-        if titleText.isEmpty || detailText.isEmpty {
-            showOneButtonAlert(title: "Uyarı", message: "Lütfen başlık ve açıklamayı doldurun.", buttonTitle: "Tamam")
-            return
+        sender.isEnabled = false
+        do {
+            let titleText = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let detailText = detailTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            
+            guard !titleText.isEmpty else {
+                throw ValidationError.emptyField(fieldName: String(localized: "confession.field.title"))
+            }
+            
+            guard !detailText.isEmpty else {
+                throw ValidationError.emptyField(fieldName: String(localized: "confession.field.description"))
+            }
+            
+            Task(priority: .utility) {
+                defer {
+                    sender.isEnabled = true
+                }
+                await viewModel.editConfession(title: titleText, message: detailText)
+            }
+            
+        } catch {
+            sender.isEnabled = true
+            self.handleError(error)
         }
-        Task(priority: .utility) {
-            await viewModel.editConfession(title: titleText, message: detailText)
-        }
-        
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
@@ -109,7 +122,7 @@ final class EditConfessionViewController: UIViewController {
 extension EditConfessionViewController: EditConfessionViewModelDelegate {
     func didDeleteConfession() {
         DispatchQueue.main.async { [weak self] in
-            self?.showOneButtonAlert(title: "Başarılı", message: "İtirafınız başarılı bir şekilde silindi.", buttonTitle: "Tamam") { [weak self] _ in
+            self?.showOneButtonAlert(title: "general.title.success".localized, message: "confession.success.message.deleted".localized, buttonTitle: "general.button.ok".localized) { [weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
             }
         }
@@ -117,14 +130,16 @@ extension EditConfessionViewController: EditConfessionViewModelDelegate {
     
     func didUpdateConfession() {
         DispatchQueue.main.async { [weak self] in
-            self?.showOneButtonAlert(title: "Başarılı", message: "İtirafınız düzenlendi ve denetim için modarasyona gönderildi.", buttonTitle: "Tamam") { [weak self] _ in
+            self?.showOneButtonAlert(title: "general.title.success".localized, message: "confession.success.message.updated".localized, buttonTitle: "general.button.ok".localized) { [weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
             }
         }
     }
     
     func didError(error: any Error) {
-        print("Error: \(error.localizedDescription)")
+        DispatchQueue.main.async { [weak self] in
+            self?.handleError(error)
+        }
     }
 }
 

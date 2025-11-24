@@ -34,7 +34,7 @@ final class PersonViewController: UIViewController {
         personViewModel.delegate = self
         addNewSocialButton.layer.cornerRadius = 8
         
-        usernameLabel.text = UserManager.shared.getUsername() ?? "Anonymous"
+        usernameLabel.text = UserManager.shared.getUsername() ?? "person.username.anonymous".localized
         personView.layer.cornerRadius = personView.frame.width / 2
         personView.clipsToBounds = true
         personView.layer.borderWidth = 1

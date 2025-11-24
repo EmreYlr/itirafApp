@@ -49,19 +49,19 @@ final class MyConfessionsCollectionViewCell: UICollectionViewCell {
             statusView.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.2)
             statusImageView.tintColor = .systemGreen
             statusLabel.textColor = .systemGreen
-            statusLabel.text = "Aktif"
+            statusLabel.text = "confession.status.active".localized
             editButton.isHidden = true
         case .humanRejected, .aiRejected:
             statusView.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2)
             statusImageView.tintColor = .systemRed
             statusLabel.textColor = .systemRed
-            statusLabel.text = "Reddedildi"
+            statusLabel.text = "confession.status.rejected".localized
             editButton.isHidden = false
         case .pending, .needsHumanReview:
             statusView.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.2)
             statusImageView.tintColor = .systemOrange
             statusLabel.textColor = .systemOrange
-            statusLabel.text = "Onay Bekliyor"
+            statusLabel.text = "confession.status.pending".localized
             editButton.isHidden = true
         }
     }

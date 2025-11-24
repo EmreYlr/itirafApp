@@ -188,6 +188,160 @@
         }
       }
     },
+    "channel.search.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kanal ara..."
+          }
+        }
+      }
+    },
+    "channel.title.followed_channels" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Takip Edilen Kanallar"
+          }
+        }
+      }
+    },
+    "confession.error.message.fill_fields" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen başlık ve açıklamayı doldurun."
+          }
+        }
+      }
+    },
+    "confession.field.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Açıklama"
+          }
+        }
+      }
+    },
+    "confession.field.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başlık"
+          }
+        }
+      }
+    },
+    "confession.message.delete_confirmation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İtirafınızı silmek istediğinizden emin misiniz?"
+          }
+        }
+      }
+    },
+    "confession.status.active" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktif"
+          }
+        }
+      }
+    },
+    "confession.status.pending" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onay Bekliyor"
+          }
+        }
+      }
+    },
+    "confession.status.reason_not_specified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belirtilmemiş"
+          }
+        }
+      }
+    },
+    "confession.status.rejected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reddedildi"
+          }
+        }
+      }
+    },
+    "confession.status.unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bilinmiyor"
+          }
+        }
+      }
+    },
+    "confession.success.message.deleted" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İtirafınız başarılı bir şekilde silindi."
+          }
+        }
+      }
+    },
+    "confession.success.message.updated" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İtirafınız düzenlendi ve denetim için modarasyona gönderildi."
+          }
+        }
+      }
+    },
+    "confession.title.edit_confession" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İtirafı Düzenle"
+          }
+        }
+      }
+    },
     "error.access_denied" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -272,6 +426,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Giriş Hatası"
+          }
+        }
+      }
+    },
+    "error.message.invalid_input" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Girdiğiniz bilgiler geçersiz."
+          }
+        }
+      }
+    },
+    "error.message.navigation_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sayfa geçişi sırasında bir hata oluştu."
+          }
+        }
+      }
+    },
+    "error.message.unexpected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beklenmedik bir hata oluştu. Lütfen daha sonra tekrar deneyin."
           }
         }
       }
@@ -370,6 +557,17 @@
         }
       }
     },
+    "error.title.app_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulama Hatası"
+          }
+        }
+      }
+    },
     "error.too_many_requests" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -404,15 +602,7 @@
       }
     },
     "error.validation" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Doğrulama Hatası"
-          }
-        }
-      }
+
     },
     "general.button.cancel" : {
       "extractionState" : "manual",
@@ -425,6 +615,17 @@
         }
       }
     },
+    "general.button.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sil"
+          }
+        }
+      }
+    },
     "general.button.ok" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -432,6 +633,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tamam"
+          }
+        }
+      }
+    },
+    "general.button.yes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Evet"
+          }
+        }
+      }
+    },
+    "general.title.success" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başarılı"
+          }
+        }
+      }
+    },
+    "general.title.warning" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uyarı"
           }
         }
       }
@@ -728,6 +962,17 @@
         }
       }
     },
+    "person.username.anonymous" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anonymous"
+          }
+        }
+      }
+    },
     "settings.error.message.cant_open_settings" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -772,6 +1017,83 @@
         }
       }
     },
+    "settings.item.about_us" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hakkımızda"
+          }
+        }
+      }
+    },
+    "settings.item.change_password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şifreyi Değiştir"
+          }
+        }
+      }
+    },
+    "settings.item.edit_profile" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profili Düzenle"
+          }
+        }
+      }
+    },
+    "settings.item.notifications" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildirimler"
+          }
+        }
+      }
+    },
+    "settings.item.privacy_policy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gizlilik Politikası"
+          }
+        }
+      }
+    },
+    "settings.section.account" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HESAP"
+          }
+        }
+      }
+    },
+    "settings.section.profile" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PROFİL"
+          }
+        }
+      }
+    },
     "settings.title.main" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -783,13 +1105,101 @@
         }
       }
     },
-    "settings.title.notifications" : {
+    "social.button.edit_account" : {
       "extractionState" : "manual",
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bildirim Tercihleri"
+            "value" : "Hesabı Düzenle"
+          }
+        }
+      }
+    },
+    "social.error.message.enter_different_username" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen farklı bir kullanıcı adı girin."
+          }
+        }
+      }
+    },
+    "social.error.message.enter_username" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen kullanıcı adını girin."
+          }
+        }
+      }
+    },
+    "social.error.message.select_platform" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen bir platform seçin."
+          }
+        }
+      }
+    },
+    "social.message.delete_confirmation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sosyal medya hesabınızı silmek istediğinizden emin misiniz?"
+          }
+        }
+      }
+    },
+    "social.success.message.added" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sosyal medya hesap bilgileriniz başarılı bir şekilde eklendi."
+          }
+        }
+      }
+    },
+    "social.success.message.updated" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sosyal medya hesap bilgileriniz başarılı bir şekilde güncellendi."
+          }
+        }
+      }
+    },
+    "social.title.add_account" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesap Ekle"
+          }
+        }
+      }
+    },
+    "social.title.edit_account" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesap Düzenle"
           }
         }
       }
@@ -845,6 +1255,127 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eksik Bilgi"
+          }
+        }
+      }
+    },
+    "violation.discrimination" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayrımcılık"
+          }
+        }
+      }
+    },
+    "violation.harassment" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taciz"
+          }
+        }
+      }
+    },
+    "violation.hate_speech" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nefret Söylemi"
+          }
+        }
+      }
+    },
+    "violation.none" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İhlal Yok"
+          }
+        }
+      }
+    },
+    "violation.other" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diğer"
+          }
+        }
+      }
+    },
+    "violation.personal_info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kişisel Bilgi Paylaşımı"
+          }
+        }
+      }
+    },
+    "violation.profanity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Küfür"
+          }
+        }
+      }
+    },
+    "violation.sexual_content" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cinsel İçerik"
+          }
+        }
+      }
+    },
+    "violation.spam" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spam"
+          }
+        }
+      }
+    },
+    "violation.threat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tehdit"
+          }
+        }
+      }
+    },
+    "violation.violence" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şiddet"
           }
         }
       }

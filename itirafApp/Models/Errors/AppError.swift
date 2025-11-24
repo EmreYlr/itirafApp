@@ -13,17 +13,17 @@ enum AppError: UserFriendlyError {
     case invalidInput
     
     var title: String {
-        return "Uygulama Hatası"
+        return "error.title.app_error".localized
     }
     
     var message: String {
         switch self {
         case .unknown:
-            return "Beklenmedik bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+            return "error.message.unexpected".localized
         case .navigationError:
-            return "Sayfa geçişi sırasında bir hata oluştu."
+            return "error.message.navigation_error".localized
         case .invalidInput:
-            return "Girdiğiniz bilgiler geçersiz."
+            return "error.message.invalid_input".localized
         }
     }
 }

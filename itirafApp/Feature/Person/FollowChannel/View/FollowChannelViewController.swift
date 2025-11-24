@@ -38,7 +38,7 @@ final class FollowChannelViewController: UIViewController {
     
     private func initData() {
         viewModel.delegate = self
-        navigationItem.title = "Takip Edilen Kanallar"
+        navigationItem.title = "channel.title.followed_channels".localized
         Task {
             await viewModel.getFollowedChannels()
             
@@ -58,7 +58,7 @@ final class FollowChannelViewController: UIViewController {
     
     private func initSearchBar() {
         searchBar.delegate = self
-        searchBar.placeholder = "Kanal ara..."
+        searchBar.placeholder = "channel.search.placeholder".localized
         searchBar.showsCancelButton = true
     }
     
@@ -79,6 +79,9 @@ extension FollowChannelViewController: FollowChannelViewModelDelegate {
     }
     
     func didFailWithError(_ error: any Error) {
-        print("FollowChannelViewController Error: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.collectionView.refreshControl?.endRefreshing()
+            self.handleError(error)
+        }
     }
 }

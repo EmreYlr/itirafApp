@@ -77,7 +77,7 @@ extension ViolationsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ViolationCell", for: indexPath)
         let violation = allViolations[indexPath.row]
         
-        cell.textLabel?.text = violation.turkishDescription
+        cell.textLabel?.text = violation.description
         cell.selectionStyle = .none
 
         cell.tintColor = .systemMint

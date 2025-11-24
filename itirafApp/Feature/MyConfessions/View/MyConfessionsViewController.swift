@@ -21,7 +21,6 @@ final class MyConfessionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("My Confessions")
         initData()
         loadCollectionView()
         configureDataSource()
@@ -111,6 +110,9 @@ extension MyConfessionsViewController: MyConfessionsViewModelDelegate {
     }
     
     func didError(_ error: Error) {
-        print("Error: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+            self.collectionView.refreshControl?.endRefreshing()
+        }
     }
 }
