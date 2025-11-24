@@ -195,6 +195,7 @@
 		C3D8E2042E9005F5006C7E8F /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E2032E9005F2006C7E8F /* PersonViewModel.swift */; };
 		C3DF50292ED4A362003D5FB8 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3DF50282ED4A362003D5FB8 /* Register.storyboard */; };
 		C3DF502D2ED4A507003D5FB8 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3DF502C2ED4A507003D5FB8 /* ForgotPassword.storyboard */; };
+		C3DF50322ED4BC95003D5FB8 /* NotificationSettingsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF50312ED4BC95003D5FB8 /* NotificationSettingsError.swift */; };
 		C3E660122EAF853B0059048F /* String+DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660112EAF85320059048F /* String+DateFormatting.swift */; };
 		C3E660142EAFACD80059048F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660132EAFACC50059048F /* Date+Extension.swift */; };
 		C3E660162EAFB7F00059048F /* ChatViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E660152EAFB7EA0059048F /* ChatViewController+ScrollView.swift */; };
@@ -431,6 +432,7 @@
 		C3DF502A2ED4A362003D5FB8 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Register.xcstrings; sourceTree = "<group>"; };
 		C3DF502B2ED4A507003D5FB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ForgotPassword.storyboard; sourceTree = "<group>"; };
 		C3DF502E2ED4A507003D5FB8 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ForgotPassword.xcstrings; sourceTree = "<group>"; };
+		C3DF50312ED4BC95003D5FB8 /* NotificationSettingsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsError.swift; sourceTree = "<group>"; };
 		C3E660112EAF85320059048F /* String+DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateFormatting.swift"; sourceTree = "<group>"; };
 		C3E660132EAFACC50059048F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		C3E660152EAFB7EA0059048F /* ChatViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+ScrollView.swift"; sourceTree = "<group>"; };
@@ -1439,6 +1441,7 @@
 		C3BE197C2ED215260053C9A9 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
+				C3DF50312ED4BC95003D5FB8 /* NotificationSettingsError.swift */,
 				C3BE19812ED215610053C9A9 /* ValidationError.swift */,
 				C3BE197F2ED215470053C9A9 /* BusinessError.swift */,
 				C3BE197D2ED2153F0053C9A9 /* AuthError.swift */,
@@ -2504,6 +2507,7 @@
 				C3BE19352ECC77C20053C9A9 /* HomeContainerService.swift in Sources */,
 				C3A750A52EB626CA0058163B /* RequestMessageModel.swift in Sources */,
 				C3BE192F2ECC77960053C9A9 /* HomeContainerViewModel.swift in Sources */,
+				C3DF50322ED4BC95003D5FB8 /* NotificationSettingsError.swift in Sources */,
 				C3BE19872ED216090053C9A9 /* ErrorPresentable.swift in Sources */,
 				C3C173C12EC5EF0C00D27383 /* FlowViewController.swift in Sources */,
 				C3A750852EB50A140058163B /* SettingsService.swift in Sources */,

@@ -1,6 +1,50 @@
 {
   "sourceLanguage" : "tr",
   "strings" : {
+    "auth.button.logout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çıkış Yap"
+          }
+        }
+      }
+    },
+    "auth.error.message.anonymous_login_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anonim kullanıcı girişi yapılamadı."
+          }
+        }
+      }
+    },
+    "auth.error.message.session_not_found" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oturum bilgisi bulunamadı. Lütfen tekrar giriş yapın."
+          }
+        }
+      }
+    },
+    "auth.error.title.session" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oturum Hatası"
+          }
+        }
+      }
+    },
     "auth.field.email" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -30,6 +74,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Şifre sıfırlama bağlantısı e-posta adresinize gönderildi."
+          }
+        }
+      }
+    },
+    "auth.logout.message.confirmation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çıkış yapmak istediğinizden emin misiniz?"
+          }
+        }
+      }
+    },
+    "auth.logout.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çıkış Yap"
           }
         }
       }
@@ -85,6 +151,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kayıt Ol"
+          }
+        }
+      }
+    },
+    "business.error.message.channel_id_not_found" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kanal ID'si bulunamadı. Lütfen tekrar deneyin."
+          }
+        }
+      }
+    },
+    "business.error.message.invalid_data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gönderilen veri bozuk veya eksik."
+          }
+        }
+      }
+    },
+    "business.error.title.failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İşlem Başarısız"
           }
         }
       }
@@ -625,6 +724,72 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Girdiğiniz bilgilerde hata var. Lütfen kontrol edin."
+          }
+        }
+      }
+    },
+    "settings.error.message.cant_open_settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayarlar menüsü açılamadı. Lütfen manuel olarak Ayarlar > Bildirimler menüsüne gidin."
+          }
+        }
+      }
+    },
+    "settings.error.message.fetch_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildirim ayarları yüklenirken bir sorun oluştu."
+          }
+        }
+      }
+    },
+    "settings.error.message.update_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Değişiklikler kaydedilemedi. Lütfen tekrar deneyin."
+          }
+        }
+      }
+    },
+    "settings.error.title.general" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayarlar Hatası"
+          }
+        }
+      }
+    },
+    "settings.title.main" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayarlar"
+          }
+        }
+      }
+    },
+    "settings.title.notifications" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildirim Tercihleri"
           }
         }
       }

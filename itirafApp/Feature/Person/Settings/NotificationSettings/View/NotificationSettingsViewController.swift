@@ -55,7 +55,7 @@ final class NotificationSettingsViewController: UIViewController {
     
     private func initData() {
         viewModel.delegate = self
-        navigationItem.title = "Bildirim Terchileri"
+        navigationItem.title = "settings.title.notifications".localized
         
         NotificationCenter.default.addObserver(
             self,
@@ -63,6 +63,7 @@ final class NotificationSettingsViewController: UIViewController {
             name: UIApplication.willEnterForegroundNotification,
             object: nil
         )
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleNotificationRequestComplete),
@@ -146,6 +147,8 @@ extension NotificationSettingsViewController: NotificationSettingsViewModelDeleg
     }
     
     func didFailWithError(_ error: any Error) {
-        print("Error fetching notification preferences: \(error)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
 }

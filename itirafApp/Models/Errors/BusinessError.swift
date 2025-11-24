@@ -10,15 +10,15 @@ enum BusinessError: UserFriendlyError {
     case invalidConfessionData
     
     var title: String {
-        return "İşlem Başarısız"
+        return "business.error.title.failed".localized
     }
     
     var message: String {
         switch self {
         case .channelIdNotFound:
-            return "Kanal ID'si bulunamadı. Lütfen tekrar deneyin."
+            return "business.error.message.channel_id_not_found".localized
         case .invalidConfessionData:
-            return "Gönderilen veri bozuk veya eksik."
+            return "business.error.message.invalid_data".localized
         }
     }
 }

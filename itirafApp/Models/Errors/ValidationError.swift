@@ -17,7 +17,7 @@ enum ValidationError: UserFriendlyError {
     var message: String {
         switch self {
         case .invalidEmail:
-            return String(localized: "validation.message.invalid_email")
+            return "validation.message.invalid_email".localized
             
         case .passwordTooShort(let min):
             return "validation.message.password_short".localized(min)

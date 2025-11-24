@@ -11,15 +11,16 @@ enum AuthError: UserFriendlyError {
     case anonymousUserNotLoggedIn
     
     var title: String {
-        return "Oturum Hatası"
+        return "auth.error.title.session".localized
     }
     
     var message: String {
         switch self {
         case .tokenNotFound, .sessionExpired:
-            return "Oturum bilgisi bulunamadı. Lütfen tekrar giriş yapın."
+            return "auth.error.message.session_not_found".localized
+            
         case .anonymousUserNotLoggedIn:
-            return "Anonim kullanıcı girişi yapılamadı."
+            return "auth.error.message.anonymous_login_failed".localized
         }
     }
 }

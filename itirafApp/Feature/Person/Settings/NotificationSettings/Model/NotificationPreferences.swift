@@ -21,7 +21,7 @@ struct NotificationPreferences: Codable {
 struct NotificationPreferencesItem: Codable {
     let notificationType: NotificationPreferencesType
     let eventType: NotificationEventType
-    let enabled: Bool
+    var enabled: Bool
 }
 
 enum NotificationPreferencesType: String, Codable {

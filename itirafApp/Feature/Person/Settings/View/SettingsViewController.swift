@@ -152,14 +152,12 @@ final class SettingsViewController: UIViewController {
             performLogoutAction()
         } else {
             showTwoButtonAlert(
-                title: "Çıkış Yap",
-                message: "Çıkış yapmak istediğinizden emin misiniz?",
-                firstButtonTitle: "Çıkış Yap",
+                title: "auth.logout.title".localized,
+                message: "auth.logout.message.confirmation".localized,
+                firstButtonTitle: "auth.button.logout".localized,
                 firstButtonHandler: { _ in
                     performLogoutAction()
-                },
-                secondButtonTitle: "İptal",
-                secondButtonHandler: nil
+                }
             )
         }
     }
@@ -167,19 +165,22 @@ final class SettingsViewController: UIViewController {
 
 extension SettingsViewController: SettingsViewModelDelegate {
     func didLogoutSuccessfully() {
-        print("Logout Başarılı")
-        DispatchQueue.main.async {
-            let loginNavigationController = Storyboard.login.instantiateNav(.loginNav)
-            
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let sceneDelegate = windowScene.delegate as? SceneDelegate {
-                sceneDelegate.window?.rootViewController = loginNavigationController
-                sceneDelegate.window?.makeKeyAndVisible()
-            }
-        }
+        navigateToLogin()
     }
     
     func didFailToLogout(with error: any Error) {
         print(error)
+        navigateToLogin()
+    }
+    
+    private func navigateToLogin() {
+        DispatchQueue.main.async {
+            let loginNavigationController = Storyboard.login.instantiateNav(.loginNav)
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                sceneDelegate.window?.rootViewController = loginNavigationController
+                sceneDelegate.window?.makeKeyAndVisible()
+            }
+        }
     }
 }

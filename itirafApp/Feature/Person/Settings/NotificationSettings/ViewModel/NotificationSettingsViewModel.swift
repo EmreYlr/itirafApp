@@ -16,14 +16,14 @@ protocol NotificationSettingsViewModelProtocol {
 }
 
 protocol NotificationSettingsViewModelDelegate: AnyObject {
-    func updateSwitchState(isOn: Bool)
     func reloadPreferences(items: [NotificationPreferencesItem])
+    func updateSwitchState(isOn: Bool)
     func didFailWithError(_ error: Error)
 }
 
 final class NotificationSettingsViewModel {
-    var delegate: NotificationSettingsViewModelDelegate?
-    let service: NotificationSettingsServiceProtocol
+    weak var delegate: NotificationSettingsViewModelDelegate?
+    private let service: NotificationSettingsServiceProtocol
     
     private var originalItems: [NotificationPreferencesItem] = []
     private var currentItems: [NotificationPreferencesItem] = []
@@ -44,7 +44,11 @@ final class NotificationSettingsViewModel {
             
             self.delegate?.reloadPreferences(items: preferences.items)
         } catch {
-            delegate?.didFailWithError(error)
+            if error is APIError {
+                delegate?.didFailWithError(error)
+            } else {
+                delegate?.didFailWithError(NotificationSettingsError.fetchFailed)
+            }
         }
     }
     
@@ -80,19 +84,21 @@ final class NotificationSettingsViewModel {
         
         do {
             try await service.updateNotificationPreferences(request: request)
+            self.originalItems = self.currentItems
+            self.originalPushState = self.currentSystemPushState
         } catch {
-            print("Güncelleme hatası: \(error)")
+            if let apiError = error as? APIError {
+                delegate?.didFailWithError(apiError)
+            } else {
+                delegate?.didFailWithError(NotificationSettingsError.updateFailed)
+            }
         }
     }
     
     func updateItemState(eventType: NotificationEventType, isOn: Bool) {
         if let index = currentItems.firstIndex(where: { $0.eventType == eventType }) {
-            let oldItem = currentItems[index]
-            let newItem = NotificationPreferencesItem(
-                notificationType: oldItem.notificationType,
-                eventType: oldItem.eventType,
-                enabled: isOn
-            )
+            var newItem = currentItems[index]
+            newItem.enabled = isOn
             currentItems[index] = newItem
         }
     }
@@ -105,7 +111,6 @@ final class NotificationSettingsViewModel {
                 self?.currentSystemPushState = isAuthorized
                 self?.delegate?.updateSwitchState(isOn: isAuthorized)
                 
-                // Token yoksa tekrar kayıt ol
                 if isAuthorized {
                     UIApplication.shared.registerForRemoteNotifications()
                 }
@@ -115,11 +120,14 @@ final class NotificationSettingsViewModel {
     
     func handleSwitchTap() {
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            delegate?.didFailWithError(NotificationSettingsError.cannotOpenSystemSettings)
             return
         }
         
         if UIApplication.shared.canOpenURL(settingsUrl) {
             UIApplication.shared.open(settingsUrl)
+        } else {
+            delegate?.didFailWithError(NotificationSettingsError.cannotOpenSystemSettings)
         }
     }
 }
