@@ -22,7 +22,6 @@ final class ModerationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Moderation")
         initData()
         loadCollectionView()
         configureDataSource()
@@ -148,7 +147,10 @@ extension ModerationViewController: ModerationViewModelDelegate {
     }
     
     func didFailWithError(_ error: any Error) {
-        print("Error: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.collectionView.refreshControl?.endRefreshing()
+            self.handleError(error)
+        }
     }
     
 }

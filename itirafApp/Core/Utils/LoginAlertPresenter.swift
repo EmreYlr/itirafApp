@@ -10,19 +10,19 @@ import UIKit
 final class LoginAlertPresenter {
     static func showLoginAlert(from viewController: UIViewController) {
         let alert = UIAlertController(
-            title: "Giriş Yap",
-            message: "Bu işlemi yapmak için giriş yapmalısınız.",
+            title: "login.alert.title".localized,
+            message: "login.alert.message".localized,
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "Giriş Yap", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "login.button.login".localized, style: .default, handler: { _ in
 
             let loginNav = Storyboard.login.instantiateNav(.loginNav)
             loginNav.modalPresentationStyle = .fullScreen
             viewController.present(loginNav, animated: true)
         }))
         
-        alert.addAction(UIAlertAction(title: "Vazgeç", style: .cancel))
+        alert.addAction(UIAlertAction(title: "general.button.cancel".localized, style: .cancel))
         
         viewController.present(alert, animated: true)
     }

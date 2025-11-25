@@ -170,7 +170,9 @@ extension ModerationDetailViewController: ModerationDetailViewModelDelegate {
     }
     
     func didFailPostingDecision(_ error: any Error) {
-        print("Error posting decision: \(error)")
+        DispatchQueue.main.async { [weak self] in
+            self?.handleError(error)
+        }
     }
 }
 

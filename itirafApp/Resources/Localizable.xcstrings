@@ -886,6 +886,39 @@
         }
       }
     },
+    "login.alert.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu işlemi yapmak için giriş yapmalısınız."
+          }
+        }
+      }
+    },
+    "login.alert.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giriş Yap"
+          }
+        }
+      }
+    },
+    "login.button.login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giriş Yap"
+          }
+        }
+      }
+    },
     "message.access_denied" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1295,6 +1328,61 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bildirimler"
+          }
+        }
+      }
+    },
+    "social.twitter.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twitter (X)"
+          }
+        }
+      }
+    },
+    "time.relative.days_ago" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d g önce"
+          }
+        }
+      }
+    },
+    "time.relative.hours_ago" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d sa önce"
+          }
+        }
+      }
+    },
+    "time.relative.just_now" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "az önce"
+          }
+        }
+      }
+    },
+    "time.relative.minutes_ago" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d dk önce"
           }
         }
       }

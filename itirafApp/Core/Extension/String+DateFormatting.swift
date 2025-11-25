@@ -58,13 +58,13 @@ extension String {
         let components = calendar.dateComponents([.minute, .hour, .day], from: date, to: now)
         
         if let day = components.day, day > 0 {
-            return "\(day)g önce"
+            return "time.relative.days_ago".localized(day)
         } else if let hour = components.hour, hour > 0 {
-            return "\(hour)sa önce"
+            return "time.relative.hours_ago".localized(hour)
         } else if let minute = components.minute, minute > 0 {
-            return "\(minute)dk önce"
+            return "time.relative.minutes_ago".localized(minute)
         } else {
-            return "az önce"
+            return "time.relative.just_now".localized
         }
     }
 }
