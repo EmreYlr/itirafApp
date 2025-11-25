@@ -129,12 +129,34 @@ final class SettingsViewController: UIViewController {
             print("Hakkımızda'ya tıklandı")
         case .notifications:
             showNotificationScreen()
+        case .language:
+            showLanguageSelection()
         }
     }
     
     private func showNotificationScreen() {
         let notificationVC: NotificationSettingsViewController = Storyboard.notificationSettings.instantiate(.notificationSettings)
         navigationController?.pushViewController(notificationVC, animated: true)
+    }
+    
+    private func showLanguageSelection() {
+        let alert = UIAlertController(title: "settings.language.selection".localized, message: nil, preferredStyle: .actionSheet)
+        
+        let trAction = UIAlertAction(title: "Türkçe", style: .default) { _ in
+            
+        }
+        
+        let enAction = UIAlertAction(title: "English", style: .default) { _ in
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "general.button.cancel".localized, style: .cancel)
+        
+        alert.addAction(trAction)
+        alert.addAction(enAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true)
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {

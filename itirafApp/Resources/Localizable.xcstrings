@@ -2465,6 +2465,23 @@
         }
       }
     },
+    "settings.item.language" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dil"
+          }
+        }
+      }
+    },
     "settings.item.notifications" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2495,6 +2512,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gizlilik Politikası"
+          }
+        }
+      }
+    },
+    "settings.language.selection" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language Selection"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dil Seçimi"
           }
         }
       }
