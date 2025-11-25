@@ -1,0 +1,182 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "EgW-qK-yMO.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"EgW-qK-yMO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "fgr-jd-IPT.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"date\"; ObjectID = \"fgr-jd-IPT\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "date"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "FYl-6C-Gf7.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"owner\"; ObjectID = \"FYl-6C-Gf7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "owner"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "gTf-gj-VW6.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Gönderen:\"; ObjectID = \"gTf-gj-VW6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sender:"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Gönderen:"
+          }
+        }
+      }
+    },
+    "i5c-jY-Qeo.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Onayla\"; ObjectID = \"i5c-jY-Qeo\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Approve"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Onayla"
+          }
+        }
+      }
+    },
+    "i5c-jY-Qeo.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"i5c-jY-Qeo\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "kxx-9n-DdI.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"channel\"; ObjectID = \"kxx-9n-DdI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "channel"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "Lax-fT-F8r.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Reddet\"; ObjectID = \"Lax-fT-F8r\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reject"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reddet"
+          }
+        }
+      }
+    },
+    "Lax-fT-F8r.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"Lax-fT-F8r\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "Wqr-Xm-mSD.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"message\"; ObjectID = \"Wqr-Xm-mSD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "message"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "x5z-Xb-F0N.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"title\"; ObjectID = \"x5z-Xb-F0N\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "title"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "ZMl-Al-HfH.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Kanal:\"; ObjectID = \"ZMl-Al-HfH\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Channel:"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Kanal:"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}

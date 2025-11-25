@@ -30,9 +30,7 @@
 		C3528F292EBB724B00FF1C19 /* ModerationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3528F282EBB724B00FF1C19 /* ModerationViewController.swift */; };
 		C3528F2B2EBB728D00FF1C19 /* ModerationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3528F2A2EBB728700FF1C19 /* ModerationViewModel.swift */; };
 		C3528F2D2EBB732100FF1C19 /* ModerationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3528F2C2EBB732100FF1C19 /* ModerationModel.swift */; };
-		C3528F2F2EBB759200FF1C19 /* Moderation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3528F2E2EBB759200FF1C19 /* Moderation.storyboard */; };
 		C3528F312EBB798F00FF1C19 /* ModerationViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3528F302EBB798700FF1C19 /* ModerationViewController+CollectionView.swift */; };
-		C3528F352EBB79B700FF1C19 /* ModerationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3528F342EBB79B700FF1C19 /* ModerationCollectionViewCell.xib */; };
 		C3528F362EBB79B700FF1C19 /* ModerationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3528F332EBB79B700FF1C19 /* ModerationCollectionViewCell.swift */; };
 		C3528F382EBBA4DF00FF1C19 /* ModerationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3528F372EBBA4D900FF1C19 /* ModerationService.swift */; };
 		C3528F3D2EBBB6A400FF1C19 /* ModerationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3528F3C2EBBB6A400FF1C19 /* ModerationDetailViewController.swift */; };
@@ -66,6 +64,8 @@
 		C38465F82ED5DB2A00FD370A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38465F72ED5DB2A00FD370A /* Settings.storyboard */; };
 		C38465FC2ED5DB3A00FD370A /* NotificationSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38465FB2ED5DB3A00FD370A /* NotificationSettings.storyboard */; };
 		C38466002ED5DB5300FD370A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38465FF2ED5DB5300FD370A /* Login.storyboard */; };
+		C38466042ED5DCE300FD370A /* Moderation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38466032ED5DCE300FD370A /* Moderation.storyboard */; };
+		C38466082ED5DD0600FD370A /* ModerationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38466072ED5DD0600FD370A /* ModerationCollectionViewCell.xib */; };
 		C38EAA9D2EBF4FF400A1818C /* ViolationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAA9C2EBF4FF400A1818C /* ViolationsViewController.swift */; };
 		C38EAAB02EBFB38100A1818C /* RegisterDeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */; };
 		C38EAAB12EBFB38100A1818C /* DeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */; };
@@ -266,10 +266,8 @@
 		C3528F282EBB724B00FF1C19 /* ModerationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModerationViewController.swift; sourceTree = "<group>"; };
 		C3528F2A2EBB728700FF1C19 /* ModerationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModerationViewModel.swift; sourceTree = "<group>"; };
 		C3528F2C2EBB732100FF1C19 /* ModerationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModerationModel.swift; sourceTree = "<group>"; };
-		C3528F2E2EBB759200FF1C19 /* Moderation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Moderation.storyboard; sourceTree = "<group>"; };
 		C3528F302EBB798700FF1C19 /* ModerationViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModerationViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		C3528F332EBB79B700FF1C19 /* ModerationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModerationCollectionViewCell.swift; sourceTree = "<group>"; };
-		C3528F342EBB79B700FF1C19 /* ModerationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModerationCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3528F372EBBA4D900FF1C19 /* ModerationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModerationService.swift; sourceTree = "<group>"; };
 		C3528F3C2EBBB6A400FF1C19 /* ModerationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModerationDetailViewController.swift; sourceTree = "<group>"; };
 		C3528F3E2EBBB6D700FF1C19 /* ModerationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModerationDetailViewModel.swift; sourceTree = "<group>"; };
@@ -314,6 +312,10 @@
 		C38465FD2ED5DB3A00FD370A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/NotificationSettings.xcstrings; sourceTree = "<group>"; };
 		C38465FE2ED5DB5300FD370A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		C38466012ED5DB5300FD370A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Login.xcstrings; sourceTree = "<group>"; };
+		C38466022ED5DCE300FD370A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Moderation.storyboard; sourceTree = "<group>"; };
+		C38466052ED5DCE300FD370A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Moderation.xcstrings; sourceTree = "<group>"; };
+		C38466062ED5DD0600FD370A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ModerationCollectionViewCell.xib; sourceTree = "<group>"; };
+		C38466092ED5DD0600FD370A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ModerationCollectionViewCell.xcstrings; sourceTree = "<group>"; };
 		C38EAA9C2EBF4FF400A1818C /* ViolationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolationsViewController.swift; sourceTree = "<group>"; };
 		C38EAAA92EBFB36100A1818C /* itirafApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = itirafApp.entitlements; sourceTree = "<group>"; };
 		C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDeviceRequest.swift; sourceTree = "<group>"; };
@@ -690,7 +692,7 @@
 		C3528F272EBB721B00FF1C19 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				C3528F2E2EBB759200FF1C19 /* Moderation.storyboard */,
+				C38466032ED5DCE300FD370A /* Moderation.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -699,7 +701,7 @@
 			isa = PBXGroup;
 			children = (
 				C3528F332EBB79B700FF1C19 /* ModerationCollectionViewCell.swift */,
-				C3528F342EBB79B700FF1C19 /* ModerationCollectionViewCell.xib */,
+				C38466072ED5DD0600FD370A /* ModerationCollectionViewCell.xib */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -2394,7 +2396,7 @@
 				C3A7A4292EA9484000250B06 /* DirectMessageCollectionViewCell.xib in Resources */,
 				C3528F142EB8FAA200FF1C19 /* RequestSentCollectionViewCell.xib in Resources */,
 				C3BE19902ED48B5B0053C9A9 /* Localizable.xcstrings in Resources */,
-				C3528F2F2EBB759200FF1C19 /* Moderation.storyboard in Resources */,
+				C38466042ED5DCE300FD370A /* Moderation.storyboard in Resources */,
 				C38466002ED5DB5300FD370A /* Login.storyboard in Resources */,
 				C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */,
 				C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */,
@@ -2409,7 +2411,7 @@
 				C38465D42ED5D7F300FD370A /* RequestBottomSheet.storyboard in Resources */,
 				C38465F42ED5DB0A00FD370A /* EditSocial.storyboard in Resources */,
 				C3DF50292ED4A362003D5FB8 /* Register.storyboard in Resources */,
-				C3528F352EBB79B700FF1C19 /* ModerationCollectionViewCell.xib in Resources */,
+				C38466082ED5DD0600FD370A /* ModerationCollectionViewCell.xib in Resources */,
 				C3A7509C2EB60A460058163B /* RequestMessage.storyboard in Resources */,
 				C38465DC2ED5D8EB00FD370A /* RequestSent.storyboard in Resources */,
 				C3C173D42EC613A900D27383 /* ChannelDetail.storyboard in Resources */,
@@ -2765,6 +2767,24 @@
 				C38466012ED5DB5300FD370A /* mul */,
 			);
 			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
+		C38466032ED5DCE300FD370A /* Moderation.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C38466022ED5DCE300FD370A /* Base */,
+				C38466052ED5DCE300FD370A /* mul */,
+			);
+			name = Moderation.storyboard;
+			sourceTree = "<group>";
+		};
+		C38466072ED5DD0600FD370A /* ModerationCollectionViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C38466062ED5DD0600FD370A /* Base */,
+				C38466092ED5DD0600FD370A /* mul */,
+			);
+			name = ModerationCollectionViewCell.xib;
 			sourceTree = "<group>";
 		};
 		C396C5C42ED5D54200FABB7E /* Main.storyboard */ = {

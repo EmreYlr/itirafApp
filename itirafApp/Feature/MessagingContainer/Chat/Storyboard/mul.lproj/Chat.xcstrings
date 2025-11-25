@@ -38,14 +38,14 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Decline"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Reddedildi"
+            "value" : "Reddet"
           }
         }
       }
