@@ -1,0 +1,24 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "PNn-3r-fde.placeholder" : {
+      "comment" : "Class = \"UISearchBar\"; placeholder = \"Kanal Ara...\"; ObjectID = \"PNn-3r-fde\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Channel..."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Kanal Ara..."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}

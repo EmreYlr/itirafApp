@@ -1,0 +1,276 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "2A9-lJ-37n.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Mesaj İstek Sonuçları\"; ObjectID = \"2A9-lJ-37n\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Message Request Results"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mesaj İstek Sonuçları"
+          }
+        }
+      }
+    },
+    "5mH-0G-HDz.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Yorumlar\"; ObjectID = \"5mH-0G-HDz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comments"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yorumlar"
+          }
+        }
+      }
+    },
+    "5Qj-uy-9jf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"İtiraflarından haberdar ol\"; ObjectID = \"5Qj-uy-9jf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Be notified about your confessions"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "İtiraflarından haberdar ol"
+          }
+        }
+      }
+    },
+    "b81-or-m7d.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"İtiraflarının durum bilgilerininin bildirimini al\"; ObjectID = \"b81-or-m7d\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get notifications about the status of your confessions"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "İtiraflarının durum bilgilerininin bildirimini al"
+          }
+        }
+      }
+    },
+    "BJP-Ga-e6a.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Yeni bir mesaj aldığında haberdar ol\"; ObjectID = \"BJP-Ga-e6a\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Be notified when you receive a new message"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yeni bir mesaj aldığında haberdar ol"
+          }
+        }
+      }
+    },
+    "DAV-mQ-feR.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"İtiraflarına gelen yeni yorumları gör\"; ObjectID = \"DAV-mQ-feR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See new comments on your confessions"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "İtiraflarına gelen yeni yorumları gör"
+          }
+        }
+      }
+    },
+    "dlP-1t-oBx.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Gönderdiğin isteklerin sonuçlarını gör\"; ObjectID = \"dlP-1t-oBx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See the results of requests you sent"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Gönderdiğin isteklerin sonuçlarını gör"
+          }
+        }
+      }
+    },
+    "fnK-PM-iDd.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Beğeniler\"; ObjectID = \"fnK-PM-iDd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Likes"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Beğeniler"
+          }
+        }
+      }
+    },
+    "GaZ-1y-3ma.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Tüm Bildirimler\"; ObjectID = \"GaZ-1y-3ma\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Notifications"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tüm Bildirimler"
+          }
+        }
+      }
+    },
+    "ikY-do-jWm.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Mesajlar\"; ObjectID = \"ikY-do-jWm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Messages"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mesajlar"
+          }
+        }
+      }
+    },
+    "KXr-Zq-PZw.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"İtiraf\"; ObjectID = \"KXr-Zq-PZw\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confession"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "İtiraf"
+          }
+        }
+      }
+    },
+    "QLR-wg-EnK.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"İtirafların beğenildiğinde bildirim al\"; ObjectID = \"QLR-wg-EnK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get notified when your confessions are liked"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "İtirafların beğenildiğinde bildirim al"
+          }
+        }
+      }
+    },
+    "Sbs-O3-EUA.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Sana gelen mesaj isteklerini gör\"; ObjectID = \"Sbs-O3-EUA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See message requests sent to you"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sana gelen mesaj isteklerini gör"
+          }
+        }
+      }
+    },
+    "UPD-fL-Qkh.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Mesaj İstekleri\"; ObjectID = \"UPD-fL-Qkh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Message Requests"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mesaj İstekleri"
+          }
+        }
+      }
+    },
+    "Xek-7k-3ZM.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Modaratör\"; ObjectID = \"Xek-7k-3ZM\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moderator"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Modaratör"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}

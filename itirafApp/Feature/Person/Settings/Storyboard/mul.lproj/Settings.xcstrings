@@ -1,0 +1,37 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "7py-uC-1pV.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Çıkış Yap\"; ObjectID = \"7py-uC-1pV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log Out"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Çıkış Yap"
+          }
+        }
+      }
+    },
+    "7py-uC-1pV.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"7py-uC-1pV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    }
+  },
+  "version" : "1.1"
+}

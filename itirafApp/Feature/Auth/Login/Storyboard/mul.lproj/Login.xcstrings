@@ -1,0 +1,305 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "0sU-MN-Ejn.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"veya\"; ObjectID = \"0sU-MN-Ejn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "or"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "veya"
+          }
+        }
+      }
+    },
+    "1xD-kM-OzQ.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Şifremi unuttum!\"; ObjectID = \"1xD-kM-OzQ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forgot password!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Şifremi unuttum!"
+          }
+        }
+      }
+    },
+    "1xD-kM-OzQ.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"1xD-kM-OzQ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "7WW-pm-Myg.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"E-posta ile giriş yap\"; ObjectID = \"7WW-pm-Myg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log in with Email"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "E-posta ile giriş yap"
+          }
+        }
+      }
+    },
+    "eGk-UH-BqA.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Şifre\"; ObjectID = \"eGk-UH-BqA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Şifre"
+          }
+        }
+      }
+    },
+    "GH7-6a-KBh.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"E-posta\"; ObjectID = \"GH7-6a-KBh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "E-posta"
+          }
+        }
+      }
+    },
+    "GqB-et-pX5.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Giriş Yap\"; ObjectID = \"GqB-et-pX5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log In"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Giriş Yap"
+          }
+        }
+      }
+    },
+    "GqB-et-pX5.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"GqB-et-pX5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "NZq-EE-eKi.title" : {
+      "comment" : "Class = \"UINavigationItem\"; title = \"Login\"; ObjectID = \"NZq-EE-eKi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Login"
+          }
+        }
+      }
+    },
+    "Q35-SR-btc.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Hesabınız yok mu?\"; ObjectID = \"Q35-SR-btc\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't have an account?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hesabınız yok mu?"
+          }
+        }
+      }
+    },
+    "Q35-SR-btc.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"Q35-SR-btc\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "rL4-jh-y0h.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Google ile Giriş Yap\"; ObjectID = \"rL4-jh-y0h\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log in with Google"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Google ile Giriş Yap"
+          }
+        }
+      }
+    },
+    "rL4-jh-y0h.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"rL4-jh-y0h\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "u9j-cZ-1tN.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Hesabınız yoksa bir hesap oluşturarak kullanmaya başlayabilirsiniz.\"; ObjectID = \"u9j-cZ-1tN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you don't have an account, you can create one to start using the app."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hesabınız yoksa bir hesap oluşturarak kullanmaya başlayabilirsiniz."
+          }
+        }
+      }
+    },
+    "UAh-bD-Ttl.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"Şifrenizi giriniz\"; ObjectID = \"UAh-bD-Ttl\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter your password"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Şifrenizi giriniz"
+          }
+        }
+      }
+    },
+    "yGp-ZU-njo.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Apple ile Giriş Yap\"; ObjectID = \"yGp-ZU-njo\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log in with Apple"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Apple ile Giriş Yap"
+          }
+        }
+      }
+    },
+    "yGp-ZU-njo.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"yGp-ZU-njo\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "yRJ-X9-dHZ.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"E-posta hesabınızı giriniz\"; ObjectID = \"yRJ-X9-dHZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter your email account"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "E-posta hesabınızı giriniz"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}

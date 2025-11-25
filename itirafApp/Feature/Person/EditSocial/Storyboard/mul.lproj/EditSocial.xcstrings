@@ -1,116 +1,44 @@
 {
   "sourceLanguage" : "tr",
   "strings" : {
-    "1M0-0q-6uT.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Hesap oluşturarak itiraflarınızı paylaşmaya hemen başlayabilirsiniz.\"; ObjectID = \"1M0-0q-6uT\";",
+    "6er-Mf-nAf.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"@kullaniciadi\"; ObjectID = \"6er-Mf-nAf\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You can start sharing your confessions immediately by creating an account."
+            "value" : "@username"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Hesap oluşturarak itiraflarınızı paylaşmaya hemen başlayabilirsiniz."
+            "value" : "@kullaniciadi"
           }
         }
       }
     },
-    "2mz-qQ-tuB.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"E-posta ile kayıt ol\"; ObjectID = \"2mz-qQ-tuB\";",
+    "Ejs-Xs-fhw.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Hesap Ekle\"; ObjectID = \"Ejs-Xs-fhw\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Register with Email"
+            "value" : "Add Account"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "E-posta ile kayıt ol"
+            "value" : "Hesap Ekle"
           }
         }
       }
     },
-    "Gt4-F0-zpW.title" : {
-      "comment" : "Class = \"UINavigationItem\"; title = \"Kayıt Ol\"; ObjectID = \"Gt4-F0-zpW\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Register"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Kayıt Ol"
-          }
-        }
-      }
-    },
-    "jeM-v3-VyP.placeholder" : {
-      "comment" : "Class = \"UITextField\"; placeholder = \"E-postanızı giriniz\"; ObjectID = \"jeM-v3-VyP\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enter your email"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "E-postanızı giriniz"
-          }
-        }
-      }
-    },
-    "oBH-to-rpU.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Şifre\"; ObjectID = \"oBH-to-rpU\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Password"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Şifre"
-          }
-        }
-      }
-    },
-    "tMF-it-rId.configuration.title" : {
-      "comment" : "Class = \"UIButton\"; configuration.title = \"Kayıt Ol\"; ObjectID = \"tMF-it-rId\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Register"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Kayıt Ol"
-          }
-        }
-      }
-    },
-    "tMF-it-rId.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"tMF-it-rId\";",
+    "Ejs-Xs-fhw.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"Ejs-Xs-fhw\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "tr" : {
@@ -122,41 +50,108 @@
       },
       "shouldTranslate" : false
     },
-    "veg-cV-Mhv.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"E-posta\"; ObjectID = \"veg-cV-Mhv\";",
+    "Mun-Rq-vgm.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Platform\"; ObjectID = \"Mun-Rq-vgm\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Email"
+            "value" : "Platform"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "E-posta"
+            "value" : "Platform"
           }
         }
       }
     },
-    "vYa-dE-kKB.placeholder" : {
-      "comment" : "Class = \"UITextField\"; placeholder = \"Şifrenizi giriniz\"; ObjectID = \"vYa-dE-kKB\";",
+    "unA-fy-XXV.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"https://...\"; ObjectID = \"unA-fy-XXV\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enter your password"
+            "value" : "https://..."
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Şifrenizi giriniz"
+            "value" : "https://..."
           }
         }
       }
+    },
+    "wBI-Kh-1ge.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Hesap Adı\"; ObjectID = \"wBI-Kh-1ge\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account Name"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hesap Adı"
+          }
+        }
+      }
+    },
+    "yw8-v9-dm3.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Hesap Bağlantısı\"; ObjectID = \"yw8-v9-dm3\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account Link"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hesap Bağlantısı"
+          }
+        }
+      }
+    },
+    "ZCg-yK-jQh.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Platform Seçin\"; ObjectID = \"ZCg-yK-jQh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Platform"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Platform Seçin"
+          }
+        }
+      }
+    },
+    "ZCg-yK-jQh.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"ZCg-yK-jQh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
     }
   },
   "version" : "1.1"

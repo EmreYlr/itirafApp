@@ -1,0 +1,63 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "8xo-Qy-6g6.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Düzenle\"; ObjectID = \"8xo-Qy-6g6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Düzenle"
+          }
+        }
+      }
+    },
+    "8xo-Qy-6g6.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"8xo-Qy-6g6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "Kp6-C8-BV2.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"platformName\"; ObjectID = \"Kp6-C8-BV2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "platformName"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "kRk-3T-Lw1.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"username\"; ObjectID = \"kRk-3T-Lw1\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "username"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    }
+  },
+  "version" : "1.1"
+}
