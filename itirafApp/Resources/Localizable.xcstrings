@@ -4,6 +4,12 @@
     "auth.button.logout" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log Out"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15,6 +21,12 @@
     "auth.error.message.anonymous_login_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anonymous login failed."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26,6 +38,12 @@
     "auth.error.message.session_not_found" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Session not found. Please log in again."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37,6 +55,12 @@
     "auth.error.title.session" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Session Error"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -48,6 +72,12 @@
     "auth.field.email" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -59,6 +89,12 @@
     "auth.field.password" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -70,6 +106,12 @@
     "auth.forgot_password.success.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password reset link has been sent to your email address."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -81,6 +123,12 @@
     "auth.logout.message.confirmation" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to log out?"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -92,6 +140,12 @@
     "auth.logout.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log Out"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -103,6 +157,12 @@
     "auth.register.success.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please verify your account using the verification link sent to your email address."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -114,6 +174,12 @@
     "auth.register.success.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registration Successful"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -125,6 +191,12 @@
     "auth.title.forgot_password" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forgot Password"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -136,6 +208,12 @@
     "auth.title.login" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log In"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -147,6 +225,12 @@
     "auth.title.register" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign Up"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -158,6 +242,12 @@
     "business.error.message.channel_id_not_found" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Channel ID not found. Please try again."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -169,6 +259,12 @@
     "business.error.message.invalid_data" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sent data is corrupt or missing."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -180,6 +276,12 @@
     "business.error.message.request_sent_id_not_found" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request ID not found. Please try again."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -191,6 +293,12 @@
     "business.error.title.failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operation Failed"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -202,6 +310,12 @@
     "channel_selection.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Channel"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -213,6 +327,12 @@
     "channel.button.follow" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Follow"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -224,6 +344,12 @@
     "channel.button.following" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Following"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -235,6 +361,12 @@
     "channel.search.placeholder" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search channel..."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -246,6 +378,12 @@
     "channel.title.followed_channels" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Followed Channels"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -257,6 +395,12 @@
     "chat.input.placeholder" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type a message..."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -268,6 +412,12 @@
     "chat.title.default" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chat"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -279,6 +429,12 @@
     "confession.error.message.fill_fields" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please fill in the title and description."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -290,6 +446,12 @@
     "confession.owner.you" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -301,6 +463,12 @@
     "confession.field.channel" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Channel"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -312,6 +480,12 @@
     "confession.field.content" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Content"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -323,6 +497,12 @@
     "confession.field.description" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Description"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -334,6 +514,12 @@
     "confession.field.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -345,6 +531,12 @@
     "confession.message.delete_confirmation" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to delete your confession?"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -356,6 +548,12 @@
     "moderation.detail.reason.unspecified" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unspecified"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -367,6 +565,12 @@
     "moderation.status.active" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Active"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -378,6 +582,12 @@
     "moderation.status.pending" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pending Approval"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -389,6 +599,12 @@
     "moderation.status.rejected" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejected"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -400,6 +616,12 @@
     "moderation.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moderation"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -411,6 +633,12 @@
     "confession.status.active" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Active"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -422,6 +650,12 @@
     "confession.status.pending" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pending Approval"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -433,6 +667,12 @@
     "confession.status.reason_not_specified" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unspecified"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -444,6 +684,12 @@
     "confession.status.rejected" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejected"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -455,6 +701,12 @@
     "confession.status.unknown" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -466,6 +718,12 @@
     "confession.success.message.deleted" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your confession has been successfully deleted."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -477,6 +735,12 @@
     "confession.success.message.updated" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your confession has been edited and sent for moderation."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -488,6 +752,12 @@
     "confession.title.edit_confession" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Confession"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -499,6 +769,12 @@
     "direct_message.action.delete_and_block" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete Messages and Block User"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -510,6 +786,12 @@
     "direct_message.action.delete_messages" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete Messages"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -521,6 +803,12 @@
     "direct_message.options.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Message with '%@'."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -532,6 +820,12 @@
     "direct_message.options.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -543,6 +837,12 @@
     "direct_message.prefix.you" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You: "
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -554,6 +854,12 @@
     "direct_message.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Messages"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -565,6 +871,12 @@
     "error.access_denied" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Access Denied"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -576,6 +888,12 @@
     "error.account_not_verified" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account Not Verified"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -587,6 +905,12 @@
     "error.already_exists" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Already Exists"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -598,6 +922,12 @@
     "error.auth_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentication Failed"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -609,6 +939,12 @@
     "error.bad_request" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bad Request"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -620,6 +956,12 @@
     "error.conflict" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conflict"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -631,6 +973,12 @@
     "error.connection_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connection Failed"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -642,6 +990,12 @@
     "error.login_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login Failed"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -653,6 +1007,12 @@
     "error.message.invalid_input" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid input."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -664,10 +1024,16 @@
     "error.message.navigation_error" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A problem occurred while loading the page."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sayfa geçişi sırasında bir hata oluştu."
+            "value" : "Sayfa yüklenirken bir sorun oluştu."
           }
         }
       }
@@ -675,6 +1041,12 @@
     "error.message.unexpected" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unexpected error occurred. Please try again later."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -686,6 +1058,12 @@
     "error.not_found" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Found"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -697,6 +1075,12 @@
     "error.process_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Process Failed"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -708,6 +1092,12 @@
     "error.record_exists" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record Exists"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -736,6 +1126,12 @@
     "error.server" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server Error"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -747,6 +1143,12 @@
     "error.session_expired" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Session Expired"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -758,6 +1160,12 @@
     "error.session_invalid" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Session Invalid"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -769,6 +1177,12 @@
     "error.timeout" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Timeout"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -780,6 +1194,12 @@
     "error.title.app_error" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Application Error"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -791,6 +1211,12 @@
     "error.too_many_requests" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too Many Requests"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -802,6 +1228,12 @@
     "error.unauthorized" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unauthorized"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -813,6 +1245,12 @@
     "error.unknown" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -823,6 +1261,12 @@
     },
     "error.validation" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Validation Error"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -834,6 +1278,12 @@
     "general.button.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -845,6 +1295,12 @@
     "general.button.clear" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -856,6 +1312,12 @@
     "general.button.delete" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -867,6 +1329,12 @@
     "general.button.ok" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -878,6 +1346,12 @@
     "general.button.yes" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yes"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -889,6 +1363,12 @@
     "general.field.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Message"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -900,6 +1380,12 @@
     "general.title.success" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Success"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -911,6 +1397,12 @@
     "general.button.save" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -922,6 +1414,12 @@
     "general.title.error" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -933,6 +1431,12 @@
     "general.title.warning" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warning"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -944,6 +1448,12 @@
     "home.segment.flow" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flow"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -955,6 +1465,12 @@
     "home.segment.following" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Following"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -966,6 +1482,12 @@
     "home.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -977,6 +1499,12 @@
     "login.alert.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You must log in to use this feature."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -988,6 +1516,12 @@
     "login.alert.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log In"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -999,6 +1533,12 @@
     "login.button.login" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log In"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1010,6 +1550,12 @@
     "message.access_denied" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Access denied."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1021,6 +1567,12 @@
     "message.account_not_verified" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your account is not verified."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1032,6 +1584,12 @@
     "message.already_exists" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This record already exists."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1043,6 +1601,12 @@
     "message.auth_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentication failed. Please check your credentials."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1054,10 +1618,16 @@
     "message.bad_request" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your request could not be processed. Please check your information."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "İsteğinizi şu anda gerçekleştiremiyoruz. Lütfen bilgilerinizi kontrol edip tekrar deneyin."
+            "value" : "İsteğiniz işlenemedi. Lütfen bilgilerinizi kontrol edin."
           }
         }
       }
@@ -1065,6 +1635,12 @@
     "message.check_input" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please check your input and try again."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1076,10 +1652,16 @@
     "message.conflict" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This operation cannot be performed right now. Please refresh the page and try again."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "İşlem sırasında bir çakışma oluştu."
+            "value" : "Bu işlem şu anda gerçekleştirilemiyor. Lütfen sayfayı yenileyip tekrar deneyin."
           }
         }
       }
@@ -1087,6 +1669,12 @@
     "message.connection_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connection failed. Please check your internet connection."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1098,6 +1686,12 @@
     "message.invalid_input" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid input."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1109,10 +1703,16 @@
     "message.invalid_provider" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This login method is currently unavailable."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Geçersiz sosyal giriş sağlayıcısı."
+            "value" : "Bu giriş yöntemi şu anda kullanılamıyor."
           }
         }
       }
@@ -1120,10 +1720,16 @@
     "message.invalid_token" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Session could not be verified. Please try logging in again."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sosyal giriş token'ı geçersiz."
+            "value" : "Oturum doğrulanamadı. Lütfen tekrar giriş yapmayı deneyin."
           }
         }
       }
@@ -1131,6 +1737,12 @@
     "message.login_credentials_error" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email or password incorrect."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1142,6 +1754,12 @@
     "message.missing_fields" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please fill in all required fields."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1153,6 +1771,12 @@
     "message.not_found" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Content not found."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1164,10 +1788,16 @@
     "message.process_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A problem occurred. Please try again."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "İşlem gerçekleştirilemedi. Lütfen tekrar deneyin."
+            "value" : "Bir sorun oluştu. Lütfen tekrar deneyin."
           }
         }
       }
@@ -1175,6 +1805,12 @@
     "message.record_exists" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This record already exists."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1203,6 +1839,12 @@
     "message.server_error" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A temporary server error occurred. Please try again later."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1214,6 +1856,12 @@
     "message.session_expired" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Session expired. Please log in again."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1225,6 +1873,12 @@
     "message.session_invalid" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Session invalid. Please log in again."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1236,6 +1890,12 @@
     "message.social_email_unverified" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Social account email is unverified."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1247,10 +1907,16 @@
     "message.timeout" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The operation took longer than expected. Please check your connection and try again."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "İşlem zaman aşımına uğradı. Lütfen tekrar deneyin."
+            "value" : "İşlem beklenenden uzun sürdü. Lütfen bağlantınızı kontrol edip tekrar deneyin."
           }
         }
       }
@@ -1258,6 +1924,12 @@
     "message.too_many_requests" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many requests. Please wait a moment."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1269,6 +1941,12 @@
     "message.unauthorized" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are not authorized to perform this action."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1280,6 +1958,12 @@
     "message.unexpected_error" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unexpected error occurred. Please try again later."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1291,6 +1975,12 @@
     "message.validation_error" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Validation error. Please check your input."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1302,6 +1992,12 @@
     "messaging.segment.messages" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Messages"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1313,6 +2009,12 @@
     "messaging.segment.requests" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Requests"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1324,6 +2026,12 @@
     "messaging.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Messaging"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1335,6 +2043,12 @@
     "notification.alert.delete_all.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to delete all notifications?"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1346,6 +2060,12 @@
     "notification.button.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1357,6 +2077,12 @@
     "notification.button.delete" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1368,6 +2094,12 @@
     "notification.button.delete_all" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete All"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1379,6 +2111,12 @@
     "notification.section.new" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NEW"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1390,6 +2128,12 @@
     "notification.section.old" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "EARLIER"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1401,6 +2145,12 @@
     "notification.selection.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d Selected"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1412,6 +2162,12 @@
     "notification.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1423,6 +2179,12 @@
     "social.twitter.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twitter (X)"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1434,6 +2196,12 @@
     "time.relative.days_ago" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d d ago"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1445,6 +2213,12 @@
     "time.relative.hours_ago" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d h ago"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1456,6 +2230,12 @@
     "time.relative.just_now" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "just now"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1467,6 +2247,12 @@
     "time.relative.minutes_ago" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d m ago"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1478,6 +2264,12 @@
     "person.username.anonymous" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anonymous"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1489,6 +2281,12 @@
     "post_confession.alert.no_channels.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are not following any channels yet."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1500,6 +2298,12 @@
     "post_confession.button.select_channel" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Channel"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1511,6 +2315,12 @@
     "post_confession.success.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your confession has been shared successfully."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1522,6 +2332,12 @@
     "request.detail.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request Detail"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1533,6 +2349,12 @@
     "request.message.delete_confirmation" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to retract your message?"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1544,6 +2366,12 @@
     "request.message.new_request" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Message Request"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1555,6 +2383,12 @@
     "request.status.pending" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pending"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1566,6 +2400,12 @@
     "request.status.rejected" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejected"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1577,6 +2417,12 @@
     "request.title.sent_requests" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sent Requests"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1588,6 +2434,12 @@
     "settings.error.message.cant_open_settings" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cannot open settings. Please go to Settings > Notifications manually."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1599,6 +2451,12 @@
     "settings.error.message.fetch_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load notification settings."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1610,6 +2468,12 @@
     "settings.error.message.update_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to save changes. Please try again."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1621,6 +2485,12 @@
     "settings.error.title.general" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings Error"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1632,6 +2502,12 @@
     "settings.item.about_us" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About Us"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1643,6 +2519,12 @@
     "settings.item.change_password" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Password"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1654,6 +2536,12 @@
     "settings.item.edit_profile" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Profile"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1665,6 +2553,12 @@
     "settings.item.notifications" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1676,6 +2570,12 @@
     "settings.item.privacy_policy" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1687,6 +2587,12 @@
     "settings.section.account" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ACCOUNT"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1698,6 +2604,12 @@
     "settings.section.profile" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PROFILE"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1709,6 +2621,12 @@
     "settings.title.main" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1720,6 +2638,12 @@
     "settings.title.profile" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PROFILE"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1731,6 +2655,12 @@
     "social.anonymous.platform" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Social media info is kept private."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1742,6 +2672,12 @@
     "social.anonymous.username" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anonymity preferred."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1753,6 +2689,12 @@
     "social.button.add_account" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Account"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1764,6 +2706,12 @@
     "social.button.edit_account" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Account"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1775,6 +2723,12 @@
     "social.error.message.enter_different_username" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a different username."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1786,6 +2740,12 @@
     "social.error.message.enter_username" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a username."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1797,6 +2757,12 @@
     "social.error.message.select_platform" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please select a platform."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1808,6 +2774,12 @@
     "social.message.delete_confirmation" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to delete your social media account?"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1819,6 +2791,12 @@
     "social.success.message.added" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Social media account added successfully."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1830,6 +2808,12 @@
     "social.success.message.updated" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Social media account updated successfully."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1841,6 +2825,12 @@
     "social.title.add_account" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Account"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1852,6 +2842,12 @@
     "social.title.edit_account" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Account"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1863,6 +2859,12 @@
     "success.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Success"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1874,6 +2876,12 @@
     "validation.message.field_empty" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ field cannot be empty."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1885,6 +2893,12 @@
     "validation.message.invalid_email" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a valid email address."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1896,6 +2910,12 @@
     "validation.message.password_short" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password must be at least %d characters."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1907,6 +2927,12 @@
     "validation.title.missing_info" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missing Information"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1918,6 +2944,12 @@
     "violation.discrimination" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discrimination"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1929,6 +2961,12 @@
     "violation.harassment" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Harassment"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1940,6 +2978,12 @@
     "violation.hate_speech" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hate Speech"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1951,6 +2995,12 @@
     "violation.none" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Violation"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1962,6 +3012,12 @@
     "violation.other" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Other"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1973,6 +3029,12 @@
     "violation.personal_info" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sharing Personal Info"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1984,6 +3046,12 @@
     "violation.profanity" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profanity"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1995,6 +3063,12 @@
     "violation.sexual_content" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sexual Content"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2006,6 +3080,12 @@
     "violation.spam" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spam"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2017,6 +3097,12 @@
     "violation.threat" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Threat"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2028,6 +3114,12 @@
     "violation.violence" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Violence"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2039,6 +3131,12 @@
     "violations.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Violation Types"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
