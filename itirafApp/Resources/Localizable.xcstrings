@@ -177,6 +177,17 @@
         }
       }
     },
+    "business.error.message.request_sent_id_not_found" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İstek ID'si bulunamadı. Lütfen tekrar deneyin."
+          }
+        }
+      }
+    },
     "business.error.title.failed" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -602,7 +613,14 @@
       }
     },
     "error.validation" : {
-
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doğrulama hatası"
+          }
+        }
+      }
     },
     "general.button.cancel" : {
       "extractionState" : "manual",
@@ -962,6 +980,39 @@
         }
       }
     },
+    "messaging.segment.messages" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mesajlar"
+          }
+        }
+      }
+    },
+    "messaging.segment.requests" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İstekler"
+          }
+        }
+      }
+    },
+    "messaging.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mesajlaşma"
+          }
+        }
+      }
+    },
     "person.username.anonymous" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -969,6 +1020,61 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anonymous"
+          }
+        }
+      }
+    },
+    "request.detail.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İstek Detayı"
+          }
+        }
+      }
+    },
+    "request.message.delete_confirmation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mesajını geri çekmek istediğinizden emin misiniz?"
+          }
+        }
+      }
+    },
+    "request.status.pending" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beklemede"
+          }
+        }
+      }
+    },
+    "request.status.rejected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reddedildi"
+          }
+        }
+      }
+    },
+    "request.title.sent_requests" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gönderilen İstekler"
           }
         }
       }

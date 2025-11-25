@@ -37,6 +37,8 @@ final class RequestSentDetailViewController: UIViewController {
     }
     
     private func initUI() {
+        navigationItem.title = "request.detail.title".localized
+        
         guard let sentRequests = viewModel.sentRequests else {
             return
         }
@@ -74,7 +76,7 @@ final class RequestSentDetailViewController: UIViewController {
         myMessageLabel.text = sentRequests.initialMessage
         statusLabel.text = sentRequests.status.description.capitalized
         statusImageView.image = sentRequests.status == .pending ? UIImage(systemName: "clock") : UIImage(systemName: "xmark.octagon")
-        navigationItem.title = "İstek Detayı"
+
     }
     
     private func initData() {
@@ -82,11 +84,11 @@ final class RequestSentDetailViewController: UIViewController {
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
-        showTwoButtonAlert(title: "Uyarı", message: "Mesajını geri çekmek istediğinizden emin misiniz?", firstButtonTitle: "Evet", firstButtonHandler: {[ weak self] _ in
+        showTwoButtonAlert(title: "general.title.warning".localized, message: "request.message.delete_confirmation".localized, firstButtonTitle: "general.button.yes".localized, firstButtonHandler: {[ weak self] _ in
             Task(priority: .utility) {
                 await self?.viewModel.deleteSentRequest()
             }
-        }, secondButtonTitle: "İptal", secondButtonHandler: nil)
+        }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)
     }
 }
 
@@ -98,6 +100,8 @@ extension RequestSentDetailViewController: RequestSentDetailViewModelDelegate {
     }
     
     func didError(error: Error) {
-        print("Error deleting sent request: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
 }

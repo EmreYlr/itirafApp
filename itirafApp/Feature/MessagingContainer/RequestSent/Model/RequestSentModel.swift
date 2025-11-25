@@ -37,9 +37,9 @@ enum RequestStatus: String, Codable {
     var description: String {
         switch self {
         case .pending:
-            return "Beklemede"
+            return "request.status.pending".localized
         case .rejected:
-            return "Reddedildi"
+            return "request.status.rejected".localized
         }
     }
 }

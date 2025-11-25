@@ -34,7 +34,7 @@ final class RequestSentViewController: UIViewController {
     }
     
     private func initUI() {
-        navigationItem.title = "Gönderilen İstekler"
+        navigationItem.title = "request.title.sent_requests".localized
     }
     
     private func initData() {
@@ -83,6 +83,8 @@ extension RequestSentViewController: RequestSentViewModelDelegate {
     }
     
     func didError(error: any Error) {
-        print("RequestSentViewController Error: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
 }

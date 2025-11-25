@@ -27,7 +27,11 @@ final class RequestSentDetailViewModel {
     }
     
     func deleteSentRequest() async {
-        guard let requestID = sentRequests?.requestID else { return }
+        guard let requestID = sentRequests?.requestID else {
+            delegate?.didError(error: BusinessError.requestSentIdNotFound)
+            return
+        }
+        
         do {
             try await requestSentService.deleteSentRequest(requestID: requestID)
             delegate?.didDeleteSentRequests()

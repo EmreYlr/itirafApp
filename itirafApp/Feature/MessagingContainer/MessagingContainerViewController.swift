@@ -93,8 +93,6 @@ final class MessagingContainerViewController: UIViewController {
             action: #selector(requestsSentButtonTapped)
         )
         
-        // Gösterge (indicator) için constraint'leri başlat
-        // Genişliği, segment sayısına bölerek ayarla (2 segment olduğu için 0.5)
         indicatorWidthConstraint = selectionIndicatorView.widthAnchor.constraint(equalTo: segmentedControl.widthAnchor, multiplier: 0.5)
         indicatorLeadingConstraint = selectionIndicatorView.leadingAnchor.constraint(equalTo: segmentedControl.leadingAnchor)
         

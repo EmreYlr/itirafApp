@@ -48,7 +48,7 @@ final class NetworkManager {
             
             if let data = response.data,
                let apiError = try? JSONDecoder().decode(APIError.self, from: data) {
-                print("   -> Sunucu Hatası: \(apiError.message)")
+                print("[\(apiError.code)]   -> Sunucu Hatası: \(apiError.message)")
                 throw apiError
             }
             print("   -> Ağ Hatası: \(error.localizedDescription)")

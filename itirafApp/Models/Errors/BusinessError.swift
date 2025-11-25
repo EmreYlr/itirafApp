@@ -8,6 +8,7 @@
 enum BusinessError: UserFriendlyError {
     case channelIdNotFound
     case invalidConfessionData
+    case requestSentIdNotFound
     
     var title: String {
         return "business.error.title.failed".localized
@@ -19,6 +20,9 @@ enum BusinessError: UserFriendlyError {
             return "business.error.message.channel_id_not_found".localized
         case .invalidConfessionData:
             return "business.error.message.invalid_data".localized
+        case .requestSentIdNotFound:
+            return "business.error.message.request_sent_id_not_found".localized
         }
+        
     }
 }

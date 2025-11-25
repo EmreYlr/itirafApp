@@ -36,11 +36,11 @@ final class RequestSentCollectionViewCell: UICollectionViewCell {
         case .pending:
             statusView.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.2)
             statusLabel.textColor = .systemOrange
-            statusLabel.text = "Beklemede"
+            statusLabel.text = "request.status.pending".localized
         case .rejected:
             statusView.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2)
             statusLabel.textColor = .systemRed
-            statusLabel.text = "Reddedildi"
+            statusLabel.text = "request.status.rejected".localized
         }
     }
 }
