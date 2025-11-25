@@ -140,23 +140,11 @@ final class SettingsViewController: UIViewController {
     }
     
     private func showLanguageSelection() {
-        let alert = UIAlertController(title: "settings.language.selection".localized, message: nil, preferredStyle: .actionSheet)
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
         
-        let trAction = UIAlertAction(title: "Türkçe", style: .default) { _ in
-            
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-        
-        let enAction = UIAlertAction(title: "English", style: .default) { _ in
-            
-        }
-        
-        let cancelAction = UIAlertAction(title: "general.button.cancel".localized, style: .cancel)
-        
-        alert.addAction(trAction)
-        alert.addAction(enAction)
-        alert.addAction(cancelAction)
-        
-        self.present(alert, animated: true)
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
