@@ -41,7 +41,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         commentCountLabel.text = "\(confession.replyCount)"
         updateLikeButton(isLiked: confession.liked)
         dateLabel.text = confession.createdAt.relativeTimeString()
-        ownerNameLabel.text = confession.owner.username == UserManager.shared.getUsername() ? "Sen" : confession.owner.username
+        ownerNameLabel.text = confession.owner.username == UserManager.shared.getUsername() ? "confession.owner.you".localized : confession.owner.username
         channelNameLabel.isHidden = confession.channel == nil
         channelNameLabel.text = confession.channel?.title.capitalized
     }
@@ -53,7 +53,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         commentCountLabel.text = "\(flow.replyCount)"
         updateLikeButton(isLiked: flow.liked)
         dateLabel.text = flow.createdAt.relativeTimeString()
-        ownerNameLabel.text = flow.owner.username == UserManager.shared.getUsername() ? "Sen" : flow.owner.username
+        ownerNameLabel.text = flow.owner.username == UserManager.shared.getUsername() ? "confession.owner.you".localized : flow.owner.username
         channelNameLabel.isHidden = false
         channelNameLabel.text = flow.channel.title.capitalized
     }

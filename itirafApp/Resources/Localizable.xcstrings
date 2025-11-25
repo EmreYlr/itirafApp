@@ -287,6 +287,17 @@
         }
       }
     },
+    "confession.owner.you" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen"
+          }
+        }
+      }
+    },
     "confession.field.channel" : {
       "extractionState" : "manual",
       "localizations" : {

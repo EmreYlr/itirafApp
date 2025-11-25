@@ -24,7 +24,6 @@ final class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("DetailViewController")
         initData()
         initUI()
         loadCollectionView()
@@ -157,7 +156,9 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     }
     
     func didFailToCreateShortlink(with error: any Error) {
-        print("Failed to create shortlink: \(error)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
     
     func didUpdateReplies() {
@@ -165,7 +166,9 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     }
     
     func didFailToAddComment(with error: any Error) {
-        print("Failed to add comment: \(error)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
     
     func didUpdateLikeStatus(isLiked: Bool, likeCount: Int) {
@@ -173,7 +176,6 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     }
     
     func didFetchDetail() {
-        print("Detail Fetched")
         DispatchQueue.main.async {
             self.updateScreen()
             self.collectionView.reloadData()
@@ -186,7 +188,9 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     }
     
     func didFailToFetchDetail(with error: Error) {
-        print("Failed to fetch detail: \(error)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
     
     private func scrollToHighlightedComment() {

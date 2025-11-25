@@ -112,6 +112,7 @@ extension FlowViewController: FlowViewModelDelegate {
         print("Error: \(error)")
         DispatchQueue.main.async {
             self.collectionView.refreshControl?.endRefreshing()
+            self.handleError(error)
         }
     }
 }

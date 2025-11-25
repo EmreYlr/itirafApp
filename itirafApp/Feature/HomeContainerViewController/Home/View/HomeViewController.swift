@@ -23,7 +23,6 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("HomeViewController")
         initView()
         loadCollectionView()
         configureDataSource()
@@ -142,9 +141,9 @@ extension HomeViewController: HomeViewModelOutputProtocol {
     }
     
     func didFailWithError(_ error: Error) {
-        print("Error: \(error)")
         DispatchQueue.main.async {
             self.collectionView.refreshControl?.endRefreshing()
+            self.handleError(error)
         }
     }
 }
