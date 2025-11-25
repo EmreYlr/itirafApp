@@ -12,6 +12,8 @@ protocol FlowViewModelProtocol {
     var hasMoreData: Bool { get }
     func fetchFlow(reset: Bool) async
     func toggleLikeStatus(for: Int) async
+    func didViewItem(at id: Int)
+    func sendPendingSeenMessages()
 }
 
 protocol FlowViewModelDelegate: AnyObject {
@@ -28,6 +30,10 @@ final class FlowViewModel {
     private(set) var isLoading = false
     private(set) var hasMoreData = true
     private var currentPage = 1
+    
+    private var processedMessageIds: Set<Int> = []
+    private var pendingMessageIds: [Int] = []
+    private let batchThreshold = 15
     
     init(flowService: FlowServiceProtocol = FlowService()) {
         self.flowService = flowService
@@ -97,6 +103,37 @@ final class FlowViewModel {
         
         if let updatedData = flow?.data {
             delegate?.didUpdateFlow(with: updatedData)
+        }
+    }
+    
+    func didViewItem(at id: Int) {
+        if !processedMessageIds.contains(id) {
+            processedMessageIds.insert(id)
+            pendingMessageIds.append(id)
+            
+            if pendingMessageIds.count >= batchThreshold {
+                sendPendingSeenMessages()
+            }
+        }
+    }
+    
+    func sendPendingSeenMessages() {
+        guard !pendingMessageIds.isEmpty else { return }
+        
+        let idsToSend = pendingMessageIds
+        pendingMessageIds.removeAll()
+        
+        Task {
+            await markAsRead(messageId: idsToSend)
+        }
+    }
+    
+    private func markAsRead(messageId: [Int]) async {
+        do {
+            try await flowService.setMessagesSeen(messageId)
+            print("Görüldü gönderildi: \(messageId.count) adet")
+        } catch {
+            print("Görüldü hatası: \(error)")
         }
     }
 }

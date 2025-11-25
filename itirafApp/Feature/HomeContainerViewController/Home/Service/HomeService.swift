@@ -12,6 +12,7 @@ protocol HomeServiceProtocol {
     func fetchConfessions(page: Int, limit: Int) async throws -> Confession
     func likeConfessions(messageId: Int) async throws
     func unlikeConfessions(messageId: Int) async throws
+    func setMessagesSeen(_ messageIds: [Int]) async throws
 }
 
 final class HomeService: HomeServiceProtocol {
@@ -50,6 +51,19 @@ final class HomeService: HomeServiceProtocol {
             method: .delete,
             parameters: nil,
             encoding: URLEncoding.default
+        )
+    }
+    
+    func setMessagesSeen(_ messageIds: [Int]) async throws {
+        let parameters: [String: Any] = [
+            "message_ids": messageIds
+        ]
+        
+        let _: Empty = try await networkService.request(
+            endpoint: Endpoint.Channel.setMessagesSeen,
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default
         )
     }
 }

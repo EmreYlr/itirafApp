@@ -26,6 +26,19 @@ extension FlowViewController: UICollectionViewDelegate, UICollectionViewDelegate
                 await viewModel.fetchFlow(reset: false)
             }
         }
+        if let flow = dataSource.itemIdentifier(for: indexPath) {
+            viewModel.didViewItem(at: flow.id)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        viewModel.sendPendingSeenMessages()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            viewModel.sendPendingSeenMessages()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

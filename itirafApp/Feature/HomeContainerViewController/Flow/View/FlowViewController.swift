@@ -26,6 +26,11 @@ final class FlowViewController: UIViewController {
         configureDataSource()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.sendPendingSeenMessages()
+    }
+    
     private func initView() {
         viewModel.delegate = self
         Task {

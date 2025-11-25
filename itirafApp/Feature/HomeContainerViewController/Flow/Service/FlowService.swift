@@ -10,6 +10,7 @@ protocol FlowServiceProtocol {
     func fetchFlow(page: Int, limit: Int) async throws -> Flow
     func likeConfessions(messageId: Int) async throws
     func unlikeConfessions(messageId: Int) async throws
+    func setMessagesSeen(_ messageIds: [Int]) async throws
 }
 
 final class FlowService: FlowServiceProtocol {
@@ -48,6 +49,19 @@ final class FlowService: FlowServiceProtocol {
             method: .delete,
             parameters: nil,
             encoding: URLEncoding.default
+        )
+    }
+    
+    func setMessagesSeen(_ messageIds: [Int]) async throws {
+        let parameters: [String: Any] = [
+            "messageIds": messageIds
+        ]
+        
+        let _: Empty = try await networkService.request(
+            endpoint: Endpoint.Channel.setMessagesSeen,
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default
         )
     }
 }
