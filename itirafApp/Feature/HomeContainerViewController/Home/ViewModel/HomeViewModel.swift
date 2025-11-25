@@ -13,6 +13,8 @@ protocol HomeViewModelProtocol {
     var hasMoreData: Bool { get }
     func fetchConfessions(reset: Bool) async
     func toggleLikeStatus(for: Int) async
+    func didViewItem(at id: Int)
+    func sendPendingSeenMessages()
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject {
@@ -29,6 +31,10 @@ final class HomeViewModel {
     private(set) var isLoading = false
     private(set) var hasMoreData = true
     private var currentPage = 1
+    
+    private var processedMessageIds: Set<Int> = []
+    private var pendingMessageIds: [Int] = []
+    private let batchThreshold = 15
     
     init(homeService: HomeServiceProtocol = HomeService()) {
         self.homeService = homeService
@@ -98,6 +104,36 @@ final class HomeViewModel {
         
         if let updatedData = confessions?.data {
             delegate?.didUpdateConfessions(with: updatedData)
+        }
+    }
+    
+    func didViewItem(at id: Int) {
+        if !processedMessageIds.contains(id) {
+            processedMessageIds.insert(id)
+            pendingMessageIds.append(id)
+            
+            if pendingMessageIds.count >= batchThreshold {
+                sendPendingSeenMessages()
+            }
+        }
+    }
+    
+    func sendPendingSeenMessages() {
+        guard !pendingMessageIds.isEmpty else { return }
+        
+        let idsToSend = pendingMessageIds
+        pendingMessageIds.removeAll()
+        
+        Task {
+            await markAsRead(messageId: idsToSend)
+        }
+    }
+    
+    private func markAsRead(messageId: [Int]) async {
+        do {
+            try await homeService.setMessagesSeen(messageId)
+        } catch {
+            print("Görüldü hatası: \(error)")
         }
     }
 }

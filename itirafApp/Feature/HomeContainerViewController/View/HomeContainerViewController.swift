@@ -80,6 +80,8 @@ final class HomeContainerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.delegate = self
+        
         Task {
             await viewModel.getNotificationStatus()
         }
@@ -265,5 +267,21 @@ extension HomeContainerViewController: UIPageViewControllerDelegate {
         
         segmentedControl.selectedSegmentIndex = index
         updateSelectionIndicator(to: index)
+    }
+}
+
+extension HomeContainerViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if tabBarController.selectedViewController === viewController {
+            if let nav = viewController as? UINavigationController, nav.topViewController === self {
+                
+                if segmentedControl.selectedSegmentIndex == 0 {
+                    flowVC.scrollToTop()
+                } else {
+                    homeVC.scrollToTop()
+                }
+            }
+        }
+        return true
     }
 }

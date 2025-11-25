@@ -105,6 +105,6 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         inputBar.inputTextView.text = String()
         inputBar.invalidatePlugins()
         inputBar.sendButton.stopAnimating()
-        inputBar.inputTextView.placeholder = "Mesaj yazın..."
+        inputBar.inputTextView.placeholder = "chat.input.placeholder".localized
     }
 }

@@ -73,7 +73,10 @@ extension ChannelViewController: ChannelViewModelOutputProtocol {
     }
     
     func didFailWithError(_ error: any Error) {
-        print(error.localizedDescription)
+        DispatchQueue.main.async {
+            self.collectionView.refreshControl?.endRefreshing()
+            handleError(error)
+        }
     }
 }
 

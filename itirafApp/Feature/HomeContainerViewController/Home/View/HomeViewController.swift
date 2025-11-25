@@ -34,6 +34,11 @@ final class HomeViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        homeViewModel.sendPendingSeenMessages()
+    }
+    
     private func loadCollectionView() {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "ConfessionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "confessionCell")
@@ -90,6 +95,12 @@ final class HomeViewController: UIViewController {
         snapshot.appendItems(confessions, toSection: .main)
         
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    func scrollToTop() {
+        guard collectionView.numberOfSections > 0, collectionView.numberOfItems(inSection: 0) > 0 else { return }
+        
+        collectionView.setContentOffset(CGPoint(x: 0, y: -collectionView.adjustedContentInset.top), animated: true)
     }
     
     @IBAction func newPostButtonTapped(_ sender: UIButton) {

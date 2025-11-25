@@ -199,6 +199,17 @@
         }
       }
     },
+    "channel_selection.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kanal Seç"
+          }
+        }
+      }
+    },
     "channel.search.placeholder" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -217,6 +228,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Takip Edilen Kanallar"
+          }
+        }
+      }
+    },
+    "chat.input.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mesaj yazın..."
+          }
+        }
+      }
+    },
+    "chat.title.default" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chat"
           }
         }
       }
@@ -349,6 +382,72 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "İtirafı Düzenle"
+          }
+        }
+      }
+    },
+    "direct_message.action.delete_and_block" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mesajları Sil ve Kullanıcıyı Engelle"
+          }
+        }
+      }
+    },
+    "direct_message.action.delete_messages" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mesajları Sil"
+          }
+        }
+      }
+    },
+    "direct_message.options.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'%@' ile olan mesaj."
+          }
+        }
+      }
+    },
+    "direct_message.options.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seçenekler"
+          }
+        }
+      }
+    },
+    "direct_message.prefix.you" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen: "
+          }
+        }
+      }
+    },
+    "direct_message.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mesajlar"
           }
         }
       }
@@ -1024,6 +1123,39 @@
         }
       }
     },
+    "post_confession.alert.no_channels.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Henüz hiçbir kanalı takip etmiyorsunuz."
+          }
+        }
+      }
+    },
+    "post_confession.button.select_channel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kanal Seçin"
+          }
+        }
+      }
+    },
+    "post_confession.success.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İtirafınız başarıyla paylaşıldı."
+          }
+        }
+      }
+    },
     "request.detail.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1042,6 +1174,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mesajını geri çekmek istediğinizden emin misiniz?"
+          }
+        }
+      }
+    },
+    "request.message.new_request" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yeni Mesaj İsteği"
           }
         }
       }
@@ -1207,6 +1350,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ayarlar"
+          }
+        }
+      }
+    },
+    "settings.title.profile" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PROFİL"
+          }
+        }
+      }
+    },
+    "social.anonymous.platform" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sosyal medya bilgileri gizli tuttuluyor."
+          }
+        }
+      }
+    },
+    "social.anonymous.username" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anonimlik tercih edildi."
+          }
+        }
+      }
+    },
+    "social.button.add_account" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesap Ekle"
           }
         }
       }

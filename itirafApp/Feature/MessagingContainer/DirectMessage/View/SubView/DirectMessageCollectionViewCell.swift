@@ -34,7 +34,7 @@ final class DirectMessageCollectionViewCell: UICollectionViewCell {
     
     func configure(with directMessage: DirectMessage) {
         usernameLabel.text = directMessage.username
-        messageLabel.text = "\(directMessage.isLastMessageMine ? "Sen: " : "")\(directMessage.lastMessage)"
+        messageLabel.text = "\(directMessage.isLastMessageMine ? "direct_message.prefix.you".localized : "")\(directMessage.lastMessage)"
         timeLabel.text = directMessage.lastMessageDate.relativeTimeString()
         if directMessage.unreadMessageCount == 0 {
             newMessageCountView.isHidden = true

@@ -131,7 +131,6 @@ final class FlowViewModel {
     private func markAsRead(messageId: [Int]) async {
         do {
             try await flowService.setMessagesSeen(messageId)
-            print("Görüldü gönderildi: \(messageId.count) adet")
         } catch {
             print("Görüldü hatası: \(error)")
         }

@@ -20,7 +20,6 @@ final class DirectMessageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("DirectMessageViewController")
         loadCollectionView()
         configureDataSource()
         initData()
@@ -33,7 +32,7 @@ final class DirectMessageViewController: UIViewController {
     
     private func initData() {
         directMessageViewModel.delegate = self
-        navigationItem.title = "Mesajlar"
+        navigationItem.title = "direct_message.title".localized
         
         Task {
             await directMessageViewModel.fetchDirectMessages()
@@ -91,20 +90,20 @@ final class DirectMessageViewController: UIViewController {
             return
         }
 
-        let alert = UIAlertController(title: "Seçenekler", message: "'\(message.username)' ile olan mesaj.", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "direct_message.options.title".localized, message: "direct_message.options.message".localized(message.username), preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Mesajları Sil", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "direct_message.action.delete_messages".localized, style: .default, handler: { _ in
             Task(priority: .utility) {
                 await self.directMessageViewModel.deleteRoom(roomId: message.roomID, blockUser: false)
             }
         }))
 
-        alert.addAction(UIAlertAction(title: "Mesajları Sil ve Kullanıcıyı Engelle", style: .destructive, handler: { _ in
+        alert.addAction(UIAlertAction(title: "direct_message.action.delete_and_block".localized, style: .destructive, handler: { _ in
             Task(priority: .utility) {
                 await self.directMessageViewModel.deleteRoom(roomId: message.roomID, blockUser: true)
             }
         }))
-        alert.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "general.button.cancel".localized, style: .cancel, handler: nil))
         present(alert, animated: true)
     }
 }
@@ -116,7 +115,8 @@ extension DirectMessageViewController: DirectMessageViewModelDelegate {
     }
     
     func didError(_ error: any Error) {
-        print("Error in DirectMessageViewController: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
-    
 }

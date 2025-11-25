@@ -33,8 +33,8 @@ final class SocialLinkTableViewCell: UITableViewCell {
     }
     
     func configureForAnonymous() {
-        usernameLabel.text = "Anonimlik tercih edildi."
-        platformNameLabel.text = "Sosyal medya bilgileri gizli tuttuluyor."
+        usernameLabel.text = "social.anonymous.username".localized
+        platformNameLabel.text = "social.anonymous.platform".localized
         platformIconImageView.image = UIImage(systemName: "person.fill.xmark")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
         arrowImageView.isHidden = true
     }

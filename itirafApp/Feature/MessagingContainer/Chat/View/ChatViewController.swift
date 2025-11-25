@@ -99,7 +99,7 @@ final class ChatViewController: MessagesViewController {
                 viewModel.startListening()
             }
         } else {
-            navigationItem.title = "Chat"
+            navigationItem.title = "chat.title.default".localized
         }
     }
     
@@ -139,8 +139,9 @@ extension ChatViewController: ChatViewModelDelegate {
         }
     }
     
-    
     func diderror(_ error: Error) {
-        print("❌ Sohbet Hatası Oluştu: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
 }

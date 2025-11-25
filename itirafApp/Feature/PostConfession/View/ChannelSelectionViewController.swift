@@ -30,7 +30,7 @@ final class ChannelSelectionViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = .systemBackground
-        self.title = "Kanal Seç"
+        self.title = "channel_selection.title".localized
 
         view.addSubview(tableView)
         tableView.dataSource = self

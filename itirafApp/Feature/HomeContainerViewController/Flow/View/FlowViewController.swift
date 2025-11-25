@@ -82,6 +82,12 @@ final class FlowViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
+    func scrollToTop() {
+        guard collectionView.numberOfSections > 0, collectionView.numberOfItems(inSection: 0) > 0 else { return }
+        
+        collectionView.setContentOffset(CGPoint(x: 0, y: -collectionView.adjustedContentInset.top), animated: true)
+    }
+    
     @objc private func refreshFlow() {
         Task {
             await viewModel.fetchFlow(reset: true)

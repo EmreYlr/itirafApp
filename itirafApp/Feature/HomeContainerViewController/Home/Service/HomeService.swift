@@ -56,7 +56,7 @@ final class HomeService: HomeServiceProtocol {
     
     func setMessagesSeen(_ messageIds: [Int]) async throws {
         let parameters: [String: Any] = [
-            "message_ids": messageIds
+            "messageIds": messageIds
         ]
         
         let _: Empty = try await networkService.request(

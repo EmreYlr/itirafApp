@@ -27,7 +27,7 @@ final class RequestMessageCollectionViewCell: UICollectionViewCell {
     
     func configure(with requestMesage: RequestMessageModel) {
         usernameLabel.text = requestMesage.requesterUsername
-        messageLabel.text = "Yeni Mesaj İsteği"
+        messageLabel.text = "request.message.new_request".localized
     }
     
     @IBAction func rejectButtonTapped(_ sender: UIButton) {

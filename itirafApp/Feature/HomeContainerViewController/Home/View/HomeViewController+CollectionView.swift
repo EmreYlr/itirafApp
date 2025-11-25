@@ -21,11 +21,24 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let totalItems = dataSource.snapshot().numberOfItems
-
+        
         if indexPath.row == totalItems - 1 && homeViewModel.hasMoreData && !homeViewModel.isLoading {
             Task {
                 await homeViewModel.fetchConfessions(reset: false)
             }
+        }
+        if let confession = dataSource.itemIdentifier(for: indexPath) {
+            homeViewModel.didViewItem(at: confession.id)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        homeViewModel.sendPendingSeenMessages()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            homeViewModel.sendPendingSeenMessages()
         }
     }
     

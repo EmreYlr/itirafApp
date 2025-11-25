@@ -20,7 +20,6 @@ final class RequestMessageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("RequestMessage")
         initUI()
         loadCollectionView()
         configureDataSource()
@@ -112,12 +111,10 @@ final class RequestMessageViewController: UIViewController {
 extension RequestMessageViewController: RequestMessageViewModelDelegate {
     func didApproveRequest(requestID: String) {
         removeCellFromSnapshot(requestID: requestID)
-        print("Approved")
     }
     
     func didRejectRequest(requestID: String) {
         removeCellFromSnapshot(requestID: requestID)
-        print("Rejected")
     }
     
     func didUpdateRequestMessages() {
@@ -125,6 +122,8 @@ extension RequestMessageViewController: RequestMessageViewModelDelegate {
     }
     
     func didError(with error: any Error) {
-        print(error)
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
 }

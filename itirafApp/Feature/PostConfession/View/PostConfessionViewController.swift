@@ -69,44 +69,49 @@ final class PostConfessionViewController: UIViewController {
     }
 
     @IBAction func shareButtonPressed(_ sender: UIButton) {
-        let titleText = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let contentText = contentTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        
-        if titleText.isEmpty || contentText.isEmpty {
-            showOneButtonAlert(title: "Uyarı", message: "Lütfen başlık ve açıklamayı doldurun.", buttonTitle: "Tamam")
-            return
-        }
-        
-        guard let selectedChannel = postConfessionViewModel.selectedChannel else {
-            showOneButtonAlert(title: "Uyarı", message: "Lütfen bir kanal seçin.", buttonTitle: "Tamam")
-            return
-        }
-        
-        let content = PostConfession(channelId: selectedChannel.id, title: titleText, message: contentText)
-        
         sender.isEnabled = false
-        
-        Task(priority: .utility) {
-            defer {
-                sender.isEnabled = true
+        do {
+            let titleText = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            guard !titleText.isEmpty else {
+                throw ValidationError.emptyField(fieldName: "confession.field.title".localized)
             }
-            await postConfessionViewModel.postConfession(content: content)
+            
+            let contentText = contentTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            guard !contentText.isEmpty else {
+                throw ValidationError.emptyField(fieldName: "confession.field.content".localized)
+            }
+            
+            guard let selectedChannel = postConfessionViewModel.selectedChannel else {
+                throw ValidationError.emptyField(fieldName: "confession.field.channel".localized)
+            }
+            
+            let content = PostConfession(channelId: selectedChannel.id, title: titleText, message: contentText)
+            
+            Task(priority: .utility) {
+                defer {
+                    sender.isEnabled = true
+                }
+                await postConfessionViewModel.postConfession(content: content)
+            }
+            
+        } catch {
+            sender.isEnabled = true
+            self.handleError(error)
         }
-        
     }
     
     private func updateTextFields() {
         self.titleTextField.text = ""
         self.contentTextView.text.removeAll()
         self.placeholderLabel.isHidden = false
-        channelSelectButton.setTitle("Kanal Seçin", for: .normal)
+        channelSelectButton.setTitle("post_confession.button.select_channel".localized, for: .normal)
     }
     
     @IBAction func channelSelectButtonTapped(_ sender: UIButton) {
         let followedChannels = FollowManager.shared.getCachedFollowedChannels()
         
         if followedChannels.isEmpty {
-            showOneButtonAlert(title: "Uyarı", message: "Henüz hiçbir kanalı takip etmiyorsunuz.", buttonTitle: "Tamam")
+            showOneButtonAlert(title: "general.title.warning".localized, message: "post_confession.alert.no_channels.message".localized, buttonTitle: "general.button.ok".localized)
             return
         }
 
@@ -129,7 +134,7 @@ final class PostConfessionViewController: UIViewController {
 extension PostConfessionViewController: PostConfessionViewModelOutputProtocol {
     func didPostConfessionSuccessfully() {
         DispatchQueue.main.async {
-            self.showOneButtonAlert(title: "Başarılı", message: "İtirafınız başarıyla paylaşıldı.", buttonTitle: "Tamam") { _ in
+            self.showOneButtonAlert(title: "general.title.success".localized, message: "post_confession.success.message".localized, buttonTitle: "general.button.ok".localized) { _ in
                 self.updateTextFields()
                 self.navigationController?.popToRootViewController(animated: false)
                 if self.tabBarController != nil {
@@ -143,10 +148,11 @@ extension PostConfessionViewController: PostConfessionViewModelOutputProtocol {
     }
     
     func didFailToPostConfession(with error: Error) {
-        print(error)
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
 }
-
 
 extension PostConfessionViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
