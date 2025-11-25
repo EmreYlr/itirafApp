@@ -1,0 +1,115 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "CoE-K2-nqX.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"message\"; ObjectID = \"CoE-K2-nqX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "message"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "dTV-x1-ADb.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"32\"; ObjectID = \"dTV-x1-ADb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "32"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "fsg-Jm-SyE.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Düzenle\"; ObjectID = \"fsg-Jm-SyE\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Düzenle"
+          }
+        }
+      }
+    },
+    "fsg-Jm-SyE.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"fsg-Jm-SyE\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "Gx6-iT-TY3.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"Gx6-iT-TY3\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "IjC-mn-2dF.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"date\"; ObjectID = \"IjC-mn-2dF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "date"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "KXr-4j-BLt.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"12\"; ObjectID = \"KXr-4j-BLt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "12"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "Xn1-rg-LVt.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"title\"; ObjectID = \"Xn1-rg-LVt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "title"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    }
+  },
+  "version" : "1.1"
+}

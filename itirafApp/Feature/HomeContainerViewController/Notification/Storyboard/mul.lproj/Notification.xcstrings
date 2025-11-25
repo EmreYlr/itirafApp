@@ -1,0 +1,55 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "DvH-R0-BBg.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Tümünü Okundu İşaretle\"; ObjectID = \"DvH-R0-BBg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark All as Read"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tümünü Okundu İşaretle"
+          }
+        }
+      }
+    },
+    "DvH-R0-BBg.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"DvH-R0-BBg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "pux-To-5l7.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"YENİ\"; ObjectID = \"pux-To-5l7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NEW"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "YENİ"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}

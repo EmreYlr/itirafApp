@@ -1,0 +1,171 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "5gc-pe-jS5.placeholder" : {
+      "comment" : "Class = \"UITextField\"; placeholder = \"İtiraf başlığı giriniz\"; ObjectID = \"5gc-pe-jS5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter confession title"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "İtiraf başlığı giriniz"
+          }
+        }
+      }
+    },
+    "a4o-E5-lsb.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"a4o-E5-lsb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "DIV-GR-rXz.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Düzenle\"; ObjectID = \"DIV-GR-rXz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Düzenle"
+          }
+        }
+      }
+    },
+    "DIV-GR-rXz.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"DIV-GR-rXz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "kIO-Ki-jGp.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Reddedildi\"; ObjectID = \"kIO-Ki-jGp\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejected"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reddedildi"
+          }
+        }
+      }
+    },
+    "mrQ-j2-q4F.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Başlık\"; ObjectID = \"mrQ-j2-q4F\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Title"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Başlık"
+          }
+        }
+      }
+    },
+    "UZ5-Bm-wGV.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"İptal\"; ObjectID = \"UZ5-Bm-wGV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "İptal"
+          }
+        }
+      }
+    },
+    "UZ5-Bm-wGV.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"UZ5-Bm-wGV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "VRQ-4u-SlQ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Açıklama\"; ObjectID = \"VRQ-4u-SlQ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Description"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Açıklama"
+          }
+        }
+      }
+    },
+    "z8v-l6-a7l.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Durum:\"; ObjectID = \"z8v-l6-a7l\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status:"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Durum:"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}

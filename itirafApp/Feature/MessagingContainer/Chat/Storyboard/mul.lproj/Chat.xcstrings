@@ -1,0 +1,156 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "6W4-HU-957.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Sohbeti Başlat\"; ObjectID = \"6W4-HU-957\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Chat"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sohbeti Başlat"
+          }
+        }
+      }
+    },
+    "6W4-HU-957.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"6W4-HU-957\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "9EH-ID-wx6.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Reddet\"; ObjectID = \"9EH-ID-wx6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Decline"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reddedildi"
+          }
+        }
+      }
+    },
+    "9EH-ID-wx6.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"9EH-ID-wx6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "24q-hA-E8m.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"message\"; ObjectID = \"24q-hA-E8m\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "message"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "HIA-24-vne.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Paylaşılan Sosyal Medya Hesapları\"; ObjectID = \"HIA-24-vne\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shared Social Media Accounts"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Paylaşılan Sosyal Medya Hesapları"
+          }
+        }
+      }
+    },
+    "OaU-Lo-lpb.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"BU İTİRAFIN İÇİN:\"; ObjectID = \"OaU-Lo-lpb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FOR THIS CONFESSION:"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "BU İTİRAFIN İÇİN:"
+          }
+        }
+      }
+    },
+    "raG-9C-Smx.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"message\"; ObjectID = \"raG-9C-Smx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "message"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "xWB-j4-hEY.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"title\"; ObjectID = \"xWB-j4-hEY\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "title"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "Ysp-w0-ay7.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"TE\"; ObjectID = \"Ysp-w0-ay7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "TE"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    }
+  },
+  "version" : "1.1"
+}
