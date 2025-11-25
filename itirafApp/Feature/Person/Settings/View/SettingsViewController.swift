@@ -41,7 +41,7 @@ final class SettingsViewController: UIViewController {
         logoutButton.layer.cornerRadius = 8
         logoutButton.layer.borderWidth = 0.2
         logoutButton.layer.borderColor = UIColor.systemGray4.cgColor
-        navigationItem.title = "Ayarlar"
+        navigationItem.title = "settings.title.main".localized
         
         configureCollectionViewLayout()
         configureDataSource()

@@ -12,7 +12,7 @@ final class MessagingContainerViewController: UIViewController {
     var initialIndex: Int = 0
     
     private lazy var segmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Mesajlar", "İstekler"])
+        let sc = UISegmentedControl(items: ["messaging.segment.messages".localized, "messaging.segment.requests".localized])
         sc.selectedSegmentIndex = 0
         sc.addTarget(self, action: #selector(didChangeSegment(_:)), for: .valueChanged)
         
@@ -65,7 +65,7 @@ final class MessagingContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Mesajlaşma"
+        self.title = "messaging.title".localized
         setupUI()
         segmentedControl.selectedSegmentIndex = initialIndex
         setInitialViewController()

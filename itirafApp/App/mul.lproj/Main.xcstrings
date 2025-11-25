@@ -359,7 +359,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Write Confession"
+            "value" : "Confess"
           }
         },
         "tr" : {
@@ -488,7 +488,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Write Confession"
+            "value" : "Confess"
           }
         },
         "tr" : {
@@ -651,7 +651,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Write Confession"
+            "value" : "Confess"
           }
         },
         "tr" : {
