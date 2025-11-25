@@ -34,11 +34,11 @@ final class ChannelHeaderView: UICollectionReusableView {
         if isFollowed {
             subButton.backgroundColor = .systemMint.withAlphaComponent(0.15)
             subButton.setTitleColor(.systemMint, for: .normal)
-            subButton.setTitle("Takip Ediliyor", for: .normal)
+            subButton.setTitle("channel.button.following".localized, for: .normal)
         } else {
             subButton.backgroundColor = .systemMint
             subButton.setTitleColor(.white, for: .normal)
-            subButton.setTitle("Takip Et", for: .normal)
+            subButton.setTitle("channel.button.follow".localized, for: .normal)
         }
     }
     

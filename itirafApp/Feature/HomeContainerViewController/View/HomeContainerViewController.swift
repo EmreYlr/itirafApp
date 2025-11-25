@@ -10,7 +10,7 @@ import UIKit
 final class HomeContainerViewController: UIViewController {
     //MARK: - Properties
     private lazy var segmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Akış", "Takip Edilenler"])
+        let sc = UISegmentedControl(items: ["home.segment.flow".localized, "home.segment.following".localized])
         sc.selectedSegmentIndex = 0
         sc.addTarget(self, action: #selector(didChangeSegment(_:)), for: .valueChanged)
         
@@ -70,7 +70,7 @@ final class HomeContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Ana Sayfa"
+        self.title = "home.title".localized
         initData()
         setupUI()
         setInitialViewController()

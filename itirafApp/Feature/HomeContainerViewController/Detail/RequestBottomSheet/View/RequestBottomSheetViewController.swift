@@ -47,13 +47,25 @@ final class RequestBottomSheetViewController: UIViewController {
     }
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
-        let messageText = messageTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        if messageText.isEmpty {
-            showOneButtonAlert(title: "Uyarı", message: "Lütfen bir mesaj giriniz.", buttonTitle: "Tamam")
-            return
-        }
-        Task(priority: .utility) {
-            await viewModel.sendRequest(message: messageText)
+        sender.isEnabled = false
+
+        do {
+            let messageText = messageTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            
+            guard !messageText.isEmpty else {
+                throw ValidationError.emptyField(fieldName: "general.field.message".localized)
+            }
+
+            Task(priority: .utility) {
+                defer {
+                    sender.isEnabled = true
+                }
+                await viewModel.sendRequest(message: messageText)
+            }
+            
+        } catch {
+            sender.isEnabled = true
+            self.handleError(error)
         }
     }
 }
@@ -67,7 +79,9 @@ extension RequestBottomSheetViewController: RequestBottomSheetViewModelDelegate 
     }
     
     func didFailToSendRequest(with error: any Error) {
-        print("Failed to send request: \(error.localizedDescription)")
+        DispatchQueue.main.async { [weak self] in
+            self?.handleError(error)
+        }
     }
 }
 

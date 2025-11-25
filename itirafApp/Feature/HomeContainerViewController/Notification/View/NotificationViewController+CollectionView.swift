@@ -37,7 +37,7 @@ extension NotificationViewController: UICollectionViewDelegate, UICollectionView
         
         if isSelectionMode {
             selectedIDs.insert(item.id)
-            navigationItem.title = "\(selectedIDs.count) Seçildi"
+            navigationItem.title = "notification.selection.title".localized(selectedIDs.count)
         } else {
             collectionView.deselectItem(at: indexPath, animated: false)
             
@@ -62,7 +62,7 @@ extension NotificationViewController: UICollectionViewDelegate, UICollectionView
         if isSelectionMode {
             guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
             selectedIDs.remove(item.id)
-            navigationItem.title = "\(selectedIDs.count) Seçildi"
+            navigationItem.title = "notification.selection.title".localized(selectedIDs.count)
             if selectedIDs.isEmpty {
                 isSelectionMode = false
             }

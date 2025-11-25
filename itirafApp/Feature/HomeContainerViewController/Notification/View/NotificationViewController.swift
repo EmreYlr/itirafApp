@@ -57,8 +57,8 @@ final class NotificationViewController: UIViewController {
     }
     
     private func setNavigationBar() {
-        navigationItem.title = "Bildirimler"
-        let deleteButton = UIBarButtonItem(title: "Tümünü Sil", style: .plain, target: self, action: #selector(deleteAllNotification))
+        navigationItem.title = "notification.title".localized
+        let deleteButton = UIBarButtonItem(title: "notification.button.delete_all".localized, style: .plain, target: self, action: #selector(deleteAllNotification))
         deleteButton.tintColor = .systemRed
         navigationItem.rightBarButtonItem = deleteButton
     }
@@ -135,7 +135,7 @@ final class NotificationViewController: UIViewController {
             
             switch section {
             case .new:
-                header.headerTitleLabel.text = "YENİ"
+                header.headerTitleLabel.text = "notification.section.new".localized
                 header.markReadButton.isHidden = false
                 header.onMarkReadTapped = {
                     Task(priority: .utility) {
@@ -143,7 +143,7 @@ final class NotificationViewController: UIViewController {
                     }
                 }
             case .old:
-                header.headerTitleLabel.text = "DAHA ÖNCE"
+                header.headerTitleLabel.text = "notification.section.old".localized
                 header.markReadButton.isHidden = true
             }
             
@@ -172,13 +172,13 @@ final class NotificationViewController: UIViewController {
     
     private func updateNavigationBar() {
         if isSelectionMode {
-            navigationItem.title = "\(selectedIDs.count) Seçildi"
+            navigationItem.title = "notification.selection.title".localized(selectedIDs.count)
 
-            let deleteButton = UIBarButtonItem(title: "Sil", style: .plain, target: self, action: #selector(deleteSelectedItems))
+            let deleteButton = UIBarButtonItem(title: "notification.button.delete".localized, style: .plain, target: self, action: #selector(deleteSelectedItems))
             deleteButton.tintColor = .systemRed
             navigationItem.rightBarButtonItem = deleteButton
             
-            let cancelButton = UIBarButtonItem(title: "Vazgeç", style: .plain, target: self, action: #selector(cancelSelectionMode))
+            let cancelButton = UIBarButtonItem(title: "notification.button.cancel".localized, style: .plain, target: self, action: #selector(cancelSelectionMode))
             navigationItem.leftBarButtonItem = cancelButton
         } else {
             navigationItem.rightBarButtonItem = nil
@@ -226,11 +226,11 @@ final class NotificationViewController: UIViewController {
     }
     
     @objc private func deleteAllNotification() {
-        showTwoButtonAlert(title: "Uyarı", message: "Tüm bildirimleri silmek istediğinize emin misin?", firstButtonTitle: "Sil", firstButtonHandler: { _ in
+        showTwoButtonAlert(title: "general.title.warning".localized, message: "notification.alert.delete_all.message".localized, firstButtonTitle: "notification.button.delete".localized, firstButtonHandler: { _ in
             Task(priority: .utility) {
                 await self.viewModel.deleteAllNotifications()
             }
-        }, secondButtonTitle: "İptal")
+        }, secondButtonTitle: "general.button.cancel".localized)
     }
 }
 
@@ -242,6 +242,8 @@ extension NotificationViewController: NotificationViewModelDelegate {
     }
     
     func didFailUpdateNotification(with error: any Error) {
-        print("Failed to fetch notifications: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
 }

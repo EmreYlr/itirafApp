@@ -22,7 +22,6 @@ final class ChannelViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ChannelViewController")
         initData()
         initCollectionView()
         initSearchBar()
@@ -47,7 +46,7 @@ final class ChannelViewController: UIViewController {
     
     private func initSearchBar() {
         searchBar.delegate = self
-        searchBar.placeholder = "Kanal ara..."
+        searchBar.placeholder = "channel.search.placeholder".localized
         searchBar.showsCancelButton = true
     }
     
@@ -75,7 +74,7 @@ extension ChannelViewController: ChannelViewModelOutputProtocol {
     func didFailWithError(_ error: any Error) {
         DispatchQueue.main.async {
             self.collectionView.refreshControl?.endRefreshing()
-            handleError(error)
+            self.handleError(error)
         }
     }
 }
