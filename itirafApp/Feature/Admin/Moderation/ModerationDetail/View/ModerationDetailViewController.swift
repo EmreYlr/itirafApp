@@ -61,7 +61,7 @@ final class ModerationDetailViewController: UIViewController {
         dateLabel.text = moderationItem.createdAt.formattedDateTime()
         ownerNameLabel.text = moderationItem.ownerUsername
         channelLabel.text = moderationItem.channelTitle
-        rejectionReasonLabel.text = moderationItem.rejectionReason ?? "Belirtilmemiş"
+        rejectionReasonLabel.text = moderationItem.rejectionReason ?? "moderation.detail.reason.unspecified".localized
         
         rejectTextView.isEditable = false
         rejectTextView.backgroundColor = UIColor.systemGray6

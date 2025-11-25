@@ -31,10 +31,10 @@ final class ViolationsViewController: UIViewController {
     }
     
     private func configureNavigation() {
-        self.title = "İhlal Tipleri"
+        self.title = "violations.title".localized
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Kaydet",
+            title: "general.button.save".localized,
             style: .done,
             target: self,
             action: #selector(doneButtonTapped)
@@ -42,7 +42,7 @@ final class ViolationsViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .systemMint
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Sil",
+            title: "general.button.clear".localized,
             style: .plain,
             target: self,
             action: #selector(clearButtonTapped)

@@ -54,7 +54,7 @@ final class ModerationViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
-        self.title = "Moderasyon"
+        self.title = "moderation.title".localized
     }
     
     private func loadCollectionView() {

@@ -353,6 +353,61 @@
         }
       }
     },
+    "moderation.detail.reason.unspecified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belirtilmemiş"
+          }
+        }
+      }
+    },
+    "moderation.status.active" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktif"
+          }
+        }
+      }
+    },
+    "moderation.status.pending" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onay Bekliyor"
+          }
+        }
+      }
+    },
+    "moderation.status.rejected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reddedildi"
+          }
+        }
+      }
+    },
+    "moderation.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moderasyon"
+          }
+        }
+      }
+    },
     "confession.status.active" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -787,6 +842,17 @@
         }
       }
     },
+    "general.button.clear" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temizle"
+          }
+        }
+      }
+    },
     "general.button.delete" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -838,6 +904,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Başarılı"
+          }
+        }
+      }
+    },
+    "general.button.save" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaydet"
+          }
+        }
+      }
+    },
+    "general.title.error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hata"
           }
         }
       }
@@ -1944,6 +2032,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Şiddet"
+          }
+        }
+      }
+    },
+    "violations.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İhlal Tipleri"
           }
         }
       }

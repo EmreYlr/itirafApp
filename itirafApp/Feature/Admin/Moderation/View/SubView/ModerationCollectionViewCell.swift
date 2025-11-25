@@ -49,17 +49,17 @@ final class ModerationCollectionViewCell: UICollectionViewCell {
             statusView.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.2)
             statusImageView.tintColor = .systemGreen
             statusLabel.textColor = .systemGreen
-            statusLabel.text = "Aktif"
+            statusLabel.text = "moderation.status.active".localized
         case .humanRejected, .aiRejected:
             statusView.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2)
             statusImageView.tintColor = .systemRed
             statusLabel.textColor = .systemRed
-            statusLabel.text = "Reddedildi"
+            statusLabel.text = "moderation.status.rejected".localized
         case .pending, .needsHumanReview:
             statusView.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.2)
             statusImageView.tintColor = .systemOrange
             statusLabel.textColor = .systemOrange
-            statusLabel.text = "Onay Bekliyor"
+            statusLabel.text = "moderation.status.pending".localized
         }
     }
 
