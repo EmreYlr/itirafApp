@@ -2754,40 +2754,6 @@
         }
       }
     },
-    "social.success.message.added" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Social media account added successfully."
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sosyal medya hesap bilgileriniz başarılı bir şekilde eklendi."
-          }
-        }
-      }
-    },
-    "social.success.message.updated" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Social media account updated successfully."
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sosyal medya hesap bilgileriniz başarılı bir şekilde güncellendi."
-          }
-        }
-      }
-    },
     "social.title.add_account" : {
       "extractionState" : "manual",
       "localizations" : {

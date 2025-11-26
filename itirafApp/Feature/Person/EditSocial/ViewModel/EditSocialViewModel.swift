@@ -18,8 +18,6 @@ protocol EditSocialViewModelProtocol {
 
 protocol EditSocialViewModelDelegate: AnyObject {
     func didUpdateSocialLinks()
-    func didCreateSocialLinks()
-    func didDeleteSocialLinks()
     func didFailSocialLinks(with error: Error)
 }
 
@@ -54,7 +52,7 @@ final class EditSocialViewModel {
         do {
             try await editSocialService.addSocialLink(username: username, platform: platform)
             UserManager.shared.clearSocialLinks()
-            delegate?.didCreateSocialLinks()
+            delegate?.didUpdateSocialLinks()
         } catch {
             delegate?.didFailSocialLinks(with: error)
         }
@@ -85,7 +83,7 @@ final class EditSocialViewModel {
 
             UserManager.shared.removeSocialLink(linkToDelete)
             
-            delegate?.didDeleteSocialLinks()
+            delegate?.didUpdateSocialLinks()
         } catch {
             delegate?.didFailSocialLinks(with: error)
         }

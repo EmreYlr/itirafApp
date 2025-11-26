@@ -165,23 +165,7 @@ final class EditSocialViewController: UIViewController {
 }
 
 extension EditSocialViewController: EditSocialViewModelDelegate {
-    func didCreateSocialLinks() {
-        DispatchQueue.main.async { [weak self] in
-            self?.showOneButtonAlert(title: "success.title".localized, message: "social.success.message.added".localized, buttonTitle: "general.button.ok".localized) { [weak self] _ in
-                self?.navigationController?.popToRootViewController(animated: true)
-            }
-        }
-    }
-    
     func didUpdateSocialLinks() {
-        DispatchQueue.main.async { [weak self] in
-            self?.showOneButtonAlert(title: "success.title".localized, message: "social.success.message.updated".localized, buttonTitle: "general.button.ok".localized) { [weak self] _ in
-                self?.navigationController?.popToRootViewController(animated: true)
-            }
-        }
-    }
-    
-    func didDeleteSocialLinks() {
         DispatchQueue.main.async { [weak self] in
             self?.navigationController?.popToRootViewController(animated: true)
         }
