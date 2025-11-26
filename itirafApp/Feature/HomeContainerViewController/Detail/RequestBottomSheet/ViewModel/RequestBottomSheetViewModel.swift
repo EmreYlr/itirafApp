@@ -9,7 +9,7 @@
 protocol RequestBottomSheetViewModelProtocol {
     var delegate: RequestBottomSheetViewModelDelegate? { get set }
     var channelMessageId: Int? { get set }
-    func sendRequest(message: String) async
+    func sendRequest(message: String, shareSocialLinks: Bool) async
 }
 
 protocol RequestBottomSheetViewModelDelegate: AnyObject {
@@ -31,13 +31,13 @@ final class RequestBottomSheetViewModel {
         self.requestBottomSheetService = requestBottomSheetService
     }
     
-    func sendRequest(message: String) async {
+    func sendRequest(message: String, shareSocialLinks: Bool = true) async {
         guard let channelMessageId = channelMessageId else {
             return
         }
         
         do {
-            try await requestBottomSheetService.sendRequest(message: message, channelMessageId: channelMessageId)
+            try await requestBottomSheetService.sendRequest(message: message, channelMessageId: channelMessageId, shareSocialLinks: shareSocialLinks)
             delegate?.didSendRequestSuccessfully()
         } catch {
             delegate?.didFailToSendRequest(with: error)

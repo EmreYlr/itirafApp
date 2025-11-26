@@ -20,6 +20,10 @@ extension PersonViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.onEditButtonTapped = { [weak self] in
                 self?.openEditSocial(link: link)
             }
+            
+            cell.onSwitchToggled = { [weak self] isVisible in
+                self?.handleSocialLinkVisibilityChange(for: link, isVisible: isVisible, on: cell)
+            }
         }
         
         return cell
@@ -41,11 +45,18 @@ extension PersonViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let editSocialVC: EditSocialViewController = Storyboard.editSocial.instantiate(.editSocial)
         editSocialVC.viewModel = EditSocialViewModel(socialLink: link)
         editSocialVC.source = .editButton
-        editSocialVC.onSave = { [weak self] in
-            Task {
-                await self?.personViewModel.getUserSocialLinks()
-            }
-        }
         navigationController?.pushViewController(editSocialVC, animated: true)
     }
+    
+    private func handleSocialLinkVisibilityChange(for link: Link, isVisible: Bool, on cell: SocialCollectionViewCell) {
+        Task {
+            do {
+                try await personViewModel.updateUserSocialLinksVisibility(id: link.id, isVisible: isVisible)
+            } catch {
+                cell.visibleSwitch.setOn(!isVisible, animated: true)
+                cell.configure(with: link)
+            }
+        }
+    }
+    
 }

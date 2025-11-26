@@ -157,19 +157,19 @@
       }
     },
     "am8-HW-SGT.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Bu bağlantılar yalnızca özel sohbet başlattığın kişileri ile paylaşılır.\"; ObjectID = \"am8-HW-SGT\";",
+      "comment" : "Class = \"UILabel\"; text = \"Profilin, bu bağlantıların durumuna göre görüntülenecektir. Dilediğin zaman değiştirebilir ve bağlantı kurmak istediğin kişilere göre özelleştirebilirsin.\"; ObjectID = \"am8-HW-SGT\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "These links are only shared with people you start a private chat with."
+            "value" : "Your profile will be displayed based on the status of these connections. You can change them anytime and customize them according to the people you want to connect with."
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Bu bağlantılar yalnızca özel sohbet başlattığın kişileri ile paylaşılır."
+            "value" : "Profilin, bu bağlantıların durumuna göre görüntülenecektir. Dilediğin zaman değiştirebilir ve bağlantı kurmak istediğin kişilere göre özelleştirebilirsin."
           }
         }
       }

@@ -11,6 +11,7 @@ import Foundation
 
 protocol PersonServiceProtocol {
     func getUserSocialLinks() async throws -> UserSocialLink
+    func updateSocialLinkVisibility(id: String, isVisible: Bool) async throws
 }
 
 final class PersonService: PersonServiceProtocol {
@@ -26,6 +27,19 @@ final class PersonService: PersonServiceProtocol {
             method: .get,
             parameters: nil,
             encoding: URLEncoding.default
+        )
+    }
+    
+    func updateSocialLinkVisibility(id: String, isVisible: Bool) async throws {
+        let parameters: [String: Any] = [
+            "visible": isVisible
+        ]
+        
+        let _ :Empty = try await networkService.request(
+            endpoint: Endpoint.SocialLink.updateSocialLinkVisibility(socialLinkId: id),
+            method: .put,
+            parameters: parameters,
+            encoding: JSONEncoding.default
         )
     }
 }

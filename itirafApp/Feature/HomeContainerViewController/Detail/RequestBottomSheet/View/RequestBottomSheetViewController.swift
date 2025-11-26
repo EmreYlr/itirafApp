@@ -12,6 +12,8 @@ final class RequestBottomSheetViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var shareSwitch: UISwitch!
+    
     var viewModel: RequestBottomSheetViewModelProtocol
     
     required init?(coder: NSCoder) {
@@ -38,6 +40,8 @@ final class RequestBottomSheetViewController: UIViewController {
         viewModel.delegate = self
         messageTextView.delegate = self
         
+        shareSwitch.isOn = true
+        
         messageTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
@@ -60,7 +64,7 @@ final class RequestBottomSheetViewController: UIViewController {
                 defer {
                     sender.isEnabled = true
                 }
-                await viewModel.sendRequest(message: messageText)
+                await viewModel.sendRequest(message: messageText, shareSocialLinks: shareSwitch.isOn)
             }
             
         } catch {

@@ -12,10 +12,11 @@ struct UserSocialLink: Codable {
 }
 
 struct Link: Codable {
-    let id, username: String
+    var id, username: String
     let platform: SocialPlatform
     let url: String
     let verified: Bool
+    var visible: Bool
     let displayOrder: Int?
     let createdAt: String?
 }

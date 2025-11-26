@@ -124,7 +124,7 @@ final class HomeViewModel {
         let idsToSend = pendingMessageIds
         pendingMessageIds.removeAll()
         
-        Task {
+        Task(priority: .low) {
             await markAsRead(messageId: idsToSend)
         }
     }

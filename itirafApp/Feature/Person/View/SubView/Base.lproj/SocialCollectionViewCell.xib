@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -52,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xo-Qy-6g6">
-                                <rect key="frame" x="283" y="24.666666666666671" width="70" height="29"/>
+                                <rect key="frame" x="212" y="24.666666666666671" width="70" height="29"/>
                                 <color key="tintColor" systemColor="systemMintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Düzenle">
@@ -62,17 +62,28 @@
                                     <action selector="editButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="4gd-9n-Yim"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mse-Uv-cni">
+                                <rect key="frame" x="292" y="25" width="63" height="28"/>
+                                <color key="onTintColor" systemColor="systemMintColor"/>
+                                <connections>
+                                    <action selector="visibleSwitchChanged:" destination="gTV-IL-0wX" eventType="valueChanged" id="0vJ-Jz-vZz"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="8xo-Qy-6g6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Kp6-C8-BV2" secondAttribute="trailing" constant="10" id="2vH-J5-nHq"/>
                             <constraint firstItem="Kp6-C8-BV2" firstAttribute="leading" secondItem="kRk-3T-Lw1" secondAttribute="leading" id="3FK-O1-UgM"/>
                             <constraint firstItem="kRk-3T-Lw1" firstAttribute="leading" secondItem="Kg9-8i-sFc" secondAttribute="trailing" constant="8" symbolic="YES" id="6cT-Bj-ieh"/>
                             <constraint firstItem="kRk-3T-Lw1" firstAttribute="top" secondItem="Kg9-8i-sFc" secondAttribute="top" constant="3" id="IpA-tl-vW7"/>
                             <constraint firstItem="8xo-Qy-6g6" firstAttribute="centerY" secondItem="Kg9-8i-sFc" secondAttribute="centerY" id="Ncg-In-zzi"/>
                             <constraint firstItem="Kg9-8i-sFc" firstAttribute="centerY" secondItem="g4C-Y0-JSy" secondAttribute="centerY" id="OcX-qE-ngg"/>
-                            <constraint firstAttribute="trailing" secondItem="8xo-Qy-6g6" secondAttribute="trailing" constant="8" id="QCh-kI-Ifk"/>
+                            <constraint firstItem="Mse-Uv-cni" firstAttribute="centerY" secondItem="g4C-Y0-JSy" secondAttribute="centerY" id="S0O-DS-iDi"/>
+                            <constraint firstItem="8xo-Qy-6g6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kRk-3T-Lw1" secondAttribute="trailing" constant="10" id="c7m-is-zcS"/>
                             <constraint firstItem="Kg9-8i-sFc" firstAttribute="leading" secondItem="g4C-Y0-JSy" secondAttribute="leading" constant="8" id="fFi-yS-gpF"/>
                             <constraint firstItem="Kp6-C8-BV2" firstAttribute="top" secondItem="kRk-3T-Lw1" secondAttribute="bottom" constant="2" id="fZi-nO-cya"/>
+                            <constraint firstItem="Mse-Uv-cni" firstAttribute="leading" secondItem="8xo-Qy-6g6" secondAttribute="trailing" constant="10" id="ffY-Qf-aon"/>
+                            <constraint firstAttribute="trailing" secondItem="Mse-Uv-cni" secondAttribute="trailing" constant="8" id="yq0-pE-XwI"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -92,6 +103,7 @@
                 <outlet property="iconView" destination="Kg9-8i-sFc" id="fap-P8-4Yk"/>
                 <outlet property="platformNameLabel" destination="Kp6-C8-BV2" id="Uvg-RP-mfe"/>
                 <outlet property="usernameLabel" destination="kRk-3T-Lw1" id="OBq-s1-IQb"/>
+                <outlet property="visibleSwitch" destination="Mse-Uv-cni" id="Khd-gT-HLs"/>
             </connections>
             <point key="canvasLocation" x="220.61068702290075" y="29.577464788732396"/>
         </collectionViewCell>

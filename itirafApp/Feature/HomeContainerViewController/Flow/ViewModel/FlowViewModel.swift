@@ -123,7 +123,7 @@ final class FlowViewModel {
         let idsToSend = pendingMessageIds
         pendingMessageIds.removeAll()
         
-        Task {
+        Task(priority: .low) {
             await markAsRead(messageId: idsToSend)
         }
     }

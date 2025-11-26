@@ -61,6 +61,30 @@ final class UserManager {
         setUser(user)
     }
     
+    func clearSocialLinks() {
+        guard var user = currentUser else { return }
+        user.socialLink = []
+        setUser(user)
+    }
+ 
+    func updateSocialLink(_ link: Link) {
+        guard var user = currentUser, var links = user.socialLink else { return }
+        
+        if let index = links.firstIndex(where: { $0.id == link.id }) {
+            links[index] = link
+            user.socialLink = links
+            setUser(user)
+        }
+    }
+    
+    func removeSocialLink(_ link: Link) {
+        guard var user = currentUser, var links = user.socialLink else { return }
+        
+        links.removeAll { $0.id == link.id }
+        user.socialLink = links
+        setUser(user)
+    }
+    
     private func loadUser() {
         if let saved = loadFromDefaults() {
             self.currentUser = saved

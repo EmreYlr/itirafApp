@@ -873,7 +873,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-q7-gXn">
-                                <rect key="frame" x="16" y="406" width="361" height="80"/>
+                                <rect key="frame" x="16" y="406" width="361" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gizli sosyal medya bağlantıları" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCi-Ca-oNp">
                                         <rect key="frame" x="8" y="8" width="345" height="17"/>
@@ -881,8 +881,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bu bağlantılar yalnızca özel sohbet başlattığın kişileri ile paylaşılır." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="am8-HW-SGT">
-                                        <rect key="frame" x="8" y="33" width="345" height="28.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="am8-HW-SGT">
+                                        <rect key="frame" x="8" y="33" width="345" height="43"/>
+                                        <string key="text">Profilin, bu bağlantıların durumuna göre görüntülenecektir. Dilediğin zaman değiştirebilir ve bağlantı kurmak istediğin kişilere göre özelleştirebilirsin.</string>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                         <nil key="highlightedColor"/>
@@ -890,18 +891,17 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="am8-HW-SGT" secondAttribute="bottom" constant="8" id="0Gp-c7-5ob"/>
+                                    <constraint firstAttribute="bottom" secondItem="am8-HW-SGT" secondAttribute="bottom" constant="8" id="0Gp-c7-5ob"/>
                                     <constraint firstItem="am8-HW-SGT" firstAttribute="top" secondItem="GCi-Ca-oNp" secondAttribute="bottom" constant="8" id="9s7-eE-jnh"/>
                                     <constraint firstItem="am8-HW-SGT" firstAttribute="leading" secondItem="VGZ-q7-gXn" secondAttribute="leading" constant="8" id="Ak6-hX-AiY"/>
                                     <constraint firstItem="GCi-Ca-oNp" firstAttribute="leading" secondItem="VGZ-q7-gXn" secondAttribute="leading" constant="8" id="BEi-SP-myo"/>
                                     <constraint firstAttribute="trailing" secondItem="am8-HW-SGT" secondAttribute="trailing" constant="8" id="Qbg-R6-fRV"/>
-                                    <constraint firstAttribute="height" constant="80" id="dxD-fw-jhc"/>
                                     <constraint firstAttribute="trailing" secondItem="GCi-Ca-oNp" secondAttribute="trailing" constant="8" id="gcR-PU-cmc"/>
                                     <constraint firstItem="GCi-Ca-oNp" firstAttribute="top" secondItem="VGZ-q7-gXn" secondAttribute="top" constant="8" id="vu8-V9-7iv"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BB6-Oh-i2L">
-                                <rect key="frame" x="16" y="559" width="361" height="161"/>
+                                <rect key="frame" x="16" y="563" width="361" height="157"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BTV-Fw-Smu">
                                     <size key="itemSize" width="128" height="128"/>
@@ -912,7 +912,7 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFP-63-RSi">
-                                <rect key="frame" x="16" y="501" width="361" height="50"/>
+                                <rect key="frame" x="16" y="505" width="361" height="50"/>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Obj-O4-rIw"/>

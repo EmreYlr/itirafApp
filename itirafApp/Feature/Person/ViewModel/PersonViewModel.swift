@@ -9,6 +9,7 @@ protocol PersonViewModelProtocol {
     var delegate: PersonViewModelOutputProtocol? { get set }
     var socialLinks: UserSocialLink? { get }
     func getUserSocialLinks() async
+    func updateUserSocialLinksVisibility(id: String, isVisible: Bool) async throws
 }
 
 protocol PersonViewModelOutputProtocol: AnyObject {
@@ -40,6 +41,19 @@ final class PersonViewModel {
             delegate?.didUpdateSocialLinks()
         } catch {
             delegate?.didFailSocialLinks(with: error)
+        }
+    }
+    
+    func updateUserSocialLinksVisibility(id: String, isVisible: Bool) async throws {
+        try await personService.updateSocialLinkVisibility(id: id, isVisible: isVisible)
+        
+        if let currentLinks = UserManager.shared.getSocialLinks(),
+           let index = currentLinks.firstIndex(where: { $0.id == id }) {
+            
+            var updatedLink = currentLinks[index]
+            updatedLink.visible = isVisible
+
+            UserManager.shared.updateSocialLink(updatedLink)
         }
     }
 }

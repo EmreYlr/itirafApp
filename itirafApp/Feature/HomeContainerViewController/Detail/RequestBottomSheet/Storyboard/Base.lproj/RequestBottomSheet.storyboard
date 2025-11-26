@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,7 +62,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujW-7X-558">
-                                <rect key="frame" x="18" y="534" width="357" height="45"/>
+                                <rect key="frame" x="18" y="598" width="357" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="kIC-ZN-y0u"/>
                                 </constraints>
@@ -75,13 +75,34 @@
                                     <action selector="sendButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jUj-bw-MWT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sosyal Medya Bağlantılarımı Paylaş" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldL-XF-N9M">
+                                <rect key="frame" x="16.000000000000014" y="534" width="245.33333333333337" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pw1-Cw-56B">
+                                <rect key="frame" x="314" y="529" width="63" height="28"/>
+                                <color key="onTintColor" systemColor="systemMintColor"/>
+                            </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEr-GC-pF5">
+                                <rect key="frame" x="18" y="577" width="357" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="BJd-9W-4aw"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="ThF-SE-5aq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="3aR-cL-gBx"/>
                             <constraint firstItem="7Sy-9u-MwS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="3vK-3w-l3R"/>
+                            <constraint firstItem="ldL-XF-N9M" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="8P3-Ds-Eef"/>
+                            <constraint firstItem="ldL-XF-N9M" firstAttribute="top" secondItem="uub-bS-fC5" secondAttribute="bottom" constant="20" id="9Ur-bG-xVh"/>
+                            <constraint firstItem="TEr-GC-pF5" firstAttribute="top" secondItem="pw1-Cw-56B" secondAttribute="bottom" constant="20" id="DEf-e4-WnB"/>
                             <constraint firstItem="XQT-6b-axF" firstAttribute="top" secondItem="D22-FY-lsk" secondAttribute="bottom" constant="20" id="F5a-wP-Cya"/>
+                            <constraint firstItem="pw1-Cw-56B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ldL-XF-N9M" secondAttribute="trailing" constant="8" id="HIq-L0-hd1"/>
                             <constraint firstItem="7Sy-9u-MwS" firstAttribute="top" secondItem="ThF-SE-5aq" secondAttribute="bottom" constant="10" id="IIc-x4-g4y"/>
                             <constraint firstItem="ujW-7X-558" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="JRa-D2-Gb2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="D22-FY-lsk" secondAttribute="trailing" constant="18" id="Oea-kF-ueU"/>
@@ -94,17 +115,22 @@
                             <constraint firstItem="ThF-SE-5aq" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="cdY-nu-AwD"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7Sy-9u-MwS" secondAttribute="trailing" constant="18" id="clU-OK-dJ1"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="uub-bS-fC5" secondAttribute="trailing" constant="18" id="fIm-qQ-WOl"/>
-                            <constraint firstItem="ujW-7X-558" firstAttribute="top" secondItem="uub-bS-fC5" secondAttribute="bottom" constant="20" id="hvh-il-I0N"/>
+                            <constraint firstItem="ujW-7X-558" firstAttribute="top" secondItem="TEr-GC-pF5" secondAttribute="bottom" constant="20" id="kJI-Os-dVx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TEr-GC-pF5" secondAttribute="trailing" constant="2" id="kR2-hX-0bm"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XQT-6b-axF" secondAttribute="trailing" constant="30" id="l8B-jX-4uk"/>
                             <constraint firstItem="D22-FY-lsk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="lpx-GB-nzf"/>
                             <constraint firstItem="Ots-UT-411" firstAttribute="top" secondItem="D22-FY-lsk" secondAttribute="bottom" constant="10" id="ojV-Og-Neg"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ujW-7X-558" secondAttribute="trailing" constant="18" id="p2F-nh-xvn"/>
+                            <constraint firstItem="pw1-Cw-56B" firstAttribute="centerY" secondItem="ldL-XF-N9M" secondAttribute="centerY" id="pCx-zM-lTZ"/>
+                            <constraint firstItem="TEr-GC-pF5" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" constant="2" id="rL7-GM-Odz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pw1-Cw-56B" secondAttribute="trailing" constant="18" id="y8w-mX-UYa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="messageTextView" destination="Ots-UT-411" id="3Gg-Fv-uSd"/>
                         <outlet property="placeholderLabel" destination="XQT-6b-axF" id="qgN-g8-pPO"/>
                         <outlet property="sendButton" destination="ujW-7X-558" id="yKs-ba-6lO"/>
+                        <outlet property="shareSwitch" destination="pw1-Cw-56B" id="TRR-VD-5k5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

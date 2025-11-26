@@ -87,7 +87,7 @@ final class DetailViewController: UIViewController {
         
         if let sheet = requestBottomSheetVC.sheetPresentationController {
             let customDetent = UISheetPresentationController.Detent.custom(identifier: .init("customDetent")) { context in
-                return context.maximumDetentValue * 0.65
+                return context.maximumDetentValue * 0.7
             }
             sheet.detents = [customDetent, .large()]
             

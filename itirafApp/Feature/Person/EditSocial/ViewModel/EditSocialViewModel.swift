@@ -49,34 +49,42 @@ final class EditSocialViewModel {
     func getUserSocialLinks() -> Link? {
         return socialLink
     }
-    
+
     func createSocialLink(username: String, platform: SocialPlatform) async {
         do {
             try await editSocialService.addSocialLink(username: username, platform: platform)
+            UserManager.shared.clearSocialLinks()
             delegate?.didCreateSocialLinks()
         } catch {
             delegate?.didFailSocialLinks(with: error)
         }
     }
-    
+
     func editSocialLink(newUsername: String) async {
-        guard let socialLink = socialLink else {
-            return
-        }
+        guard var currentLink = socialLink else { return }
+        
         do {
-            try await editSocialService.editSocialLink(newUsername: newUsername, socialLink: socialLink)
+            try await editSocialService.editSocialLink(newUsername: newUsername, socialLink: currentLink)
+
+            currentLink.username = newUsername
+
+            UserManager.shared.updateSocialLink(currentLink)
+            
+            self.socialLink = currentLink
             delegate?.didUpdateSocialLinks()
         } catch {
             delegate?.didFailSocialLinks(with: error)
         }
     }
-    
+
     func deleteSocialLink() async {
-        guard let socialLink = socialLink else {
-            return
-        }
+        guard let linkToDelete = socialLink else { return }
+        
         do {
-            try await editSocialService.deleteSocialLink(socialLink: socialLink)
+            try await editSocialService.deleteSocialLink(socialLink: linkToDelete)
+
+            UserManager.shared.removeSocialLink(linkToDelete)
+            
             delegate?.didDeleteSocialLinks()
         } catch {
             delegate?.didFailSocialLinks(with: error)

@@ -20,7 +20,6 @@ final class EditSocialViewController: UIViewController {
     @IBOutlet weak var addOrEditButton: UIButton!
     
     private var selectedPlatform: SocialPlatform?
-    var onSave: (() -> Void)?
     var source: EditSource?
     var viewModel: EditSocialViewModelProtocol
     
@@ -169,7 +168,6 @@ extension EditSocialViewController: EditSocialViewModelDelegate {
     func didCreateSocialLinks() {
         DispatchQueue.main.async { [weak self] in
             self?.showOneButtonAlert(title: "success.title".localized, message: "social.success.message.added".localized, buttonTitle: "general.button.ok".localized) { [weak self] _ in
-                self?.onSave?()
                 self?.navigationController?.popToRootViewController(animated: true)
             }
         }
@@ -178,7 +176,6 @@ extension EditSocialViewController: EditSocialViewModelDelegate {
     func didUpdateSocialLinks() {
         DispatchQueue.main.async { [weak self] in
             self?.showOneButtonAlert(title: "success.title".localized, message: "social.success.message.updated".localized, buttonTitle: "general.button.ok".localized) { [weak self] _ in
-                self?.onSave?()
                 self?.navigationController?.popToRootViewController(animated: true)
             }
         }
@@ -186,7 +183,6 @@ extension EditSocialViewController: EditSocialViewModelDelegate {
     
     func didDeleteSocialLinks() {
         DispatchQueue.main.async { [weak self] in
-            self?.onSave?()
             self?.navigationController?.popToRootViewController(animated: true)
         }
     }

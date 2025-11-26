@@ -8,7 +8,7 @@
 import Alamofire
 
 protocol RequestBottomSheetServiceProtocol {
-    func sendRequest(message: String, channelMessageId: Int) async throws
+    func sendRequest(message: String, channelMessageId: Int, shareSocialLinks: Bool) async throws
 }
 
 final class RequestBottomSheetService: RequestBottomSheetServiceProtocol {
@@ -18,10 +18,11 @@ final class RequestBottomSheetService: RequestBottomSheetServiceProtocol {
         self.networkService = networkService
     }
     
-    func sendRequest(message: String, channelMessageId: Int) async throws {
+    func sendRequest(message: String, channelMessageId: Int, shareSocialLinks: Bool) async throws {
         let parameters: [String: Any] = [
             "initialMessage": message,
-            "channelMessageId": channelMessageId
+            "channelMessageId": channelMessageId,
+            "shareSocialLinks": shareSocialLinks
         ]
         
         let _: Empty = try await networkService.request(

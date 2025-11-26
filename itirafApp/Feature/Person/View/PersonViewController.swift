@@ -25,9 +25,15 @@ final class PersonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("PersonViewController")
         initData()
         loadCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task {
+            await personViewModel.getUserSocialLinks()
+        }
     }
 
     func initData() {
@@ -49,10 +55,6 @@ final class PersonViewController: UIViewController {
         let more = UIImage(systemName: "line.3.horizontal")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: more , style: .done, target: self, action: #selector(moreButtonTapped))
-        
-        Task {
-            await personViewModel.getUserSocialLinks()
-        }
     }
     
     private func loadCollectionView() {
@@ -66,11 +68,6 @@ final class PersonViewController: UIViewController {
         let editSocialVC: EditSocialViewController = Storyboard.editSocial.instantiate(.editSocial)
         editSocialVC.source = .addButton
         editSocialVC.viewModel = EditSocialViewModel(socialLinks: personViewModel.socialLinks?.links ?? [])
-        editSocialVC.onSave = { [weak self] in
-            Task {
-                await self?.personViewModel.getUserSocialLinks()
-            }
-        }
         navigationController?.pushViewController(editSocialVC, animated: true)
     }
     

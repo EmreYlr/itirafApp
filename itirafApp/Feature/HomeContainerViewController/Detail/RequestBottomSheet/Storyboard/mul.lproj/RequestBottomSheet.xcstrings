@@ -37,6 +37,24 @@
         }
       }
     },
+    "ldL-XF-N9M.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Sosyal Medya Bağlantılarımı Paylaş\"; ObjectID = \"ldL-XF-N9M\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share My Social Media Links"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sosyal Medya Bağlantılarımı Paylaş"
+          }
+        }
+      }
+    },
     "ThF-SE-5aq.text" : {
       "comment" : "Class = \"UILabel\"; text = \"ÖZEL SOHBET İSTEĞİ\"; ObjectID = \"ThF-SE-5aq\";",
       "extractionState" : "extracted_with_value",
