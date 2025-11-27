@@ -189,6 +189,18 @@
       },
       "shouldTranslate" : false
     },
+    "MUr-fT-jqA.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"NSFW içeriyor mu?\"; ObjectID = \"MUr-fT-jqA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "NSFW içeriyor mu?"
+          }
+        }
+      }
+    },
     "NTE-a3-i1C.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Modaratör notu ekleyin.\"; ObjectID = \"NTE-a3-i1C\";",
       "extractionState" : "extracted_with_value",

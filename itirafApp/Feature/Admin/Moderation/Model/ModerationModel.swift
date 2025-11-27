@@ -45,6 +45,7 @@ struct ModerationDecisionRequest: Codable {
     let violations: [Violation]?
     let rejectionReason: String?
     let notes: String?
+    let isNsfw: Bool?
 }
 
 enum ModerationDecision: String, Codable {

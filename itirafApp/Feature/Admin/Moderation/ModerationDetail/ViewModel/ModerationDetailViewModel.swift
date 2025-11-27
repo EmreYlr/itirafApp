@@ -9,7 +9,7 @@ protocol ModerationDetailViewModelProtocol {
     var delegate: ModerationDetailViewModelDelegate? { get set }
     var moderationItem: ModerationData? { get }
     var selectedViolations: [Violation] { get set }
-    func postDecision(decision: ModerationDecision, reason: String?,violations: [Violation]? ,notes: String?) async
+    func postDecision(decision: ModerationDecision, reason: String?,violations: [Violation]? ,notes: String?, isNsfw: Bool?) async
 }
 
 protocol ModerationDetailViewModelDelegate: AnyObject {
@@ -32,7 +32,7 @@ final class ModerationDetailViewModel {
         self.moderationService = moderationService
     }
     
-    func postDecision(decision: ModerationDecision, reason: String?, violations: [Violation]?, notes: String?) async {
+    func postDecision(decision: ModerationDecision, reason: String?, violations: [Violation]?, notes: String?, isNsfw: Bool? = nil) async {
         guard let messageId = moderationItem?.id else { return }
         
         let decisionRequest = ModerationDecisionRequest(
@@ -40,7 +40,8 @@ final class ModerationDetailViewModel {
             decision: decision,
             violations: violations,
             rejectionReason: reason,
-            notes: notes
+            notes: notes,
+            isNsfw: isNsfw
         )
         
         do {

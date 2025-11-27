@@ -41,7 +41,8 @@ final class ModerationService: ModerationServiceProtocol {
         case .approve:
             parameters = [
                 "decision": decisionRequest.decision.rawValue,
-                "notes": decisionRequest.notes ?? ""
+                "notes": decisionRequest.notes ?? "",
+                "isNsfw": decisionRequest.isNsfw ?? false
             ]
         case .reject:
             parameters = [

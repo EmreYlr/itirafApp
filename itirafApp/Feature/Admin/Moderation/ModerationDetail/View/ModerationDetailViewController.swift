@@ -25,7 +25,9 @@ final class ModerationDetailViewController: UIViewController {
     @IBOutlet weak var buttonView: UIView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var rejectNoteLabel: UILabel!
-    
+    @IBOutlet weak var rejectView: UIView!
+    @IBOutlet weak var nsfwSwitch: UISwitch!
+    @IBOutlet weak var nsfwView: UIView!
     var viewModel: ModerationDetailViewModelProtocol
     
     required init?(coder: NSCoder) {
@@ -63,12 +65,7 @@ final class ModerationDetailViewController: UIViewController {
         channelLabel.text = moderationItem.channelTitle
         rejectionReasonLabel.text = moderationItem.rejectionReason ?? "moderation.detail.reason.unspecified".localized
         
-        rejectTextView.isEditable = false
-        rejectTextView.backgroundColor = UIColor.systemGray6
-        rejectNoteLabel.isEnabled = false
-        rejectPlaceholderLabel.isEnabled = false
-        violationsButton.isEnabled = false
-        violationsLabel.isHidden = false
+        nsfwSwitch.isOn = false
     }
     
     private func initUI() {
@@ -98,6 +95,8 @@ final class ModerationDetailViewController: UIViewController {
         noteTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         updateViolationsLabel()
+
+        segmentUpdateUI(segmentValue: true)
     }
     
     private func updateViolationsLabel() {
@@ -111,17 +110,27 @@ final class ModerationDetailViewController: UIViewController {
         }
     }
     
+    private func segmentUpdateUI(segmentValue: Bool) {
+        if segmentValue {
+            rejectView.isHidden = segmentValue
+            nsfwView.isHidden = !segmentValue
+        } else {
+            rejectView.isHidden = segmentValue
+            nsfwView.isHidden = !segmentValue
+        }
+    }
+    
     @IBAction func decisionSegmentControlChanged(_ sender: UISegmentedControl) {
-        sender.selectedSegmentTintColor = sender.selectedSegmentIndex == 0 ? UIColor.systemGreen.withAlphaComponent(0.4) : UIColor.systemRed.withAlphaComponent(0.4)
-        
         let isApproving = sender.selectedSegmentIndex == 0
         
-        rejectTextView.isEditable = !isApproving
-        rejectTextView.backgroundColor = isApproving ? UIColor.systemGray5 : UIColor.systemGray6
-        rejectNoteLabel.isEnabled = !isApproving
-        rejectPlaceholderLabel.isEnabled = !isApproving
-        violationsButton.isEnabled = !isApproving
-        violationsLabel.isHidden = isApproving || viewModel.selectedViolations.isEmpty
+        sender.selectedSegmentTintColor = isApproving ?
+        UIColor.systemGreen.withAlphaComponent(0.4) :
+        UIColor.systemRed.withAlphaComponent(0.4)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.segmentUpdateUI(segmentValue: isApproving)
+            self.view.layoutIfNeeded()
+        }
     }
     
     @IBAction func violationsButtonTapped(_ sender: UIButton) {
@@ -139,24 +148,31 @@ final class ModerationDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        let decision: ModerationDecision = decisionSegmentControl.selectedSegmentIndex == 0 ? .approve : .reject
-        
-        var reason: String?
-        
-        if decision == .reject {
-            reason = rejectTextView.text.isEmpty ? nil : rejectTextView.text
-        }
-        
+        let isApproving = decisionSegmentControl.selectedSegmentIndex == 0
+        let decision: ModerationDecision = isApproving ? .approve : .reject
         let notes = noteTextView.text.isEmpty ? nil : noteTextView.text
+
+        var reason: String?
+        var violations: [Violation]?
+        var isNsfw: Bool
         
-        let violations = viewModel.selectedViolations.isEmpty ? nil : viewModel.selectedViolations
+        if isApproving {
+            reason = nil
+            violations = nil
+            isNsfw = nsfwSwitch.isOn
+        } else {
+            reason = rejectTextView.text.isEmpty ? nil : rejectTextView.text
+            violations = viewModel.selectedViolations.isEmpty ? nil : viewModel.selectedViolations
+            isNsfw = false
+        }
         
         Task(priority: .utility) {
             await viewModel.postDecision(
                 decision: decision,
                 reason: reason,
                 violations: violations,
-                notes: notes
+                notes: notes,
+                isNsfw: isNsfw
             )
         }
     }
