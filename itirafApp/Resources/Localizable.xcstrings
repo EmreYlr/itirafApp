@@ -528,6 +528,40 @@
         }
       }
     },
+    "confession.nsfw_blur_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sensitive Content(NSFW)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hassas İçerik"
+          }
+        }
+      }
+    },
+    "confession.nsfw_blur_tap_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to see"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Görmek için dokun"
+          }
+        }
+      }
+    },
     "confession.owner.you" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -868,6 +902,40 @@
         }
       }
     },
+    "error.cancelled.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The operation was cancelled."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İşlem iptal edildi."
+          }
+        }
+      }
+    },
+    "error.cancelled.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelled"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İptal Edildi"
+          }
+        }
+      }
+    },
     "error.conflict" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -902,6 +970,40 @@
         }
       }
     },
+    "error.connection.server_unreachable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not connect to the server. Please try again."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunucu ile bağlantı kurulamadı. Lütfen tekrar deneyin."
+          }
+        }
+      }
+    },
+    "error.invalid_response.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid response received from the server."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunucudan geçersiz bir yanıt alındı."
+          }
+        }
+      }
+    },
     "error.login_failed" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -915,6 +1017,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Giriş Hatası"
+          }
+        }
+      }
+    },
+    "error.message.check_internet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please check your internet connection and try again."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İnternet bağlantınızı kontrol edip tekrar deneyin."
           }
         }
       }
@@ -966,6 +1085,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Beklenmedik bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+          }
+        }
+      }
+    },
+    "error.no_internet.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please check your internet connection and try again."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin."
+          }
+        }
+      }
+    },
+    "error.no_internet.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Internet"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İnternet Yok"
           }
         }
       }
@@ -1055,6 +1208,23 @@
         }
       }
     },
+    "error.server.maintenance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are currently performing maintenance or experiencing a temporary issue. Please try again shortly."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şu anda sunucularımızda bir bakım çalışması var veya geçici bir sorun yaşıyoruz. Lütfen kısa bir süre sonra tekrar deneyin."
+          }
+        }
+      }
+    },
     "error.session_expired" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1068,6 +1238,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Oturum Süresi Doldu"
+          }
+        }
+      }
+    },
+    "error.session_expired.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please log in again."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen tekrar giriş yapınız."
           }
         }
       }
@@ -1106,6 +1293,23 @@
         }
       }
     },
+    "error.timeout.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server did not respond. Your internet speed might be slow."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunucu yanıt vermedi. İnternet hızınız yavaş olabilir."
+          }
+        }
+      }
+    },
     "error.title.app_error" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1119,6 +1323,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Uygulama Hatası"
+          }
+        }
+      }
+    },
+    "error.title.unexpected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something Went Wrong"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir Sorun Oluştu"
           }
         }
       }
@@ -1153,6 +1374,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yetkisiz Giriş"
+          }
+        }
+      }
+    },
+    "error.unexpected.message_format" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unexpected error occurred. (Code: %@)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beklenmedik bir hata meydana geldi. (Kod: %@)"
           }
         }
       }

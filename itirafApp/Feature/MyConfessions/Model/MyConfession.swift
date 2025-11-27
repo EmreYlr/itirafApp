@@ -17,12 +17,14 @@ struct MyConfessionData: Codable, Hashable {
     let likeCount: Int
     let liked: Bool
     let replyCount: Int
+    let shareCount: Int
     let createdAt: String
     let channel: ChannelData
     var replies: [Reply]?
     let rejectionReason: String?
     let violations: [Violation]?
     let moderationStatus: ModerationStatus
+    let isNsfw: Bool
     
     static func == (lhs: MyConfessionData, rhs: MyConfessionData) -> Bool {
         return lhs.id == rhs.id &&

@@ -64,8 +64,7 @@ final class ModerationDetailViewController: UIViewController {
         ownerNameLabel.text = moderationItem.ownerUsername
         channelLabel.text = moderationItem.channelTitle
         rejectionReasonLabel.text = moderationItem.rejectionReason ?? "moderation.detail.reason.unspecified".localized
-        
-        nsfwSwitch.isOn = false
+        nsfwSwitch.isOn = moderationItem.isNsfw
     }
     
     private func initUI() {

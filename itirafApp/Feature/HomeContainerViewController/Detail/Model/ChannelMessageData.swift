@@ -10,15 +10,12 @@ struct ChannelMessageData: Codable {
     let id: Int
     let title, message: String
     var liked: Bool
-    var likeCount, replyCount: Int
+    var likeCount, replyCount, shareCount: Int
     let createdAt: String
     let owner: Owner
     var shortlink: String?
     var replies: [Reply]
-
-    enum CodingKeys: String, CodingKey {
-        case id, title, message, likeCount, replyCount, liked, owner, replies, createdAt, shortlink
-    }
+    let isNsfw: Bool
 }
 
 struct Reply: Codable {

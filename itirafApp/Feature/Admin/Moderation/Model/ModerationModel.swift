@@ -18,13 +18,14 @@ struct ModerationData: Codable, Hashable{
     let moderationStatus: ModerationStatus
     let rejectionReason: String?
     let createdAt: String
+    let isNsfw: Bool
 
     enum CodingKeys: String, CodingKey {
         case id, title, message
         case channelID = "channelId"
         case channelTitle
         case ownerID = "ownerId"
-        case ownerUsername, moderationStatus, rejectionReason, createdAt
+        case ownerUsername, moderationStatus, rejectionReason, createdAt, isNsfw
     }
     
     static func == (lhs: ModerationData, rhs: ModerationData) -> Bool {

@@ -18,15 +18,11 @@ struct ConfessionData: Codable, Hashable {
     let id: Int
     let title, message: String
     var liked: Bool
-    var likeCount, replyCount: Int
+    var likeCount, replyCount, shareCount: Int
     let createdAt: String
     let owner: Owner
     let channel: ChannelData?
-
-    enum CodingKeys: String, CodingKey {
-        case id, title, message, likeCount, replyCount, liked, createdAt, channel
-        case owner
-    }
+    let isNsfw: Bool
     
     static func == (lhs: ConfessionData, rhs: ConfessionData) -> Bool {
         return lhs.id == rhs.id &&

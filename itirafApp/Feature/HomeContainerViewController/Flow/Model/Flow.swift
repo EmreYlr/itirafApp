@@ -16,9 +16,11 @@ struct FlowData: Codable, Hashable{
     var likeCount: Int
     var liked: Bool
     let replyCount: Int
+    let shareCount: Int
     let createdAt: String
     let owner: Owner
     let channel: ChannelData
+    let isNsfw: Bool
     
     static func == (lhs: FlowData, rhs: FlowData) -> Bool {
         return lhs.id == rhs.id &&
