@@ -2482,6 +2482,40 @@
         }
       }
     },
+    "post.content_remaining" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remaining: %d"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalan: %d"
+          }
+        }
+      }
+    },
+    "post.title_remaining" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remaining: %d"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalan: %d"
+          }
+        }
+      }
+    },
     "request.detail.title" : {
       "extractionState" : "manual",
       "localizations" : {

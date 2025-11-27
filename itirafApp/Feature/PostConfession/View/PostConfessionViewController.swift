@@ -14,6 +14,8 @@ final class PostConfessionViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var channelSelectButton: UIButton!
+    @IBOutlet weak var contentCountLabel: UILabel!
+    @IBOutlet weak var titleCountLabel: UILabel!
     
     var postConfessionViewModel: PostConfessionViewModelProtocol
     
@@ -66,6 +68,10 @@ final class PostConfessionViewController: UIViewController {
             channelSelectButton.setTitle(postConfessionViewModel.selectedChannel?.title.capitalized, for: .normal)
             channelSelectButton.isEnabled = false
         }
+        titleTextField.addTarget(self, action: #selector(titleTextFieldDidChange), for: .editingChanged)
+        
+        updateTitleCharacterCountLabel()
+        updateCharacterCountLabel()
     }
 
     @IBAction func shareButtonPressed(_ sender: UIButton) {
@@ -128,6 +134,44 @@ final class PostConfessionViewController: UIViewController {
         
         present(navController, animated: true)
     }
+    
+    @objc private func titleTextFieldDidChange(_ textField: UITextField) {
+        updateTitleCharacterCountLabel()
+    }
+    
+    private func updateTitleCharacterCountLabel() {
+        let maxCharacterCount = postConfessionViewModel.getTitleCharrecterCount()
+        
+        let currentCount = titleTextField.text?.count ?? 0
+        let remaining = maxCharacterCount - currentCount
+        
+        titleCountLabel.text = "post.title_remaining".localized(remaining)
+        
+        if remaining == 0 {
+            titleCountLabel.textColor = .systemRed
+            titleTextField.layer.borderColor = UIColor.systemRed.cgColor
+        } else {
+            titleCountLabel.textColor = .systemGray
+            titleTextField.layer.borderColor = UIColor.systemMint.cgColor
+        }
+    }
+    
+    private func updateCharacterCountLabel() {
+        let maxCharacterCount = postConfessionViewModel.getContentCharrecterCount()
+        
+        let currentCount = contentTextView.text.count
+        let remaining = maxCharacterCount - currentCount
+        
+        contentCountLabel.text = "post.content_remaining".localized(remaining)
+
+        if remaining == 0 {
+            contentCountLabel.textColor = .systemRed
+            contentTextView.layer.borderColor = UIColor.systemRed.cgColor
+        } else {
+            contentCountLabel.textColor = .systemGray
+            contentTextView.layer.borderColor = UIColor.systemMint.cgColor
+        }
+    }
 }
     
 
@@ -155,9 +199,23 @@ extension PostConfessionViewController: PostConfessionViewModelOutputProtocol {
 }
 
 extension PostConfessionViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text ?? ""
+
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
+
+        return updatedText.count <= postConfessionViewModel.getContentCharrecterCount()
+    }
+
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !contentTextView.text.isEmpty
+        
+        updateCharacterCountLabel()
     }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         contentTextView.layer.borderColor = UIColor.systemMint.cgColor
     }
@@ -168,14 +226,23 @@ extension PostConfessionViewController: UITextViewDelegate {
 }
 
 extension PostConfessionViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == titleTextField {
+            let currentText = textField.text ?? ""
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            return updatedText.count <= postConfessionViewModel.getTitleCharrecterCount()
+        }
+        return true
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        titleTextField.layer.borderColor = UIColor.systemMint.cgColor
+        updateTitleCharacterCountLabel()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         titleTextField.layer.borderColor = UIColor.lightGray.cgColor
     }
-    
 }
 
 extension PostConfessionViewController: ChannelSelectionDelegate {

@@ -219,21 +219,34 @@
                                     <constraint firstAttribute="width" constant="20" id="UMz-3A-4Hh"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="contentCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEs-F5-X49">
+                                <rect key="frame" x="299.33333333333331" y="327.66666666666669" width="77.666666666666686" height="14.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtJ-U6-xAZ">
+                                <rect key="frame" x="321.33333333333331" y="231" width="55.666666666666686" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="q47-Ce-fDP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="q47-Ce-fDP" firstAttribute="trailing" secondItem="HZV-F4-dGG" secondAttribute="trailing" constant="16" id="03g-0t-WXt"/>
                             <constraint firstItem="7wi-TQ-yWL" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="5f4-WG-5fF"/>
+                            <constraint firstItem="q47-Ce-fDP" firstAttribute="trailing" secondItem="EEs-F5-X49" secondAttribute="trailing" constant="16" id="5o5-OM-6VP"/>
+                            <constraint firstItem="bV3-N4-xnA" firstAttribute="top" secondItem="ZtJ-U6-xAZ" secondAttribute="bottom" constant="10" id="6ZR-pu-7qb"/>
                             <constraint firstItem="jGo-Rz-FWB" firstAttribute="top" secondItem="HZV-F4-dGG" secondAttribute="bottom" constant="15" id="70U-gI-v64"/>
                             <constraint firstItem="h4y-RD-JdP" firstAttribute="trailing" secondItem="xO0-cl-IF4" secondAttribute="trailing" constant="-5" id="EZq-VJ-9df"/>
                             <constraint firstItem="O8O-lk-X8S" firstAttribute="top" secondItem="xO0-cl-IF4" secondAttribute="bottom" constant="30" id="F6a-wt-GUG"/>
                             <constraint firstItem="WKX-EQ-C7J" firstAttribute="top" secondItem="J51-hC-FKo" secondAttribute="bottom" constant="15" id="FkL-US-r1d"/>
                             <constraint firstItem="xO0-cl-IF4" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="I6P-p9-Woo"/>
+                            <constraint firstItem="HZV-F4-dGG" firstAttribute="top" secondItem="EEs-F5-X49" secondAttribute="bottom" constant="10" id="JnH-6r-aBx"/>
                             <constraint firstItem="YyZ-gS-KrY" firstAttribute="top" secondItem="7wi-TQ-yWL" secondAttribute="bottom" constant="20" id="K1W-W8-QAU"/>
-                            <constraint firstItem="q47-Ce-fDP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7wi-TQ-yWL" secondAttribute="trailing" constant="16" id="MPB-E3-hve"/>
                             <constraint firstItem="q47-Ce-fDP" firstAttribute="trailing" secondItem="xO0-cl-IF4" secondAttribute="trailing" constant="16" id="Nla-K8-3Fh"/>
-                            <constraint firstItem="q47-Ce-fDP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WKX-EQ-C7J" secondAttribute="trailing" constant="16" id="Oi0-ev-TgN"/>
                             <constraint firstItem="q47-Ce-fDP" firstAttribute="trailing" secondItem="O8O-lk-X8S" secondAttribute="trailing" constant="16" id="Okf-8h-hdF"/>
                             <constraint firstItem="HZV-F4-dGG" firstAttribute="top" secondItem="7wi-TQ-yWL" secondAttribute="bottom" constant="10" id="PtP-NR-epW"/>
                             <constraint firstItem="7wi-TQ-yWL" firstAttribute="top" secondItem="bV3-N4-xnA" secondAttribute="bottom" constant="15" id="TWl-lp-JWd"/>
@@ -244,12 +257,15 @@
                             <constraint firstItem="q47-Ce-fDP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="J51-hC-FKo" secondAttribute="trailing" constant="15" id="aV1-jp-UnM"/>
                             <constraint firstItem="q47-Ce-fDP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YyZ-gS-KrY" secondAttribute="trailing" constant="30" id="adu-bf-Rmn"/>
                             <constraint firstItem="q47-Ce-fDP" firstAttribute="trailing" secondItem="bV3-N4-xnA" secondAttribute="trailing" constant="16" id="fTR-Fc-Kr6"/>
+                            <constraint firstItem="EEs-F5-X49" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7wi-TQ-yWL" secondAttribute="trailing" constant="8" id="myf-jd-q7Q"/>
                             <constraint firstItem="jGo-Rz-FWB" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="oG2-bQ-gQ1"/>
                             <constraint firstItem="J51-hC-FKo" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="oeP-BV-jid"/>
                             <constraint firstItem="HZV-F4-dGG" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="pBK-fq-AxX"/>
                             <constraint firstItem="WKX-EQ-C7J" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="pu3-MZ-7L2"/>
                             <constraint firstItem="YyZ-gS-KrY" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="30" id="sVn-BS-gHy"/>
                             <constraint firstItem="h4y-RD-JdP" firstAttribute="centerY" secondItem="xO0-cl-IF4" secondAttribute="centerY" id="vIH-9a-Dfm"/>
+                            <constraint firstItem="ZtJ-U6-xAZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WKX-EQ-C7J" secondAttribute="trailing" constant="8" id="wwh-cq-W9H"/>
+                            <constraint firstItem="q47-Ce-fDP" firstAttribute="trailing" secondItem="ZtJ-U6-xAZ" secondAttribute="trailing" constant="16" id="x8N-Ic-ab8"/>
                             <constraint firstItem="bV3-N4-xnA" firstAttribute="top" secondItem="WKX-EQ-C7J" secondAttribute="bottom" constant="10" id="xx9-gP-BgL"/>
                             <constraint firstItem="O8O-lk-X8S" firstAttribute="leading" secondItem="q47-Ce-fDP" secondAttribute="leading" constant="16" id="zNw-Fd-1lf"/>
                         </constraints>
@@ -257,9 +273,11 @@
                     <navigationItem key="navigationItem" title="İtiraf Yaz" id="TnT-kv-lDv"/>
                     <connections>
                         <outlet property="channelSelectButton" destination="xO0-cl-IF4" id="f6z-VF-52p"/>
+                        <outlet property="contentCountLabel" destination="EEs-F5-X49" id="wTE-XL-Cw4"/>
                         <outlet property="contentTextView" destination="HZV-F4-dGG" id="4N8-XV-x6Q"/>
                         <outlet property="placeholderLabel" destination="YyZ-gS-KrY" id="L8B-4e-054"/>
                         <outlet property="shareButton" destination="O8O-lk-X8S" id="a2r-ki-UhE"/>
+                        <outlet property="titleCountLabel" destination="ZtJ-U6-xAZ" id="7Eu-l3-59n"/>
                         <outlet property="titleTextField" destination="bV3-N4-xnA" id="0Vr-eI-jBa"/>
                     </connections>
                 </viewController>

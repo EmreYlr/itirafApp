@@ -10,6 +10,8 @@ protocol PostConfessionViewModelProtocol {
     var selectedChannel: ChannelData? { get set }
     func postConfession(content: PostConfession) async
     func isChannelEmpty() -> Bool
+    func getContentCharrecterCount() -> Int
+    func getTitleCharrecterCount() -> Int
 }
 
 protocol PostConfessionViewModelOutputProtocol: AnyObject {
@@ -20,6 +22,9 @@ protocol PostConfessionViewModelOutputProtocol: AnyObject {
 final class PostConfessionViewModel {
     weak var delegate: PostConfessionViewModelOutputProtocol?
     var selectedChannel: ChannelData?
+    private let maxContentCharacterCount = 500
+    private let maxTitleCharacterCount = 100
+    
     private let postConfessionService: PostConfessionServiceProtocol
     
     init(postConfessionService: PostConfessionServiceProtocol = PostConfessionService()) {
@@ -43,6 +48,14 @@ final class PostConfessionViewModel {
     
     func isChannelEmpty() -> Bool {
         return FollowManager.shared.isChannelEmpty()
+    }
+    
+    func getContentCharrecterCount() -> Int {
+        return maxContentCharacterCount
+    }
+    
+    func getTitleCharrecterCount() -> Int {
+        return maxTitleCharacterCount
     }
     
 }

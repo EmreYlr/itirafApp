@@ -223,6 +223,18 @@
         }
       }
     },
+    "EEs-F5-X49.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"contentCount\"; ObjectID = \"EEs-F5-X49\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "contentCount"
+          }
+        }
+      }
+    },
     "eNN-FT-f1v.title" : {
       "comment" : "Class = \"UITabBarItem\"; title = \"İtiraflarım\"; ObjectID = \"eNN-FT-f1v\";",
       "extractionState" : "extracted_with_value",
@@ -849,6 +861,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "İtirafa detaylar ekleyin. Lütfen hakarat içeren ifadeler kullanmayınız."
+          }
+        }
+      }
+    },
+    "ZtJ-U6-xAZ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"titleCount\"; ObjectID = \"ZtJ-U6-xAZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "titleCount"
           }
         }
       }
