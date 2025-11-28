@@ -21,6 +21,12 @@ final class ClarityManager {
         config.logLevel = .verbose
         
         ClaritySDK.initialize(config: config)
+        
+        ClaritySDK.setOnSessionStartedCallback { _ in
+            if let clarityUrl = ClaritySDK.getCurrentSessionUrl() {
+                CrashlyticsManager.shared.setClaritySessionLink(clarityUrl)
+            }
+        }
     }
     
     func setUserId(_ id: String) {

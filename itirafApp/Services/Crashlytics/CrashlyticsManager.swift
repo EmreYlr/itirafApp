@@ -29,6 +29,11 @@ final class CrashlyticsManager {
         crashlytics.setCustomValue(isAnonymous, forKey: "is_anonymous_user")
     }
     
+    func setClaritySessionLink(_ url: String) {
+        setValue(url, forKey: "claritySessionLink")
+    }
+    
+    
     private func setValue(_ value: String, forKey key: String) {
         crashlytics.setCustomValue(value, forKey: key)
     }
