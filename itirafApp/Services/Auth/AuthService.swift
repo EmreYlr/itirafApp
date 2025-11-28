@@ -55,6 +55,8 @@ final class AuthService {
         CrashlyticsManager.shared.setUserID(user.id ?? "anonymous_user")
         CrashlyticsManager.shared.isUserAnonymous(true)
         
+        ClarityManager.shared.setUserId(user.id ?? "anonymous_user")
+        
         return response
     }
     

@@ -29,9 +29,11 @@ final class SettingsService: SettingsServiceProtocol {
         CrashlyticsManager.shared.setUserID("none")
         CrashlyticsManager.shared.isUserAnonymous(true)
         
+        ClarityManager.shared.clearUser()
+        
         AuthManager.shared.clearTokens()
         UserManager.shared.clear()
         
-        followManager.clearCache()        
+        followManager.clearCache()
     }
 }

@@ -117,6 +117,8 @@
 		C3A7A4352EAA286400250B06 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4342EAA286400250B06 /* ChatViewController.swift */; };
 		C3A7A4382EAA288000250B06 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4372EAA287D00250B06 /* ChatViewModel.swift */; };
 		C3A7A43A2EAA28F100250B06 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4392EAA28EC00250B06 /* ChatService.swift */; };
+		C3BA533F2ED994F300EC6413 /* Clarity in Frameworks */ = {isa = PBXBuildFile; productRef = C3BA533E2ED994F300EC6413 /* Clarity */; };
+		C3BA53422ED997A800EC6413 /* ClarityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA53412ED997A800EC6413 /* ClarityManager.swift */; };
 		C3BE191E2ECA126B0053C9A9 /* ChannelSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE191D2ECA125D0053C9A9 /* ChannelSelectionViewController.swift */; };
 		C3BE19292ECBACDF0053C9A9 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19282ECBACDF0053C9A9 /* NotificationSettingsViewController.swift */; };
 		C3BE192B2ECBACF90053C9A9 /* NotificationSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE192A2ECBACF00053C9A9 /* NotificationSettingsViewModel.swift */; };
@@ -367,6 +369,7 @@
 		C3A7A4342EAA286400250B06 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		C3A7A4372EAA287D00250B06 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		C3A7A4392EAA28EC00250B06 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		C3BA53412ED997A800EC6413 /* ClarityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityManager.swift; sourceTree = "<group>"; };
 		C3BE191D2ECA125D0053C9A9 /* ChannelSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSelectionViewController.swift; sourceTree = "<group>"; };
 		C3BE19282ECBACDF0053C9A9 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		C3BE192A2ECBACF00053C9A9 /* NotificationSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewModel.swift; sourceTree = "<group>"; };
@@ -510,6 +513,7 @@
 				C3BE19712ECF343A0053C9A9 /* GoogleSignIn in Frameworks */,
 				C37D5DEA2E8415260068F334 /* Alamofire in Frameworks */,
 				C38EAAC42EC0C66000A1818C /* FirebaseCore in Frameworks */,
+				C3BA533F2ED994F300EC6413 /* Clarity in Frameworks */,
 				C38EAAC22EC0C23000A1818C /* FirebaseCrashlytics in Frameworks */,
 				C35148892EAA302C00359585 /* MessageKit in Frameworks */,
 			);
@@ -1210,6 +1214,7 @@
 		C3A7A42F2EA9586400250B06 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C3BA53402ED9979D00EC6413 /* Clarity */,
 				C37F9E2D2EC8E6A20042B56F /* FollowManager */,
 				C38EAAC62EC1F32600A1818C /* Crashlytics */,
 				C38EAAAF2EBFB38100A1818C /* Device */,
@@ -1253,6 +1258,14 @@
 				C351488A2EAA37D000359585 /* Message.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C3BA53402ED9979D00EC6413 /* Clarity */ = {
+			isa = PBXGroup;
+			children = (
+				C3BA53412ED997A800EC6413 /* ClarityManager.swift */,
+			);
+			path = Clarity;
 			sourceTree = "<group>";
 		};
 		C3BE19232ECBAC990053C9A9 /* NotificationSettings */ = {
@@ -2322,6 +2335,7 @@
 				C38EAAC12EC0C23000A1818C /* FirebaseCrashlytics */,
 				C38EAAC32EC0C66000A1818C /* FirebaseCore */,
 				C3BE19702ECF343A0053C9A9 /* GoogleSignIn */,
+				C3BA533E2ED994F300EC6413 /* Clarity */,
 			);
 			productName = itirafApp;
 			productReference = C3EB10552E7440CE002DA295 /* itirafApp.app */;
@@ -2361,6 +2375,7 @@
 				C35148872EAA302C00359585 /* XCRemoteSwiftPackageReference "MessageKit" */,
 				C38EAAB52EC0BBA000A1818C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C3BE196F2ECF343A0053C9A9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				C3BA533D2ED994F300EC6413 /* XCRemoteSwiftPackageReference "clarity-apps" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C3EB10562E7440CE002DA295 /* Products */;
@@ -2466,6 +2481,7 @@
 				C3F39E162EA0269200197509 /* PostConfessionService.swift in Sources */,
 				C3E6602C2EB257540059048F /* MyConfessionsCollectionViewCell.swift in Sources */,
 				C3BE19802ED215470053C9A9 /* BusinessError.swift in Sources */,
+				C3BA53422ED997A800EC6413 /* ClarityManager.swift in Sources */,
 				C3A750982EB609900058163B /* RequestMessageViewModel.swift in Sources */,
 				C37D5DFC2E842AE30068F334 /* LoginService.swift in Sources */,
 				C39700952EC35ADE0062E505 /* NotificationParser.swift in Sources */,
@@ -3116,6 +3132,14 @@
 				minimumVersion = 12.5.0;
 			};
 		};
+		C3BA533D2ED994F300EC6413 /* XCRemoteSwiftPackageReference "clarity-apps" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/microsoft/clarity-apps";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.3;
+			};
+		};
 		C3BE196F2ECF343A0053C9A9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
@@ -3146,6 +3170,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C38EAAB52EC0BBA000A1818C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCore;
+		};
+		C3BA533E2ED994F300EC6413 /* Clarity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3BA533D2ED994F300EC6413 /* XCRemoteSwiftPackageReference "clarity-apps" */;
+			productName = Clarity;
 		};
 		C3BE19702ECF343A0053C9A9 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;

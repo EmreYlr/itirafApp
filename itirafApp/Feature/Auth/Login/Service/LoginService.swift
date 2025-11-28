@@ -102,6 +102,8 @@ final class LoginService {
             CrashlyticsManager.shared.sentNonFatal(error)
         }
         
+        ClarityManager.shared.setUserId(user.id ?? "Non")
+        
         if let deviceToken = UserDefaults.standard.string(forKey: .deviceToken) {
             do {
                 try await deviceService.registerDeviceToken(deviceToken, notificationEnabled: true)
