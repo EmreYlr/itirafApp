@@ -8,17 +8,11 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var likeCountLabel: UILabel!
-    @IBOutlet weak var commentCountLabel: UILabel!
-    @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var commentButton: UIButton!
+    //MARK: -Rroperties
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var replyTextField: UITextField!
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var replyView: UIView!
     
     var detailViewModel: DetailViewModelProtocol!
     
@@ -40,7 +34,13 @@ final class DetailViewController: UIViewController {
     }
     
     private func initUI() {
-        contentView.layer.cornerRadius = 10
+        replyView.layer.borderColor = UIColor.systemGray5.cgColor
+        replyView.layer.borderWidth = 0.3
+        replyTextField.layer.cornerRadius = 20
+        replyTextField.layer.borderColor = UIColor.systemGray5.cgColor
+        replyTextField.layer.borderWidth = 0.3
+        replyTextField.clipsToBounds = true
+        replyTextField.layer.cornerCurve = .continuous
     }
     
     private func initData() {
@@ -57,26 +57,18 @@ final class DetailViewController: UIViewController {
     private func loadCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        collectionView.register(UINib(nibName: "DetailHeaderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "detailHeaderCell")
+        
         collectionView.register(UINib(nibName: "DetailConfessionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "detailConfessionCell")
+
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let width = collectionView.frame.width
-            flowLayout.estimatedItemSize = CGSize(width: width, height: 100)
+            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
     }
     
-    private func updateLikeUI(isLike: Bool, likeCount: Int) {
-        let imageName = isLike ? "heart.fill" : "heart"
-        likeButton.setImage(UIImage(systemName: imageName), for: .normal)
-        likeCountLabel.text = "\(likeCount)"
-    }
-    
     private func updateScreen() {
-        guard let confession = detailViewModel.confession else { return }
-        titleLabel.text = confession.title
-        contentLabel.text = confession.message
-        likeCountLabel.text = confession.likeCount.description
-        commentCountLabel.text = confession.replyCount.description
-        self.updateLikeUI(isLike: confession.liked, likeCount: confession.likeCount)
+        self.collectionView.reloadData()
     }
     
     @objc func dmButtonTapped() {
@@ -98,31 +90,25 @@ final class DetailViewController: UIViewController {
         self.present(requestBottomSheetVC, animated: true)
     }
     
-    @IBAction func shareButtonClicked(_ sender: UIButton) {
+    func handleShareAction() {
         Task(priority: .utility) {
             await detailViewModel.createShortlink()
         }
     }
     
-    @IBAction func commentButtonClicked(_ sender: UIButton) {
-        CrashlyticsManager.shared.logMessage("Comment button clicked - Feature not implemented yet.")
-        fatalError("Comment feature is not implemented yet.")
-    }
-    
-    @IBAction func likeButtonClicked(_ sender: UIButton) {
+    func handleLikeAction() {
         guard let isLiked = detailViewModel.confession?.liked else { return }
-        sender.isEnabled = false
-        
         Task {
-            defer {
-                sender.isEnabled = true
-            }
             if isLiked {
                 await detailViewModel.unlikeMessage()
             } else {
                 await detailViewModel.likeMessage()
             }
         }
+    }
+    
+    func handleReplyButtonAction() {
+        replyTextField.becomeFirstResponder()
     }
     
     @IBAction func sendButtonClicked(_ sender: UIButton) {
@@ -163,6 +149,12 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     
     func didUpdateReplies() {
         collectionView.reloadData()
+        
+        let repliesCount = detailViewModel.confession?.replies.count ?? 0
+        if repliesCount > 0 {
+            let indexPath = IndexPath(row: repliesCount - 1, section: 1)
+            collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        }
     }
     
     func didFailToAddComment(with error: any Error) {
@@ -172,13 +164,18 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     }
     
     func didUpdateLikeStatus(isLiked: Bool, likeCount: Int) {
-        updateLikeUI(isLike: isLiked, likeCount: likeCount)
+        let indexPath = IndexPath(item: 0, section: 0)
+        if collectionView.indexPathsForVisibleItems.contains(indexPath) {
+             if let cell = collectionView.cellForItem(at: indexPath) as? DetailHeaderCollectionViewCell,
+                let confession = detailViewModel.confession {
+                 cell.configure(with: confession)
+             }
+        }
     }
     
     func didFetchDetail() {
         DispatchQueue.main.async {
             self.updateScreen()
-            self.collectionView.reloadData()
             self.scrollToHighlightedComment()
         }
     }
@@ -198,10 +195,10 @@ extension DetailViewController: DetailViewModelOutputProtocol {
               let replies = detailViewModel.confession?.replies else { return }
         
         if let index = replies.firstIndex(where: { $0.id == highlightId }) {
-            let indexPath = IndexPath(item: index, section: 0)
+            let indexPath = IndexPath(item: index, section: 1)
             
             self.collectionView.layoutIfNeeded()
-            
+
             self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

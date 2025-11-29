@@ -15,6 +15,7 @@ final class HomeViewController: UIViewController {
     var homeViewModel: HomeViewModelProtocol
     let refreshControl = UIRefreshControl()
     var dataSource: UICollectionViewDiffableDataSource<Section, ConfessionData>!
+    private var revealedNsfwItems = Set<Int>()
 
     required init?(coder: NSCoder) {
         self.homeViewModel = HomeViewModel()
@@ -64,7 +65,14 @@ final class HomeViewController: UIViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "confessionCell", for: indexPath) as? ConfessionCollectionViewCell else {
                 fatalError("Cannot create new cell")
             }
-            cell.configure(with: confession)
+            
+            let isRevealed = self.revealedNsfwItems.contains(confession.id)
+            
+            cell.configure(with: confession, isRevealed: isRevealed)
+            
+            cell.onNsfwRevealed = { [weak self] in
+                self?.revealedNsfwItems.insert(confession.id)
+            }
             
             cell.onLikeButtonTapped = { [weak self] in
                 guard let self = self else { return }

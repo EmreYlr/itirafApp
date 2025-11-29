@@ -13,6 +13,7 @@ final class FlowViewController: UIViewController {
     
     var viewModel: FlowViewModelProtocol
     var dataSource: UICollectionViewDiffableDataSource<Section, FlowData>!
+    private var revealedNsfwItems = Set<Int>()
     
     required init?(coder: NSCoder) {
         self.viewModel = FlowViewModel()
@@ -53,7 +54,13 @@ final class FlowViewController: UIViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "confessionCell", for: indexPath) as? ConfessionCollectionViewCell else {
                 fatalError("Cannot create new cell")
             }
-            cell.configure(with: flow)
+            let isRevealed = self.revealedNsfwItems.contains(flow.id)
+            
+            cell.configure(with: flow, isRevealed: isRevealed)
+            
+            cell.onNsfwRevealed = { [weak self] in
+                self?.revealedNsfwItems.insert(flow.id)
+            }
             
             cell.onLikeButtonTapped = { [weak self] in
                 guard let self = self else { return }

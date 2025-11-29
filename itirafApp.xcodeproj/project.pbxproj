@@ -119,6 +119,8 @@
 		C3A7A43A2EAA28F100250B06 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4392EAA28EC00250B06 /* ChatService.swift */; };
 		C3BA533F2ED994F300EC6413 /* Clarity in Frameworks */ = {isa = PBXBuildFile; productRef = C3BA533E2ED994F300EC6413 /* Clarity */; };
 		C3BA53422ED997A800EC6413 /* ClarityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA53412ED997A800EC6413 /* ClarityManager.swift */; };
+		C3BA53452EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3BA53442EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib */; };
+		C3BA53462EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA53432EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift */; };
 		C3BE191E2ECA126B0053C9A9 /* ChannelSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE191D2ECA125D0053C9A9 /* ChannelSelectionViewController.swift */; };
 		C3BE19292ECBACDF0053C9A9 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19282ECBACDF0053C9A9 /* NotificationSettingsViewController.swift */; };
 		C3BE192B2ECBACF90053C9A9 /* NotificationSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE192A2ECBACF00053C9A9 /* NotificationSettingsViewModel.swift */; };
@@ -370,6 +372,8 @@
 		C3A7A4372EAA287D00250B06 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		C3A7A4392EAA28EC00250B06 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		C3BA53412ED997A800EC6413 /* ClarityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityManager.swift; sourceTree = "<group>"; };
+		C3BA53432EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3BA53442EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3BE191D2ECA125D0053C9A9 /* ChannelSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSelectionViewController.swift; sourceTree = "<group>"; };
 		C3BE19282ECBACDF0053C9A9 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		C3BE192A2ECBACF00053C9A9 /* NotificationSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewModel.swift; sourceTree = "<group>"; };
@@ -1797,6 +1801,8 @@
 			children = (
 				C3D764C02E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift */,
 				C3D764C12E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib */,
+				C3BA53432EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift */,
+				C3BA53442EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -2405,6 +2411,7 @@
 				C38465FC2ED5DB3A00FD370A /* NotificationSettings.storyboard in Resources */,
 				C38EAABE2EC0BDFA00A1818C /* GoogleService-Info.plist in Resources */,
 				C3DF502D2ED4A507003D5FB8 /* ForgotPassword.storyboard in Resources */,
+				C3BA53452EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib in Resources */,
 				C3A7A4202EA9446F00250B06 /* DirectMessage.storyboard in Resources */,
 				C3C08BAE2E8AAF6300EDC6A2 /* ConfessionCollectionViewCell.xib in Resources */,
 				C3A750A02EB623540058163B /* RequestMessageCollectionViewCell.xib in Resources */,
@@ -2598,6 +2605,7 @@
 				C37D5DF22E84256A0068F334 /* NSNotification+Extension.swift in Sources */,
 				C3BE197E2ED2153F0053C9A9 /* AuthError.swift in Sources */,
 				C3A7A41D2EA9443B00250B06 /* DirectMessageViewController.swift in Sources */,
+				C3BA53462EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift in Sources */,
 				C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */,
 				C3528F0E2EB8F04D00FF1C19 /* RequestSentModel.swift in Sources */,
 				C3C173EE2EC8831300D27383 /* FollowChannelService.swift in Sources */,

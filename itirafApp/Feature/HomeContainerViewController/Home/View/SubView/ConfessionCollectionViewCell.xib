@@ -102,7 +102,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tpu-hm-nfp">
-                                            <rect key="frame" x="108" y="25.666666666666671" width="121.33333333333331" height="79.999999999999986"/>
+                                            <rect key="frame" x="108" y="25.666666666666671" width="121.33333333333331" height="80"/>
                                             <subviews>
                                                 <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.slash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4jP-l4-V6Z">
                                                     <rect key="frame" x="45.666666666666657" y="0.33333333333333215" width="30" height="29.333333333333336"/>

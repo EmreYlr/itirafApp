@@ -13,6 +13,7 @@ final class ChannelDetailViewController: UIViewController {
     
     var dataSource: UICollectionViewDiffableDataSource<Section, ConfessionData>!
     var viewModel: ChannelDetailViewModelProtocol!
+    private var revealedNsfwItems = Set<Int>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +65,13 @@ final class ChannelDetailViewController: UIViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "confessionCell", for: indexPath) as? ConfessionCollectionViewCell else {
                 fatalError("Cannot create new cell")
             }
-            cell.configure(with: confession)
+            let isRevealed = self.revealedNsfwItems.contains(confession.id)
+            
+            cell.configure(with: confession, isRevealed: isRevealed)
+            
+            cell.onNsfwRevealed = { [weak self] in
+                self?.revealedNsfwItems.insert(confession.id)
+            }
             
             cell.onLikeButtonTapped = { [weak self] in
                 guard let self = self else { return }

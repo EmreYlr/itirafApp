@@ -19,19 +19,6 @@
         }
       }
     },
-    "0mb-RF-QKd.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"32\"; ObjectID = \"0mb-RF-QKd\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "32"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "0VH-UT-nhd.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"Ana Sayfa\"; ObjectID = \"0VH-UT-nhd\";",
       "extractionState" : "extracted_with_value",
@@ -174,19 +161,6 @@
         }
       }
     },
-    "Ant-OE-dS3.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"Ant-OE-dS3\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "bV3-N4-xnA.placeholder" : {
       "comment" : "Class = \"UITextField\"; placeholder = \"İtiraf başlığı giriniz\"; ObjectID = \"bV3-N4-xnA\";",
       "extractionState" : "extracted_with_value",
@@ -302,19 +276,6 @@
       },
       "shouldTranslate" : false
     },
-    "fiQ-pm-nW2.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"content\"; ObjectID = \"fiQ-pm-nW2\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "content"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "g1f-bb-c6f.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"g1f-bb-c6f\";",
       "extractionState" : "extracted_with_value",
@@ -399,19 +360,6 @@
           }
         }
       }
-    },
-    "K8z-SM-VCW.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"K8z-SM-VCW\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      },
-      "shouldTranslate" : false
     },
     "KtA-38-HfA.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"KtA-38-HfA\";",
@@ -617,32 +565,6 @@
       },
       "shouldTranslate" : false
     },
-    "r4s-Se-hJu.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"r4s-Se-hJu\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
-    "RpT-44-exc.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"12\"; ObjectID = \"RpT-44-exc\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "12"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "TGk-mH-sme.text" : {
       "comment" : "Class = \"UILabel\"; text = \"username\"; ObjectID = \"TGk-mH-sme\";",
       "extractionState" : "extracted_with_value",
@@ -798,19 +720,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Button"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
-    "XTa-kZ-TL4.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Title\"; ObjectID = \"XTa-kZ-TL4\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Title"
           }
         }
       },

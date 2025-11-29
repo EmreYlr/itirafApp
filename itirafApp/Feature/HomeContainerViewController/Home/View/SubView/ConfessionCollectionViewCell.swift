@@ -26,6 +26,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     var onLikeButtonTapped: (() -> Void)?
     var onCommentButtonTapped: (() -> Void)?
     var onChannelTapped: (() -> Void)?
+    var onNsfwRevealed: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,7 +52,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         nsfwBlurView.alpha = 1.0
     }
     
-    func configure(with confession: ConfessionData) {
+    func configure(with confession: ConfessionData, isRevealed: Bool) {
         confessionTitleLabel.text = confession.title
         confessionMessageLabel.text = confession.message
         likeCountLabel.text = "\(confession.likeCount)"
@@ -62,10 +63,10 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         channelNameLabel.isHidden = confession.channel == nil
         channelNameLabel.text = confession.channel?.title.capitalized
         
-        handleNsfwState(isNsfw: confession.isNsfw)
+        handleNsfwState(isNsfw: confession.isNsfw && !isRevealed)
     }
     
-    func configure(with flow: FlowData) {
+    func configure(with flow: FlowData, isRevealed: Bool) {
         confessionTitleLabel.text = flow.title
         confessionMessageLabel.text = flow.message
         likeCountLabel.text = "\(flow.likeCount)"
@@ -76,7 +77,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         channelNameLabel.isHidden = false
         channelNameLabel.text = flow.channel.title.capitalized
         
-        handleNsfwState(isNsfw: flow.isNsfw)
+        handleNsfwState(isNsfw: flow.isNsfw && !isRevealed)
     }
 
     private func handleNsfwState(isNsfw: Bool) {
@@ -99,6 +100,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
             self.nsfwBlurView.alpha = 0
         }) { _ in
             self.nsfwBlurView.isHidden = true
+            self.onNsfwRevealed?()
         }
     }
 

@@ -715,6 +715,23 @@
         }
       }
     },
+    "detail.reply_section_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comments(%d)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yorumlar(%d) "
+          }
+        }
+      }
+    },
     "direct_message.action.delete_and_block" : {
       "extractionState" : "manual",
       "localizations" : {
