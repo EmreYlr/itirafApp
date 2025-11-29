@@ -426,6 +426,23 @@
         }
       }
     },
+    "confession.button.edit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Düzenle"
+          }
+        }
+      }
+    },
     "confession.error.message.fill_fields" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -592,6 +609,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : " devamını gör"
+          }
+        }
+      }
+    },
+    "confession.status_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status:"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durum:"
           }
         }
       }

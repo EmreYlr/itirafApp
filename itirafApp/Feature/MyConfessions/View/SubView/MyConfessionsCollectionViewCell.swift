@@ -19,7 +19,6 @@ final class MyConfessionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     
-    private let labelHorizontalMargin: CGFloat = 16
     var onEditButtonTapped: (() -> Void)?
     
     override func awakeFromNib() {
@@ -36,13 +35,10 @@ final class MyConfessionsCollectionViewCell: UICollectionViewCell {
     
     func configure(with confession: MyConfessionData) {
         titleLabel.text = confession.title
-        messageLabel.text = confession.message
+        setMessageWithReadMore(text: confession.message)
         likeCountLabel.text = "\(confession.likeCount)"
         replyCountLabel.text = "\(confession.replyCount)"
         timeLabel.text = confession.createdAt.relativeTimeString()
-        
-        messageLabel.preferredMaxLayoutWidth = self.bounds.width - labelHorizontalMargin
-        titleLabel.preferredMaxLayoutWidth = self.bounds.width - labelHorizontalMargin
         
         switch confession.moderationStatus {
         case .humanApproved, .aiApproved:
@@ -70,4 +66,31 @@ final class MyConfessionsCollectionViewCell: UICollectionViewCell {
         onEditButtonTapped?()
     }
     
+    private func setMessageWithReadMore(text: String) {
+        let maxLength = 300
+        
+        if text.count > maxLength {
+            let truncatedText = String(text.prefix(maxLength))
+            let readMoreSuffix = "confession.read_more".localized
+            
+            let mainAttributes: [NSAttributedString.Key: Any] = [
+                .foregroundColor: UIColor.secondaryLabel,
+                .font: messageLabel.font ?? UIFont.systemFont(ofSize: 14)
+            ]
+            
+            let suffixAttributes: [NSAttributedString.Key: Any] = [
+                .foregroundColor: UIColor.systemMint,
+                .font: UIFont.boldSystemFont(ofSize: messageLabel.font.pointSize)
+            ]
+            
+            let fullString = NSMutableAttributedString(string: truncatedText, attributes: mainAttributes)
+            let suffixString = NSAttributedString(string: readMoreSuffix, attributes: suffixAttributes)
+            
+            fullString.append(suffixString)
+            messageLabel.attributedText = fullString
+        } else {
+            messageLabel.text = text
+            messageLabel.textColor = .secondaryLabel
+        }
+    }
 }

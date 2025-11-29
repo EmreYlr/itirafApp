@@ -21,7 +21,6 @@ final class EditConfessionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("EditConfessionViewController")
         initView()
         initData()
     }

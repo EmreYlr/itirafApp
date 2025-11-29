@@ -121,6 +121,8 @@
 		C3BA53422ED997A800EC6413 /* ClarityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA53412ED997A800EC6413 /* ClarityManager.swift */; };
 		C3BA53452EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3BA53442EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib */; };
 		C3BA53462EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA53432EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift */; };
+		C3BA534A2EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3BA53492EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.xib */; };
+		C3BA534B2EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA53482EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.swift */; };
 		C3BE191E2ECA126B0053C9A9 /* ChannelSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE191D2ECA125D0053C9A9 /* ChannelSelectionViewController.swift */; };
 		C3BE19292ECBACDF0053C9A9 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19282ECBACDF0053C9A9 /* NotificationSettingsViewController.swift */; };
 		C3BE192B2ECBACF90053C9A9 /* NotificationSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE192A2ECBACF00053C9A9 /* NotificationSettingsViewModel.swift */; };
@@ -374,6 +376,8 @@
 		C3BA53412ED997A800EC6413 /* ClarityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityManager.swift; sourceTree = "<group>"; };
 		C3BA53432EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3BA53442EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		C3BA53482EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConfessionHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3BA53492EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyConfessionHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3BE191D2ECA125D0053C9A9 /* ChannelSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSelectionViewController.swift; sourceTree = "<group>"; };
 		C3BE19282ECBACDF0053C9A9 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		C3BE192A2ECBACF00053C9A9 /* NotificationSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewModel.swift; sourceTree = "<group>"; };
@@ -1272,6 +1276,15 @@
 			path = Clarity;
 			sourceTree = "<group>";
 		};
+		C3BA53472EDB531600EC6413 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				C3BA53482EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.swift */,
+				C3BA53492EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.xib */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		C3BE19232ECBAC990053C9A9 /* NotificationSettings */ = {
 			isa = PBXGroup;
 			children = (
@@ -2007,6 +2020,7 @@
 		C3E6603E2EB398E60059048F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C3BA53472EDB531600EC6413 /* SubView */,
 				C3E660472EB3BCC50059048F /* MyConfessionDetail+CollectionView.swift */,
 				C3E660412EB399060059048F /* MyConfessionDetailViewController.swift */,
 			);
@@ -2420,6 +2434,7 @@
 				C3BE19902ED48B5B0053C9A9 /* Localizable.xcstrings in Resources */,
 				C38466042ED5DCE300FD370A /* Moderation.storyboard in Resources */,
 				C38466002ED5DB5300FD370A /* Login.storyboard in Resources */,
+				C3BA534A2EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.xib in Resources */,
 				C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */,
 				C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */,
 				C3C173E12EC62B0200D27383 /* ChannelCollectionViewCell.xib in Resources */,
@@ -2652,6 +2667,7 @@
 				C3A7509F2EB623540058163B /* RequestMessageCollectionViewCell.swift in Sources */,
 				C3D764C22E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift in Sources */,
 				C3BE191E2ECA126B0053C9A9 /* ChannelSelectionViewController.swift in Sources */,
+				C3BA534B2EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.swift in Sources */,
 				C3C173D62EC6154E00D27383 /* ChannelDetailService.swift in Sources */,
 				C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */,
 				C3A7A4382EAA288000250B06 /* ChatViewModel.swift in Sources */,

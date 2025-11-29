@@ -3,7 +3,7 @@
   "strings" : {
     "0EC-51-6kl.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Reddedildi\"; ObjectID = \"0EC-51-6kl\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -37,19 +37,6 @@
         }
       }
     },
-    "2l8-Ek-1GE.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"2l8-Ek-1GE\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "7wi-TQ-yWL.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Açıklama\"; ObjectID = \"7wi-TQ-yWL\";",
       "extractionState" : "extracted_with_value",
@@ -70,19 +57,6 @@
     },
     "8bq-0S-NGG.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"8bq-0S-NGG\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
-    "44w-Au-Pi9.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"44w-Au-Pi9\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "tr" : {
@@ -276,19 +250,6 @@
       },
       "shouldTranslate" : false
     },
-    "g1f-bb-c6f.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"g1f-bb-c6f\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "GCi-Ca-oNp.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Gizli sosyal medya bağlantıları\"; ObjectID = \"GCi-Ca-oNp\";",
       "extractionState" : "extracted_with_value",
@@ -361,19 +322,6 @@
         }
       }
     },
-    "KtA-38-HfA.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"KtA-38-HfA\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "kTg-UQ-9rn.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"İtiraflarım\"; ObjectID = \"kTg-UQ-9rn\";",
       "extractionState" : "extracted_with_value",
@@ -391,19 +339,6 @@
           }
         }
       }
-    },
-    "L4A-yU-QCy.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"content\"; ObjectID = \"L4A-yU-QCy\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "content"
-          }
-        }
-      },
-      "shouldTranslate" : false
     },
     "l7n-ke-UkL.placeholder" : {
       "comment" : "Class = \"UISearchBar\"; placeholder = \"Kanal Ara...\"; ObjectID = \"l7n-ke-UkL\";",
@@ -425,7 +360,7 @@
     },
     "mAf-fm-0uU.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Durum:\"; ObjectID = \"mAf-fm-0uU\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -461,7 +396,7 @@
     },
     "Mqx-JT-w9I.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Yorumlar\"; ObjectID = \"Mqx-JT-w9I\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -508,19 +443,6 @@
       },
       "shouldTranslate" : false
     },
-    "oXA-aV-nTI.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"12\"; ObjectID = \"oXA-aV-nTI\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "12"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "P7F-Od-Ndw.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"Kanallar\"; ObjectID = \"P7F-Od-Ndw\";",
       "extractionState" : "extracted_with_value",
@@ -538,32 +460,6 @@
           }
         }
       }
-    },
-    "QaA-uZ-Oul.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"QaA-uZ-Oul\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Label"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
-    "qBB-GP-pQh.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"32\"; ObjectID = \"qBB-GP-pQh\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "32"
-          }
-        }
-      },
-      "shouldTranslate" : false
     },
     "TGk-mH-sme.text" : {
       "comment" : "Class = \"UILabel\"; text = \"username\"; ObjectID = \"TGk-mH-sme\";",
@@ -680,19 +576,6 @@
           }
         }
       }
-    },
-    "X28-bg-fxT.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"title\"; ObjectID = \"X28-bg-fxT\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "title"
-          }
-        }
-      },
-      "shouldTranslate" : false
     },
     "xO0-cl-IF4.configuration.title" : {
       "comment" : "Class = \"UIButton\"; configuration.title = \"Kanal Seçin\"; ObjectID = \"xO0-cl-IF4\";",

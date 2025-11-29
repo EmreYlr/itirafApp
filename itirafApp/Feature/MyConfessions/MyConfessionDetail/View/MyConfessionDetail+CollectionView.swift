@@ -8,22 +8,60 @@
 import UIKit
 
 extension MyConfessionDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = viewModel.myConfession?.replies?.count ?? 0
-        return count
+        if section == 0 {
+            return 1
+        } else {
+            return viewModel.myConfession?.replies?.count ?? 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailConfessionCell", for: indexPath) as! DetailConfessionCollectionViewCell
-        guard let reply = viewModel.myConfession?.replies?[indexPath.row] else {
+
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myconfesionHeaderCell", for: indexPath) as! MyConfessionHeaderCollectionViewCell
+            
+            if let confession = viewModel.myConfession {
+                cell.configure(with: confession)
+                
+                cell.onEditButtonTapped = { [weak self] in
+                    self?.handleEditConfession()
+                }
+                
+                cell.onLikeButtonTapped = {
+                     Task {
+                         print("Like tapped")
+                     }
+                }
+                
+                cell.onShareButtonTapped = {
+                    print("Share tapped")
+                }
+                
+                cell.onReplyButtonTapped = { [weak self] in
+                    self?.replyTextField.becomeFirstResponder()
+                }
+            }
             return cell
         }
-        cell.configure(with: reply)
-        return cell
+        
+        else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailConfessionCell", for: indexPath) as! DetailConfessionCollectionViewCell
+            
+            if let reply = viewModel.myConfession?.replies?[indexPath.row] {
+                cell.configure(with: reply)
+            }
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 1)
+        return CGSize(width: collectionView.frame.width, height: 100)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -31,6 +69,6 @@ extension MyConfessionDetailViewController: UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
     }
 }
