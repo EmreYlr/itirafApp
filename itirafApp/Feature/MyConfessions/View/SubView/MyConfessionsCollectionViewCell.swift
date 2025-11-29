@@ -18,6 +18,9 @@ final class MyConfessionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var replyCountLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var nsfwView: UIView!
+    @IBOutlet weak var nsfwImageView: UIImageView!
+    @IBOutlet weak var nsfwLabel: UILabel!
     
     var onEditButtonTapped: (() -> Void)?
     
@@ -26,6 +29,8 @@ final class MyConfessionsCollectionViewCell: UICollectionViewCell {
         bgView.layer.cornerRadius = 10
         bgView.backgroundColor = .systemGray6
         editButton.layer.cornerRadius = 6
+        nsfwView.layer.cornerRadius = nsfwView.frame.height / 2
+        nsfwLabel.text = "confession.nsfw_blur_label".localized
     }
     
     override func layoutSubviews() {
@@ -39,6 +44,16 @@ final class MyConfessionsCollectionViewCell: UICollectionViewCell {
         likeCountLabel.text = "\(confession.likeCount)"
         replyCountLabel.text = "\(confession.replyCount)"
         timeLabel.text = confession.createdAt.relativeTimeString()
+        
+        switch confession.isNsfw {
+        case true:
+            nsfwImageView.tintColor = .purple
+            nsfwLabel.textColor = .purple
+            nsfwView.backgroundColor = UIColor.systemPurple.withAlphaComponent(0.2)
+            nsfwView.isHidden = false
+        case false:
+            nsfwView.isHidden = true
+        }
         
         switch confession.moderationStatus {
         case .humanApproved, .aiApproved:

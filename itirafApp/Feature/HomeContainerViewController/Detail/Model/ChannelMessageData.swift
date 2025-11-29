@@ -13,6 +13,7 @@ struct ChannelMessageData: Codable {
     var likeCount, replyCount, shareCount: Int
     let createdAt: String
     let owner: Owner
+    let channel: ChannelData
     var shortlink: String?
     var replies: [Reply]
     let isNsfw: Bool

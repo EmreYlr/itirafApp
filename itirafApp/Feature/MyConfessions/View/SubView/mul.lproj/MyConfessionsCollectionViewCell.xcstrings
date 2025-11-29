@@ -97,6 +97,18 @@
       },
       "shouldTranslate" : false
     },
+    "kZr-9z-V7B.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"NSFW\"; ObjectID = \"kZr-9z-V7B\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "NSFW"
+          }
+        }
+      }
+    },
     "Xn1-rg-LVt.text" : {
       "comment" : "Class = \"UILabel\"; text = \"title\"; ObjectID = \"Xn1-rg-LVt\";",
       "extractionState" : "extracted_with_value",

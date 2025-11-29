@@ -45,11 +45,10 @@ final class MyConfessionHeaderCollectionViewCell: UICollectionViewCell {
         messageView.layer.cornerRadius = 10
         messageView.backgroundColor = UIColor.systemGray.withAlphaComponent(0.1)
         
-        nsfwView.layer.cornerRadius = nsfwView.frame.height / 2
-        
         replyTitleLabel.text = "detail.reply_section_title".localized
         statusTitleLabel.text = "confession.status_title".localized
-        editButton.titleLabel?.text = "confession.button.edit".localized
+
+        nsfwView.layer.cornerRadius = nsfwView.frame.height / 2
     }
     
     func configure(with confessionData: MyConfessionData) {
@@ -60,6 +59,7 @@ final class MyConfessionHeaderCollectionViewCell: UICollectionViewCell {
         dateLabel.text = confessionData.createdAt.relativeTimeString()
         channelLabel.text = confessionData.channel.title
         replyTitleLabel.text = "detail.reply_section_title".localized(confessionData.replyCount)
+        editButton.setTitle("confession.button.edit".localized, for: .normal)
         
         updateLikeButton(isLiked: confessionData.liked)
         configureStatus(for: confessionData)

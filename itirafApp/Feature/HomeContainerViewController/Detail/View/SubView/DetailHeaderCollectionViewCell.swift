@@ -20,6 +20,7 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var replyCountLabel: UILabel!
     @IBOutlet weak var replyTitleLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var channelNameLabel: UILabel!
     
     var onShareButtonTapped: (() -> Void)?
     var onReplyButtonTapped: (() -> Void)?
@@ -38,6 +39,7 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
         likeCountLabel.text = "\(confessionData.likeCount)"
         replyCountLabel.text = "\(confessionData.replyCount)"
         updateLikeButton(isLiked: confessionData.liked)
+        channelNameLabel.text = confessionData.channel.title
         
         replyTitleLabel.text = "detail.reply_section_title".localized(confessionData.replyCount)
     }

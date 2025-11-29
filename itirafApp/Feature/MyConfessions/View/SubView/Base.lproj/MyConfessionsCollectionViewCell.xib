@@ -122,12 +122,40 @@
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzD-TJ-Jtg">
+                                <rect key="frame" x="80" y="10" width="66.333333333333314" height="30"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SZR-rb-lMH">
+                                        <rect key="frame" x="8" y="10.666666666666666" width="10" height="8.6666666666666696"/>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="KdF-q1-kw1"/>
+                                            <constraint firstAttribute="width" constant="10" id="g4y-jM-3kw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NSFW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZr-9z-V7B">
+                                        <rect key="frame" x="23.000000000000004" y="7.6666666666666679" width="35.333333333333343" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="SZR-rb-lMH" firstAttribute="leading" secondItem="fzD-TJ-Jtg" secondAttribute="leading" constant="8" id="3c0-rZ-DwU"/>
+                                    <constraint firstItem="kZr-9z-V7B" firstAttribute="centerY" secondItem="fzD-TJ-Jtg" secondAttribute="centerY" id="AzZ-SL-zKp"/>
+                                    <constraint firstItem="SZR-rb-lMH" firstAttribute="centerY" secondItem="fzD-TJ-Jtg" secondAttribute="centerY" id="GFg-sD-DRu"/>
+                                    <constraint firstItem="kZr-9z-V7B" firstAttribute="leading" secondItem="SZR-rb-lMH" secondAttribute="trailing" constant="5" id="Q3o-ir-cV7"/>
+                                    <constraint firstAttribute="trailing" secondItem="kZr-9z-V7B" secondAttribute="trailing" constant="8" id="al3-8l-hXA"/>
+                                    <constraint firstAttribute="height" constant="30" id="qqw-9N-faY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IjC-mn-2dF" secondAttribute="trailing" constant="8" id="3ZX-3m-rf1"/>
                             <constraint firstItem="dTV-x1-ADb" firstAttribute="leading" secondItem="DfX-38-71Y" secondAttribute="trailing" id="3g4-4q-c2l"/>
                             <constraint firstItem="KXr-4j-BLt" firstAttribute="leading" secondItem="ift-Sg-zNl" secondAttribute="trailing" id="4T5-AR-s6Z"/>
+                            <constraint firstItem="fzD-TJ-Jtg" firstAttribute="centerY" secondItem="Q24-co-9nV" secondAttribute="centerY" id="9I9-57-VUk"/>
                             <constraint firstItem="CoE-K2-nqX" firstAttribute="leading" secondItem="hqe-wY-55Q" secondAttribute="leading" constant="8" id="KeC-6s-Q4z"/>
                             <constraint firstItem="DfX-38-71Y" firstAttribute="top" secondItem="CoE-K2-nqX" secondAttribute="bottom" constant="16" id="L2N-kN-w3F"/>
                             <constraint firstItem="Q24-co-9nV" firstAttribute="leading" secondItem="hqe-wY-55Q" secondAttribute="leading" constant="8" id="LGW-sa-ePG"/>
@@ -138,6 +166,7 @@
                             <constraint firstAttribute="trailing" secondItem="fsg-Jm-SyE" secondAttribute="trailing" constant="8" id="aNC-al-j7y"/>
                             <constraint firstItem="ift-Sg-zNl" firstAttribute="leading" secondItem="dTV-x1-ADb" secondAttribute="trailing" constant="8" id="cQD-ly-hBU"/>
                             <constraint firstItem="Q24-co-9nV" firstAttribute="top" secondItem="hqe-wY-55Q" secondAttribute="top" constant="10" id="eQW-OF-ruD"/>
+                            <constraint firstItem="fzD-TJ-Jtg" firstAttribute="leading" secondItem="Q24-co-9nV" secondAttribute="trailing" constant="10" id="fmK-8k-4Wn"/>
                             <constraint firstItem="dTV-x1-ADb" firstAttribute="centerY" secondItem="DfX-38-71Y" secondAttribute="centerY" id="gbt-Yt-Pv4"/>
                             <constraint firstItem="DfX-38-71Y" firstAttribute="leading" secondItem="hqe-wY-55Q" secondAttribute="leading" constant="8" id="juG-lc-fxh"/>
                             <constraint firstItem="KXr-4j-BLt" firstAttribute="centerY" secondItem="ift-Sg-zNl" secondAttribute="centerY" id="lAG-oW-FXj"/>
@@ -146,7 +175,6 @@
                             <constraint firstItem="IjC-mn-2dF" firstAttribute="centerY" secondItem="Gx6-iT-TY3" secondAttribute="centerY" id="qXF-rq-HVG"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Xn1-rg-LVt" secondAttribute="trailing" constant="8" id="u7C-94-9wJ"/>
                             <constraint firstAttribute="bottom" secondItem="DfX-38-71Y" secondAttribute="bottom" constant="15" id="ujG-Zo-K0H"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Q24-co-9nV" secondAttribute="trailing" constant="8" id="uxs-HG-U6d"/>
                             <constraint firstItem="Xn1-rg-LVt" firstAttribute="leading" secondItem="hqe-wY-55Q" secondAttribute="leading" constant="8" id="x4n-0r-BHt"/>
                             <constraint firstItem="j62-gR-zLd" firstAttribute="centerY" secondItem="DfX-38-71Y" secondAttribute="centerY" id="xr4-lC-8sr"/>
                         </constraints>
@@ -166,6 +194,9 @@
                 <outlet property="editButton" destination="fsg-Jm-SyE" id="ZHm-rp-3Fw"/>
                 <outlet property="likeCountLabel" destination="dTV-x1-ADb" id="bNe-df-de3"/>
                 <outlet property="messageLabel" destination="CoE-K2-nqX" id="wD9-Lj-x6n"/>
+                <outlet property="nsfwImageView" destination="SZR-rb-lMH" id="KiZ-am-kOj"/>
+                <outlet property="nsfwLabel" destination="kZr-9z-V7B" id="w1q-Zf-TFa"/>
+                <outlet property="nsfwView" destination="fzD-TJ-Jtg" id="2xt-PN-oux"/>
                 <outlet property="replyCountLabel" destination="KXr-4j-BLt" id="5pN-Us-tk6"/>
                 <outlet property="statusImageView" destination="UMf-uF-iqs" id="08Q-q5-bZ3"/>
                 <outlet property="statusLabel" destination="Gx6-iT-TY3" id="A6M-yU-c6Z"/>
@@ -182,13 +213,16 @@
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemMintColor">
-            <color red="0.0" green="0.78431372549019607" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
