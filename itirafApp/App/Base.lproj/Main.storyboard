@@ -293,7 +293,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qAx-G4-l1a">
-                                <rect key="frame" x="0.0" y="128" width="393" height="588"/>
+                                <rect key="frame" x="16" y="128" width="361" height="588"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W4u-X4-LVA">
                                     <size key="itemSize" width="128" height="128"/>
@@ -307,7 +307,7 @@
                                 <rect key="frame" x="0.0" y="724" width="393" height="60"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yanıtını gönder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uza-AM-qxx">
-                                        <rect key="frame" x="16" y="10" width="303.33333333333331" height="40"/>
+                                        <rect key="frame" x="16" y="10" width="319" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ozh-pr-w4T"/>
                                         </constraints>
@@ -315,9 +315,9 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCx-Vt-zwF">
-                                        <rect key="frame" x="334.33333333333331" y="13" width="50.666666666666686" height="34.333333333333336"/>
+                                        <rect key="frame" x="350" y="13" width="35" height="34.333333333333336"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="cSo-m0-Knj"/>
+                                            <constraint firstAttribute="width" constant="35" id="cSo-m0-Knj"/>
                                         </constraints>
                                         <color key="tintColor" systemColor="systemMintColor"/>
                                         <state key="normal" title="Button"/>
@@ -341,10 +341,10 @@
                         <viewLayoutGuide key="safeArea" id="Lww-dB-Beg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Lww-dB-Beg" firstAttribute="trailing" secondItem="qAx-G4-l1a" secondAttribute="trailing" id="7Ac-vQ-sfA"/>
+                            <constraint firstItem="Lww-dB-Beg" firstAttribute="trailing" secondItem="qAx-G4-l1a" secondAttribute="trailing" constant="16" id="7Ac-vQ-sfA"/>
                             <constraint firstItem="PDd-kx-Cfh" firstAttribute="top" secondItem="qAx-G4-l1a" secondAttribute="bottom" constant="8" symbolic="YES" id="9Rw-eW-I8X"/>
                             <constraint firstItem="qAx-G4-l1a" firstAttribute="top" secondItem="Lww-dB-Beg" secondAttribute="top" constant="10" id="S8N-Pg-vXs"/>
-                            <constraint firstItem="qAx-G4-l1a" firstAttribute="leading" secondItem="Lww-dB-Beg" secondAttribute="leading" id="TzD-Sd-Dry"/>
+                            <constraint firstItem="qAx-G4-l1a" firstAttribute="leading" secondItem="Lww-dB-Beg" secondAttribute="leading" constant="16" id="TzD-Sd-Dry"/>
                             <constraint firstItem="PDd-kx-Cfh" firstAttribute="leading" secondItem="Lww-dB-Beg" secondAttribute="leading" id="nA7-mc-QsQ"/>
                             <constraint firstItem="PDd-kx-Cfh" firstAttribute="bottom" secondItem="Lww-dB-Beg" secondAttribute="bottom" id="nUO-AF-RCo"/>
                             <constraint firstItem="PDd-kx-Cfh" firstAttribute="trailing" secondItem="Lww-dB-Beg" secondAttribute="trailing" id="wsA-mc-p5L"/>

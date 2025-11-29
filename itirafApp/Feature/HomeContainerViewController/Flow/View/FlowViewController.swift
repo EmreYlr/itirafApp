@@ -97,6 +97,9 @@ final class FlowViewController: UIViewController {
     
     @objc private func refreshFlow() {
         Task {
+            defer {
+                self.collectionView.refreshControl?.endRefreshing()
+            }
             await viewModel.fetchFlow(reset: true)
         }
     }
