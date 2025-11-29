@@ -54,7 +54,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     
     func configure(with confession: ConfessionData, isRevealed: Bool) {
         confessionTitleLabel.text = confession.title
-        confessionMessageLabel.text = confession.message
+        setMessageWithReadMore(text: confession.message)
         likeCountLabel.text = "\(confession.likeCount)"
         commentCountLabel.text = "\(confession.replyCount)"
         updateLikeButton(isLiked: confession.liked)
@@ -68,7 +68,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     
     func configure(with flow: FlowData, isRevealed: Bool) {
         confessionTitleLabel.text = flow.title
-        confessionMessageLabel.text = flow.message
+        setMessageWithReadMore(text: flow.message)
         likeCountLabel.text = "\(flow.likeCount)"
         commentCountLabel.text = "\(flow.replyCount)"
         updateLikeButton(isLiked: flow.liked)
@@ -79,7 +79,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         
         handleNsfwState(isNsfw: flow.isNsfw && !isRevealed)
     }
-
+    
     private func handleNsfwState(isNsfw: Bool) {
         if isNsfw {
             nsfwBlurView.isHidden = false
@@ -103,11 +103,11 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
             self.onNsfwRevealed?()
         }
     }
-
+    
     @objc private func channelLabelTapped() {
         onChannelTapped?()
     }
-
+    
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         onLikeButtonTapped?()
     }
@@ -125,5 +125,33 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         channelNameLabel.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(channelLabelTapped))
         channelNameLabel.addGestureRecognizer(tapGesture)
+    }
+    
+    private func setMessageWithReadMore(text: String) {
+        let maxLength = 300
+        
+        if text.count > maxLength {
+            let truncatedText = String(text.prefix(maxLength))
+            let readMoreSuffix = "confession.read_more".localized
+            
+            let mainAttributes: [NSAttributedString.Key: Any] = [
+                .foregroundColor: UIColor.secondaryLabel,
+                .font: confessionMessageLabel.font ?? UIFont.systemFont(ofSize: 14)
+            ]
+            
+            let suffixAttributes: [NSAttributedString.Key: Any] = [
+                .foregroundColor: UIColor.systemMint,
+                .font: UIFont.boldSystemFont(ofSize: confessionMessageLabel.font.pointSize)
+            ]
+            
+            let fullString = NSMutableAttributedString(string: truncatedText, attributes: mainAttributes)
+            let suffixString = NSAttributedString(string: readMoreSuffix, attributes: suffixAttributes)
+            
+            fullString.append(suffixString)
+            confessionMessageLabel.attributedText = fullString
+        } else {
+            confessionMessageLabel.text = text
+            confessionMessageLabel.textColor = .secondaryLabel
+        }
     }
 }

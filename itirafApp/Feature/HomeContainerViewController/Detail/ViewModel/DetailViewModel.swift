@@ -16,6 +16,7 @@ protocol DetailViewModelProtocol {
     func getChannelMessageId() -> Int
     func createShortlink() async
     func getTargetCommentId() -> Int?
+    func getMaxReplyCharacterCount() -> Int
 }
 
 protocol DetailViewModelOutputProtocol: AnyObject {
@@ -32,6 +33,7 @@ protocol DetailViewModelOutputProtocol: AnyObject {
 final class DetailViewModel {
     weak var delegate: DetailViewModelOutputProtocol?
     var confession: ChannelMessageData?
+    private let maxReplyCharacterCount = 500
     
     private let detailService: DetailServiceProtocol
     private let messageId: Int
@@ -130,6 +132,10 @@ final class DetailViewModel {
     
     func getTargetCommentId() -> Int? {
         return commentId
+    }
+    
+    func getMaxReplyCharacterCount() -> Int {
+        return maxReplyCharacterCount
     }
 }
 

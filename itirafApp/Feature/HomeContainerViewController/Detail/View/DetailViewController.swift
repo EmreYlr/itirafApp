@@ -41,6 +41,8 @@ final class DetailViewController: UIViewController {
         replyTextField.layer.borderWidth = 0.3
         replyTextField.clipsToBounds = true
         replyTextField.layer.cornerCurve = .continuous
+        
+        replyTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     private func initData() {
@@ -69,6 +71,25 @@ final class DetailViewController: UIViewController {
     
     private func updateScreen() {
         self.collectionView.reloadData()
+    }
+    
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        let maxCount = detailViewModel.getMaxReplyCharacterCount()
+        
+        guard let text = textField.text else { return }
+        
+        if text.count > maxCount {
+            textField.text = String(text.prefix(maxCount))
+            
+            textField.layer.borderColor = UIColor.systemRed.cgColor
+            return
+        }
+        
+        if text.count == maxCount {
+            textField.layer.borderColor = UIColor.systemRed.cgColor
+        } else {
+            textField.layer.borderColor = UIColor.systemGray5.cgColor
+        }
     }
     
     @objc func dmButtonTapped() {
@@ -129,6 +150,7 @@ final class DetailViewController: UIViewController {
 
             replyTextField.text = ""
             replyTextField.resignFirstResponder()
+            replyTextField.layer.borderColor = UIColor.systemGray5.cgColor
         }
     }
 }
@@ -207,5 +229,21 @@ extension DetailViewController: DetailViewModelOutputProtocol {
                 }
             }
         }
+    }
+}
+
+extension DetailViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == replyTextField {
+            let currentText = textField.text ?? ""
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            return updatedText.count <= detailViewModel.getMaxReplyCharacterCount()
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        replyTextField.layer.borderColor = UIColor.lightGray.cgColor
     }
 }
