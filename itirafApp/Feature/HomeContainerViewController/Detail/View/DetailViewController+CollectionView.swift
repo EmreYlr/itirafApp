@@ -40,6 +40,10 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 cell.onReplyButtonTapped = { [weak self] in
                     self?.handleReplyButtonAction()
                 }
+                
+                cell.onAdminEditButtonTapped = { [weak self] in
+                    self?.handleAdminEditConfession()
+                }
             }
             return cell
         }

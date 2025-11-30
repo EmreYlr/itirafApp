@@ -17,6 +17,7 @@ protocol DetailViewModelProtocol {
     func createShortlink() async
     func getTargetCommentId() -> Int?
     func getMaxReplyCharacterCount() -> Int
+    func isNSFW() -> Bool
 }
 
 protocol DetailViewModelOutputProtocol: AnyObject {
@@ -136,6 +137,10 @@ final class DetailViewModel {
     
     func getMaxReplyCharacterCount() -> Int {
         return maxReplyCharacterCount
+    }
+    
+    func isNSFW() -> Bool {
+        return confession?.isNsfw ?? false
     }
 }
 

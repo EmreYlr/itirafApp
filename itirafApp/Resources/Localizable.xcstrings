@@ -2261,6 +2261,23 @@
         }
       }
     },
+    "moderation.detail_bottom_sheet.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Confession"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İtirafı Düzenle"
+          }
+        }
+      }
+    },
     "moderation.detail.reason.unspecified" : {
       "extractionState" : "manual",
       "localizations" : {

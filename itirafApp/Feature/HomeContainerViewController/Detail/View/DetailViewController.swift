@@ -132,6 +132,23 @@ final class DetailViewController: UIViewController {
         replyTextField.becomeFirstResponder()
     }
     
+    func handleAdminEditConfession() {
+        let adminEditVC: ModerationDetailBottomSheetViewController = Storyboard.moderation.instantiate(.moderationDetailBottomSheet)
+        let actionModel = ConfessionActionModel(id: detailViewModel.getChannelMessageId(), isNSFW: detailViewModel.isNSFW())
+        
+        let viewModel = ModerationDetailBottomSheetViewModel(actionModel: actionModel)
+        adminEditVC.viewModel = viewModel
+        
+        let navigationController = UINavigationController(rootViewController: adminEditVC)
+        
+        if let sheet = navigationController.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+        }
+        
+        present(navigationController, animated: true)
+    }
+    
     @IBAction func sendButtonClicked(_ sender: UIButton) {
         guard let commentText = replyTextField.text, !commentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             return

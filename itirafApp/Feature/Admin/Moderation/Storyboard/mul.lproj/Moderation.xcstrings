@@ -19,6 +19,37 @@
         }
       }
     },
+    "6Zy-Mz-lR3.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"İhlaller\"; ObjectID = \"6Zy-Mz-lR3\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Violations"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "İhlaller"
+          }
+        }
+      }
+    },
+    "6Zy-Mz-lR3.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"6Zy-Mz-lR3\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
     "caL-g7-1vI.segmentTitles[0]" : {
       "comment" : "Class = \"UISegmentedControl\"; caL-g7-1vI.segmentTitles[0] = \"Hepsi\"; ObjectID = \"caL-g7-1vI\";",
       "extractionState" : "extracted_with_value",
@@ -72,6 +103,19 @@
           }
         }
       }
+    },
+    "Ctt-Z6-wSp.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"(violations)\"; ObjectID = \"Ctt-Z6-wSp\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "(violations)"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "cvd-mr-QgO.segmentTitles[0]" : {
       "comment" : "Class = \"UISegmentedControl\"; cvd-mr-QgO.segmentTitles[0] = \"Onayla\"; ObjectID = \"cvd-mr-QgO\";",
@@ -158,6 +202,24 @@
         }
       }
     },
+    "j8R-o9-yp8.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Ret nedeni yazınız.\"; ObjectID = \"j8R-o9-yp8\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter rejection reason."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Ret nedeni yazınız."
+          }
+        }
+      }
+    },
     "jLF-oL-LMr.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Modarasyon Aksiyonu:\"; ObjectID = \"jLF-oL-LMr\";",
       "extractionState" : "extracted_with_value",
@@ -188,6 +250,24 @@
         }
       },
       "shouldTranslate" : false
+    },
+    "KXi-70-zQL.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"NSFW içeriyor mu?\"; ObjectID = \"KXi-70-zQL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Does it contain NSFW content?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "NSFW içeriyor mu?"
+          }
+        }
+      }
     },
     "MUr-fT-jqA.text" : {
       "comment" : "Class = \"UILabel\"; text = \"NSFW içeriyor mu?\"; ObjectID = \"MUr-fT-jqA\";",
@@ -313,6 +393,24 @@
       },
       "shouldTranslate" : false
     },
+    "VLT-qb-vTu.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Ret Nedeni\"; ObjectID = \"VLT-qb-vTu\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rejection Reason"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Ret Nedeni"
+          }
+        }
+      }
+    },
     "VVR-B2-e50.text" : {
       "comment" : "Class = \"UILabel\"; text = \"owner\"; ObjectID = \"VVR-B2-e50\";",
       "extractionState" : "extracted_with_value",
@@ -357,6 +455,37 @@
       },
       "shouldTranslate" : false
     },
+    "yb4-OG-0Kb.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Kaydet\"; ObjectID = \"yb4-OG-0Kb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Kaydet"
+          }
+        }
+      }
+    },
+    "yb4-OG-0Kb.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"yb4-OG-0Kb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
     "ysI-fg-zpI.text" : {
       "comment" : "Class = \"UILabel\"; text = \"(violations)\"; ObjectID = \"ysI-fg-zpI\";",
       "extractionState" : "extracted_with_value",
@@ -369,6 +498,42 @@
         }
       },
       "shouldTranslate" : false
+    },
+    "zAF-Ly-0Xh.segmentTitles[0]" : {
+      "comment" : "Class = \"UISegmentedControl\"; zAF-Ly-0Xh.segmentTitles[0] = \"Onayla\"; ObjectID = \"zAF-Ly-0Xh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Approve"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Onayla"
+          }
+        }
+      }
+    },
+    "zAF-Ly-0Xh.segmentTitles[1]" : {
+      "comment" : "Class = \"UISegmentedControl\"; zAF-Ly-0Xh.segmentTitles[1] = \"Reddet\"; ObjectID = \"zAF-Ly-0Xh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reject"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reddet"
+          }
+        }
+      }
     }
   },
   "version" : "1.1"

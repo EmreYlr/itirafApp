@@ -123,6 +123,9 @@
 		C3BA53462EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA53432EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift */; };
 		C3BA534A2EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3BA53492EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.xib */; };
 		C3BA534B2EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA53482EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.swift */; };
+		C3BA53502EDC6DD500EC6413 /* ModerationDetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA534F2EDC6DD500EC6413 /* ModerationDetailBottomSheetViewController.swift */; };
+		C3BA53522EDC6E0500EC6413 /* ModerationDetailBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA53512EDC6E0200EC6413 /* ModerationDetailBottomSheetViewModel.swift */; };
+		C3BA53562EDC736700EC6413 /* ConfessionActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA53552EDC736500EC6413 /* ConfessionActionModel.swift */; };
 		C3BE191E2ECA126B0053C9A9 /* ChannelSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE191D2ECA125D0053C9A9 /* ChannelSelectionViewController.swift */; };
 		C3BE19292ECBACDF0053C9A9 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE19282ECBACDF0053C9A9 /* NotificationSettingsViewController.swift */; };
 		C3BE192B2ECBACF90053C9A9 /* NotificationSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE192A2ECBACF00053C9A9 /* NotificationSettingsViewModel.swift */; };
@@ -378,6 +381,9 @@
 		C3BA53442EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3BA53482EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConfessionHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3BA53492EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyConfessionHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		C3BA534F2EDC6DD500EC6413 /* ModerationDetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModerationDetailBottomSheetViewController.swift; sourceTree = "<group>"; };
+		C3BA53512EDC6E0200EC6413 /* ModerationDetailBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModerationDetailBottomSheetViewModel.swift; sourceTree = "<group>"; };
+		C3BA53552EDC736500EC6413 /* ConfessionActionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfessionActionModel.swift; sourceTree = "<group>"; };
 		C3BE191D2ECA125D0053C9A9 /* ChannelSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSelectionViewController.swift; sourceTree = "<group>"; };
 		C3BE19282ECBACDF0053C9A9 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		C3BE192A2ECBACF00053C9A9 /* NotificationSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewModel.swift; sourceTree = "<group>"; };
@@ -663,6 +669,7 @@
 				C3528F242EBB720000FF1C19 /* ViewModel */,
 				C3528F232EBB71FC00FF1C19 /* Service */,
 				C3528F392EBBB65E00FF1C19 /* ModerationDetail */,
+				C3BA534C2EDC6D3E00EC6413 /* ModerationDetailBottomSheet */,
 			);
 			path = Moderation;
 			sourceTree = "<group>";
@@ -1283,6 +1290,40 @@
 				C3BA53492EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.xib */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		C3BA534C2EDC6D3E00EC6413 /* ModerationDetailBottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				C3BA53542EDC736100EC6413 /* Model */,
+				C3BA534E2EDC6D9500EC6413 /* View */,
+				C3BA534D2EDC6D6400EC6413 /* ViewModel */,
+			);
+			path = ModerationDetailBottomSheet;
+			sourceTree = "<group>";
+		};
+		C3BA534D2EDC6D6400EC6413 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3BA53512EDC6E0200EC6413 /* ModerationDetailBottomSheetViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3BA534E2EDC6D9500EC6413 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3BA534F2EDC6DD500EC6413 /* ModerationDetailBottomSheetViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3BA53542EDC736100EC6413 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3BA53552EDC736500EC6413 /* ConfessionActionModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C3BE19232ECBAC990053C9A9 /* NotificationSettings */ = {
@@ -2533,6 +2574,7 @@
 				C3E6604A2EB3CAE60059048F /* MyConfessionDetailService.swift in Sources */,
 				C3D8E2042E9005F5006C7E8F /* PersonViewModel.swift in Sources */,
 				C3528F382EBBA4DF00FF1C19 /* ModerationService.swift in Sources */,
+				C3BA53522EDC6E0500EC6413 /* ModerationDetailBottomSheetViewModel.swift in Sources */,
 				C3A7509A2EB609EC0058163B /* RequestMessageService.swift in Sources */,
 				C3BE19522ECC9FDA0053C9A9 /* NotificationHeaderView.swift in Sources */,
 				C3A750C12EB695130058163B /* RequestBottomSheetService.swift in Sources */,
@@ -2591,6 +2633,7 @@
 				C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */,
 				C3E660162EAFB7F00059048F /* ChatViewController+ScrollView.swift in Sources */,
 				C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */,
+				C3BA53562EDC736700EC6413 /* ConfessionActionModel.swift in Sources */,
 				C3F39F802EA02B6000197509 /* PostConfession.swift in Sources */,
 				C3A750B32EB658770058163B /* SocialLinkTableViewCell.swift in Sources */,
 				C326DD4F2E8FFA02001B7837 /* UserService.swift in Sources */,
@@ -2627,6 +2670,7 @@
 				C3A750BD2EB693F90058163B /* RequestBottomSheetViewController.swift in Sources */,
 				C3A7A43A2EAA28F100250B06 /* ChatService.swift in Sources */,
 				C3A750B62EB6588A0058163B /* ChatViewController+TableView.swift in Sources */,
+				C3BA53502EDC6DD500EC6413 /* ModerationDetailBottomSheetViewController.swift in Sources */,
 				C3E660142EAFACD80059048F /* Date+Extension.swift in Sources */,
 				C3BE198B2ED476E30053C9A9 /* APIError+Auth.swift in Sources */,
 				C3C08BA62E8AABE500EDC6A2 /* RegisterService.swift in Sources */,

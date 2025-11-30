@@ -21,14 +21,17 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var replyTitleLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var channelNameLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
     
     var onShareButtonTapped: (() -> Void)?
     var onReplyButtonTapped: (() -> Void)?
     var onLikeButtonTapped: (() -> Void)?
+    var onAdminEditButtonTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         replyTitleLabel.text = "detail.reply_section_title".localized
+        editButton.isHidden = !UserManager.shared.hasRole(.admin)
     }
     
     func configure(with confessionData: ChannelMessageData) {
@@ -61,5 +64,9 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
 
     @IBAction func shareButtonTapped(_ sender: UIButton) {
         onShareButtonTapped?()
+    }
+    
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        onAdminEditButtonTapped?()
     }
 }

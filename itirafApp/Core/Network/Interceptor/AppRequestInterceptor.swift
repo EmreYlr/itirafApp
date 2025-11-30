@@ -62,11 +62,8 @@ final class AppRequestInterceptor: RequestInterceptor {
             return completion(.doNotRetry)
         }
         
-        print("🟡 Token süresi doldu (Hata Kodu: 1402). Yenileme veya anonim oturum işlemi başlatılıyor...")
-        
         Task {
             if await AuthService.refreshToken() {
-                print("✅ Token başarıyla yenilendi. Asıl istek yeniden denenecek.")
                 completion(.retry)
             } else {
                 AuthManager.shared.clearTokens()

@@ -99,6 +99,7 @@ enum ViewControllerID: String {
     case moderation = "ModerationViewController"
     case moderationDetail = "ModerationDetailViewController"
     case violations = "ViolationsViewController"
+    case moderationDetailBottomSheet = "ModerationDetailBottomSheetViewController"
     
     // ChannelDetail.storyboard
     case channelDetail = "ChannelDetailViewController"

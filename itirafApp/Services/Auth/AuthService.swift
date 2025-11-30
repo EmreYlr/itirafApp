@@ -15,6 +15,19 @@ struct RefreshTokenResponse: Decodable {
 
 final class AuthService {
     static func refreshToken() async -> Bool {
+        return await TokenRefreshActor.shared.refresh()
+    }
+    
+    private static func registerAnonymousUser() async throws -> User {
+        let user: User = try await NetworkManager.shared.request(
+            endpoint: Endpoint.Auth.registerAnonymous,
+            method: .post
+        )
+        print("User ID: \(user.email)")
+        return user
+    }
+    
+    fileprivate static func performNetworkRefresh() async -> Bool {
         do {
             let tokenResponse = try await NetworkManager.shared.requestRefreshToken()
             AuthManager.shared.saveTokens(
@@ -26,15 +39,6 @@ final class AuthService {
             print("Failed to refresh token: \(error.localizedDescription)")
             return false
         }
-    }
-    
-    private static func registerAnonymousUser() async throws -> User {
-        let user: User = try await NetworkManager.shared.request(
-            endpoint: Endpoint.Auth.registerAnonymous,
-            method: .post
-        )
-        print("User ID: \(user.email)")
-        return user
     }
     
     private static func loginAnonymousUser(user: User) async throws -> RefreshTokenResponse {
@@ -85,4 +89,31 @@ final class AuthService {
         return true
     }
 }
-
+actor TokenRefreshActor {
+    static let shared = TokenRefreshActor()
+    
+    private var currentRefreshTask: Task<Bool, Never>?
+    
+    func refresh() async -> Bool {
+        if let task = currentRefreshTask {
+            return await task.value
+        }
+        print("🟡 Token süresi doldu (Hata Kodu: 1402). Yenileme işlemi başlatılıyor...")
+        
+        let task = Task {
+            return await AuthService.performNetworkRefresh()
+        }
+        
+        currentRefreshTask = task
+        let result = await task.value
+        currentRefreshTask = nil
+        
+        if result {
+            print("✅ Token başarıyla yenilendi.")
+        } else {
+            print("❌ Token yenileme başarısız.")
+        }
+        
+        return result
+    }
+}
