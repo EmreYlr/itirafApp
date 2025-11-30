@@ -12,10 +12,12 @@ protocol LoginViewModelProtocol {
     func loginAnonymously() async
     func loginWithApple(request: AppleLoginRequest) async
     func loginWithGoogle(request: GoogleLoginRequest) async
+    func resendVerificationEmail(to: String) async
 }
 
 protocol LoginViewModelOutputProtocol: AnyObject {
     func didLoginSuccessfully()
+    func didRequireEmailVerification(for email: String)
     func didFailToLogin(with error: Error)
 }
 
@@ -32,7 +34,11 @@ final class LoginViewModel {
             try await loginService.loginUser(email: email, password: password)
             delegate?.didLoginSuccessfully()
         } catch {
-            delegate?.didFailToLogin(with: error)
+            if let apiError = error as? APIError, apiError.code == 1405 {
+                delegate?.didRequireEmailVerification(for: email)
+            } else {
+                delegate?.didFailToLogin(with: error)
+            }
         }
     }
     
@@ -60,6 +66,14 @@ final class LoginViewModel {
             delegate?.didLoginSuccessfully()
         } else {
             let error = AuthError.anonymousUserNotLoggedIn
+            delegate?.didFailToLogin(with: error)
+        }
+    }
+    
+    func resendVerificationEmail(to: String) async {
+        do {
+            try await loginService.resendVerificationEmail(to: to)
+        } catch {
             delegate?.didFailToLogin(with: error)
         }
     }

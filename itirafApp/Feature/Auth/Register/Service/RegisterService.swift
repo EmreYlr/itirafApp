@@ -10,6 +10,7 @@ import Foundation
 
 protocol RegisterServiceProtocol {
     func registerUser(email: String, password: String) async throws
+    func resendVerificationEmail(to: String) async throws
 }
 
 final class RegisterService {
@@ -27,6 +28,18 @@ final class RegisterService {
 
         let _: Empty = try await networkService.request(
             endpoint: Endpoint.Auth.register,
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default
+        )
+    }
+    func resendVerificationEmail(to: String) async throws {
+        let params: Parameters = [
+            "email": to
+        ]
+        
+        let _ :Empty = try await networkService.request(
+            endpoint: Endpoint.Auth.resendEmail,
             method: .post,
             parameters: params,
             encoding: JSONEncoding.default

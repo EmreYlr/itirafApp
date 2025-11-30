@@ -1259,6 +1259,23 @@
         }
       }
     },
+    "error.send_resend" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Send Resend"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tekrar Gönder"
+          }
+        }
+      }
+    },
     "error.server" : {
       "extractionState" : "manual",
       "localizations" : {

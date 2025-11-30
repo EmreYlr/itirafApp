@@ -12,6 +12,7 @@ protocol LoginServiceProtocol {
     func loginUser(email: String, password: String) async throws
     func loginWithApple(request: AppleLoginRequest) async throws
     func loginWithGoogle(request: GoogleLoginRequest) async throws
+    func resendVerificationEmail(to: String) async throws
 }
 
 final class LoginService {
@@ -112,6 +113,19 @@ final class LoginService {
                 CrashlyticsManager.shared.sentNonFatal(error)
             }
         }
+    }
+    
+    func resendVerificationEmail(to: String) async throws {
+        let params: Parameters = [
+            "email": to
+        ]
+        
+        let _ :Empty = try await networkService.request(
+            endpoint: Endpoint.Auth.resendEmail,
+            method: .post,
+            parameters: params,
+            encoding: JSONEncoding.default
+        )
     }
 }
 extension LoginService: LoginServiceProtocol { }

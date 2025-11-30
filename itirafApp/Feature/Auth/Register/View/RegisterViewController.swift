@@ -81,6 +81,18 @@ extension RegisterViewController: RegisterViewModelOutputProtocol {
         }
     }
     
+    func didRequireEmailVerification(for email: String) {
+        DispatchQueue.main.async {
+            self.showTwoButtonAlert(title: "general.title.warning".localized, message: "message.account_not_verified".localized, firstButtonTitle: "error.send_resend".localized, firstButtonHandler: { _ in
+                
+                Task(priority: .utility) {
+                    await self.registerViewModel.resendVerificationEmail(to: email)
+                }
+                
+            }, secondButtonTitle: "general.button.cancel".localized)
+        }
+    }
+    
     func didFailToRegister(with error: Error) {
         DispatchQueue.main.async {
             if let apiError = error as? APIError {

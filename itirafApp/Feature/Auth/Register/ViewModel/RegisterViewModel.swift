@@ -8,10 +8,12 @@
 protocol RegisterViewModelProtocol {
     var delegate: RegisterViewModelOutputProtocol? { get set }
     func registerUser(email: String, password: String) async
+    func resendVerificationEmail(to: String) async
 }
 
 protocol RegisterViewModelOutputProtocol: AnyObject {
     func didRegisterSuccessfully()
+    func didRequireEmailVerification(for: String)
     func didFailToRegister(with error: Error)
 }
 
@@ -27,6 +29,18 @@ final class RegisterViewModel {
         do {
             try await registerService.registerUser(email: email, password: password)
             delegate?.didRegisterSuccessfully()
+        } catch {
+            if let apiError = error as? APIError, apiError.code == 1405 {
+                delegate?.didRequireEmailVerification(for: email)
+            } else {
+                delegate?.didFailToRegister(with: error)
+            }
+        }
+    }
+    
+    func resendVerificationEmail(to: String) async {
+        do {
+            try await registerService.resendVerificationEmail(to: to)
         } catch {
             delegate?.didFailToRegister(with: error)
         }
