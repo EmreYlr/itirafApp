@@ -70,7 +70,6 @@ final class HomeContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "home.title".localized
         initData()
         setupUI()
         setInitialViewController()
@@ -109,6 +108,7 @@ final class HomeContainerViewController: UIViewController {
     
     private func initData() {
         viewModel.delegate = self
+        self.title = "home.title".localized
     }
     
     private func showNotificationBadge(show: Bool) {
