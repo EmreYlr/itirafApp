@@ -59,7 +59,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         commentCountLabel.text = "\(confession.replyCount)"
         updateLikeButton(isLiked: confession.liked)
         dateLabel.text = confession.createdAt.relativeTimeString()
-        ownerNameLabel.text = confession.owner.username == UserManager.shared.getUsername() ? "confession.owner.you".localized : confession.owner.username
+        ownerNameLabel.text = UserManager.shared.isMe(userId: confession.owner.id) ? "confession.owner.you".localized : confession.owner.username
         channelNameLabel.isHidden = confession.channel == nil
         channelNameLabel.text = confession.channel?.title.capitalized
         
@@ -73,7 +73,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         commentCountLabel.text = "\(flow.replyCount)"
         updateLikeButton(isLiked: flow.liked)
         dateLabel.text = flow.createdAt.relativeTimeString()
-        ownerNameLabel.text = flow.owner.username == UserManager.shared.getUsername() ? "confession.owner.you".localized : flow.owner.username
+        ownerNameLabel.text = UserManager.shared.isMe(userId: flow.owner.id) ? "confession.owner.you".localized : flow.owner.username
         channelNameLabel.isHidden = false
         channelNameLabel.text = flow.channel.title.capitalized
         
@@ -83,7 +83,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     private func handleNsfwState(isNsfw: Bool) {
         if isNsfw {
             nsfwBlurView.isHidden = false
-            nsfwBlurView.alpha = 1.0
+            nsfwBlurView.alpha = 1
             bgView.bringSubviewToFront(nsfwBlurView)
         } else {
             nsfwBlurView.isHidden = true

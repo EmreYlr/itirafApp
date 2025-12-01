@@ -152,7 +152,11 @@ final class PostConfessionViewController: UIViewController {
             titleTextField.layer.borderColor = UIColor.systemRed.cgColor
         } else {
             titleCountLabel.textColor = .systemGray
-            titleTextField.layer.borderColor = UIColor.systemMint.cgColor
+            if titleTextField.isFirstResponder {
+                titleTextField.layer.borderColor = UIColor.systemMint.cgColor
+            } else {
+                titleTextField.layer.borderColor = UIColor.systemGray.cgColor
+            }
         }
     }
     
@@ -169,7 +173,11 @@ final class PostConfessionViewController: UIViewController {
             contentTextView.layer.borderColor = UIColor.systemRed.cgColor
         } else {
             contentCountLabel.textColor = .systemGray
-            contentTextView.layer.borderColor = UIColor.systemMint.cgColor
+            if contentTextView.isFirstResponder {
+                contentTextView.layer.borderColor = UIColor.systemMint.cgColor
+            } else {
+                contentTextView.layer.borderColor = UIColor.systemGray.cgColor
+            }
         }
     }
 }
@@ -217,11 +225,11 @@ extension PostConfessionViewController: UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        contentTextView.layer.borderColor = UIColor.systemMint.cgColor
+        updateCharacterCountLabel()
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        contentTextView.layer.borderColor = UIColor.lightGray.cgColor
+        updateCharacterCountLabel()
     }
 }
 
@@ -241,7 +249,7 @@ extension PostConfessionViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        titleTextField.layer.borderColor = UIColor.lightGray.cgColor
+        updateTitleCharacterCountLabel()
     }
 }
 

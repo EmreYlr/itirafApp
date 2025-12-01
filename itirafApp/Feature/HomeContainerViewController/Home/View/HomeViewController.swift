@@ -29,6 +29,11 @@ final class HomeViewController: UIViewController {
         configureDataSource()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        ClarityManager.shared.setCurrentScreen(name: "Home")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false

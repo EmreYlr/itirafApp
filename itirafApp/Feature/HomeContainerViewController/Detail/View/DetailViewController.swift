@@ -49,10 +49,12 @@ final class DetailViewController: UIViewController {
         detailViewModel.delegate = self
         let dmImage = UIImage(systemName: "bubble.left.and.bubble.right")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: dmImage , style: .done, target: self, action: #selector(dmButtonTapped))
-        
         Task {
             await detailViewModel.fetchMessageData()
+            
+            if !detailViewModel.isMe() {
+                navigationItem.rightBarButtonItem = UIBarButtonItem(image: dmImage , style: .done, target: self, action: #selector(dmButtonTapped))
+            }
         }
     }
     

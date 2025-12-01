@@ -36,4 +36,8 @@ final class ClarityManager {
     func clearUser() {
         ClaritySDK.setCustomUserId("")
     }
+    
+    func setCurrentScreen(name: String) {
+        ClaritySDK.setCurrentScreenName(name)
+    }
 }

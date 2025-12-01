@@ -25,7 +25,7 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
     func configure(with confession: Reply) {
         messageLabel.text = confession.message
         dateLabel.text = confession.createdAt.relativeTimeString()
-        if confession.owner.username == UserManager.shared.getUsername() {
+        if UserManager.shared.isMe(userId: confession.owner.id) {
             usernameLabel.text = "confession.owner.you".localized
             usernameLabel.textColor = .systemMint
             usernameLabel.font = .boldSystemFont(ofSize: usernameLabel.font.pointSize)

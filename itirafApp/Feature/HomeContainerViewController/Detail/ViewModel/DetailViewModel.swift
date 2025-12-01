@@ -18,6 +18,7 @@ protocol DetailViewModelProtocol {
     func getTargetCommentId() -> Int?
     func getMaxReplyCharacterCount() -> Int
     func isNSFW() -> Bool
+    func isMe() -> Bool
 }
 
 protocol DetailViewModelOutputProtocol: AnyObject {
@@ -141,6 +142,11 @@ final class DetailViewModel {
     
     func isNSFW() -> Bool {
         return confession?.isNsfw ?? false
+    }
+    
+    func isMe() -> Bool {
+        guard let confession = confession else { return false }
+        return UserManager.shared.isMe(userId: confession.owner.id)
     }
 }
 

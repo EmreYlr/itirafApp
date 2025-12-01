@@ -37,7 +37,7 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
     func configure(with confessionData: ChannelMessageData) {
         titleLabel.text = confessionData.title
         contentLabel.text = confessionData.message
-        ownerNameLabel.text = confessionData.owner.username
+        ownerNameLabel.text = UserManager.shared.isMe(userId: confessionData.owner.id) ? "confession.owner.you".localized: confessionData.owner.username
         dateLabel.text = confessionData.createdAt.relativeTimeString()
         likeCountLabel.text = "\(confessionData.likeCount)"
         replyCountLabel.text = "\(confessionData.replyCount)"

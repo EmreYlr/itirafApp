@@ -48,6 +48,10 @@ final class UserManager {
         currentUser?.roles.contains { $0.name == role } ?? false
     }
     
+    func isMe(userId: String) -> Bool {
+        return currentUser?.id == userId
+    }
+    
     func setUser(_ user: User) {
         self.currentUser = user
         saveToDefaults(user)
