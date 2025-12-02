@@ -25,11 +25,6 @@ final class DirectMessageViewController: UIViewController {
         initData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-    }
-    
     private func initData() {
         directMessageViewModel.delegate = self
         navigationItem.title = "direct_message.title".localized

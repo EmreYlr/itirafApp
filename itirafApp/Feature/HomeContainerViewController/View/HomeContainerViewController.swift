@@ -107,14 +107,6 @@ final class HomeContainerViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
-        let messageButton = UIBarButtonItem(
-            image: UIImage(systemName: "message"),
-            style: .plain,
-            target: self,
-            action: #selector(messageButtonTapped)
-        )
-        messageButton.tintColor = .systemMint
-        
         notificationButton = UIBarButtonItem(
             image: UIImage(systemName: "bell"),
             style: .plain,
@@ -123,12 +115,12 @@ final class HomeContainerViewController: UIViewController {
         )
         notificationButton.tintColor = .systemMint
         
-        navigationItem.rightBarButtonItems = [messageButton, notificationButton]
+        navigationItem.rightBarButtonItem = notificationButton
     }
     
     private func initData() {
         viewModel.delegate = self
-        self.title = "home.title".localized
+        self.navigationItem.title = "home.title".localized
     }
     
     private func showNotificationBadge(show: Bool) {
@@ -228,11 +220,6 @@ final class HomeContainerViewController: UIViewController {
     @objc private func notificationButtonTapped() {
         let notificationVC: NotificationViewController = Storyboard.notification.instantiate(.notification)
         navigationController?.pushViewController(notificationVC, animated: true)
-    }
-
-    @objc private func messageButtonTapped() {
-        let messagingContainerVC = MessagingContainerViewController()
-        navigationController?.pushViewController(messagingContainerVC, animated: true)
     }
     
     @objc private func newPostButtonTapped() {

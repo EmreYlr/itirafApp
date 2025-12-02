@@ -48,11 +48,11 @@
             </objects>
             <point key="canvasLocation" x="2888" y="-1569"/>
         </scene>
-        <!--İtiraf Yaz-->
+        <!--Navigation Controller-->
         <scene sceneID="RKl-a7-cFr">
             <objects>
                 <navigationController id="j5r-BR-9cn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="İtiraf Yaz" image="plus.bubble" catalog="system" selectedImage="plus.bubble.fill" id="mbl-t2-Rh0">
+                    <tabBarItem key="tabBarItem" title="" image="paperplane" catalog="system" selectedImage="paperplane.fill" id="mbl-t2-Rh0">
                         <color key="badgeColor" systemColor="systemMintColor"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lse-dq-OLs">
@@ -60,16 +60,35 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="systemMintColor"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="dgN-NT-Qd4" kind="relationship" relationship="rootViewController" id="GwT-Br-aht"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4h-wC-OmL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1068" y="303"/>
         </scene>
-        <!--Ana Sayfa-->
+        <!--Messaging Container View Controller-->
+        <scene sceneID="kqn-cV-3kf">
+            <objects>
+                <viewController storyboardIdentifier="MessagingContainerViewController" id="dgN-NT-Qd4" customClass="MessagingContainerViewController" customModule="itirafApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KVQ-QH-vlF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="GYM-Ok-ohH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nPq-3s-sUV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j5i-bc-fcQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1911" y="303"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="ThT-0g-1JY">
             <objects>
                 <navigationController storyboardIdentifier="HomeNavigationController" id="r17-9S-Bt4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ana Sayfa" image="house" catalog="system" selectedImage="house.fill" id="yqS-wb-ldO"/>
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house.fill" id="yqS-wb-ldO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bJL-cv-dhh">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -83,11 +102,11 @@
             </objects>
             <point key="canvasLocation" x="1068" y="-1099"/>
         </scene>
-        <!--Kanallar-->
+        <!--Navigation Controller-->
         <scene sceneID="wgM-YE-8gd">
             <objects>
                 <navigationController id="jRA-og-cA5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Kanallar" image="safari" catalog="system" selectedImage="safari.fill" id="GZ9-ll-ypA"/>
+                    <tabBarItem key="tabBarItem" title="" image="safari" catalog="system" selectedImage="safari.fill" id="GZ9-ll-ypA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yk9-GN-2JU">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -219,11 +238,11 @@
             </objects>
             <point key="canvasLocation" x="-305" y="303"/>
         </scene>
-        <!--Profil-->
+        <!--Navigation Controller-->
         <scene sceneID="rhd-Ki-uj8">
             <objects>
                 <navigationController storyboardIdentifier="PersonNavigationController" id="DcZ-mX-uOT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profil" image="person" catalog="system" selectedImage="person.fill" id="95Q-Jd-YuH"/>
+                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" selectedImage="person.fill" id="95Q-Jd-YuH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LvR-Vs-zXv">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -237,11 +256,11 @@
             </objects>
             <point key="canvasLocation" x="1059" y="1708"/>
         </scene>
-        <!--İtiraflarım-->
+        <!--Navigation Controller-->
         <scene sceneID="phI-es-Xa7">
             <objects>
                 <navigationController id="PVk-jy-TOX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="İtiraflarım" image="person.text.rectangle" catalog="system" selectedImage="person.text.rectangle.fill" id="eNN-FT-f1v"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.text.rectangle" catalog="system" selectedImage="person.text.rectangle.fill" id="eNN-FT-f1v"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MXL-eU-Nnb">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -593,14 +612,13 @@
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="paperplane" catalog="system" width="128" height="119"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="119"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.2" catalog="system" width="128" height="87"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="person.text.rectangle" catalog="system" width="128" height="93"/>
         <image name="person.text.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="plus.bubble" catalog="system" width="128" height="110"/>
-        <image name="plus.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="safari" catalog="system" width="128" height="123"/>
         <image name="safari.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">

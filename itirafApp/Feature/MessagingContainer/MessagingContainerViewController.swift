@@ -65,9 +65,19 @@ final class MessagingContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "messaging.title".localized
+        initData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    private func initData() {
+        self.navigationItem.title = "messaging.title".localized
         setupUI()
         segmentedControl.selectedSegmentIndex = initialIndex
+        
         setInitialViewController()
         DispatchQueue.main.async {
             self.updateSelectionIndicator(to: self.initialIndex)
@@ -85,7 +95,7 @@ final class MessagingContainerViewController: UIViewController {
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
         
-        let image = UIImage(systemName: "paperplane.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        let image = UIImage(systemName: "person.crop.circle.badge.questionmark")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: image,
             style: .plain,

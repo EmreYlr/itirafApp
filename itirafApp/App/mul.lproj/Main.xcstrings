@@ -1,24 +1,6 @@
 {
   "sourceLanguage" : "tr",
   "strings" : {
-    "0EC-51-6kl.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Reddedildi\"; ObjectID = \"0EC-51-6kl\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rejected"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Reddedildi"
-          }
-        }
-      }
-    },
     "0VH-UT-nhd.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"Ana Sayfa\"; ObjectID = \"0VH-UT-nhd\";",
       "extractionState" : "extracted_with_value",
@@ -37,24 +19,6 @@
         }
       }
     },
-    "7wi-TQ-yWL.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Açıklama\"; ObjectID = \"7wi-TQ-yWL\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Description"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Açıklama"
-          }
-        }
-      }
-    },
     "8bq-0S-NGG.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"8bq-0S-NGG\";",
       "extractionState" : "extracted_with_value",
@@ -67,24 +31,6 @@
         }
       },
       "shouldTranslate" : false
-    },
-    "95Q-Jd-YuH.title" : {
-      "comment" : "Class = \"UITabBarItem\"; title = \"Profil\"; ObjectID = \"95Q-Jd-YuH\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Profile"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Profil"
-          }
-        }
-      }
     },
     "aeN-he-hgp.placeholder" : {
       "comment" : "Class = \"UITextField\"; placeholder = \"Yanıtını gönder\"; ObjectID = \"aeN-he-hgp\";",
@@ -122,24 +68,6 @@
         }
       }
     },
-    "bV3-N4-xnA.placeholder" : {
-      "comment" : "Class = \"UITextField\"; placeholder = \"İtiraf başlığı giriniz\"; ObjectID = \"bV3-N4-xnA\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enter confession title"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "İtiraf başlığı giriniz"
-          }
-        }
-      }
-    },
     "cxR-gW-Hgd.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"Ana Sayfa\"; ObjectID = \"cxR-gW-Hgd\";",
       "extractionState" : "extracted_with_value",
@@ -154,24 +82,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Ana Sayfa"
-          }
-        }
-      }
-    },
-    "eNN-FT-f1v.title" : {
-      "comment" : "Class = \"UITabBarItem\"; title = \"İtiraflarım\"; ObjectID = \"eNN-FT-f1v\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "My Confessions"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "İtiraflarım"
           }
         }
       }
@@ -243,60 +153,6 @@
         }
       }
     },
-    "GZ9-ll-ypA.title" : {
-      "comment" : "Class = \"UITabBarItem\"; title = \"Kanallar\"; ObjectID = \"GZ9-ll-ypA\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Channels"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Kanallar"
-          }
-        }
-      }
-    },
-    "J51-hC-FKo.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"İtiraf Yaz\"; ObjectID = \"J51-hC-FKo\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Confess"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "İtiraf Yaz"
-          }
-        }
-      }
-    },
-    "jGo-Rz-FWB.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Kanal\"; ObjectID = \"jGo-Rz-FWB\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Channel"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Kanal"
-          }
-        }
-      }
-    },
     "kTg-UQ-9rn.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"İtiraflarım\"; ObjectID = \"kTg-UQ-9rn\";",
       "extractionState" : "extracted_with_value",
@@ -333,78 +189,6 @@
         }
       }
     },
-    "mAf-fm-0uU.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Durum:\"; ObjectID = \"mAf-fm-0uU\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Status:"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Durum:"
-          }
-        }
-      }
-    },
-    "mbl-t2-Rh0.title" : {
-      "comment" : "Class = \"UITabBarItem\"; title = \"İtiraf Yaz\"; ObjectID = \"mbl-t2-Rh0\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Confess"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "İtiraf Yaz"
-          }
-        }
-      }
-    },
-    "Mqx-JT-w9I.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Yorumlar\"; ObjectID = \"Mqx-JT-w9I\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Comments"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Yorumlar"
-          }
-        }
-      }
-    },
-    "O8O-lk-X8S.configuration.title" : {
-      "comment" : "Class = \"UIButton\"; configuration.title = \"Paylaş\"; ObjectID = \"O8O-lk-X8S\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Share"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Paylaş"
-          }
-        }
-      }
-    },
     "P7F-Od-Ndw.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"Kanallar\"; ObjectID = \"P7F-Od-Ndw\";",
       "extractionState" : "extracted_with_value",
@@ -435,24 +219,6 @@
         }
       },
       "shouldTranslate" : false
-    },
-    "TnT-kv-lDv.title" : {
-      "comment" : "Class = \"UINavigationItem\"; title = \"İtiraf Yaz\"; ObjectID = \"TnT-kv-lDv\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Confess"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "İtiraf Yaz"
-          }
-        }
-      }
     },
     "uza-AM-qxx.placeholder" : {
       "comment" : "Class = \"UITextField\"; placeholder = \"Yanıtını gönder\"; ObjectID = \"uza-AM-qxx\";",
@@ -503,24 +269,6 @@
       },
       "shouldTranslate" : false
     },
-    "WKX-EQ-C7J.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Başlık\"; ObjectID = \"WKX-EQ-C7J\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Title"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Başlık"
-          }
-        }
-      }
-    },
     "wRe-MU-UCl.text" : {
       "comment" : "Class = \"UILabel\"; text = \"İtiraflarım\"; ObjectID = \"wRe-MU-UCl\";",
       "extractionState" : "extracted_with_value",
@@ -539,24 +287,6 @@
         }
       }
     },
-    "xO0-cl-IF4.configuration.title" : {
-      "comment" : "Class = \"UIButton\"; configuration.title = \"Kanal Seçin\"; ObjectID = \"xO0-cl-IF4\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select Channel"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Kanal Seçin"
-          }
-        }
-      }
-    },
     "yCx-Vt-zwF.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"yCx-Vt-zwF\";",
       "extractionState" : "extracted_with_value",
@@ -569,42 +299,6 @@
         }
       },
       "shouldTranslate" : false
-    },
-    "yqS-wb-ldO.title" : {
-      "comment" : "Class = \"UITabBarItem\"; title = \"Ana Sayfa\"; ObjectID = \"yqS-wb-ldO\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Home"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Ana Sayfa"
-          }
-        }
-      }
-    },
-    "YyZ-gS-KrY.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"İtirafa detaylar ekleyin. Lütfen hakarat içeren ifadeler kullanmayınız.\"; ObjectID = \"YyZ-gS-KrY\";",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add details to your confession. Please do not use offensive language."
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "İtirafa detaylar ekleyin. Lütfen hakarat içeren ifadeler kullanmayınız."
-          }
-        }
-      }
     }
   },
   "version" : "1.1"
