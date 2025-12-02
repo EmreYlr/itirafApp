@@ -5,6 +5,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,8 +20,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qpR-bp-mn3">
-                                <rect key="frame" x="16" y="128" width="361" height="656"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="128" width="393" height="656"/>
+                                <color key="backgroundColor" name="BackgroundApp"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UVf-fx-rU3">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,11 +32,11 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
                             <constraint firstItem="qpR-bp-mn3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="a4O-ws-B9c"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qpR-bp-mn3" secondAttribute="trailing" constant="16" id="cPd-Zs-crO"/>
-                            <constraint firstItem="qpR-bp-mn3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gHd-Qj-EiR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qpR-bp-mn3" secondAttribute="trailing" id="cPd-Zs-crO"/>
+                            <constraint firstItem="qpR-bp-mn3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gHd-Qj-EiR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qpR-bp-mn3" secondAttribute="bottom" id="s5r-Tm-068"/>
                         </constraints>
                     </view>
@@ -53,12 +54,12 @@
             <objects>
                 <navigationController id="j5r-BR-9cn" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="paperplane" catalog="system" selectedImage="paperplane.fill" id="mbl-t2-Rh0">
-                        <color key="badgeColor" systemColor="systemMintColor"/>
+                        <color key="badgeColor" name="BrandPrimary"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lse-dq-OLs">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemMintColor"/>
+                        <color key="tintColor" name="BrandPrimary"/>
                     </navigationBar>
                     <connections>
                         <segue destination="dgN-NT-Qd4" kind="relationship" relationship="rootViewController" id="GwT-Br-aht"/>
@@ -92,7 +93,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bJL-cv-dhh">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemMintColor"/>
+                        <color key="tintColor" name="BrandPrimary"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Hzd-sK-NZ2" kind="relationship" relationship="rootViewController" id="VBS-db-pj3"/>
@@ -110,7 +111,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yk9-GN-2JU">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemMintColor"/>
+                        <color key="tintColor" name="BrandPrimary"/>
                     </navigationBar>
                     <connections>
                         <segue destination="MZX-Lc-tOT" kind="relationship" relationship="rootViewController" id="NlN-QB-hjW"/>
@@ -206,7 +207,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="tKW-1r-eSw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
                     </view>
                     <navigationItem key="navigationItem" id="h1Z-Hl-GNK"/>
                 </viewController>
@@ -223,7 +224,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" systemColor="systemMintColor"/>
+                        <color key="selectedImageTintColor" name="BrandPrimary"/>
                         <tabBarAppearance key="scrollEdgeAppearance"/>
                     </tabBar>
                     <connections>
@@ -246,7 +247,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LvR-Vs-zXv">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemMintColor"/>
+                        <color key="tintColor" name="BrandPrimary"/>
                     </navigationBar>
                     <connections>
                         <segue destination="eUP-H7-03D" kind="relationship" relationship="rootViewController" id="UYJ-il-E49"/>
@@ -264,7 +265,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MXL-eU-Nnb">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemMintColor"/>
+                        <color key="tintColor" name="BrandPrimary"/>
                     </navigationBar>
                     <connections>
                         <segue destination="z8w-jK-MNB" kind="relationship" relationship="rootViewController" id="aFi-Mx-hnO"/>
@@ -578,8 +579,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wl9-Bn-Sxy">
-                                <rect key="frame" x="16" y="128" width="361" height="656"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="128" width="393" height="656"/>
+                                <color key="backgroundColor" name="BackgroundApp"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BEv-zk-Inj">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -590,11 +591,11 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IQE-BF-FWb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
-                            <constraint firstItem="Wl9-Bn-Sxy" firstAttribute="leading" secondItem="IQE-BF-FWb" secondAttribute="leading" constant="16" id="2ub-pm-3rr"/>
+                            <constraint firstItem="Wl9-Bn-Sxy" firstAttribute="leading" secondItem="IQE-BF-FWb" secondAttribute="leading" id="2ub-pm-3rr"/>
                             <constraint firstItem="IQE-BF-FWb" firstAttribute="bottom" secondItem="Wl9-Bn-Sxy" secondAttribute="bottom" id="Kxy-e2-N2b"/>
-                            <constraint firstItem="IQE-BF-FWb" firstAttribute="trailing" secondItem="Wl9-Bn-Sxy" secondAttribute="trailing" constant="16" id="R1R-72-tQD"/>
+                            <constraint firstItem="IQE-BF-FWb" firstAttribute="trailing" secondItem="Wl9-Bn-Sxy" secondAttribute="trailing" id="R1R-72-tQD"/>
                             <constraint firstItem="Wl9-Bn-Sxy" firstAttribute="top" secondItem="IQE-BF-FWb" secondAttribute="top" constant="10" id="flW-aH-pcK"/>
                         </constraints>
                     </view>
@@ -605,7 +606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yhv-df-hJU" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2888" y="-840"/>
+            <point key="canvasLocation" x="2887.7862595419847" y="-840.14084507042253"/>
         </scene>
     </scenes>
     <resources>
@@ -621,6 +622,12 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="safari" catalog="system" width="128" height="123"/>
         <image name="safari.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="BackgroundApp">
+            <color red="0.97299998998641968" green="0.97600001096725464" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrandPrimary">
+            <color red="0.42399999499320984" green="0.36100000143051147" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

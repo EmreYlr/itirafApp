@@ -13,7 +13,7 @@ final class HomeContainerViewController: UIViewController {
         let btn = UIButton(type: .system)
         btn.translatesAutoresizingMaskIntoConstraints = false
 
-        btn.backgroundColor = .systemMint
+        btn.backgroundColor = .brandPrimary
         let config = UIImage.SymbolConfiguration(pointSize: 16, weight: .medium)
         btn.setImage(UIImage(systemName: "plus.bubble.fill", withConfiguration: config), for: .normal)
         btn.tintColor = .white
@@ -38,8 +38,8 @@ final class HomeContainerViewController: UIViewController {
         sc.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
         sc.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
         
-        sc.setTitleTextAttributes([.foregroundColor: UIColor.systemGray], for: .normal)
-        sc.setTitleTextAttributes([.foregroundColor: UIColor.systemMint], for: .selected)
+        sc.setTitleTextAttributes([.foregroundColor: UIColor.textSecondary], for: .normal)
+        sc.setTitleTextAttributes([.foregroundColor: UIColor.textPrimary, .font: UIFont.boldSystemFont(ofSize: 16)], for: .selected)
         
         sc.translatesAutoresizingMaskIntoConstraints = false
         return sc
@@ -47,14 +47,14 @@ final class HomeContainerViewController: UIViewController {
     
     private lazy var bottomBorderView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemGray5
+        view.backgroundColor = .divider
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private lazy var selectionIndicatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemMint
+        view.backgroundColor = .brandPrimary
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -113,7 +113,7 @@ final class HomeContainerViewController: UIViewController {
             target: self,
             action: #selector(notificationButtonTapped)
         )
-        notificationButton.tintColor = .systemMint
+        notificationButton.tintColor = .brandPrimary
         
         navigationItem.rightBarButtonItem = notificationButton
     }
@@ -126,7 +126,7 @@ final class HomeContainerViewController: UIViewController {
     private func showNotificationBadge(show: Bool) {
         DispatchQueue.main.async {
             if show {
-                let config = UIImage.SymbolConfiguration(paletteColors: [.systemMint, .systemMint])
+                let config = UIImage.SymbolConfiguration(paletteColors: [.brandPrimary, .brandPrimary])
                 let badgeImage = UIImage(systemName: "bell.badge.fill", withConfiguration: config)
                 
                 self.notificationButton.image = badgeImage
@@ -137,7 +137,7 @@ final class HomeContainerViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .backgroundApp
         view.addSubview(segmentedControl)
         view.addSubview(bottomBorderView)
         view.addSubview(selectionIndicatorView)

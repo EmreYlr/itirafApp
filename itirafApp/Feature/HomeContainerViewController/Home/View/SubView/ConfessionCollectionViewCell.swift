@@ -28,6 +28,13 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     var onChannelTapped: (() -> Void)?
     var onNsfwRevealed: (() -> Void)?
     
+    private lazy var separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .divider
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         bgView.layer.cornerRadius = 10
@@ -45,8 +52,9 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
             attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue]
         )
         setupChannelLabelTap()
+        setupSeparator()
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         nsfwBlurView.isHidden = true
@@ -79,6 +87,17 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         channelNameLabel.text = flow.channel.title.capitalized
         
         handleNsfwState(isNsfw: flow.isNsfw && !isRevealed)
+    }
+    
+    private func setupSeparator() {
+        contentView.addSubview(separatorView)
+
+        NSLayoutConstraint.activate([
+            separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            separatorView.heightAnchor.constraint(equalToConstant: 1)
+        ])
     }
     
     private func handleNsfwState(isNsfw: Bool) {
@@ -119,6 +138,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     
     func updateLikeButton(isLiked: Bool) {
         let imageName = isLiked ? "heart.fill" : "heart"
+        likeButton.tintColor = isLiked ? .actionLike : .textSecondary
         likeButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
     
@@ -136,12 +156,12 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
             let readMoreSuffix = "confession.read_more".localized
             
             let mainAttributes: [NSAttributedString.Key: Any] = [
-                .foregroundColor: UIColor.secondaryLabel,
+                .foregroundColor: UIColor.textSecondary,
                 .font: confessionMessageLabel.font ?? UIFont.systemFont(ofSize: 14)
             ]
             
             let suffixAttributes: [NSAttributedString.Key: Any] = [
-                .foregroundColor: UIColor.systemMint,
+                .foregroundColor: UIColor.brandPrimary,
                 .font: UIFont.boldSystemFont(ofSize: confessionMessageLabel.font.pointSize)
             ]
             
@@ -152,7 +172,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
             confessionMessageLabel.attributedText = fullString
         } else {
             confessionMessageLabel.text = text
-            confessionMessageLabel.textColor = .secondaryLabel
+            confessionMessageLabel.textColor = .textSecondary
         }
     }
 }
