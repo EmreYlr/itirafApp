@@ -9,6 +9,26 @@ import UIKit
 
 final class HomeContainerViewController: UIViewController {
     //MARK: - Properties
+    private lazy var newPostButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+
+        btn.backgroundColor = .systemMint
+        let config = UIImage.SymbolConfiguration(pointSize: 16, weight: .medium)
+        btn.setImage(UIImage(systemName: "plus.bubble.fill", withConfiguration: config), for: .normal)
+        btn.tintColor = .white
+
+        btn.layer.cornerRadius = 25
+
+        btn.layer.shadowColor = UIColor.black.cgColor
+        btn.layer.shadowOffset = CGSize(width: 0, height: 4)
+        btn.layer.shadowOpacity = 0.3
+        btn.layer.shadowRadius = 4
+        
+        btn.addTarget(self, action: #selector(newPostButtonTapped), for: .touchUpInside)
+        return btn
+    }()
+    
     private lazy var segmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["home.segment.flow".localized, "home.segment.following".localized])
         sc.selectedSegmentIndex = 0
@@ -134,6 +154,9 @@ final class HomeContainerViewController: UIViewController {
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
         
+        view.addSubview(newPostButton)
+        view.bringSubviewToFront(newPostButton)
+        
         indicatorWidthConstraint = selectionIndicatorView.widthAnchor.constraint(equalTo: segmentedControl.widthAnchor, multiplier: 0.5)
         indicatorLeadingConstraint = selectionIndicatorView.leadingAnchor.constraint(equalTo: segmentedControl.leadingAnchor)
         
@@ -158,7 +181,13 @@ final class HomeContainerViewController: UIViewController {
             pageViewController.view.topAnchor.constraint(equalTo: bottomBorderView.bottomAnchor, constant: 1),
             pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            newPostButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+            newPostButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -25),
+            newPostButton.widthAnchor.constraint(equalToConstant: 50),
+            newPostButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            newPostButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -204,6 +233,12 @@ final class HomeContainerViewController: UIViewController {
     @objc private func messageButtonTapped() {
         let messagingContainerVC = MessagingContainerViewController()
         navigationController?.pushViewController(messagingContainerVC, animated: true)
+    }
+    
+    @objc private func newPostButtonTapped() {
+        let postConfessionVC: PostConfessionViewController = Storyboard.post.instantiate(.postConfession)
+        navigationController?.pushViewController(postConfessionVC, animated: true)
+        
     }
 }
 extension HomeContainerViewController: HomeContainerViewModelDelegate {

@@ -39,7 +39,7 @@
     },
     "7wi-TQ-yWL.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Açıklama\"; ObjectID = \"7wi-TQ-yWL\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -86,19 +86,6 @@
         }
       }
     },
-    "a3J-l8-AbF.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"a3J-l8-AbF\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "aeN-he-hgp.placeholder" : {
       "comment" : "Class = \"UITextField\"; placeholder = \"Yanıtını gönder\"; ObjectID = \"aeN-he-hgp\";",
       "extractionState" : "extracted_with_value",
@@ -137,7 +124,7 @@
     },
     "bV3-N4-xnA.placeholder" : {
       "comment" : "Class = \"UITextField\"; placeholder = \"İtiraf başlığı giriniz\"; ObjectID = \"bV3-N4-xnA\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -167,18 +154,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Ana Sayfa"
-          }
-        }
-      }
-    },
-    "EEs-F5-X49.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"contentCount\"; ObjectID = \"EEs-F5-X49\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "contentCount"
           }
         }
       }
@@ -288,7 +263,7 @@
     },
     "J51-hC-FKo.text" : {
       "comment" : "Class = \"UILabel\"; text = \"İtiraf Yaz\"; ObjectID = \"J51-hC-FKo\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -306,7 +281,7 @@
     },
     "jGo-Rz-FWB.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Kanal\"; ObjectID = \"jGo-Rz-FWB\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -414,7 +389,7 @@
     },
     "O8O-lk-X8S.configuration.title" : {
       "comment" : "Class = \"UIButton\"; configuration.title = \"Paylaş\"; ObjectID = \"O8O-lk-X8S\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -429,19 +404,6 @@
           }
         }
       }
-    },
-    "O8O-lk-X8S.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"O8O-lk-X8S\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      },
-      "shouldTranslate" : false
     },
     "P7F-Od-Ndw.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"Kanallar\"; ObjectID = \"P7F-Od-Ndw\";",
@@ -476,7 +438,7 @@
     },
     "TnT-kv-lDv.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"İtiraf Yaz\"; ObjectID = \"TnT-kv-lDv\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -543,7 +505,7 @@
     },
     "WKX-EQ-C7J.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Başlık\"; ObjectID = \"WKX-EQ-C7J\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -579,7 +541,7 @@
     },
     "xO0-cl-IF4.configuration.title" : {
       "comment" : "Class = \"UIButton\"; configuration.title = \"Kanal Seçin\"; ObjectID = \"xO0-cl-IF4\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -594,19 +556,6 @@
           }
         }
       }
-    },
-    "xO0-cl-IF4.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"xO0-cl-IF4\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      },
-      "shouldTranslate" : false
     },
     "yCx-Vt-zwF.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"yCx-Vt-zwF\";",
@@ -641,7 +590,7 @@
     },
     "YyZ-gS-KrY.text" : {
       "comment" : "Class = \"UILabel\"; text = \"İtirafa detaylar ekleyin. Lütfen hakarat içeren ifadeler kullanmayınız.\"; ObjectID = \"YyZ-gS-KrY\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -653,18 +602,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "İtirafa detaylar ekleyin. Lütfen hakarat içeren ifadeler kullanmayınız."
-          }
-        }
-      }
-    },
-    "ZtJ-U6-xAZ.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"titleCount\"; ObjectID = \"ZtJ-U6-xAZ\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "titleCount"
           }
         }
       }

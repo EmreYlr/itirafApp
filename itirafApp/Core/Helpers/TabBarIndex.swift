@@ -8,7 +8,7 @@
 enum TabBarIndex: Int {
     case home = 0
     case channel = 1
-    case createConfession = 2
+    case createConfession = 2 //TODO: -Değişti
     case myConfession = 3
     case profile = 4
 }

@@ -130,7 +130,7 @@ final class ChannelDetailViewController: UIViewController {
     }
     
     @objc private func messageButtonTapped() {
-        let selectionVC: PostConfessionViewController = Storyboard.main.instantiate(.postConfession)
+        let selectionVC: PostConfessionViewController = Storyboard.post.instantiate(.postConfession)
         selectionVC.postConfessionViewModel = PostConfessionViewModel(selectedChannel: viewModel.channel)
         
         let navController = UINavigationController(rootViewController: selectionVC)

@@ -25,6 +25,7 @@ enum Storyboard: String {
     case notificationSettings = "NotificationSettings"
     case notification = "Notification"
     case forgotPassword = "ForgotPassword"
+    case post = "Post"
 
     var instance: UIStoryboard {
         UIStoryboard(name: self.rawValue, bundle: nil)
@@ -59,7 +60,6 @@ enum ViewControllerID: String {
     case flow = "FlowViewController"
     case channel = "ChannelViewController"
     case detail = "DetailViewController"
-    case postConfession = "PostConfessionViewController"
     case person = "PersonViewController"
     case myConfessions = "MyConfessionsViewController"
     case myConfessionDetail = "MyConfessionDetailViewController"
@@ -115,6 +115,9 @@ enum ViewControllerID: String {
     
     //ForgotPassword.storyboard
     case forgotPassword = "ForgotPasswordViewController"
+    
+    //Post.storyboard
+    case postConfession = "PostConfessionViewController"
 }
 
 enum NavigationControllerID: String {

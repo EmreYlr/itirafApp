@@ -39,6 +39,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         blurTapLabel.text = "confession.nsfw_blur_tap_label".localized
         setupNsfwGesture()
         
+        
         channelNameLabel.attributedText = NSAttributedString(
             string: channelNameLabel.text ?? "",
             attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue]

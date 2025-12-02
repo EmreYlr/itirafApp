@@ -10,7 +10,6 @@ import UIKit
 final class HomeViewController: UIViewController {
     //MARK: - Properties
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var newPostButton: UIButton!
     
     var homeViewModel: HomeViewModelProtocol
     let refreshControl = UIRefreshControl()
@@ -54,9 +53,6 @@ final class HomeViewController: UIViewController {
     
     private func initView() {
         homeViewModel.delegate = self
-        newPostButton.layer.cornerRadius = newPostButton.frame.height / 2
-        newPostButton.backgroundColor = .systemMint
-        newPostButton.tintColor = .white
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateChannel), name: .channelDidChange, object: nil)
         Task {
@@ -113,17 +109,6 @@ final class HomeViewController: UIViewController {
         guard collectionView.numberOfSections > 0, collectionView.numberOfItems(inSection: 0) > 0 else { return }
         
         collectionView.setContentOffset(CGPoint(x: 0, y: -collectionView.adjustedContentInset.top), animated: true)
-    }
-    
-    @IBAction func newPostButtonTapped(_ sender: UIButton) {
-        guard let tabBarView = tabBarController?.view else {
-            tabBarController?.selectedIndex = 2
-            return
-        }
-        
-        UIView.transition(with: tabBarView, duration: 0.25, options: .transitionCrossDissolve, animations: {
-            self.tabBarController?.selectedIndex = 2
-        })
     }
     
     @objc private func updateChannel() {
