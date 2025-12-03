@@ -7,7 +7,6 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -298,7 +297,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İtiraflarım" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRe-MU-UCl">
                                 <rect key="frame" x="16" y="187" width="85.333333333333329" height="23"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="TextPrimary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JAE-Ul-SCA">
@@ -344,7 +343,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bq-0S-NGG">
-                                <rect key="frame" x="342" y="693" width="35" height="34.333333333333371"/>
+                                <rect key="frame" x="342" y="698" width="35" height="34.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="JOM-NB-c6T"/>
                                 </constraints>
@@ -356,15 +355,17 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yanıtını gönder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aeN-he-hgp">
-                                <rect key="frame" x="16" y="685" width="318" height="50"/>
+                                <rect key="frame" x="16" y="695" width="318" height="40"/>
+                                <color key="backgroundColor" name="BackgroundCard"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="2Z7-Bm-XiX"/>
+                                    <constraint firstAttribute="height" constant="40" id="2Z7-Bm-XiX"/>
                                 </constraints>
+                                <color key="textColor" name="TextPrimary"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Qv-SX-UXx">
-                                <rect key="frame" x="16" y="182" width="361" height="493"/>
+                                <rect key="frame" x="16" y="182" width="361" height="486"/>
                                 <color key="backgroundColor" name="BackgroundApp"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yfe-7Q-ckh">
                                     <size key="itemSize" width="128" height="128"/>
@@ -374,19 +375,29 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAf-J3-pja">
+                                <rect key="frame" x="0.0" y="678" width="393" height="1"/>
+                                <color key="backgroundColor" name="DividerColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Kw8-EO-Awm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3P6-Bx-Upq"/>
                         <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
                             <constraint firstItem="9Qv-SX-UXx" firstAttribute="leading" secondItem="3P6-Bx-Upq" secondAttribute="leading" constant="16" id="0fI-pX-jgd"/>
+                            <constraint firstItem="aeN-he-hgp" firstAttribute="top" secondItem="PAf-J3-pja" secondAttribute="bottom" constant="16" id="3W8-h2-kYC"/>
                             <constraint firstItem="9Qv-SX-UXx" firstAttribute="top" secondItem="3P6-Bx-Upq" secondAttribute="top" constant="10" id="6Tn-Tu-Ze2"/>
                             <constraint firstItem="3P6-Bx-Upq" firstAttribute="trailing" secondItem="8bq-0S-NGG" secondAttribute="trailing" constant="16" id="6YJ-fF-8bA"/>
                             <constraint firstItem="aeN-he-hgp" firstAttribute="leading" secondItem="3P6-Bx-Upq" secondAttribute="leading" constant="16" id="H86-V2-SLn"/>
                             <constraint firstItem="3P6-Bx-Upq" firstAttribute="trailing" secondItem="9Qv-SX-UXx" secondAttribute="trailing" constant="16" id="KwW-PI-95m"/>
                             <constraint firstItem="3P6-Bx-Upq" firstAttribute="bottom" secondItem="aeN-he-hgp" secondAttribute="bottom" id="Nt3-CX-p2X"/>
+                            <constraint firstItem="PAf-J3-pja" firstAttribute="leading" secondItem="11R-lm-dwF" secondAttribute="leading" id="U3d-7b-Kaw"/>
+                            <constraint firstItem="PAf-J3-pja" firstAttribute="top" secondItem="9Qv-SX-UXx" secondAttribute="bottom" constant="10" id="WKd-yw-92h"/>
                             <constraint firstItem="8bq-0S-NGG" firstAttribute="centerY" secondItem="aeN-he-hgp" secondAttribute="centerY" id="aHp-3v-d9o"/>
                             <constraint firstItem="8bq-0S-NGG" firstAttribute="leading" secondItem="aeN-he-hgp" secondAttribute="trailing" constant="8" id="doh-nr-qJs"/>
-                            <constraint firstItem="aeN-he-hgp" firstAttribute="top" secondItem="9Qv-SX-UXx" secondAttribute="bottom" constant="10" id="f3n-S4-TQE"/>
+                            <constraint firstAttribute="trailing" secondItem="PAf-J3-pja" secondAttribute="trailing" id="itZ-fS-iSo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AHo-ff-tN7"/>
@@ -398,7 +409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fY-Uc-9DM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2839" y="987"/>
+            <point key="canvasLocation" x="2838.9312977099235" y="986.61971830985919"/>
         </scene>
         <!--Profil-->
         <scene sceneID="hsn-Mk-ryt">
@@ -427,7 +438,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGk-mH-sme">
                                 <rect key="frame" x="151.66666666666666" y="317" width="90" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="TextPrimary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-q7-gXn">
@@ -436,14 +447,14 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gizli sosyal medya bağlantıları" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCi-Ca-oNp">
                                         <rect key="frame" x="8" y="8" width="345" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="TextPrimary"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="am8-HW-SGT">
                                         <rect key="frame" x="8" y="33" width="345" height="43"/>
                                         <string key="text">Profilin, bu bağlantıların durumuna göre görüntülenecektir. Dilediğin zaman değiştirebilir ve bağlantı kurmak istediğin kişilere göre özelleştirebilirsin.</string>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <color key="textColor" name="TextSecondary"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -475,7 +486,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Obj-O4-rIw"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="TextPrimary"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title="Yeni Hesap Ekle" imagePadding="6">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
@@ -486,7 +497,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbl-qL-rn5">
                                 <rect key="frame" x="99.666666666666686" y="351" width="194" height="35"/>
-                                <color key="tintColor" systemColor="labelColor"/>
+                                <color key="tintColor" name="TextPrimary"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" Takip Edilen Kanallar" imagePadding="0.0">
                                     <imageReference key="image" image="person.2" catalog="system" symbolScale="small" variableValue="0.0"/>
@@ -658,11 +669,5 @@
         <namedColor name="TextSecondary">
             <color red="0.3880000114440918" green="0.4309999942779541" blue="0.44699999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

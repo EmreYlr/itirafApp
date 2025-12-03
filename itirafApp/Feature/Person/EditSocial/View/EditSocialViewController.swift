@@ -51,13 +51,13 @@ final class EditSocialViewController: UIViewController {
         addOrEditButton.layer.cornerRadius = 8
         platformSelectButton.layer.cornerRadius = 8
         platformSelectButton.layer.borderWidth = 0.5
-        platformSelectButton.layer.borderColor = UIColor.systemGray4.cgColor
+        platformSelectButton.layer.borderColor = UIColor.textSecondary.cgColor
 
     }
     private func initData() {
         viewModel.delegate = self
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "general.button.delete".localized , style: .done, target: self, action: #selector(deleteButtonTapped))
-        navigationItem.rightBarButtonItem?.tintColor = .systemRed
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "general.button.delete".localized , style: .plain, target: self, action: #selector(deleteButtonTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .statusError
         
         if source == .editButton, let link = viewModel.getUserSocialLinks() {
             navigationItem.title = "social.title.edit_account".localized

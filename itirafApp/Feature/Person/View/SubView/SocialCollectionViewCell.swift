@@ -21,10 +21,10 @@ final class SocialCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        bgView.backgroundColor = .lightGray.withAlphaComponent(0.1)
+        bgView.backgroundColor = .backgroundCard
         bgView.layer.cornerRadius = 6
         iconView.layer.cornerRadius = 8
-        iconView.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        iconView.backgroundColor = .backgroundCard
         iconView.clipsToBounds = true
     }
     

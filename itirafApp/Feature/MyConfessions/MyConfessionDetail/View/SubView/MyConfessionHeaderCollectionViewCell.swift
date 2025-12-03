@@ -43,7 +43,7 @@ final class MyConfessionHeaderCollectionViewCell: UICollectionViewCell {
     private func setupUI() {
         statusView.layer.cornerRadius = statusView.frame.height / 2
         messageView.layer.cornerRadius = 10
-        messageView.backgroundColor = UIColor.systemGray.withAlphaComponent(0.1)
+        messageView.backgroundColor = .backgroundCard
         
         replyTitleLabel.text = "detail.reply_section_title".localized
         statusTitleLabel.text = "confession.status_title".localized
@@ -60,6 +60,7 @@ final class MyConfessionHeaderCollectionViewCell: UICollectionViewCell {
         channelLabel.text = confessionData.channel.title
         replyTitleLabel.text = "detail.reply_section_title".localized(confessionData.replyCount)
         editButton.setTitle("confession.button.edit".localized, for: .normal)
+        editButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         
         updateLikeButton(isLiked: confessionData.liked)
         configureStatus(for: confessionData)
@@ -68,9 +69,9 @@ final class MyConfessionHeaderCollectionViewCell: UICollectionViewCell {
         
         switch confessionData.isNsfw {
         case true:
-            nsfwImageView.tintColor = .purple
-            nsfwLabel.textColor = .purple
-            nsfwView.backgroundColor = UIColor.systemPurple.withAlphaComponent(0.2)
+            nsfwImageView.tintColor = .sensitiveAccent
+            nsfwLabel.textColor = .sensitiveAccent
+            nsfwView.backgroundColor = UIColor.sensitiveAccent.withAlphaComponent(0.2)
             nsfwView.isHidden = false
         case false:
             nsfwView.isHidden = true
@@ -91,34 +92,34 @@ final class MyConfessionHeaderCollectionViewCell: UICollectionViewCell {
         
         switch displayStatus {
         case .approved:
-            statusImageView.tintColor = .systemGreen
-            statusView.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.2)
+            statusImageView.tintColor = .statusSuccess
+            statusView.backgroundColor = UIColor.statusSuccess.withAlphaComponent(0.2)
             statusLabel.text = "confession.status.active".localized
-            statusLabel.textColor = .systemGreen
+            statusLabel.textColor = .statusSuccess
             
             editButton.isHidden = true
             
         case .rejected:
-            statusImageView.tintColor = .systemRed
-            statusView.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2)
+            statusImageView.tintColor = .statusError
+            statusView.backgroundColor = UIColor.statusError.withAlphaComponent(0.2)
             statusLabel.text = "confession.status.rejected".localized
-            statusLabel.textColor = .systemRed
+            statusLabel.textColor = .statusError
             
             editButton.isHidden = false
             
         case .inReview:
-            statusImageView.tintColor = .systemOrange
-            statusView.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.2)
+            statusImageView.tintColor = .statusPending
+            statusView.backgroundColor = UIColor.statusPending.withAlphaComponent(0.2)
             statusLabel.text = "confession.status.pending".localized
-            statusLabel.textColor = .systemOrange
+            statusLabel.textColor = .statusPending
             
             editButton.isHidden = true
             
         case .unknown:
-            statusImageView.tintColor = .systemGray
-            statusView.backgroundColor = UIColor.systemGray.withAlphaComponent(0.2)
+            statusImageView.tintColor = .textPrimary
+            statusView.backgroundColor = UIColor.textPrimary.withAlphaComponent(0.2)
             statusLabel.text = "confession.status.unknown".localized
-            statusLabel.textColor = .systemGray
+            statusLabel.textColor = .textPrimary
             
             editButton.isHidden = true
         }
@@ -128,7 +129,7 @@ final class MyConfessionHeaderCollectionViewCell: UICollectionViewCell {
         let likeImageName = isLiked ? "heart.fill" : "heart"
         let likeImage = UIImage(systemName: likeImageName)
         likeButton.setImage(likeImage, for: .normal)
-        likeButton.tintColor = isLiked ? .systemMint : .systemGray
+        likeButton.tintColor = isLiked ? .actionLike : .textSecondary
     }
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {

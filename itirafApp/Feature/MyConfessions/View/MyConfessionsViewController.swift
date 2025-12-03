@@ -36,7 +36,7 @@ final class MyConfessionsViewController: UIViewController {
     
     private func configureNavigationBar() {
         if viewModel.isUserAdmin() {
-            let image = UIImage(systemName: "shield.lefthalf.fill")?.withTintColor(UIColor.systemMint, renderingMode: .alwaysOriginal)
+            let image = UIImage(systemName: "shield.lefthalf.fill")?.withTintColor(UIColor.brandPrimary)
             
             let moderationButton = UIBarButtonItem(
                 image: image,

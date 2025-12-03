@@ -1812,7 +1812,6 @@
 			isa = PBXGroup;
 			children = (
 				C3C173EA2EC882E200D27383 /* Storyboard */,
-				C3C173E92EC882CC00D27383 /* Model */,
 				C3C173E82EC882C500D27383 /* View */,
 				C3C173E72EC882C100D27383 /* ViewModel */,
 				C3C173E62EC882B600D27383 /* Service */,
@@ -1844,13 +1843,6 @@
 				C3C173EB2EC882FB00D27383 /* FollowChannelViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		C3C173E92EC882CC00D27383 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		C3C173EA2EC882E200D27383 /* Storyboard */ = {

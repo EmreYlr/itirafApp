@@ -81,6 +81,7 @@ final class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
+        messageInputBar.inputTextView.placeholder = "chat.input.placeholder".localized
         
         messageInputBar.sendButton.setTitle(nil, for: .normal)
         

@@ -13,6 +13,7 @@ protocol MyConfessionDetailViewModelProtocol {
     func getModerationStatus() -> ConfessionDisplayStatus
     func deleteConfession() async
     func addComment(message: String) async
+    func getMaxReplyCharacterCount() -> Int
 }
 
 protocol MyConfessionDetailViewModelDelegate: AnyObject {
@@ -25,6 +26,7 @@ final class MyConfessionDetailViewModel {
     weak var delegate: MyConfessionDetailViewModelDelegate?
     var myConfession: MyConfessionData?
     let myConfessionDetailService: MyConfessionDetailServiceProtocol
+    private let maxReplyCharacterCount = 500
     
     init(myConfession: MyConfessionData? = nil, myConfessionDetailService: MyConfessionDetailServiceProtocol = MyConfessionDetailService()) {
         self.myConfession = myConfession
@@ -71,6 +73,10 @@ final class MyConfessionDetailViewModel {
         } catch {
             delegate?.didError(error: error)
         }
+    }
+    
+    func getMaxReplyCharacterCount() -> Int {
+        return maxReplyCharacterCount
     }
 }
 extension MyConfessionDetailViewModel: MyConfessionDetailViewModelProtocol { }

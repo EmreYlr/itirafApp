@@ -38,24 +38,24 @@ final class EditConfessionViewController: UIViewController {
     private func initView() {
         navigationItem.title = "confession.title.edit_confession".localized
         statusView.layer.cornerRadius = statusView.frame.height / 2
-        statusView.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2)
+        statusView.backgroundColor = UIColor.statusError.withAlphaComponent(0.2)
         reportView.layer.cornerRadius = 10
-        reportView.backgroundColor = UIColor.systemRed.withAlphaComponent(0.1)
+        reportView.backgroundColor = UIColor.statusError.withAlphaComponent(0.1)
         
         detailTextView.delegate = self
         titleTextField.delegate = self
         
-        detailTextView.layer.borderColor = UIColor.systemGray.cgColor
+        detailTextView.layer.borderColor = UIColor.textSecondary.cgColor
         detailTextView.layer.borderWidth = 1
         detailTextView.layer.cornerRadius = 6
         
         titleTextField.layer.borderWidth = 1
         titleTextField.layer.cornerRadius = 6
-        titleTextField.layer.borderColor = UIColor.systemGray.cgColor
+        titleTextField.layer.borderColor = UIColor.textSecondary.cgColor
         
-        let deleteImage = UIImage(systemName: "trash.fill")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+        let deleteImage = UIImage(systemName: "trash.fill")?.withTintColor(.statusError)
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: deleteImage , style: .done, target: self, action: #selector(deleteButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: deleteImage , style: .plain, target: self, action: #selector(deleteButtonTapped))
     }
     
     private func initData() {
@@ -144,21 +144,21 @@ extension EditConfessionViewController: EditConfessionViewModelDelegate {
 
 extension EditConfessionViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        detailTextView.layer.borderColor = UIColor.systemMint.cgColor
+        detailTextView.layer.borderColor = UIColor.textSecondary.cgColor
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        detailTextView.layer.borderColor = UIColor.lightGray.cgColor
+        detailTextView.layer.borderColor = UIColor.divider.cgColor
     }
 }
 
 extension EditConfessionViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        titleTextField.layer.borderColor = UIColor.systemMint.cgColor
+        titleTextField.layer.borderColor = UIColor.textSecondary.cgColor
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        titleTextField.layer.borderColor = UIColor.lightGray.cgColor
+        titleTextField.layer.borderColor = UIColor.divider.cgColor
     }
     
 }

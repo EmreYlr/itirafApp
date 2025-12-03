@@ -44,17 +44,17 @@ final class PersonViewController: UIViewController {
         personView.layer.cornerRadius = personView.frame.width / 2
         personView.clipsToBounds = true
         personView.layer.borderWidth = 1
-        personView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        personView.layer.borderColor = UIColor.textSecondary.withAlphaComponent(0.3).cgColor
         personImageView.image = UIImage(named: "avatar_icon")
         privacyView.layer.cornerRadius = 8
-        privacyView.backgroundColor = UIColor.systemGray.withAlphaComponent(0.1)
+        privacyView.backgroundColor = UIColor.backgroundCard
         
         followedButton.layer.cornerRadius = followedButton.frame.height / 2
-        followedButton.backgroundColor = .systemGray6
+        followedButton.backgroundColor = .backgroundCard
         
-        let more = UIImage(systemName: "line.3.horizontal")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        let more = UIImage(systemName: "line.3.horizontal")?.withTintColor(.textSecondary, renderingMode: .alwaysOriginal)
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: more , style: .done, target: self, action: #selector(moreButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: more , style: .plain, target: self, action: #selector(moreButtonTapped))
     }
     
     private func loadCollectionView() {
