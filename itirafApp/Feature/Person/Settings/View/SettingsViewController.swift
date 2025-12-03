@@ -40,7 +40,7 @@ final class SettingsViewController: UIViewController {
     private func initUI() {
         logoutButton.layer.cornerRadius = 8
         logoutButton.layer.borderWidth = 0.2
-        logoutButton.layer.borderColor = UIColor.systemGray4.cgColor
+        logoutButton.layer.borderColor = UIColor.textSecondary.cgColor
         navigationItem.title = "settings.title.main".localized
         
         configureCollectionViewLayout()
@@ -57,7 +57,7 @@ final class SettingsViewController: UIViewController {
     private func configureCollectionViewLayout() {
         var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         config.headerMode = .supplementary
-        config.backgroundColor = .systemGray6.withAlphaComponent(0.3)
+        config.backgroundColor = .backgroundApp
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
 
             let section = NSCollectionLayoutSection.list(using: config, layoutEnvironment: layoutEnvironment)
@@ -79,7 +79,7 @@ final class SettingsViewController: UIViewController {
             content.text = item.title
             content.image = UIImage(systemName: item.iconSystemName)
             
-            content.imageProperties.tintColor = .systemMint
+            content.imageProperties.tintColor = .brandPrimary
             
             cell.contentConfiguration = content
             cell.accessories = [.disclosureIndicator()]

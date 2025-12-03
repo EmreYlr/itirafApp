@@ -40,7 +40,7 @@ final class ModerationViewController: UIViewController {
     private func configureSegmentControl() {
         segmentControl.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
         viewModel.setFilter(.all)
-        segmentControl.selectedSegmentTintColor = .systemMint.withAlphaComponent(0.7)
+        segmentControl.selectedSegmentTintColor = .brandPrimary.withAlphaComponent(0.7)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -122,16 +122,16 @@ final class ModerationViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             viewModel.setFilter(.all)
-            sender.selectedSegmentTintColor = .systemMint.withAlphaComponent(0.7)
+            sender.selectedSegmentTintColor = .brandPrimary.withAlphaComponent(0.7)
         case 1:
             viewModel.setFilter(.pending)
-            sender.selectedSegmentTintColor = .systemOrange.withAlphaComponent(0.7)
+            sender.selectedSegmentTintColor = .statusPending.withAlphaComponent(0.7)
         case 2:
             viewModel.setFilter(.rejected)
-            sender.selectedSegmentTintColor = .systemRed.withAlphaComponent(0.7)
+            sender.selectedSegmentTintColor = .statusError.withAlphaComponent(0.7)
         default:
             viewModel.setFilter(.all)
-            sender.selectedSegmentTintColor = .systemMint
+            sender.selectedSegmentTintColor = .brandPrimary
         }
     }
     

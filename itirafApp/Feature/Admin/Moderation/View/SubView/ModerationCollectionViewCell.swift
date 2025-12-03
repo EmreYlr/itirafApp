@@ -27,7 +27,7 @@ final class ModerationCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         bgView.layer.cornerRadius = 10
-        bgView.backgroundColor = .systemGray6
+        bgView.backgroundColor = .backgroundCard
         approveButton.layer.cornerRadius = 6
         rejectButton.layer.cornerRadius = 6
     }
@@ -46,19 +46,19 @@ final class ModerationCollectionViewCell: UICollectionViewCell {
         
         switch moderationItem.moderationStatus {
         case .humanApproved, .aiApproved:
-            statusView.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.2)
-            statusImageView.tintColor = .systemGreen
-            statusLabel.textColor = .systemGreen
+            statusView.backgroundColor = UIColor.statusSuccess.withAlphaComponent(0.2)
+            statusImageView.tintColor = .statusSuccess
+            statusLabel.textColor = .statusSuccess
             statusLabel.text = "moderation.status.active".localized
         case .humanRejected, .aiRejected:
-            statusView.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2)
-            statusImageView.tintColor = .systemRed
-            statusLabel.textColor = .systemRed
+            statusView.backgroundColor = UIColor.statusError.withAlphaComponent(0.2)
+            statusImageView.tintColor = .statusError
+            statusLabel.textColor = .statusError
             statusLabel.text = "moderation.status.rejected".localized
         case .pending, .needsHumanReview:
-            statusView.backgroundColor = UIColor.systemOrange.withAlphaComponent(0.2)
-            statusImageView.tintColor = .systemOrange
-            statusLabel.textColor = .systemOrange
+            statusView.backgroundColor = UIColor.statusPending.withAlphaComponent(0.2)
+            statusImageView.tintColor = .statusPending
+            statusLabel.textColor = .statusPending
             statusLabel.text = "moderation.status.pending".localized
         }
     }

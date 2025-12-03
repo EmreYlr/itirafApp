@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,17 +22,18 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tüm Bildirimler" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaZ-1y-3ma">
                                         <rect key="frame" x="8.0000000000000071" y="14.999999999999998" width="116.66666666666669" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="TextPrimary"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fQ-kC-AlY">
                                         <rect key="frame" x="292" y="11" width="63" height="28"/>
+                                        <color key="onTintColor" name="BrandSecondary"/>
                                         <connections>
                                             <action selector="didTapNotificationSwitch:" destination="Y6W-OH-hqX" eventType="valueChanged" id="GTW-G6-t8V"/>
                                         </connections>
                                     </switch>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundApp"/>
                                 <constraints>
                                     <constraint firstItem="6fQ-kC-AlY" firstAttribute="centerY" secondItem="LO1-3b-udc" secondAttribute="centerY" id="MsW-pH-DVZ"/>
                                     <constraint firstAttribute="trailing" secondItem="6fQ-kC-AlY" secondAttribute="trailing" constant="8" id="Rsn-tz-T0E"/>
@@ -52,20 +52,21 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İtiraf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXr-Zq-PZw">
                                                 <rect key="frame" x="7.9999999999999982" y="10" width="31.333333333333329" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEn-1t-H9Z">
                                                 <rect key="frame" x="292" y="10.333333333333343" width="63" height="28"/>
+                                                <color key="onTintColor" name="BrandSecondary"/>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İtiraflarından haberdar ol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Qj-uy-9jf">
                                                 <rect key="frame" x="8" y="33" width="148.66666666666666" height="15.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <color key="textColor" name="TextSecondary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="BackgroundApp"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="aEn-1t-H9Z" secondAttribute="trailing" constant="8" id="K3f-Oa-G3N"/>
                                             <constraint firstItem="5Qj-uy-9jf" firstAttribute="top" secondItem="KXr-Zq-PZw" secondAttribute="bottom" constant="5" id="RSe-ly-JrX"/>
@@ -82,20 +83,21 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesajlar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikY-do-jWm">
                                                 <rect key="frame" x="7.9999999999999964" y="10" width="57.666666666666657" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA7-8m-uVx">
                                                 <rect key="frame" x="292" y="10.333333333333314" width="63" height="28"/>
+                                                <color key="onTintColor" name="BrandSecondary"/>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeni bir mesaj aldığında haberdar ol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJP-Ga-e6a">
                                                 <rect key="frame" x="8" y="33" width="215" height="15.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <color key="textColor" name="TextSecondary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="BackgroundApp"/>
                                         <constraints>
                                             <constraint firstItem="BJP-Ga-e6a" firstAttribute="leading" secondItem="ikY-do-jWm" secondAttribute="leading" id="9yR-Py-0K0"/>
                                             <constraint firstItem="BJP-Ga-e6a" firstAttribute="top" secondItem="ikY-do-jWm" secondAttribute="bottom" constant="5" id="AMt-0n-nVr"/>
@@ -112,20 +114,21 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yorumlar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mH-0G-HDz">
                                                 <rect key="frame" x="8" y="10" width="61" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6SP-PD-VAo">
                                                 <rect key="frame" x="292" y="10.333333333333314" width="63" height="28"/>
+                                                <color key="onTintColor" name="BrandSecondary"/>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İtiraflarına gelen yeni yorumları gör" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAV-mQ-feR">
                                                 <rect key="frame" x="8" y="33" width="209.66666666666666" height="15.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <color key="textColor" name="TextSecondary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="BackgroundApp"/>
                                         <constraints>
                                             <constraint firstItem="6SP-PD-VAo" firstAttribute="centerY" secondItem="HcU-Yc-IZM" secondAttribute="centerY" id="90Y-0X-ik1"/>
                                             <constraint firstItem="6SP-PD-VAo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5mH-0G-HDz" secondAttribute="trailing" constant="8" id="J3v-IF-Kfs"/>
@@ -142,20 +145,21 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beğeniler" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnK-PM-iDd">
                                                 <rect key="frame" x="8" y="10" width="64.666666666666671" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QtW-eC-f4O">
                                                 <rect key="frame" x="292" y="10.333333333333314" width="63" height="28"/>
+                                                <color key="onTintColor" name="BrandSecondary"/>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İtirafların beğenildiğinde bildirim al" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLR-wg-EnK">
                                                 <rect key="frame" x="8" y="33" width="208.33333333333334" height="15.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <color key="textColor" name="TextSecondary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="BackgroundApp"/>
                                         <constraints>
                                             <constraint firstItem="fnK-PM-iDd" firstAttribute="leading" secondItem="rOP-Ck-39n" secondAttribute="leading" constant="8" id="3LI-3D-6b8"/>
                                             <constraint firstItem="QtW-eC-f4O" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnK-PM-iDd" secondAttribute="trailing" constant="8" id="7ze-X7-jAU"/>
@@ -172,20 +176,21 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesaj İstekleri" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPD-fL-Qkh">
                                                 <rect key="frame" x="8" y="10" width="98" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PVn-mz-R9w">
                                                 <rect key="frame" x="292" y="10.333333333333371" width="63" height="28"/>
+                                                <color key="onTintColor" name="BrandSecondary"/>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sana gelen mesaj isteklerini gör" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbs-O3-EUA">
                                                 <rect key="frame" x="8" y="33" width="191.33333333333334" height="15.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <color key="textColor" name="TextSecondary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="BackgroundApp"/>
                                         <constraints>
                                             <constraint firstItem="PVn-mz-R9w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UPD-fL-Qkh" secondAttribute="trailing" constant="8" id="4r3-Bi-Xjf"/>
                                             <constraint firstItem="UPD-fL-Qkh" firstAttribute="leading" secondItem="IyP-2u-7Zo" secondAttribute="leading" constant="8" id="7tX-dW-4uI"/>
@@ -202,20 +207,21 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesaj İstek Sonuçları" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2A9-lJ-37n">
                                                 <rect key="frame" x="8" y="10" width="145" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bp-TP-yB7">
                                                 <rect key="frame" x="292" y="10" width="63" height="28"/>
+                                                <color key="onTintColor" name="BrandSecondary"/>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gönderdiğin isteklerin sonuçlarını gör" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlP-1t-oBx">
                                                 <rect key="frame" x="8" y="33" width="225.66666666666666" height="15.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <color key="textColor" name="TextSecondary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="BackgroundApp"/>
                                         <constraints>
                                             <constraint firstItem="dlP-1t-oBx" firstAttribute="leading" secondItem="2A9-lJ-37n" secondAttribute="leading" id="Twj-Wl-lYW"/>
                                             <constraint firstItem="dlP-1t-oBx" firstAttribute="top" secondItem="2A9-lJ-37n" secondAttribute="bottom" constant="5" id="iWc-uy-bTp"/>
@@ -232,20 +238,21 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modaratör" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xek-7k-3ZM">
                                                 <rect key="frame" x="8" y="10" width="71.333333333333329" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tMo-hJ-Mhb">
                                                 <rect key="frame" x="292" y="10.333333333333258" width="63" height="28"/>
+                                                <color key="onTintColor" name="BrandSecondary"/>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="İtiraflarının durum bilgilerininin bildirimini al" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b81-or-m7d">
                                                 <rect key="frame" x="8" y="33" width="259" height="15.666666666666664"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <color key="textColor" name="TextSecondary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="BackgroundApp"/>
                                         <constraints>
                                             <constraint firstItem="b81-or-m7d" firstAttribute="leading" secondItem="Xek-7k-3ZM" secondAttribute="leading" id="7xW-eX-X9R"/>
                                             <constraint firstItem="tMo-hJ-Mhb" firstAttribute="centerY" secondItem="yvV-1Q-QYM" secondAttribute="centerY" id="E9D-Uh-mbM"/>
@@ -264,14 +271,14 @@
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84G-a4-IqG">
                                 <rect key="frame" x="16" y="218" width="361" height="1"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="backgroundColor" name="DividerColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="5Tn-WA-bYQ"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
                             <constraint firstItem="LO1-3b-udc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="3uz-yQ-yNL"/>
                             <constraint firstItem="84G-a4-IqG" firstAttribute="top" secondItem="LO1-3b-udc" secondAttribute="bottom" constant="25" id="5ak-pX-AwC"/>
@@ -306,14 +313,20 @@
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="BackgroundApp">
+            <color red="0.97299998998641968" green="0.97600001096725464" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrandSecondary">
+            <color red="0.63499999046325684" green="0.60799998044967651" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DividerColor">
+            <color red="0.88599997758865356" green="0.90600001811981201" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextPrimary">
+            <color red="0.17599999904632568" green="0.20399999618530273" blue="0.21199999749660492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextSecondary">
+            <color red="0.3880000114440918" green="0.4309999942779541" blue="0.44699999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

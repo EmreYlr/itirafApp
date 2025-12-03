@@ -69,28 +69,28 @@ final class ModerationDetailViewController: UIViewController {
     
     private func initUI() {
         decisionSegmentControl.selectedSegmentIndex = 0
-        decisionSegmentControl.selectedSegmentTintColor = UIColor.systemGreen.withAlphaComponent(0.4)
+        decisionSegmentControl.selectedSegmentTintColor = UIColor.statusSuccess.withAlphaComponent(0.4)
         
         violationsButton.layer.cornerRadius = 8
         violationsButton.layer.borderWidth = 0.2
-        violationsButton.layer.borderColor = UIColor.systemGray4.cgColor
+        violationsButton.layer.borderColor = UIColor.textSecondary.cgColor
         
         buttonView.layer.borderWidth = 0.2
-        buttonView.layer.borderColor = UIColor.systemGray4.cgColor
+        buttonView.layer.borderColor = UIColor.textSecondary.cgColor
         
-        saveButton.backgroundColor = .systemMint.withAlphaComponent(0.2)
+        saveButton.backgroundColor = .brandSecondary.withAlphaComponent(0.2)
         saveButton.layer.cornerRadius = 8
         
-        rejectTextView.backgroundColor = UIColor.systemGray6
+        rejectTextView.backgroundColor = UIColor.backgroundCard
         rejectTextView.layer.cornerRadius = 6
         rejectTextView.layer.borderWidth = 0.5
-        rejectTextView.layer.borderColor = UIColor.systemGray4.cgColor
+        rejectTextView.layer.borderColor = UIColor.textSecondary.cgColor
         rejectTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
-        noteTextView.backgroundColor = UIColor.systemGray6
+        noteTextView.backgroundColor = UIColor.backgroundCard
         noteTextView.layer.cornerRadius = 6
         noteTextView.layer.borderWidth = 0.5
-        noteTextView.layer.borderColor = UIColor.systemGray4.cgColor
+        noteTextView.layer.borderColor = UIColor.textSecondary.cgColor
         noteTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         updateViolationsLabel()
@@ -105,7 +105,7 @@ final class ModerationDetailViewController: UIViewController {
             violationsLabel.isHidden = false
             let descriptions = viewModel.selectedViolations.map { $0.description }
             violationsLabel.text = "(\(descriptions.joined(separator: ", ")))"
-            violationsLabel.textColor = .systemGray
+            violationsLabel.textColor = .textSecondary
         }
     }
     
@@ -123,8 +123,8 @@ final class ModerationDetailViewController: UIViewController {
         let isApproving = sender.selectedSegmentIndex == 0
         
         sender.selectedSegmentTintColor = isApproving ?
-        UIColor.systemGreen.withAlphaComponent(0.4) :
-        UIColor.systemRed.withAlphaComponent(0.4)
+        UIColor.statusSuccess.withAlphaComponent(0.4) :
+        UIColor.statusError.withAlphaComponent(0.4)
         
         UIView.animate(withDuration: 0.3) {
             self.segmentUpdateUI(segmentValue: isApproving)
@@ -202,21 +202,21 @@ extension ModerationDetailViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView == noteTextView {
             notePlaceholderLabel.isHidden = true
-            noteTextView.layer.borderColor = UIColor.systemMint.cgColor
+            noteTextView.layer.borderColor = UIColor.textSecondary.cgColor
             
         } else if textView == rejectTextView {
             rejectPlaceholderLabel.isHidden = true
-            rejectTextView.layer.borderColor = UIColor.systemMint.cgColor
+            rejectTextView.layer.borderColor = UIColor.textSecondary.cgColor
         }
         
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView == noteTextView {
-            noteTextView.layer.borderColor = UIColor.lightGray.cgColor
+            noteTextView.layer.borderColor = UIColor.divider.cgColor
             
         } else if textView == rejectTextView {
-            rejectTextView.layer.borderColor = UIColor.lightGray.cgColor
+            rejectTextView.layer.borderColor = UIColor.divider.cgColor
         }
     }
 }

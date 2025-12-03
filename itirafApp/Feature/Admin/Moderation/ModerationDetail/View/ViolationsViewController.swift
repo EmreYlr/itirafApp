@@ -39,7 +39,7 @@ final class ViolationsViewController: UIViewController {
             target: self,
             action: #selector(doneButtonTapped)
         )
-        self.navigationItem.rightBarButtonItem?.tintColor = .systemMint
+        self.navigationItem.rightBarButtonItem?.tintColor = .brandSecondary
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "general.button.clear".localized,
@@ -48,7 +48,7 @@ final class ViolationsViewController: UIViewController {
             action: #selector(clearButtonTapped)
         )
         
-        self.navigationItem.leftBarButtonItem?.tintColor = .systemRed
+        self.navigationItem.leftBarButtonItem?.tintColor = .statusError
     }
     
     @objc private func doneButtonTapped() {
@@ -80,7 +80,7 @@ extension ViolationsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = violation.description
         cell.selectionStyle = .none
 
-        cell.tintColor = .systemMint
+        cell.tintColor = .brandSecondary
 
         if selectedViolations.contains(violation) {
             cell.accessoryType = .checkmark
