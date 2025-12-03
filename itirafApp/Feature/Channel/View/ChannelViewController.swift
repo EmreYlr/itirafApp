@@ -25,6 +25,7 @@ final class ChannelViewController: UIViewController {
         initData()
         initCollectionView()
         initSearchBar()
+        setupHideKeyboardOnTap()
     }
     
     private func initData() {
@@ -33,6 +34,17 @@ final class ChannelViewController: UIViewController {
             await channelViewModel.fetchChannel(reset: true)
         }
     }
+    
+    private func setupHideKeyboardOnTap() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     
     private func initCollectionView() {
         collectionView.delegate = self

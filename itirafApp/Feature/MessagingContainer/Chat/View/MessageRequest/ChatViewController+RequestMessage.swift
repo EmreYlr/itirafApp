@@ -24,22 +24,22 @@ extension ChatViewController {
         viewModel.delegate = self
         
         myConfessionView.layer.cornerRadius = 10
-        myConfessionView.backgroundColor = .systemGray6
-        myConfessionView.layer.borderColor = UIColor.systemGray4.cgColor
+        myConfessionView.backgroundColor = .backgroundCard
+        myConfessionView.layer.borderColor = UIColor.textSecondary.cgColor
         myConfessionView.layer.borderWidth = 0.5
         
         messageView.layer.cornerRadius = 10
-        messageView.backgroundColor = .systemGray6
+        messageView.backgroundColor = .backgroundCard
         
         profileIconView.layer.cornerRadius = profileIconView.frame.height / 2
         profileIconView.clipsToBounds = true
         
         buttonView.layer.borderWidth = 0.2
-        buttonView.layer.borderColor = UIColor.systemGray4.cgColor
+        buttonView.layer.borderColor = UIColor.textSecondary.cgColor
         
-        rejectButton.backgroundColor = .systemRed.withAlphaComponent(0.2)
+        rejectButton.backgroundColor = .statusError.withAlphaComponent(0.2)
         rejectButton.layer.cornerRadius = 8
-        approveButton.backgroundColor = .systemMint.withAlphaComponent(0.2)
+        approveButton.backgroundColor = .brandPrimary.withAlphaComponent(0.2)
         approveButton.layer.cornerRadius = 8
         
         self.view.bringSubviewToFront(requestView)

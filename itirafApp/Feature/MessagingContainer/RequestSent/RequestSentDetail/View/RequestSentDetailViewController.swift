@@ -44,26 +44,26 @@ final class RequestSentDetailViewController: UIViewController {
         }
         
         sentConfessionView.layer.cornerRadius = 10
-        sentConfessionView.backgroundColor = .systemGray6
-        sentConfessionView.layer.borderColor = UIColor.systemGray4.cgColor
+        sentConfessionView.backgroundColor = .backgroundCard
+        sentConfessionView.layer.borderColor = UIColor.textSecondary.cgColor
         sentConfessionView.layer.borderWidth = 0.5
         
         statusView.layer.cornerRadius = 10
-        statusView.backgroundColor = .systemGray6
+        statusView.backgroundColor = .backgroundCard
         
         myMessageView.layer.cornerRadius = 10
-        myMessageView.backgroundColor = .systemMint
-        myMessageView.layer.borderColor = UIColor.systemGray4.cgColor
+        myMessageView.backgroundColor = .brandSecondary
+        myMessageView.layer.borderColor = UIColor.textSecondary.cgColor
         myMessageView.layer.borderWidth = 0.5
-        myMessageLabel.textColor = .white
+        myMessageLabel.textColor = .textPrimary
         
         profileIconView.layer.cornerRadius = profileIconView.frame.height / 2
         profileIconView.clipsToBounds = true
         
         buttonView.layer.borderWidth = 0.2
-        buttonView.layer.borderColor = UIColor.systemGray4.cgColor
+        buttonView.layer.borderColor = UIColor.textSecondary.cgColor
         
-        deleteButton.backgroundColor = .systemRed.withAlphaComponent(0.2)
+        deleteButton.backgroundColor = .statusError.withAlphaComponent(0.2)
         deleteButton.layer.cornerRadius = 8
         deleteButton.isHidden = sentRequests.status != .pending
         buttonView.isHidden = sentRequests.status != .pending

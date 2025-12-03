@@ -20,8 +20,8 @@ final class HomeContainerViewController: UIViewController {
 
         btn.layer.cornerRadius = 30
 
-        btn.layer.shadowColor = UIColor.black.cgColor
-        btn.layer.shadowOffset = CGSize(width: 0, height: 4)
+        btn.layer.shadowColor = UIColor.textSecondary.cgColor
+        btn.layer.shadowOffset = CGSize(width: 0, height: 2)
         btn.layer.shadowOpacity = 0.3
         btn.layer.shadowRadius = 4
         

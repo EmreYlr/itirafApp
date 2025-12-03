@@ -77,7 +77,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="GYM-Ok-ohH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
                     </view>
                     <navigationItem key="navigationItem" id="nPq-3s-sUV"/>
                 </viewController>
@@ -303,7 +303,7 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JAE-Ul-SCA">
                                 <rect key="frame" x="16" y="225" width="361" height="510"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundApp"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Fe-7n-5ti">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -314,7 +314,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fqQ-ES-pOw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
                             <constraint firstItem="wRe-MU-UCl" firstAttribute="top" secondItem="fqQ-ES-pOw" secondAttribute="top" constant="15" id="2bH-ta-YCm"/>
                             <constraint firstItem="fqQ-ES-pOw" firstAttribute="bottom" secondItem="JAE-Ul-SCA" secondAttribute="bottom" id="6fk-YG-iS4"/>
@@ -348,7 +348,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="JOM-NB-c6T"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemMintColor"/>
+                                <color key="tintColor" name="BrandPrimary"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="paperplane" catalog="system"/>
                                 <connections>
@@ -365,7 +365,7 @@
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Qv-SX-UXx">
                                 <rect key="frame" x="16" y="182" width="361" height="493"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundApp"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yfe-7Q-ckh">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -376,7 +376,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3P6-Bx-Upq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
                             <constraint firstItem="9Qv-SX-UXx" firstAttribute="leading" secondItem="3P6-Bx-Upq" secondAttribute="leading" constant="16" id="0fI-pX-jgd"/>
                             <constraint firstItem="9Qv-SX-UXx" firstAttribute="top" secondItem="3P6-Bx-Upq" secondAttribute="top" constant="10" id="6Tn-Tu-Ze2"/>
@@ -447,7 +447,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundCard"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="am8-HW-SGT" secondAttribute="bottom" constant="8" id="0Gp-c7-5ob"/>
                                     <constraint firstItem="am8-HW-SGT" firstAttribute="top" secondItem="GCi-Ca-oNp" secondAttribute="bottom" constant="8" id="9s7-eE-jnh"/>
@@ -460,7 +460,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BB6-Oh-i2L">
                                 <rect key="frame" x="16" y="563" width="361" height="157"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundApp"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BTV-Fw-Smu">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -471,7 +471,7 @@
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFP-63-RSi">
                                 <rect key="frame" x="16" y="505" width="361" height="50"/>
-                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <color key="backgroundColor" name="BrandSecondary"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Obj-O4-rIw"/>
                                 </constraints>
@@ -498,7 +498,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Tw-Wg-ybG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
                             <constraint firstItem="BB6-Oh-i2L" firstAttribute="top" secondItem="VFP-63-RSi" secondAttribute="bottom" constant="8" id="0Nk-pQ-UKi"/>
                             <constraint firstItem="VFP-63-RSi" firstAttribute="leading" secondItem="8Tw-Wg-ybG" secondAttribute="leading" constant="16" id="8sX-NK-84f"/>
@@ -543,14 +543,17 @@
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Kanal Ara..." translatesAutoresizingMaskIntoConstraints="NO" id="l7n-ke-UkL">
                                 <rect key="frame" x="0.0" y="172" width="393" height="64"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="backgroundColor" name="BackgroundCard"/>
+                                <color key="tintColor" name="TextSecondary"/>
+                                <color key="barTintColor" name="BackgroundCard"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                 <connections>
                                     <outlet property="delegate" destination="MZX-Lc-tOT" id="70F-cC-cos"/>
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q9g-Q9-Rk6">
                                 <rect key="frame" x="16" y="241" width="361" height="489"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundApp"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ufc-76-Erv">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -561,7 +564,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Qd-o2-qAN"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
                             <constraint firstItem="1Qd-o2-qAN" firstAttribute="trailing" secondItem="Q9g-Q9-Rk6" secondAttribute="trailing" constant="16" id="0Hw-Ks-2Kr"/>
                             <constraint firstItem="l7n-ke-UkL" firstAttribute="top" secondItem="1Qd-o2-qAN" secondAttribute="top" id="DHY-Wd-Dwn"/>
@@ -643,23 +646,23 @@
         <namedColor name="BrandPrimary">
             <color red="0.42399999499320984" green="0.36100000143051147" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="BrandSecondary">
+            <color red="0.63499999046325684" green="0.60799998044967651" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="DividerColor">
             <color red="0.88599997758865356" green="0.90600001811981201" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextPrimary">
             <color red="0.17599999904632568" green="0.20399999618530273" blue="0.21199999749660492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="TextSecondary">
+            <color red="0.3880000114440918" green="0.4309999942779541" blue="0.44699999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

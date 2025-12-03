@@ -409,6 +409,23 @@
         }
       }
     },
+    "chat.send" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Send"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gönder"
+          }
+        }
+      }
+    },
     "chat.title.default" : {
       "extractionState" : "manual",
       "localizations" : {

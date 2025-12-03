@@ -46,19 +46,19 @@ final class PostConfessionViewController: UIViewController {
         contentTextView.delegate = self
         titleTextField.delegate = self
         
-        contentTextView.layer.borderColor = UIColor.systemGray.cgColor
+        contentTextView.layer.borderColor = UIColor.divider.cgColor
         contentTextView.layer.borderWidth = 1
         contentTextView.layer.cornerRadius = 6
         contentTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         titleTextField.layer.borderWidth = 1
         titleTextField.layer.cornerRadius = 6
-        titleTextField.layer.borderColor = UIColor.systemGray.cgColor
+        titleTextField.layer.borderColor = UIColor.divider.cgColor
         shareButton.layer.cornerRadius = 8
         
         channelSelectButton.layer.cornerRadius = 8
         channelSelectButton.layer.borderWidth = 0.5
-        channelSelectButton.layer.borderColor = UIColor.systemGray4.cgColor
+        channelSelectButton.layer.borderColor = UIColor.divider.cgColor
         
         if postConfessionViewModel.selectedChannel != nil {
             channelSelectButton.setTitle(postConfessionViewModel.selectedChannel?.title.capitalized, for: .normal)
@@ -151,14 +151,14 @@ final class PostConfessionViewController: UIViewController {
         titleCountLabel.text = "post.title_remaining".localized(remaining)
         
         if remaining == 0 {
-            titleCountLabel.textColor = .systemRed
-            titleTextField.layer.borderColor = UIColor.systemRed.cgColor
+            titleCountLabel.textColor = .statusError
+            titleTextField.layer.borderColor = UIColor.statusError.cgColor
         } else {
-            titleCountLabel.textColor = .systemGray
+            titleCountLabel.textColor = .textTertiary
             if titleTextField.isFirstResponder {
-                titleTextField.layer.borderColor = UIColor.systemMint.cgColor
+                titleTextField.layer.borderColor = UIColor.textSecondary.cgColor
             } else {
-                titleTextField.layer.borderColor = UIColor.systemGray.cgColor
+                titleTextField.layer.borderColor = UIColor.divider.cgColor
             }
         }
     }
@@ -172,14 +172,14 @@ final class PostConfessionViewController: UIViewController {
         contentCountLabel.text = "post.content_remaining".localized(remaining)
 
         if remaining == 0 {
-            contentCountLabel.textColor = .systemRed
-            contentTextView.layer.borderColor = UIColor.systemRed.cgColor
+            contentCountLabel.textColor = .statusError
+            contentTextView.layer.borderColor = UIColor.statusError.cgColor
         } else {
-            contentCountLabel.textColor = .systemGray
+            contentCountLabel.textColor = .textTertiary
             if contentTextView.isFirstResponder {
-                contentTextView.layer.borderColor = UIColor.systemMint.cgColor
+                contentTextView.layer.borderColor = UIColor.textSecondary.cgColor
             } else {
-                contentTextView.layer.borderColor = UIColor.systemGray.cgColor
+                contentTextView.layer.borderColor = UIColor.divider.cgColor
             }
         }
     }

@@ -59,7 +59,7 @@ final class NotificationViewController: UIViewController {
     private func setNavigationBar() {
         navigationItem.title = "notification.title".localized
         let deleteButton = UIBarButtonItem(title: "notification.button.delete_all".localized, style: .plain, target: self, action: #selector(deleteAllNotification))
-        deleteButton.tintColor = .systemRed
+        deleteButton.tintColor = .statusError
         navigationItem.rightBarButtonItem = deleteButton
     }
     
@@ -175,7 +175,7 @@ final class NotificationViewController: UIViewController {
             navigationItem.title = "notification.selection.title".localized(selectedIDs.count)
 
             let deleteButton = UIBarButtonItem(title: "notification.button.delete".localized, style: .plain, target: self, action: #selector(deleteSelectedItems))
-            deleteButton.tintColor = .systemRed
+            deleteButton.tintColor = .statusError
             navigationItem.rightBarButtonItem = deleteButton
             
             let cancelButton = UIBarButtonItem(title: "notification.button.cancel".localized, style: .plain, target: self, action: #selector(cancelSelectionMode))

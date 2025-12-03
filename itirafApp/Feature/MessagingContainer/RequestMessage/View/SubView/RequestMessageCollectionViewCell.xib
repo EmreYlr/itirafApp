@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,13 +44,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jk0-7N-QLO">
                                 <rect key="frame" x="78" y="15" width="70.333333333333314" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="TextPrimary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOh-ih-KzH">
                                 <rect key="frame" x="78" y="43" width="64" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <color key="textColor" name="TextSecondary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvO-Bb-c6p">
@@ -58,7 +59,7 @@
                                     <constraint firstAttribute="height" constant="35" id="3MQ-k6-aXN"/>
                                     <constraint firstAttribute="width" constant="35" id="n0R-g2-Gd9"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <color key="tintColor" name="StatusSuccess"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="">
                                     <imageReference key="image" image="checkmark" catalog="system" symbolScale="medium"/>
@@ -73,7 +74,7 @@
                                     <constraint firstAttribute="height" constant="35" id="n4K-CR-2eV"/>
                                     <constraint firstAttribute="width" constant="35" id="wpT-6p-qsG"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <color key="tintColor" name="StatusError"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="">
                                     <imageReference key="image" image="multiply" catalog="system" symbolScale="medium"/>
@@ -83,7 +84,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
                             <constraint firstItem="NH9-rE-GwH" firstAttribute="centerY" secondItem="xi0-Th-daO" secondAttribute="centerY" id="0Bh-Da-5Vv"/>
                             <constraint firstItem="Jk0-7N-QLO" firstAttribute="top" secondItem="xi0-Th-daO" secondAttribute="top" constant="5" id="185-lc-jYn"/>
@@ -121,20 +122,23 @@
         <image name="avatar_icon" width="2601" height="3023"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="BackgroundApp">
+            <color red="0.97299998998641968" green="0.97600001096725464" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="StatusError">
+            <color red="1" green="0.27799999713897705" blue="0.34099999070167542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="StatusSuccess">
+            <color red="0.18000000715255737" green="0.83499997854232788" blue="0.45100000500679016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextPrimary">
+            <color red="0.17599999904632568" green="0.20399999618530273" blue="0.21199999749660492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextSecondary">
+            <color red="0.3880000114440918" green="0.4309999942779541" blue="0.44699999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

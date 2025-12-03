@@ -65,13 +65,13 @@ final class NotificationCollectionViewCell: UICollectionViewCell {
         
         let changes = {
             if self.isSelectionMode && isSelected {
-                self.setupStyle(bgColor: .systemRed.withAlphaComponent(0.1), borderColor: .systemRed, borderWidth: 2, badgeColor: item.badgeColor, titleWeight: .medium, timeColor: .secondaryLabel)
+                self.setupStyle(bgColor: .actionLike.withAlphaComponent(0.1), borderColor: .actionLike, borderWidth: 2, badgeColor: item.badgeColor, titleWeight: .medium, timeColor: .textTertiary)
             }
             else if item.seen {
-                self.setupStyle(bgColor: .systemGray6, borderColor: .clear, borderWidth: 0, badgeColor: .systemGray5, titleWeight: .regular, timeColor: .secondaryLabel, iconTint: .black)
+                self.setupStyle(bgColor: .backgroundCard.withAlphaComponent(0.5), borderColor: .clear, borderWidth: 0, badgeColor: .backgroundCard, titleWeight: .regular, timeColor: .textTertiary, iconTint: .textPrimary)
             }
             else {
-                self.setupStyle(bgColor: .systemBlue.withAlphaComponent(0.1), borderColor: .systemBlue.withAlphaComponent(0.3), borderWidth: 1, badgeColor: item.badgeColor, titleWeight: .semibold, timeColor: .systemBlue, iconTint: .white)
+                self.setupStyle(bgColor: .brandSecondary.withAlphaComponent(0.1), borderColor: .brandSecondary.withAlphaComponent(0.3), borderWidth: 1, badgeColor: item.badgeColor, titleWeight: .semibold, timeColor: .textTertiary, iconTint: .textPrimary)
             }
         }
         

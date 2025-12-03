@@ -18,10 +18,10 @@ final class SocialLinkTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        bgView.backgroundColor = .lightGray.withAlphaComponent(0.1)
+        bgView.backgroundColor = .backgroundCard
         bgView.layer.cornerRadius = 6
         platformIconView.layer.cornerRadius = 8
-        platformIconView.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        platformIconView.backgroundColor = .backgroundCard
         platformIconView.clipsToBounds = true
     }
     
@@ -35,7 +35,7 @@ final class SocialLinkTableViewCell: UITableViewCell {
     func configureForAnonymous() {
         usernameLabel.text = "social.anonymous.username".localized
         platformNameLabel.text = "social.anonymous.platform".localized
-        platformIconImageView.image = UIImage(systemName: "person.fill.xmark")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
+        platformIconImageView.image = UIImage(systemName: "person.fill.xmark")?.withTintColor(.backgroundCard, renderingMode: .alwaysOriginal)
         arrowImageView.isHidden = true
     }
 

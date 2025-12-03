@@ -29,13 +29,13 @@ final class ChannelSelectionViewController: UIViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .backgroundApp
         self.title = "channel_selection.title".localized
 
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = .backgroundApp
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -55,7 +55,7 @@ extension ChannelSelectionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelCell", for: indexPath)
         let channel = channels[indexPath.row]
-        cell.backgroundColor = .systemBackground
+        cell.backgroundColor = .backgroundApp
         cell.textLabel?.text = channel.title.capitalized
         cell.accessoryType = .disclosureIndicator
         

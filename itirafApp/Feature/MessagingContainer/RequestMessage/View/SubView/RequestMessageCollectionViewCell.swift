@@ -20,8 +20,8 @@ final class RequestMessageCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         profileBGView.layer.cornerRadius = profileBGView.frame.width / 2
-        profileBGView.backgroundColor = .systemGray
-        profileImageView.tintColor = .white
+        profileBGView.backgroundColor = .backgroundCard
+        profileImageView.tintColor = .textSecondary
         profileBGView.clipsToBounds = true
     }
     

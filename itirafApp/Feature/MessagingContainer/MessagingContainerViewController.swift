@@ -20,8 +20,8 @@ final class MessagingContainerViewController: UIViewController {
         sc.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
         sc.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
         
-        sc.setTitleTextAttributes([.foregroundColor: UIColor.systemGray], for: .normal)
-        sc.setTitleTextAttributes([.foregroundColor: UIColor.systemMint], for: .selected)
+        sc.setTitleTextAttributes([.foregroundColor: UIColor.textSecondary], for: .normal)
+        sc.setTitleTextAttributes([.foregroundColor: UIColor.textPrimary, .font: UIFont.boldSystemFont(ofSize: 16)], for: .selected)
         
         sc.translatesAutoresizingMaskIntoConstraints = false
         return sc
@@ -29,14 +29,14 @@ final class MessagingContainerViewController: UIViewController {
     
     private lazy var bottomBorderView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemGray5
+        view.backgroundColor = .divider
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private lazy var selectionIndicatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemMint
+        view.backgroundColor = .brandPrimary
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -85,7 +85,7 @@ final class MessagingContainerViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .backgroundApp
         view.addSubview(segmentedControl)
         
         view.addSubview(bottomBorderView)
@@ -95,7 +95,7 @@ final class MessagingContainerViewController: UIViewController {
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
         
-        let image = UIImage(systemName: "person.crop.circle.badge.questionmark")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        let image = UIImage(systemName: "person.crop.circle.badge.questionmark")?.withTintColor(.textSecondary)
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: image,
             style: .plain,

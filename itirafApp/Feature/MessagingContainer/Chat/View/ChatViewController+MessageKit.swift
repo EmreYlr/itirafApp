@@ -50,11 +50,11 @@ extension ChatViewController: MessagesLayoutDelegate {
 // MARK: - MessagesDisplayDelegate
 extension ChatViewController: MessagesDisplayDelegate {
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? .systemMint : .systemGray5
+        return isFromCurrentSender(message: message) ? .brandSecondary : .backgroundCard
     }
     
     func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? .white : .label
+        return isFromCurrentSender(message: message) ? .textPrimary : .textPrimary
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
@@ -84,7 +84,7 @@ extension ChatViewController: MessagesDisplayDelegate {
         if showDate {
             return NSAttributedString(
                 string: message.sentDate.formattedTime(),
-                attributes: [.font: UIFont.systemFont(ofSize: 10), .foregroundColor: UIColor.systemGray]
+                attributes: [.font: UIFont.systemFont(ofSize: 10), .foregroundColor: UIColor.textTertiary]
             )
         }
         

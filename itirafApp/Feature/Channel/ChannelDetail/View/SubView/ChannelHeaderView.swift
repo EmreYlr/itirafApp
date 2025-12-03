@@ -26,18 +26,18 @@ final class ChannelHeaderView: UICollectionReusableView {
         headerView.layer.cornerRadius = headerView.frame.width / 2
         headerView.clipsToBounds = true
         headerView.layer.borderWidth = 1
-        headerView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        headerView.layer.borderColor = UIColor.divider.withAlphaComponent(0.3).cgColor
         headerImageView.image = UIImage(named: "building_icon")
     }
     
     private func configureButtonAppearance(isFollowed: Bool) {
         if isFollowed {
-            subButton.backgroundColor = .systemMint.withAlphaComponent(0.15)
-            subButton.setTitleColor(.systemMint, for: .normal)
+            subButton.backgroundColor = .brandPrimary.withAlphaComponent(0.15)
+            subButton.setTitleColor(.brandPrimary, for: .normal)
             subButton.setTitle("channel.button.following".localized, for: .normal)
         } else {
-            subButton.backgroundColor = .systemMint
-            subButton.setTitleColor(.white, for: .normal)
+            subButton.backgroundColor = .brandSecondary
+            subButton.setTitleColor(.textPrimary, for: .normal)
             subButton.setTitle("channel.button.follow".localized, for: .normal)
         }
     }

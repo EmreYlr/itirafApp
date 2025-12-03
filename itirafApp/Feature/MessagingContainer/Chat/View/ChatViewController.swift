@@ -41,6 +41,7 @@ final class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initLoadView()
+        setupTheme()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +66,15 @@ final class ChatViewController: MessagesViewController {
             initData()
         }
     }
+    
+    private func setupTheme() {
+        view.backgroundColor = .backgroundApp
+        messagesCollectionView.backgroundColor = .backgroundApp
+        messageInputBar.backgroundColor = .backgroundApp
+        messageInputBar.backgroundView.backgroundColor = .backgroundApp
+        requestView.backgroundColor = .backgroundApp
+        tableView.backgroundColor = .backgroundApp
+    }
      
     func setupMessageKit() {
         messagesCollectionView.messagesDataSource = self
@@ -72,6 +82,19 @@ final class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
         
+        messageInputBar.sendButton.setTitle(nil, for: .normal)
+        
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .brandPrimary
+        config.baseForegroundColor = .textPrimary
+        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 15, weight: .bold)
+        config.image = UIImage(systemName: "paperplane.fill", withConfiguration: symbolConfig)
+        config.cornerStyle = .capsule
+        config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 0)
+        messageInputBar.sendButton.configuration = config
+        messageInputBar.sendButton.setSize(CGSize(width: 36, height: 36), animated: false)
+        messageInputBar.sendButton.setTitle(nil, for: .normal)
+        messageInputBar.padding.right = 8
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
             
             layout.setMessageIncomingAvatarSize(CGSize(width: 30, height: 30))
