@@ -18,7 +18,7 @@ final class HomeContainerViewController: UIViewController {
         btn.setImage(UIImage(systemName: "plus.bubble.fill", withConfiguration: config), for: .normal)
         btn.tintColor = .white
 
-        btn.layer.cornerRadius = 25
+        btn.layer.cornerRadius = 30
 
         btn.layer.shadowColor = UIColor.black.cgColor
         btn.layer.shadowOffset = CGSize(width: 0, height: 4)
@@ -177,9 +177,9 @@ final class HomeContainerViewController: UIViewController {
             
             newPostButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
             newPostButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -25),
-            newPostButton.widthAnchor.constraint(equalToConstant: 50),
-            newPostButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
-            newPostButton.heightAnchor.constraint(equalToConstant: 50)
+            newPostButton.widthAnchor.constraint(equalToConstant: 60),
+            newPostButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
+            newPostButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     

@@ -8,7 +8,8 @@
 import Foundation
 
 struct RequestSentModel: Codable, Hashable {
-    let requestID, confessionAuthorUsername, initialMessage, confessionTitle: String
+    let requestID, confessionAuthorUsername, initialMessage: String
+    let confessionTitle: String?
     let confessionMessage: String
     let channelMessageID: Int
     let createdAt: String

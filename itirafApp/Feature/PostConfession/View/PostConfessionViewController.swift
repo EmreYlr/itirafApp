@@ -27,13 +27,9 @@ final class PostConfessionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
+        setupHideKeyboardOnTap()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        titleTextField.becomeFirstResponder()
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
@@ -77,10 +73,7 @@ final class PostConfessionViewController: UIViewController {
     @IBAction func shareButtonPressed(_ sender: UIButton) {
         sender.isEnabled = false
         do {
-            let titleText = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-            guard !titleText.isEmpty else {
-                throw ValidationError.emptyField(fieldName: "confession.field.title".localized)
-            }
+            let titleText = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             
             let contentText = contentTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
             guard !contentText.isEmpty else {
@@ -104,6 +97,16 @@ final class PostConfessionViewController: UIViewController {
             sender.isEnabled = true
             self.handleError(error)
         }
+    }
+    
+    private func setupHideKeyboardOnTap() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     private func updateTextFields() {

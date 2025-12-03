@@ -13,7 +13,8 @@ struct MyConfession: Codable {
 // MARK: - MyConfessionData
 struct MyConfessionData: Codable, Hashable {
     let id: Int
-    var title, message: String
+    var title: String?
+    var message: String
     let likeCount: Int
     let liked: Bool
     let replyCount: Int

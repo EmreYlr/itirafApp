@@ -21,10 +21,13 @@ final class PostConfessionService {
     func postConfession(content: PostConfession) async throws {
         let channelId = content.channelId
         
-        let parameters: [String: Any] = [
-            "title": content.title,
+        var parameters: [String: Any] = [
             "message": content.message
         ]
+        
+        if let title = content.title {
+            parameters["title"] = title
+        }
 
         let _: Empty = try await networkService.request(
             endpoint: Endpoint.Channel.postChannelMessages(channelId: channelId),

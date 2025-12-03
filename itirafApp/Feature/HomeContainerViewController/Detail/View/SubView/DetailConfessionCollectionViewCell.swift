@@ -17,7 +17,7 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        bgView.backgroundColor = .lightGray.withAlphaComponent(0.1)
+        bgView.backgroundColor = .backgroundCard
         bgView.layer.cornerRadius = 6
     }
 
@@ -27,15 +27,15 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
         dateLabel.text = confession.createdAt.relativeTimeString()
         if UserManager.shared.isMe(userId: confession.owner.id) {
             usernameLabel.text = "confession.owner.you".localized
-            usernameLabel.textColor = .systemMint
+            usernameLabel.textColor = .brandSecondary
             usernameLabel.font = .boldSystemFont(ofSize: usernameLabel.font.pointSize)
         } else {
             usernameLabel.text = confession.owner.username
-            usernameLabel.textColor = .label
+            usernameLabel.textColor = .textPrimary
             usernameLabel.font = .systemFont(ofSize: usernameLabel.font.pointSize)
         }
         
-        bgView.backgroundColor = .lightGray.withAlphaComponent(0.1)
+        bgView.backgroundColor = .backgroundCard
         bgView.layer.borderWidth = 0
         bgView.layer.borderColor = UIColor.clear.cgColor
         
@@ -43,13 +43,13 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
     
     func flashAnimation() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.bgView.backgroundColor = UIColor.systemMint.withAlphaComponent(0.1)
-            self.bgView.layer.borderColor = UIColor.systemMint.cgColor
+            self.bgView.backgroundColor = UIColor.brandSecondary.withAlphaComponent(0.1)
+            self.bgView.layer.borderColor = UIColor.brandSecondary.cgColor
             self.bgView.layer.borderWidth = 2
         }) { _ in
 
             UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
-                self.bgView.backgroundColor = .lightGray.withAlphaComponent(0.1)
+                self.bgView.backgroundColor = .backgroundCard
                 self.bgView.layer.borderColor = UIColor.clear.cgColor
                 self.bgView.layer.borderWidth = 0
             }, completion: nil)

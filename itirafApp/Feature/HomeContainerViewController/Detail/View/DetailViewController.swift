@@ -16,28 +16,21 @@ final class DetailViewController: UIViewController {
     
     var detailViewModel: DetailViewModelProtocol!
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.hidesBottomBarWhenPushed = true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
         initUI()
         loadCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
+        setupHideKeyboardOnTap()
     }
     
     private func initUI() {
-        replyView.layer.borderColor = UIColor.systemGray5.cgColor
-        replyView.layer.borderWidth = 0.3
         replyTextField.layer.cornerRadius = 20
-        replyTextField.layer.borderColor = UIColor.systemGray5.cgColor
+        replyTextField.layer.borderColor = UIColor.textSecondary.cgColor
         replyTextField.layer.borderWidth = 0.3
         replyTextField.clipsToBounds = true
         replyTextField.layer.cornerCurve = .continuous
@@ -47,15 +40,25 @@ final class DetailViewController: UIViewController {
     
     private func initData() {
         detailViewModel.delegate = self
-        let dmImage = UIImage(systemName: "bubble.left.and.bubble.right")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        let dmImage = UIImage(systemName: "bubble.left.and.bubble.right")?.withTintColor(.textSecondary)
 
         Task {
             await detailViewModel.fetchMessageData()
             
             if !detailViewModel.isMe() {
-                navigationItem.rightBarButtonItem = UIBarButtonItem(image: dmImage , style: .done, target: self, action: #selector(dmButtonTapped))
+                navigationItem.rightBarButtonItem = UIBarButtonItem(image: dmImage , style: .plain, target: self, action: #selector(dmButtonTapped))
             }
         }
+    }
+    
+    private func setupHideKeyboardOnTap() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     private func loadCollectionView() {
@@ -83,14 +86,14 @@ final class DetailViewController: UIViewController {
         if text.count > maxCount {
             textField.text = String(text.prefix(maxCount))
             
-            textField.layer.borderColor = UIColor.systemRed.cgColor
+            textField.layer.borderColor = UIColor.statusError.cgColor
             return
         }
         
         if text.count == maxCount {
-            textField.layer.borderColor = UIColor.systemRed.cgColor
+            textField.layer.borderColor = UIColor.statusError.cgColor
         } else {
-            textField.layer.borderColor = UIColor.systemGray5.cgColor
+            textField.layer.borderColor = UIColor.textSecondary.cgColor
         }
     }
     
@@ -169,7 +172,7 @@ final class DetailViewController: UIViewController {
 
             replyTextField.text = ""
             replyTextField.resignFirstResponder()
-            replyTextField.layer.borderColor = UIColor.systemGray5.cgColor
+            replyTextField.layer.borderColor = UIColor.textSecondary.cgColor
         }
     }
 }
@@ -263,6 +266,6 @@ extension DetailViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        replyTextField.layer.borderColor = UIColor.lightGray.cgColor
+        replyTextField.layer.borderColor = UIColor.textSecondary.cgColor
     }
 }

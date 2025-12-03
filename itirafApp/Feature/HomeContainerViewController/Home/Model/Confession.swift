@@ -16,7 +16,8 @@ struct Confession: Codable {
 // MARK: - ConfessionData
 struct ConfessionData: Codable, Hashable {
     let id: Int
-    let title, message: String
+    let title: String?
+    let message: String
     var liked: Bool
     var likeCount, replyCount, shareCount: Int
     let createdAt: String

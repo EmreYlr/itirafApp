@@ -51,7 +51,7 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
         let likeImageName = isLiked ? "heart.fill" : "heart"
         let likeImage = UIImage(systemName: likeImageName)
         likeButton.setImage(likeImage, for: .normal)
-        likeButton.tintColor = isLiked ? .systemMint : .systemGray
+        likeButton.tintColor = isLiked ? .actionLike : .textSecondary
     }
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {

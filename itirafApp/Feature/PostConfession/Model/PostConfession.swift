@@ -7,5 +7,7 @@
 
 struct PostConfession: Codable {
     let channelId: Int
-    let title, message: String
+    let title: String?
+    let message: String
+    
 }

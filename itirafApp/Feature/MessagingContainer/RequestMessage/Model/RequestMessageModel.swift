@@ -9,7 +9,9 @@ import Foundation
 struct RequestMessageModel: Codable, Hashable {
     let requestID, roomID, requesterUsername, requesterUserID: String
     let requesterSocialLinks: [Link]?
-    let initialMessage, confessionTitle,confessionMessage: String
+    let initialMessage: String
+    let confessionTitle: String?
+    let confessionMessage: String
     let channelMessageID: Int
     let createdAt: String
 

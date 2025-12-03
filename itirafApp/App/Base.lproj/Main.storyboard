@@ -130,8 +130,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qAx-G4-l1a">
-                                <rect key="frame" x="16" y="128" width="361" height="588"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="16" y="128" width="361" height="580"/>
+                                <color key="backgroundColor" name="BackgroundApp"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W4u-X4-LVA">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -145,9 +145,11 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yanıtını gönder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uza-AM-qxx">
                                         <rect key="frame" x="16" y="10" width="319" height="40"/>
+                                        <color key="backgroundColor" name="BackgroundCard"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ozh-pr-w4T"/>
                                         </constraints>
+                                        <color key="textColor" name="TextPrimary"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -156,7 +158,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="cSo-m0-Knj"/>
                                         </constraints>
-                                        <color key="tintColor" systemColor="systemMintColor"/>
+                                        <color key="tintColor" name="BrandPrimary"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="paperplane" catalog="system"/>
                                         <connections>
@@ -164,7 +166,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundApp"/>
                                 <constraints>
                                     <constraint firstItem="uza-AM-qxx" firstAttribute="centerY" secondItem="PDd-kx-Cfh" secondAttribute="centerY" id="4Ce-Kz-bvh"/>
                                     <constraint firstItem="yCx-Vt-zwF" firstAttribute="leading" secondItem="uza-AM-qxx" secondAttribute="trailing" constant="15" id="APa-vI-WIZ"/>
@@ -174,16 +176,26 @@
                                     <constraint firstAttribute="height" constant="60" id="x0R-56-7fQ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbi-So-G9M">
+                                <rect key="frame" x="0.0" y="718" width="393" height="1"/>
+                                <color key="backgroundColor" name="DividerColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="5yD-9Z-WaK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lww-dB-Beg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
                             <constraint firstItem="Lww-dB-Beg" firstAttribute="trailing" secondItem="qAx-G4-l1a" secondAttribute="trailing" constant="16" id="7Ac-vQ-sfA"/>
-                            <constraint firstItem="PDd-kx-Cfh" firstAttribute="top" secondItem="qAx-G4-l1a" secondAttribute="bottom" constant="8" symbolic="YES" id="9Rw-eW-I8X"/>
                             <constraint firstItem="qAx-G4-l1a" firstAttribute="top" secondItem="Lww-dB-Beg" secondAttribute="top" constant="10" id="S8N-Pg-vXs"/>
                             <constraint firstItem="qAx-G4-l1a" firstAttribute="leading" secondItem="Lww-dB-Beg" secondAttribute="leading" constant="16" id="TzD-Sd-Dry"/>
+                            <constraint firstItem="sbi-So-G9M" firstAttribute="leading" secondItem="l7D-VH-G8T" secondAttribute="leading" id="Wqh-bh-oQM"/>
+                            <constraint firstItem="PDd-kx-Cfh" firstAttribute="top" secondItem="sbi-So-G9M" secondAttribute="bottom" constant="5" id="eGz-6p-SPG"/>
+                            <constraint firstAttribute="trailing" secondItem="sbi-So-G9M" secondAttribute="trailing" id="kGx-7c-vWF"/>
                             <constraint firstItem="PDd-kx-Cfh" firstAttribute="leading" secondItem="Lww-dB-Beg" secondAttribute="leading" id="nA7-mc-QsQ"/>
                             <constraint firstItem="PDd-kx-Cfh" firstAttribute="bottom" secondItem="Lww-dB-Beg" secondAttribute="bottom" id="nUO-AF-RCo"/>
+                            <constraint firstItem="sbi-So-G9M" firstAttribute="top" secondItem="qAx-G4-l1a" secondAttribute="bottom" constant="10" id="syI-OB-dax"/>
                             <constraint firstItem="PDd-kx-Cfh" firstAttribute="trailing" secondItem="Lww-dB-Beg" secondAttribute="trailing" id="wsA-mc-p5L"/>
                         </constraints>
                     </view>
@@ -625,8 +637,17 @@
         <namedColor name="BackgroundApp">
             <color red="0.97299998998641968" green="0.97600001096725464" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="BackgroundCard">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BrandPrimary">
             <color red="0.42399999499320984" green="0.36100000143051147" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DividerColor">
+            <color red="0.88599997758865356" green="0.90600001811981201" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextPrimary">
+            <color red="0.17599999904632568" green="0.20399999618530273" blue="0.21199999749660492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

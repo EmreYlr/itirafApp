@@ -12,7 +12,8 @@ struct ModerationModel: Codable {
 
 struct ModerationData: Codable, Hashable{
     let id: Int
-    let title, message: String
+    let title: String?
+    let message: String
     let channelID: Int
     let channelTitle, ownerID, ownerUsername: String
     let moderationStatus: ModerationStatus

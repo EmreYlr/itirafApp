@@ -12,7 +12,8 @@ struct Flow: Codable {
 
 struct FlowData: Codable, Hashable{
     let id: Int
-    let title, message: String
+    let title: String?
+    let message: String
     var likeCount: Int
     var liked: Bool
     let replyCount: Int

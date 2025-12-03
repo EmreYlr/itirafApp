@@ -25,15 +25,16 @@ final class RequestBottomSheetViewController: UIViewController {
         super.viewDidLoad()
         initData()
         initUI()
+        setupHideKeyboardOnTap()
     }
     
     private func initUI() {
         sendButton.layer.cornerRadius = 8
-        sendButton.backgroundColor = .systemMint.withAlphaComponent(0.2)
+        sendButton.backgroundColor = .brandSecondary.withAlphaComponent(0.2)
         
         messageTextView.layer.cornerRadius = 8
         messageTextView.layer.borderWidth = 0.2
-        messageTextView.layer.borderColor = UIColor.systemGray4.cgColor
+        messageTextView.layer.borderColor = UIColor.textSecondary.cgColor
     }
     
     private func initData() {
@@ -48,6 +49,16 @@ final class RequestBottomSheetViewController: UIViewController {
     private func updateTextFields() {
         self.messageTextView.text.removeAll()
         self.placeholderLabel.isHidden = false
+    }
+    
+    private func setupHideKeyboardOnTap() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
@@ -92,12 +103,5 @@ extension RequestBottomSheetViewController: RequestBottomSheetViewModelDelegate 
 extension RequestBottomSheetViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !messageTextView.text.isEmpty
-    }
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        messageTextView.layer.borderColor = UIColor.systemMint.cgColor
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        messageTextView.layer.borderColor = UIColor.lightGray.cgColor
     }
 }
