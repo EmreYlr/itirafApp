@@ -32,13 +32,21 @@ final class LoginViewController: UIViewController {
         loginViewModel.delegate = self
         navigationItem.title = "auth.title.login".localized
         
-        let anonymousImage = UIImage(systemName: "person.crop.circle.fill.badge.questionmark")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        let anonymousImage = UIImage(systemName: "person.crop.circle.fill.badge.questionmark")?.withTintColor(.textSecondary, renderingMode: .alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: anonymousImage , style: .done, target: self, action: #selector(anonymousButtonTapped))
         
         appleLoginButton.layer.cornerRadius = 8
         googleLoginButton.layer.cornerRadius = 8
         googleLoginButton.layer.borderWidth = 0.7
-        googleLoginButton.layer.borderColor = UIColor.systemGray4.cgColor
+        googleLoginButton.layer.borderColor = UIColor.textSecondary.cgColor
+        
+        emailTextField.layer.cornerRadius = 8
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.borderColor = UIColor.textSecondary.cgColor
+        
+        passwordTextField.layer.cornerRadius = 8
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderColor = UIColor.textSecondary.cgColor
         
         emailTextField.text = "ali@example.com"
         passwordTextField.text = "password123"

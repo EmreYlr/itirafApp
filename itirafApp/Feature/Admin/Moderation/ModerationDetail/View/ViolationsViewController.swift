@@ -81,7 +81,8 @@ extension ViolationsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
 
         cell.tintColor = .brandSecondary
-
+        cell.backgroundColor = .backgroundApp
+        
         if selectedViolations.contains(violation) {
             cell.accessoryType = .checkmark
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)

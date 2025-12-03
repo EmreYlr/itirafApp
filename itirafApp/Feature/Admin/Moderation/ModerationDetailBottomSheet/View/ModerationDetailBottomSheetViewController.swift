@@ -33,22 +33,22 @@ final class ModerationDetailBottomSheetViewController: UIViewController {
         navigationItem.title = "moderation.detail_bottom_sheet.title".localized
         
         decisionSegmentControl.selectedSegmentIndex = 0
-        decisionSegmentControl.selectedSegmentTintColor = UIColor.systemGreen.withAlphaComponent(0.4)
+        decisionSegmentControl.selectedSegmentTintColor = UIColor.statusSuccess.withAlphaComponent(0.4)
         
         violationsButton.layer.cornerRadius = 8
         violationsButton.layer.borderWidth = 0.2
-        violationsButton.layer.borderColor = UIColor.systemGray4.cgColor
+        violationsButton.layer.borderColor = UIColor.textSecondary.cgColor
         
         buttonView.layer.borderWidth = 0.2
-        buttonView.layer.borderColor = UIColor.systemGray4.cgColor
+        buttonView.layer.borderColor = UIColor.textSecondary.cgColor
         
-        saveButton.backgroundColor = .systemMint.withAlphaComponent(0.2)
+        saveButton.backgroundColor = .brandSecondary.withAlphaComponent(0.2)
         saveButton.layer.cornerRadius = 8
         
-        rejectTextView.backgroundColor = UIColor.systemGray6
+        rejectTextView.backgroundColor = UIColor.backgroundCard
         rejectTextView.layer.cornerRadius = 6
         rejectTextView.layer.borderWidth = 0.5
-        rejectTextView.layer.borderColor = UIColor.systemGray4.cgColor
+        rejectTextView.layer.borderColor = UIColor.textSecondary.cgColor
         rejectTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         updateViolationsLabel()
@@ -69,7 +69,7 @@ final class ModerationDetailBottomSheetViewController: UIViewController {
             violationsLabel.isHidden = false
             let descriptions = viewModel.selectedViolations.map { $0.description }
             violationsLabel.text = "(\(descriptions.joined(separator: ", ")))"
-            violationsLabel.textColor = .systemGray
+            violationsLabel.textColor = .textSecondary
         }
     }
     
@@ -87,8 +87,8 @@ final class ModerationDetailBottomSheetViewController: UIViewController {
         let isApproving = sender.selectedSegmentIndex == 0
         
         sender.selectedSegmentTintColor = isApproving ?
-        UIColor.systemGreen.withAlphaComponent(0.4) :
-        UIColor.systemRed.withAlphaComponent(0.4)
+        UIColor.statusSuccess.withAlphaComponent(0.4) :
+        UIColor.statusError.withAlphaComponent(0.4)
         
         UIView.animate(withDuration: 0.3) {
             self.segmentUpdateUI(segmentValue: isApproving)
@@ -166,11 +166,11 @@ extension ModerationDetailBottomSheetViewController: UITextViewDelegate {
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         rejectPlaceholderLabel.isHidden = true
-        rejectTextView.layer.borderColor = UIColor.systemMint.cgColor
+        rejectTextView.layer.borderColor = UIColor.textSecondary.cgColor
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        rejectTextView.layer.borderColor = UIColor.lightGray.cgColor
+        rejectTextView.layer.borderColor = UIColor.divider.cgColor
     }
 }
 extension ModerationDetailBottomSheetViewController: ViolationsViewControllerDelegate {

@@ -28,6 +28,14 @@ final class RegisterViewController: UIViewController {
     private func initData() {
         registerViewModel.delegate = self
         navigationItem.title = "auth.title.register".localized
+        
+        emailTextField.layer.cornerRadius = 8
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.borderColor = UIColor.textSecondary.cgColor
+        
+        passwordTextField.layer.cornerRadius = 8
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderColor = UIColor.textSecondary.cgColor
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
