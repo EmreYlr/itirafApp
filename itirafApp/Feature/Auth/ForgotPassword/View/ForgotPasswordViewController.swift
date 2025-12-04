@@ -22,6 +22,7 @@ final class ForgotPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
+        setupHideKeyboardOnTap()
     }
     
     private func initData() {
@@ -32,6 +33,16 @@ final class ForgotPasswordViewController: UIViewController {
         emailTextField.layer.cornerRadius = 8
         emailTextField.layer.borderWidth = 1
         emailTextField.layer.borderColor = UIColor.textSecondary.cgColor
+    }
+    
+    private func setupHideKeyboardOnTap() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func resetPasswordButtonTapped(_ sender: UIButton) {

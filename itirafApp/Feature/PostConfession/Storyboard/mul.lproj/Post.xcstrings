@@ -136,7 +136,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Add details to your confession. Please do not use offensive language."
           }
         },
@@ -144,6 +144,24 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "İtirafa detaylar ekleyin. Lütfen hakaret içeren ifadeler kullanmayınız."
+          }
+        }
+      }
+    },
+    "SJ5-xd-7Fe.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"(opsiyonel)\"; ObjectID = \"SJ5-xd-7Fe\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(optional)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "(opsiyonel)"
           }
         }
       }

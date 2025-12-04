@@ -26,13 +26,14 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
+        setupHideKeyboardOnTap()
     }
     
     private func initData() {
         loginViewModel.delegate = self
         navigationItem.title = "auth.title.login".localized
         
-        let anonymousImage = UIImage(systemName: "person.crop.circle.fill.badge.questionmark")?.withTintColor(.textSecondary, renderingMode: .alwaysOriginal)
+        let anonymousImage = UIImage(systemName: "person.crop.circle.fill.badge.questionmark")?.withTintColor(.textSecondary)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: anonymousImage , style: .done, target: self, action: #selector(anonymousButtonTapped))
         
         appleLoginButton.layer.cornerRadius = 8
@@ -52,6 +53,16 @@ final class LoginViewController: UIViewController {
         passwordTextField.text = "password123"
     }
     
+    private func setupHideKeyboardOnTap() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         let registerViewController = Storyboard.register.instantiate(.register)
         navigationController?.pushViewController(registerViewController, animated: true)

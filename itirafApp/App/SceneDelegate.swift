@@ -20,6 +20,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
+        window.overrideUserInterfaceStyle = ThemeManager.shared.currentTheme.userInterfaceStyle
+        
         self.appCoordinator = AppCoordinator(window: window)
         
         self.appCoordinator?.start()

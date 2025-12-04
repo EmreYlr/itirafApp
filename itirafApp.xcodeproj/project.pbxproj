@@ -241,6 +241,7 @@
 		C3F39E142EA0268B00197509 /* PostConfessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39E132EA0268700197509 /* PostConfessionViewModel.swift */; };
 		C3F39E162EA0269200197509 /* PostConfessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39E152EA0269000197509 /* PostConfessionService.swift */; };
 		C3F39F802EA02B6000197509 /* PostConfession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39F7F2EA02B3B00197509 /* PostConfession.swift */; };
+		C3FAE95F2EE1BD11003542CD /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FAE95E2EE1BD0F003542CD /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -505,6 +506,7 @@
 		C3F39E132EA0268700197509 /* PostConfessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfessionViewModel.swift; sourceTree = "<group>"; };
 		C3F39E152EA0269000197509 /* PostConfessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfessionService.swift; sourceTree = "<group>"; };
 		C3F39F7F2EA02B3B00197509 /* PostConfession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfession.swift; sourceTree = "<group>"; };
+		C3FAE95E2EE1BD0F003542CD /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -1240,6 +1242,7 @@
 		C3A7A42F2EA9586400250B06 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C3FAE95E2EE1BD0F003542CD /* ThemeManager.swift */,
 				C3BA53402ED9979D00EC6413 /* Clarity */,
 				C37F9E2D2EC8E6A20042B56F /* FollowManager */,
 				C38EAAC62EC1F32600A1818C /* Crashlytics */,
@@ -2586,6 +2589,7 @@
 				C3E6603A2EB373710059048F /* EditConfessionService.swift in Sources */,
 				C326DD4D2E8EE2A8001B7837 /* UserManager.swift in Sources */,
 				C3528F312EBB798F00FF1C19 /* ModerationViewController+CollectionView.swift in Sources */,
+				C3FAE95F2EE1BD11003542CD /* ThemeManager.swift in Sources */,
 				C3E660532EB40A210059048F /* UserSocialLink.swift in Sources */,
 				C37D5ECB2E86DE9A0068F334 /* RegisterViewController.swift in Sources */,
 				C3BE19662ECE4FBA0053C9A9 /* ForgotPasswordViewModel.swift in Sources */,

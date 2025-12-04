@@ -34,11 +34,11 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZp-fS-bW9">
                                 <rect key="frame" x="16" y="624" width="361" height="45"/>
-                                <color key="backgroundColor" name="BrandPrimary"/>
+                                <color key="backgroundColor" name="BrandSecondary"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="jdc-GM-bYS"/>
                                 </constraints>
-                                <color key="tintColor" name="TextPrimary"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Paylaş">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
@@ -121,6 +121,12 @@
                                 <color key="textColor" name="TextTertiary"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(opsiyonel)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ5-xd-7Fe">
+                                <rect key="frame" x="71.666666666666671" y="174" width="63.000000000000014" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="TextSecondary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qvd-rG-XpL"/>
                         <color key="backgroundColor" name="BackgroundApp"/>
@@ -145,8 +151,8 @@
                             <constraint firstItem="KZp-fS-bW9" firstAttribute="top" secondItem="WxT-Zt-i2B" secondAttribute="bottom" constant="30" id="ca8-xt-B3m"/>
                             <constraint firstItem="Tli-H9-Zfb" firstAttribute="top" secondItem="ZEy-0Y-CiT" secondAttribute="bottom" constant="15" id="cdU-rX-wyk"/>
                             <constraint firstItem="ZEy-0Y-CiT" firstAttribute="leading" secondItem="qvd-rG-XpL" secondAttribute="leading" constant="16" id="esE-BR-eSF"/>
-                            <constraint firstItem="gSN-M0-Yhg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bcj-yl-Uqu" secondAttribute="trailing" constant="8" id="ev8-3d-aLA"/>
                             <constraint firstItem="VbW-Yq-acD" firstAttribute="trailing" secondItem="WxT-Zt-i2B" secondAttribute="trailing" constant="-5" id="fII-hJ-Bil"/>
+                            <constraint firstItem="SJ5-xd-7Fe" firstAttribute="leading" secondItem="Bcj-yl-Uqu" secondAttribute="trailing" constant="8" id="ftz-lp-uB0"/>
                             <constraint firstItem="Bcj-yl-Uqu" firstAttribute="top" secondItem="BeL-vu-uoZ" secondAttribute="bottom" constant="15" id="gQC-YH-vi2"/>
                             <constraint firstItem="KZp-fS-bW9" firstAttribute="leading" secondItem="qvd-rG-XpL" secondAttribute="leading" constant="16" id="lbW-I0-UpQ"/>
                             <constraint firstItem="OM3-lm-4m5" firstAttribute="top" secondItem="BGC-m7-VKq" secondAttribute="bottom" constant="20" id="msy-cZ-fJy"/>
@@ -155,8 +161,10 @@
                             <constraint firstItem="BeL-vu-uoZ" firstAttribute="top" secondItem="qvd-rG-XpL" secondAttribute="top" constant="15" id="tTO-JR-Vg6"/>
                             <constraint firstItem="XmY-g0-Ujp" firstAttribute="leading" secondItem="qvd-rG-XpL" secondAttribute="leading" constant="16" id="tYK-0l-yzD"/>
                             <constraint firstItem="Tli-H9-Zfb" firstAttribute="leading" secondItem="qvd-rG-XpL" secondAttribute="leading" constant="16" id="tnM-eV-rgx"/>
+                            <constraint firstItem="SJ5-xd-7Fe" firstAttribute="centerY" secondItem="Bcj-yl-Uqu" secondAttribute="centerY" id="vzc-N7-QcE"/>
                             <constraint firstItem="XmY-g0-Ujp" firstAttribute="top" secondItem="gSN-M0-Yhg" secondAttribute="bottom" constant="10" id="woX-rf-dsf"/>
                             <constraint firstItem="qvd-rG-XpL" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BeL-vu-uoZ" secondAttribute="trailing" constant="15" id="wpx-B2-7DB"/>
+                            <constraint firstItem="gSN-M0-Yhg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SJ5-xd-7Fe" secondAttribute="trailing" constant="16" id="wz2-pK-PfX"/>
                             <constraint firstItem="WxT-Zt-i2B" firstAttribute="top" secondItem="Tli-H9-Zfb" secondAttribute="bottom" constant="10" id="xio-4o-9F6"/>
                         </constraints>
                     </view>
@@ -184,8 +192,8 @@
         <namedColor name="BackgroundCard">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="BrandPrimary">
-            <color red="0.42399999499320984" green="0.36100000143051147" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="BrandSecondary">
+            <color red="0.63499999046325684" green="0.60799998044967651" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextPrimary">
             <color red="0.17599999904632568" green="0.20399999618530273" blue="0.21199999749660492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

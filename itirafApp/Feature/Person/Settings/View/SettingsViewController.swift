@@ -123,6 +123,8 @@ final class SettingsViewController: UIViewController {
             print("Profili Düzenle'ye tıklandı")
         case .changePassword:
             print("Şifre Değiştir'e tıklandı")
+        case .theme:
+            showThemeSelection()
         case .privacyPolicy:
             print("Gizlilik Politikası'na tıklandı")
         case .aboutUs:
@@ -145,6 +147,34 @@ final class SettingsViewController: UIViewController {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+    }
+    
+    private func showThemeSelection() {
+        let alert = UIAlertController(title: "theme.selection.title".localized, message: nil, preferredStyle: .actionSheet)
+        
+        let themes: [AppTheme] = [.device, .light, .dark]
+        
+        for theme in themes {
+            let action = UIAlertAction(title: theme.title, style: .default) { _ in
+                ThemeManager.shared.updateTheme(theme)
+            }
+
+            if theme == ThemeManager.shared.currentTheme {
+                action.setValue(true, forKey: "checked")
+            }
+            
+            alert.addAction(action)
+        }
+        
+        alert.addAction(UIAlertAction(title: "notification.button.cancel".localized, style: .cancel))
+
+        if let popover = alert.popoverPresentationController {
+            popover.sourceView = self.view
+            popover.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popover.permittedArrowDirections = []
+        }
+        
+        present(alert, animated: true)
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {

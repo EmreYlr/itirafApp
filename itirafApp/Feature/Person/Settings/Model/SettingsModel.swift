@@ -25,6 +25,7 @@ struct SettingItem: Hashable {
     enum ItemType: Hashable {
         case editProfile
         case changePassword
+        case theme
         case privacyPolicy
         case aboutUs
         case notifications
@@ -46,6 +47,7 @@ struct SettingItem: Hashable {
     
     static func getAccountItems() -> [SettingItem] {
         return [
+            .init(title: "settings.item.theme".localized, iconSystemName: "circle.righthalf.filled", type: .theme),
             .init(title: "settings.item.notifications".localized, iconSystemName: "bell", type: .notifications),
             .init(title: "settings.item.language".localized, iconSystemName: "globe", type: .language),
             .init(title: "settings.item.privacy_policy".localized, iconSystemName: "shield", type: .privacyPolicy),

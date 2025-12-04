@@ -23,6 +23,7 @@ final class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
+        setupHideKeyboardOnTap()
     }
     
     private func initData() {
@@ -36,6 +37,16 @@ final class RegisterViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 8
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor.textSecondary.cgColor
+    }
+    
+    private func setupHideKeyboardOnTap() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {

@@ -49,7 +49,7 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
             subButton.setTitle("channel.button.following".localized, for: .normal)
         } else {
             subButton.backgroundColor = .brandSecondary
-            subButton.setTitleColor(.textPrimary, for: .normal)
+            subButton.setTitleColor(.white, for: .normal)
             subButton.setTitle("channel.button.follow".localized, for: .normal)
         }
     }
