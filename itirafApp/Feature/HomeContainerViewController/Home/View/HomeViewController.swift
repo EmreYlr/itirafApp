@@ -75,13 +75,22 @@ final class HomeViewController: UIViewController {
                 self?.revealedNsfwItems.insert(confession.id)
             }
             
-            cell.onLikeButtonTapped = { [weak self] in
-                guard let self = self else { return }
+            cell.onLikeButtonTapped = { [weak self, weak cell] in
+                guard let self = self, let cell = cell else { return }
+                let isLikedNow = confession.liked
+                let futureState = !(confession.liked)
+
+                let currentCount = confession.likeCount
+                let futureCount = isLikedNow ? (currentCount - 1) : (currentCount + 1)
                 
+                cell.updateLikeButton(isLiked: futureState, animated: true)
+                cell.updateLikeCount(newCount: futureCount, animated: true)
+
                 Task {
                     await self.homeViewModel.toggleLikeStatus(for: confession.id)
                 }
             }
+            
             guard let channel = confession.channel else {
                 return cell
             }

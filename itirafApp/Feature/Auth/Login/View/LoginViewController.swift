@@ -37,6 +37,9 @@ final class LoginViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: anonymousImage , style: .done, target: self, action: #selector(anonymousButtonTapped))
         
         appleLoginButton.layer.cornerRadius = 8
+        appleLoginButton.layer.borderWidth = 0.7
+        appleLoginButton.layer.borderColor = UIColor.textSecondary.cgColor
+        
         googleLoginButton.layer.cornerRadius = 8
         googleLoginButton.layer.borderWidth = 0.7
         googleLoginButton.layer.borderColor = UIColor.textSecondary.cgColor

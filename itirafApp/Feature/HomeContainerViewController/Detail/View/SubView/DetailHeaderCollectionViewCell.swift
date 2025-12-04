@@ -41,17 +41,45 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
         dateLabel.text = confessionData.createdAt.relativeTimeString()
         likeCountLabel.text = "\(confessionData.likeCount)"
         replyCountLabel.text = "\(confessionData.replyCount)"
-        updateLikeButton(isLiked: confessionData.liked)
+        updateLikeButton(isLiked: confessionData.liked, animated: false)
         channelNameLabel.text = confessionData.channel.title
         
         replyTitleLabel.text = "detail.reply_section_title".localized(confessionData.replyCount)
     }
     
-    private func updateLikeButton(isLiked: Bool) {
-        let likeImageName = isLiked ? "heart.fill" : "heart"
-        let likeImage = UIImage(systemName: likeImageName)
-        likeButton.setImage(likeImage, for: .normal)
+    func updateLikeButton(isLiked: Bool, animated: Bool = false) {
+        let imageName = isLiked ? "heart.fill" : "heart"
         likeButton.tintColor = isLiked ? .actionLike : .textSecondary
+        likeButton.setImage(UIImage(systemName: imageName), for: .normal)
+        if animated {
+            likeButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: .allowUserInteraction, animations: {
+                self.likeButton.transform = .identity
+            }, completion: nil)
+        } else {
+            likeButton.transform = .identity
+        }
+    }
+
+    func updateLikeCount(newCount: Int, animated: Bool = true) {
+        guard animated else {
+            likeCountLabel.text = "\(newCount)"
+            return
+        }
+        
+        let currentCount = Int(likeCountLabel.text ?? "0") ?? 0
+        let isIncreasing = newCount > currentCount
+        
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        animation.type = .push
+        animation.duration = 0.25
+
+        animation.subtype = isIncreasing ? .fromTop : .fromBottom
+
+        likeCountLabel.layer.add(animation, forKey: "kCATransitionPush")
+
+        likeCountLabel.text = "\(newCount)"
     }
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {

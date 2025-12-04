@@ -66,7 +66,8 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         setMessageWithReadMore(text: confession.message)
         likeCountLabel.text = "\(confession.likeCount)"
         commentCountLabel.text = "\(confession.replyCount)"
-        updateLikeButton(isLiked: confession.liked)
+        updateLikeButton(isLiked: confession.liked, animated: false)
+        updateLikeCount(newCount: confession.likeCount, animated: false)
         dateLabel.text = confession.createdAt.relativeTimeString()
         ownerNameLabel.text = UserManager.shared.isMe(userId: confession.owner.id) ? "confession.owner.you".localized : confession.owner.username
         channelNameLabel.isHidden = confession.channel == nil
@@ -80,7 +81,8 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         setMessageWithReadMore(text: flow.message)
         likeCountLabel.text = "\(flow.likeCount)"
         commentCountLabel.text = "\(flow.replyCount)"
-        updateLikeButton(isLiked: flow.liked)
+        updateLikeButton(isLiked: flow.liked, animated: false)
+        updateLikeCount(newCount: flow.likeCount, animated: false)
         dateLabel.text = flow.createdAt.relativeTimeString()
         ownerNameLabel.text = UserManager.shared.isMe(userId: flow.owner.id) ? "confession.owner.you".localized : flow.owner.username
         channelNameLabel.isHidden = false
@@ -136,11 +138,40 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         onCommentButtonTapped?()
     }
     
-    func updateLikeButton(isLiked: Bool) {
+    func updateLikeButton(isLiked: Bool, animated: Bool = false) {
         let imageName = isLiked ? "heart.fill" : "heart"
         likeButton.tintColor = isLiked ? .actionLike : .textSecondary
         likeButton.setImage(UIImage(systemName: imageName), for: .normal)
+
+        if animated {
+            likeButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: .allowUserInteraction, animations: {
+                self.likeButton.transform = .identity
+            }, completion: nil)
+        } else {
+            likeButton.transform = .identity
+        }
     }
+    
+    func updateLikeCount(newCount: Int, animated: Bool = true) {
+            guard animated else {
+                likeCountLabel.text = "\(newCount)"
+                return
+            }
+            
+            let currentCount = Int(likeCountLabel.text ?? "0") ?? 0
+            let isIncreasing = newCount > currentCount
+            
+            let animation = CATransition()
+            animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+            animation.type = .push
+            animation.subtype = isIncreasing ? .fromTop : .fromBottom
+            animation.duration = 0.25
+            
+            likeCountLabel.layer.add(animation, forKey: "kCATransitionPush")
+            likeCountLabel.text = "\(newCount)"
+        }
     
     private func setupChannelLabelTap() {
         channelNameLabel.isUserInteractionEnabled = true

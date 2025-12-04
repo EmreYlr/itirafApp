@@ -67,8 +67,16 @@ final class FlowViewController: UIViewController {
                 self?.revealedNsfwItems.insert(flow.id)
             }
             
-            cell.onLikeButtonTapped = { [weak self] in
-                guard let self = self else { return }
+            cell.onLikeButtonTapped = { [weak self, weak cell] in
+                guard let self = self, let cell = cell else { return }
+                let isLikedNow = flow.liked
+                let futureState = !isLikedNow
+
+                let currentCount = flow.likeCount
+                let futureCount = isLikedNow ? (currentCount - 1) : (currentCount + 1)
+
+                cell.updateLikeButton(isLiked: futureState, animated: true)
+                cell.updateLikeCount(newCount: futureCount, animated: true)
                 
                 Task {
                     await self.viewModel.toggleLikeStatus(for: flow.id)

@@ -63,19 +63,21 @@ final class DetailViewModel {
 
     
     func likeMessage() async {
+        toggleLikeState()
         do {
             try await detailService.likeConfessions(messageId: messageId)
-            toggleLikeState()
         } catch {
+            toggleLikeState()
             delegate?.didFailToLikeMessage(with: error)
         }
     }
     
     func unlikeMessage() async {
+        toggleLikeState()
         do {
             try await detailService.unlikeConfessions(messageId: messageId)
-            toggleLikeState()
         } catch {
+            toggleLikeState()
             delegate?.didFailToLikeMessage(with: error)
         }
     }
@@ -84,8 +86,8 @@ final class DetailViewModel {
         let newReply = Reply(
             id: -1,
             message: message,
-            owner: Owner(id: "-1", username: "You"),
-            createdAt: ISO8601DateFormatter().string(from: Date())
+            owner: Owner(id: "-1", username: "confession.owner.you".localized),
+            createdAt: "time.relative.just_now".localized
         )
 
         do {

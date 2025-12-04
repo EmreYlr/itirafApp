@@ -210,11 +210,11 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     
     func didUpdateLikeStatus(isLiked: Bool, likeCount: Int) {
         let indexPath = IndexPath(item: 0, section: 0)
-        if collectionView.indexPathsForVisibleItems.contains(indexPath) {
-             if let cell = collectionView.cellForItem(at: indexPath) as? DetailHeaderCollectionViewCell,
-                let confession = detailViewModel.confession {
-                 cell.configure(with: confession)
-             }
+        if collectionView.indexPathsForVisibleItems.contains(indexPath),
+           let cell = collectionView.cellForItem(at: indexPath) as? DetailHeaderCollectionViewCell {
+            cell.updateLikeButton(isLiked: isLiked, animated: false)
+
+            cell.updateLikeCount(newCount: likeCount, animated: true)
         }
     }
     

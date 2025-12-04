@@ -30,7 +30,14 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 cell.configure(with: confession)
                 
                 cell.onLikeButtonTapped = { [weak self] in
-                    self?.handleLikeAction()
+                    guard let self = self else { return }
+
+                    let isCurrentlyLiked = self.detailViewModel.confession?.liked ?? false
+                    let futureState = !isCurrentlyLiked
+
+                    cell.updateLikeButton(isLiked: futureState, animated: true)
+
+                    self.handleLikeAction()
                 }
                 
                 cell.onShareButtonTapped = { [weak self] in
