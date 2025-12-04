@@ -54,7 +54,7 @@ extension ChatViewController: MessagesDisplayDelegate {
     }
     
     func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? .textPrimary : .textPrimary
+        return isFromCurrentSender(message: message) ? .white : .textPrimary
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {

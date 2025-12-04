@@ -20,6 +20,7 @@ final class DetailViewController: UIViewController {
         super.init(coder: coder)
         self.hidesBottomBarWhenPushed = true
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
@@ -27,7 +28,7 @@ final class DetailViewController: UIViewController {
         loadCollectionView()
         setupHideKeyboardOnTap()
     }
-    
+
     private func initUI() {
         replyTextField.layer.cornerRadius = 20
         replyTextField.layer.borderColor = UIColor.textSecondary.cgColor
@@ -50,7 +51,7 @@ final class DetailViewController: UIViewController {
             }
         }
     }
-    
+
     private func setupHideKeyboardOnTap() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false

@@ -9,6 +9,7 @@ import UIKit
 
 final class ModerationDetailViewController: UIViewController {
     //MARK: -Properties
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -39,6 +40,7 @@ final class ModerationDetailViewController: UIViewController {
         super.viewDidLoad()
         initData()
         initUI()
+        setupHideKeyboardOnTap()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,6 +100,16 @@ final class ModerationDetailViewController: UIViewController {
         segmentUpdateUI(segmentValue: true)
     }
     
+    private func setupHideKeyboardOnTap() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     private func updateViolationsLabel() {
         if viewModel.selectedViolations.isEmpty {
             violationsLabel.isHidden = true
@@ -209,6 +221,13 @@ extension ModerationDetailViewController: UITextViewDelegate {
             rejectTextView.layer.borderColor = UIColor.textSecondary.cgColor
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            let bottomOffset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.height + self.scrollView.contentInset.bottom)
+
+            if bottomOffset.y > 0 {
+                self.scrollView.setContentOffset(bottomOffset, animated: true)
+            }
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

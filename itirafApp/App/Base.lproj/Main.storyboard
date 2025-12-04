@@ -184,16 +184,17 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lww-dB-Beg"/>
+                        <keyboardLayoutGuide key="keyboard" id="HIp-9W-qot"/>
                         <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
                             <constraint firstItem="Lww-dB-Beg" firstAttribute="trailing" secondItem="qAx-G4-l1a" secondAttribute="trailing" constant="16" id="7Ac-vQ-sfA"/>
+                            <constraint firstItem="HIp-9W-qot" firstAttribute="top" secondItem="PDd-kx-Cfh" secondAttribute="bottom" id="EII-8c-BWk"/>
                             <constraint firstItem="qAx-G4-l1a" firstAttribute="top" secondItem="Lww-dB-Beg" secondAttribute="top" constant="10" id="S8N-Pg-vXs"/>
                             <constraint firstItem="qAx-G4-l1a" firstAttribute="leading" secondItem="Lww-dB-Beg" secondAttribute="leading" constant="16" id="TzD-Sd-Dry"/>
                             <constraint firstItem="sbi-So-G9M" firstAttribute="leading" secondItem="l7D-VH-G8T" secondAttribute="leading" id="Wqh-bh-oQM"/>
                             <constraint firstItem="PDd-kx-Cfh" firstAttribute="top" secondItem="sbi-So-G9M" secondAttribute="bottom" constant="5" id="eGz-6p-SPG"/>
                             <constraint firstAttribute="trailing" secondItem="sbi-So-G9M" secondAttribute="trailing" id="kGx-7c-vWF"/>
                             <constraint firstItem="PDd-kx-Cfh" firstAttribute="leading" secondItem="Lww-dB-Beg" secondAttribute="leading" id="nA7-mc-QsQ"/>
-                            <constraint firstItem="PDd-kx-Cfh" firstAttribute="bottom" secondItem="Lww-dB-Beg" secondAttribute="bottom" id="nUO-AF-RCo"/>
                             <constraint firstItem="sbi-So-G9M" firstAttribute="top" secondItem="qAx-G4-l1a" secondAttribute="bottom" constant="10" id="syI-OB-dax"/>
                             <constraint firstItem="PDd-kx-Cfh" firstAttribute="trailing" secondItem="Lww-dB-Beg" secondAttribute="trailing" id="wsA-mc-p5L"/>
                         </constraints>
@@ -343,7 +344,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bq-0S-NGG">
-                                <rect key="frame" x="342" y="698" width="35" height="34.333333333333371"/>
+                                <rect key="frame" x="342" y="688" width="35" height="34.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="JOM-NB-c6T"/>
                                 </constraints>
@@ -355,7 +356,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yanıtını gönder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aeN-he-hgp">
-                                <rect key="frame" x="16" y="695" width="318" height="40"/>
+                                <rect key="frame" x="16" y="685" width="318" height="40"/>
                                 <color key="backgroundColor" name="BackgroundCard"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2Z7-Bm-XiX"/>
@@ -365,7 +366,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Qv-SX-UXx">
-                                <rect key="frame" x="16" y="182" width="361" height="486"/>
+                                <rect key="frame" x="16" y="182" width="361" height="482"/>
                                 <color key="backgroundColor" name="BackgroundApp"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yfe-7Q-ckh">
                                     <size key="itemSize" width="128" height="128"/>
@@ -376,7 +377,7 @@
                                 <cells/>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAf-J3-pja">
-                                <rect key="frame" x="0.0" y="678" width="393" height="1"/>
+                                <rect key="frame" x="0.0" y="674" width="393" height="1"/>
                                 <color key="backgroundColor" name="DividerColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Kw8-EO-Awm"/>
@@ -384,20 +385,21 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3P6-Bx-Upq"/>
+                        <keyboardLayoutGuide key="keyboard" id="sDU-Jc-Gzl"/>
                         <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
                             <constraint firstItem="9Qv-SX-UXx" firstAttribute="leading" secondItem="3P6-Bx-Upq" secondAttribute="leading" constant="16" id="0fI-pX-jgd"/>
-                            <constraint firstItem="aeN-he-hgp" firstAttribute="top" secondItem="PAf-J3-pja" secondAttribute="bottom" constant="16" id="3W8-h2-kYC"/>
+                            <constraint firstItem="aeN-he-hgp" firstAttribute="top" secondItem="PAf-J3-pja" secondAttribute="bottom" constant="10" id="3W8-h2-kYC"/>
                             <constraint firstItem="9Qv-SX-UXx" firstAttribute="top" secondItem="3P6-Bx-Upq" secondAttribute="top" constant="10" id="6Tn-Tu-Ze2"/>
                             <constraint firstItem="3P6-Bx-Upq" firstAttribute="trailing" secondItem="8bq-0S-NGG" secondAttribute="trailing" constant="16" id="6YJ-fF-8bA"/>
                             <constraint firstItem="aeN-he-hgp" firstAttribute="leading" secondItem="3P6-Bx-Upq" secondAttribute="leading" constant="16" id="H86-V2-SLn"/>
                             <constraint firstItem="3P6-Bx-Upq" firstAttribute="trailing" secondItem="9Qv-SX-UXx" secondAttribute="trailing" constant="16" id="KwW-PI-95m"/>
-                            <constraint firstItem="3P6-Bx-Upq" firstAttribute="bottom" secondItem="aeN-he-hgp" secondAttribute="bottom" id="Nt3-CX-p2X"/>
                             <constraint firstItem="PAf-J3-pja" firstAttribute="leading" secondItem="11R-lm-dwF" secondAttribute="leading" id="U3d-7b-Kaw"/>
                             <constraint firstItem="PAf-J3-pja" firstAttribute="top" secondItem="9Qv-SX-UXx" secondAttribute="bottom" constant="10" id="WKd-yw-92h"/>
                             <constraint firstItem="8bq-0S-NGG" firstAttribute="centerY" secondItem="aeN-he-hgp" secondAttribute="centerY" id="aHp-3v-d9o"/>
                             <constraint firstItem="8bq-0S-NGG" firstAttribute="leading" secondItem="aeN-he-hgp" secondAttribute="trailing" constant="8" id="doh-nr-qJs"/>
                             <constraint firstAttribute="trailing" secondItem="PAf-J3-pja" secondAttribute="trailing" id="itZ-fS-iSo"/>
+                            <constraint firstItem="sDU-Jc-Gzl" firstAttribute="top" secondItem="aeN-he-hgp" secondAttribute="bottom" constant="10" id="neL-xz-Bgc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AHo-ff-tN7"/>
