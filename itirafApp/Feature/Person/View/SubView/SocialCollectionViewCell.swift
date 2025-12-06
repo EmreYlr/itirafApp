@@ -26,6 +26,8 @@ final class SocialCollectionViewCell: UICollectionViewCell {
         iconView.layer.cornerRadius = 8
         iconView.backgroundColor = .backgroundCard
         iconView.clipsToBounds = true
+        
+        editButton.titleLabel?.font = .systemFont(ofSize: 12, weight: .medium)
     }
     
     func configure(with link: Link) {
