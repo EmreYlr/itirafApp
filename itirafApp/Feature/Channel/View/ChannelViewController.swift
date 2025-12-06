@@ -59,6 +59,8 @@ final class ChannelViewController: UIViewController {
         collectionView.collectionViewLayout = .createFullWidthDynamicLayout(spacing: 15, estimatedHeight: 60)
         
         collectionView.showAnimatedGradientSkeleton()
+        
+        collectionView.layoutSkeletonIfNeeded()
     }
     
     private func initSearchBar() {

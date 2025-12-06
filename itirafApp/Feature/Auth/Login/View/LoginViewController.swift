@@ -34,7 +34,7 @@ final class LoginViewController: UIViewController {
         navigationItem.title = "auth.title.login".localized
         
         let anonymousImage = UIImage(systemName: "person.crop.circle.fill.badge.questionmark")?.withTintColor(.textSecondary)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: anonymousImage , style: .done, target: self, action: #selector(anonymousButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: anonymousImage , style: .plain, target: self, action: #selector(anonymousButtonTapped))
         
         appleLoginButton.layer.cornerRadius = 8
         appleLoginButton.layer.borderWidth = 0.7
