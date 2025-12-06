@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class DetailConfessionCollectionViewCell: UICollectionViewCell {
     //MARK: -Properties
@@ -19,6 +20,8 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         bgView.backgroundColor = .backgroundCard
         bgView.layer.cornerRadius = 6
+        messageLabel.skeletonTextNumberOfLines = 3
+        messageLabel.lastLineFillPercent = 70
     }
 
     

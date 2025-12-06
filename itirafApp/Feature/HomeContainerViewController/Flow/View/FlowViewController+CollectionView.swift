@@ -5,8 +5,9 @@
 //  Created by Emre on 13.11.2025.
 //
 import UIKit
+import SkeletonView
 
-extension FlowViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension FlowViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let flow = dataSource.itemIdentifier(for: indexPath) else {
@@ -40,16 +41,19 @@ extension FlowViewController: UICollectionViewDelegate, UICollectionViewDelegate
             viewModel.sendPendingSeenMessages()
         }
     }
+}
+
+class FlowDiffableDataSource: UICollectionViewDiffableDataSource<Section, FlowData>, SkeletonCollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 100)
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "confessionCell"
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+    func numSections(in collectionSkeletonView: UICollectionView) -> Int {
+        return 1
     }
 }

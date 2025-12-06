@@ -30,6 +30,9 @@
                                 <color key="tintColor" name="TextSecondary"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="likeButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="n9Z-33-XiR"/>
                                 </connections>
@@ -42,6 +45,9 @@
                                 <color key="tintColor" name="TextSecondary"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="bubble.right" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="commentButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="c94-te-0O5"/>
                                 </connections>
@@ -51,36 +57,72 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" name="TextSecondary"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2j-4l-Pod">
                                 <rect key="frame" x="47" y="102" width="15.333333333333336" height="14.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="textColor" name="TextSecondary"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZx-qu-nQ9">
-                                <rect key="frame" x="15.999999999999996" y="33" width="42.666666666666657" height="20.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZx-qu-nQ9">
+                                <rect key="frame" x="16" y="33" width="305" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" name="TextPrimary"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="skeletonLineSpacing">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lastLineFillPercent">
+                                        <integer key="value" value="80"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6R-c9-lwy">
-                                <rect key="frame" x="16.000000000000004" y="61.333333333333343" width="35.333333333333343" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6R-c9-lwy">
+                                <rect key="frame" x="16" y="61.333333333333343" width="305" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="TextSecondary"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER0-GR-Wd8">
                                 <rect key="frame" x="108" y="9.3333333333333321" width="25" height="14.333333333333332"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" name="TextTertiary"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ownerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guo-b7-OYX">
                                 <rect key="frame" x="16" y="8" width="77" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" name="TextTertiary"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CEQ-3U-hZy">
                                 <rect key="frame" x="98" y="14.666666666666666" width="5" height="3.6666666666666696"/>
@@ -89,12 +131,22 @@
                                     <constraint firstAttribute="width" constant="5" id="SgB-xG-wdj"/>
                                     <constraint firstAttribute="height" constant="5" id="r4X-QA-lnt"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="channelName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRz-mE-9d5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="channelName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRz-mE-9d5">
                                 <rect key="frame" x="244" y="9.3333333333333321" width="77" height="14.333333333333332"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" name="TextTertiary"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIv-uq-FaO">
                                 <rect key="frame" x="14" y="0.0" width="309" height="121"/>
@@ -159,14 +211,20 @@
                             <constraint firstItem="ER0-GR-Wd8" firstAttribute="centerY" secondItem="guo-b7-OYX" secondAttribute="centerY" id="hBw-mQ-7Bh"/>
                             <constraint firstItem="FRz-mE-9d5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ER0-GR-Wd8" secondAttribute="trailing" constant="8" id="jc7-l9-z3A"/>
                             <constraint firstItem="CEQ-3U-hZy" firstAttribute="centerY" secondItem="guo-b7-OYX" secondAttribute="centerY" id="lXW-dH-MYA"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GZx-qu-nQ9" secondAttribute="trailing" constant="16" id="mRv-Ow-IIH"/>
+                            <constraint firstAttribute="trailing" secondItem="GZx-qu-nQ9" secondAttribute="trailing" constant="16" id="mRv-Ow-IIH"/>
                             <constraint firstItem="guo-b7-OYX" firstAttribute="leading" secondItem="68O-sE-n82" secondAttribute="leading" constant="16" id="n5O-0T-yLy"/>
                             <constraint firstItem="5jb-dG-Av4" firstAttribute="leading" secondItem="23Q-0O-7GW" secondAttribute="trailing" id="pc5-b4-tI4"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h6R-c9-lwy" secondAttribute="trailing" constant="16" id="rMR-lK-Hnh"/>
+                            <constraint firstAttribute="trailing" secondItem="h6R-c9-lwy" secondAttribute="trailing" constant="16" id="rMR-lK-Hnh"/>
                             <constraint firstAttribute="trailing" secondItem="FRz-mE-9d5" secondAttribute="trailing" constant="16" id="rnp-gD-nxd"/>
                             <constraint firstItem="ER0-GR-Wd8" firstAttribute="leading" secondItem="CEQ-3U-hZy" secondAttribute="trailing" constant="5" id="t75-Gl-aRw"/>
                             <constraint firstItem="h6R-c9-lwy" firstAttribute="leading" secondItem="68O-sE-n82" secondAttribute="leading" constant="16" id="vQo-DN-nMn"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -178,6 +236,9 @@
                 <constraint firstAttribute="bottom" secondItem="68O-sE-n82" secondAttribute="bottom" id="gy6-Es-V4i"/>
             </constraints>
             <size key="customSize" width="337" height="130"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="bgView" destination="68O-sE-n82" id="TME-D2-rF6"/>
                 <outlet property="blurLabel" destination="LWS-dc-Rv5" id="pYy-Rl-Ygz"/>

@@ -32,6 +32,8 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         replyTitleLabel.text = "detail.reply_section_title".localized
         editButton.isHidden = !UserManager.shared.hasRole(.admin)
+        contentLabel.skeletonTextNumberOfLines = 3
+        contentLabel.lastLineFillPercent = 50
     }
     
     func configure(with confessionData: ChannelMessageData) {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class ChannelViewController: UIViewController {
     //MARK: - Properties
@@ -44,16 +45,20 @@ final class ChannelViewController: UIViewController {
     @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
-    
-    
+
     private func initCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         
         collectionView.register(UINib(nibName: "ChannelCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "channelCell")
-                
+        collectionView.isSkeletonable = true
+        
         refreshControl.addTarget(self, action: #selector(refreshChannels), for: .valueChanged)
         collectionView.refreshControl = refreshControl
+        
+        collectionView.collectionViewLayout = .createFullWidthDynamicLayout(spacing: 15, estimatedHeight: 60)
+        
+        collectionView.showAnimatedGradientSkeleton()
     }
     
     private func initSearchBar() {
@@ -78,6 +83,11 @@ final class ChannelViewController: UIViewController {
 extension ChannelViewController: ChannelViewModelOutputProtocol {
     func didUpdateChannel() {
         DispatchQueue.main.async {
+            if self.collectionView.sk.isSkeletonActive {
+                self.collectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+            }
+            
             self.collectionView.refreshControl?.endRefreshing()
             self.collectionView.reloadData()
         }
@@ -85,6 +95,11 @@ extension ChannelViewController: ChannelViewModelOutputProtocol {
     
     func didFailWithError(_ error: any Error) {
         DispatchQueue.main.async {
+            if self.collectionView.sk.isSkeletonActive {
+                self.collectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+            }
+            
             self.collectionView.refreshControl?.endRefreshing()
             self.handleError(error)
         }

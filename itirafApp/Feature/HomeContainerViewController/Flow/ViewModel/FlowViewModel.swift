@@ -52,6 +52,7 @@ final class FlowViewModel {
         defer { isLoading = false }
         
         do {
+            //try? await Task.sleep(nanoseconds: 3 * 1_000_000_000) //Testing delay
             let newFlow = try await flowService.fetchFlow(page: currentPage, limit: 10)
             
             if self.flow == nil {

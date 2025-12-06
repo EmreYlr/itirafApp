@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class DetailViewController: UIViewController {
     //MARK: -Rroperties
@@ -70,9 +71,9 @@ final class DetailViewController: UIViewController {
         
         collectionView.register(UINib(nibName: "DetailConfessionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "detailConfessionCell")
 
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
+        collectionView.collectionViewLayout = .createFullWidthDynamicLayout(spacing: 10, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0), estimatedHeight: 100)
+        
+        collectionView.showAnimatedGradientSkeleton()
     }
     
     private func updateScreen() {
@@ -220,6 +221,7 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     
     func didFetchDetail() {
         DispatchQueue.main.async {
+            self.collectionView.hideSkeleton()
             self.updateScreen()
             self.scrollToHighlightedComment()
         }
@@ -231,6 +233,7 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     
     func didFailToFetchDetail(with error: Error) {
         DispatchQueue.main.async {
+            self.collectionView.hideSkeleton()
             self.handleError(error)
         }
     }

@@ -6,8 +6,29 @@
 //
 
 import UIKit
+import SkeletonView
 
-extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SkeletonCollectionViewDataSource {
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        if indexPath.section == 0 {
+            return "detailHeaderCell"
+        } else {
+            return "detailConfessionCell"
+        }
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        } else {
+            return 5
+        }
+    }
+    
+    func numSections(in collectionSkeletonView: UICollectionView) -> Int {
+        return 2
+    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return detailViewModel.confession == nil ? 0 : 2
@@ -63,17 +84,5 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             return cell
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 100)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
     }
 }

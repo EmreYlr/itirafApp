@@ -242,6 +242,8 @@
 		C3F39E162EA0269200197509 /* PostConfessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39E152EA0269000197509 /* PostConfessionService.swift */; };
 		C3F39F802EA02B6000197509 /* PostConfession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39F7F2EA02B3B00197509 /* PostConfession.swift */; };
 		C3FAE95F2EE1BD11003542CD /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FAE95E2EE1BD0F003542CD /* ThemeManager.swift */; };
+		C3FAE9622EE1D78E003542CD /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = C3FAE9612EE1D78E003542CD /* SkeletonView */; };
+		C3FAE9642EE45353003542CD /* UICollectionViewLayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FAE9632EE4534F003542CD /* UICollectionViewLayout+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -507,6 +509,7 @@
 		C3F39E152EA0269000197509 /* PostConfessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfessionService.swift; sourceTree = "<group>"; };
 		C3F39F7F2EA02B3B00197509 /* PostConfession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfession.swift; sourceTree = "<group>"; };
 		C3FAE95E2EE1BD0F003542CD /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		C3FAE9632EE4534F003542CD /* UICollectionViewLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -530,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3BE19712ECF343A0053C9A9 /* GoogleSignIn in Frameworks */,
+				C3FAE9622EE1D78E003542CD /* SkeletonView in Frameworks */,
 				C37D5DEA2E8415260068F334 /* Alamofire in Frameworks */,
 				C38EAAC42EC0C66000A1818C /* FirebaseCore in Frameworks */,
 				C3BA533F2ED994F300EC6413 /* Clarity in Frameworks */,
@@ -2222,6 +2226,7 @@
 		C3EB108A2E744A63002DA295 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C3FAE9632EE4534F003542CD /* UICollectionViewLayout+Extensions.swift */,
 				C3BE19912ED48BF70053C9A9 /* String+Localized.swift */,
 				C3BE198A2ED476DE0053C9A9 /* APIError+Auth.swift */,
 				C3BE19882ED2171E0053C9A9 /* APIError+Extension.swift */,
@@ -2404,6 +2409,7 @@
 				C38EAAC32EC0C66000A1818C /* FirebaseCore */,
 				C3BE19702ECF343A0053C9A9 /* GoogleSignIn */,
 				C3BA533E2ED994F300EC6413 /* Clarity */,
+				C3FAE9612EE1D78E003542CD /* SkeletonView */,
 			);
 			productName = itirafApp;
 			productReference = C3EB10552E7440CE002DA295 /* itirafApp.app */;
@@ -2444,6 +2450,7 @@
 				C38EAAB52EC0BBA000A1818C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C3BE196F2ECF343A0053C9A9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				C3BA533D2ED994F300EC6413 /* XCRemoteSwiftPackageReference "clarity-apps" */,
+				C3FAE9602EE1D78E003542CD /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C3EB10562E7440CE002DA295 /* Products */;
@@ -2585,6 +2592,7 @@
 				C3BA53522EDC6E0500EC6413 /* ModerationDetailBottomSheetViewModel.swift in Sources */,
 				C3A7509A2EB609EC0058163B /* RequestMessageService.swift in Sources */,
 				C3BE19522ECC9FDA0053C9A9 /* NotificationHeaderView.swift in Sources */,
+				C3FAE9642EE45353003542CD /* UICollectionViewLayout+Extensions.swift in Sources */,
 				C3A750C12EB695130058163B /* RequestBottomSheetService.swift in Sources */,
 				C3E6603A2EB373710059048F /* EditConfessionService.swift in Sources */,
 				C326DD4D2E8EE2A8001B7837 /* UserManager.swift in Sources */,
@@ -2981,8 +2989,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3013,8 +3021,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3234,6 +3242,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		C3FAE9602EE1D78E003542CD /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.31.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3266,6 +3282,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C3BE196F2ECF343A0053C9A9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignIn;
+		};
+		C3FAE9612EE1D78E003542CD /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3FAE9602EE1D78E003542CD /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

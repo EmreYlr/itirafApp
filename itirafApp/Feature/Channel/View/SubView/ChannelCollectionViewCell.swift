@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class ChannelCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bgView: UIView!
@@ -19,6 +20,7 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        configureButtonAppearance(isFollowed: false)
         imageBgView.layer.cornerRadius = imageBgView.frame.width / 2
         imageBgView.layer.borderWidth = 1
         imageBgView.layer.borderColor = UIColor.divider.withAlphaComponent(0.3).cgColor

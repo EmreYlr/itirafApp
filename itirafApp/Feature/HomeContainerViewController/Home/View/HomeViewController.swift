@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class HomeViewController: UIViewController {
     //MARK: - Properties
@@ -13,7 +14,7 @@ final class HomeViewController: UIViewController {
     
     var homeViewModel: HomeViewModelProtocol
     let refreshControl = UIRefreshControl()
-    var dataSource: UICollectionViewDiffableDataSource<Section, ConfessionData>!
+    var dataSource: HomeDiffableDataSource!
     private var revealedNsfwItems = Set<Int>()
 
     required init?(coder: NSCoder) {
@@ -47,8 +48,12 @@ final class HomeViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "ConfessionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "confessionCell")
         
+        collectionView.collectionViewLayout = .createFullWidthDynamicLayout(spacing: 10, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0), estimatedHeight: 100)
+        
         refreshControl.addTarget(self, action: #selector(refreshConfession), for: .valueChanged)
         collectionView.refreshControl = refreshControl
+        
+        collectionView.isSkeletonable = true
     }
     
     private func initView() {
@@ -61,7 +66,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, ConfessionData>(collectionView: collectionView) { (collectionView, indexPath, confession) -> UICollectionViewCell? in
+        dataSource = HomeDiffableDataSource(collectionView: collectionView) { (collectionView, indexPath, confession) -> UICollectionViewCell? in
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "confessionCell", for: indexPath) as? ConfessionCollectionViewCell else {
                 fatalError("Cannot create new cell")
@@ -104,13 +109,14 @@ final class HomeViewController: UIViewController {
             
             return cell
         }
+        collectionView.showAnimatedGradientSkeleton()
+
     }
     
     private func updateSnapshot(with confessions: [ConfessionData]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, ConfessionData>()
         snapshot.appendSections([.main])
         snapshot.appendItems(confessions, toSection: .main)
-        
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
@@ -138,6 +144,10 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: HomeViewModelOutputProtocol {
     func didUpdateConfessions(with data: [ConfessionData]) {
         DispatchQueue.main.async {
+            if self.collectionView.sk.isSkeletonActive {
+                self.collectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+            }
             self.updateSnapshot(with: data)
             self.collectionView.refreshControl?.endRefreshing()
         }
@@ -149,6 +159,11 @@ extension HomeViewController: HomeViewModelOutputProtocol {
     
     func didFailWithError(_ error: Error) {
         DispatchQueue.main.async {
+            if self.collectionView.sk.isSkeletonActive {
+                self.collectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+            }
+            
             self.collectionView.refreshControl?.endRefreshing()
             self.handleError(error)
         }

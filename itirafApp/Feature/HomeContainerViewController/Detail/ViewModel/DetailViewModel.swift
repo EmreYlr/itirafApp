@@ -49,6 +49,7 @@ final class DetailViewModel {
     
     func fetchMessageData() async {
         do {
+            //try? await Task.sleep(nanoseconds: 3 * 1_000_000_000) //Testing delay
             let messageData = try await detailService.fetchDetail(messageId: messageId)
             confession = messageData
             await MainActor.run {

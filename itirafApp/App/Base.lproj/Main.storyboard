@@ -28,6 +28,9 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -38,6 +41,9 @@
                             <constraint firstItem="qpR-bp-mn3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gHd-Qj-EiR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qpR-bp-mn3" secondAttribute="bottom" id="s5r-Tm-068"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Ana Sayfa" id="0VH-UT-nhd"/>
                     <connections>
@@ -138,6 +144,9 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDd-kx-Cfh" userLabel="Text View">
                                 <rect key="frame" x="0.0" y="724" width="393" height="60"/>
@@ -198,6 +207,9 @@
                             <constraint firstItem="sbi-So-G9M" firstAttribute="top" secondItem="qAx-G4-l1a" secondAttribute="bottom" constant="10" id="syI-OB-dax"/>
                             <constraint firstItem="PDd-kx-Cfh" firstAttribute="trailing" secondItem="Lww-dB-Beg" secondAttribute="trailing" id="wsA-mc-p5L"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="c1d-Si-E1F"/>
                     <connections>
@@ -220,6 +232,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="tKW-1r-eSw"/>
                         <color key="backgroundColor" name="BackgroundApp"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="h1Z-Hl-GNK"/>
                 </viewController>
@@ -574,6 +589,9 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Qd-o2-qAN"/>
@@ -587,6 +605,9 @@
                             <constraint firstItem="l7n-ke-UkL" firstAttribute="leading" secondItem="1Qd-o2-qAN" secondAttribute="leading" id="ePF-Ea-scp"/>
                             <constraint firstItem="1Qd-o2-qAN" firstAttribute="bottom" secondItem="Q9g-Q9-Rk6" secondAttribute="bottom" constant="5" id="nnC-NW-UOE"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Kanallar" id="P7F-Od-Ndw"/>
                     <connections>
@@ -616,6 +637,9 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IQE-BF-FWb"/>
@@ -626,6 +650,9 @@
                             <constraint firstItem="IQE-BF-FWb" firstAttribute="trailing" secondItem="Wl9-Bn-Sxy" secondAttribute="trailing" id="R1R-72-tQD"/>
                             <constraint firstItem="Wl9-Bn-Sxy" firstAttribute="top" secondItem="IQE-BF-FWb" secondAttribute="top" constant="10" id="flW-aH-pcK"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Ana Sayfa" id="cxR-gW-Hgd"/>
                     <connections>
