@@ -326,6 +326,9 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fqQ-ES-pOw"/>
@@ -339,6 +342,9 @@
                             <constraint firstItem="JAE-Ul-SCA" firstAttribute="leading" secondItem="fqQ-ES-pOw" secondAttribute="leading" constant="16" id="k2h-hB-2Uq"/>
                             <constraint firstItem="fqQ-ES-pOw" firstAttribute="trailing" secondItem="JAE-Ul-SCA" secondAttribute="trailing" constant="16" id="u2J-pg-ANl"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="İtiraflarım" id="kTg-UQ-9rn"/>
                     <connections>
@@ -496,6 +502,9 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFP-63-RSi">
                                 <rect key="frame" x="16" y="505" width="361" height="50"/>
@@ -503,7 +512,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Obj-O4-rIw"/>
                                 </constraints>
-                                <color key="tintColor" name="TextPrimary"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title="Yeni Hesap Ekle" imagePadding="6">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
@@ -545,6 +554,9 @@
                             <constraint firstItem="TGk-mH-sme" firstAttribute="top" secondItem="bu1-Wh-svQ" secondAttribute="bottom" constant="10" id="vfV-li-NtL"/>
                             <constraint firstItem="fbl-qL-rn5" firstAttribute="centerX" secondItem="TGk-mH-sme" secondAttribute="centerX" id="waa-VV-Zdy"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Profil" id="fBC-vY-R1u"/>
                     <connections>

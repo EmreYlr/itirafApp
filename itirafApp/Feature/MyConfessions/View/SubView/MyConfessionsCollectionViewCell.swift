@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class MyConfessionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bgView: UIView!
@@ -31,6 +32,9 @@ final class MyConfessionsCollectionViewCell: UICollectionViewCell {
         editButton.layer.cornerRadius = 6
         nsfwView.layer.cornerRadius = nsfwView.frame.height / 2
         nsfwLabel.text = "confession.nsfw_blur_label".localized
+        
+        messageLabel.skeletonTextNumberOfLines = 3
+        messageLabel.lastLineFillPercent = 50
     }
     
     override func layoutSubviews() {

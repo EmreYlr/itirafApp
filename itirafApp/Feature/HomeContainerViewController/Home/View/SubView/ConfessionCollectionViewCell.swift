@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class ConfessionCollectionViewCell: UICollectionViewCell {
     //MARK: - Properties
@@ -46,15 +47,18 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         blurTapLabel.text = "confession.nsfw_blur_tap_label".localized
         setupNsfwGesture()
         
-        
         channelNameLabel.attributedText = NSAttributedString(
             string: channelNameLabel.text ?? "",
             attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue]
         )
+        
+        confessionMessageLabel.skeletonTextNumberOfLines = 3
+        confessionMessageLabel.lastLineFillPercent = 50
+        
         setupChannelLabelTap()
         setupSeparator()
     }
-
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         nsfwBlurView.isHidden = true
@@ -93,7 +97,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     
     private func setupSeparator() {
         contentView.addSubview(separatorView)
-
+        
         NSLayoutConstraint.activate([
             separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
@@ -142,10 +146,10 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         let imageName = isLiked ? "heart.fill" : "heart"
         likeButton.tintColor = isLiked ? .actionLike : .textSecondary
         likeButton.setImage(UIImage(systemName: imageName), for: .normal)
-
+        
         if animated {
             likeButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-
+            
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: .allowUserInteraction, animations: {
                 self.likeButton.transform = .identity
             }, completion: nil)
@@ -155,23 +159,23 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     }
     
     func updateLikeCount(newCount: Int, animated: Bool = true) {
-            guard animated else {
-                likeCountLabel.text = "\(newCount)"
-                return
-            }
-            
-            let currentCount = Int(likeCountLabel.text ?? "0") ?? 0
-            let isIncreasing = newCount > currentCount
-            
-            let animation = CATransition()
-            animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-            animation.type = .push
-            animation.subtype = isIncreasing ? .fromTop : .fromBottom
-            animation.duration = 0.25
-            
-            likeCountLabel.layer.add(animation, forKey: "kCATransitionPush")
+        guard animated else {
             likeCountLabel.text = "\(newCount)"
+            return
         }
+        
+        let currentCount = Int(likeCountLabel.text ?? "0") ?? 0
+        let isIncreasing = newCount > currentCount
+        
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        animation.type = .push
+        animation.subtype = isIncreasing ? .fromTop : .fromBottom
+        animation.duration = 0.25
+        
+        likeCountLabel.layer.add(animation, forKey: "kCATransitionPush")
+        likeCountLabel.text = "\(newCount)"
+    }
     
     private func setupChannelLabelTap() {
         channelNameLabel.isUserInteractionEnabled = true

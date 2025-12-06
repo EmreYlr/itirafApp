@@ -57,11 +57,7 @@ final class MyConfessionDetailViewController: UIViewController {
         
         collectionView.register(UINib(nibName: "DetailConfessionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "detailConfessionCell")
         
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let width = collectionView.frame.width
-            flowLayout.estimatedItemSize = CGSize(width: width, height: 100)
-            flowLayout.scrollDirection = .vertical
-        }
+        collectionView.collectionViewLayout = .createFullWidthDynamicLayout(spacing: 10, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0), estimatedHeight: 100)
     }
     
     private func setupHideKeyboardOnTap() {

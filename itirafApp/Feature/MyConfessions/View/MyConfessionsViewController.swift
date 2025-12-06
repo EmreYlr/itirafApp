@@ -12,7 +12,7 @@ final class MyConfessionsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var viewModel: MyConfessionsViewModelProtocol
-    var dataSource: UICollectionViewDiffableDataSource<Section, MyConfessionData>!
+    var dataSource: MyConfessionDiffableDataSource!
 
     required init?(coder: NSCoder) {
         self.viewModel = MyConfessionsViewModel()
@@ -57,10 +57,12 @@ final class MyConfessionsViewController: UIViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshConfession), for: .valueChanged)
         collectionView.refreshControl = refreshControl
+        
+        collectionView.collectionViewLayout = .createFullWidthDynamicLayout(spacing: 10, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0), estimatedHeight: 100)
     }
     
     private func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, MyConfessionData>(collectionView: collectionView) { (collectionView, indexPath, confession) -> UICollectionViewCell? in
+        dataSource = MyConfessionDiffableDataSource(collectionView: collectionView) { (collectionView, indexPath, confession) -> UICollectionViewCell? in
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myConfessionsCell", for: indexPath) as? MyConfessionsCollectionViewCell else {
                 fatalError("Cannot create new cell")
@@ -76,6 +78,8 @@ final class MyConfessionsViewController: UIViewController {
             
             return cell
         }
+        
+        collectionView.showAnimatedGradientSkeleton()
     }
     
     private func updateSnapshot(with confessions: [MyConfessionData]) {
@@ -104,6 +108,11 @@ final class MyConfessionsViewController: UIViewController {
 extension MyConfessionsViewController: MyConfessionsViewModelDelegate {
     func didUpdateConfessions(with data: [MyConfessionData]) {
         DispatchQueue.main.async {
+            if self.collectionView.sk.isSkeletonActive {
+                self.collectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+            }
+            
             self.updateSnapshot(with: data)
             self.collectionView.refreshControl?.endRefreshing()
         }
@@ -111,6 +120,11 @@ extension MyConfessionsViewController: MyConfessionsViewModelDelegate {
     
     func didError(_ error: Error) {
         DispatchQueue.main.async {
+            if self.collectionView.sk.isSkeletonActive {
+                self.collectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+            }
+            
             self.handleError(error)
             self.collectionView.refreshControl?.endRefreshing()
         }

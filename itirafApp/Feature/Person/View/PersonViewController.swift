@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class PersonViewController: UIViewController {
     //MARK: - Properties
@@ -61,6 +62,10 @@ final class PersonViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "SocialCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "socialCell")
+        
+        collectionView.collectionViewLayout = .createFullWidthDynamicLayout(spacing: 10, contentInsets: NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0), estimatedHeight: 60)
+        
+        collectionView.showAnimatedGradientSkeleton()
     }
 
     
@@ -84,10 +89,12 @@ final class PersonViewController: UIViewController {
 
 extension PersonViewController: PersonViewModelOutputProtocol {
     func didUpdateSocialLinks() {
+        self.collectionView.hideSkeleton()
         collectionView.reloadData()
     }
     
     func didFailSocialLinks(with error: any Error) {
+        self.collectionView.hideSkeleton()
         print(error)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 extension MyConfessionsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -28,16 +29,19 @@ extension MyConfessionsViewController: UICollectionViewDelegate, UICollectionVie
             }
         }
     }
+}
+
+class MyConfessionDiffableDataSource: UICollectionViewDiffableDataSource<Section, MyConfessionData>, SkeletonCollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 100)
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "myConfessionsCell"
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+    func numSections(in collectionSkeletonView: UICollectionView) -> Int {
+        return 1
     }
 }

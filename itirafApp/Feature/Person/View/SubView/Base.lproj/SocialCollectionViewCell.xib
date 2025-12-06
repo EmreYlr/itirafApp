@@ -30,6 +30,12 @@
                                             <constraint firstAttribute="width" constant="30" id="ONB-04-m9d"/>
                                             <constraint firstAttribute="height" constant="30" id="zeK-8U-Atw"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBrownColor"/>
@@ -39,18 +45,36 @@
                                     <constraint firstItem="ybZ-tl-g0M" firstAttribute="centerX" secondItem="Kg9-8i-sFc" secondAttribute="centerX" id="IJJ-dF-EWJ"/>
                                     <constraint firstAttribute="height" constant="40" id="gPc-gC-79d"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRk-3T-Lw1">
                                 <rect key="frame" x="56" y="22" width="66" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" name="TextPrimary"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="platformName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kp6-C8-BV2">
                                 <rect key="frame" x="56" y="41" width="69" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" name="TextSecondary"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xo-Qy-6g6">
                                 <rect key="frame" x="212" y="24.666666666666671" width="70" height="29"/>
@@ -59,6 +83,10 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Düzenle">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
                                 </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="editButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="4gd-9n-Yim"/>
                                 </connections>
@@ -66,6 +94,12 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mse-Uv-cni">
                                 <rect key="frame" x="292" y="25" width="63" height="28"/>
                                 <color key="onTintColor" name="BrandPrimary"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="visibleSwitchChanged:" destination="gTV-IL-0wX" eventType="valueChanged" id="0vJ-Jz-vZz"/>
                                 </connections>
@@ -86,6 +120,9 @@
                             <constraint firstItem="Mse-Uv-cni" firstAttribute="leading" secondItem="8xo-Qy-6g6" secondAttribute="trailing" constant="10" id="ffY-Qf-aon"/>
                             <constraint firstAttribute="trailing" secondItem="Mse-Uv-cni" secondAttribute="trailing" constant="8" id="yq0-pE-XwI"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -97,6 +134,9 @@
                 <constraint firstItem="g4C-Y0-JSy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="XeQ-Et-BUR"/>
             </constraints>
             <size key="customSize" width="361" height="78"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="bgView" destination="g4C-Y0-JSy" id="dfl-U6-zdG"/>
                 <outlet property="editButton" destination="8xo-Qy-6g6" id="yn5-Rj-E8v"/>
