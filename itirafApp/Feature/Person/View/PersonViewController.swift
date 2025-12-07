@@ -93,6 +93,10 @@ extension PersonViewController: PersonViewModelOutputProtocol {
         collectionView.reloadData()
     }
     
+    func didUserAnonymous() {
+        self.collectionView.hideSkeleton()
+    }
+    
     func didFailSocialLinks(with error: any Error) {
         self.collectionView.hideSkeleton()
         print(error)

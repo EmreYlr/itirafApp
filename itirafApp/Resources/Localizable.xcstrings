@@ -1938,6 +1938,23 @@
         }
       }
     },
+    "message.deleted_account_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An account associated with this email address has been deleted. Please create a new account."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu e-posta adresine ait hesap daha önce silinmiş. Lütfen yeni bir hesap oluşturun."
+          }
+        }
+      }
+    },
     "message.invalid_input" : {
       "extractionState" : "manual",
       "localizations" : {

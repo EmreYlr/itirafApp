@@ -93,6 +93,7 @@ extension APIError: UserFriendlyError {
         case 1406, 4406: return String(localized: "message.invalid_provider")
         case 1407, 4407: return String(localized: "message.invalid_token")
         case 1408, 4408: return String(localized: "message.social_email_unverified")
+        case 1409, 4409: return String(localized: "message.deleted_account_error")
             
         // External Service
         case 1501, 4501: return String(localized: "message.timeout")

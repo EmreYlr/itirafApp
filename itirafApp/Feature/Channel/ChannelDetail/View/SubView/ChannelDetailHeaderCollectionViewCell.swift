@@ -1,20 +1,27 @@
 //
-//  ChannelHeaderView.swift
+//  ChannelDetailHeaderCollectionViewCell.swift
 //  itirafApp
 //
-//  Created by Emre on 13.11.2025.
+//  Created by Emre on 7.12.2025.
 //
 
 import UIKit
 
-final class ChannelHeaderView: UICollectionReusableView {
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var headerImageView: UIImageView!
-    @IBOutlet weak var subCountLabel: UILabel!
+final class ChannelDetailHeaderCollectionViewCell: UICollectionViewCell {
+    //MARK: - Properties
     @IBOutlet weak var channelNameLabel: UILabel!
+    @IBOutlet weak var subCountLabel: UILabel!
     @IBOutlet weak var subButton: UIButton!
+    @IBOutlet weak var headerImageView: UIImageView!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var bgView: UIView!
     
     var onSubButtonTapped: (() -> Void)?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
     
     func configurationView(channel: ChannelData, isFollowed: Bool) {
         channelNameLabel.text = channel.title.capitalized
@@ -45,4 +52,5 @@ final class ChannelHeaderView: UICollectionReusableView {
     @IBAction func subButtonTapped(_ sender: UIButton) {
         onSubButtonTapped?()
     }
+    
 }

@@ -49,16 +49,20 @@ final class ChannelDetailViewController: UIViewController {
     private func loadCollectionView() {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "ConfessionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "confessionCell")
+        collectionView.register(UINib(nibName: "ChannelDetailHeaderCollectionViewCell", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "channelHeaderCell")
         
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
+        collectionView.collectionViewLayout = .createFullWidthDynamicLayout(
+            spacing: 10,
+            contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0),
+            estimatedHeight: 100,
+            headerHeight: 250
+        )
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshConfession), for: .valueChanged)
         collectionView.refreshControl = refreshControl
     }
-    
+
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, ConfessionData>(collectionView: collectionView) { (collectionView, indexPath, confession) -> UICollectionViewCell? in
             
@@ -83,6 +87,7 @@ final class ChannelDetailViewController: UIViewController {
             
             return cell
         }
+        
         dataSource.supplementaryViewProvider = { [weak self] (collectionView, kind, indexPath) -> UICollectionReusableView? in
             
             guard kind == UICollectionView.elementKindSectionHeader else {
@@ -91,16 +96,17 @@ final class ChannelDetailViewController: UIViewController {
             
             guard let header = collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
-                withReuseIdentifier: "HeaderView",
-                for: indexPath) as? ChannelHeaderView else {
+                withReuseIdentifier: "channelHeaderCell",
+                for: indexPath) as? ChannelDetailHeaderCollectionViewCell else {
                 fatalError("Cannot create header view")
             }
             
-            guard let channelInfo = self?.viewModel.channel else { return nil }
-            guard let isFollowed = self?.viewModel.isChannelFollowed() else { return nil }
+            guard let self = self else { return nil }
+            let channelInfo = self.viewModel.channel
+            let isFollowed = self.viewModel.isChannelFollowed()
             
             header.configurationView(channel: channelInfo, isFollowed: isFollowed)
-            
+
             header.onSubButtonTapped = { [weak self] in
                 guard let self = self else { return }
                 Task(priority: .utility) {
@@ -111,6 +117,7 @@ final class ChannelDetailViewController: UIViewController {
                     }
                 }
             }
+            
             return header
         }
     }
@@ -155,8 +162,10 @@ extension ChannelDetailViewController: ChannelDetailViewModelDelegate {
     func didUpdateFollowStatus() {
         DispatchQueue.main.async {
             var currentSnapshot = self.dataSource.snapshot()
-            currentSnapshot.reloadSections(currentSnapshot.sectionIdentifiers)
-            self.dataSource.apply(currentSnapshot, animatingDifferences: false)
+            if !currentSnapshot.sectionIdentifiers.isEmpty {
+                currentSnapshot.reloadSections([.main])
+                self.dataSource.apply(currentSnapshot, animatingDifferences: false)
+            }
             self.navigationItem.rightBarButtonItem?.isEnabled = self.viewModel.isChannelFollowed()
         }
     }
