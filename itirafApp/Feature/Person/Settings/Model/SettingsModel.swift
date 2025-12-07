@@ -35,13 +35,30 @@ struct SettingItem: Hashable {
     let title: String
     let iconSystemName: String
     let type: ItemType
+    let isEnabled: Bool
     
     private let id = UUID()
     
-    static func getProfileItems() -> [SettingItem] {
+    init(title: String, iconSystemName: String, type: ItemType, isEnabled: Bool = true) {
+        self.title = title
+        self.iconSystemName = iconSystemName
+        self.type = type
+        self.isEnabled = isEnabled
+    }
+    
+    static func getProfileItems(isAnonymous: Bool) -> [SettingItem] {
+        let enabled = !isAnonymous
+        
         return [
-            .init(title: "settings.item.edit_profile".localized, iconSystemName: "person", type: .editProfile),
-            .init(title: "settings.item.change_password".localized, iconSystemName: "lock", type: .changePassword)
+            .init(title: "settings.item.edit_profile".localized,
+                  iconSystemName: "person",
+                  type: .editProfile,
+                  isEnabled: enabled),
+            
+            .init(title: "settings.item.change_password".localized,
+                  iconSystemName: "lock",
+                  type: .changePassword,
+                  isEnabled: enabled)
         ]
     }
     

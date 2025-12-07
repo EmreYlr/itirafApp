@@ -54,7 +54,9 @@ final class PostConfessionViewController: UIViewController {
         titleTextField.layer.borderWidth = 1
         titleTextField.layer.cornerRadius = 6
         titleTextField.layer.borderColor = UIColor.divider.cgColor
+        titleTextField.clipsToBounds = true
         shareButton.layer.cornerRadius = 8
+        
         
         channelSelectButton.layer.cornerRadius = 8
         channelSelectButton.layer.borderWidth = 0.5

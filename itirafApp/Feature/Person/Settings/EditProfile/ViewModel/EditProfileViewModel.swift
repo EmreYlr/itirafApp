@@ -7,10 +7,12 @@
 
 protocol EditProfileViewModelProtocol {
     var delegate: EditProfileViewModelDelegate? { get set  }
+    func getUserInfo() -> User?
+    func deleteAccount() async
 }
 
 protocol EditProfileViewModelDelegate: AnyObject {
-    func didUpdateProfile()
+    func didDeleteProfile()
     func didFailWithError(_ error: Error)
 }
 
@@ -22,6 +24,18 @@ final class EditProfileViewModel {
         self.service = service
     }
     
+    func getUserInfo() -> User? {
+        return UserManager.shared.getUser()
+    }
+    
+    func deleteAccount() async {
+        do {
+            try await service.deleteAccount()
+            self.delegate?.didDeleteProfile()
+        } catch {
+            self.delegate?.didFailWithError(error)
+        }
+    }
 }
 
 extension EditProfileViewModel: EditProfileViewModelProtocol { }

@@ -22,7 +22,6 @@ final class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Settings")
         initData()
         initUI()
     }
@@ -79,10 +78,12 @@ final class SettingsViewController: UIViewController {
             content.text = item.title
             content.image = UIImage(systemName: item.iconSystemName)
             
-            content.imageProperties.tintColor = .brandPrimary
+            content.textProperties.color = item.isEnabled ? .textPrimary : .tertiaryLabel
+            content.imageProperties.tintColor = item.isEnabled ? .brandPrimary : .tertiaryLabel
             
+            cell.isUserInteractionEnabled = item.isEnabled
+            cell.accessories = item.isEnabled ? [.disclosureIndicator()] : []
             cell.contentConfiguration = content
-            cell.accessories = [.disclosureIndicator()]
         }
         
         dataSource = UICollectionViewDiffableDataSource<SettingsSection, SettingItem>(collectionView: collectionView) {
@@ -108,10 +109,9 @@ final class SettingsViewController: UIViewController {
     
     private func applySnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<SettingsSection, SettingItem>()
-        
         snapshot.appendSections([.profile, .account])
-        
-        snapshot.appendItems(SettingItem.getProfileItems(), toSection: .profile)
+        let isAnonymous = viewModel.checkUserAnonymous()
+        snapshot.appendItems(SettingItem.getProfileItems(isAnonymous: isAnonymous), toSection: .profile)
         snapshot.appendItems(SettingItem.getAccountItems(), toSection: .account)
         
         dataSource.apply(snapshot, animatingDifferences: false)
@@ -183,6 +183,7 @@ final class SettingsViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
+        //TODO: Anoynmous çıkışına bi bak fazladan alert atıyor
         let performLogoutAction = {
             sender.isEnabled = false
             Task(priority: .utility) {

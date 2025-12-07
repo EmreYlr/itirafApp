@@ -2533,6 +2533,40 @@
         }
       }
     },
+    "person.delete_account_button_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete Account"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesabı Sil"
+          }
+        }
+      }
+    },
+    "person.email_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-Posta"
+          }
+        }
+      }
+    },
     "person.settings.edit_profile.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2546,6 +2580,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profil Düzenle"
+          }
+        }
+      }
+    },
+    "person.username_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Username"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kullanıcı Adı"
           }
         }
       }
@@ -2648,6 +2699,57 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kalan: %d"
+          }
+        }
+      }
+    },
+    "profile.delete_account_confirmation_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This action cannot be undone. All your data (confessions, comments etc.) will be permanently deleted."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu işlem geri alınamaz. Hesabınızla birlikte tüm verileriniz (itiraflarınız, yorumlarınız vb.) kalıcı olarak silinecektir."
+          }
+        }
+      }
+    },
+    "profile.delete_account_confirmation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to delete your account?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesabınızı silmek istediğinize emin misiniz?"
+          }
+        }
+      }
+    },
+    "profile.delete_account_yes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete my account"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesabımı sil"
           }
         }
       }

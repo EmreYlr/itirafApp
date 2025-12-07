@@ -15,18 +15,123 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Opu-3h-B8F">
+                                <rect key="frame" x="16" y="164" width="361" height="50"/>
+                                <color key="backgroundColor" name="BackgroundCard"/>
+                                <color key="tintColor" name="TextSecondary"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EAY-IP-WWb"/>
+                                </constraints>
+                                <color key="textColor" name="TextSecondary"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CS3-Zb-Dwd">
+                                <rect key="frame" x="16" y="133" width="361" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" name="TextPrimary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bBR-6n-M8h">
+                                <rect key="frame" x="16" y="260" width="361" height="50"/>
+                                <color key="backgroundColor" name="BackgroundCard"/>
+                                <color key="tintColor" name="TextSecondary"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gq3-WJ-9oJ"/>
+                                </constraints>
+                                <color key="textColor" name="TextSecondary"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4W-m3-TbT">
+                                <rect key="frame" x="16" y="229" width="361" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" name="TextPrimary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqd-x9-5Co">
+                                <rect key="frame" x="16" y="330" width="361" height="1"/>
+                                <color key="backgroundColor" name="DividerColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="r7n-N8-x9E"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIN-DG-vpW">
+                                <rect key="frame" x="16" y="719" width="361" height="45"/>
+                                <color key="backgroundColor" name="StatusError"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="cv7-qJ-Bmz"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="delete">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kIi-vu-onB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="BackgroundApp"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="E4W-m3-TbT" secondAttribute="trailing" constant="16" id="32D-Bb-WfM"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vIN-DG-vpW" secondAttribute="bottom" constant="20" id="7yb-jr-S9X"/>
+                            <constraint firstItem="Opu-3h-B8F" firstAttribute="top" secondItem="CS3-Zb-Dwd" secondAttribute="bottom" constant="10" id="8z6-Gw-n9X"/>
+                            <constraint firstItem="bBR-6n-M8h" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="D3S-aa-laf"/>
+                            <constraint firstItem="E4W-m3-TbT" firstAttribute="top" secondItem="Opu-3h-B8F" secondAttribute="bottom" constant="15" id="NFD-dR-XsX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vIN-DG-vpW" secondAttribute="trailing" constant="16" id="QFb-Da-aGZ"/>
+                            <constraint firstItem="CS3-Zb-Dwd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="SwG-ho-P0y"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Dqd-x9-5Co" secondAttribute="trailing" constant="16" id="UEG-H5-xdw"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Opu-3h-B8F" secondAttribute="trailing" constant="16" id="arg-im-12T"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CS3-Zb-Dwd" secondAttribute="trailing" constant="16" id="fOz-IC-wEg"/>
+                            <constraint firstItem="Dqd-x9-5Co" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="fRY-pb-pOc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bBR-6n-M8h" secondAttribute="trailing" constant="16" id="fYc-Sb-dVD"/>
+                            <constraint firstItem="Opu-3h-B8F" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="fvk-0I-0za"/>
+                            <constraint firstItem="Dqd-x9-5Co" firstAttribute="top" secondItem="bBR-6n-M8h" secondAttribute="bottom" constant="20" id="gc1-MT-VhM"/>
+                            <constraint firstItem="E4W-m3-TbT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="h8Y-XW-tKY"/>
+                            <constraint firstItem="vIN-DG-vpW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="nc1-2Q-OXk"/>
+                            <constraint firstItem="CS3-Zb-Dwd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="uBY-mK-i0W"/>
+                            <constraint firstItem="bBR-6n-M8h" firstAttribute="top" secondItem="E4W-m3-TbT" secondAttribute="bottom" constant="10" id="wBg-qh-FO4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="deleteButton" destination="vIN-DG-vpW" id="PQg-cE-4IE"/>
+                        <outlet property="emailTextField" destination="bBR-6n-M8h" id="3HA-w4-Dme"/>
+                        <outlet property="emailTitleLabel" destination="E4W-m3-TbT" id="gnk-t2-Jgv"/>
+                        <outlet property="usernameTextField" destination="Opu-3h-B8F" id="ffJ-5E-608"/>
+                        <outlet property="usernameTitleLabel" destination="CS3-Zb-Dwd" id="fFb-jw-uIz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="92"/>
+            <point key="canvasLocation" x="139.69465648854961" y="91.549295774647888"/>
         </scene>
     </scenes>
     <resources>
         <namedColor name="BackgroundApp">
             <color red="0.97299998998641968" green="0.97600001096725464" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundCard">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DividerColor">
+            <color red="0.88599997758865356" green="0.90600001811981201" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="StatusError">
+            <color red="1" green="0.27799999713897705" blue="0.34099999070167542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextPrimary">
+            <color red="0.17599999904632568" green="0.20399999618530273" blue="0.21199999749660492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextSecondary">
+            <color red="0.3880000114440918" green="0.4309999942779541" blue="0.44699999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
