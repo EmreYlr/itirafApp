@@ -21,7 +21,7 @@
     },
     "BeL-vu-uoZ.text" : {
       "comment" : "Class = \"UILabel\"; text = \"İtiraf Yaz\"; ObjectID = \"BeL-vu-uoZ\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

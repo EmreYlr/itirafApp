@@ -66,7 +66,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="channelName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6be-CQ-lym">
-                                <rect key="frame" x="78" y="19.666666666666668" width="94" height="18.000000000000004"/>
+                                <rect key="frame" x="78" y="24.666666666666671" width="94" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" name="TextPrimary"/>
                                 <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhY-5c-16V">
-                                <rect key="frame" x="78" y="42.666666666666664" width="50.666666666666657" height="14.333333333333336"/>
+                                <rect key="frame" x="78" y="47.666666666666664" width="50.666666666666657" height="14.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="TextSecondary"/>
                                 <nil key="highlightedColor"/>
@@ -97,7 +97,7 @@
                             <constraint firstItem="YhY-5c-16V" firstAttribute="leading" secondItem="w86-oV-GKP" secondAttribute="trailing" constant="10" id="e7W-Dg-lII"/>
                             <constraint firstItem="YhY-5c-16V" firstAttribute="top" secondItem="6be-CQ-lym" secondAttribute="bottom" constant="5" id="en9-FR-FR3"/>
                             <constraint firstItem="T5b-ij-dOs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6be-CQ-lym" secondAttribute="trailing" constant="8" id="saC-oX-VUM"/>
-                            <constraint firstItem="6be-CQ-lym" firstAttribute="top" secondItem="w86-oV-GKP" secondAttribute="top" constant="5" id="yRe-vs-HhV"/>
+                            <constraint firstItem="6be-CQ-lym" firstAttribute="top" secondItem="w86-oV-GKP" secondAttribute="top" constant="10" id="yRe-vs-HhV"/>
                             <constraint firstItem="T5b-ij-dOs" firstAttribute="centerY" secondItem="w86-oV-GKP" secondAttribute="centerY" id="yjY-fE-ETH"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

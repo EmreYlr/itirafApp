@@ -52,7 +52,7 @@ final class ModerationDetailBottomSheetViewController: UIViewController {
         rejectTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         updateViolationsLabel()
-
+        
         segmentUpdateUI(segmentValue: true)
     }
     
@@ -114,21 +114,6 @@ final class ModerationDetailBottomSheetViewController: UIViewController {
         sender.isEnabled = false
         
         let isApproving = decisionSegmentControl.selectedSegmentIndex == 0
-        let decision: ModerationDecision = isApproving ? .approve : .reject
-
-        var reason: String?
-        var violations: [Violation]?
-        var isNsfw: Bool
-        
-        if isApproving {
-            reason = nil
-            violations = nil
-            isNsfw = nsfwSwitch.isOn
-        } else {
-            reason = rejectTextView.text.isEmpty ? nil : rejectTextView.text
-            violations = viewModel.selectedViolations.isEmpty ? nil : viewModel.selectedViolations
-            isNsfw = false
-        }
         
         Task(priority: .utility) {
             defer {
@@ -136,12 +121,21 @@ final class ModerationDetailBottomSheetViewController: UIViewController {
                     sender.isEnabled = true
                 }
             }
-            await viewModel.editAdminConfession(
-                decision: decision,
-                reason: reason,
-                violations: violations,
-                isNsfw: isNsfw
-            )
+            
+            if isApproving {
+                let isNsfw = nsfwSwitch.isOn
+                await viewModel.editIsNsfwConfession(isNsfw: isNsfw)
+                
+            } else {
+                let reason = rejectTextView.text.isEmpty ? nil : rejectTextView.text
+                let violations = viewModel.selectedViolations.isEmpty ? nil : viewModel.selectedViolations
+                await viewModel.editAdminConfession(
+                    decision: .reject,
+                    reason: reason,
+                    violations: violations,
+                    isNsfw: false
+                )
+            }
         }
     }
 }

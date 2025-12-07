@@ -10,6 +10,7 @@ protocol ModerationDetailBottomSheetViewModelProtocol {
     var actionModel: ConfessionActionModel { get }
     var selectedViolations: [Violation] { get set }
     func editAdminConfession(decision: ModerationDecision, reason: String?, violations: [Violation]?, isNsfw: Bool?) async
+    func editIsNsfwConfession(isNsfw: Bool) async
 }
 
 protocol ModerationDetailBottomSheetViewModelDelegate: AnyObject {
@@ -41,6 +42,18 @@ final class ModerationDetailBottomSheetViewModel {
         
         do {
             try await service.postDecision(decisionRequest: decisionRequest)
+            delegate?.didEditSuccessfully()
+        } catch {
+            delegate?.didError(error)
+        }
+    }
+    
+    func editIsNsfwConfession(isNsfw: Bool) async {
+        var action = actionModel
+        action.isNSFW = isNsfw
+        
+        do {
+            try await service.patchModerationNsfw(action: action)
             delegate?.didEditSuccessfully()
         } catch {
             delegate?.didError(error)

@@ -2726,13 +2726,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This action cannot be undone. All your data (confessions, comments etc.) will be permanently deleted."
+            "value" : "This action cannot be undone. All your data (confessions, comments etc.) deleted."
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bu işlem geri alınamaz. Hesabınızla birlikte tüm verileriniz (itiraflarınız, yorumlarınız vb.) kalıcı olarak silinecektir."
+            "value" : "Bu işlem geri alınamaz. Hesabınızla birlikte tüm verileriniz (itiraflarınız, yorumlarınız vb.) silinecektir."
           }
         }
       }

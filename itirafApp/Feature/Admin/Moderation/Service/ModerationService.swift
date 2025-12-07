@@ -9,6 +9,7 @@ import Alamofire
 protocol ModerationServiceProtocol {
     func getModerationData(page: Int, limit: Int) async throws -> ModerationModel
     func postDecision(decisionRequest: ModerationDecisionRequest) async throws
+    func patchModerationNsfw(action: ConfessionActionModel) async throws
 }
 
 final class ModerationService: ModerationServiceProtocol {
@@ -56,6 +57,19 @@ final class ModerationService: ModerationServiceProtocol {
         let _: Empty = try await networkService.request(
             endpoint: Endpoint.Admin.postModerationMessage(messageID: messageID),
             method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default
+        )
+    }
+    
+    func patchModerationNsfw(action :ConfessionActionModel) async throws {
+        let parameters = [
+            "isNsfw": action.isNSFW
+        ]
+        
+        let _: Empty = try await networkService.request(
+            endpoint: Endpoint.Admin.patchModerationNsfw(messageID: action.id),
+            method: .patch,
             parameters: parameters,
             encoding: JSONEncoding.default
         )

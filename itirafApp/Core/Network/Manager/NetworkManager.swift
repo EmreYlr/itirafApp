@@ -43,7 +43,11 @@ final class NetworkManager {
         case .failure(let error):
             let statusCode = error.responseCode ?? -1
             print("❌ [\(method.rawValue)] \(endpoint.path) - Status: \(statusCode)")
-
+            
+            if let data = response.data, let jsonString = String(data: data, encoding: .utf8) {
+                print("RESPONSE: \(jsonString)")
+            }
+            
             CrashlyticsManager.shared.sentNetworkError(error, endpoint: endpoint.path, method: method.rawValue, statusCode: statusCode)
             
             if let data = response.data,
