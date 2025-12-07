@@ -2533,6 +2533,23 @@
         }
       }
     },
+    "person.settings.edit_profile.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Profile"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil Düzenle"
+          }
+        }
+      }
+    },
     "person.username.anonymous" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -26,6 +26,7 @@ enum Storyboard: String {
     case notification = "Notification"
     case forgotPassword = "ForgotPassword"
     case post = "Post"
+    case editProfile = "EditProfile"
 
     var instance: UIStoryboard {
         UIStoryboard(name: self.rawValue, bundle: nil)
@@ -118,6 +119,9 @@ enum ViewControllerID: String {
     
     //Post.storyboard
     case postConfession = "PostConfessionViewController"
+    
+    //EditProfile.storyboard
+    case editProfile = "EditProfileViewController"
 }
 
 enum NavigationControllerID: String {

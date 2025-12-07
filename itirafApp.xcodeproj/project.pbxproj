@@ -244,6 +244,10 @@
 		C3FAE95F2EE1BD11003542CD /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FAE95E2EE1BD0F003542CD /* ThemeManager.swift */; };
 		C3FAE9622EE1D78E003542CD /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = C3FAE9612EE1D78E003542CD /* SkeletonView */; };
 		C3FAE9642EE45353003542CD /* UICollectionViewLayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FAE9632EE4534F003542CD /* UICollectionViewLayout+Extensions.swift */; };
+		C3FAE96C2EE596EF003542CD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FAE96B2EE596EF003542CD /* EditProfileViewController.swift */; };
+		C3FAE96E2EE59709003542CD /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FAE96D2EE59707003542CD /* EditProfileViewModel.swift */; };
+		C3FAE9702EE5979C003542CD /* EditProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FAE96F2EE59798003542CD /* EditProfileService.swift */; };
+		C3FAE9722EE5980E003542CD /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3FAE9712EE5980E003542CD /* EditProfile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -510,6 +514,10 @@
 		C3F39F7F2EA02B3B00197509 /* PostConfession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfession.swift; sourceTree = "<group>"; };
 		C3FAE95E2EE1BD0F003542CD /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		C3FAE9632EE4534F003542CD /* UICollectionViewLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extensions.swift"; sourceTree = "<group>"; };
+		C3FAE96B2EE596EF003542CD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		C3FAE96D2EE59707003542CD /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		C3FAE96F2EE59798003542CD /* EditProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileService.swift; sourceTree = "<group>"; };
+		C3FAE9712EE5980E003542CD /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -951,6 +959,7 @@
 				C3A7507A2EB507220058163B /* ViewModel */,
 				C3A750792EB5071D0058163B /* Service */,
 				C3BE19232ECBAC990053C9A9 /* NotificationSettings */,
+				C3FAE9662EE59681003542CD /* EditProfile */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2370,6 +2379,49 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		C3FAE9662EE59681003542CD /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				C3FAE96A2EE5969E003542CD /* Storyboard */,
+				C3FAE9692EE59695003542CD /* View */,
+				C3FAE9682EE59691003542CD /* ViewModel */,
+				C3FAE9672EE59689003542CD /* Service */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		C3FAE9672EE59689003542CD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3FAE96F2EE59798003542CD /* EditProfileService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C3FAE9682EE59691003542CD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3FAE96D2EE59707003542CD /* EditProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C3FAE9692EE59695003542CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3FAE96B2EE596EF003542CD /* EditProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C3FAE96A2EE5969E003542CD /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C3FAE9712EE5980E003542CD /* EditProfile.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2507,6 +2559,7 @@
 				C38465F82ED5DB2A00FD370A /* Settings.storyboard in Resources */,
 				C38465E82ED5D94900FD370A /* EditConfession.storyboard in Resources */,
 				C38465D82ED5D88500FD370A /* Notification.storyboard in Resources */,
+				C3FAE9722EE5980E003542CD /* EditProfile.storyboard in Resources */,
 				C38465E42ED5D93900FD370A /* MyConfessionsCollectionViewCell.xib in Resources */,
 				C38465D42ED5D7F300FD370A /* RequestBottomSheet.storyboard in Resources */,
 				C38465F42ED5DB0A00FD370A /* EditSocial.storyboard in Resources */,
@@ -2580,6 +2633,7 @@
 				C3C173C52EC5FEBE00D27383 /* FlowService.swift in Sources */,
 				C3D764BC2E93DE1800104C3B /* DetailService.swift in Sources */,
 				C3A750712EB4C7720058163B /* EditSocialViewController.swift in Sources */,
+				C3FAE96E2EE59709003542CD /* EditProfileViewModel.swift in Sources */,
 				C3A750AA2EB648660058163B /* ChatViewController+RequestMessage.swift in Sources */,
 				C3E6601F2EB22FEC0059048F /* MyConfessionsViewController.swift in Sources */,
 				C326DD462E8D7E95001B7837 /* User.swift in Sources */,
@@ -2653,6 +2707,7 @@
 				C3BE19782ED0A2BB0053C9A9 /* TabBarIndex.swift in Sources */,
 				C3A750732EB4C78A0058163B /* EditSocialViewModel.swift in Sources */,
 				C3E660122EAF853B0059048F /* String+DateFormatting.swift in Sources */,
+				C3FAE9702EE5979C003542CD /* EditProfileService.swift in Sources */,
 				C3528F0A2EB8EF7D00FF1C19 /* RequestSentService.swift in Sources */,
 				C3C173C72EC5FF2300D27383 /* Flow.swift in Sources */,
 				C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */,
@@ -2749,6 +2804,7 @@
 				C3BE192B2ECBACF90053C9A9 /* NotificationSettingsViewModel.swift in Sources */,
 				C38EAAB02EBFB38100A1818C /* RegisterDeviceRequest.swift in Sources */,
 				C38EAAB12EBFB38100A1818C /* DeviceDetails.swift in Sources */,
+				C3FAE96C2EE596EF003542CD /* EditProfileViewController.swift in Sources */,
 				C38EAAB22EBFB38100A1818C /* DeviceService.swift in Sources */,
 				C3A7508E2EB532DB0058163B /* MessagingContainerViewController.swift in Sources */,
 				C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */,

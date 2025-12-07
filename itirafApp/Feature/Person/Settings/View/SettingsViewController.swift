@@ -120,7 +120,7 @@ final class SettingsViewController: UIViewController {
     func handleSelection(for itemType: SettingItem.ItemType) {
         switch itemType {
         case .editProfile:
-            print("Profili Düzenle'ye tıklandı")
+            showEditProfileScreen()
         case .changePassword:
             print("Şifre Değiştir'e tıklandı")
         case .theme:
@@ -134,6 +134,11 @@ final class SettingsViewController: UIViewController {
         case .language:
             showLanguageSelection()
         }
+    }
+    
+    private func showEditProfileScreen() {
+        let editProfileVC: EditProfileViewController = Storyboard.editProfile.instantiate(.editProfile)
+        navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
     private func showNotificationScreen() {
