@@ -329,7 +329,6 @@
 		C38465F22ED5DB0A00FD370A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EditSocial.storyboard; sourceTree = "<group>"; };
 		C38465F52ED5DB0A00FD370A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/EditSocial.xcstrings; sourceTree = "<group>"; };
 		C38465F62ED5DB2A00FD370A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
-		C38465F92ED5DB2A00FD370A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Settings.xcstrings; sourceTree = "<group>"; };
 		C38465FA2ED5DB3A00FD370A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NotificationSettings.storyboard; sourceTree = "<group>"; };
 		C38465FD2ED5DB3A00FD370A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/NotificationSettings.xcstrings; sourceTree = "<group>"; };
 		C38465FE2ED5DB5300FD370A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
@@ -2924,7 +2923,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				C38465F62ED5DB2A00FD370A /* Base */,
-				C38465F92ED5DB2A00FD370A /* mul */,
 			);
 			name = Settings.storyboard;
 			sourceTree = "<group>";

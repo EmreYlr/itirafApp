@@ -40,6 +40,17 @@ final class SettingsViewController: UIViewController {
         logoutButton.layer.cornerRadius = 8
         logoutButton.layer.borderWidth = 0.2
         logoutButton.layer.borderColor = UIColor.textSecondary.cgColor
+        
+        if viewModel.checkUserAnonymous() {
+            logoutButton.setTitle("auth.title.login".localized, for: .normal)
+            logoutButton.tintColor = .brandPrimary
+        } else {
+            logoutButton.setTitle("auth.button.logout".localized, for: .normal)
+            logoutButton.tintColor = .statusError
+        }
+        
+        logoutButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
+        
         navigationItem.title = "settings.title.main".localized
         
         configureCollectionViewLayout()
@@ -66,8 +77,7 @@ final class SettingsViewController: UIViewController {
             
             return section
         }
-        
-        
+
         collectionView.collectionViewLayout = layout
     }
     
@@ -183,7 +193,6 @@ final class SettingsViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
-        //TODO: Anoynmous çıkışına bi bak fazladan alert atıyor
         let performLogoutAction = {
             sender.isEnabled = false
             Task(priority: .utility) {

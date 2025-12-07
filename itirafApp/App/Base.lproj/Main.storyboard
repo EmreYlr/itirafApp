@@ -443,29 +443,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bu1-Wh-svQ">
-                                <rect key="frame" x="136.66666666666666" y="187" width="119.99999999999997" height="120"/>
+                                <rect key="frame" x="156.66666666666666" y="187" width="80" height="80"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hu6-nO-meL">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ky-eg-TEa">
+                                        <rect key="frame" x="25.666666666666686" y="25.666666666666657" width="28.333333333333329" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="hu6-nO-meL" secondAttribute="bottom" id="8uY-nh-0c4"/>
-                                    <constraint firstAttribute="trailing" secondItem="hu6-nO-meL" secondAttribute="trailing" id="9u2-iR-yih"/>
-                                    <constraint firstItem="hu6-nO-meL" firstAttribute="top" secondItem="bu1-Wh-svQ" secondAttribute="top" id="Ftk-UF-oAT"/>
-                                    <constraint firstAttribute="height" constant="120" id="OTf-cB-ufQ"/>
-                                    <constraint firstAttribute="width" constant="120" id="QS1-kQ-2GB"/>
-                                    <constraint firstItem="hu6-nO-meL" firstAttribute="leading" secondItem="bu1-Wh-svQ" secondAttribute="leading" id="ZYc-Cs-4Aq"/>
+                                    <constraint firstItem="3Ky-eg-TEa" firstAttribute="centerY" secondItem="bu1-Wh-svQ" secondAttribute="centerY" id="B3I-SO-Biy"/>
+                                    <constraint firstItem="3Ky-eg-TEa" firstAttribute="centerX" secondItem="bu1-Wh-svQ" secondAttribute="centerX" id="ISJ-jc-239"/>
+                                    <constraint firstAttribute="height" constant="80" id="OTf-cB-ufQ"/>
+                                    <constraint firstAttribute="width" constant="80" id="QS1-kQ-2GB"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGk-mH-sme">
-                                <rect key="frame" x="151.66666666666666" y="317" width="90" height="24"/>
+                                <rect key="frame" x="151.66666666666666" y="277" width="90" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" name="TextPrimary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-q7-gXn">
-                                <rect key="frame" x="16" y="406" width="361" height="84"/>
+                                <rect key="frame" x="16" y="366" width="361" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gizli sosyal medya bağlantıları" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCi-Ca-oNp">
                                         <rect key="frame" x="8" y="8" width="345" height="17"/>
@@ -493,7 +494,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BB6-Oh-i2L">
-                                <rect key="frame" x="16" y="563" width="361" height="157"/>
+                                <rect key="frame" x="16" y="523" width="361" height="197"/>
                                 <color key="backgroundColor" name="BackgroundApp"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BTV-Fw-Smu">
                                     <size key="itemSize" width="128" height="128"/>
@@ -507,7 +508,7 @@
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFP-63-RSi">
-                                <rect key="frame" x="16" y="505" width="361" height="50"/>
+                                <rect key="frame" x="16" y="465" width="361" height="50"/>
                                 <color key="backgroundColor" name="BrandSecondary"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Obj-O4-rIw"/>
@@ -522,7 +523,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbl-qL-rn5">
-                                <rect key="frame" x="99.666666666666686" y="351" width="194" height="35"/>
+                                <rect key="frame" x="99.666666666666686" y="311" width="194" height="35"/>
                                 <color key="tintColor" name="TextPrimary"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=" Takip Edilen Kanallar" imagePadding="0.0">
@@ -547,12 +548,12 @@
                             <constraint firstItem="fbl-qL-rn5" firstAttribute="top" secondItem="TGk-mH-sme" secondAttribute="bottom" constant="10" id="S1I-10-FtC"/>
                             <constraint firstItem="VFP-63-RSi" firstAttribute="top" secondItem="VGZ-q7-gXn" secondAttribute="bottom" constant="15" id="S4o-Yp-ncP"/>
                             <constraint firstItem="VGZ-q7-gXn" firstAttribute="leading" secondItem="8Tw-Wg-ybG" secondAttribute="leading" constant="16" id="Yrj-I7-PUA"/>
-                            <constraint firstItem="TGk-mH-sme" firstAttribute="centerX" secondItem="hu6-nO-meL" secondAttribute="centerX" id="aHk-dO-g3b"/>
+                            <constraint firstItem="TGk-mH-sme" firstAttribute="centerX" secondItem="bu1-Wh-svQ" secondAttribute="centerX" id="bEf-v4-Kpb"/>
                             <constraint firstItem="BB6-Oh-i2L" firstAttribute="leading" secondItem="8Tw-Wg-ybG" secondAttribute="leading" constant="16" id="fGb-xE-7cg"/>
+                            <constraint firstItem="fbl-qL-rn5" firstAttribute="centerX" secondItem="bu1-Wh-svQ" secondAttribute="centerX" id="fRV-25-gVz"/>
                             <constraint firstItem="8Tw-Wg-ybG" firstAttribute="trailing" secondItem="BB6-Oh-i2L" secondAttribute="trailing" constant="16" id="gqO-K3-QcG"/>
                             <constraint firstItem="bu1-Wh-svQ" firstAttribute="centerX" secondItem="8Tw-Wg-ybG" secondAttribute="centerX" id="r2e-kU-gG4"/>
                             <constraint firstItem="TGk-mH-sme" firstAttribute="top" secondItem="bu1-Wh-svQ" secondAttribute="bottom" constant="10" id="vfV-li-NtL"/>
-                            <constraint firstItem="fbl-qL-rn5" firstAttribute="centerX" secondItem="TGk-mH-sme" secondAttribute="centerX" id="waa-VV-Zdy"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -563,7 +564,7 @@
                         <outlet property="addNewSocialButton" destination="VFP-63-RSi" id="KPE-OJ-J3r"/>
                         <outlet property="collectionView" destination="BB6-Oh-i2L" id="71d-Fg-WWw"/>
                         <outlet property="followedButton" destination="fbl-qL-rn5" id="8S2-eU-ZyZ"/>
-                        <outlet property="personImageView" destination="hu6-nO-meL" id="EWk-1i-1H2"/>
+                        <outlet property="personIconLabel" destination="3Ky-eg-TEa" id="Dlr-ll-ysk"/>
                         <outlet property="personView" destination="bu1-Wh-svQ" id="LvG-Xp-rUx"/>
                         <outlet property="privacyView" destination="VGZ-q7-gXn" id="bpC-9b-JQw"/>
                         <outlet property="usernameLabel" destination="TGk-mH-sme" id="aZz-cc-KdX"/>

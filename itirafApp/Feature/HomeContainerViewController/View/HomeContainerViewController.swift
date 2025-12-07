@@ -116,6 +116,11 @@ final class HomeContainerViewController: UIViewController {
         notificationButton.tintColor = .brandPrimary
         
         navigationItem.rightBarButtonItem = notificationButton
+        
+        if viewModel.isUserAnonymous() {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+            newPostButton.isEnabled = false
+        }
     }
     
     private func initData() {
@@ -206,6 +211,12 @@ final class HomeContainerViewController: UIViewController {
     
     @objc private func didChangeSegment(_ sender: UISegmentedControl) {
         let selectedIndex = sender.selectedSegmentIndex
+        
+        if selectedIndex == 1 && viewModel.isUserAnonymous() {
+            sender.selectedSegmentIndex = 0
+            return
+        }
+        
         guard let currentVC = pageViewController.viewControllers?.first else { return }
         guard let currentIndex = pages.firstIndex(of: currentVC) else { return }
         
@@ -255,6 +266,13 @@ extension HomeContainerViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let index = pages.firstIndex(of: viewController) else { return nil }
         
+        if index == 0 {
+            if viewModel.isUserAnonymous() {
+                return nil
+            }
+            return pages[index + 1]
+        }
+        
         if index == (pages.count - 1) {
             return nil
         }
@@ -294,6 +312,15 @@ extension HomeContainerViewController: UIPageViewControllerDelegate {
 
 extension HomeContainerViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if let viewControllers = tabBarController.viewControllers,
+           let index = viewControllers.firstIndex(of: viewController) {
+
+            if (index == 2 || index == 3) && viewModel.isUserAnonymous() {
+                LoginAlertPresenter.showLoginAlert(from: self)
+                return false
+            }
+        }
+        
         if tabBarController.selectedViewController === viewController {
             if let nav = viewController as? UINavigationController, nav.topViewController === self {
                 
@@ -304,6 +331,7 @@ extension HomeContainerViewController: UITabBarControllerDelegate {
                 }
             }
         }
+        
         return true
     }
 }

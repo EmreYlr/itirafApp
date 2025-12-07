@@ -11,7 +11,7 @@ final class RequestMessageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileIconLabel: UILabel!
     @IBOutlet weak var profileBGView: UIView!
     
     var onApproveButtonTapped: (() -> Void)?
@@ -21,13 +21,13 @@ final class RequestMessageCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         profileBGView.layer.cornerRadius = profileBGView.frame.width / 2
         profileBGView.backgroundColor = .backgroundCard
-        profileImageView.tintColor = .textSecondary
         profileBGView.clipsToBounds = true
     }
     
     func configure(with requestMesage: RequestMessageModel) {
         usernameLabel.text = requestMesage.requesterUsername
         messageLabel.text = "request.message.new_request".localized
+        profileIconLabel.text = String(requestMesage.requesterUsername.prefix(2)).uppercased()
     }
     
     @IBAction func rejectButtonTapped(_ sender: UIButton) {

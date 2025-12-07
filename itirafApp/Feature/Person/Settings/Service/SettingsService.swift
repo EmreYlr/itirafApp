@@ -7,7 +7,7 @@
 import Alamofire
 
 protocol SettingsServiceProtocol {
-    func logout() async throws
+    func logout(isAnonymous: Bool) async throws
 }
 
 final class SettingsService: SettingsServiceProtocol {
@@ -19,21 +19,27 @@ final class SettingsService: SettingsServiceProtocol {
         self.followManager = followManager
     }
     
-    func logout() async throws {
-        let _: Empty = try await networkService.request(
-            endpoint: Endpoint.Auth.logout,
-            method: .delete,
-            parameters: nil,
-            encoding: URLEncoding.default
-        )
+    func logout(isAnonymous: Bool) async throws {
+        defer {
+            performLocalCleanup()
+        }
+
+        if !isAnonymous {
+            let _: Empty = try await networkService.request(
+                endpoint: Endpoint.Auth.logout,
+                method: .delete,
+                parameters: nil,
+                encoding: URLEncoding.default
+            )
+        }
+    }
+
+    private func performLocalCleanup() {
         CrashlyticsManager.shared.setUserID("none")
         CrashlyticsManager.shared.isUserAnonymous(true)
-        
         ClarityManager.shared.clearUser()
-        
         AuthManager.shared.clearTokens()
         UserManager.shared.clear()
-        
         followManager.clearCache()
     }
 }

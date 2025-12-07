@@ -12,7 +12,7 @@ final class ChannelDetailHeaderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var subCountLabel: UILabel!
     @IBOutlet weak var subButton: UIButton!
-    @IBOutlet weak var headerImageView: UIImageView!
+    @IBOutlet weak var headerIconLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bgView: UIView!
     
@@ -20,7 +20,10 @@ final class ChannelDetailHeaderCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        headerView.layer.cornerRadius = headerView.frame.width / 2
+        headerView.layer.borderWidth = 1
+        headerView.layer.borderColor = UIColor.divider.withAlphaComponent(0.3).cgColor
+        headerView.backgroundColor = .backgroundCard
     }
     
     func configurationView(channel: ChannelData, isFollowed: Bool) {
@@ -34,7 +37,7 @@ final class ChannelDetailHeaderCollectionViewCell: UICollectionViewCell {
         headerView.clipsToBounds = true
         headerView.layer.borderWidth = 1
         headerView.layer.borderColor = UIColor.divider.withAlphaComponent(0.3).cgColor
-        headerImageView.image = UIImage(named: "building_icon")
+        headerIconLabel.text = String(channel.title.prefix(2)).uppercased()
     }
     
     private func configureButtonAppearance(isFollowed: Bool) {

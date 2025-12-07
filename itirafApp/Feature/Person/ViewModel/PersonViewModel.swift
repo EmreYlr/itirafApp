@@ -10,6 +10,7 @@ protocol PersonViewModelProtocol {
     var socialLinks: UserSocialLink? { get }
     func getUserSocialLinks() async
     func updateUserSocialLinksVisibility(id: String, isVisible: Bool) async throws
+    func isUserAnonymous() -> Bool
 }
 
 protocol PersonViewModelOutputProtocol: AnyObject {
@@ -29,7 +30,7 @@ final class PersonViewModel {
     }
     
     func getUserSocialLinks() async {
-        guard !UserManager.shared.getUserIsAnonymous() else {
+        guard !isUserAnonymous() else {
             delegate?.didUserAnonymous()
             return
         }
@@ -61,6 +62,10 @@ final class PersonViewModel {
 
             UserManager.shared.updateSocialLink(updatedLink)
         }
+    }
+    
+    func isUserAnonymous() -> Bool {
+        return UserManager.shared.getUserIsAnonymous()
     }
 }
 

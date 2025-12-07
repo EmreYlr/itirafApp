@@ -26,7 +26,7 @@ final class SettingsViewModel {
     
     func logout() async {
         do {
-            try await settingsService.logout()
+            try await settingsService.logout(isAnonymous: checkUserAnonymous())
             delegate?.didLogoutSuccessfully()
         } catch {
             delegate?.didFailToLogout(with: error)

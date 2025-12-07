@@ -19,6 +19,18 @@
         }
       }
     },
+    "3Ky-eg-TEa.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"AT\"; ObjectID = \"3Ky-eg-TEa\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "AT"
+          }
+        }
+      }
+    },
     "8bq-0S-NGG.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"8bq-0S-NGG\";",
       "extractionState" : "extracted_with_value",

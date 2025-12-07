@@ -9,6 +9,7 @@ protocol HomeContainerViewModelProtocol {
     var delegate: HomeContainerViewModelDelegate? { get set }
     var notificationStatus: NotificationStatus? { get }
     func getNotificationStatus() async
+    func isUserAnonymous() -> Bool
 }
 
 protocol HomeContainerViewModelDelegate: AnyObject {
@@ -36,6 +37,10 @@ final class HomeContainerViewModel {
                 delegate?.didFailToUpdateNotificationStatus()
             }
         }
+    }
+    
+    func isUserAnonymous() -> Bool {
+        return UserManager.shared.getUserIsAnonymous()
     }
 }
 
