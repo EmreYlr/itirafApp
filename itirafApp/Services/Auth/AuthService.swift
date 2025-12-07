@@ -65,34 +65,38 @@ final class AuthService {
     }
     
     static func registerAndLoginAnonymousUser() async -> Bool {
+        return await TokenRefreshActor.shared.registerAndLoginAnonymous()
+    }
+    
+    fileprivate static func performRegisterAndLoginInternal() async -> Bool {
         do {
             if let user = UserManager.shared.getUser() {
                 do {
                     _ = try await loginAnonymousUser(user: user)
                     return true
                 } catch {
-                    return try await performRegisterAndLogin()
+                    return try await executeRegisterSequence()
                 }
             } else {
-                return try await performRegisterAndLogin()
+                return try await executeRegisterSequence()
             }
         } catch {
             return false
         }
     }
     
-    private static func performRegisterAndLogin() async throws -> Bool {
+    private static func executeRegisterSequence() async throws -> Bool {
         let anonymousUser = try await registerAnonymousUser()
-        
-        
         _ = try await loginAnonymousUser(user: anonymousUser)
         return true
     }
 }
+
 actor TokenRefreshActor {
     static let shared = TokenRefreshActor()
     
     private var currentRefreshTask: Task<Bool, Never>?
+    private var currentAnonymousTask: Task<Bool, Never>?
     
     func refresh() async -> Bool {
         if let task = currentRefreshTask {
@@ -113,6 +117,23 @@ actor TokenRefreshActor {
         } else {
             print("❌ Token yenileme başarısız.")
         }
+        
+        return result
+    }
+    
+    func registerAndLoginAnonymous() async -> Bool {
+        if let task = currentAnonymousTask {
+            print("⏳ Zaten devam eden bir anonim kayıt işlemi var, bitmesi bekleniyor...")
+            return await task.value
+        }
+        
+        let task = Task {
+            return await AuthService.performRegisterAndLoginInternal()
+        }
+        
+        currentAnonymousTask = task
+        let result = await task.value
+        currentAnonymousTask = nil
         
         return result
     }

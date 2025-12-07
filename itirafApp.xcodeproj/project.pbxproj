@@ -1246,7 +1246,7 @@
 		C3A7A42F2EA9586400250B06 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C3FAE95E2EE1BD0F003542CD /* ThemeManager.swift */,
+				C3FAE9652EE5942A003542CD /* Theme */,
 				C3BA53402ED9979D00EC6413 /* Clarity */,
 				C37F9E2D2EC8E6A20042B56F /* FollowManager */,
 				C38EAAC62EC1F32600A1818C /* Crashlytics */,
@@ -2360,6 +2360,14 @@
 				C3F39F7F2EA02B3B00197509 /* PostConfession.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C3FAE9652EE5942A003542CD /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				C3FAE95E2EE1BD0F003542CD /* ThemeManager.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
