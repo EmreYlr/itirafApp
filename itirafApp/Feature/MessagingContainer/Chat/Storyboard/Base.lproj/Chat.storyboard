@@ -74,10 +74,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkr-vG-KGf" userLabel="messageView">
-                                        <rect key="frame" x="54" y="113.33333333333334" width="323" height="34"/>
+                                        <rect key="frame" x="54.000000000000007" y="113.33333333333334" width="77.666666666666686" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raG-9C-Smx">
-                                                <rect key="frame" x="8" y="8" width="307" height="18"/>
+                                                <rect key="frame" x="7.9999999999999964" y="8" width="61.666666666666657" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" name="TextPrimary"/>
                                                 <nil key="highlightedColor"/>
@@ -152,7 +152,7 @@
                                     <constraint firstAttribute="trailing" secondItem="HIA-24-vne" secondAttribute="trailing" constant="16" id="DCc-Ni-haM"/>
                                     <constraint firstItem="nkr-vG-KGf" firstAttribute="top" secondItem="A5H-cT-iQr" secondAttribute="bottom" constant="25" id="FAD-zn-sL7"/>
                                     <constraint firstItem="A5H-cT-iQr" firstAttribute="top" secondItem="Yhr-6U-ZQ6" secondAttribute="top" constant="8" id="FuF-Vl-MuM"/>
-                                    <constraint firstAttribute="trailing" secondItem="nkr-vG-KGf" secondAttribute="trailing" constant="16" id="OHa-eP-Euh"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nkr-vG-KGf" secondAttribute="trailing" constant="25" id="OHa-eP-Euh"/>
                                     <constraint firstItem="HIA-24-vne" firstAttribute="leading" secondItem="Yhr-6U-ZQ6" secondAttribute="leading" constant="16" id="PaP-0c-BpE"/>
                                     <constraint firstItem="HIA-24-vne" firstAttribute="top" secondItem="nkr-vG-KGf" secondAttribute="bottom" constant="30" id="Pgo-yt-E7v"/>
                                     <constraint firstItem="Kha-6G-5fY" firstAttribute="leading" secondItem="Yhr-6U-ZQ6" secondAttribute="leading" constant="16" id="SjD-IX-qmi"/>

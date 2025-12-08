@@ -63,7 +63,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CUG-hC-Nvf" userLabel="sentConfessionView">
                                                 <rect key="frame" x="20" y="20" width="353" height="85.666666666666671"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="131-lF-j2A">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="131-lF-j2A">
                                                         <rect key="frame" x="8" y="7.9999999999999982" width="337" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                         <color key="textColor" name="TextPrimary"/>
@@ -105,10 +105,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkT-XU-SGj" userLabel="myMessageView">
-                                                <rect key="frame" x="100" y="135.66666666666669" width="281" height="36.333333333333343"/>
+                                                <rect key="frame" x="296.33333333333331" y="135.66666666666669" width="84.666666666666686" height="36.333333333333343"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tH-bw-tl9">
-                                                        <rect key="frame" x="8" y="7.9999999999999982" width="265" height="20.333333333333329"/>
+                                                        <rect key="frame" x="8" y="7.9999999999999982" width="68.666666666666671" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="TextSecondary"/>
                                                         <nil key="highlightedColor"/>
@@ -175,7 +175,7 @@
                                             <constraint firstItem="S1w-1d-DvL" firstAttribute="leading" secondItem="ahc-oa-MSb" secondAttribute="trailing" constant="8" symbolic="YES" id="1Me-Pb-vse"/>
                                             <constraint firstAttribute="trailing" secondItem="CUG-hC-Nvf" secondAttribute="trailing" constant="20" id="5QQ-IU-Rxf"/>
                                             <constraint firstItem="S1w-1d-DvL" firstAttribute="top" secondItem="dkT-XU-SGj" secondAttribute="bottom" constant="20" id="6tV-Ls-HIs"/>
-                                            <constraint firstItem="dkT-XU-SGj" firstAttribute="leading" secondItem="q2w-EY-b8E" secondAttribute="leading" constant="100" id="NZV-dT-0rY"/>
+                                            <constraint firstItem="dkT-XU-SGj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="q2w-EY-b8E" secondAttribute="leading" constant="75" id="NZV-dT-0rY"/>
                                             <constraint firstAttribute="trailing" secondItem="dkT-XU-SGj" secondAttribute="trailing" constant="12" id="Stm-hh-YtD"/>
                                             <constraint firstItem="dkT-XU-SGj" firstAttribute="top" secondItem="CUG-hC-Nvf" secondAttribute="bottom" constant="30" id="Tqo-5d-Nuh"/>
                                             <constraint firstAttribute="bottom" secondItem="ahc-oa-MSb" secondAttribute="bottom" constant="25" id="UW3-L0-Wb2"/>
