@@ -15,6 +15,7 @@ protocol RequestMessageViewModelProtocol {
 
 protocol RequestMessageViewModelDelegate: AnyObject {
     func didUpdateRequestMessages()
+    func didEmptyRequestMessages()
     func didApproveRequest(requestID: String)
     func didRejectRequest(requestID: String)
     func didError(with error: Error)
@@ -34,6 +35,10 @@ final class RequestMessageViewModel {
     func getPendingMessages() async {
         do {
             let messages = try await requestMessageService.fetchPendingMessages()
+            if messages.isEmpty {
+                delegate?.didEmptyRequestMessages()
+                return
+            }
             self.requestMessageModel = messages
             delegate?.didUpdateRequestMessages()
         } catch {

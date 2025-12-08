@@ -38,6 +38,9 @@
 		C36B03402EE5B51D0049F7FD /* ChannelDetailHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B033E2EE5B51D0049F7FD /* ChannelDetailHeaderCollectionViewCell.swift */; };
 		C36B03412EE5B51D0049F7FD /* ChannelDetailHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36B033F2EE5B51D0049F7FD /* ChannelDetailHeaderCollectionViewCell.xib */; };
 		C36B03432EE6F3640049F7FD /* LoadingDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B03422EE6F3580049F7FD /* LoadingDisplayable.swift */; };
+		C36B03472EE70D890049F7FD /* EmptyStateDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B03462EE70D860049F7FD /* EmptyStateDisplayable.swift */; };
+		C36B034B2EE7129D0049F7FD /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B034A2EE7129D0049F7FD /* EmptyStateView.swift */; };
+		C36B034F2EE713140049F7FD /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36B034E2EE713140049F7FD /* EmptyStateView.xib */; };
 		C36EB91F2EDF235E00A7276E /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36EB91E2EDF235E00A7276E /* Post.storyboard */; };
 		C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5BB82E7983030068F334 /* Storyboard.swift */; };
 		C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5C762E7990D20068F334 /* LoginViewModel.swift */; };
@@ -293,6 +296,9 @@
 		C36B033E2EE5B51D0049F7FD /* ChannelDetailHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		C36B033F2EE5B51D0049F7FD /* ChannelDetailHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelDetailHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		C36B03422EE6F3580049F7FD /* LoadingDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingDisplayable.swift; sourceTree = "<group>"; };
+		C36B03462EE70D860049F7FD /* EmptyStateDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateDisplayable.swift; sourceTree = "<group>"; };
+		C36B034A2EE7129D0049F7FD /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		C36B034E2EE713140049F7FD /* EmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
 		C36EB91D2EDF235E00A7276E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		C36EB9202EDF235E00A7276E /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Post.xcstrings; sourceTree = "<group>"; };
 		C37D5BB82E7983030068F334 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
@@ -771,6 +777,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C36B03482EE7124E0049F7FD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C36B03492EE7125D0049F7FD /* EmptyState */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C36B03492EE7125D0049F7FD /* EmptyState */ = {
+			isa = PBXGroup;
+			children = (
+				C36B034A2EE7129D0049F7FD /* EmptyStateView.swift */,
+				C36B034E2EE713140049F7FD /* EmptyStateView.xib */,
+			);
+			path = EmptyState;
+			sourceTree = "<group>";
+		};
 		C36EB91A2EDF157700A7276E /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -799,6 +822,7 @@
 		C37D5E0A2E856C1A0068F334 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C36B03462EE70D860049F7FD /* EmptyStateDisplayable.swift */,
 				C36B03422EE6F3580049F7FD /* LoadingDisplayable.swift */,
 				C3BE19752ECFB5CE0053C9A9 /* NotificationEventType.swift */,
 				C39700942EC35AD90062E505 /* NotificationParser.swift */,
@@ -2135,6 +2159,7 @@
 				C3EB10872E744A4A002DA295 /* Core */,
 				C38EAAC92EC223C600A1818C /* Coordinators */,
 				C3BE197B2ED215190053C9A9 /* Models */,
+				C36B03482EE7124E0049F7FD /* Views */,
 				C3A7A42F2EA9586400250B06 /* Services */,
 				C3EB107F2E74412B002DA295 /* Feature */,
 			);
@@ -2558,6 +2583,7 @@
 				C3BA534A2EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.xib in Resources */,
 				C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */,
 				C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */,
+				C36B034F2EE713140049F7FD /* EmptyStateView.xib in Resources */,
 				C3C173E12EC62B0200D27383 /* ChannelCollectionViewCell.xib in Resources */,
 				C3A750B42EB658770058163B /* SocialLinkTableViewCell.xib in Resources */,
 				C396C5C52ED5D54200FABB7E /* Main.storyboard in Resources */,
@@ -2638,6 +2664,7 @@
 				C3528EFE2EB8C32E00FF1C19 /* UIApplication+Extension.swift in Sources */,
 				C3C173C52EC5FEBE00D27383 /* FlowService.swift in Sources */,
 				C3D764BC2E93DE1800104C3B /* DetailService.swift in Sources */,
+				C36B034B2EE7129D0049F7FD /* EmptyStateView.swift in Sources */,
 				C3A750712EB4C7720058163B /* EditSocialViewController.swift in Sources */,
 				C3FAE96E2EE59709003542CD /* EditProfileViewModel.swift in Sources */,
 				C3A750AA2EB648660058163B /* ChatViewController+RequestMessage.swift in Sources */,
@@ -2782,6 +2809,7 @@
 				C3A750752EB4C9510058163B /* EditSocialService.swift in Sources */,
 				C3A7A40F2EA7A9B600250B06 /* AppRequestInterceptor.swift in Sources */,
 				C37D5DF42E842A2F0068F334 /* NetworkService.swift in Sources */,
+				C36B03472EE70D890049F7FD /* EmptyStateDisplayable.swift in Sources */,
 				C3528F362EBB79B700FF1C19 /* ModerationCollectionViewCell.swift in Sources */,
 				C3E660232EB24E700059048F /* MyConfessionsService.swift in Sources */,
 				C3A7A4352EAA286400250B06 /* ChatViewController.swift in Sources */,

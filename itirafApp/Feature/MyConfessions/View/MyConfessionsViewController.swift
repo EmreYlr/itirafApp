@@ -21,9 +21,13 @@ final class MyConfessionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initData()
         loadCollectionView()
         configureDataSource()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        initData()
     }
     
     private func initData() {

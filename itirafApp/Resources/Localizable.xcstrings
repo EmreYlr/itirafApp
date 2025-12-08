@@ -902,6 +902,176 @@
         }
       }
     },
+    "empty.error.button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tekrar Dene"
+          }
+        }
+      }
+    },
+    "empty.noFollowingChannels.button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explore Channels"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kanalları Keşfet"
+          }
+        }
+      }
+    },
+    "empty.noFollowingChannels.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your feed looks a bit lonely. Follow some channels to spice things up!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akışın bomboş görünüyor. İlgini çeken kanalları takip ederek burayı şenlendir!"
+          }
+        }
+      }
+    },
+    "empty.noMessages.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It's a bit quiet here... How about saying 'Hi' to someone to break the ice?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buralar biraz sessiz... Birilerine 'Merhaba' diyerek buzları eritmeye ne dersin?"
+          }
+        }
+      }
+    },
+    "empty.noMyConfessions.button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share a Confess"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir İtiraf Yaz"
+          }
+        }
+      }
+    },
+    "empty.noMyConfessions.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You haven't shared any secrets yet. Share a confession anonymously and get it off your chest."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Henüz hiç içini dökmedin. Aklındakileri anonim olarak paylaş, rahatla."
+          }
+        }
+      }
+    },
+    "empty.noNotifications.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You're all caught up! No new notifications to see right now."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Her şeyden haberdarsın! Şu an için yeni bir bildirim görünmüyor."
+          }
+        }
+      }
+    },
+    "empty.noRequestMessages.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your inbox is squeaky clean! No new message requests at the moment."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelen kutun tertemiz! Şimdilik bekleyen yeni bir mesaj isteği yok."
+          }
+        }
+      }
+    },
+    "empty.noSentRequestMessages.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You haven't reached out to anyone yet. Don't be shy, make the first move!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Henüz kimseye istek göndermedin. Utangaç olma, ilk adımı sen at!"
+          }
+        }
+      }
+    },
+    "empty.noSocialMediaLinks.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No links added yet. Add your social media accounts so people can get to know you better."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profilinde hiç bağlantı yok. Sosyal medya hesaplarını ekle ki insanlar seni daha yakından tanısın."
+          }
+        }
+      }
+    },
     "error.access_denied" : {
       "extractionState" : "manual",
       "localizations" : {

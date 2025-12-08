@@ -16,11 +16,7 @@ extension RequestMessageViewController:  UICollectionViewDelegate, UICollectionV
         chatVC.viewModel.requestMessage = message
         navigationController?.pushViewController(chatVC, animated: true)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let _ = dataSource.snapshot().numberOfItems
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 70)
     }

@@ -8,6 +8,7 @@
 import UIKit
 
 final class RequestMessageViewController: UIViewController {
+
     //MARK: -Properties
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -23,10 +24,6 @@ final class RequestMessageViewController: UIViewController {
         initUI()
         loadCollectionView()
         configureDataSource()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         initData()
     }
     
@@ -107,7 +104,7 @@ final class RequestMessageViewController: UIViewController {
     }
 }
 
-extension RequestMessageViewController: RequestMessageViewModelDelegate {
+extension RequestMessageViewController: RequestMessageViewModelDelegate, EmptyStateDisplayable {
     func didApproveRequest(requestID: String) {
         removeCellFromSnapshot(requestID: requestID)
     }
@@ -117,7 +114,16 @@ extension RequestMessageViewController: RequestMessageViewModelDelegate {
     }
     
     func didUpdateRequestMessages() {
-        updateSnapshot(with: viewModel.requestMessageModel)
+        DispatchQueue.main.async {
+            self.hideEmptyState(from: self.collectionView)
+            self.updateSnapshot(with: self.viewModel.requestMessageModel)
+        }
+    }
+    
+    func didEmptyRequestMessages() {
+        DispatchQueue.main.async {
+            self.showEmptyState(type: .noRequestMessages, in: self.collectionView)
+        }
     }
     
     func didError(with error: any Error) {
