@@ -35,7 +35,7 @@ final class SocialLinkTableViewCell: UITableViewCell {
     func configureForAnonymous() {
         usernameLabel.text = "social.anonymous.username".localized
         platformNameLabel.text = "social.anonymous.platform".localized
-        platformIconImageView.image = UIImage(systemName: "person.fill.xmark")?.withTintColor(.backgroundCard, renderingMode: .alwaysOriginal)
+        platformIconImageView.image = UIImage(systemName: "person.fill.xmark")?.withTintColor(.textSecondary, renderingMode: .alwaysOriginal)
         arrowImageView.isHidden = true
     }
 
