@@ -195,8 +195,10 @@ final class SettingsViewController: UIViewController {
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
         let performLogoutAction = {
             sender.isEnabled = false
+            self.showLoading()
             Task(priority: .utility) {
                 defer {
+                    self.hideLoading()
                     sender.isEnabled = true
                 }
                 await self.viewModel.logout()

@@ -5,8 +5,8 @@
 //  Created by Emre on 18.11.2025.
 //
 
-
 import UIKit
+import SkeletonView
 
 extension NotificationViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 {
@@ -67,6 +67,24 @@ extension NotificationViewController: UICollectionViewDelegate, UICollectionView
                 isSelectionMode = false
             }
         }
+    }
+}
+
+class NotificationDiffableDataSource: UICollectionViewDiffableDataSource<NotificationSection, NotificationItem>, SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, supplementaryViewIdentifierOfKind kind: String, at indexPath: IndexPath) -> ReusableCellIdentifier? {
+        return "NotificationHeaderView"
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "notificationCell"
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
+    }
+    
+    func numSections(in collectionSkeletonView: UICollectionView) -> Int {
+        return 1
     }
 }
 

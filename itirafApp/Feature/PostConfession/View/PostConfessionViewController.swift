@@ -73,6 +73,7 @@ final class PostConfessionViewController: UIViewController {
     }
 
     @IBAction func shareButtonPressed(_ sender: UIButton) {
+        showLoading(style: .localDimmed)
         sender.isEnabled = false
         do {
             let titleText = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -90,6 +91,7 @@ final class PostConfessionViewController: UIViewController {
             
             Task(priority: .utility) {
                 defer {
+                    hideLoading()
                     sender.isEnabled = true
                 }
                 await postConfessionViewModel.postConfession(content: content)

@@ -28,8 +28,11 @@ final class DirectMessageViewController: UIViewController {
     private func initData() {
         directMessageViewModel.delegate = self
         navigationItem.title = "direct_message.title".localized
-        
+        showLoading()
         Task {
+            defer {
+                self.hideLoading()
+            }
             await directMessageViewModel.fetchDirectMessages()
         }
     }

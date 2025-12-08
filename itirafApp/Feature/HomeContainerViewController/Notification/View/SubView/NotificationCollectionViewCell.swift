@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class NotificationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bgView: UIView!
@@ -30,6 +31,8 @@ final class NotificationCollectionViewCell: UICollectionViewCell {
         badgeImageView.image = nil
         bgView.layer.borderWidth = 0
         bgView.backgroundColor = .clear
+        
+        
     }
     
     override func awakeFromNib() {
@@ -71,7 +74,7 @@ final class NotificationCollectionViewCell: UICollectionViewCell {
                 self.setupStyle(bgColor: .backgroundCard.withAlphaComponent(0.5), borderColor: .clear, borderWidth: 0, badgeColor: .backgroundCard, titleWeight: .regular, timeColor: .textTertiary, iconTint: .textPrimary)
             }
             else {
-                self.setupStyle(bgColor: .brandSecondary.withAlphaComponent(0.1), borderColor: .brandSecondary.withAlphaComponent(0.3), borderWidth: 1, badgeColor: item.badgeColor, titleWeight: .semibold, timeColor: .textTertiary, iconTint: .textPrimary)
+                self.setupStyle(bgColor: .brandPrimary.withAlphaComponent(0.1), borderColor: .brandSecondary.withAlphaComponent(0.3), borderWidth: 1, badgeColor: item.badgeColor, titleWeight: .semibold, timeColor: .textTertiary, iconTint: .textPrimary)
             }
         }
         

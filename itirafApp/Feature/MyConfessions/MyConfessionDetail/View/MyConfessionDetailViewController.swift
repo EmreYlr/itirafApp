@@ -97,7 +97,11 @@ final class MyConfessionDetailViewController: UIViewController {
     
     @objc private func deleteButtonTapped() {
         showTwoButtonAlert(title: "general.title.warning".localized, message: "confession.message.delete_confirmation".localized, firstButtonTitle: "general.button.yes".localized, firstButtonHandler: { _ in
+            self.showLoading()
             Task(priority: .utility) {
+                defer {
+                    self.hideLoading()
+                }
                 await self.viewModel.deleteConfession()
             }
         }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)

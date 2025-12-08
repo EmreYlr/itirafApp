@@ -62,6 +62,7 @@ final class RequestBottomSheetViewController: UIViewController {
     }
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
+        showLoading(style: .localDimmed)
         sender.isEnabled = false
 
         do {
@@ -74,6 +75,7 @@ final class RequestBottomSheetViewController: UIViewController {
             Task(priority: .utility) {
                 defer {
                     sender.isEnabled = true
+                    hideLoading()
                 }
                 await viewModel.sendRequest(message: messageText, shareSocialLinks: shareSwitch.isOn)
             }

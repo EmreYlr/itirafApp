@@ -46,6 +46,7 @@ final class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func resetPasswordButtonTapped(_ sender: UIButton) {
+        showLoading()
         sender.isEnabled = false
         do {
             guard let email = emailTextField.text, !email.isEmpty else {
@@ -58,6 +59,7 @@ final class ForgotPasswordViewController: UIViewController {
             Task(priority: .utility) {
                 defer {
                     sender.isEnabled = true
+                    hideLoading()
                 }
                 await viewModel.resetPassword(email: email)
             }

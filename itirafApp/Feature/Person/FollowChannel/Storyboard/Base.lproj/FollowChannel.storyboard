@@ -26,6 +26,9 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                             <searchBar contentMode="redraw" placeholder="Kanal Ara..." translatesAutoresizingMaskIntoConstraints="NO" id="PNn-3r-fde">
                                 <rect key="frame" x="0.0" y="118" width="393" height="64"/>
@@ -46,6 +49,9 @@
                             <constraint firstItem="PNn-3r-fde" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="eBX-xP-MXD"/>
                             <constraint firstItem="SV6-pP-lzn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="x0u-Ns-nTx"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="SV6-pP-lzn" id="UBj-Ov-r1I"/>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 extension FollowChannelViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -44,12 +45,18 @@ extension FollowChannelViewController: UICollectionViewDataSource, UICollectionV
         channelDetailVC.viewModel = ChannelDetailViewModel(channel: channel)
         navigationController?.pushViewController(channelDetailVC, animated: true)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 60)
+}
+
+extension FollowChannelViewController: SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "channelCell"
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func numSections(in collectionSkeletonView: UICollectionView) -> Int {
+        return 1
     }
 }

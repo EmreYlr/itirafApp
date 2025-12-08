@@ -131,6 +131,7 @@ final class EditSocialViewController: UIViewController {
     }
 
     @IBAction func addOrEditButtonTapped(_ sender: UIButton) {
+        showLoading()
         guard let newUsername = platformUsernameTextField.text else {
             return
         }
@@ -142,6 +143,9 @@ final class EditSocialViewController: UIViewController {
         
         if source.self == .addButton {
             Task(priority: .utility) {
+                defer {
+                    hideLoading()
+                }
                 await viewModel.createSocialLink(username: newUsername, platform: selectedPlatform)
             }
         } else {
@@ -149,6 +153,9 @@ final class EditSocialViewController: UIViewController {
                 return
             }
             Task(priority: .utility) {
+                defer {
+                    hideLoading()
+                }
                 await viewModel.editSocialLink(newUsername: newUsername)
             }
         }

@@ -80,13 +80,18 @@ final class EditConfessionViewController: UIViewController {
     
     @objc private func deleteButtonTapped() {
         showTwoButtonAlert(title: "general.title.warning".localized, message: "confession.message.delete_confirmation".localized, firstButtonTitle: "general.button.yes".localized, firstButtonHandler: { _ in
+            self.showLoading()
             Task(priority: .utility) {
+                defer {
+                    self.hideLoading()
+                }
                 await self.viewModel.deleteConfession()
             }
         }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)
     }
 
     @IBAction func editButtonTapped(_ sender: UIButton) {
+        showLoading()
         sender.isEnabled = false
         do {
             let titleText = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
@@ -102,6 +107,7 @@ final class EditConfessionViewController: UIViewController {
             
             Task(priority: .utility) {
                 defer {
+                    hideLoading()
                     sender.isEnabled = true
                 }
                 await viewModel.editConfession(title: titleText, message: detailText)

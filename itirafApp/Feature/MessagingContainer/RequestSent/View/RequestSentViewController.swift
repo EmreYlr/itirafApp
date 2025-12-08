@@ -29,9 +29,20 @@ final class RequestSentViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
-        Task {
-            await viewModel.fetchSentRequests()
+        if self.isMovingToParent {
+            showLoading()
+            Task {
+                defer {
+                    self.hideLoading()
+                }
+                await viewModel.fetchSentRequests()
+            }
+        } else {
+            Task {
+                await viewModel.fetchSentRequests()
+            }
         }
+        
     }
     
     private func initUI() {

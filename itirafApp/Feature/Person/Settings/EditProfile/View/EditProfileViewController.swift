@@ -65,8 +65,11 @@ final class EditProfileViewController: UIViewController {
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
         showTwoButtonAlert(title: "profile.delete_account_confirmation_title".localized, message: "profile.delete_account_confirmation_message".localized, firstButtonTitle: "profile.delete_account_yes".localized, firstButtonHandler: { _ in
-            
+            self.showLoading()
             Task(priority: .utility) {
+                defer {
+                    self.hideLoading()
+                }
                 await self.viewModel.deleteAccount()
             }
         }, secondButtonTitle: "general.button.cancel".localized)

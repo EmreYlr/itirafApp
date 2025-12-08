@@ -77,6 +77,7 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        showLoading()
         sender.isEnabled = false
         do {
             guard let email = emailTextField.text, !email.isEmpty else {
@@ -94,6 +95,7 @@ final class LoginViewController: UIViewController {
             Task(priority: .utility) {
                 defer {
                     sender.isEnabled = true
+                    self.hideLoading()
                 }
                 await loginViewModel.loginUser(
                     email: email,
@@ -132,15 +134,24 @@ final class LoginViewController: UIViewController {
             let request = GoogleLoginRequest(
                 idToken: idToken
             )
-
+            self.showLoading()
+            
             Task(priority: .userInitiated) {
+                defer {
+                    self.hideLoading()
+                }
                 await self.loginViewModel.loginWithGoogle(request: request)
             }
         }
     }
     
     @objc private func anonymousButtonTapped() {
+        showLoading()
+        
         Task(priority: .utility) {
+            defer {
+                self.hideLoading()
+            }
             await loginViewModel.loginAnonymously()
         }
     }
@@ -195,8 +206,13 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             firstName: credential.fullName?.givenName,
             lastName: credential.fullName?.familyName
         )
-
+        self.showLoading()
+        
         Task(priority: .userInitiated) {
+            defer {
+                self.hideLoading()
+            }
+            
             await loginViewModel.loginWithApple(request: request)
         }
     }

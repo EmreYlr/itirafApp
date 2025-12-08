@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class FollowChannelViewController: UIViewController {
     //MARK: - Properties
@@ -54,6 +55,11 @@ final class FollowChannelViewController: UIViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshChannels), for: .valueChanged)
         collectionView.refreshControl = refreshControl
+        
+        collectionView.collectionViewLayout = .createFullWidthDynamicLayout(spacing: 15, estimatedHeight: 60)
+        
+        collectionView.showAnimatedGradientSkeleton()
+        collectionView.layoutSkeletonIfNeeded()
     }
     
     private func initSearchBar() {
@@ -73,6 +79,11 @@ final class FollowChannelViewController: UIViewController {
 extension FollowChannelViewController: FollowChannelViewModelDelegate {
     func didUpdateFollowedChannels() {
         DispatchQueue.main.async {
+            if self.collectionView.sk.isSkeletonActive {
+                self.collectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+            }
+            
             self.collectionView.refreshControl?.endRefreshing()
             self.collectionView.reloadData()
         }
@@ -80,6 +91,11 @@ extension FollowChannelViewController: FollowChannelViewModelDelegate {
     
     func didFailWithError(_ error: any Error) {
         DispatchQueue.main.async {
+            if self.collectionView.sk.isSkeletonActive {
+                self.collectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+            }
+            
             self.collectionView.refreshControl?.endRefreshing()
             self.handleError(error)
         }

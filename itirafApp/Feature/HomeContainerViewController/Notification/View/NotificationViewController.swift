@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class NotificationViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
-
-    var dataSource: UICollectionViewDiffableDataSource<NotificationSection, NotificationItem>!
+    
+    var dataSource: NotificationDiffableDataSource!
     var viewModel: NotificationViewModelProtocol
     
     var isSelectionMode = false {
@@ -70,37 +71,41 @@ final class NotificationViewController: UIViewController {
     
     private func fetchNotifications(reset: Bool) {
         Task {
-            defer { self.collectionView.refreshControl?.endRefreshing() }
+            defer {
+                self.collectionView.refreshControl?.endRefreshing()
+            }
             await viewModel.listAllNotifications(reset: reset)
         }
     }
     
     private func setupCollectionView() {
         collectionView.delegate = self
-
+        
         collectionView.register(UINib(nibName: "NotificationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "notificationCell")
-
+        
         collectionView.collectionViewLayout = createLayout()
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshNotification), for: .valueChanged)
         collectionView.refreshControl = refreshControl
+        
+        collectionView.isSkeletonable = true
     }
-
+    
     private func createLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-
+            
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(90))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
+            
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(90))
             
             let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-
+            
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 5
             section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0)
-
+            
             let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
             let header = NSCollectionLayoutBoundarySupplementaryItem(
                 layoutSize: headerSize,
@@ -114,7 +119,7 @@ final class NotificationViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<NotificationSection, NotificationItem>(collectionView: collectionView) { (collectionView, indexPath, notification) -> UICollectionViewCell? in
+        dataSource = NotificationDiffableDataSource(collectionView: collectionView) { (collectionView, indexPath, notification) -> UICollectionViewCell? in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "notificationCell", for: indexPath) as? NotificationCollectionViewCell else {
                 fatalError("Cannot create new cell")
             }
@@ -123,7 +128,9 @@ final class NotificationViewController: UIViewController {
             return cell
         }
         
-        dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+        dataSource.supplementaryViewProvider = { [weak self] (collectionView, kind, indexPath) in
+            guard let self = self else { return nil }
+            
             guard let header = collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: "NotificationHeaderView",
@@ -131,7 +138,12 @@ final class NotificationViewController: UIViewController {
                 return nil
             }
             
-            let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
+            let snapshot = self.dataSource.snapshot()
+            if indexPath.section >= snapshot.sectionIdentifiers.count {
+                return header
+            }
+            
+            let section = snapshot.sectionIdentifiers[indexPath.section]
             
             switch section {
             case .new:
@@ -149,19 +161,21 @@ final class NotificationViewController: UIViewController {
             
             return header
         }
+        
+        collectionView.showAnimatedGradientSkeleton()
     }
     
     private func updateSnapshot(with notifications: [NotificationItem]) {
         var snapshot = NSDiffableDataSourceSnapshot<NotificationSection, NotificationItem>()
-
+        
         let newNotifications = notifications.filter { !$0.seen }
         let oldNotifications = notifications.filter { $0.seen }
-
+        
         if !newNotifications.isEmpty {
             snapshot.appendSections([.new])
             snapshot.appendItems(newNotifications, toSection: .new)
         }
-
+        
         if !oldNotifications.isEmpty {
             snapshot.appendSections([.old])
             snapshot.appendItems(oldNotifications, toSection: .old)
@@ -173,7 +187,7 @@ final class NotificationViewController: UIViewController {
     private func updateNavigationBar() {
         if isSelectionMode {
             navigationItem.title = "notification.selection.title".localized(selectedIDs.count)
-
+            
             let deleteButton = UIBarButtonItem(title: "notification.button.delete".localized, style: .plain, target: self, action: #selector(deleteSelectedItems))
             deleteButton.tintColor = .statusError
             navigationItem.rightBarButtonItem = deleteButton
@@ -200,13 +214,13 @@ final class NotificationViewController: UIViewController {
         let point = gesture.location(in: collectionView)
         if let indexPath = collectionView.indexPathForItem(at: point) {
             isSelectionMode = true
-
+            
             collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
-
+            
             collectionView(collectionView, didSelectItemAt: indexPath)
         }
     }
-
+    
     @objc private func cancelSelectionMode() {
         isSelectionMode = false
     }
@@ -237,12 +251,22 @@ final class NotificationViewController: UIViewController {
 extension NotificationViewController: NotificationViewModelDelegate {
     func didUpdateNotifiaction(with data: [NotificationItem]) {
         DispatchQueue.main.async {
+            if self.collectionView.sk.isSkeletonActive {
+                self.collectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+            }
+            
             self.updateSnapshot(with: data)
         }
     }
     
     func didFailUpdateNotification(with error: any Error) {
         DispatchQueue.main.async {
+            if self.collectionView.sk.isSkeletonActive {
+                self.collectionView.stopSkeletonAnimation()
+                self.view.hideSkeleton()
+            }
+            
             self.handleError(error)
         }
     }

@@ -35,6 +35,12 @@
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                             <color key="textColor" name="TextSecondary"/>
                                             <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                                    <integer key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvH-R0-BBg">
                                             <rect key="frame" x="164.33333333333337" y="3" width="188.66666666666663" height="31"/>
@@ -43,6 +49,12 @@
                                             <buttonConfiguration key="configuration" style="plain" title="Tümünü Okundu İşaretle">
                                                 <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
                                             </buttonConfiguration>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="markReadActionTapped:" destination="hLj-Bf-pk8" eventType="touchUpInside" id="3ca-t1-uFZ"/>
                                             </connections>
@@ -56,11 +68,17 @@
                                         <constraint firstItem="DvH-R0-BBg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pux-To-5l7" secondAttribute="trailing" constant="8" id="goa-AL-SXg"/>
                                         <constraint firstItem="DvH-R0-BBg" firstAttribute="centerY" secondItem="pux-To-5l7" secondAttribute="centerY" id="rZI-2p-GYF"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <outlet property="headerTitleLabel" destination="pux-To-5l7" id="xvC-vJ-UhW"/>
                                         <outlet property="markReadButton" destination="DvH-R0-BBg" id="Jgf-lz-qZh"/>
                                     </connections>
                                 </collectionReusableView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -71,6 +89,9 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ovl-0O-PKo" secondAttribute="trailing" constant="16" id="5Rm-s2-y6b"/>
                             <constraint firstItem="Ovl-0O-PKo" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="EcD-TI-0uA"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Ovl-0O-PKo" id="V1I-Bj-Awa"/>

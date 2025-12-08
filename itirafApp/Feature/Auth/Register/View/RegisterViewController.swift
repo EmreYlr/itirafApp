@@ -50,6 +50,7 @@ final class RegisterViewController: UIViewController {
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
+        showLoading()
         sender.isEnabled = false
         do {
             guard let email = emailTextField.text, !email.isEmpty else {
@@ -71,6 +72,7 @@ final class RegisterViewController: UIViewController {
             Task(priority: .utility) {
                 defer {
                     sender.isEnabled = true
+                    hideLoading()
                 }
                 
                 await registerViewModel.registerUser(
