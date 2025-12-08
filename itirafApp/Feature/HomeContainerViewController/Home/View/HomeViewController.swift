@@ -140,7 +140,6 @@ final class HomeViewController: UIViewController {
     }
 }
 
-// MARK: - ViewModel Output
 extension HomeViewController: HomeViewModelOutputProtocol, EmptyStateDisplayable {
     func didUpdateConfessions(with data: [ConfessionData]) {
         DispatchQueue.main.async {
