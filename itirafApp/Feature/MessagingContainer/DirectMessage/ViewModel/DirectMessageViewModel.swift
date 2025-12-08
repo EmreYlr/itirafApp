@@ -14,6 +14,7 @@ protocol DirectMessageViewModelProtocol {
 
 protocol DirectMessageViewModelDelegate: AnyObject {
     func didUpdateDirectMessages()
+    func didEmptyDirectMessages()
     func didError(_ error: Error)
 }
 
@@ -30,6 +31,10 @@ final class DirectMessageViewModel {
     func fetchDirectMessages() async {
         do {
             let rooms = try await directMessageService.getAllRoom()
+            if rooms.isEmpty {
+                delegate?.didEmptyDirectMessages()
+                return
+            }
             self.directMessages = rooms
             delegate?.didUpdateDirectMessages()
         } catch {

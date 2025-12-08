@@ -107,9 +107,20 @@ final class DirectMessageViewController: UIViewController {
 }
 
 
-extension DirectMessageViewController: DirectMessageViewModelDelegate {
+extension DirectMessageViewController: DirectMessageViewModelDelegate, EmptyStateDisplayable {
     func didUpdateDirectMessages() {
-        updateSnapshot(with: directMessageViewModel.directMessages)
+        DispatchQueue.main.async {
+            self.hideEmptyState(from: self.collectionView)
+            self.updateSnapshot(with: self.directMessageViewModel.directMessages)
+        }
+        
+    }
+    
+    func didEmptyDirectMessages() {
+        DispatchQueue.main.async {
+            self.collectionView.refreshControl?.endRefreshing()
+            self.showEmptyState(type: .noMessages, in: self.collectionView)
+        }
     }
     
     func didError(_ error: any Error) {
