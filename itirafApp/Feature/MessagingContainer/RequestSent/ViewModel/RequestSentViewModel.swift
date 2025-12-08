@@ -13,6 +13,7 @@ protocol RequestSentViewModelProtocol {
 
 protocol RequestSentViewModelDelegate: AnyObject {
     func didUpdateSentRequests()
+    func didEmptySentRequests()
     func didError(error: Error)
 }
 
@@ -30,6 +31,10 @@ final class RequestSentViewModel {
     func fetchSentRequests() async {
         do {
             let requests = try await requestSentService.getSentRequests()
+            if requests.isEmpty {
+                delegate?.didEmptySentRequests()
+                return
+            }
             self.sentRequests = requests
             delegate?.didUpdateSentRequests()
         }catch {

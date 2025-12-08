@@ -34,10 +34,10 @@ final class EmptyStateView: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            contentView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            contentView.topAnchor.constraint(equalTo: self.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -60)
+            contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
         
         setupUI()
@@ -47,7 +47,7 @@ final class EmptyStateView: UIView {
         actionButton.layer.cornerRadius = 8
         imageBgView.layer.cornerRadius = imageBgView.frame.width / 2
         imageBgView.clipsToBounds = true
-        imageBgView.layer.borderColor = UIColor.divider.cgColor
+        imageBgView.layer.borderColor = UIColor.textSecondary.cgColor
         imageBgView.layer.borderWidth = 1
         imageView.contentMode = .scaleAspectFit
         titleLabel.numberOfLines = 0

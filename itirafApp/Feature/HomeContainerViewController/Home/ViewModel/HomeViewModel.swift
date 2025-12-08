@@ -19,6 +19,7 @@ protocol HomeViewModelProtocol {
 
 protocol HomeViewModelOutputProtocol: AnyObject {
     func didUpdateConfessions(with data: [ConfessionData])
+    func didEmptyConfessions()
     func didFailToLikeMessage(with error: Error)
     func didFailWithError(_ error: Error)
 }
@@ -64,7 +65,12 @@ final class HomeViewModel {
             hasMoreData = currentPage < newConfessions.totalPages
             if hasMoreData { currentPage += 1 }
             
-            delegate?.didUpdateConfessions(with: confessions?.data ?? [])
+            let currentData = confessions?.data ?? []
+            if currentData.isEmpty {
+                delegate?.didEmptyConfessions()
+            } else {
+                delegate?.didUpdateConfessions(with: currentData)
+            }
             
         } catch {
             delegate?.didFailWithError(error)

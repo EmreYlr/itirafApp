@@ -18,6 +18,7 @@ protocol NotificationViewModelProtocol {
 
 protocol NotificationViewModelDelegate: AnyObject {
     func didUpdateNotifiaction(with data: [NotificationItem])
+    func didEmptyNotifications()
     func didFailUpdateNotification(with error: Error)
 }
 
@@ -62,7 +63,12 @@ final class NotificationViewModel {
             hasMoreData = currentPage < newNotification.totalPages
             if hasMoreData { currentPage += 1 }
             
-            delegate?.didUpdateNotifiaction(with: notifications?.data ?? [])
+            let currentData = notifications?.data ?? []
+            if currentData.isEmpty {
+                delegate?.didEmptyNotifications()
+            } else {
+                delegate?.didUpdateNotifiaction(with: currentData)
+            }
             
         } catch {
             delegate?.didFailUpdateNotification(with: error)
@@ -125,7 +131,11 @@ final class NotificationViewModel {
             }
             self.notifications?.data = updatedData
 
-            delegate?.didUpdateNotifiaction(with: updatedData)
+            if updatedData.isEmpty {
+                delegate?.didEmptyNotifications()
+            } else {
+                delegate?.didUpdateNotifiaction(with: updatedData)
+            }
             
         } catch {
             delegate?.didFailUpdateNotification(with: error)
@@ -136,12 +146,11 @@ final class NotificationViewModel {
         do {
             try await service.deleteAllNotifications()
             self.notifications?.data.removeAll()
-            delegate?.didUpdateNotifiaction(with: [])
+            delegate?.didEmptyNotifications()
         } catch {
             delegate?.didFailUpdateNotification(with: error)
         }
     }
 }
-
 
 extension NotificationViewModel: NotificationViewModelProtocol { }

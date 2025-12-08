@@ -71,33 +71,48 @@ final class FollowChannelViewController: UIViewController {
     
     @objc private func refreshChannels() {
         Task {
+            defer {
+                self.collectionView.refreshControl?.endRefreshing()
+            }
             await viewModel.getFollowedChannels()
         }
     }
 }
 
-extension FollowChannelViewController: FollowChannelViewModelDelegate {
+extension FollowChannelViewController: FollowChannelViewModelDelegate, EmptyStateDisplayable {
     func didUpdateFollowedChannels() {
         DispatchQueue.main.async {
-            if self.collectionView.sk.isSkeletonActive {
-                self.collectionView.stopSkeletonAnimation()
-                self.view.hideSkeleton()
-            }
-            
+            self.stopSkeletonLoading()
+            self.hideEmptyState(from: self.collectionView)
             self.collectionView.refreshControl?.endRefreshing()
             self.collectionView.reloadData()
         }
     }
     
+    func didEmptyFollowedChannels() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+            self.collectionView.refreshControl?.endRefreshing()
+            self.stopSkeletonLoading()
+            self.showEmptyState(type: .noFollowingChannels, in: self.collectionView) {
+                self.tabBarController?.selectedIndex = 1
+            }
+        }
+    }
+    
     func didFailWithError(_ error: any Error) {
         DispatchQueue.main.async {
-            if self.collectionView.sk.isSkeletonActive {
-                self.collectionView.stopSkeletonAnimation()
-                self.view.hideSkeleton()
-            }
-            
+            self.stopSkeletonLoading()
+            self.hideEmptyState(from: self.collectionView)
             self.collectionView.refreshControl?.endRefreshing()
             self.handleError(error)
+        }
+    }
+    
+    private func stopSkeletonLoading() {
+        if self.collectionView.sk.isSkeletonActive {
+            self.collectionView.stopSkeletonAnimation()
+            self.view.hideSkeleton()
         }
     }
 }

@@ -141,15 +141,23 @@ final class HomeViewController: UIViewController {
 }
 
 // MARK: - ViewModel Output
-extension HomeViewController: HomeViewModelOutputProtocol {
+extension HomeViewController: HomeViewModelOutputProtocol, EmptyStateDisplayable {
     func didUpdateConfessions(with data: [ConfessionData]) {
         DispatchQueue.main.async {
-            if self.collectionView.sk.isSkeletonActive {
-                self.collectionView.stopSkeletonAnimation()
-                self.view.hideSkeleton()
-            }
+            self.stopSkeletonLoading()
+            self.hideEmptyState(from: self.collectionView)
             self.updateSnapshot(with: data)
             self.collectionView.refreshControl?.endRefreshing()
+        }
+    }
+    
+    func didEmptyConfessions() {
+        DispatchQueue.main.async {
+            self.stopSkeletonLoading()
+            self.updateSnapshot(with: [])
+            self.showEmptyState(type: .noFollowingChannels, in: self.collectionView, action: {
+                self.tabBarController?.selectedIndex = 1
+            })
         }
     }
     
@@ -159,13 +167,17 @@ extension HomeViewController: HomeViewModelOutputProtocol {
     
     func didFailWithError(_ error: Error) {
         DispatchQueue.main.async {
-            if self.collectionView.sk.isSkeletonActive {
-                self.collectionView.stopSkeletonAnimation()
-                self.view.hideSkeleton()
-            }
-            
+            self.stopSkeletonLoading()
+            self.hideEmptyState(from: self.collectionView)
             self.collectionView.refreshControl?.endRefreshing()
             self.handleError(error)
+        }
+    }
+    
+    private func stopSkeletonLoading() {
+        if self.collectionView.sk.isSkeletonActive {
+            self.collectionView.stopSkeletonAnimation()
+            self.view.hideSkeleton()
         }
     }
 }

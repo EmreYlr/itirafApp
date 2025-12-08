@@ -248,26 +248,36 @@ final class NotificationViewController: UIViewController {
     }
 }
 
-extension NotificationViewController: NotificationViewModelDelegate {
+extension NotificationViewController: NotificationViewModelDelegate, EmptyStateDisplayable {
     func didUpdateNotifiaction(with data: [NotificationItem]) {
         DispatchQueue.main.async {
-            if self.collectionView.sk.isSkeletonActive {
-                self.collectionView.stopSkeletonAnimation()
-                self.view.hideSkeleton()
-            }
-            
+            self.stopSkeletonLoading()
+            self.hideEmptyState(from: self.collectionView)
             self.updateSnapshot(with: data)
+        }
+    }
+    
+    func didEmptyNotifications() {
+        DispatchQueue.main.async {
+            self.navigationItem.rightBarButtonItem?.isHidden = true
+            self.stopSkeletonLoading()
+            self.updateSnapshot(with: [])
+            self.showEmptyState(type: .noNotifications, in: self.collectionView)
         }
     }
     
     func didFailUpdateNotification(with error: any Error) {
         DispatchQueue.main.async {
-            if self.collectionView.sk.isSkeletonActive {
-                self.collectionView.stopSkeletonAnimation()
-                self.view.hideSkeleton()
-            }
-            
+            self.navigationItem.rightBarButtonItem?.isHidden = true
+            self.stopSkeletonLoading()
             self.handleError(error)
+        }
+    }
+    
+    private func stopSkeletonLoading() {
+        if self.collectionView.sk.isSkeletonActive {
+            self.collectionView.stopSkeletonAnimation()
+            self.view.hideSkeleton()
         }
     }
 }

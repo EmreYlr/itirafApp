@@ -89,9 +89,19 @@ final class RequestSentViewController: UIViewController {
     }
 }
 
-extension RequestSentViewController: RequestSentViewModelDelegate {
+extension RequestSentViewController: RequestSentViewModelDelegate, EmptyStateDisplayable {
     func didUpdateSentRequests() {
-        updateSnapshot(with: viewModel.sentRequests)
+        DispatchQueue.main.async {
+            self.hideEmptyState(from: self.collectionView)
+            self.updateSnapshot(with: self.viewModel.sentRequests)
+        }
+    }
+    
+    func didEmptySentRequests() {
+        DispatchQueue.main.async {
+            self.collectionView.refreshControl?.endRefreshing()
+            self.showEmptyState(type: .noSentRequestMessages, in: self.collectionView)
+        }
     }
     
     func didError(error: any Error) {

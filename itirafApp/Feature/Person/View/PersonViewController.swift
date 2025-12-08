@@ -93,10 +93,21 @@ final class PersonViewController: UIViewController {
     }
 }
 
-extension PersonViewController: PersonViewModelOutputProtocol {
+extension PersonViewController: PersonViewModelOutputProtocol, EmptyStateDisplayable {
     func didUpdateSocialLinks() {
-        self.collectionView.hideSkeleton()
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.hideSkeleton()
+            self.hideEmptyState(from: self.collectionView)
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func didEmptySocialLinks() {
+        DispatchQueue.main.async {
+            self.collectionView.hideSkeleton()
+            self.collectionView.reloadData()
+            self.showEmptyState(type: .noSocialMediaLinks, in: self.collectionView)
+        }
     }
     
     func didUserAnonymous() {
@@ -104,7 +115,10 @@ extension PersonViewController: PersonViewModelOutputProtocol {
     }
     
     func didFailSocialLinks(with error: any Error) {
-        self.collectionView.hideSkeleton()
-        print(error)
+        DispatchQueue.main.async {
+            self.hideEmptyState(from: self.collectionView)
+            self.collectionView.hideSkeleton()
+            print(error)
+        }
     }
 }

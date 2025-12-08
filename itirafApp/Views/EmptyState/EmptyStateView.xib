@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyStateView" customModule="itirafApp" customModuleProvider="target">
             <connections>
-                <outlet property="actionButton" destination="hZy-xu-mET" id="bTr-hW-0y0"/>
+                <outlet property="actionButton" destination="hZy-xu-mET" id="wDt-Yl-lrl"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="sef-jd-DD8"/>
                 <outlet property="imageBgView" destination="3cs-5y-y15" id="SZF-g4-n9b"/>
                 <outlet property="imageView" destination="7Wp-te-4Dl" id="sPv-Bu-qjl"/>
@@ -19,49 +19,52 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="421" height="329"/>
+            <rect key="frame" x="0.0" y="0.0" width="427" height="353"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Kog-Wr-nfk">
-                    <rect key="frame" x="135.66666666666666" y="42.333333333333329" width="149.99999999999997" height="244.66666666666669"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Kog-Wr-nfk">
+                    <rect key="frame" x="163.66666666666666" y="71.000000000000014" width="99.999999999999972" height="211.33333333333337"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cs-5y-y15">
-                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Wp-te-4Dl">
-                                    <rect key="frame" x="25" y="25" width="100" height="100"/>
+                                    <rect key="frame" x="10" y="10" width="80" height="80"/>
                                     <color key="tintColor" name="BrandSecondary"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="KAK-pW-FoB"/>
-                                        <constraint firstAttribute="height" constant="100" id="RBY-2I-ndl"/>
+                                        <constraint firstAttribute="width" constant="80" id="KAK-pW-FoB"/>
+                                        <constraint firstAttribute="height" constant="80" id="RBY-2I-ndl"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" name="BackgroundCard"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="150" id="3Zb-NP-W6R"/>
+                                <constraint firstAttribute="height" constant="100" id="3Zb-NP-W6R"/>
                                 <constraint firstItem="7Wp-te-4Dl" firstAttribute="centerY" secondItem="3cs-5y-y15" secondAttribute="centerY" id="DeL-s8-A6B"/>
-                                <constraint firstAttribute="width" constant="150" id="lmI-cc-yvV"/>
+                                <constraint firstAttribute="width" constant="100" id="lmI-cc-yvV"/>
                                 <constraint firstItem="7Wp-te-4Dl" firstAttribute="centerX" secondItem="3cs-5y-y15" secondAttribute="centerX" id="wb6-sf-CEz"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWb-Sg-uZ6">
-                            <rect key="frame" x="54.333333333333343" y="170" width="41.333333333333343" height="20.333333333333343"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="32.333333333333343" y="130" width="35.333333333333343" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" name="TextPrimary"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZy-xu-mET">
-                            <rect key="frame" x="37.333333333333343" y="210.33333333333331" width="75" height="34.333333333333343"/>
+                            <rect key="frame" x="12.333333333333343" y="177" width="75" height="34.333333333333343"/>
                             <color key="backgroundColor" name="BrandSecondary"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             <connections>
-                                <action selector="actionButtonTapped:" destination="-1" eventType="touchUpInside" id="zFQ-df-TbJ"/>
+                                <action selector="actionButtonTapped:" destination="-1" eventType="touchUpInside" id="B7a-iv-U7z"/>
                             </connections>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="3cs-5y-y15" firstAttribute="top" secondItem="Kog-Wr-nfk" secondAttribute="top" id="g8D-7n-KHd"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -73,7 +76,7 @@
                 <constraint firstItem="Kog-Wr-nfk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lnJ-t3-hWv"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="45.038167938931295" y="8.8028169014084519"/>
+            <point key="canvasLocation" x="2" y="46"/>
         </view>
     </objects>
     <resources>

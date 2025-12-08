@@ -15,6 +15,7 @@ protocol PersonViewModelProtocol {
 
 protocol PersonViewModelOutputProtocol: AnyObject {
     func didUpdateSocialLinks()
+    func didEmptySocialLinks()
     func didUserAnonymous()
     func didFailSocialLinks(with error: Error)
 }
@@ -37,14 +38,25 @@ final class PersonViewModel {
         
         if let socialLinks = UserManager.shared.getSocialLinks(), !socialLinks.isEmpty {
             let socialLinks = UserSocialLink(links: socialLinks)
+            if socialLinks.links.isEmpty {
+                delegate?.didEmptySocialLinks()
+                return
+            }
             self.socialLinks = socialLinks
             delegate?.didUpdateSocialLinks()
             return
         }
         
         do {
-            socialLinks = try await personService.getUserSocialLinks()
-            UserManager.shared.saveSocialLinks(socialLinks?.links ?? [])
+            let socialLinks = try await personService.getUserSocialLinks()
+            self.socialLinks = socialLinks
+            
+            if socialLinks.links.isEmpty {
+                delegate?.didEmptySocialLinks()
+                return
+            }
+            
+            UserManager.shared.saveSocialLinks(socialLinks.links)
             delegate?.didUpdateSocialLinks()
         } catch {
             delegate?.didFailSocialLinks(with: error)

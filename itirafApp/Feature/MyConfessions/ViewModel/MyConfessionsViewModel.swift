@@ -15,7 +15,8 @@ protocol MyConfessionsViewModelProtocol {
 }
 
 protocol MyConfessionsViewModelDelegate: AnyObject {
-    func didUpdateConfessions(with data: [MyConfessionData] )
+    func didUpdateConfessions(with data: [MyConfessionData])
+    func didEmptyConfessions()
     func didError(_ error: Error)
 }
 
@@ -56,7 +57,14 @@ final class MyConfessionsViewModel {
             hasMoreData = currentPage < newMyConfessions.totalPages
             if hasMoreData { currentPage += 1 }
             
-            delegate?.didUpdateConfessions(with: myConfession?.data ?? [])
+            let currentData = myConfession?.data ?? []
+            if currentData.isEmpty {
+                delegate?.didEmptyConfessions()
+            } else {
+                delegate?.didUpdateConfessions(with: currentData)
+            }
+            
+            
             
         } catch {
             delegate?.didError(error)

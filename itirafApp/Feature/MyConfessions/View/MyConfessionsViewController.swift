@@ -13,7 +13,7 @@ final class MyConfessionsViewController: UIViewController {
     
     var viewModel: MyConfessionsViewModelProtocol
     var dataSource: MyConfessionDiffableDataSource!
-
+    
     required init?(coder: NSCoder) {
         self.viewModel = MyConfessionsViewModel()
         super.init(coder: coder)
@@ -27,6 +27,7 @@ final class MyConfessionsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
         initData()
     }
     
@@ -109,28 +110,41 @@ final class MyConfessionsViewController: UIViewController {
     }
 }
 
-extension MyConfessionsViewController: MyConfessionsViewModelDelegate {
+extension MyConfessionsViewController: MyConfessionsViewModelDelegate, EmptyStateDisplayable {
     func didUpdateConfessions(with data: [MyConfessionData]) {
         DispatchQueue.main.async {
-            if self.collectionView.sk.isSkeletonActive {
-                self.collectionView.stopSkeletonAnimation()
-                self.view.hideSkeleton()
-            }
-            
+            self.stopSkeletonLoading()
+            self.hideEmptyState(from: self.collectionView)
             self.updateSnapshot(with: data)
             self.collectionView.refreshControl?.endRefreshing()
         }
     }
     
+    func didEmptyConfessions() {
+        DispatchQueue.main.async {
+            self.collectionView.refreshControl?.endRefreshing()
+            self.stopSkeletonLoading()
+            self.updateSnapshot(with: [])
+            self.showEmptyState(type: .noMyConfessions, in: self.collectionView) {
+                let postConfessionVC: PostConfessionViewController = Storyboard.post.instantiate(.postConfession)
+                self.navigationController?.pushViewController(postConfessionVC, animated: true)
+            }
+        }
+    }
+    
     func didError(_ error: Error) {
         DispatchQueue.main.async {
-            if self.collectionView.sk.isSkeletonActive {
-                self.collectionView.stopSkeletonAnimation()
-                self.view.hideSkeleton()
-            }
-            
+            self.stopSkeletonLoading()
+            self.hideEmptyState(from: self.collectionView)
             self.handleError(error)
             self.collectionView.refreshControl?.endRefreshing()
+        }
+    }
+    
+    private func stopSkeletonLoading() {
+        if self.collectionView.sk.isSkeletonActive {
+            self.collectionView.stopSkeletonAnimation()
+            self.view.hideSkeleton()
         }
     }
 }

@@ -18,6 +18,7 @@ protocol FollowChannelViewModelProtocol {
 
 protocol FollowChannelViewModelDelegate: AnyObject {
     func didUpdateFollowedChannels()
+    func didEmptyFollowedChannels()
     func didFailWithError(_ error: Error)
 }
 
@@ -39,7 +40,12 @@ final class FollowChannelViewModel {
         do {
             let channels = try await service.getFollowedChannels()
             followManager.updateCache(with: channels)
-
+            if channels.isEmpty {
+                self.followedChannels = []
+                self.filterFollowedChannels = []
+                delegate?.didEmptyFollowedChannels()
+                return
+            }
             self.followedChannels = channels
             self.filterFollowedChannels = channels
             delegate?.didUpdateFollowedChannels()
