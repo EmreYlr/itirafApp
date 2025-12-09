@@ -19,22 +19,17 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        
-        window.overrideUserInterfaceStyle = ThemeManager.shared.currentTheme.userInterfaceStyle
-        
-        let onboardingNav = Storyboard.onboarding.instantiate(.onboarding)
-        window.rootViewController = onboardingNav
-        
-        window.makeKeyAndVisible()
         self.window = window
         
-//        self.appCoordinator = AppCoordinator(window: window)
-//        
-//        self.appCoordinator?.start()
-//        
-//        if let userActivity = connectionOptions.userActivities.first(where: { $0.activityType == NSUserActivityTypeBrowsingWeb }) {
-//            appCoordinator?.handleUserActivity(userActivity)
-//        }
+        window.overrideUserInterfaceStyle = ThemeManager.shared.currentTheme.userInterfaceStyle
+                
+        self.appCoordinator = AppCoordinator(window: window)
+        
+        self.appCoordinator?.start()
+        
+        if let userActivity = connectionOptions.userActivities.first(where: { $0.activityType == NSUserActivityTypeBrowsingWeb }) {
+            appCoordinator?.handleUserActivity(userActivity)
+        }
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {

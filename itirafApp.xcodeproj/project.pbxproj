@@ -80,6 +80,7 @@
 		C38466002ED5DB5300FD370A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38465FF2ED5DB5300FD370A /* Login.storyboard */; };
 		C38466042ED5DCE300FD370A /* Moderation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38466032ED5DCE300FD370A /* Moderation.storyboard */; };
 		C38466082ED5DD0600FD370A /* ModerationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38466072ED5DD0600FD370A /* ModerationCollectionViewCell.xib */; };
+		C38BEFDE2EE86EF200773E31 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BEFDD2EE86EF200773E31 /* NotificationManager.swift */; };
 		C38EAA9D2EBF4FF400A1818C /* ViolationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAA9C2EBF4FF400A1818C /* ViolationsViewController.swift */; };
 		C38EAAB02EBFB38100A1818C /* RegisterDeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */; };
 		C38EAAB12EBFB38100A1818C /* DeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */; };
@@ -359,6 +360,7 @@
 		C38466052ED5DCE300FD370A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Moderation.xcstrings; sourceTree = "<group>"; };
 		C38466062ED5DD0600FD370A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ModerationCollectionViewCell.xib; sourceTree = "<group>"; };
 		C38466092ED5DD0600FD370A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ModerationCollectionViewCell.xcstrings; sourceTree = "<group>"; };
+		C38BEFDD2EE86EF200773E31 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		C38EAA9C2EBF4FF400A1818C /* ViolationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolationsViewController.swift; sourceTree = "<group>"; };
 		C38EAAA92EBFB36100A1818C /* itirafApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = itirafApp.entitlements; sourceTree = "<group>"; };
 		C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDeviceRequest.swift; sourceTree = "<group>"; };
@@ -959,6 +961,14 @@
 			path = FollowManager;
 			sourceTree = "<group>";
 		};
+		C38BEFDC2EE86EEB00773E31 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				C38BEFDD2EE86EF200773E31 /* NotificationManager.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		C38EAAAC2EBFB38100A1818C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1351,6 +1361,7 @@
 		C3A7A42F2EA9586400250B06 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C38BEFDC2EE86EEB00773E31 /* Notification */,
 				C3FAE9652EE5942A003542CD /* Theme */,
 				C3BA53402ED9979D00EC6413 /* Clarity */,
 				C37F9E2D2EC8E6A20042B56F /* FollowManager */,
@@ -2900,6 +2911,7 @@
 				C3EB10772E744115002DA295 /* AppDelegate.swift in Sources */,
 				C3528F2B2EBB728D00FF1C19 /* ModerationViewModel.swift in Sources */,
 				C3A7509F2EB623540058163B /* RequestMessageCollectionViewCell.swift in Sources */,
+				C38BEFDE2EE86EF200773E31 /* NotificationManager.swift in Sources */,
 				C3D764C22E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift in Sources */,
 				C3BE191E2ECA126B0053C9A9 /* ChannelSelectionViewController.swift in Sources */,
 				C3BA534B2EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.swift in Sources */,

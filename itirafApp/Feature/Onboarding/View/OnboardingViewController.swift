@@ -15,6 +15,7 @@ final class OnboardingViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     var viewModel: OnboardingViewModelProtocol
+    var didFinishOnboarding: (() -> Void)?
     
     var currentPage = 0 {
         didSet {
@@ -117,10 +118,14 @@ final class OnboardingViewController: UIViewController {
         let indexPath = IndexPath(item: index, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
+    
+    func handleOnboardingCompletion() {
+        didFinishOnboarding?()
+    }
 }
 
 extension OnboardingViewController: OnboardingViewModelDelegate {
     func didCompleteOnboarding() {
-        print("Onboarding Bitti! Ana sayfaya geçiliyor...")
+        handleOnboardingCompletion()
     }
 }

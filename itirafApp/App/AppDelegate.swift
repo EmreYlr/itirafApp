@@ -23,24 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        
         FirebaseApp.configure()
+        ClarityManager.shared.setup()
         
         UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-            if granted {
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            } else {
-                print("Bildirim izni reddedildi.")
-            }
-            NotificationCenter.default.post(
-                name: .didCompleteNotificationRequest,
-                object: nil
-            )
-        }
-        
-        ClarityManager.shared.setup()
         
         return true
     }

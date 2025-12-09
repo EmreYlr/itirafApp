@@ -18,7 +18,7 @@ protocol OnboardingViewModelDelegate: AnyObject {
 
 final class OnboardingViewModel {
     weak var delegate: OnboardingViewModelDelegate?
-
+    
     private var slides: [OnboardingSlide] = []
     
     init() {

@@ -19,9 +19,35 @@ final class AppCoordinator {
     
     func start() {
         configureCrashlyticsIdentity()
-        
         setupNotificationObservers()
-//        setupNavigationBarAppearance()
+        //setupNavigationBarAppearance()
+        
+        if shouldShowOnboarding() {
+            showOnboarding()
+        } else {
+            startMainFlow()
+        }
+        
+        window.makeKeyAndVisible()
+    }
+    
+    private func shouldShowOnboarding() -> Bool {
+        return !UserDefaults.standard.bool(forKey: UserDefaults.Keys.hasSeenOnboarding.rawValue)
+    }
+    
+    private func showOnboarding() {
+        let onboardingVC: OnboardingViewController = Storyboard.onboarding.instantiate(.onboarding)
+        onboardingVC.viewModel = OnboardingViewModel()
+        onboardingVC.didFinishOnboarding = { [weak self] in
+            guard let self = self else { return }
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.hasSeenOnboarding.rawValue)
+            self.startMainFlow()
+        }
+        window.rootViewController = onboardingVC
+    }
+    
+    private func startMainFlow() {
+        NotificationManager.shared.requestNotificationPermission()
         
         if !UserManager.shared.getUserIsAnonymous() {
             showHomeController()
@@ -38,8 +64,6 @@ final class AppCoordinator {
                 }
             }
         }
-        
-        window.makeKeyAndVisible()
     }
     
     private func configureCrashlyticsIdentity() {
@@ -87,9 +111,9 @@ final class AppCoordinator {
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .systemBackground
         appearance.titleTextAttributes = [.foregroundColor: UIColor.label]
-
+        
         UINavigationBar.appearance().tintColor = .label
-
+        
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
