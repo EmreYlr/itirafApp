@@ -48,5 +48,7 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<key>UIPrefersShowingLanguageSettings</key>
+	<true/>
 </dict>
 </plist>
