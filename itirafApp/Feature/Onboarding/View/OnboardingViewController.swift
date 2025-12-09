@@ -63,6 +63,7 @@ final class OnboardingViewController: UIViewController {
         backButton.layer.cornerRadius = 8
         nextButton.backgroundColor = .brandPrimary.withAlphaComponent(0.2)
         nextButton.layer.cornerRadius = 8
+        nextButton.setTitle("common_next".localized, for: .normal)
         
         pageController.numberOfPages = viewModel.numberOfSlides
         updateUI()
