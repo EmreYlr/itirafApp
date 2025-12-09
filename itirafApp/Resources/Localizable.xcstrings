@@ -3689,6 +3689,176 @@
         }
       }
     },
+    "terms_accept_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I have read and accept the above conditions."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yukarıdaki koşulları okudum ve kabul ediyorum."
+          }
+        }
+      }
+    },
+    "terms_conduct_content" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All content is purely for humor and entertainment purposes."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tüm içerik tamamen mizah ve eğlence amaçlıdır."
+          }
+        }
+      }
+    },
+    "terms_conduct_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For Entertainment"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eğlence Amaçlı"
+          }
+        }
+      }
+    },
+    "terms_detail_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy and Terms of Use"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gizlilik Politikası ve Kullanım Şartları"
+          }
+        }
+      }
+    },
+    "terms_privacy_content" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app is intended for adults (+18). It may contain sensitive content."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu uygulama yetişkinlere (+18) yöneliktir. Hassas içerikler barındırabilir."
+          }
+        }
+      }
+    },
+    "terms_privacy_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adult Content (+18)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yetişkin İçerik (+18)"
+          }
+        }
+      }
+    },
+    "terms_service_content" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "None of the confessions or content here have any official connection to real life, institutions, or individuals."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Burada okuyacağın hiçbir itirafın gerçek hayatla, kurumlarla veya şahıslarla resmi bir bağlantısı yoktur."
+          }
+        }
+      }
+    },
+    "terms_service_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legal Disclaimer"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yasal Uyarı"
+          }
+        }
+      }
+    },
+    "terms_show_app_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go to Application"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulamaya Git"
+          }
+        }
+      }
+    },
+    "terms_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Use"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kullanım Şartları"
+          }
+        }
+      }
+    },
     "theme.dark" : {
       "extractionState" : "manual",
       "localizations" : {

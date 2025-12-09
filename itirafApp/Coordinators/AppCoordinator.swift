@@ -24,6 +24,8 @@ final class AppCoordinator {
         
         if shouldShowOnboarding() {
             showOnboarding()
+        } else if !hasAcceptedTerms() {
+            showTerms()
         } else {
             startMainFlow()
         }
@@ -32,7 +34,11 @@ final class AppCoordinator {
     }
     
     private func shouldShowOnboarding() -> Bool {
-        return !UserDefaults.standard.bool(forKey: UserDefaults.Keys.hasSeenOnboarding.rawValue)
+        return !UserDefaults.standard.bool(forKey: .hasSeenOnboarding)
+    }
+    
+    private func hasAcceptedTerms() -> Bool {
+        return UserDefaults.standard.bool(forKey: .hasAcceptedTerms)
     }
     
     private func showOnboarding() {
@@ -40,10 +46,31 @@ final class AppCoordinator {
         onboardingVC.viewModel = OnboardingViewModel()
         onboardingVC.didFinishOnboarding = { [weak self] in
             guard let self = self else { return }
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.hasSeenOnboarding.rawValue)
-            self.startMainFlow()
+            UserDefaults.standard.set(true, forKey: .hasSeenOnboarding)
+            self.showTerms()
         }
         window.rootViewController = onboardingVC
+    }
+    
+    private func showTerms() {
+        let termsVC: TermsViewController = Storyboard.terms.instantiate(.terms)
+        
+        termsVC.didFinishTerms = { [weak self] in
+            guard let self = self else { return }
+            self.startMainFlow()
+        }
+        
+        if window.rootViewController != nil {
+            termsVC.modalTransitionStyle = .crossDissolve
+            termsVC.modalPresentationStyle = .fullScreen
+            
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                self.window.rootViewController = termsVC
+            }, completion: nil)
+            
+        } else {
+            window.rootViewController = termsVC
+        }
     }
     
     private func startMainFlow() {
