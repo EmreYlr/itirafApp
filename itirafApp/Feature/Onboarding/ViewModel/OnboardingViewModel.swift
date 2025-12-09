@@ -7,15 +7,34 @@
 
 protocol OnboardingViewModelProtocol {
     var delegate: OnboardingViewModelDelegate? { get set }
+    var numberOfSlides: Int { get }
+    func getSlide(at index: Int) -> OnboardingSlide
 }
 
 protocol OnboardingViewModelDelegate: AnyObject {
     func didCompleteOnboarding()
-    func didError(_ error: Error)
 }
 
 final class OnboardingViewModel {
     weak var delegate: OnboardingViewModelDelegate?
+
+    private var slides: [OnboardingSlide] = []
+    
+    init() {
+        slides = [
+            OnboardingSlide(title: "onboarding_slide1_title".localized, description: "onboarding_slide1_desc".localized, imageName: "onboarding_1_icon"),
+            OnboardingSlide(title: "onboarding_slide2_title".localized, description: "onboarding_slide2_desc".localized, imageName: "onboarding_2_icon"),
+            OnboardingSlide(title: "onboarding_slide3_title".localized, description: "onboarding_slide3_desc".localized, imageName: "onboarding_3_icon")
+        ]
+    }
+    
+    var numberOfSlides: Int {
+        return slides.count
+    }
+    
+    func getSlide(at index: Int) -> OnboardingSlide {
+        return slides[index]
+    }
 }
 
 extension OnboardingViewModel: OnboardingViewModelProtocol { }

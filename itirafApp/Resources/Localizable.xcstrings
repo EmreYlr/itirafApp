@@ -443,6 +443,57 @@
         }
       }
     },
+    "common_back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geri"
+          }
+        }
+      }
+    },
+    "common_next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İleri"
+          }
+        }
+      }
+    },
+    "common_start" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get Started"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başla"
+          }
+        }
+      }
+    },
     "confession.button.edit" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2716,6 +2767,108 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bildirimler"
+          }
+        }
+      }
+    },
+    "onboarding_slide1_desc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No identities exist here. Feel the freedom in a world where everyone is 100% anonymous."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu dünyada kimlikler yok. Herkesin %100 anonim olduğu bu ortamda, özgürlüğü hisset."
+          }
+        }
+      }
+    },
+    "onboarding_slide1_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "100% Anonymous World\""
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%100 Anonim Dünya"
+          }
+        }
+      }
+    },
+    "onboarding_slide2_desc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discover the inner worlds and secrets of those around you. Read carefully; maybe that anonymous confession was actually written about you?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çevrendekilerin iç dünyasını ve sakladıkları sırları keşfet. Dikkatli oku; belki de anonim olarak paylaşılan o itiraf, tam da senin hakkında yazılmıştır?"
+          }
+        }
+      }
+    },
+    "onboarding_slide2_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Might Be a Familiar Story"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tanıdık Bir Hikaye Olabilir"
+          }
+        }
+      }
+    },
+    "onboarding_slide3_desc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intrigued by a confession? Start a one-on-one, completely private chat with the author. No third party will ever see this conversation."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir itiraf ilgini mi çekti? Sahibiyle birebir ve tamamen gizli bir sohbete başla. Bu konuşmayı üçüncü bir kişi asla göremez."
+          }
+        }
+      }
+    },
+    "onboarding_slide3_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Just Between You Two"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sadece İkiniz Arasında"
           }
         }
       }

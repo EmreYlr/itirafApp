@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hQ5-AB-Z1F">
-                                <rect key="frame" x="0.0" y="128" width="393" height="465"/>
+                                <rect key="frame" x="0.0" y="138" width="393" height="450"/>
                                 <color key="backgroundColor" name="BackgroundApp"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hgq-hn-aCx">
                                     <size key="itemSize" width="128" height="128"/>
@@ -27,11 +27,13 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mcy-YA-NSY">
-                                <rect key="frame" x="160" y="613" width="73" height="26"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mcy-YA-NSY">
+                                <rect key="frame" x="160" y="598" width="73" height="26"/>
+                                <color key="pageIndicatorTintColor" name="BackgroundCard"/>
+                                <color key="currentPageIndicatorTintColor" name="BrandPrimary"/>
                             </pageControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYd-4h-poi" userLabel="buttonView">
-                                <rect key="frame" x="0.0" y="719" width="393" height="65"/>
+                                <rect key="frame" x="0.0" y="704" width="393" height="65"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gP-wU-3aS">
                                         <rect key="frame" x="15" y="10" width="170" height="45"/>
@@ -54,7 +56,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="3Rg-mV-sOB"/>
                                             <constraint firstAttribute="height" constant="45" id="GFk-d5-bCO"/>
                                         </constraints>
-                                        <color key="tintColor" name="BrandPrimary"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="İleri">
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -80,13 +82,13 @@
                         <constraints>
                             <constraint firstItem="zYd-4h-poi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2oT-zO-iqP"/>
                             <constraint firstItem="hQ5-AB-Z1F" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DuE-TS-nND"/>
-                            <constraint firstItem="mcy-YA-NSY" firstAttribute="top" secondItem="hQ5-AB-Z1F" secondAttribute="bottom" constant="20" id="KL5-BS-sCy"/>
-                            <constraint firstItem="hQ5-AB-Z1F" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="MHK-Za-aTL"/>
+                            <constraint firstItem="mcy-YA-NSY" firstAttribute="top" secondItem="hQ5-AB-Z1F" secondAttribute="bottom" constant="10" id="KL5-BS-sCy"/>
+                            <constraint firstItem="hQ5-AB-Z1F" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="MHK-Za-aTL"/>
                             <constraint firstItem="zYd-4h-poi" firstAttribute="top" secondItem="mcy-YA-NSY" secondAttribute="bottom" constant="80" id="UBw-0G-IgS"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hQ5-AB-Z1F" secondAttribute="trailing" id="V7x-Ku-lZh"/>
                             <constraint firstItem="mcy-YA-NSY" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="h7I-dS-QCz"/>
                             <constraint firstItem="zYd-4h-poi" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="imU-Bm-iki"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="zYd-4h-poi" secondAttribute="bottom" id="yJK-zf-VSV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="zYd-4h-poi" secondAttribute="bottom" constant="15" id="yJK-zf-VSV"/>
                         </constraints>
                     </view>
                     <connections>
@@ -104,6 +106,9 @@
     <resources>
         <namedColor name="BackgroundApp">
             <color red="0.97299998998641968" green="0.97600001096725464" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundCard">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BrandPrimary">
             <color red="0.42399999499320984" green="0.36100000143051147" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
