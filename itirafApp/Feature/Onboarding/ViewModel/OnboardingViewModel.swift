@@ -9,6 +9,7 @@ protocol OnboardingViewModelProtocol {
     var delegate: OnboardingViewModelDelegate? { get set }
     var numberOfSlides: Int { get }
     func getSlide(at index: Int) -> OnboardingSlide
+    func handleNextAction(currentIndex: Int) -> Int?
 }
 
 protocol OnboardingViewModelDelegate: AnyObject {
@@ -34,6 +35,15 @@ final class OnboardingViewModel {
     
     func getSlide(at index: Int) -> OnboardingSlide {
         return slides[index]
+    }
+    
+    func handleNextAction(currentIndex: Int) -> Int? {
+        if currentIndex == slides.count - 1 {
+            delegate?.didCompleteOnboarding()
+            return nil
+        } else {
+            return currentIndex + 1
+        }
     }
 }
 

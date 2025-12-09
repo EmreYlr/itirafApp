@@ -86,10 +86,10 @@ final class OnboardingViewController: UIViewController {
                 }
             }
         }
-
+        
         let targetTitle = (currentPage == viewModel.numberOfSlides - 1) ? "common_start".localized : "common_next".localized
         if nextButton.title(for: .normal) != targetTitle {
-
+            
             UIView.transition(with: nextButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
                 
                 self.nextButton.setTitle(targetTitle, for: .normal)
@@ -105,14 +105,14 @@ final class OnboardingViewController: UIViewController {
             scrollToIndex(index: currentPage)
         }
     }
+    
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-        if currentPage == viewModel.numberOfSlides - 1 {
-            viewModel.delegate?.didCompleteOnboarding()
-        } else {
-            currentPage += 1
+        if let nextIndex = viewModel.handleNextAction(currentIndex: currentPage) {
+            currentPage = nextIndex
             scrollToIndex(index: currentPage)
         }
     }
+    
     private func scrollToIndex(index: Int) {
         let indexPath = IndexPath(item: index, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
