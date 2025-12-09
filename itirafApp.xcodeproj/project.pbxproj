@@ -41,6 +41,13 @@
 		C36B03472EE70D890049F7FD /* EmptyStateDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B03462EE70D860049F7FD /* EmptyStateDisplayable.swift */; };
 		C36B034B2EE7129D0049F7FD /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B034A2EE7129D0049F7FD /* EmptyStateView.swift */; };
 		C36B034F2EE713140049F7FD /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36B034E2EE713140049F7FD /* EmptyStateView.xib */; };
+		C36B03562EE83AE50049F7FD /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B03552EE83ADF0049F7FD /* OnboardingSlide.swift */; };
+		C36B03582EE83B320049F7FD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B03572EE83B320049F7FD /* OnboardingViewController.swift */; };
+		C36B035A2EE83B530049F7FD /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B03592EE83B520049F7FD /* OnboardingViewModel.swift */; };
+		C36B035C2EE83BDF0049F7FD /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36B035B2EE83BDF0049F7FD /* Onboarding.storyboard */; };
+		C36B03602EE83C6B0049F7FD /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B035E2EE83C6B0049F7FD /* OnboardingCollectionViewCell.swift */; };
+		C36B03612EE83C6B0049F7FD /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36B035F2EE83C6B0049F7FD /* OnboardingCollectionViewCell.xib */; };
+		C36B03632EE83CF30049F7FD /* OnboardingViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B03622EE83CE90049F7FD /* OnboardingViewController+CollectionView.swift */; };
 		C36EB91F2EDF235E00A7276E /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36EB91E2EDF235E00A7276E /* Post.storyboard */; };
 		C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5BB82E7983030068F334 /* Storyboard.swift */; };
 		C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5C762E7990D20068F334 /* LoginViewModel.swift */; };
@@ -299,6 +306,13 @@
 		C36B03462EE70D860049F7FD /* EmptyStateDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateDisplayable.swift; sourceTree = "<group>"; };
 		C36B034A2EE7129D0049F7FD /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		C36B034E2EE713140049F7FD /* EmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
+		C36B03552EE83ADF0049F7FD /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		C36B03572EE83B320049F7FD /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		C36B03592EE83B520049F7FD /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		C36B035B2EE83BDF0049F7FD /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		C36B035E2EE83C6B0049F7FD /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		C36B035F2EE83C6B0049F7FD /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
+		C36B03622EE83CE90049F7FD /* OnboardingViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		C36EB91D2EDF235E00A7276E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		C36EB9202EDF235E00A7276E /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Post.xcstrings; sourceTree = "<group>"; };
 		C37D5BB82E7983030068F334 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
@@ -792,6 +806,60 @@
 				C36B034E2EE713140049F7FD /* EmptyStateView.xib */,
 			);
 			path = EmptyState;
+			sourceTree = "<group>";
+		};
+		C36B03502EE83AA40049F7FD /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C36B03542EE83AC80049F7FD /* Storyboard */,
+				C36B03532EE83AC40049F7FD /* Model */,
+				C36B03522EE83ABE0049F7FD /* View */,
+				C36B03512EE83AB40049F7FD /* ViewModel */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C36B03512EE83AB40049F7FD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C36B03592EE83B520049F7FD /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C36B03522EE83ABE0049F7FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C36B035D2EE83C460049F7FD /* SubView */,
+				C36B03572EE83B320049F7FD /* OnboardingViewController.swift */,
+				C36B03622EE83CE90049F7FD /* OnboardingViewController+CollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C36B03532EE83AC40049F7FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C36B03552EE83ADF0049F7FD /* OnboardingSlide.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C36B03542EE83AC80049F7FD /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C36B035B2EE83BDF0049F7FD /* Onboarding.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C36B035D2EE83C460049F7FD /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				C36B035E2EE83C6B0049F7FD /* OnboardingCollectionViewCell.swift */,
+				C36B035F2EE83C6B0049F7FD /* OnboardingCollectionViewCell.xib */,
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 		C36EB91A2EDF157700A7276E /* Storyboard */ = {
@@ -2182,6 +2250,7 @@
 		C3EB107F2E74412B002DA295 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				C36B03502EE83AA40049F7FD /* Onboarding */,
 				C3C173B72EC5EA6200D27383 /* HomeContainerViewController */,
 				C3D764C62E95380200104C3B /* Channel */,
 				C3F39E0C2EA0264700197509 /* PostConfession */,
@@ -2568,6 +2637,7 @@
 				C36B03412EE5B51D0049F7FD /* ChannelDetailHeaderCollectionViewCell.xib in Resources */,
 				C38465E02ED5D92100FD370A /* Chat.storyboard in Resources */,
 				C3D764C32E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib in Resources */,
+				C36B035C2EE83BDF0049F7FD /* Onboarding.storyboard in Resources */,
 				C38465FC2ED5DB3A00FD370A /* NotificationSettings.storyboard in Resources */,
 				C38EAABE2EC0BDFA00A1818C /* GoogleService-Info.plist in Resources */,
 				C3DF502D2ED4A507003D5FB8 /* ForgotPassword.storyboard in Resources */,
@@ -2578,6 +2648,7 @@
 				C3A7A4292EA9484000250B06 /* DirectMessageCollectionViewCell.xib in Resources */,
 				C3528F142EB8FAA200FF1C19 /* RequestSentCollectionViewCell.xib in Resources */,
 				C3BE19902ED48B5B0053C9A9 /* Localizable.xcstrings in Resources */,
+				C36B03612EE83C6B0049F7FD /* OnboardingCollectionViewCell.xib in Resources */,
 				C38466042ED5DCE300FD370A /* Moderation.storyboard in Resources */,
 				C38466002ED5DB5300FD370A /* Login.storyboard in Resources */,
 				C3BA534A2EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.xib in Resources */,
@@ -2689,6 +2760,7 @@
 				C3BE19522ECC9FDA0053C9A9 /* NotificationHeaderView.swift in Sources */,
 				C3FAE9642EE45353003542CD /* UICollectionViewLayout+Extensions.swift in Sources */,
 				C3A750C12EB695130058163B /* RequestBottomSheetService.swift in Sources */,
+				C36B035A2EE83B530049F7FD /* OnboardingViewModel.swift in Sources */,
 				C3E6603A2EB373710059048F /* EditConfessionService.swift in Sources */,
 				C326DD4D2E8EE2A8001B7837 /* UserManager.swift in Sources */,
 				C3528F312EBB798F00FF1C19 /* ModerationViewController+CollectionView.swift in Sources */,
@@ -2777,6 +2849,7 @@
 				C37D5DF22E84256A0068F334 /* NSNotification+Extension.swift in Sources */,
 				C3BE197E2ED2153F0053C9A9 /* AuthError.swift in Sources */,
 				C3A7A41D2EA9443B00250B06 /* DirectMessageViewController.swift in Sources */,
+				C36B03602EE83C6B0049F7FD /* OnboardingCollectionViewCell.swift in Sources */,
 				C3BA53462EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift in Sources */,
 				C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */,
 				C3528F0E2EB8F04D00FF1C19 /* RequestSentModel.swift in Sources */,
@@ -2802,8 +2875,10 @@
 				C38EAAC82EC1F3A400A1818C /* CrashlyticsManager.swift in Sources */,
 				C3E660422EB399060059048F /* MyConfessionDetailViewController.swift in Sources */,
 				C3A750892EB511E00058163B /* SettingsViewController+CollectionView.swift in Sources */,
+				C36B03632EE83CF30049F7FD /* OnboardingViewController+CollectionView.swift in Sources */,
 				C3C173EC2EC882FB00D27383 /* FollowChannelViewController.swift in Sources */,
 				C3BE19762ECFB5CE0053C9A9 /* NotificationEventType.swift in Sources */,
+				C36B03582EE83B320049F7FD /* OnboardingViewController.swift in Sources */,
 				C37D5DF02E841DD50068F334 /* KeychainHelper.swift in Sources */,
 				C3A7A4242EA944F100250B06 /* DirectMessageService.swift in Sources */,
 				C3A750752EB4C9510058163B /* EditSocialService.swift in Sources */,
@@ -2812,6 +2887,7 @@
 				C36B03472EE70D890049F7FD /* EmptyStateDisplayable.swift in Sources */,
 				C3528F362EBB79B700FF1C19 /* ModerationCollectionViewCell.swift in Sources */,
 				C3E660232EB24E700059048F /* MyConfessionsService.swift in Sources */,
+				C36B03562EE83AE50049F7FD /* OnboardingSlide.swift in Sources */,
 				C3A7A4352EAA286400250B06 /* ChatViewController.swift in Sources */,
 				C3A750832EB509E90058163B /* SettingsViewModel.swift in Sources */,
 				C3C173F62EC8964D00D27383 /* FollowChannelViewController+SerachBar.swift in Sources */,

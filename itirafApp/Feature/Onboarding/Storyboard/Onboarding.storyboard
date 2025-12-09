@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingViewController" id="Y6W-OH-hqX" customClass="OnboardingViewController" customModule="itirafApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hQ5-AB-Z1F">
+                                <rect key="frame" x="0.0" y="128" width="393" height="465"/>
+                                <color key="backgroundColor" name="BackgroundApp"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hgq-hn-aCx">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mcy-YA-NSY">
+                                <rect key="frame" x="160" y="613" width="73" height="26"/>
+                            </pageControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYd-4h-poi" userLabel="buttonView">
+                                <rect key="frame" x="0.0" y="719" width="393" height="65"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gP-wU-3aS">
+                                        <rect key="frame" x="15" y="10" width="170" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="VyK-2C-xLB"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="opr-jT-T3i"/>
+                                        </constraints>
+                                        <color key="tintColor" name="TextSecondary"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Geri">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="a6C-g8-Jiv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptf-Zk-R55">
+                                        <rect key="frame" x="208" y="10" width="170" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="3Rg-mV-sOB"/>
+                                            <constraint firstAttribute="height" constant="45" id="GFk-d5-bCO"/>
+                                        </constraints>
+                                        <color key="tintColor" name="BrandPrimary"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="İleri">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="nextButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="khW-XT-dsm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="BackgroundApp"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ptf-Zk-R55" secondAttribute="trailing" constant="15" id="A9N-1M-ber"/>
+                                    <constraint firstItem="Ptf-Zk-R55" firstAttribute="centerY" secondItem="zYd-4h-poi" secondAttribute="centerY" id="FBu-rR-7G3"/>
+                                    <constraint firstItem="3gP-wU-3aS" firstAttribute="centerY" secondItem="zYd-4h-poi" secondAttribute="centerY" id="MLN-ic-8cf"/>
+                                    <constraint firstItem="Ptf-Zk-R55" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3gP-wU-3aS" secondAttribute="trailing" constant="15" id="cxq-dr-GlY"/>
+                                    <constraint firstAttribute="height" constant="65" id="dam-u5-NUi"/>
+                                    <constraint firstItem="3gP-wU-3aS" firstAttribute="leading" secondItem="zYd-4h-poi" secondAttribute="leading" constant="15" id="qbv-dN-HWJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="BackgroundApp"/>
+                        <constraints>
+                            <constraint firstItem="zYd-4h-poi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2oT-zO-iqP"/>
+                            <constraint firstItem="hQ5-AB-Z1F" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DuE-TS-nND"/>
+                            <constraint firstItem="mcy-YA-NSY" firstAttribute="top" secondItem="hQ5-AB-Z1F" secondAttribute="bottom" constant="20" id="KL5-BS-sCy"/>
+                            <constraint firstItem="hQ5-AB-Z1F" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="MHK-Za-aTL"/>
+                            <constraint firstItem="zYd-4h-poi" firstAttribute="top" secondItem="mcy-YA-NSY" secondAttribute="bottom" constant="80" id="UBw-0G-IgS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hQ5-AB-Z1F" secondAttribute="trailing" id="V7x-Ku-lZh"/>
+                            <constraint firstItem="mcy-YA-NSY" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="h7I-dS-QCz"/>
+                            <constraint firstItem="zYd-4h-poi" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="imU-Bm-iki"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="zYd-4h-poi" secondAttribute="bottom" id="yJK-zf-VSV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="3gP-wU-3aS" id="Rbm-gz-v5z"/>
+                        <outlet property="collectionView" destination="hQ5-AB-Z1F" id="G3l-oI-tOk"/>
+                        <outlet property="nextButton" destination="Ptf-Zk-R55" id="36a-ia-Zb6"/>
+                        <outlet property="pageController" destination="mcy-YA-NSY" id="xfJ-wT-FMa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="92"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="BackgroundApp">
+            <color red="0.97299998998641968" green="0.97600001096725464" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrandPrimary">
+            <color red="0.42399999499320984" green="0.36100000143051147" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextSecondary">
+            <color red="0.3880000114440918" green="0.4309999942779541" blue="0.44699999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
