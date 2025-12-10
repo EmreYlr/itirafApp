@@ -57,6 +57,8 @@ final class RequestSentViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "RequestSentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "requestSentCell")
         
+        collectionView.collectionViewLayout = .createFullWidthDynamicLayout(spacing: 10, contentInsets: NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0), estimatedHeight: 80)
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshRS), for: .valueChanged)
         collectionView.refreshControl = refreshControl
