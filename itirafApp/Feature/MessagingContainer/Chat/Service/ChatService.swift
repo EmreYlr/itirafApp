@@ -21,6 +21,7 @@ protocol ChatServiceProtocol {
     func endChatSession()
     func sendMessage(_ text: String)
     func getRoomMessages(page: Int, limit: Int, with roomId: String) async throws -> RoomMessages
+    func blockRoom(roomId: String) async throws
 }
 
 final class ChatService: ChatServiceProtocol {
@@ -58,6 +59,18 @@ final class ChatService: ChatServiceProtocol {
             method: .get,
             parameters: parameters,
             encoding: URLEncoding.default
+        )
+    }
+    
+    func blockRoom(roomId: String) async throws {
+        let parameters: [String: Any] = [
+            "blockUser": true
+        ]
+        let _ : Empty = try await networkService.request(
+            endpoint: Endpoint.Room.deleteRoom(roomId: roomId),
+            method: .delete,
+            parameters: parameters,
+            encoding: JSONEncoding.default
         )
     }
 }

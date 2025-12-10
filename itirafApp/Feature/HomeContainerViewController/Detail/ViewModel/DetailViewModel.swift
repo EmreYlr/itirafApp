@@ -15,6 +15,7 @@ protocol DetailViewModelProtocol {
     func addComment(message: String) async
     func getChannelMessageId() -> Int
     func createShortlink() async
+    func deleteConfession() async
     func getTargetCommentId() -> Int?
     func getMaxReplyCharacterCount() -> Int
     func isNSFW() -> Bool
@@ -23,13 +24,13 @@ protocol DetailViewModelProtocol {
 
 protocol DetailViewModelOutputProtocol: AnyObject {
     func didFetchDetail()
+    func didDeleteConfession()
     func didUpdateLikeStatus(isLiked: Bool, likeCount: Int)
+    func didError(error: Error)
     func didFailToLikeMessage(with error: Error)
     func didFailToFetchDetail(with error: Error)
     func didUpdateReplies()
-    func didFailToAddComment(with error: Error)
     func didCreateShortlink(shortlink: String)
-    func didFailToCreateShortlink(with error: Error)
 }
 
 final class DetailViewModel {
@@ -99,7 +100,7 @@ final class DetailViewModel {
             }
         } catch {
             await MainActor.run {
-                delegate?.didFailToAddComment(with: error)
+                delegate?.didError(error: error)
             }
         }
     }
@@ -115,7 +116,7 @@ final class DetailViewModel {
             confession?.shortlink = shortlink.url
             delegate?.didCreateShortlink(shortlink: shortlink.url)
         } catch {
-            delegate?.didFailToCreateShortlink(with: error)
+            delegate?.didError(error: error)
         }
     }
 
@@ -129,8 +130,16 @@ final class DetailViewModel {
             delegate?.didUpdateLikeStatus(isLiked: confession.liked, likeCount: confession.likeCount)
         }
     }
-
     
+    func deleteConfession() async {
+        do {
+            try await detailService.deleteConfession(messageId: messageId)
+            delegate?.didDeleteConfession()
+        } catch {
+            delegate?.didError(error: error)
+        }
+    }
+
     func getChannelMessageId() -> Int {
         return messageId
     }

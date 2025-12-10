@@ -23,12 +23,15 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var dmButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
     
     var onShareButtonTapped: (() -> Void)?
     var onReplyButtonTapped: (() -> Void)?
     var onLikeButtonTapped: (() -> Void)?
     var onDMButtonTapped: (() -> Void)?
     var onAdminEditButtonTapped: (() -> Void)?
+    var onReportTapped: (() -> Void)?
+    var onDeleteTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,9 +53,14 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
         
         if UserManager.shared.isMe(userId: confessionData.owner.id) {
             dmButton.isHidden = true
+            setupMenu(isOwner: true)
         } else {
             dmButton.isHidden = false
+            menuButton.isHidden = false
+            setupMenu(isOwner: false)
         }
+        
+        
         
         replyTitleLabel.text = "detail.reply_section_title".localized(confessionData.replyCount)
     }
@@ -90,6 +98,21 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
         likeCountLabel.layer.add(animation, forKey: "kCATransitionPush")
 
         likeCountLabel.text = "\(newCount)"
+    }
+    
+    func setupMenu(isOwner: Bool) {
+        let reportAction: UIAction
+        if isOwner {
+            reportAction = UIAction(title: "general.button.delete".localized, image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
+                self?.onDeleteTapped?()
+            }
+        } else {
+            reportAction = UIAction(title: "general.button.report".localized, image: UIImage(systemName: "exclamationmark.bubble"), attributes: .destructive) { [weak self] _ in
+                self?.onReportTapped?()
+            }
+        }
+        menuButton.menu = UIMenu(title: "", children: [reportAction])
+        menuButton.showsMenuAsPrimaryAction = true
     }
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {

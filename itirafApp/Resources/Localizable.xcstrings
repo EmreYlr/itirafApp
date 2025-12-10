@@ -857,13 +857,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Delete Messages and Block User"
+            "value" : "Block User"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mesajları Sil ve Kullanıcıyı Engelle"
+            "value" : "Kullanıcıyı Engelle"
           }
         }
       }
@@ -881,6 +881,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mesajları Sil"
+          }
+        }
+      }
+    },
+    "direct_message.blocked.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to block the user?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kullanıcıyı engellemek istediğinizden emin misiniz?"
           }
         }
       }
@@ -1751,6 +1768,23 @@
         }
       }
     },
+    "general.button.block" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Block"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engelle"
+          }
+        }
+      }
+    },
     "general.button.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1815,6 +1849,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tamam"
+          }
+        }
+      }
+    },
+    "general.button.report" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şikayet Et"
           }
         }
       }

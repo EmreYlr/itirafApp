@@ -42,6 +42,7 @@ final class ChatViewController: MessagesViewController {
         super.viewDidLoad()
         initLoadView()
         setupTheme()
+        setupNavigationMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,6 +128,48 @@ final class ChatViewController: MessagesViewController {
         }
     }
     
+    private func setupNavigationMenu() {
+        //TODO: -Buraya bak
+        let menu: UIMenu
+        
+        let reportAction = UIAction(title: "general.button.report".localized, image: UIImage(systemName: "exclamationmark.bubble"), attributes: .destructive) { [weak self] _ in
+            self?.showReportScreen()
+        }
+
+        if !checkIsRequestMessage() {
+            let blockAction = UIAction(title: "direct_message.action.delete_and_block".localized, image: UIImage(systemName: "hand.raised.slash")) { [weak self] _ in
+                self?.blockUser()
+            }
+            menu = UIMenu(title: "", children: [blockAction, reportAction])
+        } else {
+            menu = UIMenu(title: "", children: [reportAction])
+        }
+
+        
+        let menuButton = UIBarButtonItem(title: nil, image: UIImage(systemName: "ellipsis"), primaryAction: nil, menu: menu)
+
+        self.navigationItem.rightBarButtonItem = menuButton
+    }
+    
+    private func showReportScreen() {
+        
+    }
+    
+    private func blockUser() {
+        DispatchQueue.main.async {
+            self.showTwoButtonAlert(title: "general.title.warning".localized, message: "direct_message.blocked.message".localized, firstButtonTitle: "general.button.block".localized, firstButtonHandler: { _ in
+                self.showLoading()
+                Task(priority: .utility) {
+                    defer {
+                        self.hideLoading()
+                    }
+                    await self.viewModel.blockRoom()
+                }
+                
+            }, secondButtonTitle: "general.button.cancel".localized)
+        }
+    }
+    
     @IBAction func rejectButtonTapped(_ sender: UIButton) {
         Task(priority: .utility) {
             await viewModel.rejectRequest()
@@ -142,7 +185,7 @@ final class ChatViewController: MessagesViewController {
 }
 
 // MARK: - ChatViewModelDelegate
-extension ChatViewController: ChatViewModelDelegate {    
+extension ChatViewController: ChatViewModelDelegate {
     func didUpdateMessages(isPagination: Bool) {
         DispatchQueue.main.async {
             if isPagination {
@@ -160,6 +203,12 @@ extension ChatViewController: ChatViewModelDelegate {
                     self.messagesCollectionView.scrollToLastItem(animated: true)
                 }
             }
+        }
+    }
+    
+    func didBlockRoom() {
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

@@ -232,6 +232,19 @@
                                     <action selector="dmButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LxL-rm-zyA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGT-4o-2zH">
+                                <rect key="frame" x="429" y="-0.33333333333333393" width="35" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="MX8-Dl-cgV"/>
+                                    <constraint firstAttribute="width" constant="35" id="Pa5-AH-Qlk"/>
+                                </constraints>
+                                <color key="tintColor" name="TextSecondary"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundApp"/>
                         <constraints>
@@ -250,8 +263,10 @@
                             <constraint firstItem="1ap-3C-W5k" firstAttribute="centerY" secondItem="ag2-Ux-cg1" secondAttribute="centerY" id="JJL-X8-zvV"/>
                             <constraint firstItem="qT2-pI-sPJ" firstAttribute="leading" secondItem="Eef-kr-cP8" secondAttribute="trailing" id="MmC-Rg-spb"/>
                             <constraint firstItem="I1U-E4-QIY" firstAttribute="top" secondItem="YRL-fy-YJY" secondAttribute="bottom" constant="15" id="QzQ-D1-zgG"/>
+                            <constraint firstItem="lGT-4o-2zH" firstAttribute="centerY" secondItem="tHI-k5-Ggo" secondAttribute="centerY" id="SH9-Fd-4Yr"/>
                             <constraint firstItem="c80-Kg-qye" firstAttribute="leading" secondItem="6mo-iG-eVl" secondAttribute="leading" id="SfK-KC-S6A"/>
                             <constraint firstItem="ag2-Ux-cg1" firstAttribute="leading" secondItem="6mo-iG-eVl" secondAttribute="leading" id="V8R-us-WP4"/>
+                            <constraint firstAttribute="trailing" secondItem="lGT-4o-2zH" secondAttribute="trailing" id="agu-GQ-wHa"/>
                             <constraint firstItem="tHI-k5-Ggo" firstAttribute="centerY" secondItem="ag2-Ux-cg1" secondAttribute="centerY" id="brN-XH-PzF"/>
                             <constraint firstAttribute="trailing" secondItem="c80-Kg-qye" secondAttribute="trailing" id="c7L-l8-3sx"/>
                             <constraint firstItem="c80-Kg-qye" firstAttribute="top" secondItem="ag2-Ux-cg1" secondAttribute="bottom" constant="10" id="dLe-EA-ML7"/>
@@ -298,6 +313,7 @@
                 <outlet property="editButton" destination="JyU-dd-EHM" id="gWg-lB-1is"/>
                 <outlet property="likeButton" destination="Eef-kr-cP8" id="cFx-KA-H7S"/>
                 <outlet property="likeCountLabel" destination="qT2-pI-sPJ" id="Uwd-Q4-HjC"/>
+                <outlet property="menuButton" destination="lGT-4o-2zH" id="bpI-ks-NEf"/>
                 <outlet property="ownerNameLabel" destination="ag2-Ux-cg1" id="nYc-iB-fZM"/>
                 <outlet property="replyButton" destination="DUL-or-1fd" id="acf-Ep-UWv"/>
                 <outlet property="replyCountLabel" destination="osa-1U-RGJ" id="GFc-pW-j3d"/>
@@ -313,6 +329,7 @@
         <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
         <image name="bubble.right" catalog="system" width="128" height="110"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="87"/>
         <namedColor name="BackgroundApp">

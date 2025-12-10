@@ -23,12 +23,14 @@ protocol ChatViewModelProtocol {
     func fetchRoomMessages() async
     func approveRequest() async
     func rejectRequest() async
+    func blockRoom() async
 }
 
 protocol ChatViewModelDelegate: AnyObject {
     func didUpdateMessages(isPagination: Bool)
     func didApproveRequest()
     func didRejectRequest()
+    func didBlockRoom()
     func diderror(_ error: Error)
 }
 
@@ -171,7 +173,20 @@ final class ChatViewModel: NSObject {
         }
     }
     
-    
+    func blockRoom() async {
+        guard let roomId = directMessage?.roomID else {
+            let error = APIError(code: 4300, type: "MissingInfo")
+            delegate?.diderror(error)
+            return
+        }
+        
+        do {
+            try await chatService.blockRoom(roomId: roomId)
+            delegate?.didBlockRoom()
+        } catch {
+            delegate?.diderror(error)
+        }
+    }
 }
 
 extension ChatViewModel: ChatViewModelProtocol { }

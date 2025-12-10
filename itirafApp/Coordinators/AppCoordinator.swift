@@ -20,7 +20,7 @@ final class AppCoordinator {
     func start() {
         configureCrashlyticsIdentity()
         setupNotificationObservers()
-        //setupNavigationBarAppearance()
+        setupNavigationBarAppearance()
         
         if shouldShowOnboarding() {
             showOnboarding()
@@ -136,10 +136,10 @@ final class AppCoordinator {
     private func setupNavigationBarAppearance() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .systemBackground
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.label]
+        appearance.backgroundColor = .backgroundApp
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.textPrimary]
         
-        UINavigationBar.appearance().tintColor = .label
+        UINavigationBar.appearance().tintColor = .accent
         
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance

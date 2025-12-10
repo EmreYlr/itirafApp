@@ -14,6 +14,7 @@ protocol DetailServiceProtocol {
     func unlikeConfessions(messageId: Int) async throws
     func repliesMessage(message: String, messageId: Int) async throws
     func createShortlink(messageId: Int) async throws -> ShortlinkResponse
+    func deleteConfession(messageId: Int) async throws
 }
 
 final class DetailService: DetailServiceProtocol {
@@ -70,6 +71,17 @@ final class DetailService: DetailServiceProtocol {
             endpoint: Endpoint.Shortlink.createShortlinks,
             method: .post,
             parameters: parameters,
+            encoding: JSONEncoding.default
+        )
+    }
+    
+    func deleteConfession(messageId: Int) async throws {
+        let messageId = messageId
+        
+        let _: Empty = try await networkService.request(
+            endpoint: Endpoint.User.deleteUserMessage(messageId: messageId),
+            method: .delete,
+            parameters: nil,
             encoding: JSONEncoding.default
         )
     }

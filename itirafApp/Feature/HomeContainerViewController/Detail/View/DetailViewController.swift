@@ -129,6 +129,22 @@ final class DetailViewController: UIViewController {
         self.present(requestBottomSheetVC, animated: true)
     }
     
+    func handleReportConfession() {
+        //TODO: -Report Screen Yap
+    }
+    
+    func handleDeleteConfession() {
+        showTwoButtonAlert(title: "general.title.warning".localized, message: "confession.message.delete_confirmation".localized, firstButtonTitle: "general.button.yes".localized, firstButtonHandler: { _ in
+            self.showLoading()
+            Task(priority: .utility) {
+                defer {
+                    self.hideLoading()
+                }
+                await self.detailViewModel.deleteConfession()
+            }
+        }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)
+    }
+    
     func handleReplyButtonAction() {
         replyTextField.becomeFirstResponder()
     }
@@ -180,13 +196,7 @@ extension DetailViewController: DetailViewModelOutputProtocol {
             self.present(activityViewController, animated: true, completion: nil)
         }
     }
-    
-    func didFailToCreateShortlink(with error: any Error) {
-        DispatchQueue.main.async {
-            self.handleError(error)
-        }
-    }
-    
+
     func didUpdateReplies() {
         collectionView.reloadData()
         
@@ -196,13 +206,7 @@ extension DetailViewController: DetailViewModelOutputProtocol {
             collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
         }
     }
-    
-    func didFailToAddComment(with error: any Error) {
-        DispatchQueue.main.async {
-            self.handleError(error)
-        }
-    }
-    
+
     func didUpdateLikeStatus(isLiked: Bool, likeCount: Int) {
         let indexPath = IndexPath(item: 0, section: 0)
         if collectionView.indexPathsForVisibleItems.contains(indexPath),
@@ -223,6 +227,18 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     
     func didFailToLikeMessage(with error: Error) {
         print("Failed to like message: \(error)")
+    }
+    
+    func didDeleteConfession() {
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    func didError(error: any Error) {
+        DispatchQueue.main.async {
+            self.handleError(error)
+        }
     }
     
     func didFailToFetchDetail(with error: Error) {
