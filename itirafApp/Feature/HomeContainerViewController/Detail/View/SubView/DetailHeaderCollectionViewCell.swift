@@ -22,10 +22,12 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var dmButton: UIButton!
     
     var onShareButtonTapped: (() -> Void)?
     var onReplyButtonTapped: (() -> Void)?
     var onLikeButtonTapped: (() -> Void)?
+    var onDMButtonTapped: (() -> Void)?
     var onAdminEditButtonTapped: (() -> Void)?
     
     override func awakeFromNib() {
@@ -45,6 +47,12 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
         replyCountLabel.text = "\(confessionData.replyCount)"
         updateLikeButton(isLiked: confessionData.liked, animated: false)
         channelNameLabel.text = confessionData.channel.title
+        
+        if UserManager.shared.isMe(userId: confessionData.owner.id) {
+            dmButton.isHidden = true
+        } else {
+            dmButton.isHidden = false
+        }
         
         replyTitleLabel.text = "detail.reply_section_title".localized(confessionData.replyCount)
     }
@@ -94,6 +102,11 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
 
     @IBAction func shareButtonTapped(_ sender: UIButton) {
         onShareButtonTapped?()
+    }
+    
+    
+    @IBAction func dmButtonTapped(_ sender: UIButton) {
+        onDMButtonTapped?()
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {

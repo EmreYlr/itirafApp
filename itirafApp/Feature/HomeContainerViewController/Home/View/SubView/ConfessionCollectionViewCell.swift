@@ -23,10 +23,14 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var blurLabel: UILabel!
     @IBOutlet weak var blurTapLabel: UILabel!
     @IBOutlet weak var nsfwBlurView: UIVisualEffectView!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var dmButton: UIButton!
     
     var onLikeButtonTapped: (() -> Void)?
     var onCommentButtonTapped: (() -> Void)?
     var onChannelTapped: (() -> Void)?
+    var onDMButtonTapped: (() -> Void)?
+    var onShareButtonTapped: (() -> Void)?
     var onNsfwRevealed: (() -> Void)?
     
     private lazy var separatorView: UIView = {
@@ -77,6 +81,12 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         channelNameLabel.isHidden = confession.channel == nil
         channelNameLabel.text = confession.channel?.title.capitalized
         
+        if UserManager.shared.isMe(userId: confession.owner.id) {
+            dmButton.isHidden = true
+        } else {
+            dmButton.isHidden = false
+        }
+        
         handleNsfwState(isNsfw: confession.isNsfw && !isRevealed)
     }
     
@@ -91,6 +101,12 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         ownerNameLabel.text = UserManager.shared.isMe(userId: flow.owner.id) ? "confession.owner.you".localized : flow.owner.username
         channelNameLabel.isHidden = false
         channelNameLabel.text = flow.channel.title.capitalized
+        
+        if UserManager.shared.isMe(userId: flow.owner.id) {
+            dmButton.isHidden = true
+        } else {
+            dmButton.isHidden = false
+        }
         
         handleNsfwState(isNsfw: flow.isNsfw && !isRevealed)
     }
@@ -140,6 +156,14 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
     
     @IBAction func commentButtonPressed(_ sender: UIButton) {
         onCommentButtonTapped?()
+    }
+    
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        onShareButtonTapped?()
+    }
+    
+    @IBAction func dmButtonTapped(_ sender: UIButton) {
+        onDMButtonTapped?()
     }
     
     func updateLikeButton(isLiked: Bool, animated: Bool = false) {

@@ -13,6 +13,7 @@ protocol HomeServiceProtocol {
     func likeConfessions(messageId: Int) async throws
     func unlikeConfessions(messageId: Int) async throws
     func setMessagesSeen(_ messageIds: [Int]) async throws
+    func createShortlink(messageId: Int) async throws -> ShortlinkResponse
 }
 
 final class HomeService: HomeServiceProtocol {
@@ -61,6 +62,19 @@ final class HomeService: HomeServiceProtocol {
         
         let _: Empty = try await networkService.request(
             endpoint: Endpoint.Channel.setMessagesSeen,
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default
+        )
+    }
+    
+    func createShortlink(messageId: Int) async throws -> ShortlinkResponse {
+        let parameters: [String: Any] = [
+            "messageId": messageId
+        ]
+        
+         return try await networkService.request(
+            endpoint: Endpoint.Shortlink.createShortlinks,
             method: .post,
             parameters: parameters,
             encoding: JSONEncoding.default

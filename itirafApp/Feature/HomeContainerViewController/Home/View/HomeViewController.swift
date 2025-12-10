@@ -96,6 +96,16 @@ final class HomeViewController: UIViewController {
                 }
             }
             
+            cell.onShareButtonTapped = { [weak self] in
+                Task {
+                    await self?.homeViewModel.createShortlink(for: confession.id)
+                }
+            }
+            
+            cell.onDMButtonTapped = { [weak self] in
+                self?.handleDMButtonAction(messageId: confession.id)
+            }
+            
             guard let channel = confession.channel else {
                 return cell
             }
@@ -111,6 +121,25 @@ final class HomeViewController: UIViewController {
         }
         collectionView.showAnimatedGradientSkeleton()
 
+    }
+    
+    private func handleDMButtonAction(messageId: Int) {
+        let requestBottomSheetVC: RequestBottomSheetViewController = Storyboard.requestBottomSheet.instantiate(.requestBottomSheet)
+        
+        let viewModel = RequestBottomSheetViewModel(channelMessageId: messageId)
+        requestBottomSheetVC.viewModel = viewModel
+        
+        if let sheet = requestBottomSheetVC.sheetPresentationController {
+            let customDetent = UISheetPresentationController.Detent.custom(identifier: .init("customDetent")) { context in
+                return context.maximumDetentValue * 0.7
+            }
+            sheet.detents = [customDetent, .large()]
+            
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 24
+        }
+        
+        self.present(requestBottomSheetVC, animated: true)
     }
     
     private func updateSnapshot(with confessions: [ConfessionData]) {
@@ -147,6 +176,19 @@ extension HomeViewController: HomeViewModelOutputProtocol, EmptyStateDisplayable
             self.hideEmptyState(from: self.collectionView)
             self.updateSnapshot(with: data)
             self.collectionView.refreshControl?.endRefreshing()
+        }
+    }
+    
+    func didCreateShortlink(shortlink: String) {
+        let activityViewController = UIActivityViewController(activityItems: [shortlink], applicationActivities: nil)
+        DispatchQueue.main.async {
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func didFailToCreateShortlink(with error: any Error) {
+        DispatchQueue.main.async {
+            self.handleError(error)
         }
     }
     

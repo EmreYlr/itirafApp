@@ -42,14 +42,8 @@ final class DetailViewController: UIViewController {
     
     private func initData() {
         detailViewModel.delegate = self
-        let dmImage = UIImage(systemName: "bubble.left.and.bubble.right")?.withTintColor(.textSecondary)
-
         Task {
             await detailViewModel.fetchMessageData()
-            
-            if !detailViewModel.isMe() {
-                navigationItem.rightBarButtonItem = UIBarButtonItem(image: dmImage , style: .plain, target: self, action: #selector(dmButtonTapped))
-            }
         }
     }
 
@@ -99,7 +93,24 @@ final class DetailViewController: UIViewController {
         }
     }
     
-    @objc func dmButtonTapped() {
+    func handleShareAction() {
+        Task(priority: .utility) {
+            await detailViewModel.createShortlink()
+        }
+    }
+    
+    func handleLikeAction() {
+        guard let isLiked = detailViewModel.confession?.liked else { return }
+        Task {
+            if isLiked {
+                await detailViewModel.unlikeMessage()
+            } else {
+                await detailViewModel.likeMessage()
+            }
+        }
+    }
+    
+    func handleDMButtonAction() {
         let requestBottomSheetVC: RequestBottomSheetViewController = Storyboard.requestBottomSheet.instantiate(.requestBottomSheet)
         
         let viewModel = RequestBottomSheetViewModel(channelMessageId: detailViewModel.getChannelMessageId())
@@ -116,23 +127,6 @@ final class DetailViewController: UIViewController {
         }
         
         self.present(requestBottomSheetVC, animated: true)
-    }
-    
-    func handleShareAction() {
-        Task(priority: .utility) {
-            await detailViewModel.createShortlink()
-        }
-    }
-    
-    func handleLikeAction() {
-        guard let isLiked = detailViewModel.confession?.liked else { return }
-        Task {
-            if isLiked {
-                await detailViewModel.unlikeMessage()
-            } else {
-                await detailViewModel.likeMessage()
-            }
-        }
     }
     
     func handleReplyButtonAction() {

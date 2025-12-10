@@ -15,11 +15,14 @@ protocol HomeViewModelProtocol {
     func toggleLikeStatus(for: Int) async
     func didViewItem(at id: Int)
     func sendPendingSeenMessages()
+    func createShortlink(for messageId: Int) async
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject {
     func didUpdateConfessions(with data: [ConfessionData])
     func didEmptyConfessions()
+    func didCreateShortlink(shortlink: String)
+    func didFailToCreateShortlink(with error: Error)
     func didFailToLikeMessage(with error: Error)
     func didFailWithError(_ error: Error)
 }
@@ -74,6 +77,15 @@ final class HomeViewModel {
             
         } catch {
             delegate?.didFailWithError(error)
+        }
+    }
+    
+    func createShortlink(for messageId: Int) async {
+        do {
+            let shortlink = try await homeService.createShortlink(messageId: messageId)
+            delegate?.didCreateShortlink(shortlink: shortlink.url)
+        } catch {
+            delegate?.didFailToCreateShortlink(with: error)
         }
     }
     

@@ -14,10 +14,13 @@ protocol FlowViewModelProtocol {
     func toggleLikeStatus(for: Int) async
     func didViewItem(at id: Int)
     func sendPendingSeenMessages()
+    func createShortlink(for messageId: Int) async
 }
 
 protocol FlowViewModelDelegate: AnyObject {
     func didUpdateFlow(with data: [FlowData])
+    func didCreateShortlink(shortlink: String)
+    func didFailToCreateShortlink(with error: Error)
     func didFailToLikeMessage(with error: Error)
     func didFailWithError(_ error: Error)
 }
@@ -68,6 +71,15 @@ final class FlowViewModel {
             
         } catch {
             delegate?.didFailWithError(error)
+        }
+    }
+    
+    func createShortlink(for messageId: Int) async {
+        do {
+            let shortlink = try await flowService.createShortlink(messageId: messageId)
+            delegate?.didCreateShortlink(shortlink: shortlink.url)
+        } catch {
+            delegate?.didFailToCreateShortlink(with: error)
         }
     }
     

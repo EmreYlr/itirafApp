@@ -69,6 +69,10 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                     self?.handleReplyButtonAction()
                 }
                 
+                cell.onDMButtonTapped = { [weak self] in
+                    self?.handleDMButtonAction()
+                }
+                
                 cell.onAdminEditButtonTapped = { [weak self] in
                     self?.handleAdminEditConfession()
                 }
