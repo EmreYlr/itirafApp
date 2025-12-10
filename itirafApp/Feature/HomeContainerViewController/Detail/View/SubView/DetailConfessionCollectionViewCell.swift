@@ -22,6 +22,7 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
         bgView.layer.cornerRadius = 6
         messageLabel.skeletonTextNumberOfLines = 3
         messageLabel.lastLineFillPercent = 70
+        usernameLabel.textColor = .textPrimary
     }
 
     
@@ -30,11 +31,9 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
         dateLabel.text = confession.createdAt.relativeTimeString()
         if UserManager.shared.isMe(userId: confession.owner.id) {
             usernameLabel.text = "confession.owner.you".localized
-            usernameLabel.textColor = .brandSecondary
             usernameLabel.font = .boldSystemFont(ofSize: usernameLabel.font.pointSize)
         } else {
             usernameLabel.text = confession.owner.username
-            usernameLabel.textColor = .textPrimary
             usernameLabel.font = .systemFont(ofSize: usernameLabel.font.pointSize)
         }
         
