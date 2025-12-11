@@ -53,26 +53,31 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
     
     func setupMenu(isOwner: Bool) {
         var menuItems: [UIMenuElement] = []
+        let isAdmin = UserManager.shared.hasRole(.admin)
+        
+        let deleteAction = UIAction(title: "general.button.delete".localized, image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
+            self?.onDeleteTapped?()
+        }
         
         if isOwner {
-            let deleteAction = UIAction(title: "general.button.delete".localized, image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
-                self?.onDeleteTapped?()
-            }
             menuItems.append(deleteAction)
             
         } else {
             let reportAction = UIAction(title: "general.button.report".localized, image: UIImage(systemName: "exclamationmark.bubble"), attributes: .destructive) { [weak self] _ in
                 self?.onReportTapped?()
             }
-
+            
             let blockAction = UIAction(title: "direct_message.action.block".localized, image: UIImage(systemName: "hand.raised.slash")) { [weak self] _ in
                 self?.onBlockTapped?()
             }
-            
             menuItems.append(blockAction)
             menuItems.append(reportAction)
+            
+            if isAdmin {
+                menuItems.append(deleteAction)
+            }
         }
-
+        
         menuButton.menu = UIMenu(title: "", children: menuItems)
         menuButton.showsMenuAsPrimaryAction = true
     }

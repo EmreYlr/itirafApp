@@ -126,23 +126,30 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             var actions: [UIAction] = []
             let isOwner = UserManager.shared.isMe(userId: reply.owner.id)
+            let isAdmin = UserManager.shared.hasRole(.admin)
+            
+            let deleteAction = UIAction(title: "general.button.delete".localized, image: UIImage(systemName: "trash"), attributes: .destructive) { action in
+                self.handleDeleteReply(replyId: reply.id)
+            }
             
             if isOwner {
-                let deleteAction = UIAction(title: "general.button.delete".localized, image: UIImage(systemName: "trash"), attributes: .destructive) { action in
-                    self.handleDeleteReply(replyId: reply.id)
-                }
                 actions.append(deleteAction)
                 
             } else {
                 let reportAction = UIAction(title: "general.button.report".localized, image: UIImage(systemName: "exclamationmark.bubble"), attributes: .destructive) { action in
                     self.handleReportReply(replyId: reply.id)
                 }
+                
                 let blockAction = UIAction(title: "direct_message.action.block".localized, image: UIImage(systemName: "hand.raised.slash")) { action in
                     self.handleBlockUser(userId: reply.owner.id, isReply: true)
                 }
                 
                 actions.append(blockAction)
                 actions.append(reportAction)
+                
+                if isAdmin {
+                    actions.append(deleteAction)
+                }
             }
             
             return UIMenu(title: "", children: actions)
