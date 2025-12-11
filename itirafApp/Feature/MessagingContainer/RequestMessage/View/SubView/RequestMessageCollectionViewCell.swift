@@ -11,7 +11,6 @@ final class RequestMessageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var profileIconLabel: UILabel!
     @IBOutlet weak var profileBGView: UIView!
     
     var onApproveButtonTapped: (() -> Void)?
@@ -27,7 +26,6 @@ final class RequestMessageCollectionViewCell: UICollectionViewCell {
     func configure(with requestMesage: RequestMessageModel) {
         usernameLabel.text = requestMesage.requesterUsername
         messageLabel.text = "request.message.new_request".localized
-        profileIconLabel.text = String(requestMesage.requesterUsername.prefix(2)).uppercased()
     }
     
     @IBAction func rejectButtonTapped(_ sender: UIButton) {

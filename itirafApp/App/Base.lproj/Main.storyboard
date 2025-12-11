@@ -436,18 +436,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bu1-Wh-svQ">
                                 <rect key="frame" x="16" y="187" width="80" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ky-eg-TEa">
-                                        <rect key="frame" x="26" y="25.666666666666657" width="28.333333333333329" height="28.666666666666671"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Grb-x4-Awh">
+                                        <rect key="frame" x="5" y="10" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="0FO-ZH-XhM"/>
+                                            <constraint firstAttribute="height" constant="70" id="W1Q-Kv-dCV"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="3Ky-eg-TEa" firstAttribute="centerY" secondItem="bu1-Wh-svQ" secondAttribute="centerY" id="B3I-SO-Biy"/>
-                                    <constraint firstItem="3Ky-eg-TEa" firstAttribute="centerX" secondItem="bu1-Wh-svQ" secondAttribute="centerX" id="ISJ-jc-239"/>
+                                    <constraint firstAttribute="bottom" secondItem="Grb-x4-Awh" secondAttribute="bottom" id="EBo-rx-yFt"/>
                                     <constraint firstAttribute="height" constant="80" id="OTf-cB-ufQ"/>
                                     <constraint firstAttribute="width" constant="80" id="QS1-kQ-2GB"/>
+                                    <constraint firstItem="Grb-x4-Awh" firstAttribute="centerX" secondItem="bu1-Wh-svQ" secondAttribute="centerX" id="drp-gN-gxZ"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGk-mH-sme">
@@ -565,7 +566,6 @@
                         <outlet property="addNewSocialButton" destination="VFP-63-RSi" id="KPE-OJ-J3r"/>
                         <outlet property="collectionView" destination="BB6-Oh-i2L" id="71d-Fg-WWw"/>
                         <outlet property="followedButton" destination="fbl-qL-rn5" id="8S2-eU-ZyZ"/>
-                        <outlet property="personIconLabel" destination="3Ky-eg-TEa" id="Dlr-ll-ysk"/>
                         <outlet property="personView" destination="bu1-Wh-svQ" id="LvG-Xp-rUx"/>
                         <outlet property="privacyView" destination="VGZ-q7-gXn" id="bpC-9b-JQw"/>
                         <outlet property="usernameLabel" destination="TGk-mH-sme" id="aZz-cc-KdX"/>
@@ -689,6 +689,7 @@
         <image name="person.text.rectangle" catalog="system" width="128" height="93"/>
         <image name="person.text.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="profile_Icon" width="960" height="960"/>
         <image name="safari" catalog="system" width="128" height="123"/>
         <image name="safari.fill" catalog="system" width="128" height="123"/>
         <namedColor name="BackgroundApp">

@@ -53,17 +53,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5O-Kp-CPJ" userLabel="image BG View">
                                 <rect key="frame" x="8" y="16.666666666666671" width="60" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlW-AZ-clg">
-                                        <rect key="frame" x="18" y="17.999999999999996" width="24" height="24.000000000000004"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <color key="textColor" name="TextPrimary"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="SgA-8K-E2a">
+                                        <rect key="frame" x="5" y="10" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="cUK-qi-p28"/>
+                                            <constraint firstAttribute="width" constant="50" id="doo-ja-c1c"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="GlW-AZ-clg" firstAttribute="centerX" secondItem="t5O-Kp-CPJ" secondAttribute="centerX" id="3AK-DR-J8X"/>
+                                    <constraint firstAttribute="bottom" secondItem="SgA-8K-E2a" secondAttribute="bottom" id="0xA-Br-bPr"/>
                                     <constraint firstAttribute="height" constant="60" id="OnR-wp-2i5"/>
-                                    <constraint firstItem="GlW-AZ-clg" firstAttribute="centerY" secondItem="t5O-Kp-CPJ" secondAttribute="centerY" id="iaf-Cb-mkM"/>
+                                    <constraint firstItem="SgA-8K-E2a" firstAttribute="centerX" secondItem="t5O-Kp-CPJ" secondAttribute="centerX" id="uUi-YZ-9Cb"/>
                                     <constraint firstAttribute="width" constant="60" id="x5g-ma-unz"/>
                                 </constraints>
                             </view>
@@ -96,7 +97,6 @@
                 <outlet property="bgView" destination="543-Kq-BQu" id="VAC-kJ-BE0"/>
                 <outlet property="messageLabel" destination="hjQ-2Z-RmZ" id="LlH-vo-2PS"/>
                 <outlet property="profileBGView" destination="t5O-Kp-CPJ" id="d8C-Et-x9p"/>
-                <outlet property="profileIconLabel" destination="GlW-AZ-clg" id="5yY-0Q-W4a"/>
                 <outlet property="statusLabel" destination="IEW-FE-xPL" id="zpH-QC-A74"/>
                 <outlet property="statusView" destination="dca-dI-0Gv" id="Ybd-aj-cde"/>
                 <outlet property="usernameLabel" destination="QV8-7R-ani" id="iGE-ON-rDd"/>
@@ -105,6 +105,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="chat_Icon" width="960" height="960"/>
         <namedColor name="BackgroundCard">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

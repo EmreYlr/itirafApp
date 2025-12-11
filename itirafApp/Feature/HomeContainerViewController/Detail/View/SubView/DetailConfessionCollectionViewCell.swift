@@ -15,6 +15,10 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var menuButton: UIButton!
+    
+    var onReportTapped: (() -> Void)?
+    var onDeleteTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,15 +36,33 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
         if UserManager.shared.isMe(userId: confession.owner.id) {
             usernameLabel.text = "confession.owner.you".localized
             usernameLabel.font = .boldSystemFont(ofSize: usernameLabel.font.pointSize)
+            setupMenu(isOwner: true)
         } else {
             usernameLabel.text = confession.owner.username
             usernameLabel.font = .systemFont(ofSize: usernameLabel.font.pointSize)
+            menuButton.isHidden = false
+            setupMenu(isOwner: false)
         }
         
         bgView.backgroundColor = .backgroundCard
         bgView.layer.borderWidth = 0
         bgView.layer.borderColor = UIColor.clear.cgColor
         
+    }
+    
+    func setupMenu(isOwner: Bool) {
+        let reportAction: UIAction
+        if isOwner {
+            reportAction = UIAction(title: "general.button.delete".localized, image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
+                self?.onDeleteTapped?()
+            }
+        } else {
+            reportAction = UIAction(title: "general.button.report".localized, image: UIImage(systemName: "exclamationmark.bubble"), attributes: .destructive) { [weak self] _ in
+                self?.onReportTapped?()
+            }
+        }
+        menuButton.menu = UIMenu(title: "", children: [reportAction])
+        menuButton.showsMenuAsPrimaryAction = true
     }
     
     func flashAnimation() {

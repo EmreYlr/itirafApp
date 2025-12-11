@@ -125,18 +125,19 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahc-oa-MSb" userLabel="profileIconView">
                                                 <rect key="frame" x="20" y="192" width="30" height="30"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aig-Sw-Ueb">
-                                                        <rect key="frame" x="7.6666666666666679" y="8" width="15" height="14.333333333333336"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                        <color key="textColor" name="TextPrimary"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="uTX-W6-4sf">
+                                                        <rect key="frame" x="2.6666666666666679" y="5" width="25" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="HSQ-Ap-XiP"/>
+                                                            <constraint firstAttribute="width" constant="25" id="zTC-B1-b0M"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" name="BackgroundCard"/>
                                                 <constraints>
-                                                    <constraint firstItem="aig-Sw-Ueb" firstAttribute="centerX" secondItem="ahc-oa-MSb" secondAttribute="centerX" id="RYs-dK-uZe"/>
+                                                    <constraint firstAttribute="bottom" secondItem="uTX-W6-4sf" secondAttribute="bottom" id="BFQ-vf-Tfu"/>
                                                     <constraint firstAttribute="height" constant="30" id="dDb-lN-uD6"/>
-                                                    <constraint firstItem="aig-Sw-Ueb" firstAttribute="centerY" secondItem="ahc-oa-MSb" secondAttribute="centerY" id="sPG-tA-Oif"/>
+                                                    <constraint firstItem="uTX-W6-4sf" firstAttribute="centerX" secondItem="ahc-oa-MSb" secondAttribute="centerX" id="daI-Ag-vTU"/>
                                                     <constraint firstAttribute="width" constant="30" id="uXs-yT-AmV"/>
                                                 </constraints>
                                             </view>
@@ -242,7 +243,6 @@
                         <outlet property="deleteButton" destination="yeS-T1-PdL" id="0J9-qf-ABq"/>
                         <outlet property="myMessageLabel" destination="4tH-bw-tl9" id="fin-Ew-mEd"/>
                         <outlet property="myMessageView" destination="dkT-XU-SGj" id="fMl-n6-2L2"/>
-                        <outlet property="profileIconLabel" destination="aig-Sw-Ueb" id="dq8-Mo-1B6"/>
                         <outlet property="profileIconView" destination="ahc-oa-MSb" id="fMA-DR-TUh"/>
                         <outlet property="sentConfessionView" destination="CUG-hC-Nvf" id="hiJ-Fo-hIe"/>
                         <outlet property="statusImageView" destination="DrI-6R-qHT" id="ZDX-c9-K4T"/>
@@ -257,6 +257,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chat_Icon" width="960" height="960"/>
         <image name="clock" catalog="system" width="128" height="123"/>
         <namedColor name="BackgroundApp">
             <color red="0.97299998998641968" green="0.97600001096725464" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

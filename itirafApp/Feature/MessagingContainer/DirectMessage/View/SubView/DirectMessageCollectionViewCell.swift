@@ -15,7 +15,6 @@ final class DirectMessageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var profileIconLabel: UILabel!
     @IBOutlet weak var profileBGView: UIView!
     
     override func awakeFromNib() {
@@ -33,7 +32,6 @@ final class DirectMessageCollectionViewCell: UICollectionViewCell {
     
     func configure(with directMessage: DirectMessage) {
         usernameLabel.text = directMessage.username
-        profileIconLabel.text = String(directMessage.username.prefix(2)).uppercased()
         messageLabel.text = "\(directMessage.isLastMessageMine ? "direct_message.prefix.you".localized : "")\(directMessage.lastMessage)"
         timeLabel.text = directMessage.lastMessageDate.relativeTimeString()
         if directMessage.unreadMessageCount == 0 {

@@ -63,7 +63,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comment" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgp-cN-nvi">
-                                <rect key="frame" x="53" y="28" width="318" height="25"/>
+                                <rect key="frame" x="53" y="28" width="314" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="TextSecondary"/>
                                 <nil key="highlightedColor"/>
@@ -80,18 +80,33 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuZ-EZ-zoJ">
+                                <rect key="frame" x="336" y="3" width="35" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="0B1-4g-b1o"/>
+                                    <constraint firstAttribute="width" constant="35" id="Tnt-Zg-vg5"/>
+                                </constraints>
+                                <color key="tintColor" name="TextSecondary"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundCard"/>
                         <constraints>
                             <constraint firstItem="gVi-8W-3zw" firstAttribute="top" secondItem="diE-5f-SOd" secondAttribute="top" id="1bn-UJ-GKS"/>
                             <constraint firstItem="Xgp-cN-nvi" firstAttribute="top" secondItem="gVi-8W-3zw" secondAttribute="bottom" constant="5" id="1yP-7h-KEl"/>
-                            <constraint firstAttribute="trailing" secondItem="Xgp-cN-nvi" secondAttribute="trailing" constant="8" id="AQK-0y-Cn4"/>
+                            <constraint firstAttribute="trailing" secondItem="Xgp-cN-nvi" secondAttribute="trailing" constant="12" id="AQK-0y-Cn4"/>
                             <constraint firstAttribute="bottom" secondItem="Xgp-cN-nvi" secondAttribute="bottom" constant="8" id="DH8-71-csI"/>
                             <constraint firstItem="gVi-8W-3zw" firstAttribute="leading" secondItem="diE-5f-SOd" secondAttribute="trailing" constant="10" id="FvT-Wb-lQe"/>
                             <constraint firstItem="eyr-VL-ebS" firstAttribute="centerY" secondItem="gVi-8W-3zw" secondAttribute="centerY" id="JHD-JM-wCl"/>
                             <constraint firstItem="diE-5f-SOd" firstAttribute="leading" secondItem="BX0-lw-K9a" secondAttribute="leading" constant="8" id="JUq-Ng-wpx"/>
+                            <constraint firstItem="CuZ-EZ-zoJ" firstAttribute="centerY" secondItem="gVi-8W-3zw" secondAttribute="centerY" id="LGu-rB-rDv"/>
                             <constraint firstItem="diE-5f-SOd" firstAttribute="top" secondItem="BX0-lw-K9a" secondAttribute="top" constant="8" id="RNL-wP-ztC"/>
                             <constraint firstItem="eyr-VL-ebS" firstAttribute="leading" secondItem="gVi-8W-3zw" secondAttribute="trailing" constant="5" id="VqW-pb-Fna"/>
+                            <constraint firstAttribute="trailing" secondItem="CuZ-EZ-zoJ" secondAttribute="trailing" constant="8" id="czm-5e-KuD"/>
                             <constraint firstItem="Xgp-cN-nvi" firstAttribute="leading" secondItem="diE-5f-SOd" secondAttribute="trailing" constant="10" id="xpa-wY-pvT"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -117,6 +132,7 @@
             <connections>
                 <outlet property="bgView" destination="BX0-lw-K9a" id="eCb-bm-SWw"/>
                 <outlet property="dateLabel" destination="eyr-VL-ebS" id="X33-DE-NBP"/>
+                <outlet property="menuButton" destination="CuZ-EZ-zoJ" id="iPw-Xt-U6l"/>
                 <outlet property="messageLabel" destination="Xgp-cN-nvi" id="yf4-H6-hP1"/>
                 <outlet property="personImageView" destination="diE-5f-SOd" id="z7A-gW-CLQ"/>
                 <outlet property="usernameLabel" destination="gVi-8W-3zw" id="AJa-Uc-Y7F"/>
@@ -125,6 +141,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="BackgroundCard">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

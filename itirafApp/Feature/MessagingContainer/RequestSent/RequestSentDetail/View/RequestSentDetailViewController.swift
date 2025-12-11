@@ -22,7 +22,6 @@ final class RequestSentDetailViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var statusImageView: UIImageView!
-    @IBOutlet weak var profileIconLabel: UILabel!
     
     var viewModel: RequestSentDetailViewModelProtocol
     required init?(coder: NSCoder) {
@@ -72,7 +71,7 @@ final class RequestSentDetailViewController: UIViewController {
         titleLabel.text = sentRequests.confessionTitle
         confessionDateLabel.text = sentRequests.createdAt.relativeTimeString()
         confessionOwnerUsernameLabel.text = sentRequests.confessionAuthorUsername
-        profileIconLabel.text = String(sentRequests.confessionAuthorUsername.prefix(2)).uppercased()
+        
         myMessageLabel.text = sentRequests.initialMessage
         statusLabel.text = sentRequests.status.description.capitalized
         statusImageView.image = sentRequests.status == .pending ? UIImage(systemName: "clock") : UIImage(systemName: "xmark.octagon")

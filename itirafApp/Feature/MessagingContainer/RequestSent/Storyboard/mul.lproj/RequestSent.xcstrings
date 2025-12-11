@@ -27,19 +27,6 @@
       },
       "shouldTranslate" : false
     },
-    "aig-Sw-Ueb.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"TE\"; ObjectID = \"aig-Sw-Ueb\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "TE"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "EKr-Sh-2iK.text" : {
       "comment" : "Class = \"UILabel\"; text = \"date\"; ObjectID = \"EKr-Sh-2iK\";",
       "extractionState" : "extracted_with_value",

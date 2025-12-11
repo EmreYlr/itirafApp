@@ -15,7 +15,6 @@ final class RequestSentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileBGView: UIView!
-    @IBOutlet weak var profileIconLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,7 +36,6 @@ final class RequestSentCollectionViewCell: UICollectionViewCell {
     func configure(with sentRequest: RequestSentModel) {
         usernameLabel.text = sentRequest.confessionAuthorUsername
         messageLabel.text = "direct_message.prefix.you".localized + sentRequest.initialMessage
-        profileIconLabel.text = String(sentRequest.confessionAuthorUsername.prefix(2)).uppercased()
         
         switch sentRequest.status {
         case .pending:

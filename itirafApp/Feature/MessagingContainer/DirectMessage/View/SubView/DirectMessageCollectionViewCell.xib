@@ -23,17 +23,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAb-ab-3hw" userLabel="image BG View">
                                 <rect key="frame" x="8" y="15" width="60" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHT-XP-Rq9">
-                                        <rect key="frame" x="18" y="18" width="24" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <color key="textColor" name="TextPrimary"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="wJW-7D-he9">
+                                        <rect key="frame" x="5" y="10" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="FzA-1j-57C"/>
+                                            <constraint firstAttribute="width" constant="50" id="dZb-K2-YuQ"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="0su-o5-FCv"/>
-                                    <constraint firstItem="oHT-XP-Rq9" firstAttribute="centerY" secondItem="TAb-ab-3hw" secondAttribute="centerY" id="SgB-qv-9JG"/>
-                                    <constraint firstItem="oHT-XP-Rq9" firstAttribute="centerX" secondItem="TAb-ab-3hw" secondAttribute="centerX" id="nak-VR-xOt"/>
+                                    <constraint firstAttribute="bottom" secondItem="wJW-7D-he9" secondAttribute="bottom" id="cuL-v0-Wpr"/>
+                                    <constraint firstItem="wJW-7D-he9" firstAttribute="centerX" secondItem="TAb-ab-3hw" secondAttribute="centerX" id="kg1-2n-n4v"/>
                                     <constraint firstAttribute="width" constant="60" id="seE-jo-7aP"/>
                                 </constraints>
                             </view>
@@ -105,14 +106,14 @@
                 <outlet property="newMessageCountLabel" destination="24L-gg-IJx" id="l5Z-br-MD0"/>
                 <outlet property="newMessageCountView" destination="kMu-9Y-OaA" id="0d0-r0-OUO"/>
                 <outlet property="profileBGView" destination="TAb-ab-3hw" id="C4c-9t-mdE"/>
-                <outlet property="profileIconLabel" destination="oHT-XP-Rq9" id="udy-L8-IoX"/>
                 <outlet property="timeLabel" destination="zaj-sd-KDO" id="laK-fc-LA8"/>
                 <outlet property="usernameLabel" destination="g2R-cU-tKF" id="wUe-lU-Jqp"/>
             </connections>
-            <point key="canvasLocation" x="235.87786259541983" y="33.450704225352112"/>
+            <point key="canvasLocation" x="235.87786259541983" y="33.098591549295776"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="chat_Icon" width="960" height="960"/>
         <namedColor name="BackgroundApp">
             <color red="0.97299998998641968" green="0.97600001096725464" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

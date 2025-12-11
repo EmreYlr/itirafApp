@@ -69,7 +69,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHI-k5-Ggo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHI-k5-Ggo">
                                 <rect key="frame" x="174" y="5.0000000000000009" width="25" height="14.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" name="TextTertiary"/>
@@ -79,7 +79,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ownerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ag2-Ux-cg1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" text="ownerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ag2-Ux-cg1">
                                 <rect key="frame" x="0.0" y="5.0000000000000009" width="67" height="14.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" name="TextTertiary"/>
@@ -91,7 +91,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="channelName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ap-3C-W5k">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="channelName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ap-3C-W5k">
                                 <rect key="frame" x="82" y="4.6666666666666679" width="77" height="15"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" name="TextTertiary"/>
@@ -272,6 +272,7 @@
                             <constraint firstItem="c80-Kg-qye" firstAttribute="top" secondItem="ag2-Ux-cg1" secondAttribute="bottom" constant="10" id="dLe-EA-ML7"/>
                             <constraint firstItem="xd1-pd-W3c" firstAttribute="top" secondItem="c80-Kg-qye" secondAttribute="bottom" constant="15" id="fGj-FU-9js"/>
                             <constraint firstItem="JyU-dd-EHM" firstAttribute="leading" secondItem="7f4-ti-CrJ" secondAttribute="trailing" constant="15" id="gBP-CI-8VX"/>
+                            <constraint firstItem="lGT-4o-2zH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tHI-k5-Ggo" secondAttribute="trailing" constant="5" id="heD-3Z-2sY"/>
                             <constraint firstItem="DUL-or-1fd" firstAttribute="centerY" secondItem="Eef-kr-cP8" secondAttribute="centerY" id="hjU-me-SPS"/>
                             <constraint firstAttribute="trailing" secondItem="xd1-pd-W3c" secondAttribute="trailing" id="hvp-GD-FLm"/>
                             <constraint firstItem="ag2-Ux-cg1" firstAttribute="top" secondItem="6mo-iG-eVl" secondAttribute="top" constant="5" id="hyc-0a-hhu"/>

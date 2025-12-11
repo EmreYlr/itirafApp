@@ -24,7 +24,6 @@ final class ChatViewController: MessagesViewController {
     @IBOutlet weak var buttonView: UIView!
     @IBOutlet weak var myMessageLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var profileIconLabel: UILabel!
     @IBOutlet weak var initialLabel: UILabel!
     @IBOutlet weak var rejectButton: UIButton!
     @IBOutlet weak var approveButton: UIButton!
@@ -129,30 +128,41 @@ final class ChatViewController: MessagesViewController {
     }
     
     private func setupNavigationMenu() {
-        //TODO: -Buraya bak
+        guard mode == .directMessage else { return }
         let menu: UIMenu
         
         let reportAction = UIAction(title: "general.button.report".localized, image: UIImage(systemName: "exclamationmark.bubble"), attributes: .destructive) { [weak self] _ in
             self?.showReportScreen()
         }
 
-        if !checkIsRequestMessage() {
-            let blockAction = UIAction(title: "direct_message.action.delete_and_block".localized, image: UIImage(systemName: "hand.raised.slash")) { [weak self] _ in
-                self?.blockUser()
-            }
-            menu = UIMenu(title: "", children: [blockAction, reportAction])
-        } else {
-            menu = UIMenu(title: "", children: [reportAction])
-        }
-
         
+        let blockAction = UIAction(title: "direct_message.action.delete_and_block".localized, image: UIImage(systemName: "hand.raised.slash")) { [weak self] _ in
+            self?.blockUser()
+        }
+        menu = UIMenu(title: "", children: [blockAction, reportAction])
         let menuButton = UIBarButtonItem(title: nil, image: UIImage(systemName: "ellipsis"), primaryAction: nil, menu: menu)
-
+        
         self.navigationItem.rightBarButtonItem = menuButton
+        
     }
     
     private func showReportScreen() {
+        guard let roomId = viewModel.getRoomId() else { return }
+        let reportVC: ReportViewController = Storyboard.report.instantiate(.report)
+        let viewModel = ReportViewModel(target: .room(roomId: roomId))
+        reportVC.viewModel = viewModel
+
+        if let sheet = reportVC.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.largestUndimmedDetentIdentifier = .large
+            sheet.prefersEdgeAttachedInCompactHeight = true
+        }
         
+        reportVC.modalPresentationStyle = .pageSheet
+        
+        present(reportVC, animated: true)
     }
     
     private func blockUser() {

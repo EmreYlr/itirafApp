@@ -59,7 +59,8 @@ extension ChatViewController: MessagesDisplayDelegate {
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         if !isFromCurrentSender(message: message) {
-            let avatar = Avatar(initials: String(message.sender.displayName.prefix(2).uppercased()))
+            let avatar = Avatar(image: UIImage(named: "chat_Icon"))
+            avatarView.backgroundColor = .backgroundCard
             avatarView.set(avatar: avatar)
         }
     }

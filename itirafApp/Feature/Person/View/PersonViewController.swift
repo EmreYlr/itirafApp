@@ -13,7 +13,6 @@ final class PersonViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var privacyView: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var personIconLabel: UILabel!
     @IBOutlet weak var personView: UIView!
     @IBOutlet weak var addNewSocialButton: UIButton!
     @IBOutlet weak var followedButton: UIButton!
@@ -40,7 +39,6 @@ final class PersonViewController: UIViewController {
     func initData() {
         personViewModel.delegate = self
         addNewSocialButton.layer.cornerRadius = 8
-        personIconLabel.text = String((UserManager.shared.getUsername() ?? "AN").prefix(2)).uppercased()
         usernameLabel.text = UserManager.shared.getUsername() ?? "person.username.anonymous".localized
         personView.layer.cornerRadius = personView.frame.width / 2
         personView.clipsToBounds = true

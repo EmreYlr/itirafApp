@@ -46,7 +46,6 @@ extension ChatViewController {
         
         myMessageLabel.text = requestMessage.confessionMessage
         titleLabel.text = requestMessage.confessionTitle
-        profileIconLabel.text = String(requestMessage.requesterUsername.prefix(2)).uppercased()
         initialLabel.text = requestMessage.initialMessage
     }
     func configureTableView() {

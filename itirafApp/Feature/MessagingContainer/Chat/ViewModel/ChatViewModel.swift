@@ -24,6 +24,7 @@ protocol ChatViewModelProtocol {
     func approveRequest() async
     func rejectRequest() async
     func blockRoom() async
+    func getRoomId() -> String?
 }
 
 protocol ChatViewModelDelegate: AnyObject {
@@ -186,6 +187,11 @@ final class ChatViewModel: NSObject {
         } catch {
             delegate?.diderror(error)
         }
+    }
+    
+    func getRoomId() -> String? {
+        guard let directMessage = directMessage else { return nil }
+        return directMessage.roomID
     }
 }
 

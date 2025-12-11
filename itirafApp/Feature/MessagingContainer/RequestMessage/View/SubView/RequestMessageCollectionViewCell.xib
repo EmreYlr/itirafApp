@@ -24,18 +24,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xi0-Th-daO" userLabel="image BG View">
                                 <rect key="frame" x="8" y="10" width="60" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqh-KQ-A88">
-                                        <rect key="frame" x="18" y="18" width="24" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <color key="textColor" name="TextPrimary"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="WOW-Uf-XD9">
+                                        <rect key="frame" x="5" y="10" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="I4C-OG-DT7"/>
+                                            <constraint firstAttribute="width" constant="50" id="SVt-Ux-Vtr"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="qqh-KQ-A88" firstAttribute="centerY" secondItem="xi0-Th-daO" secondAttribute="centerY" id="Idk-T5-QOu"/>
+                                    <constraint firstAttribute="bottom" secondItem="WOW-Uf-XD9" secondAttribute="bottom" id="HsP-Ab-9tN"/>
                                     <constraint firstAttribute="height" constant="60" id="Uq9-vi-b0U"/>
                                     <constraint firstAttribute="width" constant="60" id="YxM-RL-iHg"/>
-                                    <constraint firstItem="qqh-KQ-A88" firstAttribute="centerX" secondItem="xi0-Th-daO" secondAttribute="centerX" id="zBW-5f-urE"/>
+                                    <constraint firstItem="WOW-Uf-XD9" firstAttribute="centerX" secondItem="xi0-Th-daO" secondAttribute="centerX" id="hF1-94-AlO"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jk0-7N-QLO">
@@ -109,13 +110,13 @@
                 <outlet property="bgView" destination="Fsi-bi-3t4" id="WA1-5i-hq9"/>
                 <outlet property="messageLabel" destination="Jk0-7N-QLO" id="CY6-mc-YKY"/>
                 <outlet property="profileBGView" destination="xi0-Th-daO" id="P7y-po-500"/>
-                <outlet property="profileIconLabel" destination="qqh-KQ-A88" id="lQZ-5M-jS0"/>
                 <outlet property="usernameLabel" destination="eOh-ih-KzH" id="key-q1-at6"/>
             </connections>
             <point key="canvasLocation" x="45.801526717557252" y="-5.6338028169014089"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="chat_Icon" width="960" height="960"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <namedColor name="BackgroundApp">
