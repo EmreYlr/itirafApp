@@ -24,6 +24,7 @@ protocol ChatViewModelProtocol {
     func approveRequest() async
     func rejectRequest() async
     func blockRoom() async
+    func blockUser() async
     func getRoomId() -> String?
 }
 
@@ -31,7 +32,7 @@ protocol ChatViewModelDelegate: AnyObject {
     func didUpdateMessages(isPagination: Bool)
     func didApproveRequest()
     func didRejectRequest()
-    func didBlockRoom()
+    func didBlock()
     func diderror(_ error: Error)
 }
 
@@ -183,7 +184,22 @@ final class ChatViewModel: NSObject {
         
         do {
             try await chatService.blockRoom(roomId: roomId)
-            delegate?.didBlockRoom()
+            delegate?.didBlock()
+        } catch {
+            delegate?.diderror(error)
+        }
+    }
+    
+    func blockUser() async {
+        guard let userId = requestMessage?.requesterUserID else {
+            let error = APIError(code: 4300, type: "MissingInfo")
+            delegate?.diderror(error)
+            return
+        }
+        
+        do {
+            try await chatService.blockUser(userId: userId)
+            delegate?.didBlock()
         } catch {
             delegate?.diderror(error)
         }

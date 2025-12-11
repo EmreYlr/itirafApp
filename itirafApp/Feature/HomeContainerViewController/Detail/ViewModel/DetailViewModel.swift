@@ -16,6 +16,8 @@ protocol DetailViewModelProtocol {
     func getChannelMessageId() -> Int
     func createShortlink() async
     func deleteConfession() async
+    func deleteReply(replyId: Int) async
+    func blockUser(userId: String, isReply: Bool) async
     func getTargetCommentId() -> Int?
     func getMaxReplyCharacterCount() -> Int
     func isNSFW() -> Bool
@@ -25,12 +27,14 @@ protocol DetailViewModelProtocol {
 protocol DetailViewModelOutputProtocol: AnyObject {
     func didFetchDetail()
     func didDeleteConfession()
+    func didDeleteReply()
     func didUpdateLikeStatus(isLiked: Bool, likeCount: Int)
+    func didUpdateReplies()
+    func didCreateShortlink(shortlink: String)
+    func didUserBlock(isReply: Bool)
     func didError(error: Error)
     func didFailToLikeMessage(with error: Error)
     func didFailToFetchDetail(with error: Error)
-    func didUpdateReplies()
-    func didCreateShortlink(shortlink: String)
 }
 
 final class DetailViewModel {
@@ -50,7 +54,6 @@ final class DetailViewModel {
     
     func fetchMessageData() async {
         do {
-            //try? await Task.sleep(nanoseconds: 3 * 1_000_000_000) //Testing delay
             let messageData = try await detailService.fetchDetail(messageId: messageId)
             confession = messageData
             await MainActor.run {
@@ -62,7 +65,6 @@ final class DetailViewModel {
             }
         }
     }
-
     
     func likeMessage() async {
         toggleLikeState()
@@ -135,6 +137,25 @@ final class DetailViewModel {
         do {
             try await detailService.deleteConfession(messageId: messageId)
             delegate?.didDeleteConfession()
+        } catch {
+            delegate?.didError(error: error)
+        }
+    }
+    
+    func deleteReply(replyId: Int) async {
+        do {
+            try await detailService.deleteReply(replyId: replyId)
+            confession?.replies.removeAll(where: { $0.id == replyId })
+            delegate?.didDeleteReply()
+        } catch {
+            delegate?.didError(error: error)
+        }
+    }
+    
+    func blockUser(userId: String, isReply: Bool) async {
+        do {
+            try await detailService.blockUser(userId: userId)
+            delegate?.didUserBlock(isReply: isReply)
         } catch {
             delegate?.didError(error: error)
         }

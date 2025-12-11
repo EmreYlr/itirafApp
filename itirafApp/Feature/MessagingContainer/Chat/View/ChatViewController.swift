@@ -128,22 +128,25 @@ final class ChatViewController: MessagesViewController {
     }
     
     private func setupNavigationMenu() {
-        guard mode == .directMessage else { return }
         let menu: UIMenu
-        
+        let isUser = self.mode == .messageRequest
         let reportAction = UIAction(title: "general.button.report".localized, image: UIImage(systemName: "exclamationmark.bubble"), attributes: .destructive) { [weak self] _ in
             self?.showReportScreen()
         }
-
         
         let blockAction = UIAction(title: "direct_message.action.block".localized, image: UIImage(systemName: "hand.raised.slash")) { [weak self] _ in
-            self?.blockUser()
+            self?.blockAction(isUser: isUser)
         }
-        menu = UIMenu(title: "", children: [blockAction, reportAction])
+        
+        if isUser {
+            menu = UIMenu(title: "", children: [blockAction])
+        } else {
+            menu = UIMenu(title: "", children: [blockAction, reportAction])
+        }
+
         let menuButton = UIBarButtonItem(title: nil, image: UIImage(systemName: "ellipsis"), primaryAction: nil, menu: menu)
         
         self.navigationItem.rightBarButtonItem = menuButton
-        
     }
     
     private func showReportScreen() {
@@ -165,7 +168,7 @@ final class ChatViewController: MessagesViewController {
         present(reportVC, animated: true)
     }
     
-    private func blockUser() {
+    private func blockAction(isUser: Bool) {
         DispatchQueue.main.async {
             self.showTwoButtonAlert(title: "general.title.warning".localized, message: "direct_message.blocked.message".localized, firstButtonTitle: "general.button.block".localized, firstButtonHandler: { _ in
                 self.showLoading()
@@ -173,7 +176,12 @@ final class ChatViewController: MessagesViewController {
                     defer {
                         self.hideLoading()
                     }
-                    await self.viewModel.blockRoom()
+                    if isUser {
+                        await self.viewModel.blockUser()
+                    } else {
+                        await self.viewModel.blockRoom()
+                    }
+                    
                 }
                 
             }, secondButtonTitle: "general.button.cancel".localized)
@@ -216,7 +224,7 @@ extension ChatViewController: ChatViewModelDelegate {
         }
     }
     
-    func didBlockRoom() {
+    func didBlock() {
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
         }

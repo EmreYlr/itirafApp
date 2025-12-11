@@ -184,13 +184,22 @@ final class DetailViewController: UIViewController {
                 defer {
                     self.hideLoading()
                 }
-                //await self.detailViewModel.deleteReply()
+                await self.detailViewModel.deleteReply(replyId: replyId)
             }
         }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)
     }
     
     func handleBlockUser(userId: String, isReply: Bool) {
-        //TODO: Dolacak
+        showTwoButtonAlert(title: "general.title.warning".localized, message: "direct_message.blocked.message".localized, firstButtonTitle: "general.button.block".localized, firstButtonHandler: { _ in
+            self.showLoading()
+            Task(priority: .utility) {
+                defer {
+                    self.hideLoading()
+                }
+                await self.detailViewModel.blockUser(userId: userId, isReply: isReply)
+            }
+            
+        }, secondButtonTitle: "general.button.cancel".localized)
     }
     
     func handleReplyButtonAction() {
@@ -262,6 +271,24 @@ extension DetailViewController: DetailViewModelOutputProtocol {
             cell.updateLikeButton(isLiked: isLiked, animated: false)
 
             cell.updateLikeCount(newCount: likeCount, animated: true)
+        }
+    }
+    
+    func didUserBlock(isReply: Bool) {
+        DispatchQueue.main.async {
+            if isReply {
+                Task {
+                    await self.detailViewModel.fetchMessageData()
+                }
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    func didDeleteReply() {
+        DispatchQueue.main.async {
+            self.updateScreen()
         }
     }
     

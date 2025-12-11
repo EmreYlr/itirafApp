@@ -84,10 +84,10 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 cell.onDeleteTapped = { [weak self] in
                     self?.handleDeleteConfession()
                 }
+                cell.onBlockTapped = { [weak self] in
+                    self?.handleBlockUser(userId: confession.owner.id, isReply: false)
+                }
                 
-//                cell.onBlockTapped = { [weak self] in
-//                    self?.handleBlockUser(userId: reply.owner.id, isReply: false)
-//                }
             }
             return cell
         }
@@ -106,9 +106,9 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                     self?.handleDeleteReply(replyId: reply.id)
                 }
                 
-//                cell.onBlockTapped = { [weak self] in
-//                    self?.handleBlockUser(userId: reply.owner.id, isReply: true)
-//                }
+                cell.onBlockTapped = { [weak self] in
+                    self?.handleBlockUser(userId: reply.owner.id, isReply: true)
+                }
             }
             return cell
         }
@@ -138,8 +138,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                     self.handleReportReply(replyId: reply.id)
                 }
                 let blockAction = UIAction(title: "direct_message.action.block".localized, image: UIImage(systemName: "hand.raised.slash")) { action in
-                    // self.handleBlockUser(userId: reply.owner.id, isReply: true)
-                    print("Kullanıcı engellendi: \(reply.owner.id)")
+                    self.handleBlockUser(userId: reply.owner.id, isReply: true)
                 }
                 
                 actions.append(blockAction)

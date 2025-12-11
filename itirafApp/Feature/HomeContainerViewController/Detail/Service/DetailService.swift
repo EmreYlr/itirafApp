@@ -15,6 +15,8 @@ protocol DetailServiceProtocol {
     func repliesMessage(message: String, messageId: Int) async throws
     func createShortlink(messageId: Int) async throws -> ShortlinkResponse
     func deleteConfession(messageId: Int) async throws
+    func deleteReply(replyId: Int) async throws
+    func blockUser(userId: String) async throws
 }
 
 final class DetailService: DetailServiceProtocol {
@@ -82,6 +84,30 @@ final class DetailService: DetailServiceProtocol {
             endpoint: Endpoint.User.deleteUserMessage(messageId: messageId),
             method: .delete,
             parameters: nil,
+            encoding: JSONEncoding.default
+        )
+    }
+    
+    func deleteReply(replyId: Int) async throws {
+        let replyId = replyId
+        
+        let _: Empty = try await networkService.request(
+            endpoint: Endpoint.User.deleteReply(replyId: replyId),
+            method: .delete,
+            parameters: nil,
+            encoding: JSONEncoding.default
+        )
+    }
+    
+    func blockUser(userId: String) async throws {
+        let parameters: [String: Any] = [
+            "userId": userId
+        ]
+        
+        let _: Empty = try await networkService.request(
+            endpoint: Endpoint.User.blockUser,
+            method: .post,
+            parameters: parameters,
             encoding: JSONEncoding.default
         )
     }
