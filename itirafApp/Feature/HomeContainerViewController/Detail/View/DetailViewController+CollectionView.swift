@@ -113,4 +113,40 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return cell
         }
     }
+    
+    //Basılı tutma ile açılan menü
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        guard indexPath.section == 1,
+              let reply = detailViewModel.confession?.replies[indexPath.row] else {
+            return nil
+        }
+        
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [weak self] _ in
+            guard let self = self else { return nil }
+            
+            var actions: [UIAction] = []
+            let isOwner = UserManager.shared.isMe(userId: reply.owner.id)
+            
+            if isOwner {
+                let deleteAction = UIAction(title: "general.button.delete".localized, image: UIImage(systemName: "trash"), attributes: .destructive) { action in
+                    self.handleDeleteReply(replyId: reply.id)
+                }
+                actions.append(deleteAction)
+                
+            } else {
+                let reportAction = UIAction(title: "general.button.report".localized, image: UIImage(systemName: "exclamationmark.bubble"), attributes: .destructive) { action in
+                    self.handleReportReply(replyId: reply.id)
+                }
+                let blockAction = UIAction(title: "direct_message.action.block".localized, image: UIImage(systemName: "hand.raised.slash")) { action in
+                    // self.handleBlockUser(userId: reply.owner.id, isReply: true)
+                    print("Kullanıcı engellendi: \(reply.owner.id)")
+                }
+                
+                actions.append(blockAction)
+                actions.append(reportAction)
+            }
+            
+            return UIMenu(title: "", children: actions)
+        }
+    }
 }

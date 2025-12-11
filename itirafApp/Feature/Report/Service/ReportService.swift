@@ -49,11 +49,11 @@ final class ReportService: ReportServiceProtocol {
             "reason": reason
         ]
         
-//        let _ : Empty = try await networkService.request(
-//            endpoint: Endpoint.Report.reportReply(replyId: replyId),
-//            method: .post,
-//            parameters: parameters,
-//            encoding: JSONEncoding.default
-//        )
+        let _ : Empty = try await networkService.request(
+            endpoint: Endpoint.Report.reportReply(replyId: replyId),
+            method: .post,
+            parameters: parameters,
+            encoding: JSONEncoding.default
+        )
     }
 }

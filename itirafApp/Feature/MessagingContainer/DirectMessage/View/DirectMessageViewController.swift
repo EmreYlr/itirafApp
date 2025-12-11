@@ -96,7 +96,7 @@ final class DirectMessageViewController: UIViewController {
             }
         }))
 
-        alert.addAction(UIAlertAction(title: "direct_message.action.delete_and_block".localized, style: .destructive, handler: { _ in
+        alert.addAction(UIAlertAction(title: "direct_message.action.block".localized, style: .destructive, handler: { _ in
             Task(priority: .utility) {
                 await self.directMessageViewModel.deleteRoom(roomId: message.roomID, blockUser: true)
             }
