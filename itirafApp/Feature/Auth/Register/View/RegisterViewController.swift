@@ -82,6 +82,7 @@ final class RegisterViewController: UIViewController {
             }
         }
         catch {
+            self.hideLoading()
             sender.isEnabled = true
             self.handleError(error)
         }

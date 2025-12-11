@@ -130,7 +130,21 @@ final class DetailViewController: UIViewController {
     }
     
     func handleReportConfession() {
-        //TODO: -Report Screen Yap
+        let reportVC: ReportViewController = Storyboard.report.instantiate(.report)
+        let viewModel = ReportViewModel(target: .confession(messageId: detailViewModel.getChannelMessageId()))
+        reportVC.viewModel = viewModel
+
+        if let sheet = reportVC.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.largestUndimmedDetentIdentifier = .large
+            sheet.prefersEdgeAttachedInCompactHeight = true
+        }
+        
+        reportVC.modalPresentationStyle = .pageSheet
+        
+        present(reportVC, animated: true)
     }
     
     func handleDeleteConfession() {

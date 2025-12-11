@@ -2193,6 +2193,17 @@
         }
       }
     },
+    "message.conflict.business" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu işlemi zaten daha önce yaptınız."
+          }
+        }
+      }
+    },
     "message.connection_failed" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3141,6 +3152,125 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hesabımı sil"
+          }
+        }
+      }
+    },
+    "report.detail_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please describe the problem you are experiencing in detail below."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen yaşadığınız sorunu aşağıda detaylı bir şekilde açıklayınız."
+          }
+        }
+      }
+    },
+    "report.detail_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can write your problem or complaint in detail here."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yaşadığınız sorunu veya şikayetinizi detaylı bir şekilde buraya yazabilirsiniz."
+          }
+        }
+      }
+    },
+    "report.detail_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report Detail"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şikayet Detayı"
+          }
+        }
+      }
+    },
+    "report.field.content" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Content"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İçerik"
+          }
+        }
+      }
+    },
+    "report.message_success" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your report has been sent. We will get back to you as soon as possible."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şikayetiniz iletilmiştir. En kısa sürede sizlere dönüş yapacağız."
+          }
+        }
+      }
+    },
+    "report.submit_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submit Report"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şikayeti İlet"
+          }
+        }
+      }
+    },
+    "report.warning_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your report will be reviewed according to our quality standards, and we will contact you as soon as possible."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şikayetiniz kalite standartlarımız gereği incelenecek ve en kısa sürede tarafınıza dönüş yapılacaktır"
           }
         }
       }

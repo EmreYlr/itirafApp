@@ -114,6 +114,7 @@ final class EditConfessionViewController: UIViewController {
             }
             
         } catch {
+            self.hideLoading()
             sender.isEnabled = true
             self.handleError(error)
         }

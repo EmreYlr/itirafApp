@@ -88,6 +88,12 @@
 		C38BEFF12EE880A100773E31 /* TermsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BEFEF2EE880A100773E31 /* TermsCollectionViewCell.swift */; };
 		C38BEFF22EE880A100773E31 /* TermsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38BEFF02EE880A100773E31 /* TermsCollectionViewCell.xib */; };
 		C38BEFF42EE8822500773E31 /* TermsViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BEFF32EE8821E00773E31 /* TermsViewController+CollectionView.swift */; };
+		C38BEFFF2EEADA2200773E31 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BEFFE2EEADA2200773E31 /* ReportViewController.swift */; };
+		C38BF0012EEADA6600773E31 /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BF0002EEADA6200773E31 /* ReportViewModel.swift */; };
+		C38BF0032EEADB4B00773E31 /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BF0022EEADB4800773E31 /* ReportService.swift */; };
+		C38BF0052EEADBE200773E31 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38BF0042EEADBE200773E31 /* Report.storyboard */; };
+		C38BF0072EEAE6EB00773E31 /* ReportTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BF0062EEAE6EB00773E31 /* ReportTarget.swift */; };
+		C38BF0092EEAEBDD00773E31 /* APIError+Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BF0082EEAEBD100773E31 /* APIError+Business.swift */; };
 		C38EAA9D2EBF4FF400A1818C /* ViolationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAA9C2EBF4FF400A1818C /* ViolationsViewController.swift */; };
 		C38EAAB02EBFB38100A1818C /* RegisterDeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */; };
 		C38EAAB12EBFB38100A1818C /* DeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */; };
@@ -375,6 +381,12 @@
 		C38BEFEF2EE880A100773E31 /* TermsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C38BEFF02EE880A100773E31 /* TermsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermsCollectionViewCell.xib; sourceTree = "<group>"; };
 		C38BEFF32EE8821E00773E31 /* TermsViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TermsViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C38BEFFE2EEADA2200773E31 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		C38BF0002EEADA6200773E31 /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
+		C38BF0022EEADB4800773E31 /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
+		C38BF0042EEADBE200773E31 /* Report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
+		C38BF0062EEAE6EB00773E31 /* ReportTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTarget.swift; sourceTree = "<group>"; };
+		C38BF0082EEAEBD100773E31 /* APIError+Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIError+Business.swift"; sourceTree = "<group>"; };
 		C38EAA9C2EBF4FF400A1818C /* ViolationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolationsViewController.swift; sourceTree = "<group>"; };
 		C38EAAA92EBFB36100A1818C /* itirafApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = itirafApp.entitlements; sourceTree = "<group>"; };
 		C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDeviceRequest.swift; sourceTree = "<group>"; };
@@ -1035,6 +1047,58 @@
 				C38BEFF02EE880A100773E31 /* TermsCollectionViewCell.xib */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		C38BEFF82EEAD9CF00773E31 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				C38BEFFD2EEAD9E900773E31 /* Storyboard */,
+				C38BEFFC2EEAD9E400773E31 /* Model */,
+				C38BEFFB2EEAD9E100773E31 /* View */,
+				C38BEFFA2EEAD9DC00773E31 /* ViewModel */,
+				C38BEFF92EEAD9D800773E31 /* Service */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		C38BEFF92EEAD9D800773E31 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C38BF0022EEADB4800773E31 /* ReportService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C38BEFFA2EEAD9DC00773E31 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C38BF0002EEADA6200773E31 /* ReportViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C38BEFFB2EEAD9E100773E31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C38BEFFE2EEADA2200773E31 /* ReportViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C38BEFFC2EEAD9E400773E31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C38BF0062EEAE6EB00773E31 /* ReportTarget.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C38BEFFD2EEAD9E900773E31 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C38BF0042EEADBE200773E31 /* Report.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		C38EAAAC2EBFB38100A1818C /* Model */ = {
@@ -2329,6 +2393,7 @@
 		C3EB107F2E74412B002DA295 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				C38BEFF82EEAD9CF00773E31 /* Report */,
 				C38BEFDF2EE87B9400773E31 /* Terms */,
 				C36B03502EE83AA40049F7FD /* Onboarding */,
 				C3C173B72EC5EA6200D27383 /* HomeContainerViewController */,
@@ -2416,6 +2481,7 @@
 			children = (
 				C3FAE9632EE4534F003542CD /* UICollectionViewLayout+Extensions.swift */,
 				C3BE19912ED48BF70053C9A9 /* String+Localized.swift */,
+				C38BF0082EEAEBD100773E31 /* APIError+Business.swift */,
 				C3BE198A2ED476DE0053C9A9 /* APIError+Auth.swift */,
 				C3BE19882ED2171E0053C9A9 /* APIError+Extension.swift */,
 				C3BE19592ECDF0480053C9A9 /* Encodable+Extension.swift */,
@@ -2737,6 +2803,7 @@
 				C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */,
 				C36B034F2EE713140049F7FD /* EmptyStateView.xib in Resources */,
 				C3C173E12EC62B0200D27383 /* ChannelCollectionViewCell.xib in Resources */,
+				C38BF0052EEADBE200773E31 /* Report.storyboard in Resources */,
 				C3A750B42EB658770058163B /* SocialLinkTableViewCell.xib in Resources */,
 				C396C5C52ED5D54200FABB7E /* Main.storyboard in Resources */,
 				C38465F02ED5DAFB00FD370A /* FollowChannel.storyboard in Resources */,
@@ -2802,6 +2869,7 @@
 				C3C173DD2EC61D9E00D27383 /* ChannelDetailViewController+CollectionView.swift in Sources */,
 				C3528F3F2EBBB6DD00FF1C19 /* ModerationDetailViewModel.swift in Sources */,
 				C38EAACD2EC331FC00A1818C /* AppRoute.swift in Sources */,
+				C38BF0032EEADB4B00773E31 /* ReportService.swift in Sources */,
 				C3F39E162EA0269200197509 /* PostConfessionService.swift in Sources */,
 				C3E6602C2EB257540059048F /* MyConfessionsCollectionViewCell.swift in Sources */,
 				C3BE19802ED215470053C9A9 /* BusinessError.swift in Sources */,
@@ -2814,6 +2882,7 @@
 				C3A7A42D2EA94D6400250B06 /* DirectMessage.swift in Sources */,
 				C3C08BB82E8AF54900EDC6A2 /* PersonViewController.swift in Sources */,
 				C37D5DE32E8414630068F334 /* NetworkConstants.swift in Sources */,
+				C38BF0072EEAE6EB00773E31 /* ReportTarget.swift in Sources */,
 				C37D5DEE2E8417230068F334 /* AuthManager.swift in Sources */,
 				C3528EFE2EB8C32E00FF1C19 /* UIApplication+Extension.swift in Sources */,
 				C3C173C52EC5FEBE00D27383 /* FlowService.swift in Sources */,
@@ -2851,6 +2920,7 @@
 				C3FAE95F2EE1BD11003542CD /* ThemeManager.swift in Sources */,
 				C3E660532EB40A210059048F /* UserSocialLink.swift in Sources */,
 				C37D5ECB2E86DE9A0068F334 /* RegisterViewController.swift in Sources */,
+				C38BF0012EEADA6600773E31 /* ReportViewModel.swift in Sources */,
 				C3BE19662ECE4FBA0053C9A9 /* ForgotPasswordViewModel.swift in Sources */,
 				C37D5DE52E8414760068F334 /* Endpoint.swift in Sources */,
 				C38EAACB2EC2241600A1818C /* AppCoordinator.swift in Sources */,
@@ -2901,6 +2971,7 @@
 				C3528F0A2EB8EF7D00FF1C19 /* RequestSentService.swift in Sources */,
 				C3C173C72EC5FF2300D27383 /* Flow.swift in Sources */,
 				C3C08BA82E8AAD8100EDC6A2 /* HomeService.swift in Sources */,
+				C38BF0092EEAEBDD00773E31 /* APIError+Business.swift in Sources */,
 				C3E660162EAFB7F00059048F /* ChatViewController+ScrollView.swift in Sources */,
 				C3C08BA42E8AABAE00EDC6A2 /* RegisterViewModel.swift in Sources */,
 				C3BA53562EDC736700EC6413 /* ConfessionActionModel.swift in Sources */,
@@ -2987,6 +3058,7 @@
 				C3528F2B2EBB728D00FF1C19 /* ModerationViewModel.swift in Sources */,
 				C3A7509F2EB623540058163B /* RequestMessageCollectionViewCell.swift in Sources */,
 				C38BEFDE2EE86EF200773E31 /* NotificationManager.swift in Sources */,
+				C38BEFFF2EEADA2200773E31 /* ReportViewController.swift in Sources */,
 				C3D764C22E93E9B700104C3B /* DetailConfessionCollectionViewCell.swift in Sources */,
 				C3BE191E2ECA126B0053C9A9 /* ChannelSelectionViewController.swift in Sources */,
 				C3BA534B2EDB532E00EC6413 /* MyConfessionHeaderCollectionViewCell.swift in Sources */,

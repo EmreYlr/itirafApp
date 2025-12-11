@@ -29,6 +29,7 @@ enum Storyboard: String {
     case editProfile = "EditProfile"
     case onboarding = "Onboarding"
     case terms = "Terms"
+    case report = "Report"
 
     var instance: UIStoryboard {
         UIStoryboard(name: self.rawValue, bundle: nil)
@@ -130,6 +131,9 @@ enum ViewControllerID: String {
     
     //Terms.storyboard
     case terms = "TermsViewController"
+    
+    //Report.storyboard
+    case report = "ReportViewController"
 }
 
 enum NavigationControllerID: String {
