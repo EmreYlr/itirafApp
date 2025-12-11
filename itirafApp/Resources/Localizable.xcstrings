@@ -851,7 +851,7 @@
         }
       }
     },
-    "direct_message.action.delete_and_block" : {
+    "direct_message.action.block" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2196,6 +2196,12 @@
     "message.conflict.business" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " You've already done this before."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",

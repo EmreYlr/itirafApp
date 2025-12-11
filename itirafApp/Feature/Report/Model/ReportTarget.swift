@@ -8,5 +8,5 @@
 enum ReportTarget {
     case confession(messageId: Int)
     case room(roomId: String)
-    //case comment(replyId: String)
+    case comment(replyId: Int)
 }

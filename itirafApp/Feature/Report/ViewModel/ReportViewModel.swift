@@ -35,6 +35,9 @@ final class ReportViewModel {
                 
             case .room(let roomId):
                 try await service.reportRoom(roomId: roomId, reason: reason)
+                
+            case .comment(let replyId):
+                try await service.reportReply(replyId: replyId, reason: reason)
             }
             
             self.delegate?.didSubmitReport()

@@ -9,6 +9,7 @@ import Alamofire
 protocol ReportServiceProtocol {
     func reportConfession(messageId: Int, reason: String) async throws
     func reportRoom(roomId: String, reason: String) async throws
+    func reportReply(replyId: Int, reason: String) async throws
 }
 
 final class ReportService: ReportServiceProtocol {
@@ -41,5 +42,18 @@ final class ReportService: ReportServiceProtocol {
             parameters: parameters,
             encoding: JSONEncoding.default
         )
+    }
+    
+    func reportReply(replyId: Int, reason: String) async throws {
+        let parameters: [String: Any] = [
+            "reason": reason
+        ]
+        
+//        let _ : Empty = try await networkService.request(
+//            endpoint: Endpoint.Report.reportReply(replyId: replyId),
+//            method: .post,
+//            parameters: parameters,
+//            encoding: JSONEncoding.default
+//        )
     }
 }

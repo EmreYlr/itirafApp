@@ -136,7 +136,7 @@ final class ChatViewController: MessagesViewController {
         }
 
         
-        let blockAction = UIAction(title: "direct_message.action.delete_and_block".localized, image: UIImage(systemName: "hand.raised.slash")) { [weak self] _ in
+        let blockAction = UIAction(title: "direct_message.action.block".localized, image: UIImage(systemName: "hand.raised.slash")) { [weak self] _ in
             self?.blockUser()
         }
         menu = UIMenu(title: "", children: [blockAction, reportAction])

@@ -93,6 +93,14 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             if let reply = detailViewModel.confession?.replies[indexPath.row] {
                 cell.configure(with: reply)
+                
+                cell.onReportTapped = { [weak self] in
+                    self?.handleReportReply(replyId: reply.id)
+                }
+                
+                cell.onDeleteTapped = { [weak self] in
+                    self?.handleDeleteReply(replyId: reply.id)
+                }
             }
             return cell
         }

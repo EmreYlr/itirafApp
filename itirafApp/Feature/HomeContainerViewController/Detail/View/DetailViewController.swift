@@ -147,6 +147,24 @@ final class DetailViewController: UIViewController {
         present(reportVC, animated: true)
     }
     
+    func handleReportReply(replyId: Int) {
+        let reportVC: ReportViewController = Storyboard.report.instantiate(.report)
+        let viewModel = ReportViewModel(target: .comment(replyId: replyId))
+        reportVC.viewModel = viewModel
+
+        if let sheet = reportVC.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.largestUndimmedDetentIdentifier = .large
+            sheet.prefersEdgeAttachedInCompactHeight = true
+        }
+        
+        reportVC.modalPresentationStyle = .pageSheet
+        
+        present(reportVC, animated: true)
+    }
+    
     func handleDeleteConfession() {
         showTwoButtonAlert(title: "general.title.warning".localized, message: "confession.message.delete_confirmation".localized, firstButtonTitle: "general.button.yes".localized, firstButtonHandler: { _ in
             self.showLoading()
@@ -155,6 +173,18 @@ final class DetailViewController: UIViewController {
                     self.hideLoading()
                 }
                 await self.detailViewModel.deleteConfession()
+            }
+        }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)
+    }
+    
+    func handleDeleteReply(replyId: Int) {
+        showTwoButtonAlert(title: "general.title.warning".localized, message: "confession.message.delete_confirmation".localized, firstButtonTitle: "general.button.yes".localized, firstButtonHandler: { _ in
+            self.showLoading()
+            Task(priority: .utility) {
+                defer {
+                    self.hideLoading()
+                }
+                //await self.detailViewModel.deleteReply()
             }
         }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)
     }
