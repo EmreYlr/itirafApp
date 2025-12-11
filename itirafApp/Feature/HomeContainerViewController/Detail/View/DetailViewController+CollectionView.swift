@@ -84,6 +84,10 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 cell.onDeleteTapped = { [weak self] in
                     self?.handleDeleteConfession()
                 }
+                
+//                cell.onBlockTapped = { [weak self] in
+//                    self?.handleBlockUser(userId: reply.owner.id, isReply: false)
+//                }
             }
             return cell
         }
@@ -101,6 +105,10 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 cell.onDeleteTapped = { [weak self] in
                     self?.handleDeleteReply(replyId: reply.id)
                 }
+                
+//                cell.onBlockTapped = { [weak self] in
+//                    self?.handleBlockUser(userId: reply.owner.id, isReply: true)
+//                }
             }
             return cell
         }

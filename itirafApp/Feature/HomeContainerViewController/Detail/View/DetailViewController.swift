@@ -189,6 +189,10 @@ final class DetailViewController: UIViewController {
         }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)
     }
     
+    func handleBlockUser(userId: String, isReply: Bool) {
+        //TODO: Dolacak
+    }
+    
     func handleReplyButtonAction() {
         replyTextField.becomeFirstResponder()
     }

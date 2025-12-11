@@ -32,6 +32,7 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
     var onAdminEditButtonTapped: (() -> Void)?
     var onReportTapped: (() -> Void)?
     var onDeleteTapped: (() -> Void)?
+    var onBlockTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -101,17 +102,28 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
     }
     
     func setupMenu(isOwner: Bool) {
-        let reportAction: UIAction
+        var menuItems: [UIMenuElement] = []
+        
         if isOwner {
-            reportAction = UIAction(title: "general.button.delete".localized, image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
+            let deleteAction = UIAction(title: "general.button.delete".localized, image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
                 self?.onDeleteTapped?()
             }
+            menuItems.append(deleteAction)
+            
         } else {
-            reportAction = UIAction(title: "general.button.report".localized, image: UIImage(systemName: "exclamationmark.bubble"), attributes: .destructive) { [weak self] _ in
+            let reportAction = UIAction(title: "general.button.report".localized, image: UIImage(systemName: "exclamationmark.bubble"), attributes: .destructive) { [weak self] _ in
                 self?.onReportTapped?()
             }
+
+            let blockAction = UIAction(title: "direct_message.action.block".localized, image: UIImage(systemName: "hand.raised.slash")) { [weak self] _ in
+                self?.onBlockTapped?()
+            }
+            
+            menuItems.append(blockAction)
+            menuItems.append(reportAction)
         }
-        menuButton.menu = UIMenu(title: "", children: [reportAction])
+
+        menuButton.menu = UIMenu(title: "", children: menuItems)
         menuButton.showsMenuAsPrimaryAction = true
     }
     
