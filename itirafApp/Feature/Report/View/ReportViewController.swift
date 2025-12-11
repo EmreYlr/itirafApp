@@ -24,6 +24,7 @@ final class ReportViewController: UIViewController {
         super.viewDidLoad()
         initData()
         initView()
+        setupHideKeyboardOnTap()
     }
     
     private func initData() {
@@ -50,6 +51,16 @@ final class ReportViewController: UIViewController {
         submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         
         updateCharacterCountLabel()
+    }
+    
+    private func setupHideKeyboardOnTap() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     private func updateCharacterCountLabel() {
