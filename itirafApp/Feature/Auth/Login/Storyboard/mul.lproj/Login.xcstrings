@@ -215,24 +215,6 @@
       },
       "shouldTranslate" : false
     },
-    "u9j-cZ-1tN.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Hesabınız yoksa bir hesap oluşturarak kullanmaya başlayabilirsiniz.\"; ObjectID = \"u9j-cZ-1tN\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If you don't have an account, you can create one to start using the app."
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Hesabınız yoksa bir hesap oluşturarak kullanmaya başlayabilirsiniz."
-          }
-        }
-      }
-    },
     "UAh-bD-Ttl.placeholder" : {
       "comment" : "Class = \"UITextField\"; placeholder = \"Şifrenizi giriniz\"; ObjectID = \"UAh-bD-Ttl\";",
       "extractionState" : "extracted_with_value",
@@ -299,6 +281,37 @@
           }
         }
       }
+    },
+    "Z2f-PQ-tXm.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Anonim Giriş Yap\"; ObjectID = \"Z2f-PQ-tXm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log in Anonymously"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Anonim Giriş Yap"
+          }
+        }
+      }
+    },
+    "Z2f-PQ-tXm.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"Z2f-PQ-tXm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      },
+      "shouldTranslate" : false
     }
   },
   "version" : "1.1"

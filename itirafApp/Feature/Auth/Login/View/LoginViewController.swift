@@ -15,6 +15,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var appleLoginButton: UIButton!
     @IBOutlet weak var googleLoginButton: UIButton!
+    @IBOutlet weak var anonymousLoginButton: UIButton!
     
     private var loginViewModel: LoginViewModelProtocol
     
@@ -33,9 +34,6 @@ final class LoginViewController: UIViewController {
         loginViewModel.delegate = self
         navigationItem.title = "auth.title.login".localized
         
-        let anonymousImage = UIImage(systemName: "person.crop.circle.fill.badge.questionmark")?.withTintColor(.textSecondary)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: anonymousImage , style: .plain, target: self, action: #selector(anonymousButtonTapped))
-        
         appleLoginButton.layer.cornerRadius = 8
         appleLoginButton.layer.borderWidth = 0.7
         appleLoginButton.layer.borderColor = UIColor.textSecondary.cgColor
@@ -43,6 +41,10 @@ final class LoginViewController: UIViewController {
         googleLoginButton.layer.cornerRadius = 8
         googleLoginButton.layer.borderWidth = 0.7
         googleLoginButton.layer.borderColor = UIColor.textSecondary.cgColor
+        
+        anonymousLoginButton.layer.cornerRadius = 8
+        anonymousLoginButton.layer.borderWidth = 0.7
+        anonymousLoginButton.layer.borderColor = UIColor.textSecondary.cgColor
         
         emailTextField.layer.cornerRadius = 8
         emailTextField.layer.borderWidth = 1
@@ -146,7 +148,8 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    @objc private func anonymousButtonTapped() {
+    
+    @IBAction func anonymousLoginButtonTapped(_ sender: UIButton) {
         showLoading()
         
         Task(priority: .utility) {
