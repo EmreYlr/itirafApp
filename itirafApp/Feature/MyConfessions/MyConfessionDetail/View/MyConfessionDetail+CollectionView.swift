@@ -33,19 +33,15 @@ extension MyConfessionDetailViewController: UICollectionViewDelegate, UICollecti
                     self?.handleEditConfession()
                 }
                 
-                cell.onLikeButtonTapped = {
-                     Task {
-                         print("Like tapped")
-                     }
-                }
-                
                 cell.onShareButtonTapped = {
-                    print("Share tapped")
+                    self.handleShareAction()
                 }
                 
                 cell.onReplyButtonTapped = { [weak self] in
                     self?.replyTextField.becomeFirstResponder()
                 }
+                
+                
             }
             return cell
         }
@@ -55,6 +51,19 @@ extension MyConfessionDetailViewController: UICollectionViewDelegate, UICollecti
             
             if let reply = viewModel.myConfession?.replies?[indexPath.row] {
                 cell.configure(with: reply)
+                
+                cell.onReportTapped = { [weak self] in
+                    self?.handleReportReply(replyId: reply.id)
+                }
+                
+                cell.onDeleteTapped = { [weak self] in
+                    self?.handleDeleteReply(replyId: reply.id)
+                }
+                
+                cell.onBlockTapped = { [weak self] in
+                    self?.handleBlockUser(userId: reply.owner.id, isReply: true)
+                }
+                
             }
             return cell
         }

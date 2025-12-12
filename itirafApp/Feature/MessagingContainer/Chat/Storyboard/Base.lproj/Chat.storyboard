@@ -208,7 +208,7 @@
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BrandPrimary">
-            <color red="0.42399999499320984" green="0.36100000143051147" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.35686274509803922" green="0.29803921568627451" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="StatusError">
             <color red="1" green="0.27799999713897705" blue="0.34099999070167542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

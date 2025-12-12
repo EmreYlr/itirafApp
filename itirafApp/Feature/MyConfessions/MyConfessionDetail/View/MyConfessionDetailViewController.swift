@@ -87,6 +87,55 @@ final class MyConfessionDetailViewController: UIViewController {
         }
     }
     
+    func handleShareAction() {
+        Task(priority: .utility) {
+            await viewModel.createShortlink()
+        }
+    }
+    
+    func handleReportReply(replyId: Int) {
+        let reportVC: ReportViewController = Storyboard.report.instantiate(.report)
+        let viewModel = ReportViewModel(target: .comment(replyId: replyId))
+        reportVC.viewModel = viewModel
+
+        if let sheet = reportVC.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.largestUndimmedDetentIdentifier = .large
+            sheet.prefersEdgeAttachedInCompactHeight = true
+        }
+        
+        reportVC.modalPresentationStyle = .pageSheet
+        
+        present(reportVC, animated: true)
+    }
+    
+    func handleDeleteReply(replyId: Int) {
+        showTwoButtonAlert(title: "general.title.warning".localized, message: "confession.message.delete_confirmation".localized, firstButtonTitle: "general.button.yes".localized, firstButtonHandler: { _ in
+            self.showLoading()
+            Task(priority: .utility) {
+                defer {
+                    self.hideLoading()
+                }
+                await self.viewModel.deleteReply(replyId: replyId)
+            }
+        }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)
+    }
+    
+    func handleBlockUser(userId: String, isReply: Bool) {
+        showTwoButtonAlert(title: "general.title.warning".localized, message: "direct_message.blocked.message".localized, firstButtonTitle: "general.button.block".localized, firstButtonHandler: { _ in
+            self.showLoading()
+            Task(priority: .utility) {
+                defer {
+                    self.hideLoading()
+                }
+                await self.viewModel.blockUser(userId: userId)
+            }
+            
+        }, secondButtonTitle: "general.button.cancel".localized)
+    }
+    
     func handleEditConfession() {
         guard let myConfession = viewModel.myConfession else { return }
         
@@ -128,6 +177,19 @@ final class MyConfessionDetailViewController: UIViewController {
 }
 
 extension MyConfessionDetailViewController: MyConfessionDetailViewModelDelegate {
+    func didDeleteReply() {
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
+    
+    func didCreateShortlink(shortlink: String) {
+        let activityViewController = UIActivityViewController(activityItems: [shortlink], applicationActivities: nil)
+        DispatchQueue.main.async {
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+    }
+
     func didUpdateReplies() {
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()

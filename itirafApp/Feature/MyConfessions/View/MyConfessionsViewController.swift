@@ -56,9 +56,7 @@ final class MyConfessionsViewController: UIViewController {
     private func loadCollectionView() {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "MyConfessionsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "myConfessionsCell")
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
+
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshConfession), for: .valueChanged)
         collectionView.refreshControl = refreshControl

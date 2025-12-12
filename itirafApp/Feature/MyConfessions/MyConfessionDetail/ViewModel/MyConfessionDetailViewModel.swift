@@ -13,12 +13,17 @@ protocol MyConfessionDetailViewModelProtocol {
     func getModerationStatus() -> ConfessionDisplayStatus
     func deleteConfession() async
     func addComment(message: String) async
+    func deleteReply(replyId: Int) async
+    func blockUser(userId: String) async
+    func createShortlink() async
     func getMaxReplyCharacterCount() -> Int
 }
 
 protocol MyConfessionDetailViewModelDelegate: AnyObject {
     func didDeleteConfession()
     func didUpdateReplies()
+    func didDeleteReply()
+    func didCreateShortlink(shortlink: String)
     func didError(error: Error)
 }
 
@@ -70,6 +75,37 @@ final class MyConfessionDetailViewModel {
             myConfession.replies?.append(newReply)
             self.myConfession?.replies = myConfession.replies
             delegate?.didUpdateReplies()
+        } catch {
+            delegate?.didError(error: error)
+        }
+    }
+    
+    func deleteReply(replyId: Int) async {
+        do {
+            try await myConfessionDetailService.deleteReply(replyId: replyId)
+            myConfession?.replies?.removeAll(where: { $0.id == replyId })
+            delegate?.didDeleteReply()
+        } catch {
+            delegate?.didError(error: error)
+        }
+    }
+    
+    func blockUser(userId: String) async {
+        do {
+            try await myConfessionDetailService.blockUser(userId: userId)
+        } catch {
+            delegate?.didError(error: error)
+        }
+    }
+    
+    func createShortlink() async {
+        guard let myConfessionId = myConfession?.id else {
+            return
+        }
+        
+        do {
+            let shortlink = try await myConfessionDetailService.createShortlink(messageId: myConfessionId)
+            delegate?.didCreateShortlink(shortlink: shortlink.url)
         } catch {
             delegate?.didError(error: error)
         }

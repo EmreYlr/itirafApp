@@ -54,7 +54,7 @@ final class RequestSentDetailViewController: UIViewController {
         myMessageView.backgroundColor = .brandSecondary
         myMessageView.layer.borderColor = UIColor.textSecondary.cgColor
         myMessageView.layer.borderWidth = 0.5
-        myMessageLabel.textColor = .textPrimary
+        myMessageLabel.textColor = .white
         
         profileIconView.layer.cornerRadius = profileIconView.frame.height / 2
         profileIconView.clipsToBounds = true
