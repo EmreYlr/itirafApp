@@ -30,7 +30,7 @@ final class RequestSentViewController: UIViewController {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
         if self.isMovingToParent {
-            showLoading()
+            showLoading(style: .localDimmed)
             Task {
                 defer {
                     self.hideLoading()

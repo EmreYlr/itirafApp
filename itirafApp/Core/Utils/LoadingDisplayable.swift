@@ -79,7 +79,7 @@ extension LoadingDisplayable where Self: UIViewController {
         
         switch style {
         case .fullScreenDimmed, .localDimmed:
-            container.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+            container.backgroundColor = UIColor.backgroundApp.withAlphaComponent(0.5)
         case .fullScreenClear:
             container.backgroundColor = .clear
         }

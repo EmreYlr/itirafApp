@@ -28,7 +28,7 @@ final class DirectMessageViewController: UIViewController {
     private func initData() {
         directMessageViewModel.delegate = self
         navigationItem.title = "direct_message.title".localized
-        showLoading()
+        showLoading(style: .localDimmed)
         Task {
             defer {
                 self.hideLoading()
