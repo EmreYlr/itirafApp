@@ -27,6 +27,7 @@ final class PersonViewController: UIViewController {
         super.viewDidLoad()
         initData()
         loadCollectionView()
+        setupGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,17 +46,17 @@ final class PersonViewController: UIViewController {
         personView.layer.borderWidth = 1
         personView.layer.borderColor = UIColor.textSecondary.withAlphaComponent(0.3).cgColor
         personView.backgroundColor = .backgroundCard
-        
+       
         privacyView.layer.cornerRadius = 8
         privacyView.backgroundColor = UIColor.backgroundCard
-        
+       
         followedButton.layer.cornerRadius = followedButton.frame.height / 2
         followedButton.backgroundColor = .backgroundCard
-        
+       
         let more = UIImage(systemName: "line.3.horizontal")?.withTintColor(.textSecondary, renderingMode: .alwaysOriginal
         )
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: more , style: .plain, target: self, action: #selector(moreButtonTapped))
-        
+       
         if personViewModel.isUserAnonymous() {
             followedButton.isEnabled = false
             addNewSocialButton.isEnabled = false
@@ -72,6 +73,11 @@ final class PersonViewController: UIViewController {
         collectionView.showAnimatedGradientSkeleton()
     }
 
+    private func setupGesture() {
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(moreButtonTapped))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+    }
     
     @IBAction func addNewSocialButtonTapped(_ sender: UIButton) {
         let editSocialVC: EditSocialViewController = Storyboard.editSocial.instantiate(.editSocial)
@@ -79,7 +85,7 @@ final class PersonViewController: UIViewController {
         editSocialVC.viewModel = EditSocialViewModel(socialLinks: personViewModel.socialLinks?.links ?? [])
         navigationController?.pushViewController(editSocialVC, animated: true)
     }
-    
+
     @objc private func moreButtonTapped() {
         let settingsVC = Storyboard.settings.instantiate(.settings)
         navigationController?.pushViewController(settingsVC, animated: true)

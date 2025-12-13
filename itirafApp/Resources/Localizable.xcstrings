@@ -3066,13 +3066,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Your confession has been shared successfully."
+            "value" : "Your confession has been successfully shared. It will be reviewed and published as soon as possible."
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "İtirafınız başarıyla paylaşıldı."
+            "value" : "İtirafınız başarıyla paylaşıldı. Gerekli incelemeler yapılıp en kısa sürede yayınlanacaktır."
           }
         }
       }
