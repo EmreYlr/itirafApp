@@ -9,6 +9,7 @@ protocol SettingsViewModelProtocol {
     var delegate: SettingsViewModelDelegate? { get set }
     func logout() async
     func checkUserAnonymous() -> Bool
+    func getHelpCenterURL() -> String
 }
 
 protocol SettingsViewModelDelegate: AnyObject {
@@ -32,10 +33,13 @@ final class SettingsViewModel {
             delegate?.didFailToLogout(with: error)
         }
     }
-    
-    
+
     func checkUserAnonymous() -> Bool {
         return UserManager.shared.getUserIsAnonymous()
+    }
+    
+    func getHelpCenterURL() -> String {
+        return Constants.webSiteLink
     }
 }
 

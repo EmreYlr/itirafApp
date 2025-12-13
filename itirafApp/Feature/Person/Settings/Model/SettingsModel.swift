@@ -8,14 +8,20 @@ import Foundation
 
 enum SettingsSection: Int, CaseIterable {
     case profile
-    case account
+    case general
+    case about
+    case support
     
     var title: String {
         switch self {
         case .profile:
             return "settings.section.profile".localized
-        case .account:
-            return "settings.section.account".localized
+        case .general:
+            return "settings.section.general".localized
+        case .about:
+            return "settings.section.about".localized
+        case .support:
+            return "settings.section.support".localized
         }
     }
 }
@@ -25,11 +31,15 @@ struct SettingItem: Hashable {
     enum ItemType: Hashable {
         case editProfile
         case changePassword
+        
         case theme
-        case privacyPolicy
-        case aboutUs
         case notifications
         case language
+        
+        case privacyPolicy
+        case userAgreement
+        
+        case helpCenter
     }
     
     let title: String
@@ -51,24 +61,52 @@ struct SettingItem: Hashable {
         
         return [
             .init(title: "settings.item.edit_profile".localized,
-                  iconSystemName: "person",
+                  iconSystemName: "person.circle",
                   type: .editProfile,
-                  isEnabled: enabled),
-            
-            .init(title: "settings.item.change_password".localized,
-                  iconSystemName: "lock",
-                  type: .changePassword,
                   isEnabled: enabled)
+            
+            /*
+             .init(title: "settings.item.change_password".localized,
+             iconSystemName: "lock",
+             type: .changePassword,
+             isEnabled: enabled)
+             */
         ]
     }
     
-    static func getAccountItems() -> [SettingItem] {
+    static func getGeneralItems() -> [SettingItem] {
         return [
-            .init(title: "settings.item.theme".localized, iconSystemName: "circle.righthalf.filled", type: .theme),
-            .init(title: "settings.item.notifications".localized, iconSystemName: "bell", type: .notifications),
-            .init(title: "settings.item.language".localized, iconSystemName: "globe", type: .language),
-            .init(title: "settings.item.privacy_policy".localized, iconSystemName: "shield", type: .privacyPolicy),
-            .init(title: "settings.item.about_us".localized, iconSystemName: "info.circle", type: .aboutUs)
+            .init(title: "settings.item.theme".localized,
+                  iconSystemName: "circle.righthalf.filled",
+                  type: .theme),
+            
+                .init(title: "settings.item.notifications".localized,
+                      iconSystemName: "bell.badge",
+                      type: .notifications),
+            
+                .init(title: "settings.item.language".localized,
+                      iconSystemName: "globe",
+                      type: .language)
+        ]
+    }
+    
+    static func getAboutItems() -> [SettingItem] {
+        return [
+            .init(title: "settings.item.privacy_policy".localized,
+                  iconSystemName: "hand.raised",
+                  type: .privacyPolicy),
+            
+                .init(title: "settings.item.user_agreement".localized,
+                      iconSystemName: "doc.text",
+                      type: .userAgreement),
+        ]
+    }
+    
+    static func getSupportItems() -> [SettingItem] {
+        return [
+            .init(title: "settings.item.help_center".localized,
+                  iconSystemName: "lifepreserver",
+                  type: .helpCenter)
         ]
     }
 }

@@ -46,7 +46,7 @@ final class EditProfileViewController: UIViewController {
         usernameTextField.layer.borderWidth = 1
         usernameTextField.layer.cornerRadius = 6
         usernameTextField.layer.borderColor = UIColor.divider.cgColor
-        emailTextField.clipsToBounds = true
+        usernameTextField.clipsToBounds = true
         
         deleteButton.layer.cornerRadius = 8
     }

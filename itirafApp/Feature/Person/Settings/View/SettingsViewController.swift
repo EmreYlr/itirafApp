@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 final class SettingsViewController: UIViewController {
     //MARK: - Properties
@@ -119,10 +120,12 @@ final class SettingsViewController: UIViewController {
     
     private func applySnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<SettingsSection, SettingItem>()
-        snapshot.appendSections([.profile, .account])
+        snapshot.appendSections([.profile, .general, .about, .support])
         let isAnonymous = viewModel.checkUserAnonymous()
         snapshot.appendItems(SettingItem.getProfileItems(isAnonymous: isAnonymous), toSection: .profile)
-        snapshot.appendItems(SettingItem.getAccountItems(), toSection: .account)
+        snapshot.appendItems(SettingItem.getGeneralItems(), toSection: .general)
+        snapshot.appendItems(SettingItem.getAboutItems(), toSection: .about)
+        snapshot.appendItems(SettingItem.getSupportItems(), toSection: .support)
         
         dataSource.apply(snapshot, animatingDifferences: false)
     }
@@ -131,24 +134,40 @@ final class SettingsViewController: UIViewController {
         switch itemType {
         case .editProfile:
             showEditProfileScreen()
+            
         case .changePassword:
-            print("Şifre Değiştir'e tıklandı")
+            print("Şifre işlemleri")
+            
         case .theme:
             showThemeSelection()
-        case .privacyPolicy:
-            print("Gizlilik Politikası'na tıklandı")
-        case .aboutUs:
-            print("Hakkımızda'ya tıklandı")
+            
         case .notifications:
             showNotificationScreen()
+            
         case .language:
             showLanguageSelection()
+            
+        case .privacyPolicy:
+            print("Gizlilik Politikası")
+            
+        case .userAgreement:
+            print("Kullanıcı Sözleşmesi")
+            
+        case .helpCenter:
+            showHelpCenterScreen()
         }
     }
     
     private func showEditProfileScreen() {
         let editProfileVC: EditProfileViewController = Storyboard.editProfile.instantiate(.editProfile)
         navigationController?.pushViewController(editProfileVC, animated: true)
+    }
+    
+    private func showHelpCenterScreen() {
+        guard let url = URL(string: viewModel.getHelpCenterURL()) else { return }
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .brandPrimary
+        present(safariVC, animated: true)
     }
     
     private func showNotificationScreen() {

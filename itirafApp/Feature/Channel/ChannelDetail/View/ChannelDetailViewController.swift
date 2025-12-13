@@ -41,7 +41,11 @@ final class ChannelDetailViewController: UIViewController {
         
         navigationItem.rightBarButtonItem?.isEnabled = viewModel.isChannelFollowed()
         
+        showLoading(style: .localDimmed)
         Task {
+            defer {
+                self.hideLoading()
+            }
             await viewModel.fetchConfessions(reset: true)
         }
     }

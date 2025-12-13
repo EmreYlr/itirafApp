@@ -3502,6 +3502,23 @@
         }
       }
     },
+    "settings.item.help_center" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Help Center"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yardım Merkezi"
+          }
+        }
+      }
+    },
     "settings.item.language" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3570,6 +3587,23 @@
         }
       }
     },
+    "settings.item.user_agreement" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User Agreement"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kullanıcı Sözleşmesi"
+          }
+        }
+      }
+    },
     "settings.language.selection" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3583,6 +3617,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dil Seçimi"
+          }
+        }
+      }
+    },
+    "settings.section.about" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hakkında"
           }
         }
       }
@@ -3604,6 +3655,23 @@
         }
       }
     },
+    "settings.section.general" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genel"
+          }
+        }
+      }
+    },
     "settings.section.profile" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3617,6 +3685,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "PROFİL"
+          }
+        }
+      }
+    },
+    "settings.section.support" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Destek"
           }
         }
       }
