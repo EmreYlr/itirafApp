@@ -7,6 +7,7 @@
 
 protocol TermsViewModelProtocol {
     var terms: [TermsModel] { get }
+    func getTermsURL() -> String
 }
 
 final class TermsViewModel {
@@ -18,6 +19,10 @@ final class TermsViewModel {
             TermsModel(icon: "building.columns.fill", title: "terms_service_title".localized, content: "terms_service_content".localized),
             TermsModel(icon: "theatermasks.fill", title: "terms_conduct_title".localized, content: "terms_conduct_content".localized)
         ]
+    }
+    
+    func getTermsURL() -> String {
+        return Constants.terms
     }
 }
 

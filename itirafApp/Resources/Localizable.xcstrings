@@ -3162,6 +3162,74 @@
         }
       }
     },
+    "register_privacy_part" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gizlilik Politikası’nı"
+          }
+        }
+      }
+    },
+    "register_terms_part" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Use"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kullanım Koşulları’nı"
+          }
+        }
+      }
+    },
+    "register.already_account" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Already have an account?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaten bir hesabınız var mı?"
+          }
+        }
+      }
+    },
+    "register.read_approve" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I have read and agree to the %@."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ okudum ve kabul ediyorum."
+          }
+        }
+      }
+    },
     "report.detail_description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3566,6 +3634,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gizlilik Politikası"
+          }
+        }
+      }
+    },
+    "settings.item.rules" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rules"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurallar"
           }
         }
       }
@@ -4035,13 +4120,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This app is intended for adults (+18). It may contain sensitive content."
+            "value" : "This app is intended for adults (+17). It may contain sensitive content."
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bu uygulama yetişkinlere (+18) yöneliktir. Hassas içerikler barındırabilir."
+            "value" : "Bu uygulama yetişkinlere (+17) yöneliktir. Hassas içerikler barındırabilir."
           }
         }
       }
@@ -4052,13 +4137,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adult Content (+18)"
+            "value" : "Adult Content (+17)"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Yetişkin İçerik (+18)"
+            "value" : "Yetişkin İçerik (+17)"
           }
         }
       }

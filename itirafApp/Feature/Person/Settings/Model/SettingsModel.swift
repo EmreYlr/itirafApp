@@ -36,6 +36,7 @@ struct SettingItem: Hashable {
         case notifications
         case language
         
+        case rules
         case privacyPolicy
         case userAgreement
         
@@ -92,6 +93,10 @@ struct SettingItem: Hashable {
     
     static func getAboutItems() -> [SettingItem] {
         return [
+            .init(title: "settings.item.rules".localized,
+                  iconSystemName: "list.bullet",
+                  type: .rules),
+            
             .init(title: "settings.item.privacy_policy".localized,
                   iconSystemName: "hand.raised",
                   type: .privacyPolicy),
@@ -108,5 +113,16 @@ struct SettingItem: Hashable {
                   iconSystemName: "lifepreserver",
                   type: .helpCenter)
         ]
+    }
+}
+
+extension SettingItem.ItemType {
+    var urlString: String? {
+        switch self {
+        case .rules: return Constants.rules
+        case .privacyPolicy: return Constants.privacy
+        case .userAgreement: return Constants.terms
+        default: return nil
+        }
     }
 }

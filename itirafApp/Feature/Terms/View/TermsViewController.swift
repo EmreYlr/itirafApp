@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 final class TermsViewController: UIViewController {
     //MARK: -Properties
@@ -62,7 +63,11 @@ final class TermsViewController: UIViewController {
     }
 
     @IBAction func detailTermsButtonTapped(_ sender: UIButton) {
-        //TODO: -Termsin tamamını göster
+        guard let url = URL(string: viewModel.getTermsURL()) else { return }
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .brandPrimary
+        safariVC.modalPresentationStyle = .pageSheet
+        present(safariVC, animated: true)
     }
     
     @IBAction func acceptChangedSwitch(_ sender: UISwitch) {

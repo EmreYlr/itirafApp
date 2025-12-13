@@ -49,6 +49,7 @@
 		C36B03612EE83C6B0049F7FD /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36B035F2EE83C6B0049F7FD /* OnboardingCollectionViewCell.xib */; };
 		C36B03632EE83CF30049F7FD /* OnboardingViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B03622EE83CE90049F7FD /* OnboardingViewController+CollectionView.swift */; };
 		C36EB91F2EDF235E00A7276E /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36EB91E2EDF235E00A7276E /* Post.storyboard */; };
+		C37B6F4D2EEDCC69000CD2EE /* UILabel+Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B6F4C2EEDCC57000CD2EE /* UILabel+Highlight.swift */; };
 		C37D5BB92E79830C0068F334 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5BB82E7983030068F334 /* Storyboard.swift */; };
 		C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5C762E7990D20068F334 /* LoginViewModel.swift */; };
 		C37D5C792E7990F70068F334 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37D5C782E7990F50068F334 /* HomeViewModel.swift */; };
@@ -329,6 +330,7 @@
 		C36B03622EE83CE90049F7FD /* OnboardingViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		C36EB91D2EDF235E00A7276E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Post.storyboard; sourceTree = "<group>"; };
 		C36EB9202EDF235E00A7276E /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Post.xcstrings; sourceTree = "<group>"; };
+		C37B6F4C2EEDCC57000CD2EE /* UILabel+Highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Highlight.swift"; sourceTree = "<group>"; };
 		C37D5BB82E7983030068F334 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		C37D5C762E7990D20068F334 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C37D5C782E7990F50068F334 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -2479,6 +2481,7 @@
 		C3EB108A2E744A63002DA295 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C37B6F4C2EEDCC57000CD2EE /* UILabel+Highlight.swift */,
 				C3FAE9632EE4534F003542CD /* UICollectionViewLayout+Extensions.swift */,
 				C3BE19912ED48BF70053C9A9 /* String+Localized.swift */,
 				C38BF0082EEAEBD100773E31 /* APIError+Business.swift */,
@@ -2991,6 +2994,7 @@
 				C3E660272EB256D30059048F /* MyConfessionViewController+CollectionView.swift in Sources */,
 				C3C08BB12E8ACE9A00EDC6A2 /* Confession.swift in Sources */,
 				C3C173E22EC62B0200D27383 /* ChannelCollectionViewCell.swift in Sources */,
+				C37B6F4D2EEDCC69000CD2EE /* UILabel+Highlight.swift in Sources */,
 				C3D764C52E93ED3300104C3B /* ChannelMessageData.swift in Sources */,
 				C3D765962E96BF1D00104C3B /* UIViewController+Alert.swift in Sources */,
 				C3BE19822ED215610053C9A9 /* ValidationError.swift in Sources */,

@@ -147,26 +147,42 @@ final class SettingsViewController: UIViewController {
         case .language:
             showLanguageSelection()
             
+        case .rules:
+            showAbout(type: .rules)
+            
         case .privacyPolicy:
-            print("Gizlilik Politikası")
+            showAbout(type: .privacyPolicy)
             
         case .userAgreement:
-            print("Kullanıcı Sözleşmesi")
+            showAbout(type: .userAgreement)
             
         case .helpCenter:
             showHelpCenterScreen()
         }
     }
     
+    private func showAbout(type: SettingItem.ItemType) {
+        guard let urlString = type.urlString,
+              let url = URL(string: urlString) else {
+            print("Hata: Geçersiz URL veya bu item için URL tanımlı değil.")
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .brandPrimary
+        safariVC.modalPresentationStyle = .pageSheet
+        present(safariVC, animated: true)
+    }
+    
     private func showEditProfileScreen() {
         let editProfileVC: EditProfileViewController = Storyboard.editProfile.instantiate(.editProfile)
         navigationController?.pushViewController(editProfileVC, animated: true)
     }
-    
+
     private func showHelpCenterScreen() {
         guard let url = URL(string: viewModel.getHelpCenterURL()) else { return }
         let safariVC = SFSafariViewController(url: url)
         safariVC.preferredControlTintColor = .brandPrimary
+        safariVC.modalPresentationStyle = .pageSheet
         present(safariVC, animated: true)
     }
     

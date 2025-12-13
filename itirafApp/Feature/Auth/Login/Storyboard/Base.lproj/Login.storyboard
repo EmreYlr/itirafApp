@@ -60,14 +60,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q35-SR-btc">
-                                <rect key="frame" x="117.66666666666669" y="797" width="158" height="25"/>
+                                <rect key="frame" x="116.66666666666667" y="797" width="159.66666666666663" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="fwA-e5-ADA"/>
                                 </constraints>
-                                <color key="tintColor" name="TextPrimary"/>
+                                <color key="tintColor" name="TextSecondary"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Hesabınız yok mu?">
-                                    <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="16"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -113,6 +113,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fL1-rL-4Kk">
+                                <rect key="frame" x="342" y="286" width="25" height="21"/>
+                                <color key="tintColor" name="TextSecondary"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Aaf-gl-WHx"/>
+                                    <constraint firstAttribute="height" constant="25" id="a5r-3O-v3g"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGp-ZU-njo">
                                 <rect key="frame" x="16" y="607" width="361" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -171,11 +179,19 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="person.crop.circle.fill.badge.questionmark" catalog="system" title="Anonim Giriş Yap"/>
+                                <buttonConfiguration key="configuration" style="plain" image="person.crop.circle.badge.questionmark.fill" catalog="system" title="Anonim Giriş Yap"/>
                                 <connections>
                                     <action selector="anonymousLoginButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="q1b-BO-Ohl"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bkz-OY-LEW">
+                                <rect key="frame" x="342" y="395.66666666666669" width="25" height="23"/>
+                                <color key="tintColor" name="TextSecondary"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="aZJ-ly-b1M"/>
+                                    <constraint firstAttribute="width" constant="25" id="hd2-IX-SUS"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="BackgroundApp"/>
@@ -198,21 +214,25 @@
                             <constraint firstItem="uo7-XX-Rxc" firstAttribute="centerY" secondItem="0sU-MN-Ejn" secondAttribute="centerY" id="XOH-9S-Jkq"/>
                             <constraint firstItem="eGk-UH-BqA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Xoe-Jn-aFh"/>
                             <constraint firstItem="eGk-UH-BqA" firstAttribute="top" secondItem="yRJ-X9-dHZ" secondAttribute="bottom" constant="20" id="abI-Wi-nVs"/>
+                            <constraint firstItem="bkz-OY-LEW" firstAttribute="trailing" secondItem="UAh-bD-Ttl" secondAttribute="trailing" constant="-10" id="aef-rW-mmj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Z2f-PQ-tXm" secondAttribute="trailing" constant="16" id="bfX-pX-gAQ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yGp-ZU-njo" secondAttribute="trailing" constant="16" id="c9F-Kn-Kru"/>
                             <constraint firstItem="rL4-jh-y0h" firstAttribute="top" secondItem="yGp-ZU-njo" secondAttribute="bottom" constant="20" id="caC-1F-hEO"/>
                             <constraint firstItem="0sU-MN-Ejn" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="ePz-b4-5xp"/>
                             <constraint firstItem="Z2f-PQ-tXm" firstAttribute="top" secondItem="rL4-jh-y0h" secondAttribute="bottom" constant="20" id="eaD-Fg-1RV"/>
                             <constraint firstItem="m2i-d3-uUS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="f9b-Xu-xkA"/>
+                            <constraint firstItem="bkz-OY-LEW" firstAttribute="centerY" secondItem="UAh-bD-Ttl" secondAttribute="centerY" id="gg6-jk-Sxv"/>
                             <constraint firstItem="Q35-SR-btc" firstAttribute="top" secondItem="Z2f-PQ-tXm" secondAttribute="bottom" constant="15" id="imV-EC-9mm"/>
                             <constraint firstItem="yGp-ZU-njo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="kMi-A0-pzJ"/>
                             <constraint firstItem="GqB-et-pX5" firstAttribute="top" secondItem="1xD-kM-OzQ" secondAttribute="bottom" constant="20" id="lGv-id-cF7"/>
                             <constraint firstItem="Q35-SR-btc" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="mZS-XM-Rpo"/>
                             <constraint firstItem="UAh-bD-Ttl" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="mhQ-P4-5iI"/>
                             <constraint firstItem="yRJ-X9-dHZ" firstAttribute="top" secondItem="GH7-6a-KBh" secondAttribute="bottom" constant="20" id="nO1-dX-RiG"/>
+                            <constraint firstItem="fL1-rL-4Kk" firstAttribute="trailing" secondItem="yRJ-X9-dHZ" secondAttribute="trailing" constant="-10" id="ohX-uh-xQA"/>
                             <constraint firstItem="7WW-pm-Myg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="qfH-I7-08c"/>
                             <constraint firstItem="yRJ-X9-dHZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="rOa-IX-UVk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GqB-et-pX5" secondAttribute="trailing" constant="16" id="sW5-Sk-VtE"/>
+                            <constraint firstItem="fL1-rL-4Kk" firstAttribute="centerY" secondItem="yRJ-X9-dHZ" secondAttribute="centerY" id="tlY-vA-jYu"/>
                             <constraint firstItem="rL4-jh-y0h" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="v6S-7d-imq"/>
                             <constraint firstItem="GH7-6a-KBh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="vid-tS-qXM"/>
                             <constraint firstItem="uo7-XX-Rxc" firstAttribute="leading" secondItem="0sU-MN-Ejn" secondAttribute="trailing" constant="10" id="wv3-IU-0CW"/>
@@ -265,8 +285,10 @@
     </scenes>
     <resources>
         <image name="apple.logo" catalog="system" width="105" height="128"/>
+        <image name="envelope.fill" catalog="system" width="128" height="85"/>
         <image name="icon_google" width="24" height="24"/>
-        <image name="person.crop.circle.fill.badge.questionmark" catalog="system" width="128" height="114"/>
+        <image name="lock.fill" catalog="system" width="111" height="128"/>
+        <image name="person.crop.circle.badge.questionmark.fill" catalog="system" width="128" height="114"/>
         <namedColor name="BackgroundApp">
             <color red="0.97299998998641968" green="0.97600001096725464" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -274,7 +296,7 @@
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BrandPrimary">
-            <color red="0.35686274509803922" green="0.29803921568627451" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.35699999332427979" green="0.29800000786781311" blue="0.83099997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="DividerColor">
             <color red="0.88599997758865356" green="0.90600001811981201" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

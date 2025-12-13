@@ -9,6 +9,8 @@ protocol RegisterViewModelProtocol {
     var delegate: RegisterViewModelOutputProtocol? { get set }
     func registerUser(email: String, password: String) async
     func resendVerificationEmail(to: String) async
+    func getPrivacyURL() -> String
+    func getTermsURL() -> String
 }
 
 protocol RegisterViewModelOutputProtocol: AnyObject {
@@ -44,6 +46,14 @@ final class RegisterViewModel {
         } catch {
             delegate?.didFailToRegister(with: error)
         }
+    }
+    
+    func getPrivacyURL() -> String {
+        return Constants.privacy
+    }
+    
+    func getTermsURL() -> String {
+        return Constants.terms
     }
 }
 

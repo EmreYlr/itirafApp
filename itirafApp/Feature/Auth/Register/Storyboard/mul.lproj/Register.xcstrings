@@ -37,6 +37,54 @@
         }
       }
     },
+    "Aa0-a6-5Bn.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"privacyPolicyLabel\"; ObjectID = \"Aa0-a6-5Bn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "privacyPolicyLabel"
+          }
+        }
+      }
+    },
+    "FU1-nR-Tml.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"loginLabel\"; ObjectID = \"FU1-nR-Tml\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "loginLabel"
+          }
+        }
+      }
+    },
+    "gcu-cx-wGt.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"login\"; ObjectID = \"gcu-cx-wGt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "login"
+          }
+        }
+      }
+    },
+    "gcu-cx-wGt.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"gcu-cx-wGt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
     "Gt4-F0-zpW.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"Kayıt Ol\"; ObjectID = \"Gt4-F0-zpW\";",
       "extractionState" : "extracted_with_value",
@@ -56,19 +104,19 @@
       }
     },
     "jeM-v3-VyP.placeholder" : {
-      "comment" : "Class = \"UITextField\"; placeholder = \"E-postanızı giriniz\"; ObjectID = \"jeM-v3-VyP\";",
+      "comment" : "Class = \"UITextField\"; placeholder = \"ornek@email.com\"; ObjectID = \"jeM-v3-VyP\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enter your email"
+            "value" : "example@email.com"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "E-postanızı giriniz"
+            "value" : "ornek@email.com"
           }
         }
       }
@@ -141,19 +189,31 @@
       }
     },
     "vYa-dE-kKB.placeholder" : {
-      "comment" : "Class = \"UITextField\"; placeholder = \"Şifrenizi giriniz\"; ObjectID = \"vYa-dE-kKB\";",
+      "comment" : "Class = \"UITextField\"; placeholder = \"********\"; ObjectID = \"vYa-dE-kKB\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enter your password"
+            "value" : "********"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Şifrenizi giriniz"
+            "value" : "********"
+          }
+        }
+      }
+    },
+    "wIK-df-u4e.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"termLabel\"; ObjectID = \"wIK-df-u4e\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "termLabel"
           }
         }
       }

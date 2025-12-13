@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import SafariServices
 
 final class RegisterViewController: UIViewController {
     //MARK: - Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var privacySwitch: UISwitch!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginLabel: UILabel!
+    @IBOutlet weak var termsSwitch: UISwitch!
+    @IBOutlet weak var termsLabel: UILabel!
+    @IBOutlet weak var privacyLabel: UILabel!
     
     private var registerViewModel: RegisterViewModelProtocol
     
@@ -24,6 +31,9 @@ final class RegisterViewController: UIViewController {
         super.viewDidLoad()
         initData()
         setupHideKeyboardOnTap()
+        setupTextFieldDelegates()
+        setupLabelGestures()
+        updateRegisterButtonState()
     }
     
     private func initData() {
@@ -33,10 +43,46 @@ final class RegisterViewController: UIViewController {
         emailTextField.layer.cornerRadius = 8
         emailTextField.layer.borderWidth = 1
         emailTextField.layer.borderColor = UIColor.textSecondary.cgColor
+        emailTextField.textContentType = .emailAddress
+        emailTextField.autocorrectionType = .no
+        emailTextField.spellCheckingType = .no
         
         passwordTextField.layer.cornerRadius = 8
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor.textSecondary.cgColor
+        passwordTextField.isSecureTextEntry = true
+        
+        
+        loginLabel.text = "register.already_account".localized
+        loginButton.setTitle("auth.title.login".localized, for: .normal)
+        
+        let highlightPartTerms = "register_terms_part".localized
+        let fullTextTerms = String(format: "register.read_approve".localized, highlightPartTerms)
+        termsLabel.text = fullTextTerms
+        termsLabel.highlight(targetString: highlightPartTerms, color: .brandPrimary)
+        termsLabel.isUserInteractionEnabled = true
+        
+        let highlightPartPrivacy = "register_privacy_part".localized
+        let fullTextPrivacy = String(format: "register.read_approve".localized, highlightPartPrivacy)
+        privacyLabel.text = fullTextPrivacy
+        privacyLabel.highlight(targetString: highlightPartPrivacy, color: .brandPrimary)
+        privacyLabel.isUserInteractionEnabled = true
+        
+        privacySwitch.isOn = false
+        termsSwitch.isOn = false
+    }
+    
+    private func setupTextFieldDelegates() {
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+    
+    private func setupLabelGestures() {
+        let termsTap = UITapGestureRecognizer(target: self, action: #selector(handleTermsTap))
+        termsLabel.addGestureRecognizer(termsTap)
+        
+        let privacyTap = UITapGestureRecognizer(target: self, action: #selector(handlePrivacyTap))
+        privacyLabel.addGestureRecognizer(privacyTap)
     }
     
     private func setupHideKeyboardOnTap() {
@@ -45,8 +91,40 @@ final class RegisterViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
     }
     
+    private func updateRegisterButtonState() {
+        let hasEmail = !(emailTextField.text?.isEmpty ?? true)
+        let hasPassword = !(passwordTextField.text?.isEmpty ?? true)
+        let termsAccepted = termsSwitch.isOn
+        let privacyAccepted = privacySwitch.isOn
+        
+        let isFormValid = hasEmail && hasPassword && termsAccepted && privacyAccepted
+        
+        registerButton.isEnabled = isFormValid
+        registerButton.alpha = isFormValid ? 1.0 : 0.5
+    }
+    
     @objc private func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    @objc private func textFieldDidChange() {
+        updateRegisterButtonState()
+    }
+    
+    @objc private func handleTermsTap() {
+        guard let url = URL(string: registerViewModel.getTermsURL()) else { return }
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .brandPrimary
+        safariVC.modalPresentationStyle = .pageSheet
+        present(safariVC, animated: true)
+    }
+    
+    @objc private func handlePrivacyTap() {
+        guard let url = URL(string: registerViewModel.getPrivacyURL()) else { return }
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .brandPrimary
+        safariVC.modalPresentationStyle = .pageSheet
+        present(safariVC, animated: true)
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
@@ -69,6 +147,10 @@ final class RegisterViewController: UIViewController {
                 throw ValidationError.passwordTooShort(min: 6)
             }
             
+            guard termsSwitch.isOn, privacySwitch.isOn else {
+                return
+            }
+            
             Task(priority: .utility) {
                 defer {
                     sender.isEnabled = true
@@ -88,6 +170,17 @@ final class RegisterViewController: UIViewController {
         }
     }
     
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func privacySwitchChanged(_ sender: UISwitch) {
+        updateRegisterButtonState()
+    }
+    
+    @IBAction func termsSwitchChanged(_ sender: UISwitch) {
+        updateRegisterButtonState()
+    }
 }
 
 extension RegisterViewController: RegisterViewModelOutputProtocol {
