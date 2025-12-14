@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.emre.itirafApp</string>
+	<string>com.itirafApp.ios</string>
 	<key>PROJECT_ID</key>
 	<string>itirafapp-5a404</string>
 	<key>STORAGE_BUCKET</key>
@@ -26,9 +26,9 @@
 	<true/>
 	<key>CLIENT_ID</key>
 	<string>230027282601-gp12e394fvd630u5o0hp74a5ko0canec.apps.googleusercontent.com</string>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:801599649257:ios:c978ebe3d4c39cb7794778</string>
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.230027282601-gp12e394fvd630u5o0hp74a5ko0canec</string>
-	<key>GOOGLE_APP_ID</key>
-	<string>1:801599649257:ios:ebd13b1cf6f2349a794778</string>
 </dict>
 </plist>

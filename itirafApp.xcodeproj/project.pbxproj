@@ -99,7 +99,6 @@
 		C38EAAB02EBFB38100A1818C /* RegisterDeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */; };
 		C38EAAB12EBFB38100A1818C /* DeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */; };
 		C38EAAB22EBFB38100A1818C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAE2EBFB38100A1818C /* DeviceService.swift */; };
-		C38EAABE2EC0BDFA00A1818C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38EAABD2EC0BDFA00A1818C /* GoogleService-Info.plist */; };
 		C38EAAC22EC0C23000A1818C /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C38EAAC12EC0C23000A1818C /* FirebaseCrashlytics */; };
 		C38EAAC42EC0C66000A1818C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = C38EAAC32EC0C66000A1818C /* FirebaseCore */; };
 		C38EAAC82EC1F3A400A1818C /* CrashlyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAC72EC1F39B00A1818C /* CrashlyticsManager.swift */; };
@@ -264,6 +263,7 @@
 		C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3EB106E2E744115002DA295 /* Assets.xcassets */; };
 		C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3EB10712E744115002DA295 /* LaunchScreen.storyboard */; };
 		C3EB10992E745D6D002DA295 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB10982E745D6D002DA295 /* LoginViewController.swift */; };
+		C3EFC6EC2EEEF948003235AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3EFC6EB2EEEF948003235AC /* GoogleService-Info.plist */; };
 		C3F39E122EA0267300197509 /* PostConfessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39E112EA0267300197509 /* PostConfessionViewController.swift */; };
 		C3F39E142EA0268B00197509 /* PostConfessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39E132EA0268700197509 /* PostConfessionViewModel.swift */; };
 		C3F39E162EA0269200197509 /* PostConfessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F39E152EA0269000197509 /* PostConfessionService.swift */; };
@@ -394,7 +394,6 @@
 		C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDeviceRequest.swift; sourceTree = "<group>"; };
 		C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetails.swift; sourceTree = "<group>"; };
 		C38EAAAE2EBFB38100A1818C /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
-		C38EAABD2EC0BDFA00A1818C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C38EAAC72EC1F39B00A1818C /* CrashlyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
 		C38EAACA2EC2241600A1818C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		C38EAACC2EC331FC00A1818C /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
@@ -561,6 +560,7 @@
 		C3EB10742E744115002DA295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C3EB10752E744115002DA295 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C3EB10982E745D6D002DA295 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C3EFC6EB2EEEF948003235AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3F39E112EA0267300197509 /* PostConfessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfessionViewController.swift; sourceTree = "<group>"; };
 		C3F39E132EA0268700197509 /* PostConfessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfessionViewModel.swift; sourceTree = "<group>"; };
 		C3F39E152EA0269000197509 /* PostConfessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostConfessionService.swift; sourceTree = "<group>"; };
@@ -1819,7 +1819,7 @@
 			children = (
 				C3EB106E2E744115002DA295 /* Assets.xcassets */,
 				C3BE198F2ED48B5B0053C9A9 /* Localizable.xcstrings */,
-				C38EAABD2EC0BDFA00A1818C /* GoogleService-Info.plist */,
+				C3EFC6EB2EEEF948003235AC /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2788,7 +2788,6 @@
 				C3D764C32E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib in Resources */,
 				C36B035C2EE83BDF0049F7FD /* Onboarding.storyboard in Resources */,
 				C38465FC2ED5DB3A00FD370A /* NotificationSettings.storyboard in Resources */,
-				C38EAABE2EC0BDFA00A1818C /* GoogleService-Info.plist in Resources */,
 				C3DF502D2ED4A507003D5FB8 /* ForgotPassword.storyboard in Resources */,
 				C3BA53452EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib in Resources */,
 				C3A7A4202EA9446F00250B06 /* DirectMessage.storyboard in Resources */,
@@ -2824,6 +2823,7 @@
 				C38465DC2ED5D8EB00FD370A /* RequestSent.storyboard in Resources */,
 				C3C173D42EC613A900D27383 /* ChannelDetail.storyboard in Resources */,
 				C38465EC2ED5DAE700FD370A /* SocialCollectionViewCell.xib in Resources */,
+				C3EFC6EC2EEEF948003235AC /* GoogleService-Info.plist in Resources */,
 				C36EB91F2EDF235E00A7276E /* Post.storyboard in Resources */,
 				C3BE194F2ECC911D0053C9A9 /* NotificationCollectionViewCell.xib in Resources */,
 			);
@@ -3330,6 +3330,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -3340,7 +3341,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.emre.itirafApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itirafApp.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -3370,6 +3371,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -3380,7 +3382,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.emre.itirafApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itirafApp.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

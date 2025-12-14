@@ -53,9 +53,6 @@ final class LoginViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 8
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor.textSecondary.cgColor
-        
-        emailTextField.text = "ali@example.com"
-        passwordTextField.text = "password123"
     }
     
     private func setupHideKeyboardOnTap() {

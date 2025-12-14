@@ -8,7 +8,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.emre.itirafapp</string>
+			<string>com.itirafApp.ios</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>itirafapp</string>
