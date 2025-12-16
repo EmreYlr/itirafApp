@@ -13,6 +13,7 @@ protocol LoginViewModelProtocol {
     func loginWithApple(request: AppleLoginRequest) async
     func loginWithGoogle(request: GoogleLoginRequest) async
     func resendVerificationEmail(to: String) async
+    func getTermsOrPrivacyURL(isTerms: Bool) -> String
 }
 
 protocol LoginViewModelOutputProtocol: AnyObject {
@@ -76,6 +77,10 @@ final class LoginViewModel {
         } catch {
             delegate?.didFailToLogin(with: error)
         }
+    }
+    
+    func getTermsOrPrivacyURL(isTerms: Bool) -> String {
+        return isTerms ? Constants.terms : Constants.privacy
     }
 }
 extension LoginViewModel: LoginViewModelProtocol { }

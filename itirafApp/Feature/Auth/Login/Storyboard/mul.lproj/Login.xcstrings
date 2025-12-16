@@ -52,7 +52,7 @@
     },
     "7WW-pm-Myg.text" : {
       "comment" : "Class = \"UILabel\"; text = \"E-posta ile giriş yap\"; ObjectID = \"7WW-pm-Myg\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -82,6 +82,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Şifre"
+          }
+        }
+      }
+    },
+    "eTt-pH-ajo.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"registerLabel\"; ObjectID = \"eTt-pH-ajo\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "registerLabel"
           }
         }
       }
@@ -135,6 +147,18 @@
       },
       "shouldTranslate" : false
     },
+    "HjY-AJ-hph.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"eulaLabel\"; ObjectID = \"HjY-AJ-hph\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "eulaLabel"
+          }
+        }
+      }
+    },
     "NZq-EE-eKi.title" : {
       "comment" : "Class = \"UINavigationItem\"; title = \"Login\"; ObjectID = \"NZq-EE-eKi\";",
       "extractionState" : "extracted_with_value",
@@ -154,19 +178,19 @@
       }
     },
     "Q35-SR-btc.configuration.title" : {
-      "comment" : "Class = \"UIButton\"; configuration.title = \"Hesabınız yok mu?\"; ObjectID = \"Q35-SR-btc\";",
+      "comment" : "Class = \"UIButton\"; configuration.title = \"register\"; ObjectID = \"Q35-SR-btc\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Don't have an account?"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Hesabınız yok mu?"
+            "value" : "register"
           }
         }
       }

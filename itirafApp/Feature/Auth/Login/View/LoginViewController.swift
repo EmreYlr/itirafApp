@@ -8,6 +8,7 @@
 import UIKit
 import AuthenticationServices
 import GoogleSignIn
+import SafariServices
 
 final class LoginViewController: UIViewController {
     //MARK: - Properties
@@ -16,7 +17,13 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var appleLoginButton: UIButton!
     @IBOutlet weak var googleLoginButton: UIButton!
     @IBOutlet weak var anonymousLoginButton: UIButton!
+    @IBOutlet weak var eulaLabel: UILabel!
+    @IBOutlet weak var registerLabel: UILabel!
+    @IBOutlet weak var registerButton: UIButton!
     
+    private var termsRange: NSRange?
+    private var privacyRange: NSRange?
+
     private var loginViewModel: LoginViewModelProtocol
     
     required init?(coder: NSCoder) {
@@ -33,6 +40,11 @@ final class LoginViewController: UIViewController {
     private func initData() {
         loginViewModel.delegate = self
         navigationItem.title = "auth.title.login".localized
+        
+        registerLabel.text = "login.dont_account".localized
+        registerButton.setTitle("auth.title.register".localized, for: .normal)
+        
+        setupLegalLabel()
         
         appleLoginButton.layer.cornerRadius = 8
         appleLoginButton.layer.borderWidth = 0.7
@@ -53,6 +65,66 @@ final class LoginViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 8
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor.textSecondary.cgColor
+    }
+    
+    private func setupLegalLabel() {
+        let termsText = "auth.legal.terms".localized
+        let privacyText = "auth.legal.privacy".localized
+        let fullText = String(format: "auth.legal.full_text".localized, termsText, privacyText)
+        
+        let attributedString = NSMutableAttributedString(string: fullText)
+
+        attributedString.addAttribute(.foregroundColor, value: UIColor.textSecondary, range: NSRange(location: 0, length: fullText.count))
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 13), range: NSRange(location: 0, length: fullText.count))
+
+        let linkAttributes: [NSAttributedString.Key: Any] = [
+            .underlineStyle: NSUnderlineStyle.single.rawValue,
+            .font: UIFont.boldSystemFont(ofSize: 13),
+            .foregroundColor: UIColor.textPrimary
+        ]
+
+        let nsString = fullText as NSString
+        termsRange = nsString.range(of: termsText)
+        privacyRange = nsString.range(of: privacyText)
+
+        if let termsRange = termsRange {
+            attributedString.addAttributes(linkAttributes, range: termsRange)
+        }
+        
+        if let privacyRange = privacyRange {
+            attributedString.addAttributes(linkAttributes, range: privacyRange)
+        }
+        
+        eulaLabel.attributedText = attributedString
+        eulaLabel.isUserInteractionEnabled = true
+        eulaLabel.numberOfLines = 0
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLabelTap(_:)))
+        eulaLabel.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func handleLabelTap(_ gesture: UITapGestureRecognizer) {
+        guard let text = eulaLabel.attributedText?.string else { return }
+        let tapLocation = gesture.location(in: eulaLabel)
+        let index = eulaLabel.indexOfAttributedTextCharacterAtPoint(point: tapLocation)
+        
+        if index >= 0 && index < text.count {
+            if let termsRange = termsRange, NSLocationInRange(index, termsRange) {
+                print("Kullanıcı Sözleşmesi'ne tıklandı")
+                openURLSafari(isTerms: true)
+            } else if let privacyRange = privacyRange, NSLocationInRange(index, privacyRange) {
+                print("Gizlilik Politikası'na tıklandı")
+                openURLSafari(isTerms: false)
+            }
+        }
+    }
+    
+    private func openURLSafari(isTerms: Bool) {
+        guard let url = URL(string: loginViewModel.getTermsOrPrivacyURL(isTerms: isTerms)) else { return }
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .brandPrimary
+        safariVC.modalPresentationStyle = .pageSheet
+        present(safariVC, animated: true)
     }
     
     private func setupHideKeyboardOnTap() {

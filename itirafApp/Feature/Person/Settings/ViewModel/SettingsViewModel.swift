@@ -10,6 +10,7 @@ protocol SettingsViewModelProtocol {
     func logout() async
     func checkUserAnonymous() -> Bool
     func getHelpCenterURL() -> String
+    func getSupportEmail() -> String
 }
 
 protocol SettingsViewModelDelegate: AnyObject {
@@ -40,6 +41,10 @@ final class SettingsViewModel {
     
     func getHelpCenterURL() -> String {
         return Constants.webSiteLink
+    }
+    
+    func getSupportEmail() -> String {
+        return Constants.supportEmail
     }
 }
 

@@ -70,15 +70,15 @@ final class SettingsViewController: UIViewController {
         config.headerMode = .supplementary
         config.backgroundColor = .backgroundApp
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-
+            
             let section = NSCollectionLayoutSection.list(using: config, layoutEnvironment: layoutEnvironment)
-
+            
             section.contentInsets.leading = 12
             section.contentInsets.trailing = 12
             
             return section
         }
-
+        
         collectionView.collectionViewLayout = layout
     }
     
@@ -89,11 +89,19 @@ final class SettingsViewController: UIViewController {
             content.text = item.title
             content.image = UIImage(systemName: item.iconSystemName)
             
-            content.textProperties.color = item.isEnabled ? .textPrimary : .tertiaryLabel
-            content.imageProperties.tintColor = item.isEnabled ? .brandPrimary : .tertiaryLabel
+            if item.type == .contactSupport {
+                content.textProperties.color = .secondaryLabel
+                content.imageProperties.tintColor = .secondaryLabel
+
+                cell.accessories = []
+            } else {
+                content.textProperties.color = item.isEnabled ? .textPrimary : .tertiaryLabel
+                content.imageProperties.tintColor = item.isEnabled ? .brandPrimary : .tertiaryLabel
+                
+                cell.accessories = item.isEnabled ? [.disclosureIndicator()] : []
+            }
             
             cell.isUserInteractionEnabled = item.isEnabled
-            cell.accessories = item.isEnabled ? [.disclosureIndicator()] : []
             cell.contentConfiguration = content
         }
         
@@ -101,7 +109,7 @@ final class SettingsViewController: UIViewController {
             (collectionView, indexPath, item) -> UICollectionViewCell? in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         }
-
+        
         let headerRegistration = UICollectionView.SupplementaryRegistration<UICollectionViewListCell>(elementKind: UICollectionView.elementKindSectionHeader) {
             (headerView, elementKind, indexPath) in
             
@@ -158,7 +166,20 @@ final class SettingsViewController: UIViewController {
             
         case .helpCenter:
             showHelpCenterScreen()
+            
+        case .contactSupport:
+            showContactSupport()
+            break
         }
+    }
+    
+    private func showContactSupport() {
+        let mail = viewModel.getSupportEmail()
+        UIPasteboard.general.string = mail
+
+        let alert = UIAlertController(title: "settings.mail_title".localized, message: "settings.mail_copy".localized, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "general.button.ok".localized, style: .default))
+        present(alert, animated: true)
     }
     
     private func showAbout(type: SettingItem.ItemType) {
@@ -177,7 +198,7 @@ final class SettingsViewController: UIViewController {
         let editProfileVC: EditProfileViewController = Storyboard.editProfile.instantiate(.editProfile)
         navigationController?.pushViewController(editProfileVC, animated: true)
     }
-
+    
     private func showHelpCenterScreen() {
         guard let url = URL(string: viewModel.getHelpCenterURL()) else { return }
         let safariVC = SFSafariViewController(url: url)
@@ -208,7 +229,7 @@ final class SettingsViewController: UIViewController {
             let action = UIAlertAction(title: theme.title, style: .default) { _ in
                 ThemeManager.shared.updateTheme(theme)
             }
-
+            
             if theme == ThemeManager.shared.currentTheme {
                 action.setValue(true, forKey: "checked")
             }
@@ -217,7 +238,7 @@ final class SettingsViewController: UIViewController {
         }
         
         alert.addAction(UIAlertAction(title: "notification.button.cancel".localized, style: .cancel))
-
+        
         if let popover = alert.popoverPresentationController {
             popover.sourceView = self.view
             popover.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
@@ -269,7 +290,7 @@ extension SettingsViewController: SettingsViewModelDelegate {
         DispatchQueue.main.async {
             let loginNavigationController = Storyboard.login.instantiateNav(.loginNav)
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                let sceneDelegate = windowScene.delegate as? SceneDelegate {
+               let sceneDelegate = windowScene.delegate as? SceneDelegate {
                 sceneDelegate.window?.rootViewController = loginNavigationController
                 sceneDelegate.window?.makeKeyAndVisible()
             }

@@ -120,6 +120,57 @@
         }
       }
     },
+    "auth.legal.full_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By continuing, you agree to the %@ and acknowledge that you understand the %@."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devam ederek %@ hükümlerini kabul ettiğini ve %@ belgesini anladığını onaylamış olursun."
+          }
+        }
+      }
+    },
+    "auth.legal.privacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gizlilik Politikası"
+          }
+        }
+      }
+    },
+    "auth.legal.terms" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Use"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kullanıcı Sözleşmesi"
+          }
+        }
+      }
+    },
     "auth.logout.message.confirmation" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2074,6 +2125,23 @@
         }
       }
     },
+    "login.dont_account" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't you have an account?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hesabınız yok mu?"
+          }
+        }
+      }
+    },
     "message.access_denied" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3553,6 +3621,23 @@
         }
       }
     },
+    "settings.item.contact_support" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "info@itirafapp.com"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "info@itirafapp.com"
+          }
+        }
+      }
+    },
     "settings.item.edit_profile" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3702,6 +3787,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dil Seçimi"
+          }
+        }
+      }
+    },
+    "settings.mail_copy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The email address has been copied to the clipboard. You can contact us and receive support via this email address."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mail adresi panoya kopyalandı. Bizimle bu mail adresi üzerinden iletişime geçip destek alabilirsiniz."
+          }
+        }
+      }
+    },
+    "settings.mail_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copied"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopyalandı"
           }
         }
       }

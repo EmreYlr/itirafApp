@@ -41,6 +41,7 @@ struct SettingItem: Hashable {
         case userAgreement
         
         case helpCenter
+        case contactSupport
     }
     
     let title: String
@@ -111,7 +112,10 @@ struct SettingItem: Hashable {
         return [
             .init(title: "settings.item.help_center".localized,
                   iconSystemName: "lifepreserver",
-                  type: .helpCenter)
+                  type: .helpCenter),
+            .init(title: "settings.item.contact_support".localized,
+                  iconSystemName: "envelope",
+                  type: .contactSupport)
         ]
     }
 }
