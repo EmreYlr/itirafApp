@@ -27,7 +27,7 @@ final class ChannelDetailHeaderCollectionViewCell: UICollectionViewCell {
     }
     
     func configurationView(channel: ChannelData, isFollowed: Bool) {
-        channelNameLabel.text = channel.title.capitalized
+        channelNameLabel.text = channel.title
         subCountLabel.text = "14.4K abone" //TODO: -Gerçek veri gelecek
         subCountLabel.isHidden = true
         

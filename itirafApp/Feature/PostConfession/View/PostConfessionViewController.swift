@@ -63,7 +63,7 @@ final class PostConfessionViewController: UIViewController {
         channelSelectButton.layer.borderColor = UIColor.divider.cgColor
         
         if postConfessionViewModel.selectedChannel != nil {
-            channelSelectButton.setTitle(postConfessionViewModel.selectedChannel?.title.capitalized, for: .normal)
+            channelSelectButton.setTitle(postConfessionViewModel.selectedChannel?.title, for: .normal)
             channelSelectButton.isEnabled = false
         }
         titleTextField.addTarget(self, action: #selector(titleTextFieldDidChange), for: .editingChanged)
@@ -264,6 +264,6 @@ extension PostConfessionViewController: UITextFieldDelegate {
 extension PostConfessionViewController: ChannelSelectionDelegate {
     func didSelectChannel(_ channel: ChannelData) {
         postConfessionViewModel.selectedChannel = channel
-        channelSelectButton.setTitle(channel.title.capitalized, for: .normal)
+        channelSelectButton.setTitle(channel.title, for: .normal)
     }
 }

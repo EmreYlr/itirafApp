@@ -79,7 +79,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         dateLabel.text = confession.createdAt.relativeTimeString()
         ownerNameLabel.text = UserManager.shared.isMe(userId: confession.owner.id) ? "confession.owner.you".localized : confession.owner.username
         channelNameLabel.isHidden = confession.channel == nil
-        channelNameLabel.text = confession.channel?.title.capitalized
+        channelNameLabel.text = confession.channel?.title
         
         if UserManager.shared.isMe(userId: confession.owner.id) {
             dmButton.isHidden = true
@@ -100,7 +100,7 @@ final class ConfessionCollectionViewCell: UICollectionViewCell {
         dateLabel.text = flow.createdAt.relativeTimeString()
         ownerNameLabel.text = UserManager.shared.isMe(userId: flow.owner.id) ? "confession.owner.you".localized : flow.owner.username
         channelNameLabel.isHidden = false
-        channelNameLabel.text = flow.channel.title.capitalized
+        channelNameLabel.text = flow.channel.title
         
         if UserManager.shared.isMe(userId: flow.owner.id) {
             dmButton.isHidden = true

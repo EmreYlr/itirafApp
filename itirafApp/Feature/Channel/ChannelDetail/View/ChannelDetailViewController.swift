@@ -34,7 +34,7 @@ final class ChannelDetailViewController: UIViewController {
     
     private func initData() {
         viewModel.delegate = self
-        navigationItem.title = viewModel.channel.title.capitalized
+        navigationItem.title = viewModel.channel.title
         let messageImage = UIImage(systemName: "plus.bubble")
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: messageImage, style: .plain, target: self, action: #selector(messageButtonTapped))

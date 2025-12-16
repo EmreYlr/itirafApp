@@ -36,7 +36,7 @@ final class ChannelCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(with channel: ChannelData, isFollowed: Bool) {
-        channelNameLabel.text = channel.title.capitalized
+        channelNameLabel.text = channel.title
         subCountLabel.text = "14.4K abone"
         subCountLabel.isHidden = true
         channelIconLabel.text = String(channel.title.prefix(2).uppercased())

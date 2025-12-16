@@ -56,7 +56,7 @@ extension ChannelSelectionViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelCell", for: indexPath)
         let channel = channels[indexPath.row]
         cell.backgroundColor = .backgroundApp
-        cell.textLabel?.text = channel.title.capitalized
+        cell.textLabel?.text = channel.title
         cell.accessoryType = .disclosureIndicator
         
         return cell
