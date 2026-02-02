@@ -88,6 +88,15 @@ final class FlowViewController: UIViewController {
                 }
             }
             
+            cell.onCommentButtonTapped = { [weak self] in
+                guard let self = self else { return }
+                
+                let detailVC = Storyboard.main.instantiate(.detail) as! DetailViewController
+                detailVC.detailViewModel = DetailViewModel(messageId: flow.id)
+                navigationController?.pushViewController(detailVC, animated: true)
+            }
+            
+            
             cell.onShareButtonTapped = { [weak self] in
                 Task {
                     await self?.viewModel.createShortlink(for: flow.id)

@@ -96,6 +96,15 @@ final class HomeViewController: UIViewController {
                 }
             }
             
+            cell.onCommentButtonTapped = { [weak self] in
+                guard let self = self else { return }
+                
+                let detailVC = Storyboard.main.instantiate(.detail) as! DetailViewController
+                detailVC.detailViewModel = DetailViewModel(messageId: confession.id)
+                navigationController?.pushViewController(detailVC, animated: true)
+            }
+            
+            
             cell.onShareButtonTapped = { [weak self] in
                 Task {
                     await self?.homeViewModel.createShortlink(for: confession.id)
@@ -122,7 +131,7 @@ final class HomeViewController: UIViewController {
         collectionView.showAnimatedGradientSkeleton()
 
     }
-    
+
     private func handleDMButtonAction(messageId: Int) {
         let requestBottomSheetVC: RequestBottomSheetViewController = Storyboard.requestBottomSheet.instantiate(.requestBottomSheet)
         
