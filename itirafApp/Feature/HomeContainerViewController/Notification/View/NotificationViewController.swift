@@ -61,6 +61,7 @@ final class NotificationViewController: UIViewController {
         navigationItem.title = "notification.title".localized
         let deleteButton = UIBarButtonItem(title: "notification.button.delete_all".localized, style: .plain, target: self, action: #selector(deleteAllNotification))
         deleteButton.tintColor = .statusError
+        deleteButton.isHidden = true
         navigationItem.rightBarButtonItem = deleteButton
     }
     
@@ -251,6 +252,7 @@ final class NotificationViewController: UIViewController {
 extension NotificationViewController: NotificationViewModelDelegate, EmptyStateDisplayable {
     func didUpdateNotifiaction(with data: [NotificationItem]) {
         DispatchQueue.main.async {
+            self.navigationItem.rightBarButtonItem?.isHidden = false
             self.stopSkeletonLoading()
             self.hideEmptyState(from: self.collectionView)
             self.updateSnapshot(with: data)

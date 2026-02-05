@@ -3842,23 +3842,6 @@
         }
       }
     },
-    "settings.section.account" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ACCOUNT"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "HESAP"
-          }
-        }
-      }
-    },
     "settings.section.general" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3882,13 +3865,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PROFILE"
+            "value" : "Profile"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PROFİL"
+            "value" : "Profil"
           }
         }
       }
