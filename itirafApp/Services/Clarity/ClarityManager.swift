@@ -17,8 +17,11 @@ final class ClarityManager {
 
     func setup() {
         let config = ClarityConfig(projectId: Constants.clarityKey)
-
-        config.logLevel = .verbose
+        #if DEBUG
+            config.logLevel = .verbose
+        #else
+            config.logLevel = .none
+        #endif
         
         ClaritySDK.initialize(config: config)
         
