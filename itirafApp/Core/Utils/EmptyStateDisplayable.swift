@@ -15,6 +15,7 @@ enum EmptyStateType {
     case noFollowingChannels
     case noSocialMediaLinks
     case noMyConfessions
+    case noBlockedUsers
     case error(String)
     
     var systemImageName: String {
@@ -26,6 +27,7 @@ enum EmptyStateType {
         case .noFollowingChannels: return "person.2.slash"
         case .noSocialMediaLinks: return "link"
         case .noMyConfessions: return "quote.bubble"
+        case .noBlockedUsers: return "hand.raised.slash"
         case .error: return "exclamationmark.triangle"
         }
     }
@@ -39,6 +41,7 @@ enum EmptyStateType {
         case .noFollowingChannels: return "empty.noFollowingChannels.title".localized
         case .noSocialMediaLinks: return "empty.noSocialMediaLinks.title".localized
         case .noMyConfessions: return "empty.noMyConfessions.title".localized
+        case .noBlockedUsers: return "empty.noBlockedUser.title".localized
         case .error(let message): return message
         }
     }

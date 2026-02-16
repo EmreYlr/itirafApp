@@ -1038,6 +1038,23 @@
         }
       }
     },
+    "empty.noBlockedUser.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You haven't blocked any users at the moment."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şu anda engellediğiniz bir kullanıcı bulunmuyor."
+          }
+        }
+      }
+    },
     "empty.noFollowingChannels.button" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2165,7 +2182,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Your account is not verified."
+            "value" : "Your account has not yet been verified. Please check your email."
           }
         },
         "tr" : {
@@ -3515,6 +3532,108 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gönderilen İstekler"
+          }
+        }
+      }
+    },
+    "settings.block_user" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blocked Users"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engellenen Kullanıcılar"
+          }
+        }
+      }
+    },
+    "settings.blocked_unblock_confirmation_messsage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to remove the block?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engeli kaldırmak istediğinizden emin misiniz?"
+          }
+        }
+      }
+    },
+    "settings.blocked_unblock_confirmation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unblock"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engeli Kaldır"
+          }
+        }
+      }
+    },
+    "settings.blocked_users_count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d blocked users"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d engellenmiş kullanıcı"
+          }
+        }
+      }
+    },
+    "settings.blocked_users_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blocked users cannot send you messages. They cannot see your confessions or comments."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engellenen kullanıcılar size mesaj gönderemez. İtiraflarınızı, yorumlarınızı göremez."
+          }
+        }
+      }
+    },
+    "settings.blocked_users_unblock_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unblock"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Engeli Kaldır"
           }
         }
       }

@@ -81,6 +81,14 @@
 		C38466002ED5DB5300FD370A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38465FF2ED5DB5300FD370A /* Login.storyboard */; };
 		C38466042ED5DCE300FD370A /* Moderation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38466032ED5DCE300FD370A /* Moderation.storyboard */; };
 		C38466082ED5DD0600FD370A /* ModerationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38466072ED5DD0600FD370A /* ModerationCollectionViewCell.xib */; };
+		C38B43DB2F433F9D00179C08 /* BlockedUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B43DA2F433F9D00179C08 /* BlockedUserViewController.swift */; };
+		C38B43DD2F433FB500179C08 /* BlockedUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B43DC2F433FB000179C08 /* BlockedUserViewModel.swift */; };
+		C38B43DF2F43408D00179C08 /* BlockedUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B43DE2F43408700179C08 /* BlockedUserService.swift */; };
+		C38B43E22F43412C00179C08 /* BlockedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B43E12F43412C00179C08 /* BlockedUser.swift */; };
+		C38B43E42F43434000179C08 /* BlockedUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38B43E32F43434000179C08 /* BlockedUser.storyboard */; };
+		C38B43E72F43474B00179C08 /* BlockedUserViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B43E62F43474400179C08 /* BlockedUserViewController+CollectionView.swift */; };
+		C38B43EA2F43479400179C08 /* BlockedUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B43E82F43479400179C08 /* BlockedUserCollectionViewCell.swift */; };
+		C38B43EB2F43479400179C08 /* BlockedUserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38B43E92F43479400179C08 /* BlockedUserCollectionViewCell.xib */; };
 		C38BEFDE2EE86EF200773E31 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BEFDD2EE86EF200773E31 /* NotificationManager.swift */; };
 		C38BEFE72EE87C7F00773E31 /* Terms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38BEFE62EE87C7F00773E31 /* Terms.storyboard */; };
 		C38BEFE92EE87C8800773E31 /* TermsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BEFE82EE87C8400773E31 /* TermsModel.swift */; };
@@ -375,6 +383,14 @@
 		C38466052ED5DCE300FD370A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Moderation.xcstrings; sourceTree = "<group>"; };
 		C38466062ED5DD0600FD370A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ModerationCollectionViewCell.xib; sourceTree = "<group>"; };
 		C38466092ED5DD0600FD370A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ModerationCollectionViewCell.xcstrings; sourceTree = "<group>"; };
+		C38B43DA2F433F9D00179C08 /* BlockedUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUserViewController.swift; sourceTree = "<group>"; };
+		C38B43DC2F433FB000179C08 /* BlockedUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUserViewModel.swift; sourceTree = "<group>"; };
+		C38B43DE2F43408700179C08 /* BlockedUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUserService.swift; sourceTree = "<group>"; };
+		C38B43E12F43412C00179C08 /* BlockedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUser.swift; sourceTree = "<group>"; };
+		C38B43E32F43434000179C08 /* BlockedUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BlockedUser.storyboard; sourceTree = "<group>"; };
+		C38B43E62F43474400179C08 /* BlockedUserViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlockedUserViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C38B43E82F43479400179C08 /* BlockedUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUserCollectionViewCell.swift; sourceTree = "<group>"; };
+		C38B43E92F43479400179C08 /* BlockedUserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlockedUserCollectionViewCell.xib; sourceTree = "<group>"; };
 		C38BEFDD2EE86EF200773E31 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		C38BEFE62EE87C7F00773E31 /* Terms.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Terms.storyboard; sourceTree = "<group>"; };
 		C38BEFE82EE87C8400773E31 /* TermsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsModel.swift; sourceTree = "<group>"; };
@@ -989,6 +1005,69 @@
 			path = FollowManager;
 			sourceTree = "<group>";
 		};
+		C38B43D32F433F3F00179C08 /* BlockedUser */ = {
+			isa = PBXGroup;
+			children = (
+				C38B43D42F433F6600179C08 /* Stroyboard */,
+				C38B43E02F4340A100179C08 /* Model */,
+				C38B43D52F433F6D00179C08 /* View */,
+				C38B43D62F433F7000179C08 /* ViewModel */,
+				C38B43D72F433F7400179C08 /* Service */,
+			);
+			path = BlockedUser;
+			sourceTree = "<group>";
+		};
+		C38B43D42F433F6600179C08 /* Stroyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C38B43E32F43434000179C08 /* BlockedUser.storyboard */,
+			);
+			path = Stroyboard;
+			sourceTree = "<group>";
+		};
+		C38B43D52F433F6D00179C08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C38B43E52F43473900179C08 /* SubView */,
+				C38B43DA2F433F9D00179C08 /* BlockedUserViewController.swift */,
+				C38B43E62F43474400179C08 /* BlockedUserViewController+CollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C38B43D62F433F7000179C08 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C38B43DC2F433FB000179C08 /* BlockedUserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C38B43D72F433F7400179C08 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C38B43DE2F43408700179C08 /* BlockedUserService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C38B43E02F4340A100179C08 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C38B43E12F43412C00179C08 /* BlockedUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C38B43E52F43473900179C08 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				C38B43E82F43479400179C08 /* BlockedUserCollectionViewCell.swift */,
+				C38B43E92F43479400179C08 /* BlockedUserCollectionViewCell.xib */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		C38BEFDC2EE86EEB00773E31 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -1200,6 +1279,7 @@
 				C3A750792EB5071D0058163B /* Service */,
 				C3BE19232ECBAC990053C9A9 /* NotificationSettings */,
 				C3FAE9662EE59681003542CD /* EditProfile */,
+				C38B43D32F433F3F00179C08 /* BlockedUser */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2803,6 +2883,7 @@
 				C38BEFF22EE880A100773E31 /* TermsCollectionViewCell.xib in Resources */,
 				C3EB107A2E744115002DA295 /* Assets.xcassets in Resources */,
 				C3EB107C2E744115002DA295 /* LaunchScreen.storyboard in Resources */,
+				C38B43E42F43434000179C08 /* BlockedUser.storyboard in Resources */,
 				C36B034F2EE713140049F7FD /* EmptyStateView.xib in Resources */,
 				C3C173E12EC62B0200D27383 /* ChannelCollectionViewCell.xib in Resources */,
 				C38BF0052EEADBE200773E31 /* Report.storyboard in Resources */,
@@ -2810,6 +2891,7 @@
 				C396C5C52ED5D54200FABB7E /* Main.storyboard in Resources */,
 				C38465F02ED5DAFB00FD370A /* FollowChannel.storyboard in Resources */,
 				C38465F82ED5DB2A00FD370A /* Settings.storyboard in Resources */,
+				C38B43EB2F43479400179C08 /* BlockedUserCollectionViewCell.xib in Resources */,
 				C38465E82ED5D94900FD370A /* EditConfession.storyboard in Resources */,
 				C38465D82ED5D88500FD370A /* Notification.storyboard in Resources */,
 				C3FAE9722EE5980E003542CD /* EditProfile.storyboard in Resources */,
@@ -2905,6 +2987,7 @@
 				C3A750812EB509CB0058163B /* SettingsViewController.swift in Sources */,
 				C3E6604F2EB407480059048F /* SocialCollectionViewCell.swift in Sources */,
 				C3C173B92EC5EAA800D27383 /* HomeContainerViewController.swift in Sources */,
+				C38B43DD2F433FB500179C08 /* BlockedUserViewModel.swift in Sources */,
 				C37D5DF62E842A5B0068F334 /* MockNetworkManager.swift in Sources */,
 				C3528F172EB8FE4300FF1C19 /* RequestSentViewController+CollectionView.swift in Sources */,
 				C3E6604A2EB3CAE60059048F /* MyConfessionDetailService.swift in Sources */,
@@ -2919,6 +3002,7 @@
 				C36B035A2EE83B530049F7FD /* OnboardingViewModel.swift in Sources */,
 				C3E6603A2EB373710059048F /* EditConfessionService.swift in Sources */,
 				C326DD4D2E8EE2A8001B7837 /* UserManager.swift in Sources */,
+				C38B43DF2F43408D00179C08 /* BlockedUserService.swift in Sources */,
 				C3528F312EBB798F00FF1C19 /* ModerationViewController+CollectionView.swift in Sources */,
 				C3FAE95F2EE1BD11003542CD /* ThemeManager.swift in Sources */,
 				C3E660532EB40A210059048F /* UserSocialLink.swift in Sources */,
@@ -2951,6 +3035,7 @@
 				C3C173C12EC5EF0C00D27383 /* FlowViewController.swift in Sources */,
 				C3A750852EB50A140058163B /* SettingsService.swift in Sources */,
 				C3BE19552ECDE0F50053C9A9 /* NotificationSettingsService.swift in Sources */,
+				C38B43DB2F433F9D00179C08 /* BlockedUserViewController.swift in Sources */,
 				C3528F292EBB724B00FF1C19 /* ModerationViewController.swift in Sources */,
 				C3BE19502ECC911D0053C9A9 /* NotificationCollectionViewCell.swift in Sources */,
 				C3BE196E2ECF32510053C9A9 /* GoogleLoginRequest.swift in Sources */,
@@ -2995,6 +3080,7 @@
 				C3C08BB12E8ACE9A00EDC6A2 /* Confession.swift in Sources */,
 				C3C173E22EC62B0200D27383 /* ChannelCollectionViewCell.swift in Sources */,
 				C37B6F4D2EEDCC69000CD2EE /* UILabel+Highlight.swift in Sources */,
+				C38B43E22F43412C00179C08 /* BlockedUser.swift in Sources */,
 				C3D764C52E93ED3300104C3B /* ChannelMessageData.swift in Sources */,
 				C3D765962E96BF1D00104C3B /* UIViewController+Alert.swift in Sources */,
 				C3BE19822ED215610053C9A9 /* ValidationError.swift in Sources */,
@@ -3070,6 +3156,7 @@
 				C3EB10782E744115002DA295 /* SceneDelegate.swift in Sources */,
 				C3A7A4382EAA288000250B06 /* ChatViewModel.swift in Sources */,
 				C38EAACF2EC3321200A1818C /* DeeplinkParser.swift in Sources */,
+				C38B43E72F43474B00179C08 /* BlockedUserViewController+CollectionView.swift in Sources */,
 				C3EB10792E744115002DA295 /* HomeViewController.swift in Sources */,
 				C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */,
 				C3528F1C2EB9092A00FF1C19 /* RequestSentDetailViewModel.swift in Sources */,
@@ -3080,6 +3167,7 @@
 				C38EAAB12EBFB38100A1818C /* DeviceDetails.swift in Sources */,
 				C3FAE96C2EE596EF003542CD /* EditProfileViewController.swift in Sources */,
 				C38EAAB22EBFB38100A1818C /* DeviceService.swift in Sources */,
+				C38B43EA2F43479400179C08 /* BlockedUserCollectionViewCell.swift in Sources */,
 				C3A7508E2EB532DB0058163B /* MessagingContainerViewController.swift in Sources */,
 				C37D5C772E7990D90068F334 /* LoginViewModel.swift in Sources */,
 				C3E660462EB399330059048F /* MyConfessionDetailViewModel.swift in Sources */,

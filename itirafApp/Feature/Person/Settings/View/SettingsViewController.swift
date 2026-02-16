@@ -142,6 +142,9 @@ final class SettingsViewController: UIViewController {
         switch itemType {
         case .editProfile:
             showEditProfileScreen()
+        
+        case .blockedUsers:
+            blockUserScreen()
             
         case .changePassword:
             print("Şifre işlemleri")
@@ -171,6 +174,11 @@ final class SettingsViewController: UIViewController {
             showContactSupport()
             break
         }
+    }
+    
+    private func blockUserScreen() {
+        let blockedUserVC: BlockedUserViewController = Storyboard.blockedUser.instantiate(.blockedUser)
+        navigationController?.pushViewController(blockedUserVC, animated: true)
     }
     
     private func showContactSupport() {

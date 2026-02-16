@@ -31,6 +31,7 @@ struct SettingItem: Hashable {
     enum ItemType: Hashable {
         case editProfile
         case changePassword
+        case blockedUsers
         
         case theme
         case notifications
@@ -65,7 +66,12 @@ struct SettingItem: Hashable {
             .init(title: "settings.item.edit_profile".localized,
                   iconSystemName: "person.circle",
                   type: .editProfile,
-                  isEnabled: enabled)
+                  isEnabled: enabled),
+            .init(title: "settings.block_user".localized,
+                  iconSystemName: "hand.raised.slash",
+                  type: .blockedUsers,
+                  isEnabled: enabled
+                 )
             
             /*
              .init(title: "settings.item.change_password".localized,
@@ -98,9 +104,9 @@ struct SettingItem: Hashable {
                   iconSystemName: "list.bullet",
                   type: .rules),
             
-            .init(title: "settings.item.privacy_policy".localized,
-                  iconSystemName: "hand.raised",
-                  type: .privacyPolicy),
+                .init(title: "settings.item.privacy_policy".localized,
+                      iconSystemName: "hand.raised",
+                      type: .privacyPolicy),
             
                 .init(title: "settings.item.user_agreement".localized,
                       iconSystemName: "doc.text",

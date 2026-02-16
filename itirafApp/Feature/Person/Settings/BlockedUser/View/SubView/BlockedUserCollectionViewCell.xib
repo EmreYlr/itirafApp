@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="blockedUserCell" id="gTV-IL-0wX" customClass="BlockedUserCollectionViewCell" customModule="itirafApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="99"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="401" height="99"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wc-ze-7d0" userLabel="BG View">
+                        <rect key="frame" x="0.0" y="0.0" width="401" height="99"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H0G-Zx-J2N" userLabel="image BG View">
+                                <rect key="frame" x="8" y="19.666666666666671" width="60" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="bLd-vI-z0k">
+                                        <rect key="frame" x="5" y="10" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="ewB-46-qZP"/>
+                                            <constraint firstAttribute="height" constant="50" id="xhq-rv-5qX"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bLd-vI-z0k" firstAttribute="centerX" secondItem="H0G-Zx-J2N" secondAttribute="centerX" id="3cN-lk-WT8"/>
+                                    <constraint firstAttribute="width" constant="60" id="B2e-7l-7dG"/>
+                                    <constraint firstAttribute="height" constant="60" id="fJF-wA-Qmy"/>
+                                    <constraint firstAttribute="bottom" secondItem="bLd-vI-z0k" secondAttribute="bottom" id="yIy-J0-BVs"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjT-Lz-dBe">
+                                <rect key="frame" x="78" y="24.666666666666671" width="70" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" name="TextPrimary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEY-nG-S07">
+                                <rect key="frame" x="286.33333333333331" y="34.666666666666664" width="106.66666666666669" height="29.999999999999993"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1mI-ul-Xo4"/>
+                                </constraints>
+                                <color key="tintColor" name="StatusError"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="unblockButton">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="unblockButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="p6K-41-yUv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="blockedDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbP-4h-2jk">
+                                <rect key="frame" x="78" y="55.333333333333336" width="71.333333333333314" height="14.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="TextSecondary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgroundCard"/>
+                        <constraints>
+                            <constraint firstItem="NbP-4h-2jk" firstAttribute="leading" secondItem="H0G-Zx-J2N" secondAttribute="trailing" constant="10" id="6ut-Qm-ADe"/>
+                            <constraint firstItem="NbP-4h-2jk" firstAttribute="bottom" secondItem="bLd-vI-z0k" secondAttribute="bottom" constant="-10" id="OO6-GR-jDn"/>
+                            <constraint firstItem="H0G-Zx-J2N" firstAttribute="centerY" secondItem="6wc-ze-7d0" secondAttribute="centerY" id="Uth-Yg-SCG"/>
+                            <constraint firstItem="wEY-nG-S07" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NbP-4h-2jk" secondAttribute="trailing" constant="16" id="a5A-Mp-wMh"/>
+                            <constraint firstItem="tjT-Lz-dBe" firstAttribute="top" secondItem="H0G-Zx-J2N" secondAttribute="top" constant="5" id="cGE-C2-cLF"/>
+                            <constraint firstItem="wEY-nG-S07" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tjT-Lz-dBe" secondAttribute="trailing" constant="16" id="d8W-F7-dve"/>
+                            <constraint firstAttribute="trailing" secondItem="wEY-nG-S07" secondAttribute="trailing" constant="8" id="g8c-E6-M5i"/>
+                            <constraint firstItem="H0G-Zx-J2N" firstAttribute="leading" secondItem="6wc-ze-7d0" secondAttribute="leading" constant="8" id="n6j-I1-Xou"/>
+                            <constraint firstItem="wEY-nG-S07" firstAttribute="centerY" secondItem="H0G-Zx-J2N" secondAttribute="centerY" id="sgF-lR-tua"/>
+                            <constraint firstItem="tjT-Lz-dBe" firstAttribute="leading" secondItem="H0G-Zx-J2N" secondAttribute="trailing" constant="10" id="xo6-2p-ina"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="6wc-ze-7d0" secondAttribute="trailing" id="FnH-Xm-SLu"/>
+                <constraint firstItem="6wc-ze-7d0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bgN-f0-Gkn"/>
+                <constraint firstItem="6wc-ze-7d0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bkz-kC-VYX"/>
+                <constraint firstAttribute="bottom" secondItem="6wc-ze-7d0" secondAttribute="bottom" id="wmc-Xk-EyA"/>
+            </constraints>
+            <size key="customSize" width="401" height="99"/>
+            <connections>
+                <outlet property="bgView" destination="6wc-ze-7d0" id="W6X-8M-Urd"/>
+                <outlet property="blockedDateLabel" destination="NbP-4h-2jk" id="gTy-TE-daL"/>
+                <outlet property="profileIconBgView" destination="H0G-Zx-J2N" id="dhe-N9-mCh"/>
+                <outlet property="unblockButton" destination="wEY-nG-S07" id="OHR-s3-V0d"/>
+                <outlet property="usernameLabel" destination="tjT-Lz-dBe" id="V4q-Bw-eni"/>
+            </connections>
+            <point key="canvasLocation" x="-124" y="181"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="chat_Icon" width="960" height="960"/>
+        <namedColor name="BackgroundCard">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="StatusError">
+            <color red="1" green="0.27799999713897705" blue="0.34099999070167542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextPrimary">
+            <color red="0.17599999904632568" green="0.20399999618530273" blue="0.21199999749660492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextSecondary">
+            <color red="0.3880000114440918" green="0.4309999942779541" blue="0.44699999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
