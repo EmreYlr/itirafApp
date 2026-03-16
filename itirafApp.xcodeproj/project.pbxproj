@@ -153,6 +153,10 @@
 		C3A7A4352EAA286400250B06 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4342EAA286400250B06 /* ChatViewController.swift */; };
 		C3A7A4382EAA288000250B06 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4372EAA287D00250B06 /* ChatViewModel.swift */; };
 		C3A7A43A2EAA28F100250B06 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A7A4392EAA28EC00250B06 /* ChatService.swift */; };
+		C3B0E8212F687F9C00ADA354 /* IMG_1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C3B0E81D2F687F9C00ADA354 /* IMG_1.PNG */; };
+		C3B0E8222F687F9C00ADA354 /* IMG_2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C3B0E81E2F687F9C00ADA354 /* IMG_2.PNG */; };
+		C3B0E8232F687F9C00ADA354 /* IMG_3.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C3B0E81F2F687F9C00ADA354 /* IMG_3.PNG */; };
+		C3B0E8242F687F9C00ADA354 /* IMG_4.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C3B0E8202F687F9C00ADA354 /* IMG_4.PNG */; };
 		C3BA533F2ED994F300EC6413 /* Clarity in Frameworks */ = {isa = PBXBuildFile; productRef = C3BA533E2ED994F300EC6413 /* Clarity */; };
 		C3BA53422ED997A800EC6413 /* ClarityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA53412ED997A800EC6413 /* ClarityManager.swift */; };
 		C3BA53452EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3BA53442EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib */; };
@@ -455,6 +459,10 @@
 		C3A7A4342EAA286400250B06 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		C3A7A4372EAA287D00250B06 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		C3A7A4392EAA28EC00250B06 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		C3B0E81D2F687F9C00ADA354 /* IMG_1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1.PNG; sourceTree = "<group>"; };
+		C3B0E81E2F687F9C00ADA354 /* IMG_2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2.PNG; sourceTree = "<group>"; };
+		C3B0E81F2F687F9C00ADA354 /* IMG_3.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_3.PNG; sourceTree = "<group>"; };
+		C3B0E8202F687F9C00ADA354 /* IMG_4.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4.PNG; sourceTree = "<group>"; };
 		C3BA53412ED997A800EC6413 /* ClarityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityManager.swift; sourceTree = "<group>"; };
 		C3BA53432EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3BA53442EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1623,6 +1631,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C3B0E81C2F687F3800ADA354 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				C3B0E81D2F687F9C00ADA354 /* IMG_1.PNG */,
+				C3B0E81E2F687F9C00ADA354 /* IMG_2.PNG */,
+				C3B0E81F2F687F9C00ADA354 /* IMG_3.PNG */,
+				C3B0E8202F687F9C00ADA354 /* IMG_4.PNG */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		C3BA53402ED9979D00EC6413 /* Clarity */ = {
 			isa = PBXGroup;
 			children = (
@@ -2447,6 +2466,7 @@
 		C3EB10762E744115002DA295 /* itirafApp */ = {
 			isa = PBXGroup;
 			children = (
+				C3B0E81C2F687F3800ADA354 /* Screenshots */,
 				C3BE198E2ED48B430053C9A9 /* Resources */,
 				C3EB107E2E74411A002DA295 /* App */,
 				C3EB10872E744A4A002DA295 /* Core */,
@@ -2865,6 +2885,10 @@
 			files = (
 				C36B03412EE5B51D0049F7FD /* ChannelDetailHeaderCollectionViewCell.xib in Resources */,
 				C38465E02ED5D92100FD370A /* Chat.storyboard in Resources */,
+				C3B0E8212F687F9C00ADA354 /* IMG_1.PNG in Resources */,
+				C3B0E8222F687F9C00ADA354 /* IMG_2.PNG in Resources */,
+				C3B0E8232F687F9C00ADA354 /* IMG_3.PNG in Resources */,
+				C3B0E8242F687F9C00ADA354 /* IMG_4.PNG in Resources */,
 				C3D764C32E93E9B700104C3B /* DetailConfessionCollectionViewCell.xib in Resources */,
 				C36B035C2EE83BDF0049F7FD /* Onboarding.storyboard in Resources */,
 				C38465FC2ED5DB3A00FD370A /* NotificationSettings.storyboard in Resources */,
@@ -3408,12 +3432,13 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = itirafApp/App/itirafApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = US4P6S3B5V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = itirafApp/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "İtirafApp";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -3422,12 +3447,12 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itirafApp.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3449,12 +3474,13 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = itirafApp/App/itirafApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = US4P6S3B5V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = itirafApp/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "İtirafApp";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -3463,12 +3489,12 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itirafApp.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
