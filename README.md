@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="itirafApp/Resources/Assets.xcassets/Icons/launch_icon.imageset/launch_icon.png" alt="itirafApp" width="120">
+  <img src="itirafApp/Resources/Assets.xcassets/Icons/launch_icon.imageset/launch_icon.png" alt="itirafApp" width="30%">
   <br>
   itirafApp
   <br>
@@ -80,6 +80,7 @@
 | 🚀 **Onboarding** | Yeni kullanıcılar için adım adım tanıtım ekranları |
 | 🌗 **Dark / Light Tema** | Kullanıcı tercihine göre karanlık ve aydınlık tema desteği |
 | 🌍 **Çoklu Dil Desteği** | Türkçe ve İngilizce dil desteği |
+| 🔐 **Sosyal Giriş** | Google ve Apple ile hızlı ve güvenli oturum açma |
 
 
 ## 🛠 Kullanılan Teknolojiler
@@ -96,6 +97,7 @@
 | **Bildirimler** | Apple Push Notification Service (APNs) |
 | **Tema** | Dark / Light Mode |
 | **Lokalizasyon** | Multi-Language (TR, EN) |
+| **Kimlik Doğrulama** | Google Sign-In, Sign in with Apple |
 
 
 ## 👨‍💻 Geliştirici
