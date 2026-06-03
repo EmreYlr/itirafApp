@@ -21,6 +21,7 @@ protocol ChannelDetailViewModelProtocol {
 protocol ChannelDetailViewModelDelegate: AnyObject {
     func didUpdateConfessions(with data: [ConfessionData])
     func didUpdateFollowStatus()
+    func didEmptyChannelMessages()
     func didFailToLikeMessage(with error: Error)
     func didFailWithError(_ error: Error)
 }
@@ -56,7 +57,7 @@ final class ChannelDetailViewModel {
         
         do {
             let newConfessions = try await service.fetchConfessions(channelId: channel.id ,page: currentPage, limit: 10)
-            
+
             if self.confessions == nil {
                 self.confessions = newConfessions
             } else {
@@ -66,8 +67,13 @@ final class ChannelDetailViewModel {
             hasMoreData = currentPage < newConfessions.totalPages
             if hasMoreData { currentPage += 1 }
             
-            delegate?.didUpdateConfessions(with: confessions?.data ?? [])
+            let currentData = confessions?.data ?? []
             
+            if currentData.isEmpty {
+                delegate?.didEmptyChannelMessages()
+            } else {
+                delegate?.didUpdateConfessions(with: currentData)
+            } 
         } catch {
             delegate?.didFailWithError(error)
         }
