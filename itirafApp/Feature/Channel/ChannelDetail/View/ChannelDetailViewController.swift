@@ -134,6 +134,13 @@ final class ChannelDetailViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
+    private func emptySnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, ConfessionData>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems([], toSection: .main)
+        self.dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
     @objc private func refreshConfession() {
         Task {
             await viewModel.fetchConfessions(reset: true)
@@ -155,10 +162,11 @@ final class ChannelDetailViewController: UIViewController {
     }
 }
 
-extension ChannelDetailViewController: ChannelDetailViewModelDelegate {
+extension ChannelDetailViewController: ChannelDetailViewModelDelegate, EmptyStateDisplayable {
     func didUpdateConfessions(with data: [ConfessionData]) {
         DispatchQueue.main.async {
             self.updateSnapshot(with: data)
+            self.hideEmptyState(from: self.collectionView)
             self.collectionView.refreshControl?.endRefreshing()
         }
     }
@@ -176,6 +184,14 @@ extension ChannelDetailViewController: ChannelDetailViewModelDelegate {
     
     func didFailToLikeMessage(with error: Error) {
         print("Failed to like message: \(error)")
+    }
+    
+    func didEmptyChannelMessages() {
+        DispatchQueue.main.async {
+            self.emptySnapshot()
+            self.showEmptyState(type: .noChannelMessages, in: self.collectionView)
+            self.collectionView.refreshControl?.endRefreshing()
+        }
     }
     
     func didFailWithError(_ error: Error) {

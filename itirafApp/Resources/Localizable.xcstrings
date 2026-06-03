@@ -1055,6 +1055,23 @@
         }
       }
     },
+    "empty.noChannelMessages.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There are no confessions on this channel yet."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu kanalda henüz itiraf yok."
+          }
+        }
+      }
+    },
     "empty.noFollowingChannels.button" : {
       "extractionState" : "manual",
       "localizations" : {
