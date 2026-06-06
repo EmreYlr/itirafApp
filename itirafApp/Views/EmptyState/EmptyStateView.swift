@@ -54,7 +54,7 @@ final class EmptyStateView: UIView {
     }
     
     func configure(with type: EmptyStateType, action: (() -> Void)? = nil) {
-        let config = UIImage.SymbolConfiguration(pointSize: 60, weight: .regular)
+        let config = UIImage.SymbolConfiguration(pointSize: 50, weight: .regular)
         imageView.image = UIImage(systemName: type.systemImageName, withConfiguration: config)
 
         titleLabel.text = type.title
