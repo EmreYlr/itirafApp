@@ -9,13 +9,10 @@ import Foundation
 
 final class MockUserService: UserServiceProtocol {
     
-    /// `true` ise başarılı olur, `false` ise hata fırlatır.
     var shouldSucceed = true
     
-    /// Başarılı olduğunda döndürülecek `User` nesnesi.
     var userToReturn: User?
     
-    /// Başarısız olduğunda fırlatılacak `Error`.
     var errorToReturn: Error?
 
     func fetchCurrentUser() async throws -> User {

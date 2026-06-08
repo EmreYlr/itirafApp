@@ -43,7 +43,7 @@ enum SocialPlatform: String, CaseIterable, Codable {
     
     var baseURL: String {
         switch self {
-        case .twitter: return "https://twitter.com/"
+        case .twitter: return "https://x.com/"
         case .instagram: return "https://www.instagram.com/"
         }
     }
