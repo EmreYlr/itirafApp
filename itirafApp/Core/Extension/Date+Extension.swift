@@ -8,7 +8,6 @@
 import Foundation
 
 extension Date {
-    /// - Parameter isoString: ISO8601 formatındaki tarih string'i.
     init?(isoStringWithFractionalSeconds isoString: String) {
         struct Static {
             static let formatter: ISO8601DateFormatter = {
@@ -27,7 +26,7 @@ extension Date {
     
     func formattedTime() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm" // Saat:Dakika
+        formatter.dateFormat = "HH:mm"
         return formatter.string(from: self)
     }
 }
