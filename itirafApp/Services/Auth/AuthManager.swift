@@ -33,8 +33,4 @@ final class AuthManager {
         KeychainHelper.shared.deleteFromKeychain(key: refreshTokenKey)
     }
 
-    var isLoggedIn: Bool {
-        return getAccessToken() != nil
-    }
-    
 }

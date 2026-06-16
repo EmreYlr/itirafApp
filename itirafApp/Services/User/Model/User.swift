@@ -27,15 +27,6 @@ struct User: Codable {
         roles = try container.decodeIfPresent([Role].self, forKey: .roles) ?? []
         socialLink = try container.decodeIfPresent([Link].self, forKey: .socialLink) ?? []
     }
-    
-    init(id: String? = nil, username: String? = nil, email: String, isAnonymous: Bool = true, roles: [Role] = [], socialLink: [Link]? = nil) {
-        self.id = id
-        self.username = username
-        self.email = email
-        self.anonymous = isAnonymous
-        self.roles = roles
-        self.socialLink = socialLink
-    }
 }
 
 struct Role: Codable {

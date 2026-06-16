@@ -24,7 +24,6 @@ protocol NotificationViewModelDelegate: AnyObject {
 
 final class NotificationViewModel {
     weak var delegate: NotificationViewModelDelegate?
-    var allNotifications: [NotificationItem]?
     
     private(set) var notifications: NotificationModel?
     private(set) var isLoading = false

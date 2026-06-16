@@ -143,7 +143,7 @@ final class PostConfessionViewController: UIViewController {
         present(navController, animated: true)
     }
     
-    @objc private func titleTextFieldDidChange(_ textField: UITextField) {
+    @objc private func titleTextFieldDidChange() {
         updateTitleCharacterCountLabel()
     }
     
