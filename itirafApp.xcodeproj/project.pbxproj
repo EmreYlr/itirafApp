@@ -239,7 +239,6 @@
 		C3D764D02E95389100104C3B /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764CF2E95389100104C3B /* ChannelViewController.swift */; };
 		C3D764D22E9538AD00104C3B /* ChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D12E9538AA00104C3B /* ChannelViewModel.swift */; };
 		C3D764D42E95391200104C3B /* ChannelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D764D32E95390E00104C3B /* ChannelService.swift */; };
-		C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7658E2E95507600104C3B /* ChannelManager.swift */; };
 		C3D765912E96921E00104C3B /* ChannelViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */; };
 		C3D765942E96A90B00104C3B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D765932E96A90B00104C3B /* APIError.swift */; };
 		C3D765962E96BF1D00104C3B /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D765952E96BF1B00104C3B /* UIViewController+Alert.swift */; };
@@ -544,7 +543,6 @@
 		C3D764CF2E95389100104C3B /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		C3D764D12E9538AA00104C3B /* ChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewModel.swift; sourceTree = "<group>"; };
 		C3D764D32E95390E00104C3B /* ChannelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelService.swift; sourceTree = "<group>"; };
-		C3D7658E2E95507600104C3B /* ChannelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelManager.swift; sourceTree = "<group>"; };
 		C3D765902E96921200104C3B /* ChannelViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		C3D765932E96A90B00104C3B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		C3D765952E96BF1B00104C3B /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
@@ -1590,7 +1588,6 @@
 				C38EAAC62EC1F32600A1818C /* Crashlytics */,
 				C38EAAAF2EBFB38100A1818C /* Device */,
 				C3EB10892E744A5D002DA295 /* Auth */,
-				C3D7658D2E95506600104C3B /* Channel */,
 				C326DD4B2E8EE29C001B7837 /* User */,
 			);
 			path = Services;
@@ -2267,14 +2264,6 @@
 				C3D764D32E95390E00104C3B /* ChannelService.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		C3D7658D2E95506600104C3B /* Channel */ = {
-			isa = PBXGroup;
-			children = (
-				C3D7658E2E95507600104C3B /* ChannelManager.swift */,
-			);
-			path = Channel;
 			sourceTree = "<group>";
 		};
 		C3D765922E96A90600104C3B /* Error */ = {
@@ -3121,7 +3110,6 @@
 				C3A7A41D2EA9443B00250B06 /* DirectMessageViewController.swift in Sources */,
 				C36B03602EE83C6B0049F7FD /* OnboardingCollectionViewCell.swift in Sources */,
 				C3BA53462EDB0D5800EC6413 /* DetailHeaderCollectionViewCell.swift in Sources */,
-				C3D7658F2E95507C00104C3B /* ChannelManager.swift in Sources */,
 				C3528F0E2EB8F04D00FF1C19 /* RequestSentModel.swift in Sources */,
 				C3C173EE2EC8831300D27383 /* FollowChannelService.swift in Sources */,
 				C3A750BD2EB693F90058163B /* RequestBottomSheetViewController.swift in Sources */,
