@@ -104,7 +104,6 @@
 		C38BF0072EEAE6EB00773E31 /* ReportTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BF0062EEAE6EB00773E31 /* ReportTarget.swift */; };
 		C38BF0092EEAEBDD00773E31 /* APIError+Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38BF0082EEAEBD100773E31 /* APIError+Business.swift */; };
 		C38EAA9D2EBF4FF400A1818C /* ViolationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAA9C2EBF4FF400A1818C /* ViolationsViewController.swift */; };
-		C38EAAB02EBFB38100A1818C /* RegisterDeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */; };
 		C38EAAB12EBFB38100A1818C /* DeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */; };
 		C38EAAB22EBFB38100A1818C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38EAAAE2EBFB38100A1818C /* DeviceService.swift */; };
 		C38EAAC22EC0C23000A1818C /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C38EAAC12EC0C23000A1818C /* FirebaseCrashlytics */; };
@@ -410,7 +409,6 @@
 		C38BF0082EEAEBD100773E31 /* APIError+Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIError+Business.swift"; sourceTree = "<group>"; };
 		C38EAA9C2EBF4FF400A1818C /* ViolationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViolationsViewController.swift; sourceTree = "<group>"; };
 		C38EAAA92EBFB36100A1818C /* itirafApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = itirafApp.entitlements; sourceTree = "<group>"; };
-		C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDeviceRequest.swift; sourceTree = "<group>"; };
 		C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetails.swift; sourceTree = "<group>"; };
 		C38EAAAE2EBFB38100A1818C /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
 		C38EAAC72EC1F39B00A1818C /* CrashlyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
@@ -1188,18 +1186,9 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		C38EAAAC2EBFB38100A1818C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C38EAAAB2EBFB38100A1818C /* RegisterDeviceRequest.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		C38EAAAF2EBFB38100A1818C /* Device */ = {
 			isa = PBXGroup;
 			children = (
-				C38EAAAC2EBFB38100A1818C /* Model */,
 				C38EAAAD2EBFB38100A1818C /* DeviceDetails.swift */,
 				C38EAAAE2EBFB38100A1818C /* DeviceService.swift */,
 			);
@@ -3175,7 +3164,6 @@
 				C3BE19412ECC893E0053C9A9 /* NotificationService.swift in Sources */,
 				C3528F1E2EB9098000FF1C19 /* RequestSentDetailViewController.swift in Sources */,
 				C3BE192B2ECBACF90053C9A9 /* NotificationSettingsViewModel.swift in Sources */,
-				C38EAAB02EBFB38100A1818C /* RegisterDeviceRequest.swift in Sources */,
 				C38EAAB12EBFB38100A1818C /* DeviceDetails.swift in Sources */,
 				C3FAE96C2EE596EF003542CD /* EditProfileViewController.swift in Sources */,
 				C38EAAB22EBFB38100A1818C /* DeviceService.swift in Sources */,
