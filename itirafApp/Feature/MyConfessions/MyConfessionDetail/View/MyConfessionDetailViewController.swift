@@ -123,7 +123,7 @@ final class MyConfessionDetailViewController: UIViewController {
         }, secondButtonTitle: "general.button.cancel".localized, secondButtonHandler: nil)
     }
     
-    func handleBlockUser(userId: String, isReply: Bool) {
+    func handleBlockUser(userId: String) {
         showTwoButtonAlert(title: "general.title.warning".localized, message: "direct_message.blocked.message".localized, firstButtonTitle: "general.button.block".localized, firstButtonHandler: { _ in
             self.showLoading()
             Task(priority: .utility) {

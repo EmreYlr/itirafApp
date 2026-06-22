@@ -10,7 +10,6 @@ import Foundation
 protocol MyConfessionDetailViewModelProtocol {
     var delegate: MyConfessionDetailViewModelDelegate? { get set }
     var myConfession: MyConfessionData? { get }
-    func getModerationStatus() -> ConfessionDisplayStatus
     func deleteConfession() async
     func addComment(message: String) async
     func deleteReply(replyId: Int) async
@@ -36,19 +35,6 @@ final class MyConfessionDetailViewModel {
     init(myConfession: MyConfessionData? = nil, myConfessionDetailService: MyConfessionDetailServiceProtocol = MyConfessionDetailService()) {
         self.myConfession = myConfession
         self.myConfessionDetailService = myConfessionDetailService
-    }
-    
-    func getModerationStatus() -> ConfessionDisplayStatus {
-        switch myConfession?.moderationStatus {
-        case .aiApproved, .humanApproved:
-            return .approved
-        case .aiRejected, .humanRejected:
-            return .rejected
-        case .needsHumanReview, .pending:
-            return .inReview
-        case .none:
-            return .unknown
-        }
     }
     
     func deleteConfession() async {

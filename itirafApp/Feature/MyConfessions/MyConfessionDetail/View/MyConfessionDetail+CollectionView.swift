@@ -61,7 +61,7 @@ extension MyConfessionDetailViewController: UICollectionViewDelegate, UICollecti
                 }
                 
                 cell.onBlockTapped = { [weak self] in
-                    self?.handleBlockUser(userId: reply.owner.id, isReply: true)
+                    self?.handleBlockUser(userId: reply.owner.id)
                 }
                 
             }
