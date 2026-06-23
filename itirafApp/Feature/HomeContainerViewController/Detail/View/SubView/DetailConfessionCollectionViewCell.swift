@@ -53,7 +53,7 @@ final class DetailConfessionCollectionViewCell: UICollectionViewCell {
     
     func setupMenu(isOwner: Bool) {
         var menuItems: [UIMenuElement] = []
-        let isAdmin = UserManager.shared.hasRole(.admin)
+        let isAdmin = UserManager.shared.isAdmin()
         
         let deleteAction = UIAction(title: "general.button.delete".localized, image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
             self?.onDeleteTapped?()

@@ -37,7 +37,7 @@ final class DetailHeaderCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         replyTitleLabel.text = "detail.reply_section_title".localized
-        editButton.isHidden = !UserManager.shared.hasRole(.admin)
+        editButton.isHidden = !UserManager.shared.isAdmin()
         contentLabel.skeletonTextNumberOfLines = 3
         contentLabel.lastLineFillPercent = 50
     }

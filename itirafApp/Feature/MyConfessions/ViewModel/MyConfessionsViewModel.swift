@@ -72,7 +72,7 @@ final class MyConfessionsViewModel {
     }
     
     func isUserAdmin() -> Bool {
-        return UserManager.shared.hasRole(.admin)
+        return UserManager.shared.isAdmin()
     }
     
 }

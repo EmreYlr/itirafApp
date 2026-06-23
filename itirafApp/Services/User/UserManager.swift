@@ -44,8 +44,8 @@ final class UserManager {
         return currentUser?.anonymous ?? true
     }
     
-    func hasRole(_ role: RoleType) -> Bool {
-        currentUser?.roles.contains { $0.name == role } ?? false
+    func isAdmin() -> Bool {
+        return currentUser?.isAdmin ?? false
     }
     
     func isMe(userId: String) -> Bool {

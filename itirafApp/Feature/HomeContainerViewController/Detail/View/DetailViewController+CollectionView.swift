@@ -126,7 +126,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             var actions: [UIAction] = []
             let isOwner = UserManager.shared.isMe(userId: reply.owner.id)
-            let isAdmin = UserManager.shared.hasRole(.admin)
+            let isAdmin = UserManager.shared.isAdmin()
             
             let deleteAction = UIAction(title: "general.button.delete".localized, image: UIImage(systemName: "trash"), attributes: .destructive) { action in
                 self.handleDeleteReply(replyId: reply.id)
