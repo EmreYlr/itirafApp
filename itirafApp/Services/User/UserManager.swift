@@ -48,6 +48,10 @@ final class UserManager {
         return currentUser?.isAdmin ?? false
     }
     
+    func isUser() -> Bool {
+        return currentUser?.isUser ?? false
+    }
+    
     func isMe(userId: String) -> Bool {
         return currentUser?.id == userId
     }
