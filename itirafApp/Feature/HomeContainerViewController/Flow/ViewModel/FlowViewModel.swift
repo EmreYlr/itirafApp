@@ -7,7 +7,6 @@
 
 protocol FlowViewModelProtocol {
     var delegate: FlowViewModelDelegate? { get set }
-    var flow: Flow? { get }
     var isLoading: Bool { get }
     var hasMoreData: Bool { get }
     func fetchFlow(reset: Bool) async

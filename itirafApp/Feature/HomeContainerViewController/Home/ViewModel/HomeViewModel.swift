@@ -8,7 +8,6 @@ import Foundation
 
 protocol HomeViewModelProtocol {
     var delegate: HomeViewModelOutputProtocol? { get set }
-    var confessions: Confession? { get }
     var isLoading: Bool { get }
     var hasMoreData: Bool { get }
     func fetchConfessions(reset: Bool) async
