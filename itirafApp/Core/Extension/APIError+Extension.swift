@@ -59,7 +59,7 @@ extension APIError: UserFriendlyError {
         }
         
         switch code {
-        // INTERNAL ERRORS - Hide details from user
+        // INTERNAL ERRORS
         case 1000, 1001, 1200, 1500, 1503, 1504, 1601, 1602,
              4000, 4001, 4200, 4500, 4503, 4504, 4601, 4602:
             return String(localized: "message.server_error")

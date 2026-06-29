@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - WebSocketManager Delegate
 protocol WebSocketManagerDelegate: AnyObject {
     func webSocketDidConnect()
     func webSocketDidDisconnect()
@@ -15,7 +14,6 @@ protocol WebSocketManagerDelegate: AnyObject {
     func webSocketDidFail(with error: Error)
 }
 
-// MARK: - WebSocketManager Protocol
 protocol WebSocketManagerProtocol {
     var delegate: WebSocketManagerDelegate? { get set }
     func connect(with endpoint: EndpointType)
